@@ -39,7 +39,9 @@ function wireChrome(){
 function renderHero(){
   const el=document.getElementById('hero'); if(!el) return;
   const lead=ARTICLES.find(a=>a.homepageSlot==='lead')||ARTICLES[0];
-  const secondaries=ARTICLES.filter(a=>a.homepageSlot?.startsWith('secondary')).slice(0,2);
+  const secondaryFeature=ARTICLES.find(a=>a.homepageSlot?.startsWith('secondary'));
+  const latestReview=ARTICLES.find(a=>a.articleFormat==='review');
+  const secondaries=[secondaryFeature,latestReview].filter(Boolean).slice(0,2);
   el.innerHTML=`<a href="${articleHref(lead)}" class="lead"><div class="${imageOf(lead)?'':'placeholder-art'}">${imageOf(lead)?`<img alt="${escapeHtml(lead.imageAlt)}" src="${imageOf(lead)}">`:'NEURAL CRITIC'}</div><div class="shade"></div><div class="leadcopy"><label>LEAD SIGNAL</label><h2>${escapeHtml(lead.title)}</h2><p>${escapeHtml(lead.description)}</p><small>BY ${escapeHtml(lead.author)} · ${fmtDate(lead.publishedAt)} · READ STORY →</small></div></a><div class="features">${secondaries.map(a=>`<a class="feature-link" href="${articleHref(a)}"><article>${imageOf(a)?`<img alt="${escapeHtml(a.imageAlt)}" src="${imageOf(a)}">`:'<div class="placeholder-art">NEURAL CRITIC</div>'}<div class="shade"></div><div><label>${escapeHtml(a.category)}</label><h2>${escapeHtml(a.title)}</h2><small>${fmtDate(a.publishedAt)} · READ STORY →</small></div></article></a>`).join('')}</div>`;
 }
 
@@ -51,7 +53,7 @@ function matchCategory(a, filter){
 }
 function renderFeed(filter='latest'){
   const el=document.getElementById('story-feed'); if(!el) return;
-  const list=ARTICLES.filter(a=>a.homepageSlot!=='lead' && !a.homepageSlot?.startsWith('secondary')).filter(a=>matchCategory(a,filter));
+  const list=ARTICLES.filter(a=>a.homepageSlot!=='lead' && !a.homepageSlot?.startsWith('secondary') && a.articleFormat!=='review').filter(a=>matchCategory(a,filter));
   el.innerHTML=list.map((a,i)=>`<a class="story" href="${articleHref(a)}"><div class="thumb">${imageOf(a)?`<img alt="${escapeHtml(a.imageAlt||a.title)}" src="${imageOf(a)}">`:'<div class="placeholder-art">NC</div>'}<b>${String(i+1).padStart(2,'0')}</b></div><div><label style="color:#b8ff38">${escapeHtml(a.category)}</label><h3>${escapeHtml(a.title)}</h3><p>${escapeHtml(a.description)}</p><small>BY ${escapeHtml(a.author)} · ${fmtDate(a.publishedAt)} · READ STORY →</small></div></a>`).join('') || '<p class="notice">No published stories in this filter yet.</p>';
 }
 function renderTrending(){
@@ -80,10 +82,13 @@ function renderSearchResults(query,el){
   const hits=ARTICLES.filter(a=>[a.title,a.description,a.category,...(a.tags||[])].join(' ').toLowerCase().includes(q));
   el.innerHTML=hits.map(a=>`<a class="search-result" href="${articleHref(a)}"><small>${escapeHtml(a.category)}</small><h3>${escapeHtml(a.title)}</h3><p>${escapeHtml(a.description)}</p></a>`).join('')||'<p class="notice">No matching stories yet.</p>';
 }
-function renderArticle(){
+async function renderArticle(){
   const el=document.getElementById('article'); if(!el) return;
-  const slug=new URLSearchParams(location.search).get('slug'); const a=ARTICLES.find(x=>x.slug===slug);
-  if(!a){el.innerHTML='<small class="article-kicker">SIGNAL LOST</small><h1>Story not found.</h1><p><a href="index.html">BACK TO HOME →</a></p>';return;}
+  const slug=new URLSearchParams(location.search).get('slug');
+  if(!slug){el.innerHTML='<small class="article-kicker">SIGNAL LOST</small><h1>Story not found.</h1><p><a href="index.html">BACK TO HOME →</a></p>';return;}
+  let a;
+  try{ a=await fetch(`data/articles/${encodeURIComponent(slug)}.json`).then(r=>{if(!r.ok) throw new Error('not found'); return r.json();}); }
+  catch(_){el.innerHTML='<small class="article-kicker">SIGNAL LOST</small><h1>Story not found.</h1><p><a href="index.html">BACK TO HOME →</a></p>';return;}
   document.title=`${a.title} · Neural Critic`;
   const review=a.articleFormat==='review'&&a.reviewMeta?`<section class="review-box"><div><div class="review-score">${escapeHtml(a.reviewMeta.score||'—')}</div><small>OUT OF 10</small></div><div><small class="article-kicker">NEURAL CRITIC VERDICT</small><h2>${escapeHtml(a.reviewMeta.verdict||'')}</h2><div class="proscons"><div><h3>WHAT WORKS</h3><ul>${(a.reviewMeta.pros||[]).map(x=>`<li>${escapeHtml(x)}</li>`).join('')}</ul></div><div><h3>WHAT DOESN’T</h3><ul>${(a.reviewMeta.cons||[]).map(x=>`<li>${escapeHtml(x)}</li>`).join('')}</ul></div></div></div></section>`:'';
   const blocks=(a.contentBlocks||[]).map(b=>`<section><h2>${escapeHtml(b.heading||'')}</h2>${prose(b.text||'')}${b.imageLocal?`<figure><img class="article-hero" src="${b.imageLocal}" alt="${escapeHtml(b.imageAlt||'')}"><figcaption>${escapeHtml(b.caption||'')}</figcaption></figure>`:''}</section>`).join('');
