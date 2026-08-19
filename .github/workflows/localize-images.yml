@@ -1,0 +1,39 @@
+name: Localize editorial images
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - scripts/localize_images.py
+      - .github/workflows/localize-images.yml
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  localize:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Download and relink editorial images
+        run: python scripts/localize_images.py
+
+      - name: Commit localized assets
+        run: |
+          if git diff --quiet && [ -z "$(git status --porcelain images 2>/dev/null)" ]; then
+            echo "No image migration changes to commit."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data images
+          git commit -m "Localize Neural Critic editorial images"
+          git push
