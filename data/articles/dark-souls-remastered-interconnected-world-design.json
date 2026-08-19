@@ -6,7 +6,16 @@
   "body": "Dark Souls Remastered preserves a world whose greatest achievement is not its size, but its structure. Lordran folds back on itself through elevators, locked gates, hidden paths, and distant landmarks that gradually become familiar.\n\nThe result is an adventure where **learning the world feels as important as mastering combat**. Its design still influences how modern action RPGs create tension, discovery, and a lasting sense of place.",
   "category": "FEATURE",
   "author": "Rouane Mounssif",
-  "tags": ["Dark Souls", "FromSoftware", "Action RPG", "World Design", "PC", "PlayStation", "Xbox", "Nintendo"],
+  "tags": [
+    "Dark Souls",
+    "FromSoftware",
+    "Action RPG",
+    "World Design",
+    "PC",
+    "PlayStation",
+    "Xbox",
+    "Nintendo"
+  ],
   "imageAlt": "An armored wanderer overlooking the interconnected ruins of Lordran",
   "articleFormat": "standard",
   "reviewMeta": {},

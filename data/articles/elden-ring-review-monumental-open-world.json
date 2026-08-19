@@ -6,14 +6,30 @@
   "body": "Elden Ring takes the foundations FromSoftware refined across the Souls series and gives them room to breathe. The Lands Between is enormous, but its scale rarely feels empty because distant landmarks, hidden paths, and unexpected encounters continually invite exploration.\n\nIts greatest achievement is not simply creating a large world. It is making discovery feel personal. Two players can follow completely different routes, meet different characters, find different tools, and still feel as though the game deliberately guided them toward a memorable story.",
   "category": "REVIEW",
   "author": "Rouane Mounssif",
-  "tags": ["Elden Ring", "FromSoftware", "Action RPG", "Open World", "PC", "Review"],
+  "tags": [
+    "Elden Ring",
+    "FromSoftware",
+    "Action RPG",
+    "Open World",
+    "PC",
+    "Review"
+  ],
   "imageAlt": "A Tarnished overlooks the expansive Lands Between beneath the glowing Erdtree in Elden Ring.",
   "articleFormat": "review",
   "reviewMeta": {
     "score": "9.5",
     "verdict": "A towering action RPG whose freedom, atmosphere, and build variety outweigh its occasional repetition and technical roughness.",
-    "pros": ["A world that constantly rewards curiosity", "Exceptional build and combat variety", "Memorable bosses, regions, and visual direction", "Player freedom without excessive hand-holding"],
-    "cons": ["Some late-game enemies and encounters feel repeated", "Performance can be inconsistent on PC", "Several questlines are unnecessarily difficult to follow"],
+    "pros": [
+      "A world that constantly rewards curiosity",
+      "Exceptional build and combat variety",
+      "Memorable bosses, regions, and visual direction",
+      "Player freedom without excessive hand-holding"
+    ],
+    "cons": [
+      "Some late-game enemies and encounters feel repeated",
+      "Performance can be inconsistent on PC",
+      "Several questlines are unnecessarily difficult to follow"
+    ],
     "testedPlatform": "PC",
     "developer": "FromSoftware",
     "publisher": "Bandai Namco Entertainment",

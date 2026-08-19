@@ -6,7 +6,12 @@
   "body": "When Elden Ring opened the gates to the Lands Between, it offered something very different from the familiar open-world formula. Its map was enormous, but the game rarely treated exploration like a list of errands waiting to be completed.\n\nInstead, FromSoftware used distant landmarks, hidden paths, environmental clues, and carefully placed challenges to make curiosity the player’s most important guide. The result was an open world that felt mysterious without becoming directionless—and one that rewarded attention at almost every turn.",
   "category": "FEATURE",
   "author": "Rouane Mounssif",
-  "tags": ["Open-World", "Action RPG", "Elden Ring", "FromSoftware"],
+  "tags": [
+    "Open-World",
+    "Action RPG",
+    "Elden Ring",
+    "FromSoftware"
+  ],
   "imageAlt": "A Tarnished overlooks the expansive Lands Between beneath the glowing Erdtree in Elden Ring.",
   "articleFormat": "standard",
   "reviewMeta": {},

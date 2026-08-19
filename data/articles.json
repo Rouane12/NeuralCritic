@@ -6,7 +6,12 @@
     "description": "Elden Ring transformed FromSoftware’s demanding action-RPG formula into an open world built around mystery, danger, and unforgettable discovery.",
     "category": "FEATURE",
     "author": "Rouane Mounssif",
-    "tags": ["Open-World", "Action RPG", "Elden Ring", "FromSoftware"],
+    "tags": [
+      "Open-World",
+      "Action RPG",
+      "Elden Ring",
+      "FromSoftware"
+    ],
     "imageAlt": "A Tarnished overlooks the expansive Lands Between beneath the glowing Erdtree in Elden Ring.",
     "articleFormat": "standard",
     "featured": true,
@@ -22,7 +27,16 @@
     "description": "Years later, Lordran remains a masterclass in spatial storytelling, meaningful shortcuts, and exploration built on player memory.",
     "category": "FEATURE",
     "author": "Rouane Mounssif",
-    "tags": ["Dark Souls", "FromSoftware", "Action RPG", "World Design", "PC", "PlayStation", "Xbox", "Nintendo"],
+    "tags": [
+      "Dark Souls",
+      "FromSoftware",
+      "Action RPG",
+      "World Design",
+      "PC",
+      "PlayStation",
+      "Xbox",
+      "Nintendo"
+    ],
     "imageAlt": "An armored wanderer overlooking the interconnected ruins of Lordran",
     "articleFormat": "standard",
     "featured": false,
@@ -38,7 +52,14 @@
     "description": "FromSoftware transforms its demanding action-RPG formula into a vast, mysterious adventure where curiosity is rewarded at nearly every turn.",
     "category": "REVIEW",
     "author": "Rouane Mounssif",
-    "tags": ["Elden Ring", "FromSoftware", "Action RPG", "Open World", "PC", "Review"],
+    "tags": [
+      "Elden Ring",
+      "FromSoftware",
+      "Action RPG",
+      "Open World",
+      "PC",
+      "Review"
+    ],
     "imageAlt": "A Tarnished overlooks the expansive Lands Between beneath the glowing Erdtree in Elden Ring.",
     "articleFormat": "review",
     "featured": false,
@@ -47,8 +68,17 @@
     "reviewMeta": {
       "score": "9.5",
       "verdict": "A towering action RPG whose freedom, atmosphere, and build variety outweigh its occasional repetition and technical roughness.",
-      "pros": ["A world that constantly rewards curiosity", "Exceptional build and combat variety", "Memorable bosses, regions, and visual direction", "Player freedom without excessive hand-holding"],
-      "cons": ["Some late-game enemies and encounters feel repeated", "Performance can be inconsistent on PC", "Several questlines are unnecessarily difficult to follow"],
+      "pros": [
+        "A world that constantly rewards curiosity",
+        "Exceptional build and combat variety",
+        "Memorable bosses, regions, and visual direction",
+        "Player freedom without excessive hand-holding"
+      ],
+      "cons": [
+        "Some late-game enemies and encounters feel repeated",
+        "Performance can be inconsistent on PC",
+        "Several questlines are unnecessarily difficult to follow"
+      ],
       "testedPlatform": "PC",
       "developer": "FromSoftware",
       "publisher": "Bandai Namco Entertainment",
@@ -64,7 +94,15 @@
     "description": "From the freedom of Elden Ring to the precision demanded by Sekiro, we rank seven landmark FromSoftware adventures by the difficulty of a normal first playthrough.",
     "category": "FEATURE",
     "author": "Rouane Mounssif",
-    "tags": ["FromSoftware", "Soulsborne", "Difficulty", "Action RPG", "Dark Souls", "Elden Ring", "Sekiro"],
+    "tags": [
+      "FromSoftware",
+      "Soulsborne",
+      "Difficulty",
+      "Action RPG",
+      "Dark Souls",
+      "Elden Ring",
+      "Sekiro"
+    ],
     "imageAlt": "FromSoftware's Soulsborne Games Ranked From Easiest to Hardest",
     "articleFormat": "ranked-list",
     "featured": false,
@@ -80,7 +118,11 @@
     "description": "Breath of the Wild transformed Hyrule into a world driven by curiosity, experimentation, and player freedom. These are the design ideas that helped reshape the modern open-world genre.",
     "category": "FEATURE",
     "author": "Rouane Mounssif",
-    "tags": ["Open-World", "CONSOLE", "Nintendo Switch"],
+    "tags": [
+      "Open-World",
+      "CONSOLE",
+      "Nintendo Switch"
+    ],
     "imageAlt": "Link overlooks the expansive landscape of Hyrule in The Legend of Zelda: Breath of the Wild.",
     "articleFormat": "standard",
     "featured": false,

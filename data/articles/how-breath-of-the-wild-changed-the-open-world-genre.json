@@ -6,7 +6,11 @@
   "body": "When The Legend of Zelda: Breath of the Wild arrived in 2017, it challenged many conventions associated with open-world games. Instead of filling the map with instructions and prescribed activities, Nintendo built an interconnected world that encouraged players to observe, experiment, and choose their own path.\n\nIts individual ideas were not all completely new. Climbing, physics systems, survival mechanics, and nonlinear exploration had appeared elsewhere. What made Breath of the Wild remarkable was how naturally these elements worked together. The result was an adventure where exploration felt driven by the player rather than by a checklist.",
   "category": "FEATURE",
   "author": "Rouane Mounssif",
-  "tags": ["Open-World", "CONSOLE", "Nintendo Switch"],
+  "tags": [
+    "Open-World",
+    "CONSOLE",
+    "Nintendo Switch"
+  ],
   "imageAlt": "Link overlooks the expansive landscape of Hyrule in The Legend of Zelda: Breath of the Wild.",
   "articleFormat": "standard",
   "reviewMeta": {},
