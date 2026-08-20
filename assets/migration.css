@@ -3,6 +3,8 @@
 
 html{background:var(--paper)}
 body{overflow-x:hidden}
+.leadcopy h2{letter-spacing:-.055em;margin:14px 0;font-size:clamp(38px,4vw,62px);line-height:.96;color:#fff}
+.search{cursor:pointer}
 
 /* Search overlay used by the standalone build. */
 .search-overlay{position:fixed;inset:0;z-index:80;display:none;background:rgba(4,6,16,.94);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);padding:9vh 22px;color:#fff}
@@ -68,5 +70,5 @@ html[data-theme=light] .search-result p,html[data-theme=light] .category-card p{
 html[data-theme=light] .reader-actions-inline button{color:#59616c;background:#fff;border-color:#d5d7da}
 html[data-theme=light] .thread-name{border-color:#ddd}
 
-@media(max-width:760px){.category-grid{grid-template-columns:1fr}.category-card{grid-template-columns:120px 1fr}.category-card img,.category-card .placeholder-art{width:120px;height:105px}.article-page{width:min(100% - 28px,1120px)}.search-overlay{padding:7vh 14px}.nc-reveal{transform:translateY(14px)}}
+@media(max-width:760px){.leadcopy h2{font-size:clamp(31px,9vw,39px)}.category-grid{grid-template-columns:1fr}.category-card{grid-template-columns:120px 1fr}.category-card img,.category-card .placeholder-art{width:120px;height:105px}.article-page{width:min(100% - 28px,1120px)}.search-overlay{padding:7vh 14px}.nc-reveal{transform:translateY(14px)}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.ticker{animation:none}.nc-reveal{opacity:1;filter:none;transform:none;transition:none}.lead,.feature-link article,.story,.review-showcase,.category-card{transition:none!important}}
