@@ -6,6 +6,8 @@ on:
     paths:
       - scripts/localize_images.py
       - .github/workflows/localize-images.yml
+      - data/articles.json
+      - data/articles/**
   workflow_dispatch:
 
 permissions:
@@ -14,6 +16,7 @@ permissions:
 jobs:
   localize:
     runs-on: ubuntu-latest
+    timeout-minutes: 10
     steps:
       - name: Check out repository
         uses: actions/checkout@v4
