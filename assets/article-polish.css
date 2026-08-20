@@ -1,0 +1,199 @@
+/* Final Work-parity tuning for Neural Critic article pages. Loaded after migration.css. */
+
+#article.work-article-page{
+  width:min(1320px,calc(100% - 56px));
+  max-width:none;
+  margin-inline:auto;
+  padding:42px 0 96px;
+}
+
+.work-breadcrumb{
+  width:100%;
+  margin:0 0 44px;
+  color:#7f87a4;
+  font-size:10px;
+  font-weight:850;
+  letter-spacing:.13em;
+  text-transform:uppercase;
+}
+.work-breadcrumb a{color:#8e96b4;transition:color .2s}
+.work-breadcrumb a:hover{color:var(--cyan)}
+.work-breadcrumb i{font-style:normal;margin:0 11px;color:#555d7c}
+.work-breadcrumb strong{color:#aeb5ce;font-weight:900}
+
+#article.work-article-page>.article-kicker{
+  display:block;
+  width:max-content;
+  margin:0 auto 20px;
+  padding:8px 14px;
+}
+
+#article.work-article-page>h1,
+#article.work-article-page>.work-gradient-title{
+  width:min(1120px,100%);
+  max-width:none;
+  margin:0 auto 24px;
+  text-align:center;
+  font-size:clamp(62px,6.4vw,96px);
+  font-weight:500;
+  line-height:.91;
+  letter-spacing:-.068em;
+  background:linear-gradient(105deg,#ffffff 0%,#ffffff 34%,#d9fbff 58%,#8d7cff 100%);
+  -webkit-background-clip:text;
+  background-clip:text;
+  color:transparent;
+}
+
+#article.work-article-page>.article-deck{
+  width:min(830px,100%);
+  max-width:none;
+  margin:0 auto;
+  text-align:center;
+  color:#a8aec6;
+  font-size:20px;
+  line-height:1.52;
+}
+
+#article.work-article-page>.work-author-row{
+  margin:28px auto 38px!important;
+  transform:none!important;
+}
+
+#article.work-article-page>.work-hero-figure{
+  width:100%;
+  max-width:none;
+  margin:0 auto;
+  border-radius:28px;
+}
+#article.work-article-page>.work-hero-figure>.article-hero{
+  width:100%;
+  aspect-ratio:16/8.25;
+  min-height:0;
+  object-fit:cover;
+}
+
+#article.work-article-page>.work-reading-grid{
+  width:min(1210px,100%);
+  margin:58px auto 0;
+  grid-template-columns:76px minmax(0,790px) 276px;
+  gap:34px;
+}
+
+#article.work-article-page .work-reading-grid>.article-body{
+  width:100%;
+  max-width:none;
+}
+#article.work-article-page .work-reading-grid>.article-body>p{
+  font-size:20px;
+  line-height:1.72;
+}
+#article.work-article-page .work-reading-grid>.article-body>section>p{
+  font-size:18px;
+  line-height:1.72;
+}
+#article.work-article-page .work-reading-grid>.article-body h2{
+  font-size:40px;
+  line-height:1.06;
+  margin-top:58px;
+}
+
+#article.work-article-page .work-react-rail button{
+  width:66px;
+  height:62px;
+}
+#article.work-article-page .work-side-card{
+  padding:22px;
+  border-radius:20px;
+}
+#article.work-article-page .work-toc nav a{
+  padding:13px 0;
+  font-size:11px;
+}
+
+#article.work-article-page .quick-read{
+  margin:34px 0 52px;
+  padding:30px 34px;
+  min-height:138px;
+}
+#article.work-article-page .work-quick-read p{
+  margin:18px 18px!important;
+  font-size:14px!important;
+  line-height:1.72!important;
+}
+
+#article.work-article-page .work-inline-figure{
+  margin:32px 0 52px!important;
+}
+#article.work-article-page .work-inline-figure img{
+  max-height:none;
+  aspect-ratio:16/9;
+}
+#article.work-article-page .work-inline-figure figcaption{
+  font-size:11px;
+  line-height:1.55;
+}
+
+#article.work-article-page>.work-bottom-grid{
+  width:min(1150px,100%);
+  grid-template-columns:minmax(0,835px) 280px;
+  gap:34px;
+  margin:78px auto 0;
+}
+#article.work-article-page .article-thread{
+  padding:30px 34px;
+  border-radius:20px;
+}
+#article.work-article-page .thread-head h2{
+  font-size:30px;
+}
+#article.work-article-page .work-bottom-sidebar{
+  gap:18px;
+}
+
+#article.work-article-page>.work-newsletter-band{
+  width:min(1150px,100%);
+  margin:72px auto 0;
+  padding:32px 36px;
+  border-radius:20px;
+}
+
+html[data-theme=light] #article.work-article-page>h1,
+html[data-theme=light] #article.work-article-page>.work-gradient-title{
+  background:linear-gradient(105deg,#111318 0%,#111318 37%,#087c92 68%,#6651cf 100%);
+  -webkit-background-clip:text;
+  background-clip:text;
+  color:transparent;
+}
+
+@media(max-width:1180px){
+  #article.work-article-page>.work-reading-grid{grid-template-columns:68px minmax(0,1fr) 240px;gap:24px}
+  #article.work-article-page>.work-bottom-grid{grid-template-columns:minmax(0,1fr) 250px;gap:24px}
+}
+
+@media(max-width:900px){
+  #article.work-article-page{width:min(100% - 30px,1320px);padding-top:30px}
+  .work-breadcrumb{margin-bottom:30px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  #article.work-article-page>h1,#article.work-article-page>.work-gradient-title{font-size:clamp(46px,10vw,72px)}
+  #article.work-article-page>.article-deck{font-size:17px}
+  #article.work-article-page>.work-reading-grid{display:block;margin-top:38px}
+  #article.work-article-page .work-react-rail{position:relative;top:auto;flex-direction:row;justify-content:center;margin-bottom:24px}
+  #article.work-article-page .work-react-rail>span{display:none}
+  #article.work-article-page .work-article-sidebar{position:relative;top:auto;display:grid;grid-template-columns:1fr 1fr;margin-top:34px}
+  #article.work-article-page>.work-bottom-grid{grid-template-columns:1fr}
+  #article.work-article-page .work-bottom-sidebar{grid-template-columns:1fr 1fr}
+}
+
+@media(max-width:620px){
+  #article.work-article-page{width:calc(100% - 24px)}
+  .work-breadcrumb{font-size:8px}
+  #article.work-article-page>h1,#article.work-article-page>.work-gradient-title{font-size:clamp(39px,12vw,56px)}
+  #article.work-article-page>.work-author-row{grid-template-columns:42px 1fr;row-gap:3px;width:100%}
+  #article.work-article-page .work-read-time{grid-column:2;padding-left:0}
+  #article.work-article-page .work-author-copy{border-right:0;padding-right:0}
+  #article.work-article-page .work-hero-figure{border-radius:18px}
+  #article.work-article-page .work-reading-grid>.article-body>p{font-size:18px}
+  #article.work-article-page .work-reading-grid>.article-body h2{font-size:34px}
+  #article.work-article-page .work-article-sidebar,#article.work-article-page .work-bottom-sidebar{grid-template-columns:1fr}
+  #article.work-article-page .article-thread{padding:22px 18px}
+  #article.work-article-page>.work-newsletter-band{padding:26px 20px}
+}
