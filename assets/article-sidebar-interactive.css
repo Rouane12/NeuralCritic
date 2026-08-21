@@ -35,3 +35,134 @@
   box-shadow:0 0 14px rgba(85,231,255,.24);
 }
 html[data-theme="light"] #article.work-article-page .work-toc nav a.active{color:#0f2430!important}
+
+/* Final article composition pass.
+   Keep this in the existing last-loaded article stylesheet so the reading
+   layout has one authoritative finishing layer instead of another asset. */
+@media(min-width:901px){
+  #article.work-article-page>.work-reading-grid{
+    width:min(1260px,100%)!important;
+    grid-template-columns:108px minmax(0,780px) 320px!important;
+    column-gap:26px!important;
+    row-gap:0!important;
+    align-items:start!important;
+  }
+
+  #article.work-article-page .work-react-rail.standard-react-rail{
+    width:108px!important;
+    min-width:108px!important;
+  }
+
+  #article.work-article-page .work-react-rail.standard-react-rail button{
+    width:108px!important;
+  }
+}
+
+/* Tighten the quick-read-to-section handoff. The old stacked margins made the
+   first editorial heading feel disconnected from the summary card. */
+#article.work-article-page .quick-read.work-quick-read{
+  min-height:0!important;
+  margin:30px 0 42px!important;
+  padding:27px 32px!important;
+  border-radius:20px!important;
+}
+#article.work-article-page .work-quick-read p{
+  margin:14px 18px 8px!important;
+  line-height:1.68!important;
+}
+#article.work-article-page .quick-read.work-quick-read+section>h2{
+  margin-top:0!important;
+}
+
+/* Editorial rhythm: slightly denser than the previous pass, without changing
+   the typography system that is already established. */
+#article.work-article-page .work-reading-grid>.article-body>section{
+  margin-bottom:52px!important;
+}
+#article.work-article-page .work-reading-grid>.article-body>section>h2{
+  margin-top:48px!important;
+  margin-bottom:20px!important;
+}
+#article.work-article-page .work-reading-grid>.article-body>p,
+#article.work-article-page .work-reading-grid>.article-body>section>p{
+  margin-bottom:22px!important;
+  line-height:1.72!important;
+}
+#article.work-article-page .work-inline-figure{
+  margin:28px 0 46px!important;
+}
+
+/* Sidebar proportions now mirror the article rhythm: compact, aligned and
+   deliberate rather than leaving large pockets of unused space. */
+#article.work-article-page .work-article-sidebar{
+  gap:20px!important;
+}
+#article.work-article-page .work-toc{
+  min-height:0!important;
+  padding:22px 24px 16px!important;
+}
+#article.work-article-page .work-toc::before{
+  margin:8px 0 14px!important;
+}
+#article.work-article-page .work-toc-progress{
+  margin-bottom:6px!important;
+}
+#article.work-article-page .work-toc nav a{
+  padding:12px 0!important;
+}
+#article.work-article-page .work-author-card{
+  min-height:0!important;
+  padding:23px 24px!important;
+}
+#article.work-article-page .work-author-card::before{
+  margin:8px 0 17px!important;
+}
+#article.work-article-page .work-author-card-row{
+  margin-bottom:15px!important;
+}
+#article.work-article-page .work-author-card>p{
+  margin-bottom:16px!important;
+}
+
+html[data-theme="light"] #article.work-article-page .work-side-card{
+  box-shadow:0 16px 42px rgba(29,45,63,.075)!important;
+}
+
+@media(max-width:1180px) and (min-width:901px){
+  #article.work-article-page>.work-reading-grid{
+    grid-template-columns:96px minmax(0,1fr) 276px!important;
+    column-gap:24px!important;
+  }
+  #article.work-article-page .work-react-rail.standard-react-rail,
+  #article.work-article-page .work-react-rail.standard-react-rail button{
+    width:96px!important;
+    min-width:96px!important;
+  }
+}
+
+@media(max-width:900px){
+  #article.work-article-page .quick-read.work-quick-read{
+    margin:26px 0 36px!important;
+    padding:24px 26px!important;
+  }
+  #article.work-article-page .work-reading-grid>.article-body>section>h2{
+    margin-top:44px!important;
+  }
+  #article.work-article-page .work-article-sidebar{
+    gap:18px!important;
+  }
+}
+
+@media(max-width:620px){
+  #article.work-article-page .quick-read.work-quick-read{
+    margin:22px 0 32px!important;
+    padding:22px 20px!important;
+  }
+  #article.work-article-page .work-reading-grid>.article-body>section{
+    margin-bottom:44px!important;
+  }
+  #article.work-article-page .work-reading-grid>.article-body>section>h2{
+    margin-top:40px!important;
+    margin-bottom:18px!important;
+  }
+}
