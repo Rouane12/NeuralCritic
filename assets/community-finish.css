@@ -1,0 +1,235 @@
+/* Neural Critic Reader Thread — finishing pass.
+   Keeps the familiar publication structure while removing the flat black-box feel. */
+
+/* Thread canvas: layered rather than one flat charcoal panel. */
+.article-thread.standard-thread{
+  background:
+    radial-gradient(circle at 8% 0%,rgba(85,231,255,.045),transparent 28%),
+    linear-gradient(155deg,#24282b 0%,#202427 54%,#1d2023 100%)!important;
+  border-color:#343b40!important;
+  box-shadow:0 28px 70px rgba(0,0,0,.22)!important;
+}
+.standard-thread .standard-thread-shell{padding:34px 38px 36px!important}
+
+/* Header hierarchy. */
+.standard-thread .thread-head{
+  align-items:center!important;
+  padding-bottom:18px!important;
+  border-bottom-color:#5a6166!important;
+}
+.standard-thread-title strong{
+  font-size:23px!important;
+  font-weight:850!important;
+  letter-spacing:-.035em!important;
+}
+.standard-thread-title .thread-bubbles::before{color:#67e8ff!important}
+.standard-thread-title b{
+  background:#32383c!important;
+  color:#f7f9fa!important;
+  border:1px solid #485057!important;
+}
+.standard-thread-account{
+  color:#b6bec4!important;
+  font-weight:650!important;
+}
+.standard-thread-account strong{
+  color:#69e8fb!important;
+  font-weight:800!important;
+}
+.standard-thread-account .account-dot{
+  background:#171a1d!important;
+  border-color:#68727a!important;
+}
+.standard-thread-intro{
+  max-width:760px;
+  margin:17px 0 15px!important;
+  color:#d7dde1!important;
+  font-size:13.5px!important;
+  font-weight:500!important;
+  line-height:1.6!important;
+}
+
+/* Composer becomes a middle-depth surface rather than a black hole. */
+.standard-thread form[data-thread-form]{
+  margin-bottom:30px!important;
+  padding:13px 14px!important;
+  border-color:#41484e!important;
+  background:linear-gradient(145deg,#181b1e,#15181a)!important;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.025)!important;
+}
+.standard-thread form[data-thread-form] textarea{
+  border-color:#626b72!important;
+  background:#34383b!important;
+  color:#f7f8f9!important;
+  font-size:14.5px!important;
+  font-weight:620!important;
+  line-height:1.55!important;
+}
+.standard-thread form[data-thread-form] textarea::placeholder{color:#d5d9dc!important;opacity:.88}
+.standard-thread form[data-thread-form]:focus-within textarea,
+.standard-thread form[data-thread-form].has-value textarea{
+  border-color:#53bfd1!important;
+  background:#1b1f22!important;
+  box-shadow:0 0 0 3px rgba(85,231,255,.07)!important;
+}
+.standard-composer-avatar{
+  background:linear-gradient(145deg,#293137,#1d2226)!important;
+  color:#fff!important;
+  box-shadow:0 0 0 3px rgba(85,231,255,.045)!important;
+}
+
+/* Sort control: readable but visually secondary. */
+.standard-sort-row{
+  margin:4px 0 22px!important;
+  color:#cbd1d5!important;
+  font-size:12.5px!important;
+  font-weight:650!important;
+}
+.standard-sort-row select{
+  height:36px!important;
+  border-color:#4f585f!important;
+  background:#2b3033!important;
+  color:#f4f6f7!important;
+  font-weight:700!important;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.025)!important;
+}
+
+/* Comment card: elevated editorial surface instead of near-black rectangle. */
+.standard-thread .community-comment{
+  position:relative;
+  overflow:hidden;
+  padding:20px 22px 20px!important;
+  border:1px solid #36434d!important;
+  border-radius:12px!important;
+  background:
+    linear-gradient(90deg,rgba(85,231,255,.055),transparent 24%) top left/100% 2px no-repeat,
+    linear-gradient(145deg,#151b24 0%,#121720 58%,#10151d 100%)!important;
+  box-shadow:0 18px 42px rgba(0,0,0,.20),inset 0 1px 0 rgba(255,255,255,.025)!important;
+  transition:border-color .18s ease,transform .18s ease,box-shadow .18s ease!important;
+}
+.standard-thread .community-comment:hover{
+  border-color:#486270!important;
+  transform:translateY(-1px)!important;
+  box-shadow:0 22px 50px rgba(0,0,0,.24),inset 0 1px 0 rgba(255,255,255,.03)!important;
+}
+.standard-thread .community-comment-user>.community-avatar{
+  width:44px!important;
+  height:44px!important;
+  flex-basis:44px!important;
+  border:1px solid #4f6570!important;
+  background:linear-gradient(145deg,#3c464e,#242b31)!important;
+  color:#fff!important;
+  font-weight:850!important;
+  box-shadow:0 0 0 3px rgba(85,231,255,.035)!important;
+}
+.standard-thread .community-comment-user strong{
+  color:#f7f9fa!important;
+  font-size:15px!important;
+  font-weight:820!important;
+  letter-spacing:-.012em!important;
+}
+.standard-thread .community-comment-user small{
+  margin-top:4px!important;
+  color:#9ba8b1!important;
+  font-size:10px!important;
+  font-weight:600!important;
+  letter-spacing:.015em!important;
+}
+.standard-thread .community-comment-head:after{
+  top:69px!important;
+  left:22px!important;
+  right:22px!important;
+  height:1px!important;
+  background:linear-gradient(90deg,#44515a 0%,#344049 78%,transparent)!important;
+}
+.standard-thread .community-comment-body{
+  margin:28px 0 10px!important;
+  max-width:760px!important;
+  color:#edf1f3!important;
+  font-size:15px!important;
+  font-weight:480!important;
+  line-height:1.7!important;
+  letter-spacing:.002em!important;
+}
+.standard-thread .community-comment-footer{
+  margin-top:20px!important;
+  gap:8px!important;
+}
+
+/* Actions: consistent restrained utility buttons. */
+.standard-comment-action{
+  min-height:34px!important;
+  padding:0 11px!important;
+  border-color:#414b53!important;
+  background:#272d31!important;
+  color:#e1e6e9!important;
+  font-weight:750!important;
+}
+.standard-comment-action:hover{
+  border-color:#62707a!important;
+  background:#31383d!important;
+  color:#fff!important;
+}
+.standard-vote::before,.standard-reply::before,.standard-copy::before{font-size:18px!important}
+.standard-vote::after,.standard-reply::after,.standard-copy::after,
+.standard-vote .count{font-size:10px!important}
+.standard-vote.active{
+  border-color:#4fcfe5!important;
+  background:#153039!important;
+  color:#71e9fb!important;
+}
+.standard-vote.vote-dislike.active{
+  border-color:#c66d79!important;
+  background:#321b1f!important;
+  color:#ff9da8!important;
+}
+
+/* Remove duplicated native labels such as "EDIT Edit" / "DELETE Delete". */
+.standard-thread .community-comment-menu button>*{display:none!important}
+.standard-thread .community-comment-menu button{
+  min-width:72px!important;
+  min-height:32px!important;
+  justify-content:center!important;
+  padding:0 9px!important;
+  border:1px solid transparent!important;
+  background:transparent!important;
+  font-size:0!important;
+}
+.standard-thread .community-comment-menu button::after{
+  display:inline!important;
+  font-size:9.5px!important;
+  font-weight:800!important;
+  letter-spacing:.02em!important;
+}
+.standard-thread .community-comment-menu button:hover{
+  border-color:#3f4a52!important;
+  background:#20262a!important;
+}
+.standard-thread .community-comment-menu .community-comment-delete{
+  color:#f28e99!important;
+}
+.standard-thread .community-comment-menu .community-comment-delete:hover{
+  border-color:#6e343c!important;
+  background:#2d181c!important;
+  color:#ffadb6!important;
+}
+
+/* Replies should remain visually related to their parent rather than look like a second black box. */
+.standard-thread .community-comment-replies{
+  margin-top:16px!important;
+  padding-left:20px!important;
+  border-left:2px solid rgba(85,231,255,.22)!important;
+}
+.standard-thread .community-comment-replies .community-comment{
+  background:linear-gradient(145deg,#18202a,#131923)!important;
+  box-shadow:0 12px 30px rgba(0,0,0,.16)!important;
+}
+
+@media(max-width:760px){
+  .standard-thread .standard-thread-shell{padding:26px 18px 29px!important}
+  .standard-thread .community-comment{padding:17px!important}
+  .standard-thread .community-comment-head:after{left:17px!important;right:17px!important}
+  .standard-thread .community-comment-menu button{min-width:34px!important;padding:0 6px!important}
+  .standard-thread .community-comment-menu button::after{display:none!important}
+  .standard-thread .community-comment-body{font-size:14.5px!important;line-height:1.66!important}
+}
