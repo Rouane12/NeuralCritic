@@ -1,0 +1,37 @@
+/* Interactive reading map state */
+#article.work-article-page .work-toc-progress{
+  position:relative;
+  height:3px;
+  margin:0 0 8px;
+  overflow:hidden;
+  border-radius:999px;
+  background:rgba(112,130,170,.16);
+}
+#article.work-article-page .work-toc-progress span{
+  position:absolute;
+  inset:0;
+  transform:scaleX(0);
+  transform-origin:left center;
+  border-radius:inherit;
+  background:linear-gradient(90deg,#55e7ff,#7868ff);
+  box-shadow:0 0 14px rgba(85,231,255,.28);
+  transition:transform .12s linear;
+}
+#article.work-article-page .work-toc nav a.active{
+  color:#fff!important;
+  padding-left:5px!important;
+}
+#article.work-article-page .work-toc nav a.active::before{color:#a48eff!important}
+#article.work-article-page .work-toc nav a.active::after{
+  content:"";
+  position:absolute;
+  left:-24px;
+  top:50%;
+  width:3px;
+  height:24px;
+  transform:translateY(-50%);
+  border-radius:999px;
+  background:linear-gradient(180deg,#55e7ff,#7868ff);
+  box-shadow:0 0 14px rgba(85,231,255,.24);
+}
+html[data-theme="light"] #article.work-article-page .work-toc nav a.active{color:#0f2430!important}
