@@ -1,17 +1,25 @@
 /* Global Neural Critic header/ticker parity fixes. */
 
-/* Keep the utility cluster on one horizontal row. */
+/* Keep the utility cluster on one horizontal row and reserve its width before
+   the publication nav is allowed to grow. This prevents search/account from
+   being pushed beyond the right edge on common 1366–1440px desktop widths. */
 .header-tools{
   display:flex;
   align-items:center;
   justify-content:flex-end;
-  gap:10px;
+  gap:9px;
+  min-width:max-content;
   flex:0 0 auto;
+  overflow:visible;
 }
 .header-tools .theme-toggle,
-.header-tools .search{
-  flex:0 0 auto;
-}
+.header-tools .search,
+.header-tools .reader-account-button{flex:0 0 auto}
+
+/* Match the reference utility order without changing any functionality. */
+.header-tools .search{order:1}
+.header-tools .theme-toggle{order:2}
+.header-tools .reader-account-button{order:3}
 
 /* Reference editorial header geometry. The navigation itself stays Neural
    Critic's existing taxonomy; only the visual treatment follows the approved
@@ -22,7 +30,24 @@ header .shell.header{
 }
 header .header{
   height:68px;
-  gap:26px;
+  gap:0;
+}
+
+@media(min-width:861px){
+  header .shell.header{
+    display:grid!important;
+    grid-template-columns:190px minmax(0,1fr) auto;
+    align-items:center;
+    column-gap:24px;
+  }
+  header .publication-nav{
+    width:100%;
+    max-width:720px;
+    justify-self:center;
+  }
+  header .header-tools{
+    justify-self:end;
+  }
 }
 
 /* Neural Critic wordmark — black NEURAL + violet/periwinkle CRITIC, matching
@@ -47,9 +72,7 @@ header .brand strong{
   -webkit-background-clip:text;
   background-clip:text;
 }
-header .brand em{
-  display:none;
-}
+header .brand em{display:none}
 
 /* The old rule used var(--ink) for this badge. In dark mode --ink is almost
    white, which made white badge text disappear. Keep the badge dark in both
@@ -69,9 +92,7 @@ header .brand em{
   box-shadow:0 2px 10px rgba(0,0,0,.16);
 }
 .ticker p,
-.ticker span{
-  color:#fff;
-}
+.ticker span{color:#fff}
 
 /* Utility buttons use the compact publication treatment from the reference. */
 .theme-toggle{
@@ -93,21 +114,40 @@ header .brand em{
   letter-spacing:.08em;
 }
 .header-tools .search{
-  display:grid;
-  place-items:center;
-  width:34px;
-  height:34px;
-  padding:0;
-  font-size:25px;
+  display:grid!important;
+  place-items:center!important;
+  width:34px!important;
+  min-width:34px!important;
+  height:34px!important;
+  min-height:34px!important;
+  margin:0!important;
+  padding:0!important;
+  line-height:1!important;
+  font-size:24px!important;
+  transform:rotate(-18deg);
+  transform-origin:center;
 }
 .reader-account-button{
+  display:inline-flex!important;
+  align-items:center!important;
+  justify-content:center!important;
+  gap:0!important;
+  min-width:74px!important;
   min-height:34px!important;
-  padding:0 16px!important;
+  margin:0!important;
+  padding:0 15px!important;
   border-radius:999px!important;
+  font-family:Arial,Helvetica,sans-serif!important;
   font-size:9px!important;
   font-weight:850!important;
-  letter-spacing:.03em!important;
+  line-height:1!important;
+  letter-spacing:.035em!important;
+  white-space:nowrap!important;
 }
+/* The reference uses a simple SIGN IN pill; signed-in avatars still appear in
+   the account modal/profile, so removing the tiny header dot does not remove
+   any account functionality and saves valuable horizontal space. */
+.reader-account-button .reader-account-dot{display:none!important}
 
 html[data-theme="light"] header{
   background:rgba(255,255,255,.97)!important;
@@ -116,9 +156,7 @@ html[data-theme="light"] header{
   backdrop-filter:blur(16px);
   -webkit-backdrop-filter:blur(16px);
 }
-html[data-theme="light"] header .brand span{
-  color:#171d27!important;
-}
+html[data-theme="light"] header .brand span{color:#171d27!important}
 html[data-theme="light"] .theme-toggle{
   background:#fff!important;
   color:#17191e;
@@ -143,11 +181,26 @@ html[data-theme="light"] .ticker b{
   color:#fff!important;
 }
 
-@media(max-width:980px){
-  .ticker .shell,
-  header .shell.header{width:calc(100% - 28px)}
-  header .header{height:70px;gap:18px}
+@media(max-width:1120px) and (min-width:861px){
+  header .shell.header{
+    grid-template-columns:168px minmax(0,1fr) auto;
+    column-gap:14px;
+  }
   header .brand{min-width:auto}
   header .brand span,header .brand strong{font-size:20px}
-  .header-tools{gap:8px}
+  .header-tools{gap:7px}
+  .theme-toggle{padding:0 9px}
+  .reader-account-button{min-width:68px!important;padding:0 12px!important}
+}
+
+@media(max-width:860px){
+  .ticker .shell,
+  header .shell.header{width:calc(100% - 28px)}
+  header .header{display:flex!important;height:70px;gap:18px}
+  header .brand{min-width:auto}
+  header .brand span,header .brand strong{font-size:20px}
+  .header-tools{gap:8px;min-width:0}
+  .header-tools .search{order:initial}
+  .header-tools .theme-toggle{order:initial}
+  .header-tools .reader-account-button{order:initial}
 }
