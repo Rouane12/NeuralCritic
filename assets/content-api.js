@@ -8,6 +8,7 @@
 
   const indexPath = 'data/articles.json';
   const articlePrefix = 'data/articles/';
+  const CMS_TIMEOUT_MS = 2200;
 
   function mapRow(row) {
     return {
@@ -18,13 +19,13 @@
       body: row.body || '',
       category: row.category || 'FEATURE',
       author: row.author_name || 'Rouane Mounssif',
-      tags: row.tags || [],
+      tags: Array.isArray(row.tags) ? row.tags : [],
       imageAlt: row.image_alt || '',
       imageCredit: row.image_credit || '',
       articleFormat: row.article_format || 'standard',
-      reviewMeta: row.review_meta || {},
-      contentBlocks: row.content_blocks || [],
-      quickRead: row.quick_read || [],
+      reviewMeta: row.review_meta && typeof row.review_meta === 'object' ? row.review_meta : {},
+      contentBlocks: Array.isArray(row.content_blocks) ? row.content_blocks : [],
+      quickRead: Array.isArray(row.quick_read) ? row.quick_read : [],
       conclusion: row.conclusion || '',
       featured: row.homepage_slot === 'lead',
       homepageSlot: row.homepage_slot || 'regular',
@@ -53,28 +54,40 @@
     }
   }
 
+  function withTimeout(promise, ms = CMS_TIMEOUT_MS) {
+    let timer;
+    const timeout = new Promise((_, reject) => {
+      timer = setTimeout(() => reject(new Error(`CMS read timed out after ${ms}ms`)), ms);
+    });
+    return Promise.race([Promise.resolve(promise), timeout]).finally(() => clearTimeout(timer));
+  }
+
   async function publishedIndex() {
-    const { data, error } = await client
+    const query = client
       .from('articles')
       .select('*')
       .eq('status', 'published')
       .lte('published_at', new Date().toISOString())
       .order('published_at', { ascending: false });
+    const { data, error } = await withTimeout(query);
     if (error) throw error;
     return (data || []).map(mapRow);
   }
 
   async function publishedArticle(slug) {
-    const { data, error } = await client
+    const query = client
       .from('articles')
       .select('*')
       .eq('slug', slug)
       .eq('status', 'published')
       .lte('published_at', new Date().toISOString())
       .maybeSingle();
+    const { data, error } = await withTimeout(query);
     if (error) throw error;
     return data ? mapRow(data) : null;
   }
+
+  window.NeuralCriticContentAPI = { publishedIndex, publishedArticle, nativeFetch };
 
   window.fetch = async (...args) => {
     const path = requestPath(args[0]);
@@ -92,7 +105,7 @@
         if (article) return jsonResponse(article);
       }
     } catch (error) {
-      console.warn('Neural Critic CMS read failed; using static fallback.', error);
+      console.warn('Neural Critic CMS read failed quickly; using static fallback.', error);
     }
 
     return nativeFetch(...args);
@@ -141,10 +154,10 @@
     newsletterMessage(form, 'Adding you to the Weekly Drop…');
 
     try {
-      const { error } = await client.rpc('subscribe_newsletter', {
+      const { error } = await withTimeout(client.rpc('subscribe_newsletter', {
         p_email: email,
         p_source: form.dataset.newsletterSource || newsletterSource()
-      });
+      }), 5000);
       if (error) throw error;
       if (input) { input.value = ''; input.disabled = true; }
       if (button) button.textContent = 'YOU’RE IN ✓';
