@@ -1,19 +1,46 @@
 (() => {
   const reduce = window.matchMedia?.('(prefers-reduced-motion: reduce)').matches;
+  const STRUCTURAL = '.work-reading-grid, .work-bottom-grid, .category-work-content, .collection-page';
+
+  function revealImmediately(el) {
+    el.classList.remove('nc-reveal');
+    el.classList.add('nc-visible');
+    el.style.removeProperty('--nc-delay');
+    el.dataset.ncMotion = 'structural';
+  }
 
   const applyReveal = () => {
+    /* Never animate an entire long-form layout container. A ranked article can
+       be many viewports tall, which makes an IntersectionObserver ratio based
+       reveal impossible to satisfy and leaves the whole story transparent. */
+    document.querySelectorAll(STRUCTURAL).forEach(revealImmediately);
+
     const targets = [
-      ...document.querySelectorAll('.hero > *, .story, .trending, .newsletter, .reviews-intro, .review-showcase, .category-card, .article-page > *, .article-body > section, footer .footer > div')
+      ...document.querySelectorAll('.hero > *, .story, .trending, .newsletter, .reviews-intro, .review-showcase, .category-card, .article-page > *:not(.work-reading-grid):not(.work-bottom-grid), .article-body > section, footer .footer > div')
     ];
+
+    const observable = [];
     targets.forEach((el, index) => {
+      if (el.matches(STRUCTURAL)) {
+        revealImmediately(el);
+        return;
+      }
       if (el.dataset.ncMotion) return;
       el.dataset.ncMotion = '1';
       el.classList.add('nc-reveal');
       el.style.setProperty('--nc-delay', `${Math.min(index % 6, 5) * 55}ms`);
+
+      /* Very tall elements should never depend on an intersection ratio. */
+      const rect = el.getBoundingClientRect();
+      if (rect.height > Math.max(window.innerHeight * 1.35, 1100)) {
+        revealImmediately(el);
+        return;
+      }
+      observable.push(el);
     });
 
     if (reduce || !('IntersectionObserver' in window)) {
-      targets.forEach(el => el.classList.add('nc-visible'));
+      observable.forEach(el => el.classList.add('nc-visible'));
       return;
     }
 
@@ -23,15 +50,23 @@
         entry.target.classList.add('nc-visible');
         observer.unobserve(entry.target);
       });
-    }, {threshold: .09, rootMargin: '0px 0px -6% 0px'});
-    targets.forEach(el => observer.observe(el));
+    }, {threshold: .02, rootMargin: '0px 0px -4% 0px'});
+    observable.forEach(el => observer.observe(el));
   };
 
   const observeDynamicContent = () => {
     const roots = ['hero','story-feed','trending','review-showcase','article','category-grid','quick-results','search-page-results']
       .map(id => document.getElementById(id)).filter(Boolean);
     if (!roots.length) return;
-    const mo = new MutationObserver(() => requestAnimationFrame(applyReveal));
+    let queued = false;
+    const mo = new MutationObserver(() => {
+      if (queued) return;
+      queued = true;
+      requestAnimationFrame(() => {
+        queued = false;
+        applyReveal();
+      });
+    });
     roots.forEach(root => mo.observe(root, {childList:true, subtree:true}));
   };
 
@@ -46,6 +81,8 @@
   const heroGlow = () => {
     if (reduce) return;
     document.querySelectorAll('.lead, .feature-link article, .review-showcase').forEach(card => {
+      if (card.dataset.ncGlow) return;
+      card.dataset.ncGlow = '1';
       card.addEventListener('pointermove', event => {
         const rect = card.getBoundingClientRect();
         const x = ((event.clientX - rect.left) / rect.width - .5) * 2;
