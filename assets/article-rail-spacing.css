@@ -1,0 +1,105 @@
+/* Neural Critic — reaction rail geometry fix.
+   The professional rail is wider than the original Work-era rail, so the
+   reading grid must reserve a real column for it instead of letting it spill
+   into article prose. Loaded after community-professional.css. */
+
+#article.work-article-page > .work-reading-grid{
+  width:min(1240px,100%)!important;
+  grid-template-columns:112px minmax(0,780px) 276px!important;
+  column-gap:36px!important;
+  row-gap:0!important;
+}
+
+#article.work-article-page .work-react-rail.standard-react-rail{
+  width:108px!important;
+  min-width:108px!important;
+  justify-self:start!important;
+  align-items:stretch!important;
+  margin:0!important;
+}
+
+#article.work-article-page .work-react-rail.standard-react-rail button{
+  width:108px!important;
+  padding:0!important;
+  grid-template-columns:minmax(0,1fr) 42px!important;
+  column-gap:10px!important;
+}
+
+#article.work-article-page .work-react-rail.standard-react-rail button small{
+  padding:0 2px 0 0!important;
+  white-space:nowrap!important;
+  overflow:visible!important;
+}
+
+#article.work-article-page .work-react-rail.standard-react-rail .standard-thread-count{
+  top:-3px!important;
+  right:-3px!important;
+  transform:none!important;
+}
+
+/* Give the prose a clean visual edge opposite the rail. */
+#article.work-article-page .work-reading-grid > .article-body{
+  min-width:0!important;
+  padding-left:0!important;
+}
+
+@media(max-width:1180px) and (min-width:901px){
+  #article.work-article-page > .work-reading-grid{
+    width:100%!important;
+    grid-template-columns:102px minmax(0,1fr) 232px!important;
+    gap:26px!important;
+  }
+  #article.work-article-page .work-react-rail.standard-react-rail{
+    width:100px!important;
+    min-width:100px!important;
+  }
+  #article.work-article-page .work-react-rail.standard-react-rail button{
+    width:100px!important;
+    grid-template-columns:minmax(0,1fr) 40px!important;
+    column-gap:8px!important;
+  }
+  #article.work-article-page .work-react-rail.standard-react-rail button b{
+    width:40px!important;
+    height:40px!important;
+  }
+  #article.work-article-page .work-react-rail.standard-react-rail::after{
+    right:19px!important;
+  }
+}
+
+/* The existing article responsive layer converts the rail to a horizontal row
+   below this point. Reset the desktop sizing so it can breathe naturally. */
+@media(max-width:900px){
+  #article.work-article-page .work-react-rail.standard-react-rail{
+    width:100%!important;
+    min-width:0!important;
+    align-items:center!important;
+    justify-self:auto!important;
+  }
+  #article.work-article-page .work-react-rail.standard-react-rail::after{
+    display:none!important;
+  }
+  #article.work-article-page .work-react-rail.standard-react-rail button{
+    width:72px!important;
+    height:58px!important;
+    min-height:58px!important;
+    display:grid!important;
+    grid-template-columns:1fr!important;
+    grid-template-rows:36px auto!important;
+    gap:3px!important;
+  }
+  #article.work-article-page .work-react-rail.standard-react-rail button b{
+    width:36px!important;
+    height:36px!important;
+    justify-self:center!important;
+  }
+  #article.work-article-page .work-react-rail.standard-react-rail button small{
+    padding:0!important;
+    text-align:center!important;
+    font-size:9px!important;
+  }
+  #article.work-article-page .work-react-rail.standard-react-rail .standard-thread-count{
+    top:-4px!important;
+    right:-6px!important;
+  }
+}
