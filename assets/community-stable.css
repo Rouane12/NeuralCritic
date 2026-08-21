@@ -1,0 +1,176 @@
+/* Neural Critic community — consolidated presentation layer.
+   This file intentionally loads last and replaces the accumulated visual patch stack. */
+
+/* ---------- THREAD CANVAS ---------- */
+#reader-thread.article-thread.standard-thread{
+  --thread-accent:#55e7ff;
+  margin:0!important;
+  padding:0!important;
+  overflow:hidden;
+  border:1px solid #353b3f!important;
+  border-radius:14px!important;
+  background:linear-gradient(180deg,#232628 0%,#202325 100%)!important;
+  box-shadow:0 22px 54px rgba(0,0,0,.18)!important;
+}
+#reader-thread .standard-thread-shell{padding:27px 30px 29px!important}
+#reader-thread .thread-head{
+  position:relative;
+  display:flex!important;
+  align-items:center!important;
+  justify-content:space-between!important;
+  gap:20px!important;
+  min-height:40px!important;
+  padding:0 0 14px!important;
+  border-bottom:1px solid #737a7f!important;
+}
+#reader-thread .thread-head::after{
+  content:'';
+  position:absolute;
+  left:0;
+  bottom:-1px;
+  width:118px;
+  height:2px;
+  border-radius:99px;
+  background:linear-gradient(90deg,#55e7ff,#7180ff);
+}
+#reader-thread .standard-thread-title{display:flex!important;align-items:center!important;gap:10px!important}
+#reader-thread .standard-thread-title .thread-bubbles{
+  width:22px!important;height:22px!important;display:grid!important;place-items:center!important;color:#63e8fb!important
+}
+#reader-thread .standard-thread-title .thread-bubbles .material-symbols-rounded{font-size:22px!important;line-height:1!important}
+#reader-thread .standard-thread-title strong{color:#fff!important;font-size:21px!important;font-weight:850!important;letter-spacing:-.025em!important}
+#reader-thread .standard-thread-title b{
+  display:grid!important;place-items:center!important;min-width:20px!important;height:18px!important;padding:0 5px!important;
+  border:1px solid #4a5156!important;border-radius:999px!important;background:#34393c!important;color:#f8fafb!important;font-size:9px!important
+}
+#reader-thread .standard-thread-account{
+  display:flex!important;align-items:center!important;gap:8px!important;padding:0!important;border:0!important;background:transparent!important;
+  color:#aeb8be!important;font-size:10px!important;font-weight:650!important;letter-spacing:0!important;white-space:nowrap!important;cursor:pointer
+}
+#reader-thread .standard-thread-account strong{color:#62e7fa!important;font-size:10px!important;font-weight:800!important}
+#reader-thread .standard-thread-account .account-dot{
+  width:29px!important;height:29px!important;display:grid!important;place-items:center!important;border:1px solid #68737a!important;border-radius:50%!important;background:#171a1d!important
+}
+#reader-thread .standard-thread-account .account-dot .material-symbols-rounded{font-size:18px!important;color:#fff!important}
+#reader-thread .standard-thread-intro{
+  margin:13px 0 11px!important;max-width:none!important;color:#e1e5e7!important;font:500 12.5px/1.5 Arial,sans-serif!important
+}
+#reader-thread .thread-identity{display:none!important}
+
+/* ---------- COMPOSER ---------- */
+#reader-thread form[data-thread-form]{
+  display:grid!important;grid-template-columns:34px minmax(0,1fr)!important;align-items:center!important;gap:9px!important;
+  min-height:56px!important;margin:0 0 22px!important;padding:8px 10px!important;border:1px solid #3d4347!important;border-radius:9px!important;
+  background:#101214!important;box-shadow:inset 0 1px 0 rgba(255,255,255,.025)!important
+}
+#reader-thread .standard-composer-avatar{
+  width:32px!important;height:32px!important;min-width:32px!important;display:grid!important;place-items:center!important;align-self:center!important;justify-self:center!important;
+  margin:0!important;border:1px solid #69747a!important;border-radius:50%!important;background:#2f3437!important;color:#fff!important;font-size:9px!important;font-weight:850!important;overflow:hidden
+}
+#reader-thread .standard-composer-avatar img{width:100%!important;height:100%!important;object-fit:cover!important}
+#reader-thread form[data-thread-form] textarea,
+#reader-thread form[data-thread-form]:focus-within textarea{
+  box-sizing:border-box!important;width:100%!important;height:38px!important;min-height:38px!important;max-height:38px!important;margin:0!important;
+  padding:8px 14px!important;overflow:hidden!important;resize:none!important;border:1px solid #747b80!important;border-radius:999px!important;
+  background:#35383a!important;color:#f7f8f9!important;font:700 13px/20px Arial,sans-serif!important;box-shadow:none!important;outline:none!important
+}
+#reader-thread form[data-thread-form] textarea::placeholder{color:#eef0f1!important;opacity:.88!important}
+#reader-thread form[data-thread-form]>div,
+#reader-thread form[data-thread-form]:focus-within>div{
+  grid-column:2!important;height:0!important;min-height:0!important;padding:0!important;opacity:0!important;overflow:hidden!important;pointer-events:none!important
+}
+#reader-thread form[data-thread-form].has-value{align-items:start!important;min-height:108px!important;padding-top:9px!important;padding-bottom:9px!important}
+#reader-thread form[data-thread-form].has-value .standard-composer-avatar{margin-top:2px!important}
+#reader-thread form[data-thread-form].has-value textarea,
+#reader-thread form[data-thread-form].has-value:focus-within textarea{
+  height:68px!important;min-height:68px!important;max-height:118px!important;padding:11px 13px!important;overflow:auto!important;resize:vertical!important;
+  border-radius:8px!important;border-color:#55bdd0!important;background:#1b1e20!important;box-shadow:0 0 0 3px rgba(85,231,255,.055)!important
+}
+#reader-thread form[data-thread-form].has-value>div,
+#reader-thread form[data-thread-form].has-value:focus-within>div{
+  height:32px!important;min-height:32px!important;padding-top:6px!important;opacity:1!important;overflow:visible!important;pointer-events:auto!important
+}
+#reader-thread form[data-thread-form] button[type=submit]{min-width:106px!important;min-height:30px!important;padding:0 12px!important;border-radius:6px!important;font-size:9px!important}
+
+/* ---------- SORT / EMPTY ---------- */
+#reader-thread .standard-sort-row{display:flex!important;align-items:center!important;gap:8px!important;margin:0 0 18px!important;color:#eef1f2!important;font:700 11.5px/1 Arial,sans-serif!important}
+#reader-thread .standard-sort-row select{width:auto!important;min-width:110px!important;height:31px!important;padding:0 28px 0 10px!important;border:1px solid #62696e!important;border-radius:5px!important;background:#303335!important;color:#fff!important;font-size:10.5px!important;font-weight:700!important}
+#reader-thread .community-empty{text-align:left!important;padding:20px 8px 8px!important;color:#99a4ab!important}
+#reader-thread .community-empty b{margin:0 0 5px!important;color:#59e6fa!important;font-size:22px!important}
+#reader-thread .community-empty strong{display:block!important;color:#f3f5f6!important;font-size:13px!important}
+#reader-thread .community-empty small{display:block!important;margin-top:5px!important;color:#98a3aa!important;font-size:9px!important}
+#reader-thread .community-loading{padding:22px 8px!important;color:#9ca7ad!important}
+
+/* ---------- COMMENT CARDS ---------- */
+#reader-thread .thread-list{display:grid!important;gap:13px!important;margin:0!important}
+#reader-thread .community-comment{
+  position:relative!important;display:block!important;box-sizing:border-box!important;width:100%!important;min-width:0!important;overflow:hidden!important;
+  padding:17px 18px 16px!important;border:1px solid #3c4246!important;border-radius:9px!important;background:linear-gradient(180deg,#171a1c,#131618)!important;
+  box-shadow:0 11px 25px rgba(0,0,0,.15)!important
+}
+#reader-thread .community-comment::before{content:'';position:absolute;left:0;top:0;bottom:0;width:2px;background:linear-gradient(#55e7ff,transparent 62%);opacity:.58}
+#reader-thread .community-comment-head{display:flex!important;align-items:center!important;justify-content:flex-start!important;gap:12px!important;min-width:0!important}
+#reader-thread .community-comment-user{display:flex!important;align-items:center!important;gap:10px!important;flex:1 1 auto!important;min-width:0!important}
+#reader-thread .community-comment-user>.community-avatar{width:39px!important;height:39px!important;flex:0 0 39px!important;border:1px solid #5e696f!important;background:#33383b!important;color:#fff!important;font-size:10px!important;box-shadow:none!important}
+#reader-thread .community-comment-user>div{display:grid!important;gap:2px!important;min-width:0!important}
+#reader-thread .community-comment-user strong{display:block!important;color:#fff!important;font-size:13.5px!important;font-weight:800!important;line-height:1.15!important;white-space:nowrap!important;overflow:hidden!important;text-overflow:ellipsis!important}
+#reader-thread .community-comment-user small{display:block!important;color:#a5afb5!important;font-size:9px!important;font-weight:600!important;line-height:1.25!important;white-space:nowrap!important}
+#reader-thread .community-comment-head::after{content:''!important;position:absolute!important;left:18px!important;right:18px!important;top:59px!important;height:1px!important;background:#4d5357!important}
+#reader-thread .community-comment-body{display:block!important;position:static!important;width:100%!important;margin:22px 0 7px!important;padding:0!important;color:#f1f4f5!important;font:500 14px/1.62 Arial,sans-serif!important;white-space:pre-wrap!important;word-break:break-word!important}
+#reader-thread .community-comment-footer{display:flex!important;align-items:center!important;flex-wrap:wrap!important;gap:6px!important;margin-top:15px!important}
+#reader-thread .community-comment-like{display:none!important}
+
+/* owner/moderation actions */
+#reader-thread .community-comment-menu{display:flex!important;align-items:center!important;gap:3px!important;margin-left:auto!important}
+#reader-thread .community-comment-menu button{display:inline-flex!important;align-items:center!important;gap:4px!important;min-height:27px!important;padding:0 6px!important;border:1px solid transparent!important;border-radius:5px!important;background:transparent!important;color:#aeb7bd!important;font-size:9px!important;font-weight:750!important;letter-spacing:0!important;cursor:pointer!important}
+#reader-thread .community-comment-menu button .material-symbols-rounded{font-size:15px!important}
+#reader-thread .community-comment-menu button:hover{border-color:#465158!important;background:#202528!important;color:#60e5f8!important}
+#reader-thread .community-comment-menu .community-comment-delete{color:#f28c98!important}
+#reader-thread .community-comment-menu .community-comment-delete:hover{border-color:#69353c!important;background:#2b191c!important;color:#ffabb4!important}
+
+/* like/dislike/reply/copy */
+#reader-thread .standard-comment-action{display:inline-flex!important;align-items:center!important;gap:5px!important;min-height:30px!important;padding:0 9px!important;border:1px solid #454b4f!important;border-radius:6px!important;background:#292d2f!important;color:#edf0f1!important;font:750 9.5px/1 Arial,sans-serif!important;cursor:pointer!important;box-shadow:none!important}
+#reader-thread .standard-comment-action:hover{background:#34393c!important;border-color:#626a70!important;color:#fff!important}
+#reader-thread .standard-comment-action .material-symbols-rounded{font-size:16px!important;line-height:1!important}
+#reader-thread .standard-vote.active{border-color:#4fcfe5!important;background:#153039!important;color:#71e9fb!important}
+#reader-thread .standard-vote.vote-dislike.active{border-color:#c66d79!important;background:#321b1f!important;color:#ff9da8!important}
+#reader-thread .standard-vote .count{font-size:9px!important}
+#reader-thread .community-comment-native-actions{display:none!important}
+
+/* edit/reply/report forms */
+#reader-thread .community-inline-editor,#reader-thread .community-reply-form{margin-top:13px!important;padding:11px!important;border-color:#424b50!important;border-radius:8px!important;background:#111416!important}
+#reader-thread .community-inline-editor textarea,#reader-thread .community-reply-form textarea{color:#f2f4f5!important;font:14px/1.55 Arial,sans-serif!important}
+#reader-thread .community-inline-editor>div,#reader-thread .community-reply-form>div{border-top-color:#363d41!important}
+#reader-thread .community-replies{display:grid!important;gap:9px!important;margin:14px 0 0 22px!important;padding-left:13px!important;border-left:2px solid rgba(85,231,255,.22)!important}
+#reader-thread .community-reply{background:#191c1e!important;box-shadow:none!important}
+
+/* ---------- ARTICLE ACTION RAIL ---------- */
+.work-react-rail.standard-react-rail{position:relative!important;display:flex!important;flex-direction:column!important;align-items:stretch!important;gap:7px!important;width:108px!important;min-width:108px!important;padding:2px 0!important}
+.work-react-rail.standard-react-rail::after{content:'';position:absolute;top:28px;bottom:28px;right:20px;width:1px;background:linear-gradient(transparent,var(--line) 10%,var(--line) 90%,transparent);pointer-events:none;opacity:.72}
+.work-react-rail.standard-react-rail button{position:relative!important;z-index:1!important;display:grid!important;grid-template-columns:minmax(0,1fr) 42px!important;align-items:center!important;gap:9px!important;width:108px!important;height:52px!important;min-height:52px!important;padding:0!important;border:0!important;background:transparent!important;color:var(--muted)!important;cursor:pointer!important}
+.work-react-rail.standard-react-rail button small{display:flex!important;align-items:center!important;justify-content:flex-end!important;height:42px!important;padding:0!important;color:var(--muted)!important;font:650 9.5px/1 Arial,sans-serif!important;text-align:right!important;white-space:nowrap!important}
+.work-react-rail.standard-react-rail button b{position:relative!important;display:grid!important;place-items:center!important;box-sizing:border-box!important;width:42px!important;height:42px!important;margin:0!important;padding:0!important;border:1px solid var(--line)!important;border-radius:50%!important;background:var(--card)!important;box-shadow:0 5px 16px rgba(0,0,0,.12)!important;font-size:0!important;line-height:0!important}
+.work-react-rail.standard-react-rail button b>.material-symbols-rounded{display:grid!important;place-items:center!important;width:20px!important;height:20px!important;margin:0!important;padding:0!important;color:var(--text)!important;font-size:20px!important;line-height:20px!important;font-variation-settings:'FILL' 0!important}
+.work-react-rail.standard-react-rail button:hover b,.work-react-rail.standard-react-rail button.community-active b,.work-react-rail.standard-react-rail button.active b{border-color:var(--cyan)!important;background:color-mix(in srgb,var(--cyan) 9%,var(--card))!important}
+.work-react-rail.standard-react-rail button:hover b>.material-symbols-rounded,.work-react-rail.standard-react-rail button.community-active b>.material-symbols-rounded,.work-react-rail.standard-react-rail button.active b>.material-symbols-rounded{color:var(--cyan)!important;font-variation-settings:'FILL' 1!important}
+.work-react-rail .standard-thread-count{position:absolute!important;top:-5px!important;right:-6px!important;display:grid!important;place-items:center!important;min-width:18px!important;height:18px!important;padding:0 4px!important;border:2px solid var(--bg,#070914)!important;border-radius:999px!important;background:#f3f5f6!important;color:#11151a!important;font:800 9px/1 Arial,sans-serif!important;z-index:4!important}
+
+@media(max-width:900px){
+  .work-react-rail.standard-react-rail{width:100%!important;min-width:0!important;flex-direction:row!important;justify-content:center!important;gap:8px!important}
+  .work-react-rail.standard-react-rail::after{display:none!important}
+  .work-react-rail.standard-react-rail button{width:68px!important;height:58px!important;min-height:58px!important;grid-template-columns:1fr!important;grid-template-rows:36px auto!important;gap:3px!important}
+  .work-react-rail.standard-react-rail button b{width:36px!important;height:36px!important;justify-self:center!important}
+  .work-react-rail.standard-react-rail button b>.material-symbols-rounded{font-size:18px!important;width:18px!important;height:18px!important;line-height:18px!important}
+  .work-react-rail.standard-react-rail button small{height:auto!important;justify-content:center!important;font-size:8.5px!important}
+}
+@media(max-width:760px){
+  #reader-thread .standard-thread-shell{padding:22px 16px 24px!important}
+  #reader-thread .thread-head{gap:10px!important}
+  #reader-thread .standard-thread-account span:first-child{display:none!important}
+  #reader-thread form[data-thread-form]{grid-template-columns:30px minmax(0,1fr)!important;gap:8px!important;padding:7px 8px!important}
+  #reader-thread .standard-composer-avatar{width:29px!important;height:29px!important;min-width:29px!important}
+  #reader-thread form[data-thread-form] textarea,#reader-thread form[data-thread-form]:focus-within textarea{height:36px!important;min-height:36px!important;max-height:36px!important;padding:7px 12px!important}
+  #reader-thread .community-comment{padding:15px!important}
+  #reader-thread .community-comment-head::after{left:15px!important;right:15px!important}
+  #reader-thread .community-comment-menu button span:last-child{display:none!important}
+}
