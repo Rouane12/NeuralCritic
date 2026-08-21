@@ -74,8 +74,16 @@
       </div>
       ${m.reviewCopy ? `<p class="review-parity-disclosure"><b>DISCLOSURE</b> · ${esc(m.reviewCopy)}</p>` : ''}`;
 
-    const breadcrumb = host.querySelector(':scope > .work-breadcrumb');
-    host.insertBefore(panel, breadcrumb || host.firstChild);
+    /* Keep the score reveal below the article header/hero so it is discovered
+       naturally while scrolling rather than firing above the headline. */
+    const hero = host.querySelector(':scope > .work-hero-figure');
+    const readingGrid = host.querySelector(':scope > .work-reading-grid');
+    if (hero) hero.insertAdjacentElement('afterend', panel);
+    else if (readingGrid) host.insertBefore(panel, readingGrid);
+    else {
+      const breadcrumb = host.querySelector(':scope > .work-breadcrumb');
+      host.insertBefore(panel, breadcrumb || host.firstChild);
+    }
   }
 
   init();
