@@ -1,0 +1,178 @@
+/* Editorial Studio light-theme parity.
+   The Studio was originally authored with explicit dark colors, so this layer
+   remaps the complete CMS surface when Neural Critic is in light mode. */
+
+html[data-theme="light"] body.studio-body{
+  background:
+    radial-gradient(circle at 12% 8%,rgba(86,103,255,.07),transparent 27%),
+    radial-gradient(circle at 88% 30%,rgba(41,217,255,.07),transparent 24%),
+    #f5f4ef;
+  color:#111722;
+}
+
+html[data-theme="light"] body.studio-body::before{
+  opacity:.32;
+  background-image:linear-gradient(rgba(16,27,40,.045) 1px,transparent 1px),linear-gradient(90deg,rgba(16,27,40,.045) 1px,transparent 1px);
+}
+
+html[data-theme="light"] .studio-topbar{
+  background:rgba(250,250,247,.92);
+  border-bottom-color:#d7dde3;
+  box-shadow:0 8px 24px rgba(33,45,60,.05);
+}
+html[data-theme="light"] .studio-brand b{color:#111722}
+html[data-theme="light"] .studio-brand strong{color:#079fc0}
+html[data-theme="light"] .studio-topbar nav a{color:#657181}
+html[data-theme="light"] .studio-topbar nav a:hover{color:#0b8ba8}
+html[data-theme="light"] .studio-topbar nav a.active{border-color:#9fb9c4;color:#087f9a;background:#eef9fb}
+html[data-theme="light"] .studio-topbar nav>span{color:#657181}
+
+html[data-theme="light"] .studio-heading h1,
+html[data-theme="light"] .builder-head h2,
+html[data-theme="light"] .library-head h2,
+html[data-theme="light"] .author-preview h2,
+html[data-theme="light"] .library-story h3,
+html[data-theme="light"] .section-top b{color:#121923}
+
+html[data-theme="light"] .studio-heading p,
+html[data-theme="light"] .builder-head p,
+html[data-theme="light"] .author-preview p,
+html[data-theme="light"] .studio-boundary,
+html[data-theme="light"] .library-story p,
+html[data-theme="light"] .empty-builder span{color:#687687}
+
+html[data-theme="light"] .studio-panel,
+html[data-theme="light"] .studio-library{
+  background:linear-gradient(145deg,#ffffff,#f8fafb);
+  border-color:#ced8df;
+  box-shadow:0 18px 55px rgba(39,55,72,.07);
+}
+
+html[data-theme="light"] .author-preview,
+html[data-theme="light"] .section-card{
+  background:#f7fafb;
+  border-color:#d2dce3;
+}
+html[data-theme="light"] .author-preview img{background:#e8eef2}
+
+html[data-theme="light"] .studio-body input,
+html[data-theme="light"] .studio-body textarea,
+html[data-theme="light"] .studio-body select{
+  background:#fff;
+  color:#16202b;
+  border-color:#c9d4dc;
+  box-shadow:0 1px 0 rgba(20,35,50,.02);
+}
+html[data-theme="light"] .studio-body input::placeholder,
+html[data-theme="light"] .studio-body textarea::placeholder{color:#8b98a6;opacity:1}
+html[data-theme="light"] .studio-body input:focus,
+html[data-theme="light"] .studio-body textarea:focus,
+html[data-theme="light"] .studio-body select:focus{
+  border-color:#16b5d2;
+  box-shadow:0 0 0 3px rgba(22,181,210,.12);
+}
+html[data-theme="light"] .studio-body select option{background:#fff;color:#16202b}
+
+html[data-theme="light"] .format-card{
+  background:#f8fafb;
+  color:#202b36;
+  border-color:#cfdae1;
+}
+html[data-theme="light"] .format-card small{color:#718091}
+html[data-theme="light"] .format-card:hover{border-color:#89bfcb;background:#f2fbfc}
+html[data-theme="light"] .format-card.active{
+  border-color:#0caecb;
+  background:#eaf9fb;
+  box-shadow:inset 0 0 0 1px rgba(12,174,203,.10);
+}
+html[data-theme="light"] .format-card.active b{color:#087f99}
+
+html[data-theme="light"] .author-controls button,
+html[data-theme="light"] .builder-head button,
+html[data-theme="light"] .studio-actions button,
+html[data-theme="light"] .section-actions button,
+html[data-theme="light"] .story-actions button{
+  background:#f7fafb;
+  color:#455565;
+  border-color:#bdcbd4;
+}
+html[data-theme="light"] .author-controls button:hover,
+html[data-theme="light"] .builder-head button:hover,
+html[data-theme="light"] .studio-actions button:hover,
+html[data-theme="light"] .section-actions button:hover,
+html[data-theme="light"] .story-actions button:hover{
+  color:#087f99;
+  border-color:#43bed3;
+  background:#eefbfc;
+}
+html[data-theme="light"] .studio-actions .primary{
+  color:#fff;
+  border-color:transparent;
+  background:linear-gradient(100deg,#715cff,#25bfdc);
+}
+
+html[data-theme="light"] .empty-builder{
+  background:#f4fbfc;
+  border-color:#75bcc9;
+  color:#087f99;
+}
+html[data-theme="light"] .rank-fields{border-top-color:#d7e0e5}
+
+html[data-theme="light"] .library-head b{
+  background:#eaf1f4;
+  color:#344654;
+}
+html[data-theme="light"] .library-tabs button{color:#758390}
+html[data-theme="light"] .library-tabs button.active{background:#dff5f8;color:#087d96}
+html[data-theme="light"] .library-story{border-bottom-color:#d6dfe4}
+html[data-theme="light"] .story-tags span{border-color:#b9d1d8;color:#087f99;background:#f0fafb}
+html[data-theme="light"] .story-actions button,
+html[data-theme="light"] .story-actions a{color:#587487;background:transparent;border:0}
+html[data-theme="light"] .story-actions button:hover,
+html[data-theme="light"] .story-actions a:hover{color:#087f99}
+
+html[data-theme="light"] .studio-media-button{
+  border-color:rgba(8,151,180,.5);
+  background:rgba(15,171,198,.07);
+  color:#087f99;
+}
+html[data-theme="light"] .studio-media-button:hover{background:rgba(15,171,198,.13)}
+html[data-theme="light"] .studio-media-status{color:#6d7c89}
+html[data-theme="light"] .studio-media-status[data-state="busy"]{color:#536fc3}
+html[data-theme="light"] .studio-media-status[data-state="done"]{color:#16815d}
+html[data-theme="light"] .studio-media-status[data-state="error"]{color:#c33c55}
+
+html[data-theme="light"] .studio-user-tools button{
+  background:#132332;
+  color:#f6fbff;
+  border-color:#132332;
+}
+html[data-theme="light"] .studio-backend-badge{
+  background:#f2fbf8;
+  border-color:#9fcabe;
+  color:#237560;
+}
+
+html[data-theme="light"] .studio-toast{
+  background:#fff;
+  color:#18242e;
+  border-color:#c8d5dc;
+  box-shadow:0 18px 60px rgba(38,53,70,.18);
+}
+html[data-theme="light"] .studio-toast.error{border-color:#d68592;color:#a52d42}
+
+/* If the auth gate is ever shown while light mode is active, keep it coherent too. */
+html[data-theme="light"] .studio-auth-gate{background:rgba(235,239,241,.82)}
+html[data-theme="light"] .studio-auth-card{
+  background:linear-gradient(145deg,#fff,#f5f8fa);
+  color:#17212b;
+  border-color:#cbd7de;
+  box-shadow:0 30px 100px rgba(42,58,72,.22);
+}
+html[data-theme="light"] .studio-auth-card p,
+html[data-theme="light"] .studio-auth-status{color:#68798a}
+html[data-theme="light"] .studio-auth-form input{background:#fff;color:#17212b;border-color:#c7d3db}
+html[data-theme="light"] .studio-auth-actions button{color:#187e96}
+
+/* Scrollbar */
+html[data-theme="light"] .studio-library::-webkit-scrollbar-thumb{background:#bdcbd4}
