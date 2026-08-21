@@ -1,0 +1,35 @@
+/* Neural Critic stability guards.
+   Small structural rules only: no visual theme redesign belongs here. */
+
+/* The stable thread replaces the original Work-era thread heading/control row. */
+#reader-thread.standard-thread .thread-head>div:first-child>span,
+#reader-thread.standard-thread .thread-head>div:first-child>h2,
+#reader-thread.standard-thread .thread-head-right,
+#reader-thread.standard-thread .thread-prompt{display:none!important}
+#reader-thread.standard-thread{min-height:0!important;height:auto!important}
+#reader-thread.standard-thread .standard-thread-shell{min-height:0!important}
+#reader-thread.standard-thread .community-login-note{
+  grid-column:1/-1!important;
+  margin:0 0 4px!important;
+  padding:8px 10px!important;
+  border-color:#3e474c!important;
+  border-radius:7px!important;
+  background:#171a1c!important;
+  color:#b8c0c5!important;
+  font-size:10px!important
+}
+#reader-thread.standard-thread .community-login-note button{color:#5ce6f9!important}
+
+/* Shared publication chrome should not create horizontal page overflow. */
+#shared-header,.header,.publication-nav{min-width:0}
+.publication-nav .nav-menu{box-sizing:border-box}
+
+/* Long editorial/user text must never force cards wider than their grid. */
+.article-body,.work-side-card,.category-feed-copy,.community-comment,.subscriber-card,.studio-panel{min-width:0}
+.community-comment-body,.category-feed-copy h3,.work-side-card a{overflow-wrap:anywhere}
+
+/* Consistent keyboard focus for the new navigation and community controls. */
+.publication-nav a:focus-visible,.publication-nav button:focus-visible,
+#reader-thread button:focus-visible,#reader-thread select:focus-visible,#reader-thread textarea:focus-visible{
+  outline:2px solid #55e7ff!important;outline-offset:2px!important
+}
