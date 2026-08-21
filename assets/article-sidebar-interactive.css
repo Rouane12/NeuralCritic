@@ -61,7 +61,6 @@ html[data-theme="light"] #article.work-article-page .work-toc nav a.active{color
     align-items:start!important;
   }
 
-  /* Structural dividers replace arbitrary inter-column gaps. */
   #article.work-article-page .work-reading-grid>.article-body{
     box-sizing:border-box!important;
     min-width:0!important;
@@ -79,7 +78,6 @@ html[data-theme="light"] #article.work-article-page .work-toc nav a.active{color
     gap:20px!important;
   }
 
-  /* Reaction rail geometry from the reference: 44px controls + text labels. */
   #article.work-article-page .work-react-rail.standard-react-rail{
     box-sizing:border-box!important;
     width:108px!important;
@@ -90,9 +88,7 @@ html[data-theme="light"] #article.work-article-page .work-toc nav a.active{color
     margin:0!important;
     padding:39px 0 0!important;
   }
-  #article.work-article-page .work-react-rail.standard-react-rail::after{
-    display:none!important;
-  }
+  #article.work-article-page .work-react-rail.standard-react-rail::after{display:none!important}
   #article.work-article-page .work-react-rail.standard-react-rail>span{
     margin:0 0 5px 10px!important;
     color:var(--muted)!important;
@@ -128,7 +124,8 @@ html[data-theme="light"] #article.work-article-page .work-toc nav a.active{color
   }
 }
 
-/* Quick Read is two deliberate layers: eyebrow + quiet summary card. */
+/* Quick Read is deliberately split into the blue-violet eyebrow and the pale
+   editorial summary surface shown in the approved frame. */
 #article.work-article-page .quick-read.work-quick-read{
   display:block!important;
   min-height:0!important;
@@ -144,7 +141,7 @@ html[data-theme="light"] #article.work-article-page .work-toc nav a.active{color
   display:block!important;
   width:max-content!important;
   margin:0 0 16px 7px!important;
-  color:#55dff5!important;
+  color:#6874f4!important;
   font-size:9px!important;
   font-weight:950!important;
   line-height:1!important;
@@ -167,12 +164,8 @@ html[data-theme="light"] #article.work-article-page .work-toc nav a.active{color
 
 /* Editorial lane — measured against the reference rather than the old 760px
    imported Work layout. */
-#article.work-article-page .quick-read.work-quick-read+section>h2{
-  margin-top:0!important;
-}
-#article.work-article-page .work-reading-grid>.article-body>section{
-  margin:0 0 48px!important;
-}
+#article.work-article-page .quick-read.work-quick-read+section>h2{margin-top:0!important}
+#article.work-article-page .work-reading-grid>.article-body>section{margin:0 0 48px!important}
 #article.work-article-page .work-reading-grid>.article-body>section>h2{
   max-width:505px!important;
   margin:48px 0 24px!important;
@@ -196,24 +189,12 @@ html[data-theme="light"] #article.work-article-page .work-toc nav a.active{color
   line-height:1.62!important;
   letter-spacing:-.004em!important;
 }
-#article.work-article-page .work-inline-figure{
-  width:100%!important;
-  margin:28px 0 44px!important;
-}
-#article.work-article-page .work-inline-figure img{
-  width:100%!important;
-  border-radius:12px!important;
-}
+#article.work-article-page .work-inline-figure{width:100%!important;margin:28px 0 44px!important}
+#article.work-article-page .work-inline-figure img{width:100%!important;border-radius:12px!important}
 
-/* Reading map / writer cards use the exact compact proportions of the
-   reference instead of oversized dashboard-card proportions. */
-#article.work-article-page .work-side-card{
-  border-radius:18px!important;
-}
-#article.work-article-page .work-toc{
-  min-height:0!important;
-  padding:20px 20px 15px!important;
-}
+/* Reading map / writer cards use the compact proportions of the reference. */
+#article.work-article-page .work-side-card{border-radius:18px!important}
+#article.work-article-page .work-toc{min-height:0!important;padding:20px 20px 15px!important}
 #article.work-article-page .work-toc::before{
   margin:7px 0 13px!important;
   font-size:21px!important;
@@ -221,14 +202,8 @@ html[data-theme="light"] #article.work-article-page .work-toc nav a.active{color
   line-height:1!important;
   letter-spacing:-.035em!important;
 }
-#article.work-article-page .work-side-card>span{
-  font-size:8px!important;
-  letter-spacing:.17em!important;
-}
-#article.work-article-page .work-toc-progress{
-  height:2px!important;
-  margin:0 0 5px!important;
-}
+#article.work-article-page .work-side-card>span{font-size:8px!important;letter-spacing:.17em!important}
+#article.work-article-page .work-toc-progress{height:2px!important;margin:0 0 5px!important}
 #article.work-article-page .work-toc nav a{
   grid-template-columns:28px minmax(0,1fr)!important;
   gap:9px!important;
@@ -236,15 +211,9 @@ html[data-theme="light"] #article.work-article-page .work-toc nav a.active{color
   font-size:10px!important;
   line-height:1.34!important;
 }
-#article.work-article-page .work-toc nav a::before{
-  padding-top:2px!important;
-  font-size:8px!important;
-}
+#article.work-article-page .work-toc nav a::before{padding-top:2px!important;font-size:8px!important}
 
-#article.work-article-page .work-author-card{
-  min-height:0!important;
-  padding:20px!important;
-}
+#article.work-article-page .work-author-card{min-height:0!important;padding:20px!important}
 #article.work-article-page .work-author-card::before{
   margin:7px 0 15px!important;
   font-size:19px!important;
@@ -263,56 +232,91 @@ html[data-theme="light"] #article.work-article-page .work-toc nav a.active{color
   border-width:2px!important;
   box-shadow:0 0 0 4px rgba(85,231,255,.055),0 9px 22px rgba(0,0,0,.16)!important;
 }
-#article.work-article-page .work-author-card-row strong{
-  font-size:14px!important;
-  font-weight:780!important;
-  line-height:1.08!important;
-}
-#article.work-article-page .work-author-card-row small{
-  margin-top:6px!important;
-  padding:4px 7px!important;
-  font-size:6.5px!important;
-}
-#article.work-article-page .work-author-card>p{
-  margin:0 0 16px!important;
-  font-size:10.5px!important;
-  line-height:1.48!important;
-}
-#article.work-article-page .work-author-card>button{
-  min-height:36px!important;
-  border-radius:10px!important;
-  font-size:8px!important;
-}
+#article.work-article-page .work-author-card-row strong{font-size:14px!important;font-weight:780!important;line-height:1.08!important}
+#article.work-article-page .work-author-card-row small{margin-top:6px!important;padding:4px 7px!important;font-size:6.5px!important}
+#article.work-article-page .work-author-card>p{margin:0 0 16px!important;font-size:10.5px!important;line-height:1.48!important}
+#article.work-article-page .work-author-card>button{min-height:36px!important;border-radius:10px!important;font-size:8px!important}
 
-/* Light mode is the approved reference surface. */
+/* --------------------------------------------------------------------------
+   APPROVED LIGHT FRAME COLOR LOCK
+   The article view intentionally becomes a clean white publication canvas;
+   the warmer global light theme remains available everywhere else. */
+html[data-theme="light"] body:has(#article.work-article-page){
+  background:#fff!important;
+  color:#182332!important;
+}
+html[data-theme="light"] body:has(#article.work-article-page)::before{display:none!important}
+html[data-theme="light"] #article.work-article-page{color:#182332!important}
 html[data-theme="light"] #article.work-article-page .work-reading-grid>.article-body{
-  border-color:#e0e4e8!important;
+  border-color:#e7e9ed!important;
+}
+html[data-theme="light"] #article.work-article-page .quick-read.work-quick-read{
+  background:transparent!important;
+  border:0!important;
+  box-shadow:none!important;
+}
+html[data-theme="light"] #article.work-article-page .quick-read.work-quick-read>span{
+  color:#6874f4!important;
 }
 html[data-theme="light"] #article.work-article-page .work-quick-read p{
-  border-color:#d9e0e8!important;
-  background:linear-gradient(110deg,#f7fbff,#f2f5ff)!important;
-  box-shadow:0 10px 28px rgba(42,58,76,.045)!important;
-  color:#172432!important;
+  border-color:#e0e4ef!important;
+  background:linear-gradient(110deg,#f7f9ff 0%,#f3f5ff 100%)!important;
+  box-shadow:0 9px 24px rgba(62,72,116,.045)!important;
+  color:#1d2938!important;
+}
+html[data-theme="light"] #article.work-article-page .article-body,
+html[data-theme="light"] #article.work-article-page .article-body p,
+html[data-theme="light"] #article.work-article-page .article-body li,
+html[data-theme="light"] #article.work-article-page .work-reading-grid>.article-body>p,
+html[data-theme="light"] #article.work-article-page .work-reading-grid>.article-body>section>p{
+  color:#1b2736!important;
+}
+html[data-theme="light"] #article.work-article-page .article-body h2,
+html[data-theme="light"] #article.work-article-page .article-body h3,
+html[data-theme="light"] #article.work-article-page .work-reading-grid>.article-body>section>h2{
+  color:#17212f!important;
+}
+html[data-theme="light"] #article.work-article-page .nc-heading-editorial>.nc-editorial-heading::after{
+  background:linear-gradient(90deg,#4edff5,#7768ff)!important;
 }
 html[data-theme="light"] #article.work-article-page .work-side-card{
-  border-color:#d9dfe5!important;
-  background:linear-gradient(145deg,#ffffff,#fafbfd)!important;
-  box-shadow:0 15px 38px rgba(29,45,63,.075)!important;
+  border-color:#e0e3e8!important;
+  background:#fff!important;
+  box-shadow:0 14px 36px rgba(30,42,58,.065)!important;
+}
+html[data-theme="light"] #article.work-article-page .work-side-card::after{
+  background:linear-gradient(90deg,#5d73ff,#b777ff,transparent 76%)!important;
 }
 html[data-theme="light"] #article.work-article-page .work-toc::before,
 html[data-theme="light"] #article.work-article-page .work-author-card::before,
 html[data-theme="light"] #article.work-article-page .work-author-card-row strong{
-  color:#17212b!important;
+  color:#17212f!important;
+}
+html[data-theme="light"] #article.work-article-page .work-side-card>span{
+  color:#6674f4!important;
 }
 html[data-theme="light"] #article.work-article-page .work-toc nav a{
-  color:#465564!important;
-  border-color:#e0e4e8!important;
+  color:#465363!important;
+  border-color:#e6e8ec!important;
 }
-html[data-theme="light"] #article.work-article-page .work-author-card>p{
-  color:#6a7885!important;
-}
+html[data-theme="light"] #article.work-article-page .work-toc nav a::before{color:#6f7df1!important}
+html[data-theme="light"] #article.work-article-page .work-author-card>p{color:#6c7886!important}
 html[data-theme="light"] #article.work-article-page .work-author-card>button{
-  background:linear-gradient(90deg,rgba(85,231,255,.10),rgba(122,103,255,.08))!important;
+  color:#6771f4!important;
+  border-color:#9db6ff!important;
+  background:linear-gradient(90deg,rgba(85,231,255,.08),rgba(122,103,255,.055))!important;
+}
+html[data-theme="light"] #article.work-article-page .work-react-rail.standard-react-rail>span,
+html[data-theme="light"] #article.work-article-page .work-react-rail.standard-react-rail button small{
+  color:#586474!important;
+}
+html[data-theme="light"] #article.work-article-page .work-react-rail.standard-react-rail button b{
+  border-color:#e0e4e8!important;
+  background:#fff!important;
+  box-shadow:0 4px 12px rgba(31,43,59,.055)!important;
+}
+html[data-theme="light"] #article.work-article-page .work-react-rail.standard-react-rail button b>.material-symbols-rounded{
+  color:#263342!important;
 }
 
 /* Intermediate desktop/tablet keeps fluid geometry instead of forcing the
@@ -323,76 +327,28 @@ html[data-theme="light"] #article.work-article-page .work-author-card>button{
     grid-template-columns:96px minmax(0,1fr) 276px!important;
     gap:24px!important;
   }
-  #article.work-article-page .work-reading-grid>.article-body{
-    padding:0!important;
-    border:0!important;
-  }
-  #article.work-article-page .work-article-sidebar{
-    padding:0!important;
-    gap:18px!important;
-  }
-  #article.work-article-page .work-react-rail.standard-react-rail{
-    width:96px!important;
-    min-width:96px!important;
-  }
-  #article.work-article-page .work-react-rail.standard-react-rail button{
-    width:96px!important;
-  }
-  #article.work-article-page .work-reading-grid>.article-body>section>h2{
-    max-width:500px!important;
-  }
+  #article.work-article-page .work-reading-grid>.article-body{padding:0!important;border:0!important}
+  #article.work-article-page .work-article-sidebar{padding:0!important;gap:18px!important}
+  #article.work-article-page .work-react-rail.standard-react-rail{width:96px!important;min-width:96px!important}
+  #article.work-article-page .work-react-rail.standard-react-rail button{width:96px!important}
+  #article.work-article-page .work-reading-grid>.article-body>section>h2{max-width:500px!important}
 }
 
 @media(max-width:900px){
-  #article.work-article-page .work-reading-grid>.article-body{
-    padding:0!important;
-    border:0!important;
-  }
-  #article.work-article-page .work-article-sidebar{
-    padding:0!important;
-    gap:18px!important;
-  }
-  #article.work-article-page .quick-read.work-quick-read{
-    margin-bottom:32px!important;
-  }
-  #article.work-article-page .work-quick-read p{
-    min-height:0!important;
-    padding:24px!important;
-  }
-  #article.work-article-page .work-reading-grid>.article-body>section>h2{
-    max-width:18ch!important;
-    margin-top:44px!important;
-    font-size:38px!important;
-  }
+  #article.work-article-page .work-reading-grid>.article-body{padding:0!important;border:0!important}
+  #article.work-article-page .work-article-sidebar{padding:0!important;gap:18px!important}
+  #article.work-article-page .quick-read.work-quick-read{margin-bottom:32px!important}
+  #article.work-article-page .work-quick-read p{min-height:0!important;padding:24px!important}
+  #article.work-article-page .work-reading-grid>.article-body>section>h2{max-width:18ch!important;margin-top:44px!important;font-size:38px!important}
 }
 
 @media(max-width:620px){
-  #article.work-article-page .quick-read.work-quick-read>span{
-    margin-bottom:13px!important;
-  }
-  #article.work-article-page .work-quick-read p{
-    padding:21px 19px!important;
-    font-size:13px!important;
-  }
-  #article.work-article-page .work-reading-grid>.article-body>section{
-    margin-bottom:42px!important;
-  }
-  #article.work-article-page .work-reading-grid>.article-body>section>h2{
-    max-width:none!important;
-    margin-top:38px!important;
-    margin-bottom:20px!important;
-    font-size:31px!important;
-  }
+  #article.work-article-page .quick-read.work-quick-read>span{margin-bottom:13px!important}
+  #article.work-article-page .work-quick-read p{padding:21px 19px!important;font-size:13px!important}
+  #article.work-article-page .work-reading-grid>.article-body>section{margin-bottom:42px!important}
+  #article.work-article-page .work-reading-grid>.article-body>section>h2{max-width:none!important;margin-top:38px!important;margin-bottom:20px!important;font-size:31px!important}
   #article.work-article-page .work-reading-grid>.article-body>p,
-  #article.work-article-page .work-reading-grid>.article-body>section>p{
-    font-size:17px!important;
-    line-height:1.68!important;
-  }
-  #article.work-article-page .work-author-card-row{
-    grid-template-columns:56px minmax(0,1fr)!important;
-  }
-  #article.work-article-page .work-author-card-row img{
-    width:56px!important;
-    height:56px!important;
-  }
+  #article.work-article-page .work-reading-grid>.article-body>section>p{font-size:17px!important;line-height:1.68!important}
+  #article.work-article-page .work-author-card-row{grid-template-columns:56px minmax(0,1fr)!important}
+  #article.work-article-page .work-author-card-row img{width:56px!important;height:56px!important}
 }
