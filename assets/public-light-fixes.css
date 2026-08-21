@@ -1,0 +1,101 @@
+/* Final public light-mode contrast guard.
+   Neural Critic intentionally keeps a few editorial surfaces dark even when the
+   surrounding page is light. These rules stop global light-theme text colors
+   from leaking into those dark surfaces. */
+
+html[data-theme="light"] body{
+  color:#171b22;
+}
+
+/* The footer intentionally stays dark. */
+html[data-theme="light"] footer{
+  background:#111318;
+  color:#f7f8ff;
+}
+html[data-theme="light"] footer .brand span{color:#f7f8ff!important}
+html[data-theme="light"] footer .brand strong{color:#54dff7!important}
+html[data-theme="light"] footer .brand em{color:#8992a0!important}
+html[data-theme="light"] footer .footer>div>p{color:#8f98a6!important}
+html[data-theme="light"] footer .footer>div>b{color:#7f8997!important}
+html[data-theme="light"] footer .footer>div>a{color:#f5f7fb!important}
+html[data-theme="light"] footer .footer>div>a:hover{color:#5ee7ff!important}
+html[data-theme="light"] footer .copyright{color:#6f7885!important;border-top-color:#2b3038!important}
+
+/* Dark newsletter/CTA surfaces should remain high contrast in light mode. */
+html[data-theme="light"] .newsletter,
+html[data-theme="light"] .work-weekly-card,
+html[data-theme="light"] .work-newsletter-band{
+  color:#f6f8ff;
+}
+html[data-theme="light"] .newsletter h2,
+html[data-theme="light"] .newsletter strong,
+html[data-theme="light"] .work-weekly-card h2,
+html[data-theme="light"] .work-weekly-card h3,
+html[data-theme="light"] .work-weekly-card strong,
+html[data-theme="light"] .work-newsletter-band h2,
+html[data-theme="light"] .work-newsletter-band h3,
+html[data-theme="light"] .work-newsletter-band strong{color:#f6f8ff!important}
+html[data-theme="light"] .newsletter p,
+html[data-theme="light"] .work-weekly-card p,
+html[data-theme="light"] .work-newsletter-band p{color:#aeb7ca!important}
+
+/* Reader Thread and its deliberately dark controls. */
+html[data-theme="light"] .article-thread,
+html[data-theme="light"] .thread-form,
+html[data-theme="light"] .thread-identity{
+  color:#17212b;
+}
+html[data-theme="light"] .article-thread textarea,
+html[data-theme="light"] .article-thread input{
+  color:#17212b;
+  background:#fff;
+}
+
+/* Any explicit dark editorial panel must opt back into light foreground text. */
+html[data-theme="light"] .review-box,
+html[data-theme="light"] .review-verdict-card,
+html[data-theme="light"] .review-verdict-panel,
+html[data-theme="light"] .ranked-entry-card,
+html[data-theme="light"] .ranked-card{
+  color:#f5f7ff;
+}
+html[data-theme="light"] .review-box h2,
+html[data-theme="light"] .review-box h3,
+html[data-theme="light"] .review-verdict-card h2,
+html[data-theme="light"] .review-verdict-card h3,
+html[data-theme="light"] .review-verdict-panel h2,
+html[data-theme="light"] .review-verdict-panel h3,
+html[data-theme="light"] .ranked-entry-card h2,
+html[data-theme="light"] .ranked-entry-card h3,
+html[data-theme="light"] .ranked-card h2,
+html[data-theme="light"] .ranked-card h3{color:#f5f7ff!important}
+
+/* Loading/error states should never become an empty white gap. */
+.article-loading-state,
+.article-load-error{
+  width:min(760px,calc(100% - 32px));
+  min-height:300px;
+  margin:70px auto;
+  display:grid;
+  place-items:center;
+  align-content:center;
+  gap:14px;
+  text-align:center;
+}
+.article-loading-state span{
+  width:34px;height:34px;border-radius:50%;
+  border:3px solid rgba(94,231,255,.18);
+  border-top-color:#55dff7;
+  animation:nc-article-spin .8s linear infinite;
+}
+.article-loading-state strong{font-size:13px;letter-spacing:.04em;color:#8f98b0}
+.article-load-error h1{max-width:680px;margin:8px 0;font-size:clamp(34px,5vw,58px);line-height:1;letter-spacing:-.05em}
+.article-load-error p{display:flex;gap:12px;justify-content:center;align-items:center;flex-wrap:wrap}
+.article-load-error button,.article-load-error a{border:1px solid #66739c55;border-radius:999px;padding:10px 14px;background:transparent;color:inherit;font-size:9px;font-weight:900;cursor:pointer}
+.article-load-error button:hover,.article-load-error a:hover{border-color:#4cdcf3;color:#22a9c2}
+@keyframes nc-article-spin{to{transform:rotate(360deg)}}
+
+html[data-theme="light"] .article-loading-state strong{color:#687583}
+html[data-theme="light"] .article-load-error{color:#171b22}
+
+@media(prefers-reduced-motion:reduce){.article-loading-state span{animation:none}}
