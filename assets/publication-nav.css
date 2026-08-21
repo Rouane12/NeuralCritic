@@ -1,0 +1,60 @@
+/* Neural Critic publication navigation + discovery taxonomy */
+.publication-nav{display:flex;align-items:stretch;justify-content:center;gap:4px;min-width:0}
+.publication-nav .nav-group{position:relative;display:flex;align-items:center}
+.publication-nav .nav-trigger,.publication-nav>a{display:flex;align-items:center;gap:7px;height:48px;padding:0 10px;border:0;background:transparent;color:var(--text,#f7f8ff);font:900 10px/1 inherit;letter-spacing:.02em;text-transform:uppercase;cursor:pointer;white-space:nowrap}
+.publication-nav .nav-trigger::after{content:'⌄';font-size:11px;opacity:.6;transform:translateY(-1px)}
+.publication-nav .nav-group:hover>.nav-trigger,.publication-nav .nav-group:focus-within>.nav-trigger,.publication-nav>a:hover{color:var(--cyan,#55e7ff)}
+.publication-nav .nav-menu{position:absolute;top:calc(100% - 1px);left:0;z-index:180;display:grid;grid-template-columns:repeat(2,minmax(180px,1fr));gap:4px;width:440px;padding:14px;border:1px solid var(--line,#27334a);border-radius:0 0 14px 14px;background:color-mix(in srgb,var(--surface,#0b1020) 96%,transparent);box-shadow:0 24px 80px #0007;opacity:0;visibility:hidden;transform:translateY(8px);transition:.16s ease;backdrop-filter:blur(18px)}
+.publication-nav .nav-group:hover>.nav-menu,.publication-nav .nav-group:focus-within>.nav-menu,.publication-nav .nav-group.open>.nav-menu{opacity:1;visibility:visible;transform:none}
+.publication-nav .nav-menu a{display:grid;gap:3px;padding:10px 11px;border-radius:9px;color:var(--text,#f7f8ff);font-size:11px;font-weight:800;text-transform:none}
+.publication-nav .nav-menu a small{color:var(--muted,#7f8aa4);font-size:8px;font-weight:600;line-height:1.35}
+.publication-nav .nav-menu a:hover{background:#54dff111;color:var(--cyan,#55e7ff)}
+.publication-nav .nav-menu a.nav-featured{grid-column:1/-1;padding:13px;border:1px solid #51ddf132;background:linear-gradient(110deg,#705cff16,#35cfe619)}
+.publication-nav .nav-menu a.nav-featured b{font-size:12px;color:#5ceaff}
+.publication-nav .nav-menu .nav-menu-label{grid-column:1/-1;padding:4px 11px 2px;color:#6c7890;font-size:7px;font-weight:950;letter-spacing:.14em}
+
+/* Category pages opened through the new taxonomy */
+.category-work-hero[data-publication-view] small:first-child{color:#55e7ff}
+.category-taxonomy-chips{display:flex;gap:7px;flex-wrap:wrap;margin-top:16px}
+.category-taxonomy-chips a{padding:7px 10px;border:1px solid var(--line);border-radius:999px;color:var(--muted);font-size:8px;font-weight:850}
+.category-taxonomy-chips a.active,.category-taxonomy-chips a:hover{border-color:#49dced;color:#33cbe2;background:#4bdcf10e}
+
+/* Studio taxonomy controls injected by publication-nav.js */
+.publication-taxonomy-panel{margin-top:0}
+.publication-taxonomy-head{display:flex;align-items:flex-start;justify-content:space-between;gap:18px;margin-bottom:14px}
+.publication-taxonomy-head small{color:#55e7ff;font-size:8px;font-weight:950;letter-spacing:.14em}
+.publication-taxonomy-head h2{margin:4px 0 4px;font-size:18px;letter-spacing:-.03em}
+.publication-taxonomy-head p{margin:0;color:#718092;font-size:10px;line-height:1.45}
+.publication-taxonomy-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.publication-taxonomy-grid>label{display:grid;gap:7px;color:#70dff0;font-size:8px;font-weight:950;letter-spacing:.1em}
+.publication-platforms{grid-column:1/-1;margin:0;padding:0;border:0}
+.publication-platforms legend{margin-bottom:8px;color:#70dff0;font-size:8px;font-weight:950;letter-spacing:.1em}
+.publication-platform-options{display:flex;gap:7px;flex-wrap:wrap}
+.publication-platform-options label{display:flex;align-items:center;gap:7px;padding:9px 11px;border:1px solid #2b3a48;border-radius:999px;background:#09121a;color:#9dafbc;font-size:9px;font-weight:850;cursor:pointer}
+.publication-platform-options input{width:auto!important;margin:0;accent-color:#45d9ed}
+.publication-taxonomy-note{grid-column:1/-1;margin:0;padding:10px 11px;border:1px solid #24414c;border-radius:9px;background:#0a1a21;color:#7795a2;font-size:9px;line-height:1.45}
+.publication-taxonomy-note b{color:#5ce7fa}
+.publication-taxonomy-status{margin-top:10px;min-height:14px;color:#66e8b9;font-size:9px}
+.publication-taxonomy-status.error{color:#ff8797}
+
+html[data-theme="light"] .publication-nav .nav-trigger,html[data-theme="light"] .publication-nav>a{color:#21262d}
+html[data-theme="light"] .publication-nav .nav-menu{background:#fff;border-color:#d7dde0;box-shadow:0 24px 70px #4b58682c}
+html[data-theme="light"] .publication-nav .nav-menu a{color:#17212b}
+html[data-theme="light"] .publication-nav .nav-menu a small{color:#697884}
+html[data-theme="light"] .publication-nav .nav-menu a:hover{background:#eaf8fb;color:#087f99}
+html[data-theme="light"] .publication-platform-options label{background:#f7fafb;border-color:#ced9df;color:#536571}
+html[data-theme="light"] .publication-taxonomy-note{background:#eef8fa;border-color:#c6e3e8;color:#647983}
+html[data-theme="light"] .publication-taxonomy-note b{color:#05849d}
+
+@media(max-width:1050px){.publication-nav .nav-trigger,.publication-nav>a{padding:0 7px;font-size:9px}.publication-nav .nav-menu{width:390px}}
+@media(max-width:860px){
+  body.mobile-nav-open header .header{align-items:flex-start;min-height:100vh;padding-top:14px}
+  body.mobile-nav-open .publication-nav{display:grid!important;position:absolute;top:70px;left:14px;right:14px;z-index:170;gap:4px;padding:12px;border:1px solid var(--line);border-radius:14px;background:var(--surface);box-shadow:0 25px 80px #0008}
+  .publication-nav .nav-group{display:grid}
+  .publication-nav .nav-trigger,.publication-nav>a{width:100%;height:42px;justify-content:space-between;padding:0 12px}
+  .publication-nav .nav-menu{position:static;display:none;width:auto;grid-template-columns:1fr;padding:6px 8px 10px;border:0;border-radius:10px;background:transparent;box-shadow:none;opacity:1;visibility:visible;transform:none}
+  .publication-nav .nav-group.open>.nav-menu{display:grid}
+  .publication-nav .nav-menu a.nav-featured{grid-column:auto}
+  .publication-taxonomy-grid{grid-template-columns:1fr}
+  .publication-platforms,.publication-taxonomy-note{grid-column:auto}
+}
