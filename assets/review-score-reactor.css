@@ -1,0 +1,127 @@
+/* Neural Critic animated review score reactor. */
+.review-parity-score{
+  position:relative;
+  isolation:isolate;
+  overflow:visible!important;
+  background:linear-gradient(180deg,#1b2948 0%,#111a31 100%)!important;
+}
+.review-score-reactor{
+  --score-progress:0deg;
+  position:relative;
+  width:118px;
+  aspect-ratio:1;
+  display:grid;
+  place-items:center;
+  border-radius:50%;
+  filter:drop-shadow(0 12px 28px rgba(42,219,244,.12));
+}
+.review-score-reactor::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  border-radius:inherit;
+  background:conic-gradient(from -90deg,#55e7ff 0deg,#7869ff var(--score-progress),rgba(119,137,180,.19) var(--score-progress),rgba(119,137,180,.19) 360deg);
+  -webkit-mask:radial-gradient(farthest-side,transparent calc(100% - 8px),#000 calc(100% - 7px));
+  mask:radial-gradient(farthest-side,transparent calc(100% - 8px),#000 calc(100% - 7px));
+  box-shadow:0 0 30px rgba(70,220,244,.12);
+}
+.review-score-reactor::after{
+  content:"";
+  position:absolute;
+  inset:11px;
+  border-radius:inherit;
+  border:1px solid rgba(123,153,210,.25);
+  background:
+    radial-gradient(circle at 42% 35%,rgba(89,231,255,.12),transparent 35%),
+    linear-gradient(145deg,rgba(19,32,59,.96),rgba(7,14,29,.98));
+  box-shadow:inset 0 0 28px rgba(48,206,236,.06),0 0 0 1px rgba(255,255,255,.02);
+  z-index:-1;
+}
+.review-score-orbit{
+  position:absolute;
+  inset:-8px;
+  border-radius:50%;
+  border:1px solid rgba(83,231,255,.16);
+  pointer-events:none;
+}
+.review-score-orbit::before,
+.review-score-orbit::after{
+  content:"";
+  position:absolute;
+  border-radius:50%;
+  background:#55e7ff;
+  box-shadow:0 0 11px #55e7ff,0 0 22px rgba(85,231,255,.42);
+}
+.review-score-orbit::before{width:5px;height:5px;top:7px;left:50%;transform:translateX(-50%)}
+.review-score-orbit::after{width:3px;height:3px;bottom:15px;right:7px;background:#8a78ff;box-shadow:0 0 10px #8a78ff,0 0 20px rgba(138,120,255,.4)}
+.review-parity-score.is-animating .review-score-orbit{animation:ncScoreOrbit 1.55s cubic-bezier(.2,.8,.2,1)}
+.review-parity-score.is-complete .review-score-reactor{animation:ncScoreLock .48s cubic-bezier(.2,1.35,.35,1)}
+.review-parity-score.is-complete .review-score-reactor::before{filter:brightness(1.18);box-shadow:0 0 42px rgba(81,230,255,.24)}
+.review-score-value{
+  position:relative;
+  z-index:2;
+  min-width:2ch;
+  color:#f8fbff!important;
+  font-size:48px!important;
+  font-variant-numeric:tabular-nums;
+  font-weight:900!important;
+  letter-spacing:-.075em!important;
+  text-shadow:0 0 18px rgba(82,231,255,.2);
+}
+.review-score-denominator{
+  position:absolute;
+  z-index:2;
+  bottom:25px;
+  left:50%;
+  transform:translateX(-50%);
+  color:#7183a6;
+  font-size:7px;
+  font-weight:950;
+  letter-spacing:.13em;
+  white-space:nowrap;
+}
+.review-score-label{
+  margin-top:3px;
+  opacity:.45;
+  transform:translateY(5px);
+  transition:opacity .35s ease .12s,transform .35s ease .12s;
+}
+.review-parity-score.is-complete .review-score-label{opacity:1;transform:none}
+.review-score-reactor::selection,.review-score-value::selection{background:transparent}
+@keyframes ncScoreOrbit{
+  0%{transform:rotate(-95deg);opacity:.15}
+  20%{opacity:1}
+  82%{opacity:1}
+  100%{transform:rotate(265deg);opacity:.35}
+}
+@keyframes ncScoreLock{
+  0%{transform:scale(.96)}
+  52%{transform:scale(1.075);filter:drop-shadow(0 0 28px rgba(80,229,255,.4))}
+  100%{transform:scale(1)}
+}
+html[data-theme="light"] .review-parity-score{
+  background:linear-gradient(180deg,#e7f1fc,#dae7f5)!important;
+}
+html[data-theme="light"] .review-score-reactor::after{
+  border-color:#bccbdd;
+  background:radial-gradient(circle at 42% 35%,rgba(5,168,196,.11),transparent 35%),linear-gradient(145deg,#fff,#edf4fb);
+  box-shadow:inset 0 0 24px rgba(23,167,195,.05),0 10px 30px rgba(45,70,95,.08);
+}
+html[data-theme="light"] .review-score-value{color:#101827!important;text-shadow:none}
+html[data-theme="light"] .review-score-denominator{color:#718096}
+@media(max-width:900px){
+  .review-score-reactor{width:96px}
+  .review-score-value{font-size:40px!important}
+  .review-score-denominator{bottom:20px}
+}
+@media(max-width:640px){
+  .review-parity-score{gap:15px!important}
+  .review-score-reactor{width:86px;flex:0 0 auto}
+  .review-score-value{font-size:36px!important}
+  .review-score-denominator{bottom:17px;font-size:6px}
+  .review-score-label{margin:0}
+}
+@media(prefers-reduced-motion:reduce){
+  .review-score-orbit,.review-score-reactor{animation:none!important}
+  .review-score-label{transition:none!important}
+}
