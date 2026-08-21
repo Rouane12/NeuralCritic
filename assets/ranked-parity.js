@@ -26,6 +26,26 @@
     });
   }
 
+  function presentation(article){
+    const count = Math.max(1, (article.contentBlocks || []).length);
+    if (article.collection === 'all-time-greats') {
+      return {start:`#${count}`,end:'#1',conclusion:'A canon should stay open'};
+    }
+    if (article.collection === 'best-games') {
+      return {start:`#${count}`,end:'#1',conclusion:'What belongs on your list?'};
+    }
+    if (article.collection === 'game-of-the-year') {
+      return {start:'FINALISTS',end:'WINNER',conclusion:'The final word on the year'};
+    }
+    if (article.collection === 'upcoming-games') {
+      return {start:'WATCHLIST',end:'TOP PICK',conclusion:'What we’re watching next'};
+    }
+    const difficulty = /difficulty|easiest|hardest/i.test(`${article.title || ''} ${article.slug || ''}`);
+    return difficulty
+      ? {start:'EASIEST',end:'HARDEST',conclusion:'Difficulty is personal'}
+      : {start:`#${count}`,end:'#1',conclusion:'The final word'};
+  }
+
   async function init(){
     const article = await articleData();
     if (!article || article.articleFormat !== 'ranked-list') return;
@@ -36,9 +56,16 @@
     const cards = await waitForRankedCards();
     if (!cards.length) return;
 
+    const ui = presentation(article);
     const first = cards[0];
-    if (!qs('.ranked-scale', first.parentElement)) {
-      first.insertAdjacentHTML('beforebegin','<div class="ranked-scale"><span>EASIEST</span><span>HARDEST</span></div>');
+    let scale = qs('.ranked-scale', first.parentElement);
+    if (!scale) {
+      first.insertAdjacentHTML('beforebegin',`<div class="ranked-scale"><span>${ui.start}</span><span>${ui.end}</span></div>`);
+      scale = qs('.ranked-scale', first.parentElement);
+    } else {
+      const labels = qsa('span', scale);
+      if (labels[0]) labels[0].textContent = ui.start;
+      if (labels[1]) labels[1].textContent = ui.end;
     }
 
     cards.forEach((card,index) => {
@@ -46,6 +73,9 @@
       if (block.rank) card.dataset.rank = block.rank;
       card.dataset.entry = block.heading || '';
     });
+
+    const conclusionHeading = qs('.article-conclusion h2', host);
+    if (conclusionHeading) conclusionHeading.textContent = ui.conclusion;
   }
 
   init();
