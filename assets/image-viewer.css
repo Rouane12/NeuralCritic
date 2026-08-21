@@ -1,0 +1,24 @@
+/* Fullscreen editorial image viewer inspired by modern gaming publications. */
+#article img[data-image-viewer]{cursor:zoom-in;transition:filter .2s ease,transform .2s ease;}
+#article img[data-image-viewer]:hover{filter:brightness(1.04);}
+
+.image-viewer{position:fixed;inset:0;z-index:9999;display:none;background:rgba(3,5,12,.94);backdrop-filter:blur(8px);}
+.image-viewer.open{display:grid;grid-template-rows:auto 1fr auto;animation:imageViewerFade .18s ease-out;}
+.image-viewer-top{display:flex;align-items:center;justify-content:space-between;padding:18px 22px;color:#fff;font:700 11px/1 system-ui,sans-serif;letter-spacing:.08em;}
+.image-viewer-count{opacity:.72;}
+.image-viewer-close{display:inline-flex;align-items:center;gap:8px;border:1px solid rgba(255,255,255,.42);border-radius:999px;padding:11px 15px;background:rgba(0,0,0,.24);color:#fff;font:800 11px/1 system-ui,sans-serif;cursor:pointer;}
+.image-viewer-close:hover{background:#fff;color:#0b1020;}
+.image-viewer-stage{position:relative;display:grid;place-items:center;min-height:0;padding:14px 82px 20px;}
+.image-viewer-image{display:block;max-width:min(1320px,92vw);max-height:82vh;width:auto;height:auto;object-fit:contain;border-radius:4px;box-shadow:0 30px 90px rgba(0,0,0,.45);user-select:none;}
+.image-viewer-nav{position:absolute;top:50%;translate:0 -50%;display:grid;place-items:center;width:52px;height:70px;border:0;border-radius:12px;background:rgba(10,13,24,.56);color:#fff;font-size:34px;cursor:pointer;transition:background .15s ease,transform .15s ease;}
+.image-viewer-nav:hover{background:rgba(255,255,255,.16);transform:scale(1.04);}
+.image-viewer-prev{left:18px;}.image-viewer-next{right:18px;}
+.image-viewer-nav[hidden]{display:none;}
+.image-viewer-footer{display:flex;justify-content:center;padding:0 24px 22px;color:#dce2f2;text-align:center;}
+.image-viewer-caption{max-width:900px;font:500 13px/1.5 system-ui,sans-serif;opacity:.82;}
+body.image-viewer-lock{overflow:hidden;}
+@keyframes imageViewerFade{from{opacity:0}to{opacity:1}}
+
+@media(max-width:700px){
+ .image-viewer-top{padding:12px 14px}.image-viewer-stage{padding:10px 42px 16px}.image-viewer-image{max-width:94vw;max-height:78vh}.image-viewer-nav{width:38px;height:56px;font-size:26px}.image-viewer-prev{left:4px}.image-viewer-next{right:4px}.image-viewer-close{padding:9px 12px}.image-viewer-footer{padding:0 16px 16px}
+}
