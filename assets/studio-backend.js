@@ -5,7 +5,6 @@
   window.neuralCriticSupabase = client;
   const $ = (s, root=document) => root.querySelector(s);
   const LOCAL_KEY = 'neural-critic-studio-stories-v1';
-  const HYDRATE_KEY = 'neural-critic-studio-backend-hydrated-v1';
 
   function setStatus(message, cls=''){
     const el=$('#studio-auth-status'); if(!el)return;
@@ -16,6 +15,10 @@
   function readLocal(){ try{return JSON.parse(localStorage.getItem(LOCAL_KEY))||[]}catch(_){return[]} }
   function writeLocal(v){ localStorage.setItem(LOCAL_KEY,JSON.stringify(v)); }
   const lines = value => String(value||'').split(/\n+/).map(x=>x.trim()).filter(Boolean);
+
+  function selectedPlatforms(){
+    return [...document.querySelectorAll('.publication-platform-options input:checked')].map(x=>x.value);
+  }
 
   function collectArticle(status){
     const q=id=>$(id)?.value?.trim?.()||'';
@@ -28,62 +31,107 @@
       articleFormat:document.querySelector('.format-card.active')?.dataset.format||'standard',
       imageLocal:q('#featured-image'), imageAlt:q('#featured-alt'), imageCredit:q('#featured-credit'),
       homepageSlot:q('#homepage-slot')||'regular', contentBlocks:sections, status,
-      scheduleAt:q('#schedule-date')||null
+      scheduleAt:q('#schedule-date')||null,
+      editorialSection:q('#editorial-section')||null,
+      platforms:selectedPlatforms(),
+      collection:q('#article-collection')||null,
+      collectionYear:q('#collection-year')||null
     };
     if(article.articleFormat==='review') article.reviewMeta={score:q('#review-score'),testedPlatform:q('#review-platform'),developer:q('#review-developer'),publisher:q('#review-publisher'),releaseDate:q('#review-release'),verdict:q('#review-verdict'),pros:lines(q('#review-pros')),cons:lines(q('#review-cons')),reviewCopy:q('#review-copy')};
     else article.reviewMeta={};
     if(article.articleFormat==='ranked-list') article.quickRead=sections.slice(0,3).map(x=>x.subtitle||x.heading).filter(Boolean);
     return article;
   }
+
   function toRow(a,userId){
-    const publishedAt=a.status==='published' ? new Date().toISOString() : null;
+    const publishedAt=a.status==='published' ? (a.publishedAt || new Date().toISOString()) : null;
     return {
       slug:a.slug,title:a.title,description:a.description||'',body:a.body||'',category:a.category||'FEATURE',author_name:a.author||'Rouane Mounssif',
       tags:a.tags||[],article_format:a.articleFormat||'standard',image_url:a.imageLocal||null,image_alt:a.imageAlt||null,image_credit:a.imageCredit||null,
       homepage_slot:a.homepageSlot||'regular',content_blocks:a.contentBlocks||[],review_meta:a.reviewMeta||{},quick_read:a.quickRead||[],conclusion:a.conclusion||'',
-      status:a.status,scheduled_at:a.status==='scheduled'&&a.scheduleAt?new Date(a.scheduleAt).toISOString():null,published_at:publishedAt,created_by:userId,updated_by:userId
+      status:a.status,scheduled_at:a.status==='scheduled'&&a.scheduleAt?new Date(a.scheduleAt).toISOString():null,published_at:publishedAt,created_by:a.createdBy||userId,updated_by:userId,
+      editorial_section:a.editorialSection||null,platforms:Array.isArray(a.platforms)?a.platforms:[],collection:a.collection||null,collection_year:a.collectionYear?Number(a.collectionYear):null
     };
   }
-  function fromRow(r){return {id:r.id,slug:r.slug,title:r.title,description:r.description,body:r.body,category:r.category,author:r.author_name,tags:r.tags||[],articleFormat:r.article_format,imageLocal:r.image_url||'',imageAlt:r.image_alt||'',imageCredit:r.image_credit||'',homepageSlot:r.homepage_slot||'regular',contentBlocks:r.content_blocks||[],reviewMeta:r.review_meta||{},quickRead:r.quick_read||[],conclusion:r.conclusion||'',status:r.status,scheduleAt:r.scheduled_at||null,publishedAt:r.published_at||null,local:true,backend:true};}
+
+  function fromRow(r){return {
+    id:r.id,slug:r.slug,title:r.title,description:r.description,body:r.body,category:r.category,author:r.author_name,tags:r.tags||[],
+    articleFormat:r.article_format,imageLocal:r.image_url||'',imageAlt:r.image_alt||'',imageCredit:r.image_credit||'',homepageSlot:r.homepage_slot||'regular',
+    contentBlocks:r.content_blocks||[],reviewMeta:r.review_meta||{},quickRead:r.quick_read||[],conclusion:r.conclusion||'',status:r.status,
+    scheduleAt:r.scheduled_at||null,publishedAt:r.published_at||null,editorialSection:r.editorial_section||null,
+    platforms:Array.isArray(r.platforms)?r.platforms:[],collection:r.collection||null,collectionYear:r.collection_year||null,
+    createdBy:r.created_by||null,local:true,backend:true
+  };}
 
   async function getEditor(user){
     const {data,error}=await client.from('editor_profiles').select('user_id,display_name,role,avatar_url,avatar_alt').eq('user_id',user.id).maybeSingle();
     if(error) throw error; return data;
   }
+
   async function hydrateBackend(){
     const {data,error}=await client.from('articles').select('*').order('updated_at',{ascending:false});
     if(error) throw error;
     const backend=(data||[]).map(fromRow), existing=readLocal();
-    const map=new Map(existing.map(x=>[x.slug,x])); backend.forEach(x=>map.set(x.slug,x)); writeLocal([...map.values()]);
-    sessionStorage.setItem(HYDRATE_KEY,'1');
+    const map=new Map(existing.map(x=>[x.slug,x]));
+    backend.forEach(x=>map.set(x.slug,x));
+    const merged=[...map.values()];
+    const changed=JSON.stringify(existing)!==JSON.stringify(merged);
+    if(changed) writeLocal(merged);
+    return changed;
   }
+
   function installAuthenticatedChrome(profile){
     const nav=document.querySelector('.studio-topbar nav'); if(!nav)return;
     nav.querySelector('.studio-user-tools')?.remove();
     const wrap=document.createElement('span'); wrap.className='studio-user-tools'; wrap.innerHTML=`<span class="studio-backend-badge">DATABASE LIVE</span><button type="button" id="studio-signout">SIGN OUT</button>`; nav.append(wrap);
-    $('#studio-signout').addEventListener('click',async()=>{await client.auth.signOut();sessionStorage.removeItem(HYDRATE_KEY);location.reload()});
+    $('#studio-signout').addEventListener('click',async()=>{await client.auth.signOut();location.reload()});
     const name=nav.querySelector(':scope > span:not(.studio-user-tools)'); if(name&&profile?.display_name) name.textContent=profile.display_name;
   }
+
   async function saveBackend(status){
     const {data:{user}}=await client.auth.getUser(); if(!user) throw new Error('Sign in first.');
     const article=collectArticle(status); if(!article.title||!article.slug) throw new Error('Headline and URL slug are required.');
     if(status==='scheduled'&&!article.scheduleAt) throw new Error('Choose a schedule date first.');
+
+    const {data:existing,error:existingError}=await client.from('articles')
+      .select('published_at,conclusion,created_by,editorial_section,platforms,collection,collection_year')
+      .eq('slug',article.slug).maybeSingle();
+    if(existingError) throw existingError;
+
+    if(existing){
+      article.publishedAt=existing.published_at||null;
+      article.conclusion=existing.conclusion||'';
+      article.createdBy=existing.created_by||user.id;
+      if(!$('#editorial-section')) article.editorialSection=existing.editorial_section||null;
+      if(!document.querySelector('.publication-platform-options')) article.platforms=Array.isArray(existing.platforms)?existing.platforms:[];
+      if(!$('#article-collection')) article.collection=existing.collection||null;
+      if(!$('#collection-year')) article.collectionYear=existing.collection_year||null;
+    }
+
     const row=toRow(article,user.id);
     const {error}=await client.from('articles').upsert(row,{onConflict:'slug'}); if(error) throw error;
   }
+
   function interceptWrites(){
     [['#save-draft','draft'],['#schedule-story','scheduled'],['#publish-story','published']].forEach(([selector,status])=>{
-      const btn=$(selector); if(!btn)return;
+      const btn=$(selector); if(!btn||btn.dataset.backendWriteReady)return;
+      btn.dataset.backendWriteReady='1';
       btn.addEventListener('click',()=>{setTimeout(async()=>{try{await saveBackend(status);setStatus(status==='published'?'Published to Neural Critic database.':status==='scheduled'?'Scheduled in Neural Critic database.':'Draft saved to Neural Critic database.','success')}catch(e){setStatus(e.message||'Database save failed.','error')}},0)});
     });
-    $('#save-profile')?.addEventListener('click',()=>setTimeout(async()=>{
-      try{const {data:{user}}=await client.auth.getUser(); if(!user)return; const payload={display_name:document.querySelector('.studio-topbar nav>span')?.textContent||'Rouane Mounssif',avatar_url:$('#profile-image').value.trim()||null,avatar_alt:$('#profile-alt').value.trim()||null}; const {error}=await client.from('editor_profiles').update(payload).eq('user_id',user.id); if(error)throw error;setStatus('Author profile saved to database.','success')}catch(e){setStatus(e.message,'error')}} ,0));
+    const profileButton=$('#save-profile');
+    if(profileButton&&!profileButton.dataset.backendWriteReady){
+      profileButton.dataset.backendWriteReady='1';
+      profileButton.addEventListener('click',()=>setTimeout(async()=>{
+        try{const {data:{user}}=await client.auth.getUser(); if(!user)return; const payload={display_name:document.querySelector('.studio-topbar nav>span')?.textContent||'Rouane Mounssif',avatar_url:$('#profile-image').value.trim()||null,avatar_alt:$('#profile-alt').value.trim()||null}; const {error}=await client.from('editor_profiles').update(payload).eq('user_id',user.id); if(error)throw error;setStatus('Author profile saved to database.','success')}catch(e){setStatus(e.message,'error')}} ,0));
+    }
   }
+
   async function authenticated(user){
     const profile=await getEditor(user);
     if(!profile){showGate();setStatus('Account created, but it has not been approved as a Neural Critic editor yet.','error');return;}
     installAuthenticatedChrome(profile); interceptWrites();
-    if(!sessionStorage.getItem(HYDRATE_KEY)){await hydrateBackend();location.reload();return;}
+    const changed=await hydrateBackend();
+    if(changed){location.reload();return;}
     hideGate(); setStatus(`Signed in as ${profile.display_name||'editor'}. Database sync is active.`,'success');
   }
   async function signIn(email,password){const {data,error}=await client.auth.signInWithPassword({email,password});if(error)throw error;return data;}
