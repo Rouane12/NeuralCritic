@@ -94,6 +94,16 @@
     });
   }
 
+  function addSubscriberDeskLink() {
+    const nav = $('.studio-topbar nav');
+    if (!nav || nav.querySelector('a[href="subscribers.html"]')) return;
+    const link = document.createElement('a');
+    link.href = 'subscribers.html';
+    link.textContent = 'SUBSCRIBERS';
+    const name = [...nav.children].find(el => el.tagName === 'SPAN' && !el.classList.contains('studio-user-tools'));
+    nav.insertBefore(link, name || null);
+  }
+
   function decorateAll() {
     decorate($('#featured-image'), 'UPLOAD FEATURED IMAGE');
     decorate($('#profile-image'), 'UPLOAD PROFILE IMAGE');
@@ -101,6 +111,7 @@
   }
 
   function init() {
+    addSubscriberDeskLink();
     decorateAll();
     const sections = $('#sections-list');
     if (sections) {
