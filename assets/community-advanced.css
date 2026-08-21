@@ -1,0 +1,199 @@
+/* Advanced Reader Thread — edit, replies, reports, and popular sorting */
+.thread-head-right [data-thread-popular]{
+  border:1px solid var(--line);
+  border-radius:8px;
+  padding:7px 9px;
+  background:var(--card);
+  color:var(--muted);
+  font-size:7px;
+  font-weight:900;
+  cursor:pointer;
+}
+.thread-head-right [data-thread-popular].active{
+  color:var(--cyan);
+  border-color:#4bdcf1;
+  background:#1d82931a;
+}
+.community-comment-menu{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  margin-left:auto;
+  flex:0 0 auto;
+}
+.community-comment-menu button,
+.community-comment-native-actions button{
+  border:0;
+  background:transparent;
+  color:#7c89a2;
+  padding:0;
+  font-size:7px;
+  font-weight:950;
+  letter-spacing:.06em;
+  cursor:pointer;
+}
+.community-comment-menu button:hover,
+.community-comment-native-actions button:hover{color:#5be7fb}
+.community-comment-menu .community-comment-delete{color:#ff7187}
+.community-comment-menu .community-comment-delete:hover{color:#ff9bab}
+.community-comment-native-actions{
+  display:flex;
+  align-items:center;
+  gap:12px;
+  margin-top:10px;
+}
+.community-inline-editor,
+.community-reply-form{
+  display:grid;
+  gap:9px;
+  margin-top:14px;
+  padding:12px;
+  border:1px solid #384460;
+  border-radius:12px;
+  background:#070b18;
+}
+.community-inline-editor textarea,
+.community-reply-form textarea{
+  width:100%;
+  min-height:78px;
+  resize:vertical;
+  border:0;
+  outline:0;
+  background:transparent;
+  color:#edf2ff;
+  font:14px/1.55 Arial,sans-serif;
+}
+.community-inline-editor>div,
+.community-reply-form>div{
+  display:flex;
+  align-items:center;
+  justify-content:flex-end;
+  gap:8px;
+  border-top:1px solid #252d45;
+  padding-top:9px;
+}
+.community-inline-editor small,
+.community-reply-form small{
+  margin-right:auto;
+  color:#6e7892;
+  font-size:8px;
+}
+.community-inline-editor button,
+.community-reply-form button{
+  border:1px solid #3b4964;
+  border-radius:8px;
+  background:#0d1424;
+  color:#a9b5ca;
+  padding:8px 10px;
+  font-size:7px;
+  font-weight:950;
+  cursor:pointer;
+}
+.community-inline-editor button[type="submit"],
+.community-reply-form button[type="submit"]{
+  border-color:transparent;
+  color:#fff;
+  background:linear-gradient(100deg,#715cff,#34cee6);
+}
+.community-replies{
+  display:grid;
+  gap:10px;
+  margin:14px 0 0 48px;
+  padding-left:16px;
+  border-left:2px solid #5be7ff38;
+}
+.community-reply{
+  margin:0!important;
+  padding:14px!important;
+  background:color-mix(in srgb,var(--surface) 76%,transparent)!important;
+  border-radius:12px!important;
+}
+.community-reply .community-avatar{transform:scale(.88)}
+.community-reply .community-comment-body{margin-top:10px!important}
+.community-report-modal{
+  position:fixed;
+  inset:0;
+  z-index:1600;
+  display:grid;
+  place-items:center;
+  padding:20px;
+  background:#030711c9;
+  backdrop-filter:blur(12px);
+}
+.community-report-modal[hidden]{display:none}
+.community-report-card{
+  position:relative;
+  width:min(440px,100%);
+  padding:24px;
+  border:1px solid #5a6c8f66;
+  border-radius:18px;
+  background:linear-gradient(145deg,#11182a,#080d19);
+  box-shadow:0 30px 110px #000a;
+}
+.community-report-close{
+  position:absolute;
+  top:14px;
+  right:14px;
+  border:0;
+  background:transparent;
+  color:#8b96aa;
+  cursor:pointer;
+}
+.community-report-card>small{color:#59e6fb;font-size:8px;font-weight:950;letter-spacing:.16em}
+.community-report-card h3{margin:7px 0 7px;font-size:24px;letter-spacing:-.035em}
+.community-report-card>p{margin:0 0 18px;color:#8f9ab0;font-size:11px;line-height:1.55}
+.community-report-form{display:grid;gap:13px}
+.community-report-form label{display:grid;gap:7px;color:#7d8aa1;font-size:8px;font-weight:900;letter-spacing:.08em}
+.community-report-form label span{font-size:7px;color:#5f6b81}
+.community-report-form select,
+.community-report-form textarea{
+  width:100%;
+  border:1px solid #37435d;
+  border-radius:9px;
+  background:#070c17;
+  color:#eef3ff;
+  padding:11px;
+  outline:0;
+}
+.community-report-form button[type="submit"]{
+  border:0;
+  border-radius:9px;
+  padding:11px;
+  background:linear-gradient(100deg,#715cff,#34cee6);
+  color:#fff;
+  font-size:8px;
+  font-weight:950;
+  cursor:pointer;
+}
+.community-report-status{min-height:14px;font-size:9px;color:#8793a8}
+.community-report-status.success{color:#61e9c2}
+.community-report-status.error{color:#ff8395}
+
+html[data-theme="light"] .thread-head-right [data-thread-popular]{background:#fff;color:#687584;border-color:#d2dbe0}
+html[data-theme="light"] .thread-head-right [data-thread-popular].active{background:#e7f8fb;color:#087e98;border-color:#42bed2}
+html[data-theme="light"] .community-comment-menu button,
+html[data-theme="light"] .community-comment-native-actions button{color:#657482}
+html[data-theme="light"] .community-comment-menu button:hover,
+html[data-theme="light"] .community-comment-native-actions button:hover{color:#008aa4}
+html[data-theme="light"] .community-comment-menu .community-comment-delete{color:#c94357}
+html[data-theme="light"] .community-inline-editor,
+html[data-theme="light"] .community-reply-form{background:#f4f8fa;border-color:#ccd9df}
+html[data-theme="light"] .community-inline-editor textarea,
+html[data-theme="light"] .community-reply-form textarea{color:#1f2b35}
+html[data-theme="light"] .community-inline-editor>div,
+html[data-theme="light"] .community-reply-form>div{border-color:#d7e0e4}
+html[data-theme="light"] .community-inline-editor button,
+html[data-theme="light"] .community-reply-form button{background:#fff;color:#556573;border-color:#c8d4da}
+html[data-theme="light"] .community-replies{border-color:#28b7cf45}
+html[data-theme="light"] .community-reply{background:#f5f8f9!important;border-color:#d3dde1!important}
+html[data-theme="light"] .community-report-card{background:#fff;color:#17212b;border-color:#cad7dd;box-shadow:0 30px 100px #33424e3a}
+html[data-theme="light"] .community-report-card>p{color:#647380}
+html[data-theme="light"] .community-report-form select,
+html[data-theme="light"] .community-report-form textarea{background:#f8fbfc;color:#17212b;border-color:#ccd8de}
+
+@media(max-width:700px){
+  .community-comment-menu{gap:7px;flex-wrap:wrap;justify-content:flex-end}
+  .community-replies{margin-left:16px;padding-left:10px}
+  .community-inline-editor>div,.community-reply-form>div{flex-wrap:wrap}
+  .community-inline-editor small,.community-reply-form small{width:100%;margin-right:0}
+}
