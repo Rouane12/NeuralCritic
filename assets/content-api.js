@@ -33,7 +33,8 @@
       imageLocal: row.image_url || '',
       editorialSection: row.editorial_section || null,
       platforms: Array.isArray(row.platforms) ? row.platforms : [],
-      collection: row.collection || null
+      collection: row.collection || null,
+      collectionYear: row.collection_year || null
     };
   }
 
