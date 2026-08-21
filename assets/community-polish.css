@@ -4,3 +4,123 @@
 .community-comment-footer{display:flex;align-items:center;gap:10px;margin-top:12px}.community-comment-like{display:inline-flex;align-items:center;gap:6px;border:1px solid #6d789d38;border-radius:999px;background:#0b1121;color:#8792aa;padding:6px 9px;font-size:8px;font-weight:900;cursor:pointer}.community-comment-like span{font-size:11px}.community-comment-like b{font-size:8px;color:#c4cbdd}.community-comment-like small{font-size:7px}.community-comment-like.active{border-color:#3eddf5;background:#0d2b35;color:#55e8fb}.community-comment-like.active b{color:#67edff}.community-comment-like:disabled{opacity:.55}.community-admin-remove{margin-left:auto;border:0;background:none;color:#ff7187;font-size:7px;font-weight:950;letter-spacing:.05em;cursor:pointer}.community-admin-remove:hover{color:#ff9bab}.community-toast{position:fixed;right:22px;bottom:22px;z-index:1200;max-width:340px;padding:12px 15px;border:1px solid #53768a;border-radius:10px;background:#0b1620;color:#eaf6fb;box-shadow:0 18px 70px #0008;font-size:10px;opacity:0;transform:translateY(10px);pointer-events:none;transition:.2s ease}.community-toast.show{opacity:1;transform:none}.community-toast.error{border-color:#9f4d5c;color:#ff9aad}
 html[data-theme="light"] .reader-account-dot.reader-account-avatar{border-color:#35b8ce}html[data-theme="light"] .reader-profile-editor{background:#f7fafc;border-color:#ced9df}html[data-theme="light"] .reader-profile-head strong{color:#17212b}html[data-theme="light"] .reader-profile-head span,html[data-theme="light"] .reader-profile-editor label,html[data-theme="light"] .reader-profile-avatar-actions span{color:#6d7d8b}html[data-theme="light"] .reader-profile-editor input{background:#fff;color:#17212b;border-color:#cad6dd}html[data-theme="light"] .reader-profile-avatar-actions button{background:#e8f8fb;color:#087e98;border-color:#3ebbd1}html[data-theme="light"] .community-comment-like{background:#fff;color:#667686;border-color:#d3dce2}html[data-theme="light"] .community-comment-like b{color:#465664}html[data-theme="light"] .community-comment-like.active{background:#e8f9fb;color:#087f99;border-color:#3bbbd1}html[data-theme="light"] .community-toast{background:#fff;color:#17212b;border-color:#c7d7df;box-shadow:0 18px 70px #53606c35}
 @media(max-width:620px){.reader-profile-avatar-actions{display:grid}.reader-profile-avatar-actions button,.reader-profile-save{width:100%}.community-comment-footer{margin-top:10px}.reader-account-button.signed-in [data-reader-account-label]{display:none}.reader-account-button.signed-in{padding:5px}}
+
+/* Reader Thread layout guard.
+   Keep identity, author metadata, message text and moderation controls in
+   predictable columns even when older article/thread styles are present. */
+.thread-identity{
+  width:100%;
+}
+.thread-identity>.community-identity{
+  flex:1 1 auto;
+  min-width:0;
+}
+.thread-identity .community-identity>div{
+  display:grid;
+  grid-auto-flow:row;
+  align-content:center;
+  gap:3px;
+  min-width:0;
+}
+.thread-identity .community-identity>div>span{
+  display:block;
+  margin:0;
+  line-height:1.15;
+  white-space:nowrap;
+}
+.thread-identity .community-identity>div>strong{
+  display:block;
+  margin:0;
+  line-height:1.2;
+  white-space:nowrap;
+  overflow:hidden;
+  text-overflow:ellipsis;
+}
+
+.community-comment{
+  display:block!important;
+  width:100%;
+  min-width:0;
+  box-sizing:border-box;
+}
+.community-comment-head{
+  display:flex!important;
+  width:100%;
+  min-width:0;
+  align-items:center!important;
+  justify-content:flex-start!important;
+  gap:12px;
+}
+.community-comment-user{
+  display:flex!important;
+  flex:1 1 auto;
+  min-width:0;
+  align-items:center!important;
+  gap:12px!important;
+}
+.community-comment-user>.community-avatar{
+  flex:0 0 38px;
+}
+.community-comment-user>div{
+  display:grid!important;
+  flex:1 1 auto;
+  min-width:0;
+  gap:3px;
+  align-content:center;
+}
+.community-comment-user strong{
+  display:block!important;
+  width:auto!important;
+  max-width:100%;
+  margin:0!important;
+  line-height:1.2!important;
+  white-space:nowrap!important;
+  overflow:hidden;
+  text-overflow:ellipsis;
+}
+.community-comment-user small{
+  display:block!important;
+  width:auto!important;
+  margin:0!important;
+  line-height:1.25!important;
+  white-space:nowrap;
+}
+.community-comment-delete,
+.community-admin-remove{
+  flex:0 0 auto!important;
+  margin-left:auto!important;
+  align-self:center;
+  white-space:nowrap;
+}
+.community-comment-body{
+  display:block!important;
+  position:static!important;
+  width:100%!important;
+  min-height:1.5em;
+  margin:16px 0 0!important;
+  padding:0!important;
+  visibility:visible!important;
+  opacity:1!important;
+  overflow:visible!important;
+  white-space:pre-wrap!important;
+  word-break:break-word;
+}
+.community-comment-footer{
+  position:static!important;
+  width:100%;
+  margin-top:16px!important;
+  clear:both;
+}
+
+html[data-theme="light"] .thread-identity .community-identity>div>strong,
+html[data-theme="light"] .community-comment-user strong{color:#17212b!important}
+html[data-theme="light"] .thread-identity .community-identity>div>span,
+html[data-theme="light"] .community-comment-user small{color:#6f7d8a!important}
+html[data-theme="light"] .community-comment-body{color:#26323d!important}
+
+@media(max-width:620px){
+  .community-comment-head{align-items:flex-start!important}
+  .community-comment-user{align-items:flex-start!important}
+  .community-comment-delete,.community-admin-remove{margin-top:4px}
+  .thread-identity .community-identity>div>strong,.community-comment-user strong{white-space:normal!important}
+}
