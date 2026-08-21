@@ -1,0 +1,256 @@
+/* Neural Critic Reader Thread — reference-aligned final tuning.
+   Familiar publication proportions, Neural Critic color language. */
+
+/* Flatter, more editorial thread canvas. */
+.article-thread.standard-thread{
+  border-radius:16px!important;
+  background:linear-gradient(180deg,#232628 0%,#202325 100%)!important;
+  border-color:#34393d!important;
+  box-shadow:0 24px 58px rgba(0,0,0,.18)!important;
+}
+.standard-thread .standard-thread-shell{padding:30px 34px 32px!important}
+
+/* Header: stronger visual anchor with a short NC accent. */
+.standard-thread .thread-head{
+  position:relative;
+  padding-bottom:16px!important;
+  border-bottom:1px solid #777d81!important;
+}
+.standard-thread .thread-head::after{
+  content:'';
+  position:absolute;
+  left:0;
+  bottom:-1px;
+  width:132px;
+  height:2px;
+  border-radius:99px;
+  background:linear-gradient(90deg,#55e7ff,#7180ff);
+}
+.standard-thread-title strong{font-size:22px!important}
+.standard-thread-intro{
+  margin:14px 0 12px!important;
+  max-width:none!important;
+  font-size:13px!important;
+  line-height:1.5!important;
+}
+
+/* Composer: compact single-line bar at rest, expands only while writing. */
+.standard-thread form[data-thread-form]{
+  grid-template-columns:38px minmax(0,1fr)!important;
+  align-items:center!important;
+  gap:10px!important;
+  margin:0 0 26px!important;
+  padding:10px 12px!important;
+  min-height:62px!important;
+  border:1px solid #3c4145!important;
+  border-radius:10px!important;
+  background:#101214!important;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.025)!important;
+}
+.standard-composer-avatar{
+  align-self:center!important;
+  width:34px!important;
+  height:34px!important;
+  margin:0!important;
+  border-color:#70777c!important;
+  background:#2d3235!important;
+  box-shadow:none!important;
+  font-size:10px!important;
+}
+.standard-thread form[data-thread-form] textarea{
+  display:block!important;
+  box-sizing:border-box!important;
+  width:100%!important;
+  height:42px!important;
+  min-height:42px!important;
+  max-height:42px!important;
+  padding:10px 15px!important;
+  overflow:hidden!important;
+  resize:none!important;
+  border:1px solid #747a7f!important;
+  border-radius:999px!important;
+  background:#343638!important;
+  color:#f5f6f7!important;
+  font-size:14px!important;
+  font-weight:700!important;
+  line-height:20px!important;
+  transition:min-height .18s ease,max-height .18s ease,height .18s ease,border-radius .18s ease,background .18s ease,border-color .18s ease!important;
+}
+.standard-thread form[data-thread-form] textarea::placeholder{color:#eef0f1!important;opacity:.9!important}
+.standard-thread form[data-thread-form]>div{
+  grid-column:2!important;
+  display:flex!important;
+  justify-content:flex-end!important;
+  align-items:center!important;
+  min-height:0!important;
+  height:0!important;
+  padding:0!important;
+  opacity:0!important;
+  overflow:hidden!important;
+  pointer-events:none!important;
+  transition:height .18s ease,opacity .18s ease,padding .18s ease!important;
+}
+.standard-thread form[data-thread-form]:focus-within,
+.standard-thread form[data-thread-form].has-value{
+  align-items:start!important;
+}
+.standard-thread form[data-thread-form]:focus-within .standard-composer-avatar,
+.standard-thread form[data-thread-form].has-value .standard-composer-avatar{margin-top:2px!important}
+.standard-thread form[data-thread-form]:focus-within textarea,
+.standard-thread form[data-thread-form].has-value textarea{
+  height:112px!important;
+  min-height:112px!important;
+  max-height:180px!important;
+  padding:13px 15px!important;
+  overflow:auto!important;
+  resize:vertical!important;
+  border-radius:10px!important;
+  border-color:#55bdd0!important;
+  background:#1a1d20!important;
+}
+.standard-thread form[data-thread-form]:focus-within>div,
+.standard-thread form[data-thread-form].has-value>div{
+  height:42px!important;
+  padding-top:8px!important;
+  opacity:1!important;
+  pointer-events:auto!important;
+}
+.standard-thread form[data-thread-form] button[type="submit"]{
+  min-width:112px!important;
+  min-height:32px!important;
+  border-radius:6px!important;
+}
+
+/* Sort is compact and secondary, like a standard publication control. */
+.standard-sort-row{
+  margin:0 0 20px!important;
+  gap:8px!important;
+  color:#eef1f2!important;
+  font-size:12px!important;
+  font-weight:700!important;
+}
+.standard-sort-row select{
+  width:auto!important;
+  min-width:116px!important;
+  height:32px!important;
+  border-radius:5px!important;
+  background:#303335!important;
+  border-color:#62686d!important;
+  font-size:11px!important;
+}
+
+/* Comment surface: neutral rather than blue/black app-card. */
+.standard-thread .thread-list{gap:14px!important}
+.standard-thread .community-comment{
+  padding:18px 18px 17px!important;
+  border:1px solid #3b4146!important;
+  border-radius:9px!important;
+  background:linear-gradient(180deg,#15181a 0%,#121517 100%)!important;
+  box-shadow:0 12px 28px rgba(0,0,0,.16)!important;
+}
+.standard-thread .community-comment::before{
+  content:'';
+  position:absolute;
+  left:0;
+  top:0;
+  bottom:0;
+  width:2px;
+  background:linear-gradient(180deg,#55e7ff,transparent 55%);
+  opacity:.62;
+}
+.standard-thread .community-comment:hover{
+  transform:none!important;
+  border-color:#505a60!important;
+  box-shadow:0 14px 32px rgba(0,0,0,.19)!important;
+}
+.standard-thread .community-comment-user>.community-avatar{
+  width:40px!important;
+  height:40px!important;
+  flex-basis:40px!important;
+  background:#33383b!important;
+  border-color:#5e696f!important;
+  box-shadow:none!important;
+}
+.standard-thread .community-comment-user strong{
+  font-size:14px!important;
+  font-weight:800!important;
+  color:#fff!important;
+}
+.standard-thread .community-comment-user small{
+  margin-top:3px!important;
+  color:#a6afb5!important;
+  font-size:9.5px!important;
+  font-weight:600!important;
+}
+.standard-thread .community-comment-head:after{
+  top:62px!important;
+  left:18px!important;
+  right:18px!important;
+  background:#50565b!important;
+}
+.standard-thread .community-comment-body{
+  margin:24px 0 8px!important;
+  max-width:none!important;
+  color:#f3f5f6!important;
+  font-size:14.5px!important;
+  font-weight:500!important;
+  line-height:1.62!important;
+}
+.standard-thread .community-comment-footer{
+  margin-top:17px!important;
+  gap:6px!important;
+}
+
+/* Familiar, restrained action buttons. */
+.standard-comment-action{
+  min-height:31px!important;
+  padding:0 9px!important;
+  border-radius:6px!important;
+  border-color:#454b4f!important;
+  background:#2a2e30!important;
+  color:#edf0f1!important;
+}
+.standard-comment-action:hover{
+  background:#34393c!important;
+  border-color:#626a70!important;
+}
+.standard-vote::before,.standard-reply::before,.standard-copy::before{font-size:17px!important}
+.standard-vote::after,.standard-reply::after,.standard-copy::after,.standard-vote .count{font-size:9.5px!important}
+
+/* Top-right owner/moderation actions: one icon + one label only. */
+.standard-thread .community-comment-menu button{
+  min-width:auto!important;
+  min-height:28px!important;
+  padding:0 7px!important;
+  gap:5px!important;
+  border-radius:5px!important;
+}
+.standard-thread .community-comment-menu button::before{font-size:15px!important}
+.standard-thread .community-comment-menu button::after{
+  font-size:9px!important;
+  text-transform:none!important;
+}
+.standard-thread .community-comment-menu .community-comment-edit{color:#aeb7bd!important}
+.standard-thread .community-comment-menu .community-comment-delete{color:#f18c98!important}
+
+/* Replies use indentation, not another unrelated visual block. */
+.standard-thread .community-replies,
+.standard-thread .community-comment-replies{
+  margin:16px 0 0 24px!important;
+  padding-left:14px!important;
+  border-left:2px solid rgba(85,231,255,.22)!important;
+}
+.standard-thread .community-reply{
+  background:#171a1c!important;
+  box-shadow:none!important;
+}
+
+@media(max-width:760px){
+  .article-thread.standard-thread{border-radius:12px!important}
+  .standard-thread .standard-thread-shell{padding:24px 16px 26px!important}
+  .standard-thread .thread-head::after{width:92px}
+  .standard-thread form[data-thread-form]{grid-template-columns:34px minmax(0,1fr)!important;padding:9px!important}
+  .standard-composer-avatar{width:32px!important;height:32px!important}
+  .standard-thread .community-comment{padding:16px!important}
+  .standard-thread .community-comment-head:after{left:16px!important;right:16px!important}
+}
