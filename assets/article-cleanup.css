@@ -1,1 +1,39 @@
-.work-bottom-sidebar .work-follow-card{display:none!important}.work-bottom-sidebar{align-content:start}
+/* Article bottom-area cleanup.
+   The duplicate follow/newsletter modules were removed, so the bottom layout
+   should no longer reserve an empty sidebar column. */
+
+.work-bottom-sidebar .work-follow-card{display:none!important}
+
+#article.work-article-page>.work-bottom-grid{
+  width:min(1150px,100%)!important;
+  display:block!important;
+  margin:78px auto 0!important;
+}
+
+#article.work-article-page>.work-bottom-grid>div{
+  width:100%!important;
+  min-width:0!important;
+}
+
+#article.work-article-page .work-bottom-sidebar{
+  display:none!important;
+}
+
+#article.work-article-page #reader-thread{
+  width:100%!important;
+  max-width:none!important;
+}
+
+#article.work-article-page>.work-newsletter-band{
+  width:min(1150px,100%)!important;
+  margin:64px auto 0!important;
+}
+
+@media(max-width:900px){
+  #article.work-article-page>.work-bottom-grid{
+    margin-top:54px!important;
+  }
+  #article.work-article-page>.work-newsletter-band{
+    margin-top:48px!important;
+  }
+}
