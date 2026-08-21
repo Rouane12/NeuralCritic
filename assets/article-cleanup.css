@@ -1,13 +1,39 @@
-/* Article bottom-area cleanup.
-   The duplicate follow/newsletter modules were removed, so the bottom layout
-   should no longer reserve an empty sidebar column. */
+/* Final article layout cleanup.
+   Loaded after community styles so article geometry stays consistent across
+   standard, review, guide, and ranked-list templates. */
 
 .work-bottom-sidebar .work-follow-card{display:none!important}
 
+/* Keep long-form reading layouts compatible with sticky utilities. */
+#article.work-article-page>.work-reading-grid,
+#article.ranked-list-page>.work-reading-grid{
+  overflow:visible!important;
+  align-items:start!important;
+}
+
+/* The action rail should follow the reader through long articles. */
+#article.work-article-page .work-react-rail.standard-react-rail{
+  position:sticky!important;
+  top:112px!important;
+  align-self:start!important;
+  height:max-content!important;
+  z-index:3!important;
+}
+
+/* Keep the TOC / author column in sync with the reading position too. */
+#article.work-article-page .work-article-sidebar{
+  position:sticky!important;
+  top:110px!important;
+  align-self:start!important;
+  height:max-content!important;
+}
+
+/* The duplicate lower sidebar is gone, but the discussion should not become
+   a giant full-width slab. Give it a familiar publication discussion width. */
 #article.work-article-page>.work-bottom-grid{
-  width:min(1150px,100%)!important;
   display:block!important;
-  margin:78px auto 0!important;
+  width:min(980px,100%)!important;
+  margin:60px auto 0!important;
 }
 
 #article.work-article-page>.work-bottom-grid>div{
@@ -24,16 +50,42 @@
   max-width:none!important;
 }
 
+/* Keep the single newsletter CTA wider than the discussion so it acts as a
+   deliberate full-width ending to the article. */
 #article.work-article-page>.work-newsletter-band{
   width:min(1150px,100%)!important;
-  margin:64px auto 0!important;
+  margin:52px auto 0!important;
 }
 
 @media(max-width:900px){
-  #article.work-article-page>.work-bottom-grid{
-    margin-top:54px!important;
+  /* Below this breakpoint the action rail becomes the horizontal mobile row. */
+  #article.work-article-page .work-react-rail.standard-react-rail{
+    position:relative!important;
+    top:auto!important;
+    align-self:auto!important;
+    height:auto!important;
+    z-index:auto!important;
   }
-  #article.work-article-page>.work-newsletter-band{
+
+  #article.work-article-page .work-article-sidebar{
+    position:relative!important;
+    top:auto!important;
+    align-self:auto!important;
+    height:auto!important;
+  }
+
+  #article.work-article-page>.work-bottom-grid{
+    width:100%!important;
     margin-top:48px!important;
+  }
+
+  #article.work-article-page>.work-newsletter-band{
+    margin-top:42px!important;
+  }
+}
+
+@media(max-width:620px){
+  #article.work-article-page>.work-bottom-grid{
+    margin-top:40px!important;
   }
 }
