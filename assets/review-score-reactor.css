@@ -1,4 +1,7 @@
 /* Neural Critic animated review score reactor. */
+#article.work-review-page>.work-hero-figure + .review-parity-card{
+  margin-top:46px;
+}
 .review-parity-score{
   position:relative;
   isolation:isolate;
@@ -86,6 +89,12 @@
   transform:translateY(5px);
   transition:opacity .35s ease .12s,transform .35s ease .12s;
 }
+.review-score-verdict{
+  color:#55e7ff;
+  font-size:8px;
+  font-weight:950;
+  letter-spacing:.14em;
+}
 .review-parity-score.is-complete .review-score-label{opacity:1;transform:none}
 .review-score-reactor::selection,.review-score-value::selection{background:transparent}
 @keyframes ncScoreOrbit{
@@ -109,12 +118,15 @@ html[data-theme="light"] .review-score-reactor::after{
 }
 html[data-theme="light"] .review-score-value{color:#101827!important;text-shadow:none}
 html[data-theme="light"] .review-score-denominator{color:#718096}
+html[data-theme="light"] .review-score-verdict{color:#087f99}
 @media(max-width:900px){
+  #article.work-review-page>.work-hero-figure + .review-parity-card{margin-top:36px}
   .review-score-reactor{width:96px}
   .review-score-value{font-size:40px!important}
   .review-score-denominator{bottom:20px}
 }
 @media(max-width:640px){
+  #article.work-review-page>.work-hero-figure + .review-parity-card{margin-top:26px}
   .review-parity-score{gap:15px!important}
   .review-score-reactor{width:86px;flex:0 0 auto}
   .review-score-value{font-size:36px!important}
