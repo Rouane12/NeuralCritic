@@ -48,6 +48,22 @@
     return profile?.avatar_url || 'images/editorial/499627ae-e4d1-40d6-be0d-45efc750a1d9.jpg';
   }
 
+  function updateAccountVisual() {
+    const button = $('.reader-account-button');
+    if (!button) return;
+    const dot = $('.reader-account-dot', button);
+    const label = $('[data-reader-account-label]', button);
+    if (label && session) label.textContent = profile?.display_name || 'ACCOUNT';
+    if (!dot) return;
+    if (session?.user) {
+      dot.classList.add('reader-account-avatar');
+      dot.style.backgroundImage = `url("${avatarPreviewUrl().replace(/"/g,'\\"')}")`;
+    } else {
+      dot.classList.remove('reader-account-avatar');
+      dot.style.backgroundImage = '';
+    }
+  }
+
   function ensureProfileEditor() {
     const card = $('.reader-auth-card');
     if (!card) return;
@@ -95,6 +111,7 @@
         if (updateError) throw updateError;
         profile = {...(profile || {}), avatar_url:url};
         $('.reader-profile-avatar', editor).src = url;
+        updateAccountVisual();
         toast('Reader avatar updated.');
         button.disabled = false; button.textContent = 'UPLOAD AVATAR';
       } catch (error) {
@@ -112,9 +129,9 @@
         if (error) throw error;
         await client.auth.updateUser({data:{display_name:name}});
         profile = {...(profile || {}), display_name:name};
-        $('[data-reader-account-label]') && ($('[data-reader-account-label]').textContent = name);
         $$('[data-reader-name]').forEach(el => el.textContent = name);
         $('.reader-profile-head strong', editor).textContent = name;
+        updateAccountVisual();
         toast('Reader profile saved.');
       } catch (error) { toast(error?.message || 'Could not save profile.', true); }
     });
@@ -188,6 +205,7 @@
   function watchCommunity() {
     const observer = new MutationObserver(() => {
       ensureProfileEditor();
+      updateAccountVisual();
       refreshCommentDecorations();
     });
     observer.observe(document.body, {childList:true, subtree:true});
@@ -196,11 +214,13 @@
   async function init() {
     await loadViewer();
     ensureProfileEditor();
+    updateAccountVisual();
     refreshCommentDecorations();
     watchCommunity();
     client.auth.onAuthStateChange(async () => {
       await loadViewer();
       ensureProfileEditor();
+      updateAccountVisual();
       setTimeout(refreshCommentDecorations, 50);
     });
   }
