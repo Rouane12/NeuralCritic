@@ -1,0 +1,72 @@
+/* Neural Critic visual polish pass — light-mode surface and contrast fixes. */
+
+/* Editorial Studio: the legacy site stylesheet still gave the editor column a dark shell.
+   In light mode, make the outer workspace an elevated light surface so all nested controls
+   belong to the same visual system. */
+html[data-theme="light"] body.studio-body .studio-editor{
+  background:linear-gradient(145deg,rgba(255,255,255,.90),rgba(244,247,248,.84))!important;
+  border:1px solid #d3dce1!important;
+  border-radius:20px!important;
+  box-shadow:0 24px 70px rgba(45,57,68,.09)!important;
+  padding:28px!important;
+}
+html[data-theme="light"] body.studio-body .studio-heading h1{
+  color:#111820!important;
+  text-shadow:none!important;
+}
+html[data-theme="light"] body.studio-body .studio-heading p{color:#607181!important}
+html[data-theme="light"] body.studio-body .studio-panel{
+  background:linear-gradient(145deg,#ffffff,#f8faf9)!important;
+  border-color:#d0d9df!important;
+  box-shadow:0 10px 30px rgba(46,58,69,.045)!important;
+}
+html[data-theme="light"] body.studio-body .studio-library{
+  background:linear-gradient(145deg,#ffffff,#f7f9fa)!important;
+  border-color:#ccd7de!important;
+  box-shadow:0 18px 55px rgba(41,54,66,.08)!important;
+}
+html[data-theme="light"] body.studio-body .library-story h3{color:#1b252e!important}
+html[data-theme="light"] body.studio-body .library-story p{color:#657483!important}
+
+/* Homepage review showcase: keep the feature card intentionally dark in light mode,
+   but use strong foreground contrast. */
+html[data-theme="light"] .reviews-intro>a{
+  color:#087f98!important;
+  border-bottom-color:#23bdd8!important;
+  opacity:1!important;
+}
+html[data-theme="light"] .reviews-intro>a:hover{color:#045d72!important;border-bottom-color:#087f98!important}
+html[data-theme="light"] #review-showcase .review-showcase{
+  background:linear-gradient(135deg,#20283f 0%,#343b58 58%,#404761 100%)!important;
+  border-color:#465775!important;
+  box-shadow:0 24px 58px rgba(31,38,55,.20)!important;
+  color:#f7f9ff!important;
+}
+html[data-theme="light"] #review-showcase .review-showcase-copy{
+  color:#f7f9ff!important;
+}
+html[data-theme="light"] #review-showcase .review-showcase-score{
+  border-right-color:#5a6686!important;
+}
+html[data-theme="light"] #review-showcase .review-showcase-score b{color:#57dff5!important}
+html[data-theme="light"] #review-showcase .review-showcase-score small{color:#b9c4d8!important}
+html[data-theme="light"] #review-showcase .review-showcase-copy>div:last-child>small{color:#5be5fa!important}
+html[data-theme="light"] #review-showcase .review-showcase h3,
+html[data-theme="light"] #review-showcase .review-showcase-copy h3{color:#ffffff!important}
+html[data-theme="light"] #review-showcase .review-showcase p{color:#d5dbea!important}
+html[data-theme="light"] #review-showcase .review-showcase strong{color:#65e9ff!important}
+
+/* Ranked-list watermark numbers should remain decorative, but must still read as intentional. */
+html[data-theme="light"] #article.ranked-list-page .ranked-card .rank-number{
+  color:rgba(15,167,194,.08)!important;
+  -webkit-text-stroke:2px rgba(16,166,195,.38)!important;
+  opacity:1!important;
+  text-shadow:0 0 28px rgba(39,194,219,.10)!important;
+}
+
+@media(max-width:900px){
+  html[data-theme="light"] body.studio-body .studio-editor{padding:22px!important}
+}
+@media(max-width:620px){
+  html[data-theme="light"] body.studio-body .studio-editor{padding:16px!important;border-radius:16px!important}
+}
