@@ -1,0 +1,202 @@
+/* Neural Critic community geometry correction.
+   Final override for compact publication-style composer and mathematically centered rail icons. */
+
+/* ---------- ARTICLE ACTION RAIL ---------- */
+.work-react-rail.standard-react-rail{
+  gap:8px!important;
+}
+.work-react-rail.standard-react-rail button{
+  align-items:center!important;
+  justify-items:stretch!important;
+  padding:0!important;
+}
+.work-react-rail.standard-react-rail button small{
+  display:flex!important;
+  align-items:center!important;
+  justify-content:flex-end!important;
+  height:42px!important;
+  padding:0 2px 0 0!important;
+  line-height:1!important;
+}
+.work-react-rail.standard-react-rail button b{
+  position:relative!important;
+  display:grid!important;
+  place-items:center!important;
+  align-self:center!important;
+  justify-self:center!important;
+  box-sizing:border-box!important;
+  width:42px!important;
+  height:42px!important;
+  margin:0!important;
+  padding:0!important;
+  line-height:0!important;
+}
+.work-react-rail.standard-react-rail button b::before{
+  display:block!important;
+  width:20px!important;
+  height:20px!important;
+  margin:0!important;
+  padding:0!important;
+  font-size:20px!important;
+  line-height:20px!important;
+  text-align:center!important;
+  transform:none!important;
+}
+.work-react-rail.standard-react-rail::after{
+  right:20px!important;
+}
+.standard-thread-count{
+  top:-4px!important;
+  right:-6px!important;
+  display:grid!important;
+  place-items:center!important;
+  line-height:1!important;
+}
+
+/* ---------- THREAD HEADER / ACCOUNT ---------- */
+.standard-thread .thread-head{
+  gap:24px!important;
+}
+.standard-thread-account{
+  display:flex!important;
+  align-items:center!important;
+  justify-content:flex-end!important;
+  gap:9px!important;
+  min-height:34px!important;
+  padding:0!important;
+  color:#aeb7bd!important;
+  font-size:10.5px!important;
+  font-weight:600!important;
+  letter-spacing:0!important;
+  white-space:nowrap!important;
+}
+.standard-thread-account span:first-child{
+  display:inline-flex!important;
+  align-items:baseline!important;
+  gap:4px!important;
+}
+.standard-thread-account strong{
+  font-size:11px!important;
+  font-weight:800!important;
+  letter-spacing:.01em!important;
+}
+.standard-thread-account .account-dot{
+  display:grid!important;
+  place-items:center!important;
+  width:30px!important;
+  height:30px!important;
+  flex:0 0 30px!important;
+  margin:0!important;
+}
+.standard-thread-account .account-dot::before{
+  display:block!important;
+  width:18px!important;
+  height:18px!important;
+  font-size:18px!important;
+  line-height:18px!important;
+  text-align:center!important;
+}
+
+/* ---------- COMPOSER ----------
+   Focus remains compact. The field expands only once it contains text. */
+.standard-thread form[data-thread-form]{
+  grid-template-columns:36px minmax(0,1fr)!important;
+  align-items:center!important;
+  gap:10px!important;
+  min-height:58px!important;
+  margin:0 0 25px!important;
+  padding:9px 11px!important;
+  border-radius:9px!important;
+}
+.standard-composer-avatar{
+  width:34px!important;
+  height:34px!important;
+  min-width:34px!important;
+  align-self:center!important;
+  justify-self:center!important;
+  margin:0!important;
+}
+.standard-thread form[data-thread-form] textarea,
+.standard-thread form[data-thread-form]:focus-within textarea{
+  box-sizing:border-box!important;
+  width:100%!important;
+  height:40px!important;
+  min-height:40px!important;
+  max-height:40px!important;
+  margin:0!important;
+  padding:9px 15px!important;
+  overflow:hidden!important;
+  resize:none!important;
+  border-radius:999px!important;
+  border-color:#737a7f!important;
+  background:#343638!important;
+  font-size:13.5px!important;
+  line-height:20px!important;
+  box-shadow:none!important;
+}
+.standard-thread form[data-thread-form]:focus-within{
+  align-items:center!important;
+}
+.standard-thread form[data-thread-form]:focus-within .standard-composer-avatar{
+  margin:0!important;
+}
+.standard-thread form[data-thread-form]>div,
+.standard-thread form[data-thread-form]:focus-within>div{
+  grid-column:2!important;
+  height:0!important;
+  min-height:0!important;
+  padding:0!important;
+  opacity:0!important;
+  overflow:hidden!important;
+  pointer-events:none!important;
+}
+
+/* Expand only after actual text input. */
+.standard-thread form[data-thread-form].has-value{
+  align-items:start!important;
+  min-height:120px!important;
+  padding-top:11px!important;
+  padding-bottom:10px!important;
+}
+.standard-thread form[data-thread-form].has-value .standard-composer-avatar{
+  margin-top:2px!important;
+}
+.standard-thread form[data-thread-form].has-value textarea,
+.standard-thread form[data-thread-form].has-value:focus-within textarea{
+  height:78px!important;
+  min-height:78px!important;
+  max-height:140px!important;
+  padding:12px 14px!important;
+  overflow:auto!important;
+  resize:vertical!important;
+  border-radius:9px!important;
+  border-color:#55bdd0!important;
+  background:#1a1d20!important;
+  box-shadow:0 0 0 3px rgba(85,231,255,.06)!important;
+}
+.standard-thread form[data-thread-form].has-value>div,
+.standard-thread form[data-thread-form].has-value:focus-within>div{
+  height:36px!important;
+  min-height:36px!important;
+  padding-top:7px!important;
+  opacity:1!important;
+  overflow:visible!important;
+  pointer-events:auto!important;
+}
+
+/* Give the content below the composer a deliberate rhythm. */
+.standard-sort-row{
+  margin:2px 0 20px!important;
+}
+.standard-thread .thread-list{
+  margin-top:0!important;
+}
+
+@media(max-width:760px){
+  .standard-thread .thread-head{gap:12px!important}
+  .standard-thread-account span:first-child{display:none!important}
+  .standard-thread form[data-thread-form]{grid-template-columns:32px minmax(0,1fr)!important;gap:8px!important;padding:8px 9px!important}
+  .standard-composer-avatar{width:30px!important;height:30px!important;min-width:30px!important}
+  .standard-thread form[data-thread-form] textarea,
+  .standard-thread form[data-thread-form]:focus-within textarea{height:38px!important;min-height:38px!important;max-height:38px!important;padding:8px 13px!important}
+}
