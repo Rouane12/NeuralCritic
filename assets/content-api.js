@@ -30,7 +30,10 @@
       featured: row.homepage_slot === 'lead',
       homepageSlot: row.homepage_slot || 'regular',
       publishedAt: row.published_at,
-      imageLocal: row.image_url || ''
+      imageLocal: row.image_url || '',
+      editorialSection: row.editorial_section || null,
+      platforms: Array.isArray(row.platforms) ? row.platforms : [],
+      collection: row.collection || null
     };
   }
 
@@ -120,7 +123,11 @@
     const params = new URLSearchParams(location.search);
     const slug = params.get('slug');
     const category = params.get('category');
+    const section = params.get('section');
+    const platform = params.get('platform');
+    const collection = params.get('collection');
     if (slug) return `article:${slug}`;
+    if (section || platform || collection) return `discovery:${section || collection || 'all'}${platform ? `:${platform}` : ''}`;
     if (category) return `category:${category}`;
     if (location.pathname.endsWith('index.html') || location.pathname.endsWith('/')) return 'homepage';
     return location.pathname.split('/').pop() || 'unknown';
