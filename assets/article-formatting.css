@@ -1,0 +1,105 @@
+/* Neural Critic editorial text personalities */
+#article.work-article-page .nc-editorial-heading{
+  position:relative;
+  max-width:20ch;
+  font-family:Arial,Helvetica,sans-serif!important;
+}
+#article.work-article-page .nc-heading-editorial>.nc-editorial-heading::after{
+  content:"";
+  display:block;
+  width:52px;
+  height:3px;
+  margin-top:14px;
+  border-radius:999px;
+  background:linear-gradient(90deg,#55e7ff,#7568ff);
+}
+#article.work-article-page .nc-heading-display>.nc-editorial-heading{
+  max-width:15ch;
+  margin-top:72px!important;
+  font-size:clamp(44px,5vw,64px)!important;
+  line-height:.96!important;
+  letter-spacing:-.055em!important;
+  font-weight:780!important;
+}
+#article.work-article-page .nc-heading-display>.nc-editorial-heading::before{
+  content:"FEATURE FOCUS";
+  display:block;
+  margin-bottom:12px;
+  color:#55e7ff;
+  font-size:9px;
+  font-weight:950;
+  letter-spacing:.18em;
+}
+#article.work-article-page .nc-heading-accent>.nc-editorial-heading{
+  max-width:17ch;
+  color:transparent!important;
+  background:linear-gradient(100deg,#f8fbff 0%,#8ff3ff 48%,#9b88ff 100%);
+  -webkit-background-clip:text;
+  background-clip:text;
+  font-size:clamp(40px,4.4vw,56px)!important;
+  font-weight:760!important;
+}
+#article.work-article-page .nc-heading-accent>.nc-editorial-heading::after{
+  content:"";
+  display:block;
+  width:min(180px,42%);
+  height:2px;
+  margin-top:16px;
+  background:linear-gradient(90deg,#55e7ff,#806dff,transparent);
+}
+#article.work-article-page .nc-heading-statement{
+  position:relative;
+  padding:22px 0 4px 24px;
+}
+#article.work-article-page .nc-heading-statement::before{
+  content:"";
+  position:absolute;
+  left:0;
+  top:20px;
+  bottom:0;
+  width:4px;
+  border-radius:999px;
+  background:linear-gradient(180deg,#55e7ff,#7766ff);
+  box-shadow:0 0 24px rgba(82,230,255,.2);
+}
+#article.work-article-page .nc-heading-statement>.nc-editorial-heading{
+  margin-top:30px!important;
+  max-width:18ch;
+  font-size:clamp(37px,4vw,50px)!important;
+  line-height:1!important;
+  font-weight:760!important;
+}
+#article.work-article-page .nc-heading-statement>.nc-editorial-heading::before{
+  content:"EDITORIAL POINT";
+  display:block;
+  margin-bottom:10px;
+  color:#8b94ae;
+  font-size:8px;
+  font-weight:950;
+  letter-spacing:.18em;
+}
+.nc-text-highlight{
+  padding:.02em .22em .08em;
+  border-radius:.28em;
+  background:linear-gradient(100deg,rgba(85,231,255,.19),rgba(124,104,255,.18));
+  color:inherit;
+  box-decoration-break:clone;
+  -webkit-box-decoration-break:clone;
+}
+.nc-text-accent{
+  color:#61e8ff;
+  font-weight:760;
+}
+html[data-theme="light"] #article.work-article-page .nc-heading-accent>.nc-editorial-heading{
+  background:linear-gradient(100deg,#121a22 0%,#0b8399 48%,#6550ce 100%);
+  -webkit-background-clip:text;
+  background-clip:text;
+}
+html[data-theme="light"] .nc-text-highlight{background:linear-gradient(100deg,rgba(23,176,201,.14),rgba(105,82,214,.12))}
+html[data-theme="light"] .nc-text-accent{color:#087f99}
+@media(max-width:620px){
+  #article.work-article-page .nc-heading-display>.nc-editorial-heading{font-size:42px!important;margin-top:52px!important}
+  #article.work-article-page .nc-heading-accent>.nc-editorial-heading{font-size:39px!important}
+  #article.work-article-page .nc-heading-statement{padding-left:18px}
+  #article.work-article-page .nc-heading-statement>.nc-editorial-heading{font-size:37px!important}
+}
