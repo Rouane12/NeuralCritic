@@ -121,7 +121,10 @@
 
   function leadMarkup(article){
     if (!article) return `<div class="wtp-lead wtp-lead-empty"><div class="wtp-lead-media"><div class="wtp-placeholder">WHAT TO PLAY</div></div><div class="wtp-lead-copy"><span>DISCOVERY DESK</span><h2>Your next favorite game starts here.</h2><p>No recommendations have been published to What to Play yet. The first real pick will take over this space automatically when it is assigned in Editorial Studio.</p><a class="wtp-lead-cta" href="studio.html">OPEN EDITORIAL STUDIO →</a></div></div>`;
-    return `<a class="wtp-lead" href="${articleUrl(article)}"><div class="wtp-lead-media">${image(article)}</div><div class="wtp-lead-copy"><span>NEURAL CRITIC RECOMMENDS</span><h2>${esc(article.title)}</h2><p>${esc(article.description)}</p><div class="wtp-lead-byline">BY ${esc(article.author)} · ${readMinutes(article)} MIN READ · ${fmtDate(article.publishedAt)}</div><div class="wtp-lead-cta">READ THE PICK →</div></div></a>`;
+    const ranked = article.articleFormat === 'ranked-list' && article.contentBlocks.length > 0;
+    const rankingMeta = ranked ? `${article.contentBlocks.length}-GAME RANKING · ` : '';
+    const cta = ranked ? 'EXPLORE THE RANKING →' : 'READ THE PICK →';
+    return `<a class="wtp-lead" href="${articleUrl(article)}"><div class="wtp-lead-media">${image(article)}</div><div class="wtp-lead-copy"><span>${esc(storyType(article))}</span><h2>${esc(article.title)}</h2><p>${esc(article.description)}</p><div class="wtp-lead-byline">${rankingMeta}BY ${esc(article.author)} · ${readMinutes(article)} MIN READ · ${fmtDate(article.publishedAt)}</div><div class="wtp-lead-cta">${cta}</div></div></a>`;
   }
 
   function render(all){
