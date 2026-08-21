@@ -32,4 +32,11 @@
       return response;
     }
   };
+
+  if (!document.querySelector('script[data-publication-nav]')) {
+    const script = document.createElement('script');
+    script.src = 'assets/publication-nav.js';
+    script.dataset.publicationNav = '1';
+    document.head.appendChild(script);
+  }
 })();
