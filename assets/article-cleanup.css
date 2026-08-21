@@ -11,6 +11,20 @@
   align-items:start!important;
 }
 
+/* Cross-page links to article sections should land below the sticky header. */
+#article.work-article-page .article-body>section[id]{
+  scroll-margin-top:132px;
+}
+
+#article.work-article-page .article-body>section.article-deep-link-target{
+  animation:ncDeepLinkPulse 1.45s ease-out;
+}
+
+@keyframes ncDeepLinkPulse{
+  0%{outline:2px solid rgba(85,231,255,.78);outline-offset:8px;box-shadow:0 0 0 8px rgba(85,231,255,.08)}
+  100%{outline:2px solid transparent;outline-offset:18px;box-shadow:0 0 0 16px transparent}
+}
+
 /* The action rail should follow the reader through long articles. */
 #article.work-article-page .work-react-rail.standard-react-rail{
   position:sticky!important;
@@ -72,6 +86,10 @@
     top:auto!important;
     align-self:auto!important;
     height:auto!important;
+  }
+
+  #article.work-article-page .article-body>section[id]{
+    scroll-margin-top:96px;
   }
 
   #article.work-article-page>.work-bottom-grid{
