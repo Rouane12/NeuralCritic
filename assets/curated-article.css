@@ -1,0 +1,15 @@
+/* Curated article franchise identity */
+.curated-article-badge{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin:0 0 16px;padding:10px 12px;width:max-content;max-width:100%;border:1px solid #55e7ff55;border-radius:999px;background:linear-gradient(105deg,#55e7ff12,#6c5cff12);color:#dffbff;font-size:9px;font-weight:950;letter-spacing:.09em;text-transform:uppercase;box-shadow:0 10px 30px #0002}
+.curated-article-badge .material-symbols-rounded{font-size:18px;line-height:1;color:#55e7ff}
+.curated-article-badge strong{color:#55e7ff;font-size:9px;white-space:nowrap}
+.curated-article-badge span:not(.material-symbols-rounded){padding-left:9px;border-left:1px solid #55e7ff33;color:#aab7ca;white-space:nowrap}
+.curated-article-badge a{color:#dffbff;text-decoration:none}
+.curated-article-badge a:hover{color:#55e7ff}
+.curated-article-badge.is-goty{border-color:#8d79ff66;background:linear-gradient(105deg,#6c5cff20,#55e7ff12)}
+.curated-article-badge.is-goty .material-symbols-rounded,.curated-article-badge.is-goty strong{color:#a894ff}
+html[data-theme="light"] .curated-article-badge{border-color:#82cad4;background:linear-gradient(105deg,#edfafd,#f4f1ff);color:#1d2932;box-shadow:0 10px 28px #52627118}
+html[data-theme="light"] .curated-article-badge strong{color:#087f99}
+html[data-theme="light"] .curated-article-badge span:not(.material-symbols-rounded){color:#617381;border-left-color:#afdce2}
+html[data-theme="light"] .curated-article-badge a{color:#1d2932}
+html[data-theme="light"] .curated-article-badge a:hover{color:#087f99}
+@media(max-width:620px){.curated-article-badge{gap:7px;border-radius:14px;padding:9px 10px}.curated-article-badge span:not(.material-symbols-rounded){padding-left:7px}.curated-article-badge strong,.curated-article-badge span:not(.material-symbols-rounded){white-space:normal}}
