@@ -41,13 +41,13 @@ jobs:
 
       - name: Commit generated publication files
         run: |
-          if git diff --quiet && [ -z "$(git status --porcelain reviews features guides news sitemap.xml robots.txt .generated-routes.json 2>/dev/null)" ]; then
+          if git diff --quiet && [ -z "$(git status --porcelain)" ]; then
             echo "Publication routes are already current."
             exit 0
           fi
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add reviews features guides news sitemap.xml robots.txt .generated-routes.json
+          git add -A
           git commit -m "Refresh Neural Critic publication routes"
           git pull --rebase origin main
           git push
