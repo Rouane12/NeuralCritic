@@ -1,16 +1,50 @@
-name: Build publication routes (paused)
+name: Refresh publication sitemap
 
-# Pretty publication routes are temporarily paused while Neural Critic uses the
-# proven article.html?slug= runtime. Re-enable only after the generated route
-# architecture is rebuilt without affecting article hydration/assets.
 on:
+  push:
+    branches: [main]
+    paths:
+      - scripts/build_sitemap.py
+      - assets/supabase-config.js
+      - .github/workflows/build-publication.yml
+  schedule:
+    - cron: '*/15 * * * *'
   workflow_dispatch:
 
 permissions:
   contents: write
 
+concurrency:
+  group: neural-critic-sitemap-refresh
+  cancel-in-progress: false
+
 jobs:
-  paused:
+  refresh:
     runs-on: ubuntu-latest
+    timeout-minutes: 5
     steps:
-      - run: echo "Neural Critic pretty-route generation is intentionally paused."
+      - name: Check out repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Refresh sitemap from published CMS stories
+        run: python scripts/build_sitemap.py
+
+      - name: Commit sitemap only when changed
+        run: |
+          if git diff --quiet -- sitemap.xml; then
+            echo "Sitemap is already current."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add sitemap.xml
+          git commit -m "Refresh Neural Critic sitemap"
+          git pull --rebase origin main
+          git push
