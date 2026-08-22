@@ -10,7 +10,7 @@ const fmtDate = (iso) => {
 const articleHref = (a) => `article.html?slug=${encodeURIComponent(a.slug)}`;
 const imageOf = (a) => a?.imageLocal || '';
 const escapeHtml = (value='') => String(value).replace(/[&<>'"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;',"'":'&#39;','"':'&quot;'}[c]));
-const inlineMd = (s='') => escapeHtml(s).replace(/\*\*(.+?)\*\*/g,'<strong>$1</strong>').replace(/\*(.+?)\*\*/g,'<em>$1</em>');
+const inlineMd = (s='') => escapeHtml(s).replace(/\*\*(.+?)\*\*/g,'<strong>$1</strong>').replace(/\*(.+?)\*/g,'<em>$1</em>');
 const prose = (text='') => String(text || '').split(/\n\n+/).filter(Boolean).map(block => {
   if (/^- /m.test(block)) {
     const items = block.split('\n').filter(Boolean).map(x=>x.replace(/^-\s*/,''));
