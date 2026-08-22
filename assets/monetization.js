@@ -7,7 +7,6 @@
   if (PRIVATE_PAGES.has(page)) return;
 
   const $ = (selector, root = document) => root.querySelector(selector);
-  const $$ = (selector, root = document) => [...root.querySelectorAll(selector)];
 
   function articleSlug() {
     const staticSlug = String(window.NEURAL_CRITIC_STATIC_SLUG || '').trim();
@@ -47,6 +46,20 @@
     });
   }
 
+  function ensureDisclosureLink() {
+    const footer = $('footer .footer');
+    if (!footer || footer.querySelector('a[data-commercial-disclosure-link]')) return;
+    const aboutColumn = [...footer.children].find(column => column.querySelector?.('a[href="standards.html"]'));
+    if (!aboutColumn) return;
+    const link = document.createElement('a');
+    link.href = cfg.disclosureUrl || 'commercial.html';
+    link.textContent = 'Commercial disclosure';
+    link.dataset.commercialDisclosureLink = '1';
+    const privacy = aboutColumn.querySelector('a[href="privacy.html"]');
+    if (privacy) aboutColumn.insertBefore(link, privacy);
+    else aboutColumn.appendChild(link);
+  }
+
   function adSize(slot) {
     const key = String(slot.dataset.adSize || 'leaderboard').toLowerCase();
     if (key === 'rectangle') return '250px';
@@ -70,7 +83,9 @@
     hardenCommercialLinks();
     labelSponsoredContent();
     prepareAdSlots();
+    ensureDisclosureLink();
     const observer = new MutationObserver(records => {
+      ensureDisclosureLink();
       records.forEach(record => record.addedNodes.forEach(node => {
         if (!(node instanceof Element)) return;
         if (node.matches('a[data-affiliate="true"],a[rel~="sponsored"]')) hardenCommercialLink(node);
