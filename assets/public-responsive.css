@@ -210,3 +210,101 @@ button,input,textarea,select{font:inherit}
 @media(prefers-reduced-motion:reduce){
   *,*::before,*::after{scroll-behavior:auto!important;animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important}
 }
+
+/* ========================================================================== 
+   2026 responsive + accessibility milestone
+   Modern mobile behavior, meaningful focus, and touch-safe controls.
+   ========================================================================== */
+html[data-theme="dark"]{color-scheme:dark}
+html[data-theme="light"]{color-scheme:light}
+body{overflow-wrap:break-word}
+
+:where(a,button,input,textarea,select,[tabindex]):focus-visible{
+  outline:2px solid #55e7ff!important;
+  outline-offset:3px!important;
+  box-shadow:0 0 0 5px rgba(104,99,255,.18)!important;
+}
+:where(input,textarea,select):focus-visible{border-color:#55e7ff!important}
+:where(a,button){-webkit-tap-highlight-color:rgba(85,231,255,.14)}
+
+@media(pointer:coarse){
+  :where(button,.search,.theme-toggle,.reader-account-button,.menu,.nav-trigger,.filters button,.search-work-filters button){min-height:44px}
+  :where(header nav a,.publication-nav .nav-menu a,.game-graph-links>a){min-height:44px}
+}
+
+@media(max-width:980px){
+  header nav{
+    max-height:calc(100dvh - 96px);
+    overflow:auto;
+    overscroll-behavior:contain;
+    scrollbar-width:thin;
+  }
+  body.mobile-nav-open{overflow:hidden}
+  body.mobile-nav-open header{isolation:isolate}
+  header .menu{width:42px;height:42px;border-radius:13px}
+  header .menu::after{content:"MENU";position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+  .publication-nav .nav-trigger{width:100%;min-height:44px;text-align:left}
+  .publication-nav>.nav-group,.publication-nav>a{min-width:0}
+}
+
+@media(max-width:720px){
+  .ticker span{display:none}
+  .ticker .shell{grid-template-columns:auto minmax(0,1fr)}
+  header .brand{min-width:0}
+  header .brand span,header .brand strong{font-size:clamp(18px,5.6vw,23px)!important}
+  .reader-account-button{max-width:132px;min-height:42px!important;padding-inline:10px!important}
+  .reader-account-button [data-reader-account-label]{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+  .reader-account-dot.reader-account-avatar{flex:0 0 auto}
+
+  #article.work-article-page>h1{font-size:clamp(40px,12vw,58px)!important;line-height:.95!important;letter-spacing:-.055em!important}
+  #article.work-article-page>.article-deck{max-width:36rem;font-size:15.5px!important}
+  #article.work-article-page .work-reading-grid>.article-body{min-width:0}
+  #article.work-article-page .work-reading-grid>.article-body>p,
+  #article.work-article-page .work-reading-grid>.article-body>section>p{font-size:16.5px!important;line-height:1.7!important}
+  #article.work-article-page .work-toc,#article.work-article-page .work-author-card,#article .game-graph-side{border-radius:16px!important}
+  #article.work-article-page .work-toc nav a{min-height:48px!important}
+
+  #article.ranked-list-page .ranked-card{padding:22px!important;border-radius:19px!important}
+  #article.ranked-list-page .ranked-card .rank-number{right:16px!important;top:17px!important;font-size:64px!important}
+  #article.ranked-list-page .ranked-card h2{max-width:78%!important;font-size:clamp(30px,9vw,40px)!important}
+  #article.ranked-list-page .ranked-subtitle{max-width:88%!important}
+  .game-graph-review{max-width:none!important}
+
+  .reader-auth-card{width:min(calc(100vw - 24px),480px)!important;max-height:calc(100dvh - 24px)!important;overflow:auto!important;overscroll-behavior:contain}
+  .reader-auth-form input,.reader-profile-name{min-height:46px!important;font-size:16px!important}
+  .reader-auth-form button,.reader-profile-save,.reader-profile-upload,.reader-auth-signout{min-height:44px!important}
+}
+
+@media(max-width:520px){
+  header .shell.header{grid-template-columns:auto minmax(0,1fr) auto!important}
+  header .brand em{display:none!important}
+  .header-tools{gap:4px!important}
+  .header-tools .search,.theme-toggle{width:40px!important;height:40px!important;min-width:40px!important;padding:0!important}
+  .reader-account-button.signed-in{width:40px!important;min-width:40px!important;padding:0!important;justify-content:center!important}
+  .reader-account-button.signed-in [data-reader-account-label]{display:none!important}
+  .reader-account-button.signed-in .reader-account-dot{margin:0!important}
+
+  .leadcopy{left:18px!important;right:18px!important;bottom:20px!important}
+  .leadcopy h2{font-size:clamp(31px,10vw,41px)!important;line-height:.98!important}
+  .hero .lead{min-height:405px!important}
+  .reviews{padding-inline:12px}
+  .review-showcase-copy{grid-template-columns:1fr!important}
+  .review-showcase-score{justify-self:start!important}
+
+  #article.work-article-page .quick-read{padding:18px 16px!important;border-radius:15px!important}
+  #article.work-article-page .work-quick-read p{padding:20px!important;min-height:0!important;font-size:13px!important}
+  #article.work-article-page .work-react-rail button{min-width:56px}
+  #article.ranked-list-page .ranked-card h2{max-width:74%!important}
+  #article.ranked-list-page .ranked-meta span{padding:7px 9px!important}
+  .game-graph-review{grid-template-columns:72px minmax(0,1fr)!important;border-radius:14px!important}
+  .game-graph-review-copy{padding:12px 13px!important}
+  .game-graph-review-copy>strong{-webkit-line-clamp:3!important}
+
+  .category-taxonomy-chips,.search-work-filters,.filters{scroll-snap-type:x proximity}
+  .category-taxonomy-chips>a,.search-work-filters button,.filters button{scroll-snap-align:start}
+}
+
+@media(prefers-contrast:more){
+  :where(a,button,input,textarea,select){border-color:currentColor}
+  .game-graph-review,.work-side-card,.reader-auth-card{box-shadow:none!important}
+}
