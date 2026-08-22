@@ -99,7 +99,9 @@
   }
 
   function displayTag(value) {
-    return String(value || '').replace(/\b\w/g, char => char.toUpperCase());
+    const raw = String(value || '').trim();
+    if (/^fromsoftware$/i.test(raw)) return 'FromSoftware';
+    return raw.replace(/\b\w/g, char => char.toUpperCase());
   }
 
   function readTime(article) {
