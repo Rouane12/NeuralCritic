@@ -1,24 +1,23 @@
 /* Neural Critic publication navigation + discovery taxonomy */
-.publication-nav{display:flex;align-items:stretch;justify-content:center;gap:24px;min-width:0}
+.publication-nav{display:flex;align-items:stretch;justify-content:flex-start;gap:31px;min-width:0}
 .publication-nav .nav-group{position:relative;display:flex;align-items:center;min-width:0}
 
-/* Approved reference typography: compact, dense, bold editorial utility text.
-   Keep every desk identical regardless of whether it is a button or link. */
+/* Approved reference typography: compact, dense, bold editorial utility text. */
 .publication-nav .nav-trigger,.publication-nav>a{
   display:flex;
   align-items:center;
   justify-content:center;
-  gap:5px;
+  gap:4px;
   height:48px;
   padding:0;
   border:0;
   background:transparent;
   color:var(--text,#f7f8ff);
-  font-family:Arial,Helvetica,sans-serif;
+  font-family:Inter,system-ui,-apple-system,"Segoe UI",sans-serif;
   font-size:9px;
-  font-weight:900;
+  font-weight:800;
   line-height:1;
-  letter-spacing:.085em;
+  letter-spacing:.055em;
   text-transform:uppercase;
   text-rendering:geometricPrecision;
   -webkit-font-smoothing:antialiased;
@@ -28,31 +27,29 @@
 .publication-nav .nav-trigger::after{
   content:'⌄';
   margin-left:1px;
-  font-family:Arial,Helvetica,sans-serif;
-  font-size:8px;
-  font-weight:800;
+  font-family:Inter,system-ui,sans-serif;
+  font-size:7px;
+  font-weight:700;
   line-height:1;
   letter-spacing:0;
-  opacity:.38;
+  opacity:.34;
   transform:translateY(-1px);
 }
 .publication-nav .nav-group:hover>.nav-trigger,.publication-nav .nav-group:focus-within>.nav-trigger,.publication-nav>a:hover{color:var(--cyan,#55e7ff)}
 .publication-nav .nav-menu{position:absolute;top:calc(100% - 1px);left:0;z-index:180;display:grid;grid-template-columns:repeat(2,minmax(180px,1fr));gap:4px;width:440px;padding:14px;border:1px solid var(--line,#27334a);border-radius:0 0 14px 14px;background:color-mix(in srgb,var(--surface,#0b1020) 96%,transparent);box-shadow:0 24px 80px #0007;opacity:0;visibility:hidden;transform:translateY(8px);transition:.16s ease;backdrop-filter:blur(18px)}
 .publication-nav .nav-group:hover>.nav-menu,.publication-nav .nav-group:focus-within>.nav-menu,.publication-nav .nav-group.open>.nav-menu{opacity:1;visibility:visible;transform:none}
-.publication-nav .nav-menu a{display:grid;gap:3px;padding:10px 11px;border-radius:9px;color:var(--text,#f7f8ff);font-family:Arial,Helvetica,sans-serif;font-size:11px;font-weight:800;text-transform:none}
-.publication-nav .nav-menu a small{color:var(--muted,#7f8aa4);font-size:8px;font-weight:600;line-height:1.35}
+.publication-nav .nav-menu a{display:grid;gap:3px;padding:10px 11px;border-radius:9px;color:var(--text,#f7f8ff);font-family:Inter,system-ui,-apple-system,"Segoe UI",sans-serif;font-size:11px;font-weight:700;text-transform:none}
+.publication-nav .nav-menu a small{color:var(--muted,#7f8aa4);font-size:8px;font-weight:500;line-height:1.35}
 .publication-nav .nav-menu a:hover{background:#54dff111;color:var(--cyan,#55e7ff)}
 .publication-nav .nav-menu a.nav-featured{grid-column:1/-1;padding:13px;border:1px solid #51ddf132;background:linear-gradient(110deg,#705cff16,#35cfe619)}
 .publication-nav .nav-menu a.nav-featured b{font-size:12px;color:#5ceaff}
-.publication-nav .nav-menu .nav-menu-label{grid-column:1/-1;padding:4px 11px 2px;color:#6c7890;font-size:7px;font-weight:950;letter-spacing:.14em}
+.publication-nav .nav-menu .nav-menu-label{grid-column:1/-1;padding:4px 11px 2px;color:#6c7890;font-size:7px;font-weight:900;letter-spacing:.14em}
 
-/* Category pages opened through the new taxonomy */
 .category-work-hero[data-publication-view] small:first-child{color:#55e7ff}
 .category-taxonomy-chips{display:flex;gap:7px;flex-wrap:wrap;margin-top:16px}
 .category-taxonomy-chips a{padding:7px 10px;border:1px solid var(--line);border-radius:999px;color:var(--muted);font-size:8px;font-weight:850}
 .category-taxonomy-chips a.active,.category-taxonomy-chips a:hover{border-color:#49dced;color:#33cbe2;background:#4bdcf10e}
 
-/* Studio taxonomy controls injected by publication-nav.js */
 .publication-taxonomy-panel{margin-top:0}
 .publication-taxonomy-head{display:flex;align-items:flex-start;justify-content:space-between;gap:18px;margin-bottom:14px}
 .publication-taxonomy-head small{color:#55e7ff;font-size:8px;font-weight:950;letter-spacing:.14em}
@@ -80,8 +77,8 @@ html[data-theme="light"] .publication-taxonomy-note{background:#eef8fa;border-co
 html[data-theme="light"] .publication-taxonomy-note b{color:#05849d}
 
 @media(max-width:1120px){
-  .publication-nav{gap:13px}
-  .publication-nav .nav-trigger,.publication-nav>a{font-size:8.5px;letter-spacing:.065em}
+  .publication-nav{gap:18px}
+  .publication-nav .nav-trigger,.publication-nav>a{font-size:8.5px;letter-spacing:.045em}
   .publication-nav .nav-menu{width:390px}
 }
 @media(max-width:860px){
