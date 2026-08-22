@@ -13,10 +13,14 @@ on:
       - subscribers.html
       - robots.txt
       - sitemap.xml
+      - feed.xml
+      - stories/**
       - assets/**
       - data/**
       - images/editorial/**
       - scripts/audit_publication.py
+      - scripts/audit_publication_v2.py
+      - scripts/build_story_pages.py
       - .github/workflows/publication-health.yml
   pull_request:
     paths:
@@ -29,10 +33,14 @@ on:
       - subscribers.html
       - robots.txt
       - sitemap.xml
+      - feed.xml
+      - stories/**
       - assets/**
       - data/**
       - images/editorial/**
       - scripts/audit_publication.py
+      - scripts/audit_publication_v2.py
+      - scripts/build_story_pages.py
       - .github/workflows/publication-health.yml
   workflow_dispatch:
 
@@ -53,4 +61,4 @@ jobs:
           python-version: '3.12'
 
       - name: Audit Neural Critic publication surface
-        run: python scripts/audit_publication.py
+        run: python scripts/audit_publication_v2.py
