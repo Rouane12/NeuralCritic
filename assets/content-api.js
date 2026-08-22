@@ -93,6 +93,44 @@
 
   window.NeuralCriticContentAPI = { publishedIndex, publishedArticle, nativeFetch };
 
+  /* Keep the top Neural Feed meaningful: it is hydrated from the newest
+     published Supabase article rather than behaving like decorative copy. */
+  async function hydrateLiveTicker() {
+    try {
+      const rows = await publishedIndex();
+      const latest = rows[0];
+      if (!latest) return;
+
+      const apply = () => {
+        const ticker = document.querySelector('.ticker');
+        if (!ticker) return false;
+        const badge = ticker.querySelector('b');
+        const copy = ticker.querySelector('p');
+        const status = ticker.querySelector('span');
+        if (badge) badge.textContent = 'NEURAL FEED';
+        if (copy) {
+          const href = `article.html?slug=${encodeURIComponent(latest.slug)}`;
+          copy.innerHTML = `<a href="${href}">${String(latest.title || '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}</a>`;
+        }
+        if (status) status.textContent = `${String(latest.category || 'LATEST').toUpperCase()} · LIVE NOW ↗`;
+        ticker.dataset.cmsLive = '1';
+        return true;
+      };
+
+      if (apply()) return;
+      const observer = new MutationObserver(() => {
+        if (apply()) observer.disconnect();
+      });
+      observer.observe(document.documentElement, { childList:true, subtree:true });
+      setTimeout(() => observer.disconnect(), 5000);
+    } catch (error) {
+      console.warn('Neural Critic live feed hydration skipped; keeping fallback ticker.', error);
+    }
+  }
+
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', hydrateLiveTicker, { once:true });
+  else hydrateLiveTicker();
+
   window.fetch = async (...args) => {
     const path = requestPath(args[0]);
     const isIndex = path === indexPath;
