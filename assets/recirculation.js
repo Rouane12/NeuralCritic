@@ -87,11 +87,15 @@
   }
 
   function reasonFor(current, candidate, overlap) {
-    if (overlap.length) return { key: 'game', label: `More on ${displayTag(overlap[0])}` };
+    if (overlap.length) {
+      const tag = String(overlap[0] || '').trim();
+      const studioLabel = /^fromsoftware$/i.test(tag);
+      return { key: 'game', label: studioLabel ? `More from ${displayTag(tag)}` : `More ${displayTag(tag)}` };
+    }
     if (String(current.category || '').toLowerCase() === String(candidate.category || '').toLowerCase()) {
       return { key: 'category', label: `More ${String(current.category || 'stories').toLowerCase()}` };
     }
-    return { key: 'related', label: 'Related story' };
+    return { key: 'related', label: 'Related feature' };
   }
 
   function displayTag(value) {
