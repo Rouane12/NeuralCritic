@@ -1,0 +1,56 @@
+name: Publication health
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - article.html
+      - index.html
+      - category.html
+      - search.html
+      - about.html
+      - studio.html
+      - subscribers.html
+      - robots.txt
+      - sitemap.xml
+      - assets/**
+      - data/**
+      - images/editorial/**
+      - scripts/audit_publication.py
+      - .github/workflows/publication-health.yml
+  pull_request:
+    paths:
+      - article.html
+      - index.html
+      - category.html
+      - search.html
+      - about.html
+      - studio.html
+      - subscribers.html
+      - robots.txt
+      - sitemap.xml
+      - assets/**
+      - data/**
+      - images/editorial/**
+      - scripts/audit_publication.py
+      - .github/workflows/publication-health.yml
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Audit Neural Critic publication surface
+        run: python scripts/audit_publication.py
