@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+Disallow: /studio.html
+Disallow: /subscribers.html
+
+Sitemap: https://rouane12.github.io/NeuralCritic/sitemap.xml
