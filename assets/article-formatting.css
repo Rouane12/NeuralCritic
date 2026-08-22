@@ -1,105 +1,352 @@
-/* Neural Critic editorial text personalities */
-#article.work-article-page .nc-editorial-heading{
-  position:relative;
-  max-width:20ch;
-  font-family:Arial,Helvetica,sans-serif!important;
+/* --------------------------------------------------------------------------
+   NEURAL CRITIC PUBLICATION TYPE SYSTEM
+
+   The approved article references are the source of truth for the default
+   reading experience. Typography is intentionally restrained: one clean
+   neo-grotesk stack, dark navy/soft-white ink, compact tracking, and a repeatable
+   vertical rhythm. Optional Studio heading personalities still exist, but the
+   default "editorial" style is now the canonical NC Section treatment.
+   -------------------------------------------------------------------------- */
+
+#article.work-article-page.nc-type-system{
+  --nc-font-sans:Arial,"Helvetica Neue",Helvetica,sans-serif;
+  --nc-ink:#17212f;
+  --nc-ink-body:#1b2736;
+  --nc-ink-soft:#667382;
+  --nc-accent-cyan:#4fdff5;
+  --nc-accent-violet:#7768ff;
+  --nc-display-size:clamp(60px,6.25vw,92px);
+  --nc-section-size:42px;
+  --nc-body-size:16.5px;
+  --nc-body-leading:1.62;
+  font-family:var(--nc-font-sans)!important;
+  font-kerning:normal;
+  font-feature-settings:"kern" 1,"liga" 1;
+  text-rendering:optimizeLegibility;
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
 }
-#article.work-article-page .nc-heading-editorial>.nc-editorial-heading::after{
+
+/* NC DISPLAY — article hero */
+#article.work-article-page.nc-type-system>h1,
+#article.work-article-page.nc-type-system>.work-gradient-title{
+  width:min(1080px,100%)!important;
+  max-width:none!important;
+  margin:0 auto 24px!important;
+  font-family:var(--nc-font-sans)!important;
+  font-size:var(--nc-display-size)!important;
+  font-weight:500!important;
+  line-height:.93!important;
+  letter-spacing:-.066em!important;
+  text-align:center!important;
+  text-wrap:balance;
+}
+#article.work-article-page.nc-type-system>.article-deck{
+  width:min(820px,100%)!important;
+  margin:0 auto!important;
+  color:#778292!important;
+  font-family:var(--nc-font-sans)!important;
+  font-size:20px!important;
+  font-weight:400!important;
+  line-height:1.48!important;
+  letter-spacing:-.015em!important;
+  text-align:center!important;
+  text-wrap:balance;
+}
+
+/* NC UTILITY — breadcrumb, kicker, Quick Read labels and rail microcopy */
+#article.work-article-page.nc-type-system .work-breadcrumb,
+#article.work-article-page.nc-type-system>.article-kicker,
+#article.work-article-page.nc-type-system .quick-read.work-quick-read>span,
+#article.work-article-page.nc-type-system .work-side-card>span,
+#article.work-article-page.nc-type-system .work-react-rail.standard-react-rail>span,
+#article.work-article-page.nc-type-system .work-react-rail.standard-react-rail button small{
+  font-family:var(--nc-font-sans)!important;
+  font-weight:850!important;
+  text-transform:uppercase;
+}
+#article.work-article-page.nc-type-system .quick-read.work-quick-read>span,
+#article.work-article-page.nc-type-system .work-side-card>span{
+  letter-spacing:.17em!important;
+}
+
+/* NC BODY — the default reading texture. No shadows, strokes, glow, or display
+   effects belong on prose. The restraint is intentional. */
+#article.work-article-page.nc-type-system .work-reading-grid>.article-body{
+  font-family:var(--nc-font-sans)!important;
+  color:var(--nc-ink-body)!important;
+  text-align:left!important;
+}
+#article.work-article-page.nc-type-system .work-reading-grid>.article-body>p,
+#article.work-article-page.nc-type-system .work-reading-grid>.article-body>section>p{
+  width:100%!important;
+  max-width:none!important;
+  margin:0 0 25px!important;
+  color:var(--nc-ink-body)!important;
+  font-family:var(--nc-font-sans)!important;
+  font-size:var(--nc-body-size)!important;
+  font-weight:400!important;
+  line-height:var(--nc-body-leading)!important;
+  letter-spacing:-.012em!important;
+  text-shadow:none!important;
+}
+#article.work-article-page.nc-type-system .work-reading-grid>.article-body>p{
+  font-size:17px!important;
+}
+#article.work-article-page.nc-type-system .work-reading-grid>.article-body strong{
+  color:var(--nc-ink)!important;
+  font-weight:700!important;
+}
+#article.work-article-page.nc-type-system .work-reading-grid>.article-body em{
+  color:inherit!important;
+  font-style:italic!important;
+}
+
+/* NC SECTION — default Editorial Studio heading style */
+#article.work-article-page.nc-type-system .work-reading-grid>.article-body>section{
+  margin:0 0 52px!important;
+}
+#article.work-article-page.nc-type-system .work-reading-grid>.article-body>section>h2,
+#article.work-article-page.nc-type-system .nc-heading-editorial>.nc-editorial-heading{
+  position:relative;
+  width:auto!important;
+  max-width:19ch!important;
+  margin:50px 0 23px!important;
+  color:var(--nc-ink)!important;
+  font-family:var(--nc-font-sans)!important;
+  font-size:var(--nc-section-size)!important;
+  font-weight:700!important;
+  line-height:1.055!important;
+  letter-spacing:-.046em!important;
+  text-wrap:balance;
+  text-shadow:none!important;
+}
+#article.work-article-page.nc-type-system .quick-read.work-quick-read+section>h2{
+  margin-top:0!important;
+}
+#article.work-article-page.nc-type-system .nc-heading-editorial>.nc-editorial-heading::after,
+#article.work-article-page.nc-type-system .work-reading-grid>.article-body>section:not(.nc-heading-display):not(.nc-heading-accent):not(.nc-heading-statement)>h2::after{
   content:"";
   display:block;
-  width:52px;
+  width:48px;
   height:3px;
-  margin-top:14px;
+  margin-top:12px;
   border-radius:999px;
-  background:linear-gradient(90deg,#55e7ff,#7568ff);
+  background:linear-gradient(90deg,var(--nc-accent-cyan),var(--nc-accent-violet));
 }
-#article.work-article-page .nc-heading-display>.nc-editorial-heading{
-  max-width:15ch;
-  margin-top:72px!important;
-  font-size:clamp(44px,5vw,64px)!important;
-  line-height:.96!important;
-  letter-spacing:-.055em!important;
-  font-weight:780!important;
+
+/* Editorial lists use the same texture as prose, with the cyan marker doing
+   the only decorative work. */
+#article.work-article-page.nc-type-system .work-reading-grid>.article-body ul,
+#article.work-article-page.nc-type-system .work-reading-grid>.article-body ol{
+  width:100%!important;
+  max-width:none!important;
+  margin:5px 0 28px!important;
+  padding-left:1.65em!important;
+  color:var(--nc-ink-body)!important;
+  font-family:var(--nc-font-sans)!important;
+  font-size:var(--nc-body-size)!important;
+  font-weight:400!important;
+  line-height:1.6!important;
+  letter-spacing:-.012em!important;
 }
-#article.work-article-page .nc-heading-display>.nc-editorial-heading::before{
+#article.work-article-page.nc-type-system .work-reading-grid>.article-body ul{list-style:disc outside!important}
+#article.work-article-page.nc-type-system .work-reading-grid>.article-body ol{list-style:decimal outside!important}
+#article.work-article-page.nc-type-system .work-reading-grid>.article-body li{display:list-item!important;padding-left:.18em!important}
+#article.work-article-page.nc-type-system .work-reading-grid>.article-body li+li{margin-top:10px!important}
+#article.work-article-page.nc-type-system .work-reading-grid>.article-body li::marker{color:var(--nc-accent-cyan)!important;font-weight:800!important}
+
+#article.work-article-page.nc-type-system .work-reading-grid>.article-body blockquote{
+  max-width:66ch!important;
+  margin:32px 0!important;
+  padding:4px 0 4px 22px!important;
+  border-left:3px solid var(--nc-accent-cyan)!important;
+  color:var(--nc-ink-body)!important;
+  font:500 18px/1.62 var(--nc-font-sans)!important;
+  letter-spacing:-.012em!important;
+}
+
+/* Quick Read — quiet publication surface, matching the approved frame. */
+#article.work-article-page.nc-type-system .quick-read.work-quick-read{
+  display:block!important;
+  min-height:0!important;
+  margin:0 0 36px!important;
+  padding:0!important;
+  overflow:visible!important;
+  border:0!important;
+  border-radius:0!important;
+  background:transparent!important;
+  box-shadow:none!important;
+}
+#article.work-article-page.nc-type-system .quick-read.work-quick-read>span{
+  display:block!important;
+  width:max-content!important;
+  margin:0 0 16px 7px!important;
+  color:#6874f4!important;
+  font-size:9px!important;
+  line-height:1!important;
+}
+#article.work-article-page.nc-type-system .work-quick-read p{
+  box-sizing:border-box!important;
+  width:100%!important;
+  min-height:102px!important;
+  margin:0!important;
+  padding:27px 26px!important;
+  border:1px solid rgba(113,132,177,.24)!important;
+  border-radius:14px!important;
+  background:linear-gradient(110deg,#f7f9ff 0%,#f3f5ff 100%)!important;
+  box-shadow:0 9px 24px rgba(62,72,116,.04)!important;
+  color:#1d2938!important;
+  font-family:var(--nc-font-sans)!important;
+  font-size:13px!important;
+  font-weight:400!important;
+  line-height:1.72!important;
+  letter-spacing:-.008em!important;
+  text-shadow:none!important;
+}
+
+/* Supporting image rhythm. */
+#article.work-article-page.nc-type-system .work-inline-figure{
+  width:100%!important;
+  margin:30px 0 47px!important;
+}
+#article.work-article-page.nc-type-system .work-inline-figure figcaption{
+  color:#7a8592!important;
+  font:500 10.5px/1.5 var(--nc-font-sans)!important;
+  letter-spacing:.005em!important;
+}
+
+/* Optional Studio personalities remain available, but inherit the same font
+   and smoothing so even dramatic choices still belong to Neural Critic. */
+#article.work-article-page.nc-type-system .nc-editorial-heading{
+  position:relative;
+  font-family:var(--nc-font-sans)!important;
+}
+#article.work-article-page.nc-type-system .nc-heading-display>.nc-editorial-heading{
+  max-width:15ch!important;
+  margin-top:62px!important;
+  font-size:clamp(44px,5vw,62px)!important;
+  font-weight:650!important;
+  line-height:.98!important;
+  letter-spacing:-.058em!important;
+}
+#article.work-article-page.nc-type-system .nc-heading-display>.nc-editorial-heading::before{
   content:"FEATURE FOCUS";
   display:block;
-  margin-bottom:12px;
-  color:#55e7ff;
-  font-size:9px;
-  font-weight:950;
-  letter-spacing:.18em;
+  margin-bottom:11px;
+  color:#6874f4;
+  font-size:8px;
+  font-weight:850;
+  letter-spacing:.17em;
 }
-#article.work-article-page .nc-heading-accent>.nc-editorial-heading{
-  max-width:17ch;
+#article.work-article-page.nc-type-system .nc-heading-display>.nc-editorial-heading::after{display:none!important}
+
+#article.work-article-page.nc-type-system .nc-heading-accent>.nc-editorial-heading{
+  max-width:17ch!important;
+  margin-top:58px!important;
   color:transparent!important;
-  background:linear-gradient(100deg,#f8fbff 0%,#8ff3ff 48%,#9b88ff 100%);
-  -webkit-background-clip:text;
-  background-clip:text;
-  font-size:clamp(40px,4.4vw,56px)!important;
-  font-weight:760!important;
+  background:linear-gradient(100deg,#17212f 0%,#0b8499 48%,#6550ce 100%)!important;
+  -webkit-background-clip:text!important;
+  background-clip:text!important;
+  font-size:clamp(40px,4.4vw,54px)!important;
+  font-weight:650!important;
+  line-height:1!important;
+  letter-spacing:-.052em!important;
 }
-#article.work-article-page .nc-heading-accent>.nc-editorial-heading::after{
+#article.work-article-page.nc-type-system .nc-heading-accent>.nc-editorial-heading::after{
   content:"";
-  display:block;
-  width:min(180px,42%);
-  height:2px;
-  margin-top:16px;
-  background:linear-gradient(90deg,#55e7ff,#806dff,transparent);
+  display:block!important;
+  width:min(170px,42%)!important;
+  height:2px!important;
+  margin-top:15px!important;
+  background:linear-gradient(90deg,var(--nc-accent-cyan),var(--nc-accent-violet),transparent)!important;
 }
-#article.work-article-page .nc-heading-statement{
+
+#article.work-article-page.nc-type-system .nc-heading-statement{
   position:relative;
-  padding:22px 0 4px 24px;
+  padding:18px 0 2px 22px!important;
 }
-#article.work-article-page .nc-heading-statement::before{
+#article.work-article-page.nc-type-system .nc-heading-statement::before{
   content:"";
   position:absolute;
   left:0;
-  top:20px;
+  top:18px;
   bottom:0;
-  width:4px;
+  width:3px;
   border-radius:999px;
-  background:linear-gradient(180deg,#55e7ff,#7766ff);
-  box-shadow:0 0 24px rgba(82,230,255,.2);
+  background:linear-gradient(180deg,var(--nc-accent-cyan),var(--nc-accent-violet));
 }
-#article.work-article-page .nc-heading-statement>.nc-editorial-heading{
-  margin-top:30px!important;
-  max-width:18ch;
-  font-size:clamp(37px,4vw,50px)!important;
+#article.work-article-page.nc-type-system .nc-heading-statement>.nc-editorial-heading{
+  max-width:18ch!important;
+  margin-top:28px!important;
+  font-size:clamp(37px,4vw,48px)!important;
+  font-weight:650!important;
   line-height:1!important;
-  font-weight:760!important;
+  letter-spacing:-.05em!important;
 }
-#article.work-article-page .nc-heading-statement>.nc-editorial-heading::before{
+#article.work-article-page.nc-type-system .nc-heading-statement>.nc-editorial-heading::before{
   content:"EDITORIAL POINT";
   display:block;
-  margin-bottom:10px;
-  color:#8b94ae;
+  margin-bottom:9px;
+  color:#7d8794;
   font-size:8px;
-  font-weight:950;
-  letter-spacing:.18em;
+  font-weight:850;
+  letter-spacing:.17em;
 }
+#article.work-article-page.nc-type-system .nc-heading-statement>.nc-editorial-heading::after{display:none!important}
+
 .nc-text-highlight{
-  padding:.02em .22em .08em;
-  border-radius:.28em;
-  background:linear-gradient(100deg,rgba(85,231,255,.19),rgba(124,104,255,.18));
+  padding:.02em .2em .07em;
+  border-radius:.25em;
+  background:linear-gradient(100deg,rgba(85,231,255,.14),rgba(124,104,255,.13));
   color:inherit;
   box-decoration-break:clone;
   -webkit-box-decoration-break:clone;
 }
-.nc-text-accent{
-  color:#61e8ff;
-  font-weight:760;
+.nc-text-accent{color:#087f99;font-weight:700}
+
+/* Dark mode keeps the same system; only the ink/surface values invert. */
+html[data-theme="dark"] #article.work-article-page.nc-type-system{
+  --nc-ink:#f5f7fa;
+  --nc-ink-body:#e5e9ed;
+  --nc-ink-soft:#99a4b0;
 }
-html[data-theme="light"] #article.work-article-page .nc-heading-accent>.nc-editorial-heading{
-  background:linear-gradient(100deg,#121a22 0%,#0b8399 48%,#6550ce 100%);
-  -webkit-background-clip:text;
-  background-clip:text;
+html[data-theme="dark"] #article.work-article-page.nc-type-system>.article-deck{color:#a8b0bf!important}
+html[data-theme="dark"] #article.work-article-page.nc-type-system .work-quick-read p{
+  border-color:rgba(113,132,177,.26)!important;
+  background:linear-gradient(115deg,rgba(22,29,51,.92),rgba(14,21,41,.90))!important;
+  color:#e8edf4!important;
 }
-html[data-theme="light"] .nc-text-highlight{background:linear-gradient(100deg,rgba(23,176,201,.14),rgba(105,82,214,.12))}
-html[data-theme="light"] .nc-text-accent{color:#087f99}
+html[data-theme="dark"] #article.work-article-page.nc-type-system .nc-heading-accent>.nc-editorial-heading{
+  background:linear-gradient(100deg,#f8fbff 0%,#8ff3ff 48%,#9b88ff 100%)!important;
+  -webkit-background-clip:text!important;
+  background-clip:text!important;
+}
+html[data-theme="dark"] .nc-text-accent{color:#61e8ff}
+
+@media(max-width:900px){
+  #article.work-article-page.nc-type-system{
+    --nc-display-size:clamp(46px,10vw,70px);
+    --nc-section-size:38px;
+  }
+  #article.work-article-page.nc-type-system .work-reading-grid>.article-body>section>h2,
+  #article.work-article-page.nc-type-system .nc-heading-editorial>.nc-editorial-heading{max-width:18ch!important;margin-top:44px!important}
+}
+
 @media(max-width:620px){
-  #article.work-article-page .nc-heading-display>.nc-editorial-heading{font-size:42px!important;margin-top:52px!important}
-  #article.work-article-page .nc-heading-accent>.nc-editorial-heading{font-size:39px!important}
-  #article.work-article-page .nc-heading-statement{padding-left:18px}
-  #article.work-article-page .nc-heading-statement>.nc-editorial-heading{font-size:37px!important}
+  #article.work-article-page.nc-type-system{
+    --nc-display-size:clamp(39px,12vw,55px);
+    --nc-section-size:31px;
+    --nc-body-size:17px;
+    --nc-body-leading:1.68;
+  }
+  #article.work-article-page.nc-type-system>.article-deck{font-size:17px!important;line-height:1.5!important}
+  #article.work-article-page.nc-type-system .work-reading-grid>.article-body>section{margin-bottom:44px!important}
+  #article.work-article-page.nc-type-system .work-reading-grid>.article-body>section>h2,
+  #article.work-article-page.nc-type-system .nc-heading-editorial>.nc-editorial-heading{max-width:none!important;margin-top:38px!important;margin-bottom:20px!important}
+  #article.work-article-page.nc-type-system .work-quick-read p{padding:21px 19px!important;font-size:13px!important}
+  #article.work-article-page.nc-type-system .nc-heading-display>.nc-editorial-heading{font-size:42px!important;margin-top:52px!important}
+  #article.work-article-page.nc-type-system .nc-heading-accent>.nc-editorial-heading{font-size:39px!important}
+  #article.work-article-page.nc-type-system .nc-heading-statement{padding-left:18px!important}
+  #article.work-article-page.nc-type-system .nc-heading-statement>.nc-editorial-heading{font-size:37px!important}
 }
