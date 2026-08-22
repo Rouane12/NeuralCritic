@@ -81,14 +81,100 @@ html[data-theme="light"] .publication-taxonomy-note b{color:#05849d}
   .publication-nav .nav-trigger,.publication-nav>a{font-size:8.5px;letter-spacing:.045em}
   .publication-nav .nav-menu{width:390px}
 }
+
+/* Mobile publication drawer: one-column accordion, never the desktop mega-menu. */
 @media(max-width:860px){
-  body.mobile-nav-open header .header{align-items:flex-start;min-height:100vh;padding-top:14px}
-  body.mobile-nav-open .publication-nav{display:grid!important;position:absolute;top:70px;left:14px;right:14px;z-index:170;gap:4px;padding:12px;border:1px solid var(--line);border-radius:14px;background:var(--surface);box-shadow:0 25px 80px #0008}
-  .publication-nav .nav-group{display:grid}
-  .publication-nav .nav-trigger,.publication-nav>a{width:100%;height:42px;justify-content:space-between;padding:0 12px;font-size:10px}
-  .publication-nav .nav-menu{position:static;display:none;width:auto;grid-template-columns:1fr;padding:6px 8px 10px;border:0;border-radius:10px;background:transparent;box-shadow:none;opacity:1;visibility:visible;transform:none}
-  .publication-nav .nav-group.open>.nav-menu{display:grid}
-  .publication-nav .nav-menu a.nav-featured{grid-column:auto}
+  body.mobile-nav-open header .header{align-items:center!important;min-height:0!important;padding-top:0!important}
+  body.mobile-nav-open::before{content:"";position:fixed;inset:0;z-index:58;background:rgba(7,10,19,.32);backdrop-filter:blur(3px);-webkit-backdrop-filter:blur(3px);pointer-events:none}
+  header{z-index:70!important}
+
+  header .menu{position:relative;font-size:0!important;overflow:hidden}
+  header .menu::before{content:'☰';display:block;color:currentColor;font:500 23px/1 Inter,system-ui,sans-serif;transition:transform .2s ease,opacity .2s ease}
+  header .menu[aria-expanded="true"]::before{content:'×';font-size:28px;transform:rotate(90deg)}
+
+  body.mobile-nav-open .publication-nav{
+    display:grid!important;
+    grid-template-columns:1fr!important;
+    align-content:start;
+    position:absolute!important;
+    top:calc(100% + 9px)!important;
+    left:0!important;
+    right:0!important;
+    z-index:170;
+    gap:2px!important;
+    width:auto!important;
+    max-height:min(72dvh,620px)!important;
+    padding:10px!important;
+    overflow:auto!important;
+    overscroll-behavior:contain;
+    border:1px solid var(--line,#27334a)!important;
+    border-radius:17px!important;
+    background:color-mix(in srgb,var(--surface,#0b1020) 98%,transparent)!important;
+    box-shadow:0 26px 80px rgba(0,0,0,.30)!important;
+    backdrop-filter:blur(20px);
+    -webkit-backdrop-filter:blur(20px);
+  }
+  body.mobile-nav-open .publication-nav::before{content:"";position:absolute;inset:0 18px auto;height:2px;border-radius:999px;background:linear-gradient(90deg,#55e7ff,#7768ff,transparent 82%)}
+
+  .publication-nav>.nav-group,.publication-nav>a{grid-column:1/-1!important;width:100%!important}
+  .publication-nav .nav-group{display:grid!important;align-items:stretch!important;border-bottom:1px solid color-mix(in srgb,var(--line,#27334a) 62%,transparent)}
+  .publication-nav>.nav-group:last-of-type{border-bottom:0}
+  .publication-nav .nav-trigger,.publication-nav>a{
+    width:100%!important;
+    min-height:48px!important;
+    height:auto!important;
+    justify-content:space-between!important;
+    padding:0 13px!important;
+    border-radius:10px!important;
+    font-size:10px!important;
+    letter-spacing:.055em!important;
+  }
+  .publication-nav>a:hover,.publication-nav .nav-trigger:hover{background:rgba(85,231,255,.055)}
+  .publication-nav .nav-trigger::after{content:'⌄';font-size:10px!important;opacity:.45;transform:none!important;transition:transform .18s ease,color .18s ease}
+  .publication-nav .nav-group.open>.nav-trigger{color:#55e7ff;background:linear-gradient(90deg,rgba(85,231,255,.07),rgba(119,104,255,.055))}
+  .publication-nav .nav-group.open>.nav-trigger::after{color:#7768ff;opacity:.9;transform:rotate(180deg)!important}
+
+  .publication-nav .nav-menu{
+    position:static!important;
+    display:none!important;
+    grid-template-columns:1fr!important;
+    gap:3px!important;
+    width:100%!important;
+    margin:0 0 9px!important;
+    padding:4px 8px 8px 14px!important;
+    border:0!important;
+    border-left:2px solid rgba(85,231,255,.22)!important;
+    border-radius:0 0 10px 10px!important;
+    background:transparent!important;
+    box-shadow:none!important;
+    opacity:1!important;
+    visibility:visible!important;
+    transform:none!important;
+    backdrop-filter:none!important;
+  }
+  .publication-nav .nav-group.open>.nav-menu{display:grid!important}
+  .publication-nav .nav-menu a{min-height:48px!important;padding:10px 12px!important;border-radius:10px!important}
+  .publication-nav .nav-menu a.nav-featured{grid-column:auto!important;border-color:rgba(85,231,255,.20)!important;background:linear-gradient(105deg,rgba(85,231,255,.075),rgba(119,104,255,.065))!important}
+  .publication-nav .nav-menu .nav-menu-label{grid-column:auto!important;padding:8px 12px 3px!important}
+
+  html[data-theme="light"] body.mobile-nav-open::before{background:rgba(20,27,38,.18)}
+  html[data-theme="light"] body.mobile-nav-open .publication-nav{background:rgba(255,255,255,.985)!important;border-color:#d6dde3!important;box-shadow:0 26px 70px rgba(28,38,52,.20)!important}
+  html[data-theme="light"] .publication-nav .nav-group{border-bottom-color:#e7ebef}
+  html[data-theme="light"] .publication-nav .nav-group.open>.nav-trigger{color:#087f99;background:linear-gradient(90deg,#eafaff,#f4f1ff)}
+  html[data-theme="light"] .publication-nav .nav-menu{border-left-color:#b9eaf1!important}
+
   .publication-taxonomy-grid{grid-template-columns:1fr}
   .publication-platforms,.publication-taxonomy-note{grid-column:auto}
+}
+
+/* Small-screen metadata needs to stay legible; it is useful, not decorative. */
+@media(max-width:520px){
+  body:has(#hero) .story small{
+    display:block!important;
+    margin-top:16px!important;
+    color:#7d899d!important;
+    font:750 8.5px/1.45 Inter,system-ui,sans-serif!important;
+    letter-spacing:.045em!important;
+  }
+  html[data-theme="light"] body:has(#hero) .story small{color:#66758a!important}
 }
