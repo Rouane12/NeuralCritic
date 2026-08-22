@@ -263,3 +263,93 @@ html[data-theme="light"] .article-loading-state strong{color:#687583}
 html[data-theme="light"] .article-load-error{color:#171b22}
 
 @media(prefers-reduced-motion:reduce){.article-loading-state span{animation:none}}
+
+/* ========================================================================== 
+   NEURALHUSTLE MOTION PARITY — FEED + THEME CONTROL
+   The whole feed capsule breathes; the dot is only a secondary live signal.
+   ========================================================================== */
+.ticker b{
+  transform-origin:center;
+  will-change:transform,box-shadow,border-color;
+  background:
+    linear-gradient(120deg,rgba(119,104,255,.22),rgba(85,231,255,.14)),
+    rgba(8,12,28,.94)!important;
+  border-color:rgba(164,174,255,.28)!important;
+  box-shadow:
+    0 7px 18px rgba(3,8,23,.24),
+    0 1px 0 rgba(255,255,255,.10) inset,
+    0 0 0 0 rgba(119,104,255,0)!important;
+  animation:ncFeedBreath 4.5s ease-in-out infinite!important;
+}
+.ticker b::before{
+  width:5px!important;
+  height:5px!important;
+  flex-basis:5px!important;
+  opacity:.9;
+  box-shadow:0 0 7px rgba(85,231,255,.5)!important;
+  animation:ncFeedDotQuiet 4.5s ease-in-out infinite!important;
+}
+
+@keyframes ncFeedBreath{
+  0%,100%{
+    transform:scale(1);
+    border-color:rgba(164,174,255,.25);
+    box-shadow:
+      0 7px 18px rgba(3,8,23,.24),
+      0 1px 0 rgba(255,255,255,.10) inset,
+      0 0 0 0 rgba(119,104,255,0),
+      0 0 0 rgba(85,231,255,0);
+  }
+  50%{
+    transform:scale(1.035);
+    border-color:rgba(104,224,255,.55);
+    box-shadow:
+      0 10px 24px rgba(3,8,23,.30),
+      0 1px 0 rgba(255,255,255,.14) inset,
+      0 0 0 7px rgba(119,104,255,.10),
+      0 0 26px rgba(85,231,255,.22);
+  }
+}
+@keyframes ncFeedDotQuiet{
+  0%,100%{opacity:.72;filter:brightness(.95)}
+  50%{opacity:1;filter:brightness(1.25)}
+}
+
+/* Match the NeuralHustle sun/moon pill language instead of abstract glyphs. */
+.theme-toggle{
+  min-width:82px!important;
+  gap:7px!important;
+  padding-inline:13px!important;
+}
+.theme-toggle span{
+  width:16px!important;
+  display:grid!important;
+  place-items:center!important;
+}
+.theme-toggle span::before{
+  content:"🌙"!important;
+  font:400 14px/1 "Segoe UI Emoji","Apple Color Emoji",sans-serif!important;
+  color:initial!important;
+}
+.theme-toggle small::after{
+  content:"Dark"!important;
+  color:#e4e9f4!important;
+  font:700 10.5px/1 Inter,system-ui,sans-serif!important;
+  letter-spacing:0!important;
+  text-transform:none!important;
+}
+html[data-theme="light"] .theme-toggle{
+  background:#fff!important;
+  border-color:#d8d4ef!important;
+  color:#273443!important;
+  box-shadow:0 7px 18px rgba(50,57,80,.07)!important;
+}
+html[data-theme="light"] .theme-toggle span::before{content:"☀️"!important}
+html[data-theme="light"] .theme-toggle small::after{content:"Light"!important;color:#344052!important}
+
+@media(max-width:980px){
+  .theme-toggle{min-width:40px!important;padding:0!important}
+}
+@media(prefers-reduced-motion:reduce){
+  .ticker b,.ticker b::before{animation:none!important;transform:none!important}
+}
