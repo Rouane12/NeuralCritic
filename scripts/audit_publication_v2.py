@@ -153,6 +153,55 @@ def check_recirculation() -> None:
             base.error(f"recirculation.css is missing required presentation marker: {marker}")
 
 
+def check_trust_and_monetization() -> None:
+    bootstrap = base.text("assets/supabase-config.js")
+    config = base.text("assets/monetization-config.js")
+    script = base.text("assets/monetization.js")
+    style = base.text("assets/monetization.css")
+
+    for page, canonical, robots in (
+        ("standards.html", "standards.html", "index,follow"),
+        ("commercial.html", "commercial.html", "index,follow"),
+        ("privacy.html", "privacy.html", "noindex"),
+    ):
+        html = base.text(page)
+        if 'name="description"' not in html:
+            base.error(f"{page}: missing static meta description.")
+        if f'rel="canonical" href="{canonical}"' not in html:
+            base.error(f"{page}: missing self canonical.")
+        if robots not in html:
+            base.error(f"{page}: unexpected robots metadata.")
+
+    for marker in ("privacy.html", "standards.html", "commercial.html"):
+        if marker not in bootstrap:
+            base.error(f"supabase-config.js is not preserving static metadata for {marker}.")
+
+    for asset in ("assets/monetization-config.js", "assets/monetization.js", "assets/monetization.css"):
+        if asset not in bootstrap:
+            base.error(f"supabase-config.js is not loading monetization readiness asset: {asset}")
+
+    if not re.search(r"adsEnabled:\s*false", config):
+        base.error("Monetization config must keep ads disabled by default until explicitly launched.")
+    if not re.search(r"affiliateTrackingEnabled:\s*true", config):
+        base.error("Affiliate click measurement readiness is unexpectedly disabled.")
+
+    for marker in ("sponsored", "affiliate_click", "destination_host", "data-ad-slot", "commercial.html"):
+        if marker not in script:
+            base.error(f"monetization.js is missing safety/integration marker: {marker}")
+    if "window.NeuralCriticAnalytics?.track" not in script:
+        base.error("monetization.js is not using the privacy-aware analytics wrapper.")
+    for forbidden in ("googlesyndication", "doubleclick", "adsbygoogle"):
+        if forbidden in script.lower() or forbidden in config.lower():
+            base.error(f"Ad-network runtime was introduced before monetization launch: {forbidden}")
+    if ".nc-ad-slot" not in style or ".nc-commercial-label" not in style:
+        base.error("monetization.css is missing reserved-slot or disclosure styling.")
+
+    commercial = base.text("commercial.html")
+    for marker in ("Current status:", "Editorial independence", "Affiliate links", "Sponsored content", "Advertising", "Privacy page"):
+        if marker not in commercial:
+            base.error(f"commercial.html is missing disclosure section/content marker: {marker}")
+
+
 def main() -> int:
     base.ERRORS.clear()
     base.WARNINGS.clear()
@@ -166,6 +215,7 @@ def main() -> int:
     check_canonical_feed(static_slugs)
     check_story_router()
     check_recirculation()
+    check_trust_and_monetization()
     base.check_robots()
     base.check_page_metadata()
     base.check_analytics()
