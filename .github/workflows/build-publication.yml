@@ -1,4 +1,4 @@
-name: Refresh publication sitemap
+name: Refresh publication discovery files
 
 on:
   push:
@@ -15,7 +15,7 @@ permissions:
   contents: write
 
 concurrency:
-  group: neural-critic-sitemap-refresh
+  group: neural-critic-publication-discovery-refresh
   cancel-in-progress: false
 
 jobs:
@@ -33,18 +33,18 @@ jobs:
         with:
           python-version: '3.12'
 
-      - name: Refresh sitemap from published CMS stories
+      - name: Refresh sitemap and RSS from published CMS stories
         run: python scripts/build_sitemap.py
 
-      - name: Commit sitemap only when changed
+      - name: Commit discovery files only when changed
         run: |
-          if git diff --quiet -- sitemap.xml; then
-            echo "Sitemap is already current."
+          if git diff --quiet -- sitemap.xml feed.xml; then
+            echo "Publication discovery files are already current."
             exit 0
           fi
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add sitemap.xml
-          git commit -m "Refresh Neural Critic sitemap"
+          git add sitemap.xml feed.xml
+          git commit -m "Refresh Neural Critic discovery files"
           git pull --rebase origin main
           git push
