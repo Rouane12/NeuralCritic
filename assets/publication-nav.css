@@ -1,31 +1,41 @@
 /* Neural Critic publication navigation + discovery taxonomy */
-.publication-nav{display:flex;align-items:stretch;justify-content:center;gap:12px;min-width:0}
+.publication-nav{display:flex;align-items:stretch;justify-content:center;gap:24px;min-width:0}
 .publication-nav .nav-group{position:relative;display:flex;align-items:center;min-width:0}
 
-/* Explicit font properties are intentional here. The previous shorthand ended
-   in `inherit`, which browsers could discard for buttons; that left News,
-   Reviews, Guides and What to Play at the browser's default button size while
-   Features (an anchor) stayed compact. Keep every desk visually identical. */
+/* Approved reference typography: compact, dense, bold editorial utility text.
+   Keep every desk identical regardless of whether it is a button or link. */
 .publication-nav .nav-trigger,.publication-nav>a{
   display:flex;
   align-items:center;
   justify-content:center;
   gap:5px;
   height:48px;
-  padding:0 8px;
+  padding:0;
   border:0;
   background:transparent;
   color:var(--text,#f7f8ff);
   font-family:Arial,Helvetica,sans-serif;
-  font-size:10px;
+  font-size:9px;
   font-weight:900;
   line-height:1;
-  letter-spacing:.035em;
+  letter-spacing:.085em;
   text-transform:uppercase;
+  text-rendering:geometricPrecision;
+  -webkit-font-smoothing:antialiased;
   cursor:pointer;
   white-space:nowrap;
 }
-.publication-nav .nav-trigger::after{content:'⌄';font-family:Arial,Helvetica,sans-serif;font-size:9px;font-weight:700;opacity:.48;transform:translateY(-1px)}
+.publication-nav .nav-trigger::after{
+  content:'⌄';
+  margin-left:1px;
+  font-family:Arial,Helvetica,sans-serif;
+  font-size:8px;
+  font-weight:800;
+  line-height:1;
+  letter-spacing:0;
+  opacity:.38;
+  transform:translateY(-1px);
+}
 .publication-nav .nav-group:hover>.nav-trigger,.publication-nav .nav-group:focus-within>.nav-trigger,.publication-nav>a:hover{color:var(--cyan,#55e7ff)}
 .publication-nav .nav-menu{position:absolute;top:calc(100% - 1px);left:0;z-index:180;display:grid;grid-template-columns:repeat(2,minmax(180px,1fr));gap:4px;width:440px;padding:14px;border:1px solid var(--line,#27334a);border-radius:0 0 14px 14px;background:color-mix(in srgb,var(--surface,#0b1020) 96%,transparent);box-shadow:0 24px 80px #0007;opacity:0;visibility:hidden;transform:translateY(8px);transition:.16s ease;backdrop-filter:blur(18px)}
 .publication-nav .nav-group:hover>.nav-menu,.publication-nav .nav-group:focus-within>.nav-menu,.publication-nav .nav-group.open>.nav-menu{opacity:1;visibility:visible;transform:none}
@@ -70,8 +80,8 @@ html[data-theme="light"] .publication-taxonomy-note{background:#eef8fa;border-co
 html[data-theme="light"] .publication-taxonomy-note b{color:#05849d}
 
 @media(max-width:1120px){
-  .publication-nav{gap:5px}
-  .publication-nav .nav-trigger,.publication-nav>a{padding:0 6px;font-size:9px;letter-spacing:.02em}
+  .publication-nav{gap:13px}
+  .publication-nav .nav-trigger,.publication-nav>a{font-size:8.5px;letter-spacing:.065em}
   .publication-nav .nav-menu{width:390px}
 }
 @media(max-width:860px){
