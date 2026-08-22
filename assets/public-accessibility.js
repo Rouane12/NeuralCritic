@@ -7,6 +7,17 @@
     return document.body.classList.contains('mobile-nav-open');
   }
 
+  function syncSubmenus() {
+    qsa('header .publication-nav .nav-group').forEach((group, index) => {
+      const button = qs('.nav-trigger', group);
+      const menu = qs('.nav-menu', group);
+      if (!button || !menu) return;
+      if (!menu.id) menu.id = `publication-submenu-${index + 1}`;
+      button.setAttribute('aria-controls', menu.id);
+      button.setAttribute('aria-expanded', String(group.classList.contains('open')));
+    });
+  }
+
   function syncMobileNav() {
     const menu = qs('header .menu');
     const nav = qs('header nav');
@@ -17,6 +28,7 @@
     menu.setAttribute('aria-expanded', String(mobileNavOpen()));
     menu.setAttribute('aria-label', mobileNavOpen() ? 'Close navigation' : 'Open navigation');
     nav.setAttribute('aria-label', 'Primary navigation');
+    syncSubmenus();
   }
 
   function closeMobileNav({focus = false} = {}) {
@@ -86,7 +98,14 @@
     const menu = event.target.closest?.('header .menu');
     if (menu) requestAnimationFrame(syncMobileNav);
 
+    const trigger = event.target.closest?.('header .publication-nav .nav-trigger');
+    if (trigger) requestAnimationFrame(syncSubmenus);
+
     if (event.target.closest?.('header nav a')) closeMobileNav();
+
+    if (mobileNavOpen() && !event.target.closest?.('header .header')) {
+      closeMobileNav();
+    }
 
     const account = event.target.closest?.('.reader-account-button');
     if (account) {
