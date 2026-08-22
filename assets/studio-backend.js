@@ -112,6 +112,46 @@
     const {error}=await client.from('articles').upsert(row,{onConflict:'slug'}); if(error) throw error;
   }
 
+  async function deleteBackendStory(slug){
+    const {data:{user}}=await client.auth.getUser();
+    if(!user) throw new Error('Sign in first.');
+    const {data,error}=await client.from('articles').delete().eq('slug',slug).select('slug');
+    if(error) throw error;
+    if(!Array.isArray(data) || !data.some(row=>row.slug===slug)){
+      throw new Error('The database did not delete this story. Check the editor DELETE policy in Supabase.');
+    }
+    writeLocal(readLocal().filter(x=>x.slug!==slug));
+  }
+
+  function installDeleteInterceptor(){
+    const library=$('#story-library');
+    if(!library || library.dataset.backendDeleteReady)return;
+    library.dataset.backendDeleteReady='1';
+    library.addEventListener('click',async e=>{
+      const del=e.target.closest('[data-delete]');
+      if(!del)return;
+      const slug=del.dataset.delete;
+      const record=readLocal().find(x=>x.slug===slug);
+      if(!record?.backend)return;
+
+      e.preventDefault();
+      e.stopImmediatePropagation();
+      const title=record.title||slug;
+      if(!window.confirm(`Delete “${title}” from Neural Critic? This permanently removes the database article.`))return;
+
+      del.disabled=true;
+      setStatus('Deleting story from Neural Critic database…');
+      try{
+        await deleteBackendStory(slug);
+        setStatus('Story deleted from Neural Critic database.','success');
+        setTimeout(()=>location.reload(),350);
+      }catch(err){
+        del.disabled=false;
+        setStatus(err.message||'Database delete failed.','error');
+      }
+    },true);
+  }
+
   function interceptWrites(){
     [['#save-draft','draft'],['#schedule-story','scheduled'],['#publish-story','published']].forEach(([selector,status])=>{
       const btn=$(selector); if(!btn||btn.dataset.backendWriteReady)return;
@@ -124,6 +164,7 @@
       profileButton.addEventListener('click',()=>setTimeout(async()=>{
         try{const {data:{user}}=await client.auth.getUser(); if(!user)return; const payload={display_name:document.querySelector('.studio-topbar nav>span')?.textContent||'Rouane Mounssif',avatar_url:$('#profile-image').value.trim()||null,avatar_alt:$('#profile-alt').value.trim()||null}; const {error}=await client.from('editor_profiles').update(payload).eq('user_id',user.id); if(error)throw error;setStatus('Author profile saved to database.','success')}catch(e){setStatus(e.message,'error')}} ,0));
     }
+    installDeleteInterceptor();
   }
 
   async function authenticated(user){
