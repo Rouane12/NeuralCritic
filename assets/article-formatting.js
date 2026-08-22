@@ -31,6 +31,18 @@
       .filter(section=>section.querySelector(':scope > h2'));
   }
 
+  function applyPublicationSystem(body){
+    const host=body.closest('#article');
+    if(!host)return;
+    host.classList.add('nc-type-system');
+    body.classList.add('nc-body');
+    $(':scope > h1',host)?.classList.add('nc-display');
+    $(':scope > .work-gradient-title',host)?.classList.add('nc-display');
+    $(':scope > .article-deck',host)?.classList.add('nc-deck');
+    $$('.work-breadcrumb,:scope > .article-kicker,.quick-read>span,.work-side-card>span',host)
+      .forEach(node=>node.classList.add('nc-utility'));
+  }
+
   function applyHeadingStyles(article,body){
     const sections=styledSections(body);
     (article.contentBlocks||[]).forEach((block,index)=>{
@@ -38,9 +50,10 @@
       if(!section)return;
       const style=['editorial','display','accent','statement'].includes(block.headingStyle)?block.headingStyle:'editorial';
       section.dataset.headingStyle=style;
+      section.classList.remove('nc-heading-editorial','nc-heading-display','nc-heading-accent','nc-heading-statement');
       section.classList.add(`nc-heading-${style}`);
       const heading=section.querySelector(':scope > h2');
-      heading?.classList.add('nc-editorial-heading');
+      heading?.classList.add('nc-editorial-heading','nc-section');
     });
   }
 
@@ -83,6 +96,7 @@
   async function init(){
     const [article,body]=await Promise.all([loadArticle(),waitForBody()]);
     if(!article||!body)return;
+    applyPublicationSystem(body);
     applyHeadingStyles(article,body);
     applyInlineFormatting(body);
   }
