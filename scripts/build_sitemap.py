@@ -29,6 +29,7 @@ FEED_URL = urllib.parse.urljoin(SITE_URL, "feed.xml")
 STATIC_URLS = [
     SITE_URL,
     urllib.parse.urljoin(SITE_URL, "about.html"),
+    urllib.parse.urljoin(SITE_URL, "standards.html"),
     urllib.parse.urljoin(SITE_URL, "category.html?category=news"),
     urllib.parse.urljoin(SITE_URL, "category.html?category=features"),
     urllib.parse.urljoin(SITE_URL, "category.html?category=guides"),
