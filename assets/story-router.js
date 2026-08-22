@@ -111,7 +111,10 @@
 
   function restoreStaticStoryRoute() {
     if (!validSlug(STATIC_SLUG)) return;
+    let restored = false;
     const restore = () => {
+      if (restored) return;
+      restored = true;
       const target = new URL(storyUrl(STATIC_SLUG));
       target.searchParams.set('slug', STATIC_SLUG);
       target.hash = location.hash;
@@ -120,7 +123,10 @@
     };
 
     window.addEventListener('neuralcritic:analytics-script-loaded', restore, { once: true });
-    setTimeout(restore, 3200);
+    // Local analytics scripts normally initialize almost immediately. This
+    // fallback only exists for unusually slow/blocked script loading, and gives
+    // analytics enough time to classify the generated shell as an article.
+    setTimeout(restore, 8000);
   }
 
   bindCanonicalShare();
