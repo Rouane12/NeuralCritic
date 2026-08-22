@@ -91,15 +91,35 @@
       if (!link) return;
 
       const rawHash = link.getAttribute('href') || '';
-      const id = decodeURIComponent(rawHash.replace(/^#/, ''));
+      let id = '';
+      try { id = decodeURIComponent(rawHash.replace(/^#/, '')); } catch (_) { id = rawHash.replace(/^#/, ''); }
       const target = id ? document.getElementById(id) : null;
       if (!target) return;
 
       event.preventDefault();
-      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      event.stopPropagation();
+      event.stopImmediatePropagation();
+
+      const reduceMotion = window.matchMedia?.('(prefers-reduced-motion: reduce)').matches;
+      const header = document.querySelector('header');
+      const headerRect = header?.getBoundingClientRect();
+      const headerOffset = headerRect && headerRect.height > 0 && headerRect.bottom > 0
+        ? Math.min(headerRect.height, 96)
+        : 0;
+      const destination = Math.max(0, target.getBoundingClientRect().top + window.scrollY - headerOffset - 24);
 
       const next = `${location.pathname}${location.search}#${encodeURIComponent(id)}`;
       history.pushState(null, '', next);
+
+      requestAnimationFrame(() => {
+        requestAnimationFrame(() => {
+          window.scrollTo({
+            top: destination,
+            left: 0,
+            behavior: reduceMotion ? 'auto' : 'smooth'
+          });
+        });
+      });
     }, true);
   }
 
