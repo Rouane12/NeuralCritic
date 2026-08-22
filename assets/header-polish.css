@@ -411,10 +411,32 @@ html[data-theme="light"] .ticker b{background:rgba(10,14,31,.92)!important;color
   header .header{display:flex!important;height:70px;gap:10px}
   header .brand{min-width:auto;margin-right:auto}
   header .brand span,header .brand strong{font-size:20px}
-  .header-tools{gap:6px;min-width:0;margin:0}
+  .header-tools{gap:5px;min-width:0;margin:0}
   .header-tools .search{order:initial;width:40px!important;min-width:40px!important;height:40px!important;min-height:40px!important}
   .header-tools .theme-toggle{order:initial}
-  .header-tools .reader-account-button{order:initial;display:none!important}
+  .header-tools .reader-account-button{
+    order:initial;
+    display:inline-flex!important;
+    height:40px!important;
+    min-height:40px!important;
+    min-width:76px!important;
+    max-width:94px!important;
+    padding:0 10px!important;
+    font-size:8px!important;
+  }
+  .header-tools .reader-account-button.signed-in{
+    width:40px!important;
+    min-width:40px!important;
+    max-width:40px!important;
+    padding:0!important;
+    gap:0!important;
+  }
+  .header-tools .reader-account-button.signed-in [data-reader-account-label]{display:none!important}
+  .header-tools .reader-account-button.signed-in .reader-account-dot.reader-account-avatar{
+    width:30px!important;
+    height:30px!important;
+    flex-basis:30px!important;
+  }
   .theme-toggle{width:40px!important;min-width:40px!important;height:40px!important;min-height:40px!important;padding:0!important;gap:0!important}
   .theme-toggle small{display:none!important}
   header .menu{
@@ -444,10 +466,11 @@ html[data-theme="light"] .ticker b{background:rgba(10,14,31,.92)!important;color
   .ticker b::before{width:5px;height:5px;flex-basis:5px}
   .ticker p{font-size:7.5px}
   header .shell.header{width:calc(100% - 18px)}
-  header .header{gap:7px}
-  header .brand span,header .brand strong{font-size:19px}
+  header .header{gap:6px}
+  header .brand span,header .brand strong{font-size:18px}
   header .menu{width:40px;min-width:40px;height:40px}
   .header-tools{gap:4px}
+  .header-tools .reader-account-button:not(.signed-in){width:62px!important;min-width:62px!important;max-width:62px!important;padding:0 7px!important;font-size:7.4px!important}
 }
 
 /* --------------------------------------------------------------------------
