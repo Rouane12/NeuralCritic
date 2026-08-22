@@ -5,6 +5,7 @@ on:
     branches: [main]
     paths:
       - scripts/build_publication.py
+      - scripts/fix_generated_routes.py
       - article.html
       - assets/supabase-config.js
       - .github/workflows/build-publication.yml
@@ -37,7 +38,9 @@ jobs:
       - name: Generate canonical article routes and sitemap
         env:
           NC_SITE_URL: https://rouane12.github.io/NeuralCritic/
-        run: python scripts/build_publication.py
+        run: |
+          python scripts/build_publication.py
+          python scripts/fix_generated_routes.py
 
       - name: Commit generated publication files
         run: |
