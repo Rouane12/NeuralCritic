@@ -28,6 +28,12 @@ window.NEURAL_CRITIC_SUPABASE = {
       style.dataset.ncRecirculationStyle = '1';
       document.head.appendChild(style);
     }
+    if (!document.querySelector('style[data-nc-recirculation-fine-tune]')) {
+      const fineTune = document.createElement('style');
+      fineTune.dataset.ncRecirculationFineTune = '1';
+      fineTune.textContent = '.nc-recirc-head{padding:0 2px 10px!important}.nc-recirc-head>a{transform:translateY(-4px)}@media(max-width:720px){.nc-recirc-head{padding-bottom:8px!important}.nc-recirc-head>a{transform:none}}';
+      document.head.appendChild(fineTune);
+    }
     if (!document.querySelector('script[data-nc-recirculation]')) {
       const script = document.createElement('script');
       script.src = 'assets/recirculation.js?v=20260823-recirc3';
