@@ -85,6 +85,24 @@
     setTimeout(() => observer.disconnect(), 20000);
   }
 
+  function bindReadingMap() {
+    document.addEventListener('click', event => {
+      const link = event.target.closest?.('.work-toc a[href^="#"]');
+      if (!link) return;
+
+      const rawHash = link.getAttribute('href') || '';
+      const id = decodeURIComponent(rawHash.replace(/^#/, ''));
+      const target = id ? document.getElementById(id) : null;
+      if (!target) return;
+
+      event.preventDefault();
+      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+
+      const next = `${location.pathname}${location.search}#${encodeURIComponent(id)}`;
+      history.pushState(null, '', next);
+    }, true);
+  }
+
   function bindCanonicalShare() {
     document.addEventListener('click', async event => {
       const button = event.target.closest?.('[data-article-share]');
@@ -129,6 +147,7 @@
     setTimeout(restore, 8000);
   }
 
+  bindReadingMap();
   bindCanonicalShare();
   watchLinks();
   enforceCanonical();
