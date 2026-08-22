@@ -2,5 +2,7 @@ User-agent: *
 Allow: /
 Disallow: /studio.html
 Disallow: /subscribers.html
+Disallow: /data/
+Disallow: /scripts/
 
 Sitemap: https://rouane12.github.io/NeuralCritic/sitemap.xml
