@@ -138,6 +138,21 @@ def check_story_router() -> None:
             base.error(f"Canonical story routing is missing integration marker: {marker}")
 
 
+def check_recirculation() -> None:
+    config = base.text("assets/supabase-config.js")
+    script = base.text("assets/recirculation.js")
+    style = base.text("assets/recirculation.css")
+    for asset in ("assets/recirculation.js", "assets/recirculation.css"):
+        if asset not in config:
+            base.error(f"supabase-config.js is not loading article recirculation asset: {asset}")
+    for marker in ("recirculation_click", "recirculation_view", "stories/", "work-related-card"):
+        if marker not in script:
+            base.error(f"recirculation.js is missing integration marker: {marker}")
+    for marker in (".nc-recirculation", ".nc-recirc-grid", "prefers-reduced-motion"):
+        if marker not in style:
+            base.error(f"recirculation.css is missing required presentation marker: {marker}")
+
+
 def main() -> int:
     base.ERRORS.clear()
     base.WARNINGS.clear()
@@ -150,6 +165,7 @@ def main() -> int:
     check_canonical_sitemap(static_slugs)
     check_canonical_feed(static_slugs)
     check_story_router()
+    check_recirculation()
     base.check_robots()
     base.check_page_metadata()
     base.check_analytics()
