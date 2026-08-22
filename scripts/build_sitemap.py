@@ -1,0 +1,145 @@
+#!/usr/bin/env python3
+"""Refresh Neural Critic's sitemap from published Supabase stories.
+
+This script is intentionally SEO-only. It never creates, edits, or deletes article
+HTML. The proven article.html?slug= runtime remains the only reader-facing article
+renderer.
+"""
+
+from __future__ import annotations
+
+import json
+import re
+import urllib.parse
+import urllib.request
+from datetime import datetime, timezone
+from pathlib import Path
+from typing import Any
+from xml.sax.saxutils import escape
+
+ROOT = Path(__file__).resolve().parents[1]
+CONFIG_PATH = ROOT / "assets" / "supabase-config.js"
+FALLBACK_INDEX = ROOT / "data" / "articles.json"
+SITEMAP_PATH = ROOT / "sitemap.xml"
+SITE_URL = "https://rouane12.github.io/NeuralCritic/"
+
+STATIC_URLS = [
+    SITE_URL,
+    urllib.parse.urljoin(SITE_URL, "about.html"),
+    urllib.parse.urljoin(SITE_URL, "category.html?category=news"),
+    urllib.parse.urljoin(SITE_URL, "category.html?category=features"),
+    urllib.parse.urljoin(SITE_URL, "category.html?category=guides"),
+    urllib.parse.urljoin(SITE_URL, "category.html?category=reviews"),
+    urllib.parse.urljoin(SITE_URL, "category.html?section=what-to-play"),
+]
+
+
+def read_supabase_config() -> tuple[str, str]:
+    text = CONFIG_PATH.read_text(encoding="utf-8")
+    url_match = re.search(r"url:\s*['\"]([^'\"]+)['\"]", text)
+    key_match = re.search(r"publishableKey:\s*['\"]([^'\"]+)['\"]", text)
+    if not url_match or not key_match:
+        raise RuntimeError("Could not read Supabase public configuration.")
+    return url_match.group(1).rstrip("/"), key_match.group(1)
+
+
+def fetch_published() -> list[dict[str, Any]]:
+    supabase_url, key = read_supabase_config()
+    now = datetime.now(timezone.utc).isoformat().replace("+00:00", "Z")
+    query = urllib.parse.urlencode(
+        {
+            "select": "slug,published_at,status",
+            "status": "eq.published",
+            "published_at": f"lte.{now}",
+            "order": "published_at.desc",
+        },
+        safe=".*,:+-",
+    )
+    request = urllib.request.Request(
+        f"{supabase_url}/rest/v1/articles?{query}",
+        headers={
+            "apikey": key,
+            "Authorization": f"Bearer {key}",
+            "Accept": "application/json",
+            "User-Agent": "NeuralCritic-SitemapBuilder/1.0",
+        },
+    )
+    with urllib.request.urlopen(request, timeout=15) as response:
+        payload = json.loads(response.read().decode("utf-8"))
+    if not isinstance(payload, list):
+        raise RuntimeError("Supabase article response was not a list.")
+    return [row for row in payload if isinstance(row, dict)]
+
+
+def fallback_published() -> list[dict[str, Any]]:
+    payload = json.loads(FALLBACK_INDEX.read_text(encoding="utf-8"))
+    if not isinstance(payload, list):
+        return []
+    rows: list[dict[str, Any]] = []
+    for article in payload:
+        if not isinstance(article, dict):
+            continue
+        slug = str(article.get("slug") or "").strip()
+        if not slug:
+            continue
+        rows.append(
+            {
+                "slug": slug,
+                "published_at": article.get("publishedAt") or article.get("published_at") or "",
+            }
+        )
+    return rows
+
+
+def load_articles() -> tuple[list[dict[str, Any]], str]:
+    try:
+        return fetch_published(), "supabase"
+    except Exception as exc:
+        print(f"Live sitemap fetch unavailable ({exc}); using repository fallback.")
+        return fallback_published(), "repository"
+
+
+def valid_slug(slug: str) -> bool:
+    return bool(re.fullmatch(r"[A-Za-z0-9][A-Za-z0-9_-]*", slug))
+
+
+def article_url(slug: str) -> str:
+    encoded = urllib.parse.quote(slug, safe="-._~")
+    return urllib.parse.urljoin(SITE_URL, f"article.html?slug={encoded}")
+
+
+def render_sitemap(rows: list[dict[str, Any]]) -> str:
+    lines = [
+        '<?xml version="1.0" encoding="UTF-8"?>',
+        '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">',
+    ]
+
+    for url in STATIC_URLS:
+        lines.extend(["  <url>", f"    <loc>{escape(url)}</loc>", "  </url>"])
+
+    seen: set[str] = set()
+    for row in rows:
+        slug = str(row.get("slug") or "").strip()
+        if not valid_slug(slug) or slug in seen:
+            continue
+        seen.add(slug)
+        lines.append("  <url>")
+        lines.append(f"    <loc>{escape(article_url(slug))}</loc>")
+        published = str(row.get("published_at") or row.get("publishedAt") or "").strip()
+        if published:
+            lines.append(f"    <lastmod>{escape(published)}</lastmod>")
+        lines.append("  </url>")
+
+    lines.append("</urlset>")
+    return "\n".join(lines) + "\n"
+
+
+def main() -> int:
+    rows, source = load_articles()
+    SITEMAP_PATH.write_text(render_sitemap(rows), encoding="utf-8")
+    print(f"Refreshed Neural Critic sitemap with {len(rows)} published rows from {source}.")
+    return 0
+
+
+if __name__ == "__main__":
+    raise SystemExit(main())
