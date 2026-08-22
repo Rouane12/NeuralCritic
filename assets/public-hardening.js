@@ -5,6 +5,7 @@
   const DEFAULT_DESCRIPTION = 'Gaming news, reviews, guides, and features for players who want the signal—not the noise.';
   const PRIVATE_PAGES = new Set(['studio.html', 'subscribers.html']);
   const GENERIC_TAGS = new Set(['review','reviews','feature','features','news','guide','guides','pc','playstation','xbox','nintendo','mobile','action rpg','open world']);
+  const MEDIA_MARKER = '/media/editorial/';
 
   const page = (location.pathname.split('/').pop() || 'index.html').toLowerCase();
   const params = new URLSearchParams(location.search);
@@ -13,6 +14,22 @@
   function absolute(value) {
     if (!value) return '';
     try { return new URL(value, base).href; } catch (_) { return ''; }
+  }
+
+  function seoImage(value) {
+    const raw = String(value || '').trim();
+    if (!raw) return '';
+    if (/^https?:\/\//i.test(raw) && raw.includes(MEDIA_MARKER)) {
+      const filename = raw.split(MEDIA_MARKER)[1]?.split(/[?#]/)[0];
+      if (filename) return absolute(`images/editorial/${decodeURIComponent(filename)}`);
+    }
+    return absolute(raw);
+  }
+
+  function normalizeDate(value) {
+    if (!value) return undefined;
+    const date = new Date(value);
+    return Number.isNaN(date.valueOf()) ? undefined : date.toISOString().slice(0, 10);
   }
 
   function setMeta(name, content) {
@@ -63,15 +80,18 @@
     setMeta('description', description || DEFAULT_DESCRIPTION);
     setCanonical(canonical);
     setProperty('og:site_name', SITE_NAME);
+    setProperty('og:locale', 'en_US');
     setProperty('og:type', type);
     setProperty('og:title', title);
     setProperty('og:description', description || DEFAULT_DESCRIPTION);
     setProperty('og:url', canonical);
     if (image) {
       setProperty('og:image', image);
+      if (image.startsWith('https://')) setProperty('og:image:secure_url', image);
       if (imageAlt) setProperty('og:image:alt', imageAlt);
       setMeta('twitter:card', 'summary_large_image');
       setMeta('twitter:image', image);
+      if (imageAlt) setMeta('twitter:image:alt', imageAlt);
     } else {
       setMeta('twitter:card', 'summary');
     }
@@ -121,26 +141,38 @@
       name: article.title,
       headline: article.title,
       description: article.description || DEFAULT_DESCRIPTION,
+      url: canonical,
+      inLanguage: 'en',
+      isAccessibleForFree: true,
       datePublished: article.publishedAt || undefined,
       author: { '@type': 'Person', name: article.author || 'Rouane Mounssif' },
       publisher: publisher(),
       mainEntityOfPage: { '@type': 'WebPage', '@id': canonical },
       image: image ? [image] : undefined,
+      thumbnailUrl: image || undefined,
       keywords: Array.isArray(article.tags) ? article.tags.join(', ') : undefined
     };
 
     if (article.articleFormat === 'review') {
-      const score = Number(article.reviewMeta?.score);
-      const pros = Array.isArray(article.reviewMeta?.pros) ? article.reviewMeta.pros : [];
-      const cons = Array.isArray(article.reviewMeta?.cons) ? article.reviewMeta.cons : [];
+      const meta = article.reviewMeta || {};
+      const score = Number(meta.score);
+      const pros = Array.isArray(meta.pros) ? meta.pros : [];
+      const cons = Array.isArray(meta.cons) ? meta.cons : [];
+      const game = {
+        '@type': 'VideoGame',
+        name: gameNameFrom(article)
+      };
+      if (meta.developer) game.author = { '@type': 'Organization', name: String(meta.developer) };
+      if (meta.publisher) game.publisher = { '@type': 'Organization', name: String(meta.publisher) };
+      if (meta.testedPlatform) game.gamePlatform = String(meta.testedPlatform);
+      const releaseDate = normalizeDate(meta.releaseDate);
+      if (releaseDate) game.datePublished = releaseDate;
+
       return {
         ...common,
         '@type': 'Review',
-        reviewBody: article.reviewMeta?.verdict || article.description || '',
-        itemReviewed: {
-          '@type': 'VideoGame',
-          name: gameNameFrom(article)
-        },
+        reviewBody: meta.verdict || article.description || '',
+        itemReviewed: game,
         reviewRating: Number.isFinite(score) ? {
           '@type': 'Rating',
           ratingValue: score,
@@ -162,6 +194,22 @@
       ...common,
       '@type': String(article.category || '').toUpperCase() === 'NEWS' ? 'NewsArticle' : 'Article',
       articleSection: article.category || undefined
+    };
+  }
+
+  function breadcrumbSchema(article, canonical) {
+    const category = String(article.category || 'FEATURE').toLowerCase();
+    const categoryKey = category === 'review' ? 'reviews' : category === 'guide' ? 'guides' : category === 'news' ? 'news' : 'features';
+    const categoryLabel = cleanCategory(categoryKey);
+    const categoryUrl = new URL(`category.html?category=${encodeURIComponent(categoryKey)}`, base).href;
+    return {
+      '@context': 'https://schema.org',
+      '@type': 'BreadcrumbList',
+      itemListElement: [
+        { '@type': 'ListItem', position: 1, name: SITE_NAME, item: base.href },
+        { '@type': 'ListItem', position: 2, name: categoryLabel, item: categoryUrl },
+        { '@type': 'ListItem', position: 3, name: article.title, item: canonical }
+      ]
     };
   }
 
@@ -204,7 +252,7 @@
       return;
     }
 
-    const image = absolute(article.imageLocal || '');
+    const image = seoImage(article.imageLocal || '');
     const title = `${article.title} · ${SITE_NAME}`;
     setSocial({
       title,
@@ -220,6 +268,7 @@
     if (article.author) setProperty('article:author', article.author);
     addArticleTags(article.tags);
     setJsonLd('nc-structured-data', articleSchema(article, canonical, image));
+    setJsonLd('nc-breadcrumb-data', breadcrumbSchema(article, canonical));
   }
 
   function hardenHome() {
@@ -318,7 +367,6 @@
     setTimeout(() => observer.disconnect(), 12000);
   }
 
-  // Start cheap performance hints immediately; metadata can finish asynchronously.
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', hardenImages, { once: true });
   else hardenImages();
 
