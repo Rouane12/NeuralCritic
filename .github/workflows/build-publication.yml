@@ -1,56 +1,16 @@
-name: Build publication routes
+name: Build publication routes (paused)
 
+# Pretty publication routes are temporarily paused while Neural Critic uses the
+# proven article.html?slug= runtime. Re-enable only after the generated route
+# architecture is rebuilt without affecting article hydration/assets.
 on:
-  push:
-    branches: [main]
-    paths:
-      - scripts/build_publication.py
-      - scripts/fix_generated_routes.py
-      - article.html
-      - assets/supabase-config.js
-      - .github/workflows/build-publication.yml
-  schedule:
-    - cron: '*/15 * * * *'
   workflow_dispatch:
 
 permissions:
   contents: write
 
-concurrency:
-  group: neural-critic-publication-build
-  cancel-in-progress: false
-
 jobs:
-  build:
+  paused:
     runs-on: ubuntu-latest
-    timeout-minutes: 10
     steps:
-      - name: Check out repository
-        uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
-
-      - name: Set up Python
-        uses: actions/setup-python@v5
-        with:
-          python-version: '3.12'
-
-      - name: Generate canonical article routes and sitemap
-        env:
-          NC_SITE_URL: https://rouane12.github.io/NeuralCritic/
-        run: |
-          python scripts/build_publication.py
-          python scripts/fix_generated_routes.py
-
-      - name: Commit generated publication files
-        run: |
-          if git diff --quiet && [ -z "$(git status --porcelain)" ]; then
-            echo "Publication routes are already current."
-            exit 0
-          fi
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add -A
-          git commit -m "Refresh Neural Critic publication routes"
-          git pull --rebase origin main
-          git push
+      - run: echo "Neural Critic pretty-route generation is intentionally paused."
