@@ -2,7 +2,8 @@
 """Fail-fast health checks for Neural Critic's public publication surface.
 
 This audit is intentionally read-only. It protects the stable CMS-driven
-article runtime and catches SEO/content regressions before deployment.
+article runtime and catches SEO, discovery, analytics, and content regressions
+before deployment.
 """
 
 from __future__ import annotations
@@ -18,6 +19,7 @@ ROOT = Path(__file__).resolve().parents[1]
 SITE_URL = "https://rouane12.github.io/NeuralCritic/"
 MEDIA_MARKER = "/media/editorial/"
 ARTICLE_HOST = '<main class="article-page" id="article"></main>'
+CONSENT_KEY = "neural-critic-analytics-consent-v1"
 
 ERRORS: list[str] = []
 WARNINGS: list[str] = []
@@ -204,6 +206,38 @@ def check_sitemap(static_slugs: set[str]) -> None:
         error("Static fallback articles missing from sitemap: " + ", ".join(sorted(missing)))
 
 
+def check_feed(static_slugs: set[str]) -> None:
+    feed_path = ROOT / "feed.xml"
+    if not feed_path.exists():
+        error("Missing feed.xml")
+        return
+    try:
+        root = ET.parse(feed_path).getroot()
+    except Exception as exc:
+        error(f"feed.xml is invalid XML: {exc}")
+        return
+    if root.tag != "rss":
+        error("feed.xml must be an RSS document.")
+        return
+    feed_slugs: set[str] = set()
+    for item in root.findall("./channel/item"):
+        link = (item.findtext("link") or "").strip()
+        if not link:
+            error("RSS item is missing a link.")
+            continue
+        parsed = urlparse(link)
+        if parsed.path.endswith("/article.html"):
+            slug = parse_qs(parsed.query).get("slug", [""])[0]
+            if slug:
+                feed_slugs.add(slug)
+    missing = static_slugs - feed_slugs
+    if missing:
+        warn("Static fallback articles missing from current RSS feed: " + ", ".join(sorted(missing)))
+    home = text("index.html")
+    if 'type="application/rss+xml"' not in home or 'href="feed.xml"' not in home:
+        error("index.html is missing RSS autodiscovery metadata.")
+
+
 def check_robots() -> None:
     robots = text("robots.txt")
     for directive in (
@@ -223,6 +257,7 @@ def check_page_metadata() -> None:
         "category.html": ("description", "robots"),
         "about.html": ("description", "robots"),
         "search.html": ("description", "noindex"),
+        "privacy.html": ("description", "noindex"),
     }
     for page, requirements in public_pages.items():
         html = text(page)
@@ -232,12 +267,46 @@ def check_page_metadata() -> None:
             elif requirement == "robots" and 'name="robots"' not in html:
                 error(f"{page}: missing robots metadata.")
             elif requirement == "noindex" and "noindex" not in html:
-                error(f"{page}: search/private surface must be noindex.")
+                error(f"{page}: search/privacy surface must be noindex.")
 
     for page in ("studio.html", "subscribers.html"):
         html = text(page)
         if "noindex" not in html or "nofollow" not in html:
             error(f"{page}: private CMS surface is missing noindex,nofollow protection.")
+
+
+def check_analytics() -> None:
+    config = text("assets/analytics-config.js")
+    analytics = text("assets/analytics.js")
+    bootstrap = text("assets/supabase-config.js")
+    privacy = text("privacy.html")
+
+    id_match = re.search(r"measurementId:\s*['\"]([^'\"]*)['\"]", config)
+    if not id_match:
+        error("analytics-config.js is missing measurementId.")
+    else:
+        value = id_match.group(1).strip()
+        if value and not re.fullmatch(r"G-[A-Z0-9]+", value, re.I):
+            error("analytics-config.js contains an invalid GA4 Measurement ID.")
+
+    for marker in (
+        "analytics_storage: 'denied'",
+        "ad_storage: 'denied'",
+        "ad_user_data: 'denied'",
+        "ad_personalization: 'denied'",
+        "PRIVATE_PAGES",
+        "safePageUrl",
+        "query_length",
+    ):
+        if marker not in analytics:
+            error(f"analytics.js is missing privacy guard: {marker}")
+
+    if "assets/analytics-config.js" not in bootstrap or "assets/analytics.js" not in bootstrap:
+        error("supabase-config.js is not loading the analytics stack.")
+    if CONSENT_KEY not in config or CONSENT_KEY not in privacy:
+        error("Analytics consent key is inconsistent between config and privacy controls.")
+    if 'href="privacy.html"' not in analytics:
+        error("Analytics consent UI does not link to privacy.html.")
 
 
 def main() -> int:
@@ -246,8 +315,10 @@ def main() -> int:
     static_slugs = check_article_data()
     check_image_budget()
     check_sitemap(static_slugs)
+    check_feed(static_slugs)
     check_robots()
     check_page_metadata()
+    check_analytics()
 
     for message in WARNINGS:
         print(f"WARNING: {message}")
