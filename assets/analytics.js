@@ -29,6 +29,16 @@
     return new URLSearchParams(location.search).get('slug') || '';
   }
 
+  function safePageUrl() {
+    const url = new URL(location.href);
+    if (pageName === 'search.html') url.search = '';
+    return url;
+  }
+
+  function safePageTitle() {
+    return pageName === 'search.html' ? 'Search · Neural Critic' : document.title;
+  }
+
   function safeParams(input = {}) {
     const output = {};
     Object.entries(input).forEach(([key, value]) => {
@@ -64,10 +74,15 @@
     log(eventName, payload);
   }
 
+  function storedConsent() {
+    try { return localStorage.getItem(CONSENT_KEY) || 'unset'; }
+    catch (_) { return 'unset'; }
+  }
+
   window.NeuralCriticAnalytics = {
     track,
     enabled: () => tagLoaded,
-    consent: () => localStorage.getItem(CONSENT_KEY) || 'unset'
+    consent: storedConsent
   };
 
   function loadTag() {
@@ -93,10 +108,11 @@
     script.dataset.ncAnalyticsTag = '1';
     document.head.appendChild(script);
 
+    const safeUrl = safePageUrl();
     track('page_view', {
-      page_title: document.title,
-      page_location: location.href,
-      page_path: `${location.pathname}${location.search}`
+      page_title: safePageTitle(),
+      page_location: safeUrl.href,
+      page_path: `${safeUrl.pathname}${safeUrl.search}`
     });
     trackArticleContext();
     wireScrollDepth();
@@ -208,6 +224,33 @@
     observer.observe(document.documentElement, { childList: true, subtree: true, characterData: true });
   }
 
+  function wireFooterLinks() {
+    const apply = () => {
+      const columns = [...document.querySelectorAll('footer .footer > div')];
+      const about = columns.find(column => column.querySelector('b')?.textContent?.trim().toUpperCase() === 'ABOUT');
+      if (!about) return false;
+      if (!about.querySelector('a[href="privacy.html"]')) {
+        const privacy = document.createElement('a');
+        privacy.href = 'privacy.html';
+        privacy.textContent = 'Privacy';
+        about.appendChild(privacy);
+      }
+      if (!about.querySelector('a[href="feed.xml"]')) {
+        const rss = document.createElement('a');
+        rss.href = 'feed.xml';
+        rss.textContent = 'RSS';
+        about.appendChild(rss);
+      }
+      return true;
+    };
+    if (apply()) return;
+    const observer = new MutationObserver(() => {
+      if (apply()) observer.disconnect();
+    });
+    observer.observe(document.documentElement, { childList: true, subtree: true });
+    setTimeout(() => observer.disconnect(), 6000);
+  }
+
   function injectConsentStyles() {
     if (document.getElementById('nc-analytics-consent-style')) return;
     const style = document.createElement('style');
@@ -229,24 +272,25 @@
     banner.className = 'nc-analytics-consent';
     banner.setAttribute('role', 'dialog');
     banner.setAttribute('aria-label', 'Analytics preferences');
-    banner.innerHTML = `<strong>Help improve Neural Critic</strong><p>Allow privacy-conscious analytics so we can understand which stories and features readers use. No email addresses, comments, or account text are sent to analytics. <a href="privacy.html">Privacy details</a>.</p><div class="nc-analytics-consent-actions"><button type="button" data-essential>ESSENTIAL ONLY</button><button type="button" data-accept>ALLOW ANALYTICS</button></div>`;
+    banner.innerHTML = `<strong>Help improve Neural Critic</strong><p>Allow privacy-conscious analytics so we can understand which stories and features readers use. No email addresses, comments, account names, or search text are sent to analytics. <a href="privacy.html">Privacy details</a>.</p><div class="nc-analytics-consent-actions"><button type="button" data-essential>ESSENTIAL ONLY</button><button type="button" data-accept>ALLOW ANALYTICS</button></div>`;
     document.body.appendChild(banner);
     banner.querySelector('[data-essential]')?.addEventListener('click', () => {
-      localStorage.setItem(CONSENT_KEY, 'denied');
+      try { localStorage.setItem(CONSENT_KEY, 'denied'); } catch (_) {}
       banner.remove();
     });
     banner.querySelector('[data-accept]')?.addEventListener('click', () => {
-      localStorage.setItem(CONSENT_KEY, 'granted');
+      try { localStorage.setItem(CONSENT_KEY, 'granted'); } catch (_) {}
       banner.remove();
       loadTag();
     });
   }
 
+  wireFooterLinks();
+
   if (PRIVATE_PAGES.has(pageName) || !validId) return;
   watchNewsletterSuccess();
 
-  let consent = 'unset';
-  try { consent = localStorage.getItem(CONSENT_KEY) || 'unset'; } catch (_) {}
+  let consent = storedConsent();
   if (navigator.doNotTrack === '1') consent = 'denied';
 
   if (consent === 'granted') loadTag();
