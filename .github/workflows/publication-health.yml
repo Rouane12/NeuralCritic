@@ -9,6 +9,9 @@ on:
       - category.html
       - search.html
       - about.html
+      - privacy.html
+      - standards.html
+      - commercial.html
       - studio.html
       - subscribers.html
       - robots.txt
@@ -20,6 +23,7 @@ on:
       - images/editorial/**
       - scripts/audit_publication.py
       - scripts/audit_publication_v2.py
+      - scripts/build_sitemap.py
       - scripts/build_story_pages.py
       - .github/workflows/publication-health.yml
   pull_request:
@@ -29,6 +33,9 @@ on:
       - category.html
       - search.html
       - about.html
+      - privacy.html
+      - standards.html
+      - commercial.html
       - studio.html
       - subscribers.html
       - robots.txt
@@ -40,6 +47,7 @@ on:
       - images/editorial/**
       - scripts/audit_publication.py
       - scripts/audit_publication_v2.py
+      - scripts/build_sitemap.py
       - scripts/build_story_pages.py
       - .github/workflows/publication-health.yml
   workflow_dispatch:
