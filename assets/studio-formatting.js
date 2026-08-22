@@ -3,11 +3,13 @@
   const $$ = (s, root=document) => [...root.querySelectorAll(s)];
   const LOCAL_KEY = 'neural-critic-studio-stories-v1';
 
+  /* Values stay backward-compatible with existing stored articles. The labels
+     now describe Neural Critic's publication roles instead of abstract effects. */
   const headingOptions = [
-    ['editorial','EDITORIAL — CLEAN + STRONG'],
-    ['display','DISPLAY — LARGE + DRAMATIC'],
-    ['accent','ACCENT — CYAN / PURPLE SIGNAL'],
-    ['statement','STATEMENT — RULE + EMPHASIS']
+    ['editorial','NC SECTION — CLEAN EDITORIAL (DEFAULT)'],
+    ['display','NC DISPLAY — LARGE FEATURE MOMENT'],
+    ['accent','NC ACCENT — CYAN / VIOLET SIGNAL'],
+    ['statement','NC STATEMENT — RULE + EMPHASIS']
   ];
 
   const tools = [
@@ -38,13 +40,13 @@
     const text=$('[data-field="text"]',card);
     if(heading){
       const headingLabel=heading.closest('label');
-      headingLabel?.insertAdjacentHTML('afterend',`<label class="wide studio-heading-style">HEADING STYLE<select data-field="headingStyle">${headingOptions.map(([value,label])=>`<option value="${value}">${label}</option>`).join('')}</select><small>Give this section title a distinct editorial personality.</small></label>`);
+      headingLabel?.insertAdjacentHTML('afterend',`<label class="wide studio-heading-style">NEURAL CRITIC HEADING ROLE<select data-field="headingStyle">${headingOptions.map(([value,label])=>`<option value="${value}">${label}</option>`).join('')}</select><small>NC Section is the publication default. Body typography and spacing are applied automatically on the public article.</small></label>`);
     }
     if(text){
       const label=text.closest('label');
       const toolbar=document.createElement('div');
       toolbar.className='studio-text-toolbar';
-      toolbar.innerHTML=`<span>TEXT STYLE</span>${tools.map(([key,label])=>`<button type="button" data-format-tool="${key}">${label}</button>`).join('')}<small>Select words in the text box, then apply a style.</small>`;
+      toolbar.innerHTML=`<span>INLINE EMPHASIS</span>${tools.map(([key,label])=>`<button type="button" data-format-tool="${key}">${label}</button>`).join('')}<small>Keep prose mostly clean; use emphasis only where it improves reading.</small>`;
       label?.insertBefore(toolbar,text);
       toolbar.addEventListener('click',event=>{
         const btn=event.target.closest('[data-format-tool]');
