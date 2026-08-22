@@ -26,8 +26,19 @@
 /* --------------------------------------------------------------------------
    NC GAME GRAPH — automatically resolved review + ranked-list relationships
    -------------------------------------------------------------------------- */
-.game-graph-review{position:relative;z-index:2;display:grid;grid-template-columns:84px minmax(0,1fr);align-items:stretch;max-width:680px;margin:18px 0 24px;overflow:hidden;border:1px solid rgba(91,217,241,.28);border-radius:16px;background:linear-gradient(110deg,rgba(82,226,247,.075),rgba(119,104,255,.09));color:inherit;text-decoration:none!important;transition:transform .18s ease,border-color .18s ease,background .18s ease;}
-.game-graph-review:hover{transform:translateY(-2px);border-color:rgba(82,226,247,.58);background:linear-gradient(110deg,rgba(82,226,247,.11),rgba(119,104,255,.13));}
+.game-graph-review{position:relative;z-index:2;display:grid;grid-template-columns:84px minmax(0,1fr);align-items:stretch;max-width:680px;margin:18px 0 24px;overflow:hidden;border:1px solid rgba(91,217,241,.28);border-radius:16px;background:linear-gradient(110deg,rgba(82,226,247,.075),rgba(119,104,255,.09));color:inherit;text-decoration:none!important;transition:transform .18s ease,border-color .18s ease,background .18s ease,box-shadow .25s ease,opacity .45s ease,filter .45s ease;will-change:transform,opacity;}
+.game-graph-review::before{content:"";position:absolute;z-index:4;inset:-30% -45%;pointer-events:none;opacity:0;background:linear-gradient(105deg,transparent 35%,rgba(85,231,255,.06) 43%,rgba(85,231,255,.62) 49%,rgba(125,102,255,.48) 53%,transparent 61%);transform:translateX(-72%) skewX(-12deg);}
+.game-graph-review:hover{transform:translateY(-2px);border-color:rgba(82,226,247,.58);background:linear-gradient(110deg,rgba(82,226,247,.11),rgba(119,104,255,.13));box-shadow:0 13px 34px rgba(35,88,125,.13);}
+.game-graph-review.is-primed{opacity:0;transform:translateY(14px) scale(.985);filter:blur(1.4px);}
+.game-graph-review.is-primed .game-graph-review-copy>*{opacity:0;transform:translateY(6px);}
+.game-graph-review.is-revealing{animation:gameGraphCardIn .72s cubic-bezier(.18,.78,.24,1) both;box-shadow:0 0 0 1px rgba(85,231,255,.08),0 16px 42px rgba(45,62,133,.16);}
+.game-graph-review.is-revealing::before{animation:gameGraphSweep 1.05s cubic-bezier(.22,.72,.25,1) .06s both;}
+.game-graph-review.is-revealing .game-graph-score b{animation:gameGraphScoreGlow 1.15s ease-out both;}
+.game-graph-review.is-revealing .game-graph-review-copy>small{animation:gameGraphCopyIn .42s ease-out .18s both;}
+.game-graph-review.is-revealing .game-graph-review-copy>strong{animation:gameGraphCopyIn .48s ease-out .27s both;}
+.game-graph-review.is-revealing .game-graph-review-copy>em{animation:gameGraphCopyIn .42s ease-out .39s both;}
+.game-graph-review.is-revealed{opacity:1;filter:none;box-shadow:0 10px 28px rgba(19,34,72,.08);}
+
 .game-graph-score{display:flex;align-items:baseline;justify-content:center;align-content:center;flex-wrap:wrap;gap:2px;padding:17px 9px;border-right:1px solid rgba(104,133,186,.22);background:linear-gradient(145deg,rgba(82,226,247,.08),rgba(119,104,255,.11));}
 .game-graph-score b{color:#57e5f8;font:800 31px/.9 Inter,system-ui,sans-serif;letter-spacing:-.055em;}
 .game-graph-score small{color:#8795b5;font:800 8px/1 Inter,system-ui,sans-serif;}
@@ -35,6 +46,11 @@
 .game-graph-review-copy>small{color:#55e5f8;font:850 7.5px/1 Inter,system-ui,sans-serif;letter-spacing:.14em;}
 .game-graph-review-copy>strong{display:-webkit-box;overflow:hidden;-webkit-box-orient:vertical;-webkit-line-clamp:2;color:#eef3ff;font:650 11.5px/1.42 Inter,system-ui,sans-serif;letter-spacing:-.012em;}
 .game-graph-review-copy>em{color:#8a94ff;font:800 7.5px/1 Inter,system-ui,sans-serif;font-style:normal;letter-spacing:.08em;}
+
+@keyframes gameGraphCardIn{0%{opacity:0;transform:translateY(14px) scale(.985);filter:blur(1.4px)}58%{opacity:1;transform:translateY(-1px) scale(1.003);filter:blur(0)}100%{opacity:1;transform:none;filter:none}}
+@keyframes gameGraphSweep{0%{opacity:0;transform:translateX(-72%) skewX(-12deg)}18%{opacity:1}76%{opacity:.85}100%{opacity:0;transform:translateX(72%) skewX(-12deg)}}
+@keyframes gameGraphScoreGlow{0%{transform:scale(.84);opacity:.38;text-shadow:0 0 0 rgba(85,231,255,0)}48%{transform:scale(1.08);opacity:1;text-shadow:0 0 22px rgba(85,231,255,.58)}100%{transform:scale(1);opacity:1;text-shadow:0 0 0 rgba(85,231,255,0)}}
+@keyframes gameGraphCopyIn{0%{opacity:0;transform:translateY(6px)}100%{opacity:1;transform:none}}
 
 #article .game-graph-side{position:relative;overflow:hidden;padding:19px!important;}
 #article .game-graph-side::after{content:"";position:absolute;inset:0 0 auto;height:2px;background:linear-gradient(90deg,#55e7ff,#7668ff,transparent 78%);}
@@ -75,6 +91,12 @@
 [data-theme="light"] .game-graph-links>a small{color:#149cb3;}
 [data-theme="light"] .game-graph-links .game-graph-side-review{border-color:#cae5ea;background:linear-gradient(100deg,#eefbfd,#f4f2ff);}
 [data-theme="light"] .game-graph-side-review>b{color:#088fa7;}
+
+@media (prefers-reduced-motion:reduce){
+  .game-graph-review,.game-graph-review::before,.game-graph-review .game-graph-review-copy>*,.game-graph-review .game-graph-score b{animation:none!important;transition:none!important;}
+  .game-graph-review.is-primed,.game-graph-review.is-revealing,.game-graph-review.is-revealed{opacity:1!important;transform:none!important;filter:none!important;}
+  .game-graph-review.is-primed .game-graph-review-copy>*{opacity:1!important;transform:none!important;}
+}
 
 @media (max-width:760px){
   #article.ranked-list-page .ranked-card{padding:22px;border-radius:18px;margin-bottom:26px;}
