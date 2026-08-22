@@ -39,13 +39,9 @@ html[data-theme="light"] #article.work-article-page .work-toc nav a.active{color
 /* --------------------------------------------------------------------------
    NEURAL CRITIC ARTICLE REFERENCE COMPOSITION
 
-   Desktop geometry is intentionally mapped to the approved visual reference:
    1240px frame = 132px reactions + 732px editorial lane + 376px sidebar.
-   The editorial lane then uses 19px / 32px internal gutters for a 680px copy
-   measure; the sidebar uses 36px / 34px gutters for 306px cards.
-
-   This stays in the existing last-loaded article stylesheet so there is one
-   authoritative finishing layer and no extra asset / storage overhead.
+   Sidebar gutters are intentionally a little tighter now, allowing the two
+   editorial cards to breathe at roughly 320px without narrowing body copy.
    -------------------------------------------------------------------------- */
 
 @media(min-width:1260px){
@@ -74,7 +70,7 @@ html[data-theme="light"] #article.work-article-page .work-toc nav a.active{color
     box-sizing:border-box!important;
     width:100%!important;
     min-width:0!important;
-    padding:30px 34px 0 36px!important;
+    padding:30px 28px 0!important;
     gap:20px!important;
   }
 
@@ -124,8 +120,7 @@ html[data-theme="light"] #article.work-article-page .work-toc nav a.active{color
   }
 }
 
-/* Quick Read is deliberately split into the blue-violet eyebrow and the pale
-   editorial summary surface shown in the approved frame. */
+/* Quick Read */
 #article.work-article-page .quick-read.work-quick-read{
   display:block!important;
   min-height:0!important;
@@ -162,8 +157,7 @@ html[data-theme="light"] #article.work-article-page .work-toc nav a.active{color
   letter-spacing:-.004em!important;
 }
 
-/* Editorial lane — measured against the reference rather than the old 760px
-   imported Work layout. */
+/* Editorial lane */
 #article.work-article-page .quick-read.work-quick-read+section>h2{margin-top:0!important}
 #article.work-article-page .work-reading-grid>.article-body>section{margin:0 0 48px!important}
 #article.work-article-page .work-reading-grid>.article-body>section>h2{
@@ -192,7 +186,7 @@ html[data-theme="light"] #article.work-article-page .work-toc nav a.active{color
 #article.work-article-page .work-inline-figure{width:100%!important;margin:28px 0 44px!important}
 #article.work-article-page .work-inline-figure img{width:100%!important;border-radius:12px!important}
 
-/* Reading map / writer cards use the compact proportions of the reference. */
+/* Reading map / writer cards */
 #article.work-article-page .work-side-card{border-radius:18px!important}
 #article.work-article-page .work-toc{min-height:0!important;padding:20px 20px 15px!important}
 #article.work-article-page .work-toc::before{
@@ -221,6 +215,8 @@ html[data-theme="light"] #article.work-article-page .work-toc nav a.active{color
   line-height:1!important;
   letter-spacing:-.035em!important;
 }
+/* Separate AUTHOR from the identity row so the hierarchy reads cleanly. */
+#article.work-article-page .work-author-card>span{margin-bottom:11px!important}
 #article.work-article-page .work-author-card-row{
   grid-template-columns:60px minmax(0,1fr)!important;
   gap:12px!important;
@@ -237,96 +233,40 @@ html[data-theme="light"] #article.work-article-page .work-toc nav a.active{color
 #article.work-article-page .work-author-card>p{margin:0 0 16px!important;font-size:10.5px!important;line-height:1.48!important}
 #article.work-article-page .work-author-card>button{min-height:36px!important;border-radius:10px!important;font-size:8px!important}
 
-/* --------------------------------------------------------------------------
-   APPROVED LIGHT FRAME COLOR LOCK
-   The article view intentionally becomes a clean white publication canvas;
-   the warmer global light theme remains available everywhere else. */
-html[data-theme="light"] body:has(#article.work-article-page){
-  background:#fff!important;
-  color:#182332!important;
-}
+/* Light frame color lock */
+html[data-theme="light"] body:has(#article.work-article-page){background:#fff!important;color:#182332!important}
 html[data-theme="light"] body:has(#article.work-article-page)::before{display:none!important}
 html[data-theme="light"] #article.work-article-page{color:#182332!important}
-html[data-theme="light"] #article.work-article-page .work-reading-grid>.article-body{
-  border-color:#e7e9ed!important;
-}
-html[data-theme="light"] #article.work-article-page .quick-read.work-quick-read{
-  background:transparent!important;
-  border:0!important;
-  box-shadow:none!important;
-}
-html[data-theme="light"] #article.work-article-page .quick-read.work-quick-read>span{
-  color:#6874f4!important;
-}
-html[data-theme="light"] #article.work-article-page .work-quick-read p{
-  border-color:#e0e4ef!important;
-  background:linear-gradient(110deg,#f7f9ff 0%,#f3f5ff 100%)!important;
-  box-shadow:0 9px 24px rgba(62,72,116,.045)!important;
-  color:#1d2938!important;
-}
+html[data-theme="light"] #article.work-article-page .work-reading-grid>.article-body{border-color:#e7e9ed!important}
+html[data-theme="light"] #article.work-article-page .quick-read.work-quick-read{background:transparent!important;border:0!important;box-shadow:none!important}
+html[data-theme="light"] #article.work-article-page .quick-read.work-quick-read>span{color:#6874f4!important}
+html[data-theme="light"] #article.work-article-page .work-quick-read p{border-color:#e0e4ef!important;background:linear-gradient(110deg,#f7f9ff 0%,#f3f5ff 100%)!important;box-shadow:0 9px 24px rgba(62,72,116,.045)!important;color:#1d2938!important}
 html[data-theme="light"] #article.work-article-page .article-body,
 html[data-theme="light"] #article.work-article-page .article-body p,
 html[data-theme="light"] #article.work-article-page .article-body li,
 html[data-theme="light"] #article.work-article-page .work-reading-grid>.article-body>p,
-html[data-theme="light"] #article.work-article-page .work-reading-grid>.article-body>section>p{
-  color:#1b2736!important;
-}
+html[data-theme="light"] #article.work-article-page .work-reading-grid>.article-body>section>p{color:#1b2736!important}
 html[data-theme="light"] #article.work-article-page .article-body h2,
 html[data-theme="light"] #article.work-article-page .article-body h3,
-html[data-theme="light"] #article.work-article-page .work-reading-grid>.article-body>section>h2{
-  color:#17212f!important;
-}
-html[data-theme="light"] #article.work-article-page .nc-heading-editorial>.nc-editorial-heading::after{
-  background:linear-gradient(90deg,#4edff5,#7768ff)!important;
-}
-html[data-theme="light"] #article.work-article-page .work-side-card{
-  border-color:#e0e3e8!important;
-  background:#fff!important;
-  box-shadow:0 14px 36px rgba(30,42,58,.065)!important;
-}
-html[data-theme="light"] #article.work-article-page .work-side-card::after{
-  background:linear-gradient(90deg,#5d73ff,#b777ff,transparent 76%)!important;
-}
+html[data-theme="light"] #article.work-article-page .work-reading-grid>.article-body>section>h2{color:#17212f!important}
+html[data-theme="light"] #article.work-article-page .nc-heading-editorial>.nc-editorial-heading::after{background:linear-gradient(90deg,#4edff5,#7768ff)!important}
+html[data-theme="light"] #article.work-article-page .work-side-card{border-color:#e0e3e8!important;background:#fff!important;box-shadow:0 14px 36px rgba(30,42,58,.065)!important}
+html[data-theme="light"] #article.work-article-page .work-side-card::after{background:linear-gradient(90deg,#5d73ff,#b777ff,transparent 76%)!important}
 html[data-theme="light"] #article.work-article-page .work-toc::before,
 html[data-theme="light"] #article.work-article-page .work-author-card::before,
-html[data-theme="light"] #article.work-article-page .work-author-card-row strong{
-  color:#17212f!important;
-}
-html[data-theme="light"] #article.work-article-page .work-side-card>span{
-  color:#6674f4!important;
-}
-html[data-theme="light"] #article.work-article-page .work-toc nav a{
-  color:#465363!important;
-  border-color:#e6e8ec!important;
-}
+html[data-theme="light"] #article.work-article-page .work-author-card-row strong{color:#17212f!important}
+html[data-theme="light"] #article.work-article-page .work-side-card>span{color:#6674f4!important}
+html[data-theme="light"] #article.work-article-page .work-toc nav a{color:#465363!important;border-color:#e6e8ec!important}
 html[data-theme="light"] #article.work-article-page .work-toc nav a::before{color:#6f7df1!important}
 html[data-theme="light"] #article.work-article-page .work-author-card>p{color:#6c7886!important}
-html[data-theme="light"] #article.work-article-page .work-author-card>button{
-  color:#6771f4!important;
-  border-color:#9db6ff!important;
-  background:linear-gradient(90deg,rgba(85,231,255,.08),rgba(122,103,255,.055))!important;
-}
+html[data-theme="light"] #article.work-article-page .work-author-card>button{color:#6771f4!important;border-color:#9db6ff!important;background:linear-gradient(90deg,rgba(85,231,255,.08),rgba(122,103,255,.055))!important}
 html[data-theme="light"] #article.work-article-page .work-react-rail.standard-react-rail>span,
-html[data-theme="light"] #article.work-article-page .work-react-rail.standard-react-rail button small{
-  color:#586474!important;
-}
-html[data-theme="light"] #article.work-article-page .work-react-rail.standard-react-rail button b{
-  border-color:#e0e4e8!important;
-  background:#fff!important;
-  box-shadow:0 4px 12px rgba(31,43,59,.055)!important;
-}
-html[data-theme="light"] #article.work-article-page .work-react-rail.standard-react-rail button b>.material-symbols-rounded{
-  color:#263342!important;
-}
+html[data-theme="light"] #article.work-article-page .work-react-rail.standard-react-rail button small{color:#586474!important}
+html[data-theme="light"] #article.work-article-page .work-react-rail.standard-react-rail button b{border-color:#e0e4e8!important;background:#fff!important;box-shadow:0 4px 12px rgba(31,43,59,.055)!important}
+html[data-theme="light"] #article.work-article-page .work-react-rail.standard-react-rail button b>.material-symbols-rounded{color:#263342!important}
 
-/* Intermediate desktop/tablet keeps fluid geometry instead of forcing the
-   1240px reference frame into a viewport that cannot support it. */
 @media(max-width:1259px) and (min-width:901px){
-  #article.work-article-page>.work-reading-grid{
-    width:100%!important;
-    grid-template-columns:96px minmax(0,1fr) 276px!important;
-    gap:24px!important;
-  }
+  #article.work-article-page>.work-reading-grid{width:100%!important;grid-template-columns:96px minmax(0,1fr) 288px!important;gap:22px!important}
   #article.work-article-page .work-reading-grid>.article-body{padding:0!important;border:0!important}
   #article.work-article-page .work-article-sidebar{padding:0!important;gap:18px!important}
   #article.work-article-page .work-react-rail.standard-react-rail{width:96px!important;min-width:96px!important}
