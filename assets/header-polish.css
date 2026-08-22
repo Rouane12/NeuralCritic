@@ -6,11 +6,11 @@
   display:flex;
   align-items:center;
   justify-content:flex-end;
-  gap:8px;
+  gap:9px;
   min-width:max-content;
   flex:0 0 auto;
   overflow:visible;
-  margin-right:94px;
+  margin-right:98px;
 }
 .header-tools .theme-toggle,
 .header-tools .search,
@@ -19,9 +19,13 @@
 .header-tools .theme-toggle{order:2}
 .header-tools .reader-account-button{order:3}
 
-.ticker .shell,
+/* Keep the live signal centered, but let the actual publication header use
+   the viewport like the approved reference instead of shrinking into a
+   1360px island on wide monitors. */
+.ticker .shell{width:min(calc(100% - 48px),1360px)}
 header .shell.header{
-  width:min(calc(100% - 48px),1360px);
+  width:calc(100% - 60px);
+  max-width:none;
 }
 header .header{
   position:relative;
@@ -91,18 +95,19 @@ header .brand em{display:none}
   position:relative;
   display:grid!important;
   place-items:center!important;
-  width:36px!important;
-  min-width:36px!important;
-  height:36px!important;
-  min-height:36px!important;
+  width:40px!important;
+  min-width:40px!important;
+  height:40px!important;
+  min-height:40px!important;
   margin:0!important;
   padding:0!important;
-  border:1px solid rgba(128,140,157,.16)!important;
+  border:1px solid rgba(128,140,157,.18)!important;
   border-radius:50%!important;
   background:rgba(255,255,255,.025)!important;
   color:var(--text,#f7f8ff)!important;
   box-shadow:none!important;
   cursor:pointer;
+  opacity:1!important;
 }
 .header-tools .search{
   font-size:0!important;
@@ -110,28 +115,29 @@ header .brand em{display:none}
 }
 .header-tools .search::before{
   content:"";
-  width:11px;
-  height:11px;
-  border:1.7px solid currentColor;
+  width:12px;
+  height:12px;
+  border:1.8px solid currentColor;
   border-radius:50%;
   transform:translate(-1px,-1px);
 }
 .header-tools .search::after{
   content:"";
   position:absolute;
-  width:6px;
-  height:1.7px;
+  width:6.5px;
+  height:1.8px;
   border-radius:999px;
   background:currentColor;
-  transform:translate(6px,6px) rotate(45deg);
+  transform:translate(6.8px,6.8px) rotate(45deg);
   transform-origin:center;
 }
 .theme-toggle{gap:0!important}
 .theme-toggle span{
   display:block;
   font-family:Inter,system-ui,sans-serif;
-  font-size:15px;
+  font-size:16px;
   line-height:1;
+  color:inherit!important;
   transform:translateY(-.5px);
 }
 .theme-toggle small{
@@ -151,31 +157,31 @@ header .brand em{display:none}
   align-items:center!important;
   justify-content:center!important;
   gap:0!important;
-  min-width:78px!important;
-  max-width:150px!important;
-  height:36px!important;
-  min-height:36px!important;
+  min-width:86px!important;
+  max-width:156px!important;
+  height:40px!important;
+  min-height:40px!important;
   margin:0!important;
-  padding:0 16px!important;
+  padding:0 17px!important;
   overflow:hidden;
-  border:1px solid rgba(128,140,157,.16)!important;
+  border:1px solid rgba(128,140,157,.18)!important;
   border-radius:999px!important;
   background:rgba(255,255,255,.025)!important;
   color:var(--text,#f7f8ff)!important;
   font-family:Inter,system-ui,-apple-system,"Segoe UI",sans-serif!important;
-  font-size:9px!important;
+  font-size:9.5px!important;
   font-weight:800!important;
   line-height:1!important;
   letter-spacing:.035em!important;
   white-space:nowrap!important;
   text-overflow:ellipsis;
   box-shadow:none!important;
+  opacity:1!important;
 }
 .reader-account-button [data-reader-account-label]{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
 .reader-account-button .reader-account-dot{display:none!important}
 
-/* The existing functional menu button is visually moved to the far right on
-   desktop, so no navigation behavior is duplicated or rewritten. */
+/* Keep the existing menu logic; only give it the approved desktop treatment. */
 header .menu{
   display:inline-flex!important;
   align-items:center;
@@ -184,12 +190,12 @@ header .menu{
   position:absolute;
   right:0;
   top:50%;
-  width:84px;
-  height:36px;
+  width:88px;
+  height:40px;
   margin:0;
   padding:0;
   transform:translateY(-50%);
-  border:1px solid rgba(255,255,255,.08);
+  border:1px solid #1d2734!important;
   border-radius:999px;
   background:#121a27!important;
   color:#fff!important;
@@ -197,9 +203,12 @@ header .menu{
   line-height:1;
   box-shadow:0 4px 13px rgba(24,32,43,.12);
   cursor:pointer;
+  opacity:1!important;
 }
 header .menu::before{
   content:"☰";
+  color:#fff!important;
+  opacity:1!important;
   font-family:Arial,Helvetica,sans-serif;
   font-size:16px;
   font-weight:400;
@@ -208,6 +217,8 @@ header .menu::before{
 }
 header .menu::after{
   content:"MENU";
+  color:#fff!important;
+  opacity:1!important;
   font-family:Inter,system-ui,-apple-system,"Segoe UI",sans-serif;
   font-size:9px;
   font-weight:750;
@@ -224,16 +235,16 @@ html[data-theme="light"] header{
 html[data-theme="light"] header .brand span{color:#171d27!important}
 html[data-theme="light"] .header-tools .search,
 html[data-theme="light"] .theme-toggle{
-  border-color:#e7eaee!important;
+  border-color:#e1e6eb!important;
   background:#fff!important;
   color:#17212f!important;
-  box-shadow:0 3px 12px rgba(24,32,43,.035)!important;
+  box-shadow:0 3px 12px rgba(24,32,43,.045)!important;
 }
 html[data-theme="light"] .reader-account-button{
   background:#fafbfc!important;
   color:#171d27!important;
-  border-color:#e4e8ec!important;
-  box-shadow:0 3px 12px rgba(24,32,43,.03)!important;
+  border-color:#dfe5ea!important;
+  box-shadow:0 3px 12px rgba(24,32,43,.035)!important;
 }
 html[data-theme="light"] header .menu{
   background:#121a27!important;
@@ -244,14 +255,16 @@ html[data-theme="light"] .ticker b{background:#141827!important;color:#fff!impor
 
 @media(max-width:1120px) and (min-width:861px){
   header .shell.header{
+    width:calc(100% - 36px);
     grid-template-columns:168px minmax(0,1fr) auto;
     column-gap:12px;
   }
   header .brand{min-width:auto}
   header .brand span,header .brand strong{font-size:20px}
-  .header-tools{gap:7px;margin-right:88px}
-  header .menu{width:78px}
-  .reader-account-button{min-width:70px!important;max-width:118px!important;padding:0 12px!important}
+  .header-tools{gap:7px;margin-right:92px}
+  header .menu{width:82px}
+  .reader-account-button{min-width:74px!important;max-width:120px!important;padding:0 12px!important}
+  .header-tools .search,.theme-toggle{width:38px!important;min-width:38px!important;height:38px!important;min-height:38px!important}
 }
 
 @media(max-width:860px){
@@ -264,6 +277,7 @@ html[data-theme="light"] .ticker b{background:#141827!important;color:#fff!impor
   .header-tools .search{order:initial}
   .header-tools .theme-toggle{order:initial}
   .header-tools .reader-account-button{order:initial;display:none!important}
+  .header-tools .search,.theme-toggle{width:36px!important;min-width:36px!important;height:36px!important;min-height:36px!important}
   header .menu{
     position:static;
     transform:none;
