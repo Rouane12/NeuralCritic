@@ -4,15 +4,29 @@ window.NEURAL_CRITIC_SUPABASE = {
 };
 
 /* Shared public hardening: canonical/social metadata, structured data,
-   crawler directives, and lightweight image loading hints. Keep this loader
-   here so every CMS-backed surface receives the same behavior. */
+   crawler directives, canonical story routing, analytics, and lightweight
+   image loading hints. Generated story shells already contain static metadata,
+   so they skip the runtime hardening pass while keeping analytics/content live. */
 (() => {
-  if (!document.querySelector('script[data-nc-hardening]')) {
+  const loadStoryRouter = () => {
+    if (document.querySelector('script[data-nc-story-router]')) return;
+    const router = document.createElement('script');
+    router.src = 'assets/story-router.js?v=20260822-story1';
+    router.async = true;
+    router.dataset.ncStoryRouter = '1';
+    document.head.appendChild(router);
+  };
+
+  if (!window.NEURAL_CRITIC_STATIC_META && !document.querySelector('script[data-nc-hardening]')) {
     const hardening = document.createElement('script');
     hardening.src = 'assets/public-hardening.js?v=20260822-launch1';
     hardening.async = true;
     hardening.dataset.ncHardening = '1';
+    hardening.addEventListener('load', loadStoryRouter, { once: true });
+    hardening.addEventListener('error', loadStoryRouter, { once: true });
     document.head.appendChild(hardening);
+  } else {
+    loadStoryRouter();
   }
 
   if (document.querySelector('script[data-nc-analytics-config]')) return;
@@ -26,6 +40,9 @@ window.NEURAL_CRITIC_SUPABASE = {
     analytics.src = 'assets/analytics.js?v=20260822-analytics2';
     analytics.async = true;
     analytics.dataset.ncAnalytics = '1';
+    analytics.addEventListener('load', () => {
+      window.dispatchEvent(new CustomEvent('neuralcritic:analytics-script-loaded'));
+    }, { once: true });
     document.head.appendChild(analytics);
   }, { once: true });
   document.head.appendChild(config);
