@@ -66,19 +66,17 @@
   text-transform:uppercase;
 }
 #article.work-article-page.nc-type-system .quick-read.work-quick-read>span,
-#article.work-article-page.nc-type-system .work-side-card>span{
-  letter-spacing:.17em!important;
-}
+#article.work-article-page.nc-type-system .work-side-card>span{letter-spacing:.17em!important}
 
-/* NC BODY — the default reading texture. No shadows, strokes, glow, or display
-   effects belong on prose. The restraint is intentional. */
+/* NC BODY — the default reading texture. Special review/guide modules are
+   intentionally excluded so the publication system cannot flatten their UI. */
 #article.work-article-page.nc-type-system .work-reading-grid>.article-body{
   font-family:var(--nc-font-sans)!important;
   color:var(--nc-ink-body)!important;
   text-align:left!important;
 }
 #article.work-article-page.nc-type-system .work-reading-grid>.article-body>p,
-#article.work-article-page.nc-type-system .work-reading-grid>.article-body>section>p{
+#article.work-article-page.nc-type-system .work-reading-grid>.article-body>section:not(.review-box):not(.review-details):not(.article-conclusion)>p{
   width:100%!important;
   max-width:none!important;
   margin:0 0 25px!important;
@@ -90,23 +88,24 @@
   letter-spacing:-.012em!important;
   text-shadow:none!important;
 }
-#article.work-article-page.nc-type-system .work-reading-grid>.article-body>p{
-  font-size:17px!important;
-}
-#article.work-article-page.nc-type-system .work-reading-grid>.article-body strong{
+#article.work-article-page.nc-type-system .work-reading-grid>.article-body>p{font-size:17px!important}
+#article.work-article-page.nc-type-system .work-reading-grid>.article-body>p strong,
+#article.work-article-page.nc-type-system .work-reading-grid>.article-body>section:not(.review-box):not(.review-details):not(.article-conclusion)>p strong,
+#article.work-article-page.nc-type-system .work-reading-grid>.article-body>section:not(.review-box):not(.review-details):not(.article-conclusion)>li strong{
   color:var(--nc-ink)!important;
   font-weight:700!important;
 }
-#article.work-article-page.nc-type-system .work-reading-grid>.article-body em{
+#article.work-article-page.nc-type-system .work-reading-grid>.article-body>p em,
+#article.work-article-page.nc-type-system .work-reading-grid>.article-body>section:not(.review-box):not(.review-details):not(.article-conclusion)>p em{
   color:inherit!important;
   font-style:italic!important;
 }
 
 /* NC SECTION — default Editorial Studio heading style */
-#article.work-article-page.nc-type-system .work-reading-grid>.article-body>section{
+#article.work-article-page.nc-type-system .work-reading-grid>.article-body>section:not(.review-box):not(.review-details):not(.article-conclusion){
   margin:0 0 52px!important;
 }
-#article.work-article-page.nc-type-system .work-reading-grid>.article-body>section>h2,
+#article.work-article-page.nc-type-system .work-reading-grid>.article-body>section:not(.review-box):not(.review-details):not(.article-conclusion)>h2,
 #article.work-article-page.nc-type-system .nc-heading-editorial>.nc-editorial-heading{
   position:relative;
   width:auto!important;
@@ -121,11 +120,9 @@
   text-wrap:balance;
   text-shadow:none!important;
 }
-#article.work-article-page.nc-type-system .quick-read.work-quick-read+section>h2{
-  margin-top:0!important;
-}
+#article.work-article-page.nc-type-system .quick-read.work-quick-read+section>h2{margin-top:0!important}
 #article.work-article-page.nc-type-system .nc-heading-editorial>.nc-editorial-heading::after,
-#article.work-article-page.nc-type-system .work-reading-grid>.article-body>section:not(.nc-heading-display):not(.nc-heading-accent):not(.nc-heading-statement)>h2::after{
+#article.work-article-page.nc-type-system .work-reading-grid>.article-body>section:not(.review-box):not(.review-details):not(.article-conclusion):not(.nc-heading-display):not(.nc-heading-accent):not(.nc-heading-statement)>h2::after{
   content:"";
   display:block;
   width:48px;
@@ -137,8 +134,10 @@
 
 /* Editorial lists use the same texture as prose, with the cyan marker doing
    the only decorative work. */
-#article.work-article-page.nc-type-system .work-reading-grid>.article-body ul,
-#article.work-article-page.nc-type-system .work-reading-grid>.article-body ol{
+#article.work-article-page.nc-type-system .work-reading-grid>.article-body>ul,
+#article.work-article-page.nc-type-system .work-reading-grid>.article-body>ol,
+#article.work-article-page.nc-type-system .work-reading-grid>.article-body>section:not(.review-box):not(.review-details):not(.article-conclusion)>ul,
+#article.work-article-page.nc-type-system .work-reading-grid>.article-body>section:not(.review-box):not(.review-details):not(.article-conclusion)>ol{
   width:100%!important;
   max-width:none!important;
   margin:5px 0 28px!important;
@@ -150,13 +149,31 @@
   line-height:1.6!important;
   letter-spacing:-.012em!important;
 }
-#article.work-article-page.nc-type-system .work-reading-grid>.article-body ul{list-style:disc outside!important}
-#article.work-article-page.nc-type-system .work-reading-grid>.article-body ol{list-style:decimal outside!important}
-#article.work-article-page.nc-type-system .work-reading-grid>.article-body li{display:list-item!important;padding-left:.18em!important}
-#article.work-article-page.nc-type-system .work-reading-grid>.article-body li+li{margin-top:10px!important}
-#article.work-article-page.nc-type-system .work-reading-grid>.article-body li::marker{color:var(--nc-accent-cyan)!important;font-weight:800!important}
+#article.work-article-page.nc-type-system .work-reading-grid>.article-body>ul,
+#article.work-article-page.nc-type-system .work-reading-grid>.article-body>section:not(.review-box):not(.review-details):not(.article-conclusion)>ul{list-style:disc outside!important}
+#article.work-article-page.nc-type-system .work-reading-grid>.article-body>ol,
+#article.work-article-page.nc-type-system .work-reading-grid>.article-body>section:not(.review-box):not(.review-details):not(.article-conclusion)>ol{list-style:decimal outside!important}
+#article.work-article-page.nc-type-system .work-reading-grid>.article-body>ul>li,
+#article.work-article-page.nc-type-system .work-reading-grid>.article-body>ol>li,
+#article.work-article-page.nc-type-system .work-reading-grid>.article-body>section:not(.review-box):not(.review-details):not(.article-conclusion)>ul>li,
+#article.work-article-page.nc-type-system .work-reading-grid>.article-body>section:not(.review-box):not(.review-details):not(.article-conclusion)>ol>li{
+  display:list-item!important;
+  padding-left:.18em!important;
+}
+#article.work-article-page.nc-type-system .work-reading-grid>.article-body>ul>li+li,
+#article.work-article-page.nc-type-system .work-reading-grid>.article-body>ol>li+li,
+#article.work-article-page.nc-type-system .work-reading-grid>.article-body>section:not(.review-box):not(.review-details):not(.article-conclusion)>ul>li+li,
+#article.work-article-page.nc-type-system .work-reading-grid>.article-body>section:not(.review-box):not(.review-details):not(.article-conclusion)>ol>li+li{margin-top:10px!important}
+#article.work-article-page.nc-type-system .work-reading-grid>.article-body>ul>li::marker,
+#article.work-article-page.nc-type-system .work-reading-grid>.article-body>ol>li::marker,
+#article.work-article-page.nc-type-system .work-reading-grid>.article-body>section:not(.review-box):not(.review-details):not(.article-conclusion)>ul>li::marker,
+#article.work-article-page.nc-type-system .work-reading-grid>.article-body>section:not(.review-box):not(.review-details):not(.article-conclusion)>ol>li::marker{
+  color:var(--nc-accent-cyan)!important;
+  font-weight:800!important;
+}
 
-#article.work-article-page.nc-type-system .work-reading-grid>.article-body blockquote{
+#article.work-article-page.nc-type-system .work-reading-grid>.article-body>blockquote,
+#article.work-article-page.nc-type-system .work-reading-grid>.article-body>section:not(.review-box):not(.review-details):not(.article-conclusion)>blockquote{
   max-width:66ch!important;
   margin:32px 0!important;
   padding:4px 0 4px 22px!important;
@@ -206,10 +223,7 @@
 }
 
 /* Supporting image rhythm. */
-#article.work-article-page.nc-type-system .work-inline-figure{
-  width:100%!important;
-  margin:30px 0 47px!important;
-}
+#article.work-article-page.nc-type-system .work-inline-figure{width:100%!important;margin:30px 0 47px!important}
 #article.work-article-page.nc-type-system .work-inline-figure figcaption{
   color:#7a8592!important;
   font:500 10.5px/1.5 var(--nc-font-sans)!important;
@@ -218,10 +232,7 @@
 
 /* Optional Studio personalities remain available, but inherit the same font
    and smoothing so even dramatic choices still belong to Neural Critic. */
-#article.work-article-page.nc-type-system .nc-editorial-heading{
-  position:relative;
-  font-family:var(--nc-font-sans)!important;
-}
+#article.work-article-page.nc-type-system .nc-editorial-heading{position:relative;font-family:var(--nc-font-sans)!important}
 #article.work-article-page.nc-type-system .nc-heading-display>.nc-editorial-heading{
   max-width:15ch!important;
   margin-top:62px!important;
@@ -262,10 +273,7 @@
   background:linear-gradient(90deg,var(--nc-accent-cyan),var(--nc-accent-violet),transparent)!important;
 }
 
-#article.work-article-page.nc-type-system .nc-heading-statement{
-  position:relative;
-  padding:18px 0 2px 22px!important;
-}
+#article.work-article-page.nc-type-system .nc-heading-statement{position:relative;padding:18px 0 2px 22px!important}
 #article.work-article-page.nc-type-system .nc-heading-statement::before{
   content:"";
   position:absolute;
@@ -325,11 +333,8 @@ html[data-theme="dark"] #article.work-article-page.nc-type-system .nc-heading-ac
 html[data-theme="dark"] .nc-text-accent{color:#61e8ff}
 
 @media(max-width:900px){
-  #article.work-article-page.nc-type-system{
-    --nc-display-size:clamp(46px,10vw,70px);
-    --nc-section-size:38px;
-  }
-  #article.work-article-page.nc-type-system .work-reading-grid>.article-body>section>h2,
+  #article.work-article-page.nc-type-system{--nc-display-size:clamp(46px,10vw,70px);--nc-section-size:38px}
+  #article.work-article-page.nc-type-system .work-reading-grid>.article-body>section:not(.review-box):not(.review-details):not(.article-conclusion)>h2,
   #article.work-article-page.nc-type-system .nc-heading-editorial>.nc-editorial-heading{max-width:18ch!important;margin-top:44px!important}
 }
 
@@ -341,8 +346,8 @@ html[data-theme="dark"] .nc-text-accent{color:#61e8ff}
     --nc-body-leading:1.68;
   }
   #article.work-article-page.nc-type-system>.article-deck{font-size:17px!important;line-height:1.5!important}
-  #article.work-article-page.nc-type-system .work-reading-grid>.article-body>section{margin-bottom:44px!important}
-  #article.work-article-page.nc-type-system .work-reading-grid>.article-body>section>h2,
+  #article.work-article-page.nc-type-system .work-reading-grid>.article-body>section:not(.review-box):not(.review-details):not(.article-conclusion){margin-bottom:44px!important}
+  #article.work-article-page.nc-type-system .work-reading-grid>.article-body>section:not(.review-box):not(.review-details):not(.article-conclusion)>h2,
   #article.work-article-page.nc-type-system .nc-heading-editorial>.nc-editorial-heading{max-width:none!important;margin-top:38px!important;margin-bottom:20px!important}
   #article.work-article-page.nc-type-system .work-quick-read p{padding:21px 19px!important;font-size:13px!important}
   #article.work-article-page.nc-type-system .nc-heading-display>.nc-editorial-heading{font-size:42px!important;margin-top:52px!important}
