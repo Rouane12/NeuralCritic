@@ -158,6 +158,7 @@
 @media(max-width:900px){
   .work-react-rail.standard-react-rail{width:100%!important;min-width:0!important;flex-direction:row!important;justify-content:center!important;gap:8px!important}
   .work-react-rail.standard-react-rail::after{display:none!important}
+  .work-react-rail.standard-react-rail .standard-rail-account{display:none!important}
   .work-react-rail.standard-react-rail button{width:68px!important;height:58px!important;min-height:58px!important;grid-template-columns:1fr!important;grid-template-rows:36px auto!important;gap:3px!important}
   .work-react-rail.standard-react-rail button b{width:36px!important;height:36px!important;justify-self:center!important}
   .work-react-rail.standard-react-rail button b>.material-symbols-rounded{font-size:18px!important;width:18px!important;height:18px!important;line-height:18px!important}
