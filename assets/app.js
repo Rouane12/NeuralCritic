@@ -10,7 +10,7 @@ const fmtDate = (iso) => {
 const articleHref = (a) => `article.html?slug=${encodeURIComponent(a.slug)}`;
 const imageOf = (a) => a?.imageLocal || '';
 const escapeHtml = (value='') => String(value).replace(/[&<>'"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;',"'":'&#39;','"':'&quot;'}[c]));
-const inlineMd = (s='') => escapeHtml(s).replace(/\*\*(.+?)\*\*/g,'<strong>$1</strong>').replace(/\*(.+?)\*/g,'<em>$1</em>');
+const inlineMd = (s='') => escapeHtml(s).replace(/\*\*(.+?)\*\*/g,'<strong>$1</strong>').replace(/\*(.+?)\*\*/g,'<em>$1</em>');
 const prose = (text='') => String(text || '').split(/\n\n+/).filter(Boolean).map(block => {
   if (/^- /m.test(block)) {
     const items = block.split('\n').filter(Boolean).map(x=>x.replace(/^-\s*/,''));
@@ -24,7 +24,7 @@ function sharedHeader(){
   <header><div class="shell header"><button class="menu" aria-label="Menu">☰</button><a class="brand" href="index.html"><span>NEURAL</span><strong>CRITIC</strong><em>GAMING EDITORIAL</em></a><nav><a href="category.html?category=news">News</a><a href="category.html?category=features">Features</a><a href="category.html?category=guides">Guides</a><a href="category.html?category=reviews">Reviews</a><a href="category.html?category=pc">PC</a><a href="category.html?category=playstation">PlayStation</a><a href="category.html?category=xbox">Xbox</a><a href="category.html?category=nintendo">Nintendo</a></nav><div class="header-tools"><button class="theme-toggle" type="button"><span>☼</span><small>LIGHT</small></button><a class="search" href="search.html" aria-label="Search stories">⌕</a></div></div></header>`;
 }
 function sharedFooter(){
-  return `<footer><div class="shell footer"><div><a class="brand" href="index.html"><span>NEURAL</span><strong>CRITIC</strong><em>GAMING EDITORIAL</em></a><p>Independent gaming news, reviews, and guides for players who want the signal—not the noise.</p></div><div><b>EXPLORE</b><a href="category.html?category=news">News</a><a href="category.html?category=reviews">Reviews</a><a href="category.html?category=guides">Guides</a><a href="search.html">Search</a></div><div><b>ABOUT</b><a href="about.html">Our mission</a><a href="mailto:rouane.mounssif12@gmail.com">Contact</a></div></div><div class="shell copyright">© 2026 Neural Critic <span>Built for players.</span></div></footer>`;
+  return `<footer><div class="shell footer"><div><a class="brand" href="index.html"><span>NEURAL</span><strong>CRITIC</strong><em>GAMING EDITORIAL</em></a><p>Independent gaming news, reviews, and guides for players who want the signal—not the noise.</p></div><div><b>EXPLORE</b><a href="category.html?category=news">News</a><a href="category.html?category=reviews">Reviews</a><a href="category.html?category=guides">Guides</a><a href="search.html">Search</a><a href="feed.xml">RSS</a></div><div><b>ABOUT</b><a href="about.html">Our mission</a><a href="standards.html">Editorial standards</a><a href="privacy.html">Privacy</a><a href="mailto:rouane.mounssif12@gmail.com">Contact</a></div></div><div class="shell copyright">© 2026 Neural Critic <span>Built for players.</span></div></footer>`;
 }
 
 function wireChrome(){
