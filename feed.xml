@@ -1,57 +1,57 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<?xml version='1.0' encoding='utf-8'?>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
   <channel>
     <title>Neural Critic</title>
     <link>https://rouane12.github.io/NeuralCritic/</link>
     <description>Gaming news, reviews, guides, and features for players who want the signal—not the noise.</description>
     <language>en</language>
-    <lastBuildDate>Sat, 22 Aug 2026 22:35:38 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 22 Aug 2026 22:37:24 +0000</lastBuildDate>
     <generator>Neural Critic publication pipeline</generator>
     <atom:link href="https://rouane12.github.io/NeuralCritic/feed.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Neural Critic’s 10 Best Games of All Time</title>
-      <link>https://rouane12.github.io/NeuralCritic/article.html?slug=neural-critic-10-best-games-of-all-time</link>
-      <guid isPermaLink="true">https://rouane12.github.io/NeuralCritic/article.html?slug=neural-critic-10-best-games-of-all-time</guid>
+      <link>https://rouane12.github.io/NeuralCritic/stories/neural-critic-10-best-games-of-all-time/</link>
+      <guid isPermaLink="true">https://rouane12.github.io/NeuralCritic/stories/neural-critic-10-best-games-of-all-time/</guid>
       <description>From landmark design breakthroughs to modern masterpieces, these are the ten games Neural Critic believes best represent what the medium can achieve.</description>
       <category>FEATURE</category>
       <pubDate>Fri, 21 Aug 2026 22:44:02 +0000</pubDate>
     </item>
     <item>
       <title>Elden Ring Review: A Monumental Open World Worth Getting Lost In</title>
-      <link>https://rouane12.github.io/NeuralCritic/article.html?slug=elden-ring-review-monumental-open-world</link>
-      <guid isPermaLink="true">https://rouane12.github.io/NeuralCritic/article.html?slug=elden-ring-review-monumental-open-world</guid>
+      <link>https://rouane12.github.io/NeuralCritic/stories/elden-ring-review-monumental-open-world/</link>
+      <guid isPermaLink="true">https://rouane12.github.io/NeuralCritic/stories/elden-ring-review-monumental-open-world/</guid>
       <description>FromSoftware transforms its demanding action-RPG formula into a vast, mysterious adventure where curiosity is rewarded at nearly every turn.</description>
       <category>REVIEW</category>
       <pubDate>Wed, 19 Aug 2026 19:11:25 +0000</pubDate>
     </item>
     <item>
       <title>FromSoftware's Soulsborne Games Ranked From Easiest to Hardest</title>
-      <link>https://rouane12.github.io/NeuralCritic/article.html?slug=fromsoftware-soulsborne-games-ranked-by-difficulty</link>
-      <guid isPermaLink="true">https://rouane12.github.io/NeuralCritic/article.html?slug=fromsoftware-soulsborne-games-ranked-by-difficulty</guid>
+      <link>https://rouane12.github.io/NeuralCritic/stories/fromsoftware-soulsborne-games-ranked-by-difficulty/</link>
+      <guid isPermaLink="true">https://rouane12.github.io/NeuralCritic/stories/fromsoftware-soulsborne-games-ranked-by-difficulty/</guid>
       <description>From the freedom of Elden Ring to the precision demanded by Sekiro, we rank seven landmark FromSoftware adventures by the difficulty of a normal first playthrough.</description>
       <category>FEATURE</category>
       <pubDate>Wed, 19 Aug 2026 04:39:29 +0000</pubDate>
     </item>
     <item>
       <title>Why Dark Souls Remastered Still Defines Interconnected World Design</title>
-      <link>https://rouane12.github.io/NeuralCritic/article.html?slug=dark-souls-remastered-interconnected-world-design</link>
-      <guid isPermaLink="true">https://rouane12.github.io/NeuralCritic/article.html?slug=dark-souls-remastered-interconnected-world-design</guid>
+      <link>https://rouane12.github.io/NeuralCritic/stories/dark-souls-remastered-interconnected-world-design/</link>
+      <guid isPermaLink="true">https://rouane12.github.io/NeuralCritic/stories/dark-souls-remastered-interconnected-world-design/</guid>
       <description>Years later, Lordran remains a masterclass in spatial storytelling, meaningful shortcuts, and exploration built on player memory.</description>
       <category>FEATURE</category>
       <pubDate>Tue, 18 Aug 2026 18:30:07 +0000</pubDate>
     </item>
     <item>
       <title>How Elden Ring Reinvented Open-World Exploration</title>
-      <link>https://rouane12.github.io/NeuralCritic/article.html?slug=elden-ring-open-world-design-legacy</link>
-      <guid isPermaLink="true">https://rouane12.github.io/NeuralCritic/article.html?slug=elden-ring-open-world-design-legacy</guid>
+      <link>https://rouane12.github.io/NeuralCritic/stories/elden-ring-open-world-design-legacy/</link>
+      <guid isPermaLink="true">https://rouane12.github.io/NeuralCritic/stories/elden-ring-open-world-design-legacy/</guid>
       <description>Elden Ring transformed FromSoftware’s demanding action-RPG formula into an open world built around mystery, danger, and unforgettable discovery.</description>
       <category>FEATURE</category>
       <pubDate>Tue, 18 Aug 2026 17:00:51 +0000</pubDate>
     </item>
     <item>
       <title>How Breath of the Wild Changed the Open-World Genre</title>
-      <link>https://rouane12.github.io/NeuralCritic/article.html?slug=how-breath-of-the-wild-changed-the-open-world-genre</link>
-      <guid isPermaLink="true">https://rouane12.github.io/NeuralCritic/article.html?slug=how-breath-of-the-wild-changed-the-open-world-genre</guid>
+      <link>https://rouane12.github.io/NeuralCritic/stories/how-breath-of-the-wild-changed-the-open-world-genre/</link>
+      <guid isPermaLink="true">https://rouane12.github.io/NeuralCritic/stories/how-breath-of-the-wild-changed-the-open-world-genre/</guid>
       <description>Breath of the Wild transformed Hyrule into a world driven by curiosity, experimentation, and player freedom. These are the design ideas that helped reshape the modern open-world genre.</description>
       <category>FEATURE</category>
       <pubDate>Tue, 18 Aug 2026 05:52:37 +0000</pubDate>
