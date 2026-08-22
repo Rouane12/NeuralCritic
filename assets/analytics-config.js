@@ -1,8 +1,6 @@
 window.NEURAL_CRITIC_ANALYTICS = {
-  /* Add the GA4 web-stream Measurement ID here when the property is ready.
-     Example format: G-XXXXXXXXXX
-     Leaving this blank keeps analytics completely disabled. */
-  measurementId: '',
+  /* GA4 web-stream Measurement ID for Neural Critic. */
+  measurementId: 'G-F2VE99GLH5',
   consentKey: 'neural-critic-analytics-consent-v1',
   debug: false
 };
