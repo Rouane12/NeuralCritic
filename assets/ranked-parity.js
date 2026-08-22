@@ -1,8 +1,9 @@
 (() => {
   const qs = (s,r=document) => r.querySelector(s);
   const qsa = (s,r=document) => [...r.querySelectorAll(s)];
-  const esc = (value='') => String(value).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot',"'":'&#39;'}[c]));
+  const esc = (value='') => String(value).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
   const slug = new URLSearchParams(location.search).get('slug') || '';
+  const reduceMotion = window.matchMedia?.('(prefers-reduced-motion: reduce)').matches;
 
   async function articleData(){
     if (!slug) return null;
@@ -146,21 +147,18 @@
 
   function graphFor(articles){
     const nodes=new Map();
-
     articles.filter(a=>a.articleFormat==='ranked-list').forEach(article=>{
       (article.contentBlocks||[]).forEach(block=>{
         const node=ensureNode(nodes,block.heading||'');if(!node)return;
         node.appearances.push({article,rank:block.rank||'',subtitle:block.subtitle||''});
       });
     });
-
     articles.filter(a=>a.articleFormat==='review').forEach(article=>{
       const name=reviewGameName(article);if(!name)return;
       const node=findNode(nodes,name)||ensureNode(nodes,name);if(!node)return;
       const currentDate=new Date(node.review?.publishedAt||0),nextDate=new Date(article.publishedAt||0);
       if(!node.review||nextDate>=currentDate)node.review=article;
     });
-
     nodes.forEach(node=>{
       articles.forEach(article=>{
         if(article.articleFormat==='ranked-list')return;
@@ -175,17 +173,75 @@
   function reviewVerdict(article){return article?.reviewMeta?.verdict??article?.review_meta?.verdict??article?.description??''}
   function articleUrl(article){return `article.html?slug=${encodeURIComponent(article.slug)}`}
 
+  function scoreParts(raw){
+    const match=String(raw??'').replace(',','.').match(/\d+(?:\.\d+)?/);
+    if(!match)return null;
+    const value=Math.max(0,Math.min(10,Number(match[0])));
+    if(!Number.isFinite(value))return null;
+    return {value,decimals:match[0].includes('.')?match[0].split('.')[1].length:0};
+  }
+
   function reviewModule(node){
-    const review=node?.review,score=reviewScore(review);if(!review||!score)return null;
+    const review=node?.review,score=reviewScore(review),parsed=scoreParts(score);if(!review||!parsed)return null;
     const link=document.createElement('a');
-    link.className='game-graph-review';link.href=articleUrl(review);
+    link.className=`game-graph-review${reduceMotion?' is-revealed':' is-primed'}`;
+    link.href=articleUrl(review);
+    link.dataset.graphScore=String(parsed.value);
+    link.dataset.graphDecimals=String(parsed.decimals);
     link.setAttribute('aria-label',`Read Neural Critic's ${node.name} review, scored ${score} out of 10`);
-    link.innerHTML=`<span class="game-graph-score"><b>${esc(score)}</b><small>/10</small></span><span class="game-graph-review-copy"><small>NEURAL CRITIC REVIEW</small><strong>${esc(reviewVerdict(review))}</strong><em>READ REVIEW →</em></span>`;
+    link.innerHTML=`<span class="game-graph-score"><b>${reduceMotion?esc(score):'0'}</b><small>/10</small></span><span class="game-graph-review-copy"><small>NEURAL CRITIC REVIEW</small><strong>${esc(reviewVerdict(review))}</strong><em>READ REVIEW →</em></span>`;
     return link;
   }
 
+  function finishGraphModule(module){
+    const score=Number(module.dataset.graphScore||0);
+    const decimals=Number(module.dataset.graphDecimals||0);
+    const value=qs('.game-graph-score b',module);
+    if(value)value.textContent=score.toFixed(decimals);
+    module.classList.remove('is-primed','is-revealing');
+    module.classList.add('is-revealed');
+  }
+
+  function animateGraphModule(module){
+    if(module.dataset.graphPlayed)return;
+    module.dataset.graphPlayed='1';
+    if(reduceMotion){finishGraphModule(module);return;}
+    const score=Number(module.dataset.graphScore||0);
+    const decimals=Number(module.dataset.graphDecimals||0);
+    const value=qs('.game-graph-score b',module);
+    module.classList.remove('is-primed');
+    module.classList.add('is-revealing');
+    const duration=1050;
+    let start=null;
+    const frame=timestamp=>{
+      if(start===null)start=timestamp;
+      const progress=Math.min(1,(timestamp-start)/duration);
+      const eased=1-Math.pow(1-progress,3);
+      if(value)value.textContent=(score*eased).toFixed(decimals);
+      if(progress<1)requestAnimationFrame(frame);
+      else finishGraphModule(module);
+    };
+    requestAnimationFrame(frame);
+  }
+
+  function armGraphAnimations(modules){
+    if(!modules.length)return;
+    if(reduceMotion||!('IntersectionObserver' in window)){
+      modules.forEach(finishGraphModule);return;
+    }
+    const observer=new IntersectionObserver(entries=>{
+      entries.forEach(entry=>{
+        if(!entry.isIntersecting)return;
+        observer.unobserve(entry.target);
+        setTimeout(()=>animateGraphModule(entry.target),90);
+      });
+    },{threshold:.42,rootMargin:'0px 0px -4% 0px'});
+    modules.forEach(module=>observer.observe(module));
+  }
+
   function enrichRankedCards(article,cards,nodes){
-    if(article.articleFormat!=='ranked-list'||!cards.length)return;
+    const modules=[];
+    if(article.articleFormat!=='ranked-list'||!cards.length)return modules;
     cards.forEach((card,index)=>{
       if(qs('.game-graph-review',card))return;
       const block=(article.contentBlocks||[])[index]||{};
@@ -196,7 +252,9 @@
       else if(heading)heading.insertAdjacentElement('afterend',module);
       else card.prepend(module);
       card.dataset.gameGraph='review-linked';
+      modules.push(module);
     });
+    return modules;
   }
 
   function currentGameNode(article,nodes){
@@ -216,27 +274,19 @@
   async function renderGameIndex(article,nodes){
     const node=currentGameNode(article,nodes);if(!node)return;
     const sidebar=await waitFor('#article .work-article-sidebar');if(!sidebar||qs('.game-graph-side',sidebar))return;
-
     const links=[];
     if(node.review&&node.review.slug!==article.slug){
       const score=reviewScore(node.review);
       links.push(`<a class="game-graph-side-review" href="${articleUrl(node.review)}"><span><small>NEURAL CRITIC REVIEW</small><strong>Read our ${esc(node.name)} review</strong></span>${score?`<b>${esc(score)}<em>/10</em></b>`:''}</a>`);
     }
-
     node.appearances.filter(x=>x.article.slug!==article.slug).slice(0,3).forEach(item=>{
       links.push(`<a href="${articleUrl(item.article)}"><span><small>${esc(connectionLabel(item))}</small><strong>${esc(item.article.title)}</strong></span><i>→</i></a>`);
     });
-
     node.coverage.filter(x=>x.slug!==article.slug&&x.slug!==node.review?.slug).slice(0,2).forEach(item=>{
       links.push(`<a href="${articleUrl(item)}"><span><small>${esc(String(item.category||'FEATURE').toUpperCase())}</small><strong>${esc(item.title)}</strong></span><i>→</i></a>`);
     });
     if(!links.length)return;
-
-    const uniqueCount=new Set([
-      ...(node.review?[node.review.slug]:[]),
-      ...node.appearances.map(x=>x.article.slug),
-      ...node.coverage.map(x=>x.slug)
-    ]).size;
+    const uniqueCount=new Set([...(node.review?[node.review.slug]:[]),...node.appearances.map(x=>x.article.slug),...node.coverage.map(x=>x.slug)]).size;
     const card=document.createElement('section');
     card.className='work-side-card game-graph-side';
     card.innerHTML=`<span>NC GAME INDEX</span><div class="game-graph-side-head"><strong>${esc(node.name)}</strong><small>${uniqueCount} CONNECTED ${uniqueCount===1?'STORY':'STORIES'}</small></div><div class="game-graph-links">${links.join('')}</div>`;
@@ -250,7 +300,8 @@
     const cards=await enhanceRankedPresentation(article);
     if(!articles.length)return;
     const nodes=graphFor(articles);
-    enrichRankedCards(article,cards,nodes);
+    const modules=enrichRankedCards(article,cards,nodes);
+    armGraphAnimations(modules);
     await renderGameIndex(article,nodes);
     const host=qs('#article');if(host)host.dataset.gameGraph='ready';
     window.dispatchEvent(new CustomEvent('neuralcritic:game-graph-ready',{detail:{games:nodes.size}}));
