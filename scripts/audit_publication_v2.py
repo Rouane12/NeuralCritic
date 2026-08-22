@@ -18,15 +18,19 @@ GENERATED_MARKER = "<!-- generated: neural-critic-story-shell -->"
 
 
 def check_story_pages(static_slugs: set[str]) -> None:
-    discovered: set[str] = set()
-    for slug in sorted(static_slugs):
-        page = ROOT / "stories" / slug / "index.html"
-        if not page.exists():
-            base.error(f"{slug}: missing canonical story shell stories/{slug}/index.html")
-            continue
+    stories_root = ROOT / "stories"
+    generated: set[str] = set()
+    if not stories_root.exists():
+        base.error("Missing stories directory for canonical article shells.")
+        return
+
+    for page in stories_root.glob("*/index.html"):
+        slug = page.parent.name
         html = page.read_text(encoding="utf-8", errors="replace")
-        discovered.add(slug)
-        canonical = f'{SITE_URL}stories/{slug}/'
+        if GENERATED_MARKER not in html[:1400]:
+            continue
+        generated.add(slug)
+        canonical = f"{SITE_URL}stories/{slug}/"
         required = [
             GENERATED_MARKER,
             '<base href="/NeuralCritic/">',
@@ -48,17 +52,9 @@ def check_story_pages(static_slugs: set[str]) -> None:
         if 'property="og:image"' not in html:
             base.warn(f"{slug}: story shell has no large social image.")
 
-    stories_root = ROOT / "stories"
-    if stories_root.exists():
-        for page in stories_root.glob("*/index.html"):
-            if page.parent.name not in static_slugs:
-                sample = page.read_text(encoding="utf-8", errors="ignore")[:1200]
-                if GENERATED_MARKER in sample:
-                    base.error(f"Stale generated story shell remains: {page.relative_to(ROOT)}")
-
-    missing = static_slugs - discovered
+    missing = static_slugs - generated
     if missing:
-        base.error("Canonical story shells missing for: " + ", ".join(sorted(missing)))
+        base.error("Canonical story shells missing for fallback articles: " + ", ".join(sorted(missing)))
 
 
 def check_canonical_sitemap(static_slugs: set[str]) -> None:
@@ -165,7 +161,7 @@ def main() -> int:
             print(f"ERROR: {message}", file=sys.stderr)
         print(f"Neural Critic publication audit failed with {len(base.ERRORS)} error(s).", file=sys.stderr)
         return 1
-    print(f"Neural Critic publication audit passed ({len(static_slugs)} canonical story shells checked).")
+    print(f"Neural Critic publication audit passed ({len(static_slugs)} fallback articles + live CMS story shells checked).")
     return 0
 
 
