@@ -1,34 +1,30 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
+
 /* Global Neural Critic header/ticker parity fixes. */
 
-/* Keep the utility cluster on one horizontal row and reserve its width before
-   the publication nav is allowed to grow. This prevents search/account from
-   being pushed beyond the right edge on common 1366–1440px desktop widths. */
 .header-tools{
   display:flex;
   align-items:center;
   justify-content:flex-end;
-  gap:9px;
+  gap:8px;
   min-width:max-content;
   flex:0 0 auto;
   overflow:visible;
+  margin-right:94px;
 }
 .header-tools .theme-toggle,
 .header-tools .search,
 .header-tools .reader-account-button{flex:0 0 auto}
-
-/* Match the reference utility order without changing any functionality. */
 .header-tools .search{order:1}
 .header-tools .theme-toggle{order:2}
 .header-tools .reader-account-button{order:3}
 
-/* Reference editorial header geometry. The navigation itself stays Neural
-   Critic's existing taxonomy; only the visual treatment follows the approved
-   reference frame. */
 .ticker .shell,
 header .shell.header{
   width:min(calc(100% - 48px),1360px);
 }
 header .header{
+  position:relative;
   height:68px;
   gap:0;
 }
@@ -38,20 +34,17 @@ header .header{
     display:grid!important;
     grid-template-columns:190px minmax(0,1fr) auto;
     align-items:center;
-    column-gap:24px;
+    column-gap:18px;
   }
   header .publication-nav{
-    width:100%;
-    max-width:720px;
-    justify-self:center;
+    width:max-content;
+    max-width:none;
+    justify-self:start;
   }
-  header .header-tools{
-    justify-self:end;
-  }
+  header .header-tools{justify-self:end}
 }
 
-/* Neural Critic wordmark — black NEURAL + violet/periwinkle CRITIC, matching
-   the reference without introducing an image/logo asset. */
+/* Wordmark */
 header .brand{
   min-width:176px;
   grid-template-columns:auto auto;
@@ -61,10 +54,11 @@ header .brand{
 }
 header .brand span,
 header .brand strong{
-  font-family:Arial,Helvetica,sans-serif;
+  font-family:Inter,system-ui,-apple-system,"Segoe UI",sans-serif;
   font-size:22px;
-  font-weight:900;
+  font-weight:850;
   letter-spacing:-.045em;
+  -webkit-font-smoothing:antialiased;
 }
 header .brand strong{
   color:transparent!important;
@@ -74,9 +68,7 @@ header .brand strong{
 }
 header .brand em{display:none}
 
-/* The old rule used var(--ink) for this badge. In dark mode --ink is almost
-   white, which made white badge text disappear. Keep the badge dark in both
-   themes so it always has strong contrast against the cyan/violet ticker. */
+/* Live ticker */
 .ticker b{
   display:inline-flex;
   align-items:center;
@@ -91,116 +83,195 @@ header .brand em{display:none}
   line-height:1;
   box-shadow:0 2px 10px rgba(0,0,0,.16);
 }
-.ticker p,
-.ticker span{color:#fff}
+.ticker p,.ticker span{color:#fff}
 
-/* Utility buttons use the compact publication treatment from the reference. */
+/* Reference utility cluster: search circle → theme circle → account pill → menu pill. */
+.header-tools .search,
 .theme-toggle{
-  display:inline-flex;
-  align-items:center;
-  justify-content:center;
-  gap:7px;
-  min-height:34px;
-  padding:0 11px;
-  border:1px solid var(--line);
-  border-radius:999px;
-  background:color-mix(in srgb,var(--surface,#0d1020) 82%,transparent);
-  color:var(--text,#f7f8ff);
-  cursor:pointer;
-}
-.theme-toggle small{
-  font-size:8px;
-  font-weight:900;
-  letter-spacing:.08em;
-}
-.header-tools .search{
+  position:relative;
   display:grid!important;
   place-items:center!important;
-  width:34px!important;
-  min-width:34px!important;
-  height:34px!important;
-  min-height:34px!important;
+  width:36px!important;
+  min-width:36px!important;
+  height:36px!important;
+  min-height:36px!important;
   margin:0!important;
   padding:0!important;
-  line-height:1!important;
-  font-size:24px!important;
-  transform:rotate(-18deg);
+  border:1px solid rgba(128,140,157,.16)!important;
+  border-radius:50%!important;
+  background:rgba(255,255,255,.025)!important;
+  color:var(--text,#f7f8ff)!important;
+  box-shadow:none!important;
+  cursor:pointer;
+}
+.header-tools .search{
+  font-size:0!important;
+  transform:none!important;
+}
+.header-tools .search::before{
+  content:"";
+  width:11px;
+  height:11px;
+  border:1.7px solid currentColor;
+  border-radius:50%;
+  transform:translate(-1px,-1px);
+}
+.header-tools .search::after{
+  content:"";
+  position:absolute;
+  width:6px;
+  height:1.7px;
+  border-radius:999px;
+  background:currentColor;
+  transform:translate(6px,6px) rotate(45deg);
   transform-origin:center;
 }
+.theme-toggle{gap:0!important}
+.theme-toggle span{
+  display:block;
+  font-family:Inter,system-ui,sans-serif;
+  font-size:15px;
+  line-height:1;
+  transform:translateY(-.5px);
+}
+.theme-toggle small{
+  position:absolute!important;
+  width:1px!important;
+  height:1px!important;
+  padding:0!important;
+  margin:-1px!important;
+  overflow:hidden!important;
+  clip:rect(0,0,0,0)!important;
+  white-space:nowrap!important;
+  border:0!important;
+}
+
 .reader-account-button{
   display:inline-flex!important;
   align-items:center!important;
   justify-content:center!important;
   gap:0!important;
-  min-width:74px!important;
-  min-height:34px!important;
+  min-width:78px!important;
+  max-width:150px!important;
+  height:36px!important;
+  min-height:36px!important;
   margin:0!important;
-  padding:0 15px!important;
+  padding:0 16px!important;
+  overflow:hidden;
+  border:1px solid rgba(128,140,157,.16)!important;
   border-radius:999px!important;
-  font-family:Arial,Helvetica,sans-serif!important;
+  background:rgba(255,255,255,.025)!important;
+  color:var(--text,#f7f8ff)!important;
+  font-family:Inter,system-ui,-apple-system,"Segoe UI",sans-serif!important;
   font-size:9px!important;
-  font-weight:850!important;
+  font-weight:800!important;
   line-height:1!important;
   letter-spacing:.035em!important;
   white-space:nowrap!important;
+  text-overflow:ellipsis;
+  box-shadow:none!important;
 }
-/* The reference uses a simple SIGN IN pill; signed-in avatars still appear in
-   the account modal/profile, so removing the tiny header dot does not remove
-   any account functionality and saves valuable horizontal space. */
+.reader-account-button [data-reader-account-label]{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
 .reader-account-button .reader-account-dot{display:none!important}
 
+/* The existing functional menu button is visually moved to the far right on
+   desktop, so no navigation behavior is duplicated or rewritten. */
+header .menu{
+  display:inline-flex!important;
+  align-items:center;
+  justify-content:center;
+  gap:8px;
+  position:absolute;
+  right:0;
+  top:50%;
+  width:84px;
+  height:36px;
+  margin:0;
+  padding:0;
+  transform:translateY(-50%);
+  border:1px solid rgba(255,255,255,.08);
+  border-radius:999px;
+  background:#121a27!important;
+  color:#fff!important;
+  font-size:0!important;
+  line-height:1;
+  box-shadow:0 4px 13px rgba(24,32,43,.12);
+  cursor:pointer;
+}
+header .menu::before{
+  content:"☰";
+  font-family:Arial,Helvetica,sans-serif;
+  font-size:16px;
+  font-weight:400;
+  line-height:1;
+  transform:scaleX(1.05);
+}
+header .menu::after{
+  content:"MENU";
+  font-family:Inter,system-ui,-apple-system,"Segoe UI",sans-serif;
+  font-size:9px;
+  font-weight:750;
+  letter-spacing:.04em;
+}
+
 html[data-theme="light"] header{
-  background:rgba(255,255,255,.97)!important;
-  border-bottom:1px solid #e4e7eb!important;
+  background:rgba(255,255,255,.98)!important;
+  border-bottom:1px solid #e5e8ec!important;
   box-shadow:none!important;
   backdrop-filter:blur(16px);
   -webkit-backdrop-filter:blur(16px);
 }
 html[data-theme="light"] header .brand span{color:#171d27!important}
+html[data-theme="light"] .header-tools .search,
 html[data-theme="light"] .theme-toggle{
+  border-color:#e7eaee!important;
   background:#fff!important;
-  color:#17191e;
-  border-color:#eceef1!important;
-  box-shadow:0 3px 12px rgba(24,32,43,.04);
-}
-html[data-theme="light"] .header-tools .search{
-  border:1px solid #eceef1!important;
-  border-radius:50%!important;
-  background:#fff!important;
-  color:#151c27!important;
-  box-shadow:0 3px 12px rgba(24,32,43,.04)!important;
+  color:#17212f!important;
+  box-shadow:0 3px 12px rgba(24,32,43,.035)!important;
 }
 html[data-theme="light"] .reader-account-button{
   background:#fafbfc!important;
   color:#171d27!important;
-  border:1px solid #e6e9ed!important;
-  box-shadow:0 3px 12px rgba(24,32,43,.035)!important;
+  border-color:#e4e8ec!important;
+  box-shadow:0 3px 12px rgba(24,32,43,.03)!important;
 }
-html[data-theme="light"] .ticker b{
-  background:#141827!important;
+html[data-theme="light"] header .menu{
+  background:#121a27!important;
   color:#fff!important;
+  border-color:#1d2734!important;
 }
+html[data-theme="light"] .ticker b{background:#141827!important;color:#fff!important}
 
 @media(max-width:1120px) and (min-width:861px){
   header .shell.header{
     grid-template-columns:168px minmax(0,1fr) auto;
-    column-gap:14px;
+    column-gap:12px;
   }
   header .brand{min-width:auto}
   header .brand span,header .brand strong{font-size:20px}
-  .header-tools{gap:7px}
-  .theme-toggle{padding:0 9px}
-  .reader-account-button{min-width:68px!important;padding:0 12px!important}
+  .header-tools{gap:7px;margin-right:88px}
+  header .menu{width:78px}
+  .reader-account-button{min-width:70px!important;max-width:118px!important;padding:0 12px!important}
 }
 
 @media(max-width:860px){
   .ticker .shell,
   header .shell.header{width:calc(100% - 28px)}
-  header .header{display:flex!important;height:70px;gap:18px}
+  header .header{display:flex!important;height:70px;gap:14px}
   header .brand{min-width:auto}
   header .brand span,header .brand strong{font-size:20px}
-  .header-tools{gap:8px;min-width:0}
+  .header-tools{gap:7px;min-width:0;margin-right:0;margin-left:auto}
   .header-tools .search{order:initial}
   .header-tools .theme-toggle{order:initial}
-  .header-tools .reader-account-button{order:initial}
+  .header-tools .reader-account-button{order:initial;display:none!important}
+  header .menu{
+    position:static;
+    transform:none;
+    width:42px;
+    min-width:42px;
+    height:36px;
+    margin:0;
+    order:-1;
+  }
+  header .menu::after{display:none}
 }
