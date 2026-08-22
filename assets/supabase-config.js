@@ -4,9 +4,10 @@ window.NEURAL_CRITIC_SUPABASE = {
 };
 
 /* Shared public hardening: canonical/social metadata, structured data,
-   crawler directives, canonical story routing, analytics, and lightweight
-   image loading hints. Generated story shells already contain static metadata,
-   so they skip the runtime hardening pass while keeping analytics/content live. */
+   crawler directives, canonical story routing, analytics, recirculation, and
+   lightweight image loading hints. Generated story shells already contain
+   static metadata, so they skip the runtime hardening pass while keeping the
+   reader-facing article runtime live. */
 (() => {
   const loadStoryRouter = () => {
     if (document.querySelector('script[data-nc-story-router]')) return;
@@ -15,6 +16,24 @@ window.NEURAL_CRITIC_SUPABASE = {
     router.async = true;
     router.dataset.ncStoryRouter = '1';
     document.head.appendChild(router);
+  };
+
+  const loadRecirculation = () => {
+    if (!document.getElementById('article')) return;
+    if (!document.querySelector('link[data-nc-recirculation-style]')) {
+      const style = document.createElement('link');
+      style.rel = 'stylesheet';
+      style.href = 'assets/recirculation.css?v=20260822-recirc1';
+      style.dataset.ncRecirculationStyle = '1';
+      document.head.appendChild(style);
+    }
+    if (!document.querySelector('script[data-nc-recirculation]')) {
+      const script = document.createElement('script');
+      script.src = 'assets/recirculation.js?v=20260822-recirc1';
+      script.async = true;
+      script.dataset.ncRecirculation = '1';
+      document.head.appendChild(script);
+    }
   };
 
   if (!window.NEURAL_CRITIC_STATIC_META && !document.querySelector('script[data-nc-hardening]')) {
@@ -28,6 +47,8 @@ window.NEURAL_CRITIC_SUPABASE = {
   } else {
     loadStoryRouter();
   }
+
+  loadRecirculation();
 
   if (document.querySelector('script[data-nc-analytics-config]')) return;
   const config = document.createElement('script');
