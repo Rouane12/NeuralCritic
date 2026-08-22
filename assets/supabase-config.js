@@ -4,11 +4,12 @@ window.NEURAL_CRITIC_SUPABASE = {
 };
 
 /* Shared public hardening: canonical/social metadata, structured data,
-   crawler directives, canonical story routing, analytics, recirculation, and
-   lightweight image loading hints. Generated story shells already contain
-   static metadata, so they skip the runtime hardening pass while keeping the
-   reader-facing article runtime live. */
+   crawler directives, canonical story routing, analytics, recirculation,
+   monetization readiness, and lightweight image loading hints. */
 (() => {
+  const pageName = (location.pathname.split('/').pop() || 'index.html').toLowerCase();
+  const STATIC_META_PAGES = new Set(['privacy.html', 'standards.html', 'commercial.html']);
+
   const loadStoryRouter = () => {
     if (document.querySelector('script[data-nc-story-router]')) return;
     const router = document.createElement('script');
@@ -36,7 +37,33 @@ window.NEURAL_CRITIC_SUPABASE = {
     }
   };
 
-  if (!window.NEURAL_CRITIC_STATIC_META && !document.querySelector('script[data-nc-hardening]')) {
+  const loadMonetization = () => {
+    if (pageName === 'studio.html' || pageName === 'subscribers.html') return;
+    if (!document.querySelector('link[data-nc-monetization-style]')) {
+      const style = document.createElement('link');
+      style.rel = 'stylesheet';
+      style.href = 'assets/monetization.css?v=20260822-money1';
+      style.dataset.ncMonetizationStyle = '1';
+      document.head.appendChild(style);
+    }
+    if (document.querySelector('script[data-nc-monetization-config]')) return;
+    const config = document.createElement('script');
+    config.src = 'assets/monetization-config.js?v=20260822-money1';
+    config.async = true;
+    config.dataset.ncMonetizationConfig = '1';
+    config.addEventListener('load', () => {
+      if (document.querySelector('script[data-nc-monetization]')) return;
+      const script = document.createElement('script');
+      script.src = 'assets/monetization.js?v=20260822-money1';
+      script.async = true;
+      script.dataset.ncMonetization = '1';
+      document.head.appendChild(script);
+    }, { once: true });
+    document.head.appendChild(config);
+  };
+
+  const shouldRuntimeHarden = !window.NEURAL_CRITIC_STATIC_META && !STATIC_META_PAGES.has(pageName);
+  if (shouldRuntimeHarden && !document.querySelector('script[data-nc-hardening]')) {
     const hardening = document.createElement('script');
     hardening.src = 'assets/public-hardening.js?v=20260822-launch1';
     hardening.async = true;
@@ -49,6 +76,7 @@ window.NEURAL_CRITIC_SUPABASE = {
   }
 
   loadRecirculation();
+  loadMonetization();
 
   if (document.querySelector('script[data-nc-analytics-config]')) return;
   const config = document.createElement('script');
