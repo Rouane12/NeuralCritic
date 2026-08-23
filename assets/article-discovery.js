@@ -50,22 +50,51 @@
     meta.insertAdjacentElement('afterend',trail);
   }
 
-  function renderRelated(host, current, all, engine) {
+  function relatedMarkup(current, all, engine) {
     const related=engine.related(current,all,3);
-    if (!related.length) return;
-
-    const markup=`<section class="work-side-card work-related-card nc-related-intelligent">
+    if (!related.length) return '';
+    return `<section class="work-side-card work-related-card nc-related-intelligent">
       <span>RELATED COVERAGE</span>
       ${related.map(({article,reason})=>`<a href="article.html?slug=${encodeURIComponent(article.slug)}"><b>${esc(article.title)}</b><small>${esc(article.category || 'STORY')}</small><small class="nc-related-reason">${esc(reason)}</small></a>`).join('')}
     </section>`;
+  }
 
-    const existing=host.querySelector('.work-related-card');
-    if (existing) {
-      existing.outerHTML=markup;
-      return;
-    }
+  function renderRelated(host, current, all, engine) {
+    const markup=relatedMarkup(current,all,engine);
+    if (!markup) return false;
+
+    const intelligent=host.querySelector('.work-related-card.nc-related-intelligent');
+    const cards=[...host.querySelectorAll('.work-related-card')];
+    cards.forEach(card => { if (card !== intelligent) card.remove(); });
+
+    if (intelligent) return true;
     const slot=host.querySelector('[data-related-slot]');
-    if (slot) slot.innerHTML=markup;
+    if (slot) {
+      slot.innerHTML=markup;
+      return true;
+    }
+    const sidebar=host.querySelector('.work-bottom-sidebar,.work-article-sidebar');
+    if (sidebar) {
+      sidebar.insertAdjacentHTML('afterbegin',markup);
+      return true;
+    }
+    return false;
+  }
+
+  function stabilizeRelated(host, current, all, engine) {
+    renderRelated(host,current,all,engine);
+    const observer=new MutationObserver(() => {
+      const cards=[...host.querySelectorAll('.work-related-card')];
+      const hasLegacy=cards.some(card => !card.classList.contains('nc-related-intelligent'));
+      if (hasLegacy || (!cards.length && host.querySelector('[data-related-slot]'))) {
+        renderRelated(host,current,all,engine);
+      }
+    });
+    observer.observe(host,{childList:true,subtree:true});
+    setTimeout(() => {
+      renderRelated(host,current,all,engine);
+      observer.disconnect();
+    },2500);
   }
 
   async function init() {
@@ -87,10 +116,10 @@
       renderGraphTrail(host,current,engine);
 
       for (let i=0;i<50;i++) {
-        if (host.querySelector('.work-related-card') || host.querySelector('[data-related-slot]')) break;
+        if (host.querySelector('.work-related-card') || host.querySelector('[data-related-slot]') || host.querySelector('.work-bottom-sidebar,.work-article-sidebar')) break;
         await new Promise(resolve=>setTimeout(resolve,80));
       }
-      renderRelated(host,current,all,engine);
+      stabilizeRelated(host,current,all,engine);
     } catch (error) {
       console.warn('Neural Critic discovery context unavailable.',error);
     }
