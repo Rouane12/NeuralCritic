@@ -8,6 +8,7 @@
     update: { label: 'UPDATE', status: 'CONFIRMED · DEVELOPING STORY', className: 'is-update' },
     report: { label: 'REPORT', status: 'REPORTED · NOT FULLY CONFIRMED', className: 'is-report' }
   };
+  const esc = (value = '') => String(value).replace(/[&<>"']/g, char => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[char]));
 
   function slugFromPage() {
     return window.NEURAL_CRITIC_STATIC_SLUG || new URLSearchParams(location.search).get('slug') || '';
@@ -37,6 +38,16 @@
       return /^https?:$/.test(url.protocol) ? url.href : '';
     } catch (_) {
       return '';
+    }
+  }
+
+  function updateTime(value) {
+    try {
+      return new Intl.DateTimeFormat('en-GB', {
+        day: '2-digit', month: 'short', year: 'numeric', hour: '2-digit', minute: '2-digit'
+      }).format(new Date(value)).toUpperCase();
+    } catch (_) {
+      return String(value || '').toUpperCase();
     }
   }
 
@@ -72,40 +83,85 @@
     $$('.article-body figure img.article-hero', article).forEach(markDocumentImage);
   }
 
+  function renderUpdateLog(article, meta, context) {
+    const updates = Array.isArray(meta?.updates)
+      ? meta.updates.filter(item => item && String(item.note || '').trim() && item.at)
+        .sort((a, b) => new Date(b.at) - new Date(a.at))
+      : [];
+    if (!updates.length || article.querySelector('.nc-news-update-log')) return;
+
+    const section = document.createElement('section');
+    section.className = 'nc-news-update-log';
+    section.innerHTML = `
+      <header><div><small>DEVELOPING COVERAGE</small><h2>Update log</h2></div><span>${updates.length} ${updates.length === 1 ? 'UPDATE' : 'UPDATES'}</span></header>
+      <div class="nc-news-update-items">
+        ${updates.slice(0, 6).map((item, index) => `<article class="nc-news-update-entry${index === 0 ? ' is-latest' : ''}">
+          <time datetime="${esc(item.at)}">${esc(updateTime(item.at))}</time>
+          <p>${esc(item.note)}</p>
+        </article>`).join('')}
+      </div>`;
+    context.insertAdjacentElement('afterend', section);
+  }
+
   function render(article, meta) {
     const kind = meta?.kind;
     const config = LABELS[kind];
     if (!article || !config) return;
 
+    const developing = Boolean(meta.developing);
+    const updateCount = Array.isArray(meta.updates) ? meta.updates.filter(item => item && item.note).length : 0;
     article.classList.add('nc-news-article', config.className);
+    article.classList.toggle('is-developing', developing);
+
     const kicker = article.querySelector('.article-kicker');
     if (kicker) {
       kicker.textContent = `NEWS · ${config.label}`;
       kicker.classList.add('nc-news-kicker');
     }
 
-    if (!article.querySelector('.nc-news-context')) {
+    let panel = article.querySelector('.nc-news-context');
+    if (!panel) {
       const sourceName = String(meta.sourceName || '').trim();
       const sourceUrl = safeUrl(meta.sourceUrl || '');
-      const panel = document.createElement('section');
+      const dynamicStatus = developing
+        ? config.status
+        : (kind === 'report' ? config.status : 'CONFIRMED · STORY SETTLED');
+      const trustCopy = kind === 'report'
+        ? 'Neural Critic is presenting this as attributed reporting, not confirmed fact.'
+        : developing
+          ? 'Confirmed information. This story remains open to substantive updates as facts develop.'
+          : 'Neural Critic is presenting this as confirmed information.';
+
+      panel = document.createElement('section');
       panel.className = 'nc-news-context';
       panel.innerHTML = `
         <div class="nc-news-context-signal">
           <span>${config.label}</span>
-          <div><b>${config.status}</b><small>${kind === 'report' ? 'Neural Critic is presenting this as attributed reporting, not confirmed fact.' : 'Neural Critic is presenting this as confirmed information.'}</small></div>
+          <div><b>${dynamicStatus}</b><small>${trustCopy}</small></div>
         </div>
-        ${sourceName ? `<div class="nc-news-source"><small>SOURCE / ORIGIN</small>${sourceUrl ? `<a href="${sourceUrl}" target="_blank" rel="noopener noreferrer">${sourceName} ↗</a>` : `<strong>${sourceName}</strong>`}</div>` : ''}`;
+        ${sourceName ? `<div class="nc-news-source"><small>SOURCE / ORIGIN</small>${sourceUrl ? `<a href="${sourceUrl}" target="_blank" rel="noopener noreferrer">${esc(sourceName)} ↗</a>` : `<strong>${esc(sourceName)}</strong>`}</div>` : ''}`;
 
       const metaRow = article.querySelector('.article-meta');
       if (metaRow) metaRow.insertAdjacentElement('afterend', panel);
       else article.querySelector('h1')?.insertAdjacentElement('afterend', panel);
 
+      if (updateCount) {
+        const badge = document.createElement('span');
+        badge.className = 'nc-news-updated-badge';
+        const latest = meta.updates.filter(item => item?.at).sort((a,b) => new Date(b.at) - new Date(a.at))[0];
+        badge.textContent = latest ? `UPDATED ${updateTime(latest.at)}` : 'UPDATED';
+        panel.appendChild(badge);
+      }
+
       window.gtag?.('event', 'news_article_view', {
         news_kind: kind,
-        source_present: sourceName ? 'yes' : 'no'
+        source_present: sourceName ? 'yes' : 'no',
+        developing_story: developing ? 'yes' : 'no',
+        update_count: updateCount
       });
     }
 
+    renderUpdateLog(article, meta, panel);
     polishDocumentMedia(article);
     setTimeout(() => polishDocumentMedia(article), 350);
   }
