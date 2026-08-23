@@ -131,6 +131,24 @@ window.NEURAL_CRITIC_SUPABASE = {
     }
   };
 
+  const loadArticleGameGraphIdentity = () => {
+    if (!document.getElementById('article')) return;
+    if (!document.querySelector('link[data-nc-game-graph-identity-style]')) {
+      const style = document.createElement('link');
+      style.rel = 'stylesheet';
+      style.href = 'assets/game-graph-identity.css?v=20260823-graph1';
+      style.dataset.ncGameGraphIdentityStyle = '1';
+      document.head.appendChild(style);
+    }
+    if (!document.querySelector('script[data-nc-game-graph-identity]')) {
+      const script = document.createElement('script');
+      script.src = 'assets/game-graph-identity.js?v=20260823-graph1';
+      script.async = true;
+      script.dataset.ncGameGraphIdentity = '1';
+      document.head.appendChild(script);
+    }
+  };
+
   const loadRecirculation = () => {
     if (!document.getElementById('article')) return;
     if (!document.querySelector('link[data-nc-recirculation-style]')) {
@@ -200,6 +218,7 @@ window.NEURAL_CRITIC_SUPABASE = {
   loadStudioGameGraph();
   loadArticleConclusion();
   loadArticleNews();
+  loadArticleGameGraphIdentity();
   loadRecirculation();
   loadMonetization();
 
