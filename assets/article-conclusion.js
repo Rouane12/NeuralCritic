@@ -4,7 +4,6 @@
   if(!slug)return;
 
   const esc = (value='') => String(value).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
-  const slugify = (value='') => String(value).toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,'');
 
   function inline(value=''){
     return esc(value)
@@ -67,25 +66,12 @@
   async function findExisting(body, article){
     let section=$('.article-conclusion',body);
     if(section||article.article_format!=='ranked-list')return section;
-    for(let i=0;i<18;i++){
+    for(let i=0;i<50;i++){
       await new Promise(resolve=>setTimeout(resolve,100));
       section=$('.article-conclusion',body);
       if(section)return section;
     }
     return null;
-  }
-
-  function addTocLink(section,heading){
-    const nav=$('#article .work-toc nav');
-    if(!nav)return;
-    const id=section.id||slugify(heading)||'final-verdict';
-    section.id=id;
-    const exists=[...nav.querySelectorAll('a')].some(a=>a.getAttribute('href')===`#${id}`);
-    if(exists)return;
-    const link=document.createElement('a');
-    link.href=`#${id}`;
-    link.textContent=heading;
-    nav.appendChild(link);
   }
 
   function apply(article,body,existing=null){
@@ -98,7 +84,6 @@
     section.className=`article-conclusion nc-conclusion-block nc-heading-${style}`;
     section.dataset.headingStyle=style;
     section.innerHTML=`<span>FINAL VERDICT</span><h2 class="nc-editorial-heading nc-section">${esc(heading)}</h2><div class="nc-conclusion-copy">${prose(article.conclusion)}</div>`;
-    addTocLink(section,heading);
   }
 
   async function init(){
