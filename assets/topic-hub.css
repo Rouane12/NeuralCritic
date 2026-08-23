@@ -68,3 +68,14 @@ html[data-theme="light"] .nc-topic-ranking{border-color:#e0e4e9;background:#f8fa
 @media(max-width:1040px){.nc-topic-stats{grid-template-columns:repeat(3,1fr)}.nc-topic-stats div:nth-child(3){border-right:0}.nc-topic-grid{grid-template-columns:1fr}.nc-topic-sidebar{grid-template-columns:1fr 1fr}.nc-topic-story.is-lead{grid-template-columns:minmax(260px,.8fr) 1.2fr}}
 @media(max-width:720px){.nc-topic-shell{width:calc(100% - 24px);padding:28px 0 70px}.nc-topic-hero{padding:32px 22px 24px;border-radius:20px}.nc-topic-hero h1{font-size:clamp(46px,15vw,68px)}.nc-topic-hero #topic-deck{font-size:15px}.nc-topic-stats{grid-template-columns:repeat(2,1fr)}.nc-topic-stats div:nth-child(3){border-right:1px solid rgba(122,141,181,.14)}.nc-topic-stats div:nth-child(even){border-right:0}.nc-topic-grid{gap:24px;margin-top:28px}.nc-topic-story,.nc-topic-story.is-lead{grid-template-columns:1fr}.nc-topic-story-media{aspect-ratio:16/9}.nc-topic-story.is-lead .nc-topic-story-copy h3{font-size:30px}.nc-topic-sidebar{grid-template-columns:1fr}.nc-topic-section-head{align-items:start;flex-direction:column}.nc-topic-section-head>span{display:none}}
 @media(prefers-reduced-motion:reduce){.nc-topic-story,.nc-topic-relations a,.nc-topic-story-media img{transition:none}.nc-topic-story:hover,.nc-topic-relations a:hover{transform:none}.nc-topic-story:hover .nc-topic-story-media img{transform:none}}
+
+/* Topic hub signal-card utility rail polish */
+.nc-topic-story{align-items:stretch}
+.nc-topic-story-copy{min-height:100%;box-sizing:border-box;padding-bottom:0}
+.nc-topic-story.is-lead .nc-topic-story-copy{padding-bottom:0}
+.nc-topic-story-copy footer{min-height:52px;box-sizing:border-box;margin:auto -25px 0;padding:14px 25px 15px;border-top:1px solid rgba(119,139,185,.15);background:linear-gradient(90deg,rgba(5,10,21,.34),rgba(9,14,28,.14));line-height:1.15}
+.nc-topic-story.is-lead .nc-topic-story-copy footer{margin-left:-32px;margin-right:-32px;padding-left:32px;padding-right:32px}
+.nc-topic-story-copy footer span,.nc-topic-story-copy footer strong{display:inline-flex;align-items:center;min-height:18px}
+.nc-topic-story-copy footer strong{justify-content:flex-end;white-space:nowrap}
+html[data-theme="light"] .nc-topic-story-copy footer{border-top-color:#e3e7ec;background:linear-gradient(90deg,rgba(239,244,248,.76),rgba(248,250,252,.34))}
+@media(max-width:720px){.nc-topic-story-copy{padding-bottom:0}.nc-topic-story-copy footer{margin-left:-25px;margin-right:-25px}.nc-topic-story.is-lead .nc-topic-story-copy footer{margin-left:-32px;margin-right:-32px}}
