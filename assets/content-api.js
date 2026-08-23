@@ -36,6 +36,16 @@
         document.body.appendChild(script);
       });
     }
+
+    if (document.getElementById('hero') && !document.querySelector('script[data-nc-popularity-signals]')) {
+      window.NeuralCriticDiscoveryReady.then(engine => {
+        if (!engine || document.querySelector('script[data-nc-popularity-signals]')) return;
+        const script = document.createElement('script');
+        script.src = 'assets/popularity-signals.js?v=20260824-popularity1';
+        script.dataset.ncPopularitySignals = '1';
+        document.body.appendChild(script);
+      });
+    }
   }
 
   bootstrapDiscovery();
@@ -50,6 +60,7 @@
   const indexPath = 'data/articles.json';
   const articlePrefix = 'data/articles/';
   const CMS_TIMEOUT_MS = 2200;
+  const POPULARITY_DEDUPE_MS = 30 * 60 * 1000;
 
   function mapRow(row) {
     return {
@@ -106,6 +117,17 @@
     }
   }
 
+  function currentArticleSlug() {
+    const staticSlug = String(window.NEURAL_CRITIC_STATIC_SLUG || '').trim();
+    if (staticSlug) return staticSlug;
+    const querySlug = new URLSearchParams(location.search).get('slug') || '';
+    if (querySlug) return querySlug;
+    const match = location.pathname.match(/\/NeuralCritic\/stories\/([^/]+)(?:\/index\.html)?\/?$/i);
+    if (!match?.[1]) return '';
+    try { return decodeURIComponent(match[1]); }
+    catch (_) { return match[1]; }
+  }
+
   function withTimeout(promise, ms = CMS_TIMEOUT_MS) {
     let timer;
     const timeout = new Promise((_, reject) => {
@@ -139,7 +161,80 @@
     return data ? mapRow(data) : null;
   }
 
-  window.NeuralCriticContentAPI = { publishedIndex, publishedArticle, nativeFetch };
+  async function articlePopularity(days = 7) {
+    const parsed = Number(days);
+    const safeDays = Math.min(30, Math.max(1, Number.isFinite(parsed) ? Math.round(parsed) : 7));
+    const { data, error } = await withTimeout(client.rpc('get_article_popularity', { p_days: safeDays }), 3200);
+    if (error) throw error;
+    return Array.isArray(data) ? data : [];
+  }
+
+  async function recordArticleView(slug) {
+    const clean = String(slug || '').trim();
+    if (!clean) return false;
+    const { error } = await withTimeout(client.rpc('record_article_view', { p_slug: clean }), 3200);
+    if (error) throw error;
+    return true;
+  }
+
+  window.NeuralCriticContentAPI = { publishedIndex, publishedArticle, articlePopularity, recordArticleView, nativeFetch };
+
+  function popularitySessionKey(slug) {
+    return `neural-critic-popularity-view:${slug}`;
+  }
+
+  function popularityAlreadyCounted(slug) {
+    try {
+      const last = Number(sessionStorage.getItem(popularitySessionKey(slug)) || 0);
+      return last > 0 && Date.now() - last < POPULARITY_DEDUPE_MS;
+    } catch (_) {
+      return false;
+    }
+  }
+
+  function markPopularityCounted(slug) {
+    try { sessionStorage.setItem(popularitySessionKey(slug), String(Date.now())); }
+    catch (_) {}
+  }
+
+  function scheduleConsentedPopularityRecord() {
+    const slug = currentArticleSlug();
+    if (!slug || popularityAlreadyCounted(slug)) return;
+    let inFlight = false;
+    let finished = false;
+
+    const attempt = async () => {
+      if (finished || inFlight || popularityAlreadyCounted(slug)) return;
+      if (!window.NeuralCriticAnalytics?.enabled?.()) return;
+      inFlight = true;
+      try {
+        await recordArticleView(slug);
+        markPopularityCounted(slug);
+        finished = true;
+      } catch (error) {
+        console.warn('Neural Critic popularity view was not recorded.', error);
+      } finally {
+        inFlight = false;
+      }
+    };
+
+    let polls = 0;
+    const timer = setInterval(() => {
+      polls += 1;
+      attempt();
+      if (finished || polls >= 80) clearInterval(timer);
+    }, 100);
+
+    document.addEventListener('click', event => {
+      const target = event.target instanceof Element ? event.target.closest('[data-accept]') : null;
+      if (!target) return;
+      setTimeout(attempt, 0);
+    }, true);
+
+    attempt();
+  }
+
+  scheduleConsentedPopularityRecord();
 
   async function hydrateLiveTicker() {
     try {
