@@ -119,6 +119,7 @@
       if ($('#news-source-name')) $('#news-source-name').value = meta.sourceName || '';
       if ($('#news-source-url')) $('#news-source-url').value = meta.sourceUrl || '';
       togglePanel();
+      $('#category')?.dispatchEvent(new Event('change', { bubbles: true }));
       status(data?.category === 'NEWS' && meta.kind ? `${KINDS[meta.kind]?.label || 'News'} metadata loaded from Neural Critic.` : 'This story has no structured news metadata yet.');
     } catch (error) {
       status(error?.message || 'Could not load news metadata.', true);
