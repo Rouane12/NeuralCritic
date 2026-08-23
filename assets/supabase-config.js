@@ -5,7 +5,7 @@ window.NEURAL_CRITIC_SUPABASE = {
 
 /* Shared public hardening: canonical/social metadata, structured data,
    crawler directives, canonical story routing, analytics, recirculation,
-   monetization readiness, and lightweight image loading hints. */
+   configurable conclusions, monetization readiness, and image hints. */
 (() => {
   const pageName = (location.pathname.split('/').pop() || 'index.html').toLowerCase();
   const STATIC_META_PAGES = new Set(['privacy.html', 'standards.html', 'commercial.html']);
@@ -37,6 +37,42 @@ window.NEURAL_CRITIC_SUPABASE = {
     script.async = true;
     script.dataset.ncHomeCuration = '1';
     document.head.appendChild(script);
+  };
+
+  const loadStudioConclusion = () => {
+    if (pageName !== 'studio.html') return;
+    if (!document.querySelector('link[data-nc-studio-conclusion-style]')) {
+      const style = document.createElement('link');
+      style.rel = 'stylesheet';
+      style.href = 'assets/studio-conclusion.css?v=20260823-conclusion1';
+      style.dataset.ncStudioConclusionStyle = '1';
+      document.head.appendChild(style);
+    }
+    if (!document.querySelector('script[data-nc-studio-conclusion]')) {
+      const script = document.createElement('script');
+      script.src = 'assets/studio-conclusion.js?v=20260823-conclusion1';
+      script.async = true;
+      script.dataset.ncStudioConclusion = '1';
+      document.head.appendChild(script);
+    }
+  };
+
+  const loadArticleConclusion = () => {
+    if (!document.getElementById('article')) return;
+    if (!document.querySelector('link[data-nc-article-conclusion-style]')) {
+      const style = document.createElement('link');
+      style.rel = 'stylesheet';
+      style.href = 'assets/article-conclusion.css?v=20260823-conclusion1';
+      style.dataset.ncArticleConclusionStyle = '1';
+      document.head.appendChild(style);
+    }
+    if (!document.querySelector('script[data-nc-article-conclusion]')) {
+      const script = document.createElement('script');
+      script.src = 'assets/article-conclusion.js?v=20260823-conclusion1';
+      script.async = true;
+      script.dataset.ncArticleConclusion = '1';
+      document.head.appendChild(script);
+    }
   };
 
   const loadRecirculation = () => {
@@ -103,6 +139,8 @@ window.NEURAL_CRITIC_SUPABASE = {
 
   loadStoryReadinessGuard();
   loadHomepageCurationGuard();
+  loadStudioConclusion();
+  loadArticleConclusion();
   loadRecirculation();
   loadMonetization();
 
