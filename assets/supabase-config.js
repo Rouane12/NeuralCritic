@@ -101,7 +101,7 @@ window.NEURAL_CRITIC_SUPABASE = {
     if (pageName !== 'studio.html') return;
     if (document.querySelector('script[data-nc-studio-news-duplicate-guard]')) return;
     const script = document.createElement('script');
-    script.src = 'assets/studio-news-duplicate-guard.js?v=20260823-news1';
+    script.src = 'assets/studio-news-duplicate-guard.js?v=20260823-news2';
     script.async = true;
     script.dataset.ncStudioNewsDuplicateGuard = '1';
     document.head.appendChild(script);
