@@ -2,6 +2,7 @@
   'use strict';
 
   const $ = (s, root = document) => root.querySelector(s);
+  const $$ = (s, root = document) => [...root.querySelectorAll(s)];
   const LABELS = {
     breaking: { label: 'BREAKING', status: 'CONFIRMED · TIME-SENSITIVE', className: 'is-breaking' },
     update: { label: 'UPDATE', status: 'CONFIRMED · DEVELOPING STORY', className: 'is-update' },
@@ -39,10 +40,42 @@
     }
   }
 
+  function markDocumentImage(img) {
+    if (!img || img.dataset.ncNewsDocumentChecked === '1') return;
+    img.dataset.ncNewsDocumentChecked = '1';
+
+    const apply = () => {
+      const width = Number(img.naturalWidth || 0);
+      const height = Number(img.naturalHeight || 0);
+      if (!width || !height || height / width < 1.12) return;
+
+      const figure = img.closest('figure');
+      if (!figure || figure.classList.contains('nc-news-document-media')) return;
+
+      figure.classList.add('nc-news-document-media');
+      const frame = document.createElement('div');
+      frame.className = 'nc-news-document-frame';
+      img.parentNode.insertBefore(frame, img);
+      frame.appendChild(img);
+
+      const label = document.createElement('span');
+      label.className = 'nc-news-document-label';
+      label.textContent = 'SOURCE DOCUMENT · CLICK TO EXPAND';
+      frame.appendChild(label);
+    };
+
+    if (img.complete && img.naturalWidth) apply();
+    else img.addEventListener('load', apply, { once: true });
+  }
+
+  function polishDocumentMedia(article) {
+    $$('.article-body figure img.article-hero', article).forEach(markDocumentImage);
+  }
+
   function render(article, meta) {
     const kind = meta?.kind;
     const config = LABELS[kind];
-    if (!article || !config || article.querySelector('.nc-news-context')) return;
+    if (!article || !config) return;
 
     article.classList.add('nc-news-article', config.className);
     const kicker = article.querySelector('.article-kicker');
@@ -51,25 +84,30 @@
       kicker.classList.add('nc-news-kicker');
     }
 
-    const sourceName = String(meta.sourceName || '').trim();
-    const sourceUrl = safeUrl(meta.sourceUrl || '');
-    const panel = document.createElement('section');
-    panel.className = 'nc-news-context';
-    panel.innerHTML = `
-      <div class="nc-news-context-signal">
-        <span>${config.label}</span>
-        <div><b>${config.status}</b><small>${kind === 'report' ? 'Neural Critic is presenting this as attributed reporting, not confirmed fact.' : 'Neural Critic is presenting this as confirmed information.'}</small></div>
-      </div>
-      ${sourceName ? `<div class="nc-news-source"><small>SOURCE / ORIGIN</small>${sourceUrl ? `<a href="${sourceUrl}" target="_blank" rel="noopener noreferrer">${sourceName} ↗</a>` : `<strong>${sourceName}</strong>`}</div>` : ''}`;
+    if (!article.querySelector('.nc-news-context')) {
+      const sourceName = String(meta.sourceName || '').trim();
+      const sourceUrl = safeUrl(meta.sourceUrl || '');
+      const panel = document.createElement('section');
+      panel.className = 'nc-news-context';
+      panel.innerHTML = `
+        <div class="nc-news-context-signal">
+          <span>${config.label}</span>
+          <div><b>${config.status}</b><small>${kind === 'report' ? 'Neural Critic is presenting this as attributed reporting, not confirmed fact.' : 'Neural Critic is presenting this as confirmed information.'}</small></div>
+        </div>
+        ${sourceName ? `<div class="nc-news-source"><small>SOURCE / ORIGIN</small>${sourceUrl ? `<a href="${sourceUrl}" target="_blank" rel="noopener noreferrer">${sourceName} ↗</a>` : `<strong>${sourceName}</strong>`}</div>` : ''}`;
 
-    const metaRow = article.querySelector('.article-meta');
-    if (metaRow) metaRow.insertAdjacentElement('afterend', panel);
-    else article.querySelector('h1')?.insertAdjacentElement('afterend', panel);
+      const metaRow = article.querySelector('.article-meta');
+      if (metaRow) metaRow.insertAdjacentElement('afterend', panel);
+      else article.querySelector('h1')?.insertAdjacentElement('afterend', panel);
 
-    window.gtag?.('event', 'news_article_view', {
-      news_kind: kind,
-      source_present: sourceName ? 'yes' : 'no'
-    });
+      window.gtag?.('event', 'news_article_view', {
+        news_kind: kind,
+        source_present: sourceName ? 'yes' : 'no'
+      });
+    }
+
+    polishDocumentMedia(article);
+    setTimeout(() => polishDocumentMedia(article), 350);
   }
 
   async function init() {
