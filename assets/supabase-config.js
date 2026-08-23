@@ -6,10 +6,30 @@ window.NEURAL_CRITIC_SUPABASE = {
 /* Shared public hardening: canonical/social metadata, structured data,
    crawler directives, canonical story routing, analytics, recirculation,
    configurable conclusions, structured news, Game Graph topic hubs,
-   monetization readiness, and image hints. */
+   monetization readiness, public presentation scale, and image hints. */
 (() => {
   const pageName = (location.pathname.split('/').pop() || 'index.html').toLowerCase();
-  const STATIC_META_PAGES = new Set(['privacy.html', 'standards.html', 'commercial.html', 'topic.html']);
+  const STATIC_META_PAGES = new Set(['privacy.html', 'standards.html', 'commercial.html', 'topic.html', 'author.html']);
+
+  const loadPublicScale = () => {
+    if (pageName === 'studio.html' || pageName === 'subscribers.html') return;
+    if (document.querySelector('link[data-nc-public-scale]')) return;
+    const style = document.createElement('link');
+    style.rel = 'stylesheet';
+    style.href = 'assets/public-scale.css?v=20260823-scale1';
+    style.dataset.ncPublicScale = '1';
+    document.head.appendChild(style);
+  };
+
+  const loadArticleThreadLayout = () => {
+    if (!document.getElementById('article')) return;
+    if (document.querySelector('link[data-nc-thread-layout]')) return;
+    const style = document.createElement('link');
+    style.rel = 'stylesheet';
+    style.href = 'assets/article-thread-layout.css?v=20260823-thread1';
+    style.dataset.ncThreadLayout = '1';
+    document.head.appendChild(style);
+  };
 
   const loadStoryRouter = () => {
     if (pageName === 'studio.html' || pageName === 'subscribers.html') return;
@@ -197,6 +217,9 @@ window.NEURAL_CRITIC_SUPABASE = {
     }, { once: true });
     document.head.appendChild(config);
   };
+
+  loadPublicScale();
+  loadArticleThreadLayout();
 
   const shouldRuntimeHarden = !window.NEURAL_CRITIC_STATIC_META && !STATIC_META_PAGES.has(pageName);
   if (shouldRuntimeHarden && !document.querySelector('script[data-nc-hardening]')) {
