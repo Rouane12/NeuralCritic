@@ -15,7 +15,7 @@ window.NEURAL_CRITIC_SUPABASE = {
     if (pageName === 'studio.html' || pageName === 'subscribers.html') return;
     if (document.querySelector('script[data-nc-story-router]')) return;
     const router = document.createElement('script');
-    router.src = 'assets/story-router.js?v=20260823-story5';
+    router.src = 'assets/story-router.js?v=20260823-story6';
     router.async = true;
     router.dataset.ncStoryRouter = '1';
     document.head.appendChild(router);
@@ -73,6 +73,24 @@ window.NEURAL_CRITIC_SUPABASE = {
       script.src = 'assets/studio-news.js?v=20260823-news1';
       script.async = true;
       script.dataset.ncStudioNews = '1';
+      document.head.appendChild(script);
+    }
+  };
+
+  const loadStudioGameGraph = () => {
+    if (pageName !== 'studio.html') return;
+    if (!document.querySelector('link[data-nc-studio-game-graph-style]')) {
+      const style = document.createElement('link');
+      style.rel = 'stylesheet';
+      style.href = 'assets/studio-game-graph.css?v=20260823-graph1';
+      style.dataset.ncStudioGameGraphStyle = '1';
+      document.head.appendChild(style);
+    }
+    if (!document.querySelector('script[data-nc-studio-game-graph]')) {
+      const script = document.createElement('script');
+      script.src = 'assets/studio-game-graph.js?v=20260823-graph1';
+      script.async = true;
+      script.dataset.ncStudioGameGraph = '1';
       document.head.appendChild(script);
     }
   };
@@ -179,6 +197,7 @@ window.NEURAL_CRITIC_SUPABASE = {
   loadHomepageCurationGuard();
   loadStudioConclusion();
   loadStudioNews();
+  loadStudioGameGraph();
   loadArticleConclusion();
   loadArticleNews();
   loadRecirculation();
