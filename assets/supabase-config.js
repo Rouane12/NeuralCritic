@@ -5,10 +5,11 @@ window.NEURAL_CRITIC_SUPABASE = {
 
 /* Shared public hardening: canonical/social metadata, structured data,
    crawler directives, canonical story routing, analytics, recirculation,
-   configurable conclusions, structured news, monetization readiness, and image hints. */
+   configurable conclusions, structured news, Game Graph topic hubs,
+   monetization readiness, and image hints. */
 (() => {
   const pageName = (location.pathname.split('/').pop() || 'index.html').toLowerCase();
-  const STATIC_META_PAGES = new Set(['privacy.html', 'standards.html', 'commercial.html']);
+  const STATIC_META_PAGES = new Set(['privacy.html', 'standards.html', 'commercial.html', 'topic.html']);
 
   const loadStoryRouter = () => {
     if (pageName === 'studio.html' || pageName === 'subscribers.html') return;
@@ -117,7 +118,7 @@ window.NEURAL_CRITIC_SUPABASE = {
     if (!document.querySelector('link[data-nc-recirculation-style]')) {
       const style = document.createElement('link');
       style.rel = 'stylesheet';
-      style.href = 'assets/recirculation.css?v=20260823-recirc3';
+      style.href = 'assets/recirculation.css?v=20260823-recirc4';
       style.dataset.ncRecirculationStyle = '1';
       document.head.appendChild(style);
     }
@@ -129,7 +130,7 @@ window.NEURAL_CRITIC_SUPABASE = {
     }
     if (!document.querySelector('script[data-nc-recirculation]')) {
       const script = document.createElement('script');
-      script.src = 'assets/recirculation.js?v=20260823-recirc3';
+      script.src = 'assets/recirculation.js?v=20260823-recirc4';
       script.async = true;
       script.dataset.ncRecirculation = '1';
       document.head.appendChild(script);
