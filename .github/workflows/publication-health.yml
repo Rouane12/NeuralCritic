@@ -4,10 +4,13 @@ on:
   push:
     branches: [main]
     paths:
+      - 404.html
       - article.html
+      - author.html
       - index.html
       - category.html
       - search.html
+      - topic.html
       - about.html
       - privacy.html
       - standards.html
@@ -18,6 +21,8 @@ on:
       - sitemap.xml
       - feed.xml
       - stories/**
+      - topics/**
+      - authors/**
       - assets/**
       - data/**
       - images/editorial/**
@@ -25,13 +30,18 @@ on:
       - scripts/audit_publication_v2.py
       - scripts/build_sitemap.py
       - scripts/build_story_pages.py
+      - scripts/build_topic_pages.py
+      - scripts/build_author_pages.py
       - .github/workflows/publication-health.yml
   pull_request:
     paths:
+      - 404.html
       - article.html
+      - author.html
       - index.html
       - category.html
       - search.html
+      - topic.html
       - about.html
       - privacy.html
       - standards.html
@@ -42,6 +52,8 @@ on:
       - sitemap.xml
       - feed.xml
       - stories/**
+      - topics/**
+      - authors/**
       - assets/**
       - data/**
       - images/editorial/**
@@ -49,6 +61,8 @@ on:
       - scripts/audit_publication_v2.py
       - scripts/build_sitemap.py
       - scripts/build_story_pages.py
+      - scripts/build_topic_pages.py
+      - scripts/build_author_pages.py
       - .github/workflows/publication-health.yml
   workflow_dispatch:
 
