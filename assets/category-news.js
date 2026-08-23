@@ -120,6 +120,17 @@
     return `<section class="nc-news-filter-empty"><small>${esc(label || 'NEWS')}</small><h2>Nothing in this lane right now.</h2><p>The desk is live; there simply are no matching published stories at the moment.</p><a href="${categoryUrl({section:'news'})}">VIEW ALL NEWS →</a></section>`;
   }
 
+  function syncPageState(current){
+    const hasAny = allNews.length > 0;
+    const hasCurrent = current.length > 0;
+    document.body.classList.add('nc-news-category-page');
+    document.body.classList.toggle('nc-news-has-stories', hasAny && hasCurrent);
+    document.body.classList.toggle('nc-news-empty-desk', !hasAny);
+    document.body.classList.toggle('nc-news-filter-empty-state', hasAny && !hasCurrent);
+    document.body.classList.toggle('nc-news-single-story', current.length === 1);
+    document.body.classList.toggle('nc-news-multi-story', current.length > 1);
+  }
+
   function render(){
     if(rendering) return;
     rendering = true;
@@ -130,7 +141,7 @@
       if(kind !== 'all') current = current.filter(a => newsKind(a) === kind);
       if(platform) current = current.filter(a => inferredPlatforms(a).includes(platform));
 
-      document.body.classList.add('nc-news-category-page');
+      syncPageState(current);
       document.title = `${kind === 'all' ? 'News' : kinds[kind].label.charAt(0) + kinds[kind].label.slice(1).toLowerCase()} · Neural Critic`;
       const title = $('#category-title');
       const deck = $('#category-deck');
@@ -159,6 +170,7 @@
         spot.className = 'nc-news-category-spotlight';
         spot.innerHTML = emptyAllMarkup();
         if(feedSection) feedSection.hidden = true;
+        if(feed) feed.innerHTML = '';
         return;
       }
 
@@ -166,6 +178,7 @@
         spot.className = 'nc-news-category-spotlight';
         spot.innerHTML = emptyFilteredMarkup(kind, platform);
         if(feedSection) feedSection.hidden = true;
+        if(feed) feed.innerHTML = '';
         return;
       }
 
@@ -174,7 +187,7 @@
       spot.innerHTML = spotlightCard(top[0]) + (top.length > 1 ? `<div class="category-spotlight-side${top.length === 2 ? ' one' : ''}">${top.slice(1).map(a => spotlightCard(a,true)).join('')}</div>` : '');
       const rest = current.slice(3);
       if(feedSection) feedSection.hidden = !rest.length;
-      if(feed && rest.length) feed.innerHTML = rest.map(feedCard).join('');
+      if(feed) feed.innerHTML = rest.length ? rest.map(feedCard).join('') : '';
       const label = $('#category-latest-label');
       if(label) label.textContent = kind === 'all' ? 'LATEST NEWS' : `LATEST ${kinds[kind].label}`;
     } finally {
