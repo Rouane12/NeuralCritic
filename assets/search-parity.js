@@ -67,6 +67,18 @@
     return `<div class="search-work-empty"><b>0</b><h2>No signals found</h2><p>${query ? 'Try another game, franchise, platform, writer, tag, or article phrase.' : 'This lane will populate as Neural Critic publishes more connected coverage.'}</p></div>`;
   }
 
+  function dedupeEntityItems(items, engine) {
+    const seen = new Set();
+    return items.filter(item => {
+      const entity = item.entity || item;
+      const group = entity.type === 'author' ? 'author' : 'topic';
+      const key = `${group}:${engine.normalize(entity.name)}`;
+      if (!key || seen.has(key)) return false;
+      seen.add(key);
+      return true;
+    });
+  }
+
   function render() {
     const input = document.getElementById('work-search-input');
     const results = document.getElementById('work-search-results');
@@ -84,21 +96,27 @@
     }
 
     const searchResult = engine.search(articles, query, activeFilter);
-    let entityItems = searchResult.entities;
+    let entityItems = dedupeEntityItems(searchResult.entities, engine);
     let storyItems = searchResult.stories;
 
     if (!query && activeFilter === 'all') {
-      entityItems = engine.buildEntities(articles)
-        .filter(entity => entity.type !== 'author')
-        .slice(0,6)
-        .map(entity => ({entity, score:0}));
+      entityItems = dedupeEntityItems(
+        engine.buildEntities(articles)
+          .filter(entity => entity.type !== 'author')
+          .map(entity => ({entity, score:0})),
+        engine
+      ).slice(0,6);
     }
 
     if (activeFilter === 'franchises') {
-      entityItems = engine.buildEntities(articles)
-        .filter(entity => entity.type === 'franchise' || entity.type === 'series')
-        .filter(entity => !query || engine.normalize(entity.name).includes(engine.normalize(query)))
-        .map(entity => ({entity, score:0}));
+      entityItems = dedupeEntityItems(
+        engine.buildEntities(articles)
+          .filter(entity => entity.type === 'franchise' || entity.type === 'series')
+          .filter(entity => !query || engine.normalize(entity.name).includes(engine.normalize(query)))
+          .sort((a,b) => Number(b.type === 'franchise') - Number(a.type === 'franchise'))
+          .map(entity => ({entity, score:0})),
+        engine
+      );
     }
 
     const entities = entityItems.map(item => item.entity || item);
@@ -112,7 +130,7 @@
     } else {
       count.textContent = `${stories.length} RESULT${stories.length === 1 ? '' : 'S'}`;
     }
-    if (summary) summary.textContent = query ? `Results ranked by title, Game Graph connection, and article relevance` : 'Browse stories and connected Game Graph hubs';
+    if (summary) summary.textContent = query ? 'Results ranked by title, Game Graph connection, and article relevance' : 'Browse stories and connected Game Graph hubs';
 
     if (!total) {
       results.innerHTML = emptyMarkup(query);
@@ -169,6 +187,7 @@
 
     try {
       await load();
+      if (window.NeuralCriticDiscoveryReady) await window.NeuralCriticDiscoveryReady;
       render();
     } catch (error) {
       console.error(error);
