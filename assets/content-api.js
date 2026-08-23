@@ -1,4 +1,45 @@
 (() => {
+  function bootstrapDiscovery() {
+    if (!document.querySelector('link[data-nc-discovery]')) {
+      const link = document.createElement('link');
+      link.rel = 'stylesheet';
+      link.href = 'assets/discovery-intelligence.css?v=20260823-discovery1';
+      link.dataset.ncDiscovery = '1';
+      document.head.appendChild(link);
+    }
+
+    if (!window.NeuralCriticDiscoveryReady) {
+      window.NeuralCriticDiscoveryReady = window.NeuralCriticDiscovery
+        ? Promise.resolve(window.NeuralCriticDiscovery)
+        : new Promise(resolve => {
+            const existing = document.querySelector('script[data-nc-discovery]');
+            if (existing) {
+              existing.addEventListener('load', () => resolve(window.NeuralCriticDiscovery || null), { once:true });
+              existing.addEventListener('error', () => resolve(null), { once:true });
+              return;
+            }
+            const script = document.createElement('script');
+            script.src = 'assets/discovery-intelligence.js?v=20260823-discovery1';
+            script.dataset.ncDiscovery = '1';
+            script.onload = () => resolve(window.NeuralCriticDiscovery || null);
+            script.onerror = () => resolve(null);
+            document.head.appendChild(script);
+          });
+    }
+
+    if (document.getElementById('article') && !document.querySelector('script[data-nc-article-discovery]')) {
+      window.NeuralCriticDiscoveryReady.then(engine => {
+        if (!engine || document.querySelector('script[data-nc-article-discovery]')) return;
+        const script = document.createElement('script');
+        script.src = 'assets/article-discovery.js?v=20260823-discovery1';
+        script.dataset.ncArticleDiscovery = '1';
+        document.body.appendChild(script);
+      });
+    }
+  }
+
+  bootstrapDiscovery();
+
   const config = window.NEURAL_CRITIC_SUPABASE;
   if (!config || !window.supabase || !window.fetch) return;
 
@@ -100,8 +141,6 @@
 
   window.NeuralCriticContentAPI = { publishedIndex, publishedArticle, nativeFetch };
 
-  /* Keep the top Neural Feed meaningful: it is hydrated from the newest
-     published Supabase article rather than behaving like decorative copy. */
   async function hydrateLiveTicker() {
     try {
       const rows = await publishedIndex();
