@@ -3,9 +3,14 @@
 
   const SITE_ROOT = new URL('/NeuralCritic/', location.origin);
   const STATIC_SLUG = String(window.NEURAL_CRITIC_STATIC_SLUG || '').trim();
+  const TOPIC_TYPES = new Set(['game','series','franchise']);
 
   function validSlug(value) {
     return /^[A-Za-z0-9][A-Za-z0-9_-]*$/.test(String(value || ''));
+  }
+
+  function validTopicSlug(value) {
+    return /^[a-z0-9][a-z0-9-]*$/i.test(String(value || ''));
   }
 
   function currentSlug() {
@@ -17,6 +22,13 @@
   function storyUrl(slug, hash = '') {
     if (!validSlug(slug)) return '';
     const url = new URL(`stories/${encodeURIComponent(slug)}/`, SITE_ROOT);
+    url.hash = hash || '';
+    return url.href;
+  }
+
+  function topicUrl(type, slug, hash = '') {
+    if (!TOPIC_TYPES.has(type) || !validTopicSlug(slug)) return '';
+    const url = new URL(`topics/${encodeURIComponent(type)}/${encodeURIComponent(slug)}/`, SITE_ROOT);
     url.hash = hash || '';
     return url.href;
   }
@@ -59,13 +71,33 @@
     }
   }
 
+  function topicFromAnchor(anchor) {
+    if (!(anchor instanceof HTMLAnchorElement)) return null;
+    try {
+      const url = new URL(anchor.getAttribute('href') || '', document.baseURI);
+      if (url.origin !== location.origin || !url.pathname.endsWith('/topic.html')) return null;
+      for (const type of TOPIC_TYPES) {
+        const slug = url.searchParams.get(type) || '';
+        if (validTopicSlug(slug)) return { type, slug, hash:url.hash };
+      }
+    } catch (_) {}
+    return null;
+  }
+
   function rewriteAnchor(anchor) {
     const slug = legacySlugFromAnchor(anchor);
-    if (!slug) return;
-    let hash = '';
-    try { hash = new URL(anchor.href, document.baseURI).hash; } catch (_) {}
-    anchor.href = storyUrl(slug, hash);
-    anchor.dataset.ncCanonicalStory = '1';
+    if (slug) {
+      let hash = '';
+      try { hash = new URL(anchor.href, document.baseURI).hash; } catch (_) {}
+      anchor.href = storyUrl(slug, hash);
+      anchor.dataset.ncCanonicalStory = '1';
+      return;
+    }
+
+    const topic = topicFromAnchor(anchor);
+    if (!topic) return;
+    anchor.href = topicUrl(topic.type, topic.slug, topic.hash);
+    anchor.dataset.ncCanonicalTopic = '1';
   }
 
   function rewriteArticleLinks(root = document) {
