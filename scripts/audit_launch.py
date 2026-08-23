@@ -3,7 +3,7 @@
 
 This audit complements audit_publication_v2.py with release-sensitive checks for
 local references, private CMS isolation, accessibility/performance telemetry,
-commercial safety locks, canonical author identity, and CI coverage.
+commercial safety locks, canonical author identity, account hardening, and CI coverage.
 """
 
 from __future__ import annotations
@@ -126,6 +126,16 @@ def check_accessibility_and_performance() -> None:
                 base.error(f"{page} is missing launch-hardening asset: {asset}")
 
 
+def check_account_creation_hardening() -> None:
+    guard = base.text("assets/signup-hardening.js")
+    bootstrap = base.text("assets/analytics-config.js")
+    for marker in ("MIN_NEW_PASSWORD = 8", "#studio-signup", ".reader-auth-form", "new-password", "current-password"):
+        if marker not in guard:
+            base.error(f"Signup hardening runtime missing marker: {marker}")
+    if "assets/signup-hardening.js" not in bootstrap:
+        base.error("Shared public bootstrap is not loading signup-hardening.js.")
+
+
 def check_monetization_locks() -> None:
     config = base.text("assets/monetization-config.js")
     runtime = base.text("assets/monetization.js")
@@ -181,21 +191,19 @@ def check_canonical_author_identity() -> None:
 
 def check_release_workflow_coverage() -> None:
     workflow = base.text(".github/workflows/publication-health.yml")
-    required_paths = (
+    direct_paths = (
         "newsroom.html",
-        "assets/supabase-client-config.js",
-        "assets/performance.js",
-        "assets/public-accessibility.js",
-        "assets/monetization-config.js",
-        "assets/monetization.js",
-        "assets/studio-commercial.js",
         "scripts/enrich_story_metadata.py",
         "scripts/audit_launch.py",
         "supabase/migrations/**",
     )
-    for marker in required_paths:
+    for marker in direct_paths:
         if marker not in workflow:
             base.error(f"Publication health workflow does not watch release-sensitive path: {marker}")
+    if "assets/**" not in workflow:
+        base.error("Publication health workflow must watch the complete assets/** surface.")
+    if "stories/**" not in workflow:
+        base.error("Publication health workflow must watch generated story shells.")
     if "python scripts/audit_publication_v2.py" not in workflow:
         base.error("Publication health workflow no longer runs the publication audit.")
     if "python scripts/audit_launch.py" not in workflow:
@@ -208,6 +216,7 @@ def main() -> int:
     check_local_references()
     check_private_surface_isolation()
     check_accessibility_and_performance()
+    check_account_creation_hardening()
     check_monetization_locks()
     check_canonical_author_identity()
     check_release_workflow_coverage()
