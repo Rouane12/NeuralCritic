@@ -5,9 +5,11 @@ on:
     branches: [main]
     paths:
       - article.html
+      - topic.html
       - data/**
       - scripts/build_sitemap.py
       - scripts/build_story_pages.py
+      - scripts/build_topic_pages.py
       - assets/supabase-config.js
       - .github/workflows/build-publication.yml
   schedule:
@@ -42,15 +44,18 @@ jobs:
       - name: Build canonical story shells and canonical discovery links
         run: python scripts/build_story_pages.py
 
+      - name: Build canonical Game Graph topic hubs
+        run: python scripts/build_topic_pages.py
+
       - name: Commit publication files only when changed
         run: |
-          if git diff --quiet -- sitemap.xml feed.xml stories; then
-            echo "Publication discovery files and story shells are already current."
+          if git diff --quiet -- sitemap.xml feed.xml stories topics; then
+            echo "Publication discovery files, story shells, and topic hubs are already current."
             exit 0
           fi
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add sitemap.xml feed.xml stories
-          git commit -m "Refresh Neural Critic canonical story pages"
+          git add sitemap.xml feed.xml stories topics
+          git commit -m "Refresh Neural Critic canonical publication pages"
           git pull --rebase origin main
           git push
