@@ -147,4 +147,12 @@
       window.gtag?.('event', 'homepage_feed_filter', { feed_filter: filterButton.dataset.filter || 'latest' });
     }
   }, true);
+
+  // content-api can make the initial article index resolve before this script loads.
+  // Re-assert the upgraded renderer after the current task without disturbing a slow fetch.
+  setTimeout(() => {
+    if (document.getElementById('story-feed') && Array.isArray(ARTICLES) && ARTICLES.length) {
+      renderFeed(state.filter);
+    }
+  }, 0);
 })();
