@@ -28,6 +28,7 @@
     const image = value('#featured-image');
     const imageAlt = value('#featured-alt');
     const author = value('#author');
+    const category = value('#category').toUpperCase();
     const tags = value('#tags').split(',').map(x=>x.trim()).filter(Boolean);
     const currentFormat = format();
     const sectionCards = sections();
@@ -60,6 +61,18 @@
 
     if(tags.length < 2) checks.push(item('warn','Tags','Add at least two focused tags to improve discovery and recirculation.'));
     else checks.push(item('ok','Tags',`${tags.length} discovery tags set.`));
+
+    if(category === 'NEWS'){
+      const newsKind = $('[name="news-kind"]:checked')?.value || '';
+      const source = value('#news-source-name');
+      if(!newsKind) checks.push(item('block','News classification','Choose Breaking, Update, or Report so readers know what kind of signal this is.'));
+      else checks.push(item('ok','News classification',`${newsKind.toUpperCase()} will power the News Desk and public trust label.`));
+      if(!source) checks.push(item('block','News source','Published news needs a source / origin.'));
+      else checks.push(item('ok','News source',source));
+      if(newsKind === 'report' && !/\b(report|reportedly|according|alleged|rumou?r|leak)/i.test(`${title} ${description}`)){
+        checks.push(item('warn','Report wording','Make the headline or summary explicitly signal attribution or uncertainty.'));
+      }
+    }
 
     if(currentFormat === 'review'){
       const score = Number(value('#review-score'));
@@ -106,7 +119,7 @@
     panel.dataset.state = 'blocked';
     panel.innerHTML = `
       <div class="studio-readiness-head">
-        <div><small>PUBLICATION CHECK</small><h2>Ready to publish?</h2><p>Live checks for search, social sharing, accessibility, and Neural Critic’s structured article system.</p></div>
+        <div><small>PUBLICATION CHECK</small><h2>Ready to publish?</h2><p>Live checks for search, social sharing, accessibility, sourcing, and Neural Critic’s structured article system.</p></div>
         <div class="studio-readiness-score"><b>0%</b><span>CHECKING</span></div>
       </div>
       <div class="studio-readiness-grid">
@@ -176,7 +189,7 @@
     document.addEventListener('input', refresh, true);
     document.addEventListener('change', refresh, true);
     document.addEventListener('click', event => {
-      if(event.target.closest('.format-card,[data-remove],[data-move],#add-section,#first-section')) setTimeout(refresh,0);
+      if(event.target.closest('.format-card,[data-remove],[data-move],#add-section,#first-section,[name="news-kind"]')) setTimeout(refresh,0);
     });
     document.addEventListener('click', event => {
       if(event.target.closest('#publish-story')) blockIfNeeded(event,'publish');
