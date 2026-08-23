@@ -27,14 +27,21 @@
       contentBlocks: Array.isArray(row.content_blocks) ? row.content_blocks : [],
       quickRead: Array.isArray(row.quick_read) ? row.quick_read : [],
       conclusion: row.conclusion || '',
+      conclusionHeading: row.conclusion_heading || '',
+      conclusionHeadingStyle: row.conclusion_heading_style || 'editorial',
       featured: row.homepage_slot === 'lead',
       homepageSlot: row.homepage_slot || 'regular',
       publishedAt: row.published_at,
+      updatedAt: row.updated_at || row.published_at,
       imageLocal: row.image_url || '',
       editorialSection: row.editorial_section || null,
       platforms: Array.isArray(row.platforms) ? row.platforms : [],
       collection: row.collection || null,
-      collectionYear: row.collection_year || null
+      collectionYear: row.collection_year || null,
+      gameKey: row.game_key || '',
+      series: row.series || '',
+      franchise: row.franchise || '',
+      newsMeta: row.news_meta && typeof row.news_meta === 'object' ? row.news_meta : {}
     };
   }
 
