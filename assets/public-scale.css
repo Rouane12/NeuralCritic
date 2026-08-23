@@ -1,0 +1,17 @@
+/* Neural Critic public presentation scale.
+   Desktop public pages intentionally render with the presence of the former
+   browser 110% view while keeping mobile/tablet geometry native. */
+
+@media (min-width: 1100px){
+  html{
+    zoom:1.1;
+  }
+}
+
+/* Compact screens keep the native 1:1 layout so existing responsive
+   breakpoints, touch targets, and mobile drawers remain unchanged. */
+@media (max-width:1099px){
+  html{
+    zoom:1;
+  }
+}
