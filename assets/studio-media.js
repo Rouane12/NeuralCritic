@@ -1,6 +1,8 @@
 (() => {
   const BUCKET = 'editorial';
   const MAX_BYTES = 10 * 1024 * 1024;
+  const UPLOAD_WAIT_MS = 12000;
+  const VERIFY_WAIT_MS = 5000;
   const ALLOWED = new Set(['image/jpeg','image/png','image/webp','image/avif','image/gif']);
   const $ = (s, root=document) => root.querySelector(s);
   const $$ = (s, root=document) => [...root.querySelectorAll(s)];
@@ -26,6 +28,57 @@
     return ext ? `${base}.${ext}` : base;
   }
 
+  function delay(ms) {
+    return new Promise(resolve => setTimeout(resolve, ms));
+  }
+
+  function publicUrl(client, path) {
+    const { data } = client.storage.from(BUCKET).getPublicUrl(path);
+    return data?.publicUrl || '';
+  }
+
+  async function objectIsPublic(url) {
+    if (!url) return false;
+    const controller = new AbortController();
+    const timer = setTimeout(() => controller.abort(), VERIFY_WAIT_MS);
+    try {
+      const response = await fetch(url, {
+        method: 'HEAD',
+        cache: 'no-store',
+        signal: controller.signal,
+      });
+      return response.ok;
+    } catch (_) {
+      return false;
+    } finally {
+      clearTimeout(timer);
+    }
+  }
+
+  async function verifyUploadedObject(client, path, status) {
+    const url = publicUrl(client, path);
+    status.textContent = 'VERIFYING STORAGE…';
+    status.dataset.state = 'busy';
+
+    for (let attempt = 0; attempt < 5; attempt += 1) {
+      if (await objectIsPublic(url)) return url;
+      if (attempt < 4) await delay(900);
+    }
+    return '';
+  }
+
+  function finishUpload(target, status, url, recovered=false) {
+    target.value = url;
+    target.dispatchEvent(new Event('input', { bubbles: true }));
+    target.dispatchEvent(new Event('change', { bubbles: true }));
+    status.textContent = 'UPLOADED ✓';
+    status.dataset.state = 'done';
+    toast(recovered
+      ? 'Image reached Neural Critic storage. Upload state recovered.'
+      : 'Image uploaded to Neural Critic media storage.');
+    return url;
+  }
+
   async function uploadFile(file, target, status) {
     const client = window.neuralCriticSupabase;
     if (!client) throw new Error('The CMS connection is not ready yet.');
@@ -40,24 +93,44 @@
     status.textContent = 'UPLOADING…';
     status.dataset.state = 'busy';
 
-    const { data, error } = await client.storage.from(BUCKET).upload(path, file, {
+    const uploadPromise = client.storage.from(BUCKET).upload(path, file, {
       cacheControl: '31536000',
       contentType: file.type,
       upsert: false,
     });
-    if (error) throw error;
 
-    const { data: publicData } = client.storage.from(BUCKET).getPublicUrl(data.path);
-    const url = publicData?.publicUrl;
+    let result;
+    let timedOut = false;
+    try {
+      result = await Promise.race([
+        uploadPromise,
+        delay(UPLOAD_WAIT_MS).then(() => {
+          timedOut = true;
+          return null;
+        }),
+      ]);
+    } catch (error) {
+      const recoveredUrl = await verifyUploadedObject(client, path, status);
+      if (recoveredUrl) return finishUpload(target, status, recoveredUrl, true);
+      throw error;
+    }
+
+    if (timedOut || !result) {
+      const recoveredUrl = await verifyUploadedObject(client, path, status);
+      if (recoveredUrl) return finishUpload(target, status, recoveredUrl, true);
+      throw new Error('The upload response timed out before Storage could be verified. Please retry once.');
+    }
+
+    const { data, error } = result;
+    if (error) {
+      const recoveredUrl = await verifyUploadedObject(client, path, status);
+      if (recoveredUrl) return finishUpload(target, status, recoveredUrl, true);
+      throw error;
+    }
+
+    const url = publicUrl(client, data?.path || path);
     if (!url) throw new Error('Upload succeeded but no public media URL was returned.');
-
-    target.value = url;
-    target.dispatchEvent(new Event('input', { bubbles: true }));
-    target.dispatchEvent(new Event('change', { bubbles: true }));
-    status.textContent = 'UPLOADED ✓';
-    status.dataset.state = 'done';
-    toast('Image uploaded to Neural Critic media storage.');
-    return url;
+    return finishUpload(target, status, url, false);
   }
 
   function decorate(target, label='UPLOAD IMAGE') {
