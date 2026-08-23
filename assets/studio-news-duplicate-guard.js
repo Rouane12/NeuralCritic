@@ -6,6 +6,9 @@
   const STOP = new Set(['the','a','an','and','or','of','to','in','on','for','with','as','at','by','from','is','are','was','were','this','that','its','it']);
   let lastSignature = '';
   let checking = false;
+  let lastCategory = '';
+  let lastNewsState = null;
+  let attentionTimer = null;
 
   function tokens(value) {
     return new Set(normalize(value).split(' ').filter(token => token.length > 2 && !STOP.has(token)));
@@ -22,6 +25,93 @@
 
   function escapeHtml(value = '') {
     return String(value).replace(/[&<>"']/g, char => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[char]));
+  }
+
+  function categoryValue() {
+    return String($('#category')?.value || '').trim().toUpperCase();
+  }
+
+  function applyNewsTrustState({ attention = false, scroll = false } = {}) {
+    const panel = $('#studio-news-panel');
+    if (!panel) return;
+    const isNews = categoryValue() === 'NEWS';
+
+    panel.hidden = !isNews;
+    document.body.classList.toggle('studio-editing-news', isNews);
+
+    const cue = $('#studio-news-cue');
+    if (cue) cue.hidden = !isNews;
+
+    if (isNews && attention) {
+      panel.classList.remove('studio-news-attention');
+      requestAnimationFrame(() => panel.classList.add('studio-news-attention'));
+      clearTimeout(attentionTimer);
+      attentionTimer = setTimeout(() => panel.classList.remove('studio-news-attention'), 950);
+    }
+
+    if (isNews && scroll) {
+      requestAnimationFrame(() => panel.scrollIntoView({
+        behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth',
+        block: 'start'
+      }));
+    }
+
+    if (lastNewsState !== isNews) {
+      window.dispatchEvent(new CustomEvent('neuralcritic:studio-news-state', {
+        detail: { active: isNews, category: categoryValue() }
+      }));
+      lastNewsState = isNews;
+    }
+  }
+
+  function isEditorialDeskSelect(target) {
+    if (!(target instanceof HTMLSelectElement)) return false;
+    const label = target.closest('label');
+    return Boolean(label && /EDITORIAL\s+DESK/i.test(label.textContent || ''));
+  }
+
+  function syncEditorialDesk(target) {
+    if (!isEditorialDeskSelect(target)) return false;
+    const value = String(target.value || '').trim().toUpperCase();
+    const category = $('#category');
+    if (!category || !['NEWS','FEATURE','GUIDE','REVIEW'].includes(value)) return false;
+    if (category.value !== value) category.value = value;
+    return true;
+  }
+
+  function handleNewsStateEvent(event) {
+    const target = event.target;
+    if (!target) return;
+    const categoryChanged = target.matches?.('#category');
+    const deskChanged = syncEditorialDesk(target);
+    if (!categoryChanged && !deskChanged) return;
+
+    const current = categoryValue();
+    const enteringNews = current === 'NEWS' && lastCategory !== 'NEWS';
+    lastCategory = current;
+    applyNewsTrustState({ attention: enteringNews, scroll: enteringNews && event.isTrusted });
+
+    if (deskChanged && !categoryChanged) {
+      $('#category')?.dispatchEvent(new Event('change', { bubbles: true }));
+    }
+
+    setTimeout(() => checkDuplicates(true), 100);
+  }
+
+  function monitorNewsState() {
+    lastCategory = categoryValue();
+    applyNewsTrustState();
+
+    // Studio modules occasionally update select.value programmatically. Those
+    // changes do not emit change/input, so keep one tiny state watcher alive.
+    setInterval(() => {
+      const current = categoryValue();
+      if (current === lastCategory) return;
+      const enteringNews = current === 'NEWS' && lastCategory !== 'NEWS';
+      lastCategory = current;
+      applyNewsTrustState({ attention: enteringNews, scroll: false });
+      setTimeout(() => checkDuplicates(true), 100);
+    }, 180);
   }
 
   function ensureNotice() {
@@ -79,7 +169,7 @@
 
   async function checkDuplicates(force = false) {
     if (checking) return;
-    if (($('#category')?.value || '').toUpperCase() !== 'NEWS') {
+    if (categoryValue() !== 'NEWS') {
       hideNotice();
       return;
     }
@@ -146,14 +236,22 @@
   function init() {
     installStyle();
     ensureNotice();
-    $('#category')?.addEventListener('change', () => setTimeout(() => checkDuplicates(true), 100));
+    monitorNewsState();
+    document.addEventListener('change', handleNewsStateEvent, true);
+    document.addEventListener('input', handleNewsStateEvent, true);
     $('#title')?.addEventListener('blur', () => checkDuplicates(true));
     $('#game-graph-game')?.addEventListener('blur', () => checkDuplicates(true));
     ['#publish-story','#schedule-story'].forEach(selector => $(selector)?.addEventListener('pointerdown', () => checkDuplicates(true), true));
     $('#story-library')?.addEventListener('click', event => {
-      if (event.target.closest('[data-edit]')) setTimeout(() => checkDuplicates(true), 850);
+      if (event.target.closest('[data-edit]')) setTimeout(() => {
+        applyNewsTrustState();
+        checkDuplicates(true);
+      }, 850);
     });
-    setTimeout(() => checkDuplicates(true), 1200);
+    setTimeout(() => {
+      applyNewsTrustState();
+      checkDuplicates(true);
+    }, 1200);
   }
 
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init, { once: true });
