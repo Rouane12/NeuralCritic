@@ -11,6 +11,7 @@ const articleHref = (a) => `article.html?slug=${encodeURIComponent(a.slug)}`;
 const imageOf = (a) => a?.imageLocal || '';
 const escapeHtml = (value='') => String(value).replace(/[&<>'"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;',"'":'&#39;','"':'&quot;'}[c]));
 const inlineMd = (s='') => escapeHtml(s).replace(/\*\*(.+?)\*\*/g,'<strong>$1</strong>').replace(/\*(.+?)\*/g,'<em>$1</em>');
+const discovery = () => window.NeuralCriticDiscovery || null;
 const prose = (text='') => String(text || '').split(/\n\n+/).filter(Boolean).map(block => {
   if (/^- /m.test(block)) {
     const items = block.split('\n').filter(Boolean).map(x=>x.replace(/^-\s*/,''));
@@ -36,35 +37,65 @@ function wireChrome(){
   document.querySelectorAll('.menu').forEach(btn=>btn.addEventListener('click',()=>document.body.classList.toggle('mobile-nav-open')));
 }
 
+function homepageLabel(article, isLead=false){
+  if (String(article?.category || '').toUpperCase() === 'NEWS') {
+    const kind = article.newsMeta?.kind;
+    if (kind === 'breaking') return 'BREAKING';
+    if (kind === 'update') return article.newsMeta?.developing ? 'DEVELOPING UPDATE' : 'UPDATE';
+    if (kind === 'report') return 'REPORT';
+    return 'NEWS';
+  }
+  if (article?.articleFormat === 'review') return 'LATEST REVIEW';
+  return isLead ? 'LEAD SIGNAL' : (article?.category || 'FEATURE');
+}
+
 function renderHero(){
   const el=document.getElementById('hero'); if(!el) return;
   if(!ARTICLES.length){el.innerHTML='<p class="notice">Stories are loading. Please refresh in a moment.</p>';return;}
-  const lead=ARTICLES.find(a=>a.homepageSlot==='lead')||ARTICLES[0];
+
+  const engine=discovery();
+  const program=engine?.homepageProgram?.(ARTICLES) || null;
+  const lead=program?.lead || ARTICLES.find(a=>a.homepageSlot==='lead') || ARTICLES[0];
   const secondaryFeature=ARTICLES.find(a=>a.homepageSlot?.startsWith('secondary'));
   const latestReview=ARTICLES.find(a=>a.articleFormat==='review');
-  const secondaries=[secondaryFeature,latestReview].filter(Boolean).slice(0,2);
-  el.innerHTML=`<a href="${articleHref(lead)}" class="lead"><div class="${imageOf(lead)?'':'placeholder-art'}">${imageOf(lead)?`<img alt="${escapeHtml(lead.imageAlt)}" src="${imageOf(lead)}">`:'NEURAL CRITIC'}</div><div class="shade"></div><div class="leadcopy"><label>LEAD SIGNAL</label><h2>${escapeHtml(lead.title)}</h2><p>${escapeHtml(lead.description)}</p><small>BY ${escapeHtml(lead.author)} · ${fmtDate(lead.publishedAt)} · READ STORY →</small></div></a><div class="features">${secondaries.map(a=>`<a class="feature-link" href="${articleHref(a)}"><article>${imageOf(a)?`<img alt="${escapeHtml(a.imageAlt)}" src="${imageOf(a)}">`:'<div class="placeholder-art">NEURAL CRITIC</div>'}<div class="shade"></div><div><label>${escapeHtml(a.category)}</label><h2>${escapeHtml(a.title)}</h2><small>${fmtDate(a.publishedAt)} · READ STORY →</small></div></article></a>`).join('')}</div>`;
+  const secondaries=program?.secondaries || [secondaryFeature,latestReview].filter(Boolean).slice(0,2);
+  const featuredSlugs=program?.featuredSlugs || [lead?.slug,...secondaries.map(a=>a.slug)].filter(Boolean);
+  window.NeuralCriticHomepageState={ program, featuredSlugs };
+
+  el.innerHTML=`<a href="${articleHref(lead)}" class="lead" data-home-program="${escapeHtml(homepageLabel(lead,true))}"><div class="${imageOf(lead)?'':'placeholder-art'}">${imageOf(lead)?`<img alt="${escapeHtml(lead.imageAlt)}" src="${imageOf(lead)}">`:'NEURAL CRITIC'}</div><div class="shade"></div><div class="leadcopy"><label>${escapeHtml(homepageLabel(lead,true))}</label><h2>${escapeHtml(lead.title)}</h2><p>${escapeHtml(lead.description)}</p><small>BY ${escapeHtml(lead.author)} · ${fmtDate(lead.publishedAt)} · READ STORY →</small></div></a><div class="features">${secondaries.map(a=>`<a class="feature-link" href="${articleHref(a)}"><article>${imageOf(a)?`<img alt="${escapeHtml(a.imageAlt)}" src="${imageOf(a)}">`:'<div class="placeholder-art">NEURAL CRITIC</div>'}<div class="shade"></div><div><label>${escapeHtml(homepageLabel(a))}</label><h2>${escapeHtml(a.title)}</h2><small>${fmtDate(a.updatedAt || a.publishedAt)} · READ STORY →</small></div></article></a>`).join('')}</div>`;
+
+  window.gtag?.('event','homepage_program_render',{lead_slug:lead?.slug||'',lead_category:String(lead?.category||'').toLowerCase(),lead_news_kind:lead?.newsMeta?.kind||'',secondary_count:secondaries.length});
 }
 
 function matchCategory(a, filter){
   if(filter==='latest') return true;
-  const f=filter.toLowerCase();
+  const f=String(filter||'').toLowerCase();
   if(a.category?.toLowerCase()===f) return true;
+  if(a.editorialSection?.toLowerCase()===f) return true;
+  if((a.platforms||[]).some(t=>String(t).toLowerCase()===f)) return true;
   return (a.tags||[]).some(t=>String(t).toLowerCase()===f);
 }
 function renderFeed(filter='latest'){
   const el=document.getElementById('story-feed'); if(!el) return;
-  const list=ARTICLES.filter(a=>a.homepageSlot!=='lead' && !a.homepageSlot?.startsWith('secondary') && a.articleFormat!=='review').filter(a=>matchCategory(a,filter));
+  const featured=new Set(window.NeuralCriticHomepageState?.featuredSlugs || []);
+  const list=ARTICLES.filter(a=>!featured.has(a.slug) && a.articleFormat!=='review').filter(a=>matchCategory(a,filter));
   el.innerHTML=list.map((a,i)=>`<a class="story" href="${articleHref(a)}"><div class="thumb">${imageOf(a)?`<img alt="${escapeHtml(a.imageAlt||a.title)}" src="${imageOf(a)}">`:'<div class="placeholder-art">NC</div>'}<b>${String(i+1).padStart(2,'0')}</b></div><div><label style="color:#b8ff38">${escapeHtml(a.category)}</label><h3>${escapeHtml(a.title)}</h3><p>${escapeHtml(a.description)}</p><small>BY ${escapeHtml(a.author)} · ${fmtDate(a.publishedAt)} · READ STORY →</small></div></a>`).join('') || '<p class="notice">No published stories in this filter yet.</p>';
 }
 function renderTrending(){
   const el=document.getElementById('trending'); if(!el) return;
-  const list=[...ARTICLES].sort((a,b)=>new Date(b.publishedAt)-new Date(a.publishedAt)).slice(0,3);
-  el.innerHTML=list.map((a,i)=>`<a href="${articleHref(a)}"><b>${String(i+1).padStart(2,'0')}</b><div><p>${escapeHtml(a.title)}</p><small>${fmtDate(a.publishedAt)}</small></div></a>`).join('');
+  const engine=discovery();
+  const ranked=engine?.trending?.(ARTICLES,3) || [...ARTICLES].sort((a,b)=>new Date(b.publishedAt)-new Date(a.publishedAt)).slice(0,3).map(article=>({article}));
+  const list=ranked.map(item=>item.article || item).filter(Boolean);
+  const label=document.querySelector('.trending .sidetitle small');
+  if(label) label.textContent='EDITORIAL MOMENTUM';
+  el.innerHTML=list.map((a,i)=>{
+    const kind=a.newsMeta?.kind ? ` · ${String(a.newsMeta.kind).toUpperCase()}` : '';
+    return `<a href="${articleHref(a)}"><b>${String(i+1).padStart(2,'0')}</b><div><p>${escapeHtml(a.title)}</p><small>${escapeHtml(a.category || 'STORY')}${kind} · ${fmtDate(a.updatedAt || a.publishedAt)}</small></div></a>`;
+  }).join('');
 }
 function renderReview(){
   const el=document.getElementById('review-showcase'); if(!el) return;
-  const a=ARTICLES.find(x=>x.articleFormat==='review'); if(!a) return;
+  const a=[...ARTICLES].filter(x=>x.articleFormat==='review').sort((x,y)=>new Date(y.publishedAt||0)-new Date(x.publishedAt||0))[0]; if(!a) return;
   el.innerHTML=`<a class="review-showcase" href="${articleHref(a)}"><div class="review-showcase-image">${imageOf(a)?`<img alt="${escapeHtml(a.imageAlt)}" src="${imageOf(a)}">`:'<div class="placeholder-art">REVIEW</div>'}<span>LATEST REVIEW</span></div><div class="review-showcase-copy"><div class="review-showcase-score"><b>${escapeHtml(a.reviewMeta?.score||'—')}</b><small>OUT OF 10</small></div><div><small>NEURAL CRITIC VERDICT</small><h3>${escapeHtml(a.title)}</h3><p>${escapeHtml(a.reviewMeta?.verdict||a.description)}</p><strong>READ REVIEW →</strong></div></div></a>`;
 }
 function renderHome(){
@@ -78,8 +109,19 @@ function renderHome(){
 }
 function renderSearchResults(query,el){
   if(!el) return;
-  const q=(query||'').trim().toLowerCase();
-  if(!q){el.innerHTML='';return;}
+  const raw=(query||'').trim();
+  if(!raw){el.innerHTML='';return;}
+  const engine=discovery();
+  if(engine?.search){
+    const result=engine.search(ARTICLES,raw,'all');
+    const entities=result.entities.slice(0,3);
+    const stories=result.stories.slice(0,6);
+    const entityMarkup=entities.map(({entity})=>`<a class="search-result nc-quick-entity" href="${escapeHtml(entity.href)}"><small>${escapeHtml(entity.type.toUpperCase())} · ${entity.count} ${entity.count===1?'STORY':'STORIES'}</small><h3>${escapeHtml(entity.name)}</h3><p>Explore connected Neural Critic coverage →</p></a>`).join('');
+    const storyMarkup=stories.map(({article:a})=>`<a class="search-result" href="${articleHref(a)}"><small>${escapeHtml(a.category)}</small><h3>${escapeHtml(a.title)}</h3><p>${escapeHtml(a.description)}</p></a>`).join('');
+    el.innerHTML=entityMarkup+storyMarkup || '<p class="notice">No matching stories or topics yet.</p>';
+    return;
+  }
+  const q=raw.toLowerCase();
   const hits=ARTICLES.filter(a=>[a.title,a.description,a.category,...(a.tags||[])].join(' ').toLowerCase().includes(q));
   el.innerHTML=hits.map(a=>`<a class="search-result" href="${articleHref(a)}"><small>${escapeHtml(a.category)}</small><h3>${escapeHtml(a.title)}</h3><p>${escapeHtml(a.description)}</p></a>`).join('')||'<p class="notice">No matching stories yet.</p>';
 }
