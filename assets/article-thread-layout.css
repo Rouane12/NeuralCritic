@@ -1,0 +1,192 @@
+/* Neural Critic article discussion — final geometry and placement layer.
+   Loaded after the historical community stack so the Thread has one clear
+   editorial frame and lines up with recirculation above it. */
+
+#article.work-article-page>.work-bottom-grid{
+  display:block!important;
+  width:min(1180px,calc(100% - 40px))!important;
+  margin:0 auto!important;
+}
+
+#article.work-article-page>.work-bottom-grid>div{
+  width:100%!important;
+  min-width:0!important;
+}
+
+#article.work-article-page .work-bottom-sidebar{
+  display:none!important;
+}
+
+/* The recommendation module and discussion should read as consecutive
+   publication blocks, not two unrelated centered widths. */
+#article.work-article-page>.nc-recirculation{
+  margin-bottom:42px!important;
+}
+
+#article.work-article-page #reader-thread.article-thread{
+  position:relative!important;
+  width:100%!important;
+  max-width:none!important;
+  overflow:hidden!important;
+  border-radius:18px!important;
+  border:1px solid rgba(111,132,180,.28)!important;
+  background:linear-gradient(145deg,rgba(17,24,43,.985),rgba(8,14,28,.98))!important;
+  box-shadow:0 24px 64px rgba(0,0,0,.20)!important;
+}
+
+#article.work-article-page #reader-thread.article-thread::before{
+  content:"";
+  position:absolute;
+  z-index:3;
+  inset:0 0 auto;
+  height:2px;
+  pointer-events:none;
+  background:linear-gradient(90deg,#55e7ff 0%,#7568ff 47%,transparent 86%);
+}
+
+#article.work-article-page #reader-thread .standard-thread-shell{
+  padding:30px 34px 32px!important;
+}
+
+#article.work-article-page #reader-thread .thread-head{
+  min-height:42px!important;
+  padding-bottom:15px!important;
+  border-bottom-color:rgba(128,146,184,.25)!important;
+}
+
+#article.work-article-page #reader-thread .thread-head::after{
+  width:128px!important;
+  background:linear-gradient(90deg,#55e7ff,#7568ff)!important;
+}
+
+#article.work-article-page #reader-thread .standard-thread-title strong{
+  font-family:Inter,system-ui,-apple-system,"Segoe UI",sans-serif!important;
+  font-size:22px!important;
+  font-weight:800!important;
+  letter-spacing:-.035em!important;
+}
+
+#article.work-article-page #reader-thread .standard-thread-intro{
+  margin:14px 0 13px!important;
+  color:#9ea9bd!important;
+  font-family:Inter,system-ui,-apple-system,"Segoe UI",sans-serif!important;
+  font-size:12px!important;
+  line-height:1.55!important;
+}
+
+/* Give the composer the horizontal authority of the wider Thread without
+   making the writing field feel like a stretched utility control. */
+#article.work-article-page #reader-thread form[data-thread-form]{
+  grid-template-columns:38px minmax(0,1fr)!important;
+  gap:11px!important;
+  min-height:62px!important;
+  margin-bottom:25px!important;
+  padding:10px 12px!important;
+  border:1px solid rgba(114,133,171,.27)!important;
+  border-radius:11px!important;
+  background:rgba(5,10,20,.62)!important;
+}
+
+#article.work-article-page #reader-thread form[data-thread-form] textarea,
+#article.work-article-page #reader-thread form[data-thread-form]:focus-within textarea{
+  font-family:Inter,system-ui,-apple-system,"Segoe UI",sans-serif!important;
+}
+
+#article.work-article-page #reader-thread .standard-sort-row{
+  margin-bottom:20px!important;
+  font-family:Inter,system-ui,-apple-system,"Segoe UI",sans-serif!important;
+}
+
+#article.work-article-page #reader-thread .community-comment{
+  border-color:rgba(111,132,180,.23)!important;
+  background:linear-gradient(145deg,rgba(11,17,31,.96),rgba(7,12,23,.96))!important;
+}
+
+html[data-theme="light"] #article.work-article-page #reader-thread.article-thread{
+  border-color:#d9e0e8!important;
+  background:linear-gradient(145deg,#fff,#f7f9fb)!important;
+  box-shadow:0 22px 58px rgba(28,44,64,.08)!important;
+}
+
+html[data-theme="light"] #article.work-article-page #reader-thread .thread-head{
+  border-bottom-color:#dde4ea!important;
+}
+
+html[data-theme="light"] #article.work-article-page #reader-thread .standard-thread-title strong{
+  color:#17212f!important;
+}
+
+html[data-theme="light"] #article.work-article-page #reader-thread .standard-thread-intro{
+  color:#687687!important;
+}
+
+html[data-theme="light"] #article.work-article-page #reader-thread form[data-thread-form]{
+  border-color:#dce3ea!important;
+  background:#f5f7f9!important;
+}
+
+html[data-theme="light"] #article.work-article-page #reader-thread form[data-thread-form] textarea,
+html[data-theme="light"] #article.work-article-page #reader-thread form[data-thread-form]:focus-within textarea{
+  border-color:#d3dce5!important;
+  background:#fff!important;
+  color:#17212f!important;
+}
+
+html[data-theme="light"] #article.work-article-page #reader-thread form[data-thread-form] textarea::placeholder{
+  color:#788596!important;
+}
+
+html[data-theme="light"] #article.work-article-page #reader-thread .standard-sort-row{
+  color:#4f5d6d!important;
+}
+
+html[data-theme="light"] #article.work-article-page #reader-thread .standard-sort-row select{
+  border-color:#d2dbe4!important;
+  background:#fff!important;
+  color:#263445!important;
+}
+
+html[data-theme="light"] #article.work-article-page #reader-thread .community-comment{
+  border-color:#dce3ea!important;
+  background:#fff!important;
+  box-shadow:0 12px 28px rgba(30,46,65,.06)!important;
+}
+
+html[data-theme="light"] #article.work-article-page #reader-thread .community-comment-user strong,
+html[data-theme="light"] #article.work-article-page #reader-thread .community-comment-body{
+  color:#17212f!important;
+}
+
+html[data-theme="light"] #article.work-article-page #reader-thread .community-comment-user small{
+  color:#748191!important;
+}
+
+@media(max-width:900px){
+  #article.work-article-page>.work-bottom-grid{
+    width:min(100% - 28px,1180px)!important;
+  }
+
+  #article.work-article-page>.nc-recirculation{
+    margin-bottom:34px!important;
+  }
+
+  #article.work-article-page #reader-thread .standard-thread-shell{
+    padding:24px 18px 27px!important;
+  }
+}
+
+@media(max-width:620px){
+  #article.work-article-page>.work-bottom-grid{
+    width:min(100% - 20px,1180px)!important;
+  }
+
+  #article.work-article-page #reader-thread.article-thread{
+    border-radius:14px!important;
+  }
+}
+
+@media(prefers-reduced-motion:reduce){
+  #article.work-article-page #reader-thread *{
+    scroll-behavior:auto!important;
+  }
+}
