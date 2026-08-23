@@ -5,7 +5,7 @@ window.NEURAL_CRITIC_SUPABASE = {
 
 /* Shared public hardening: canonical/social metadata, structured data,
    crawler directives, canonical story routing, analytics, recirculation,
-   configurable conclusions, monetization readiness, and image hints. */
+   configurable conclusions, structured news, monetization readiness, and image hints. */
 (() => {
   const pageName = (location.pathname.split('/').pop() || 'index.html').toLowerCase();
   const STATIC_META_PAGES = new Set(['privacy.html', 'standards.html', 'commercial.html']);
@@ -58,6 +58,24 @@ window.NEURAL_CRITIC_SUPABASE = {
     }
   };
 
+  const loadStudioNews = () => {
+    if (pageName !== 'studio.html') return;
+    if (!document.querySelector('link[data-nc-studio-news-style]')) {
+      const style = document.createElement('link');
+      style.rel = 'stylesheet';
+      style.href = 'assets/studio-news.css?v=20260823-news1';
+      style.dataset.ncStudioNewsStyle = '1';
+      document.head.appendChild(style);
+    }
+    if (!document.querySelector('script[data-nc-studio-news]')) {
+      const script = document.createElement('script');
+      script.src = 'assets/studio-news.js?v=20260823-news1';
+      script.async = true;
+      script.dataset.ncStudioNews = '1';
+      document.head.appendChild(script);
+    }
+  };
+
   const loadArticleConclusion = () => {
     if (!document.getElementById('article')) return;
     if (!document.querySelector('link[data-nc-article-conclusion-style]')) {
@@ -72,6 +90,24 @@ window.NEURAL_CRITIC_SUPABASE = {
       script.src = 'assets/article-conclusion.js?v=20260823-conclusion1';
       script.async = true;
       script.dataset.ncArticleConclusion = '1';
+      document.head.appendChild(script);
+    }
+  };
+
+  const loadArticleNews = () => {
+    if (!document.getElementById('article')) return;
+    if (!document.querySelector('link[data-nc-article-news-style]')) {
+      const style = document.createElement('link');
+      style.rel = 'stylesheet';
+      style.href = 'assets/article-news.css?v=20260823-news1';
+      style.dataset.ncArticleNewsStyle = '1';
+      document.head.appendChild(style);
+    }
+    if (!document.querySelector('script[data-nc-article-news]')) {
+      const script = document.createElement('script');
+      script.src = 'assets/article-news.js?v=20260823-news1';
+      script.async = true;
+      script.dataset.ncArticleNews = '1';
       document.head.appendChild(script);
     }
   };
@@ -141,7 +177,9 @@ window.NEURAL_CRITIC_SUPABASE = {
   loadStoryReadinessGuard();
   loadHomepageCurationGuard();
   loadStudioConclusion();
+  loadStudioNews();
   loadArticleConclusion();
+  loadArticleNews();
   loadRecirculation();
   loadMonetization();
 
