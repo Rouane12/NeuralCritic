@@ -12,6 +12,7 @@ on:
       - scripts/build_story_pages.py
       - scripts/build_topic_pages.py
       - scripts/build_author_pages.py
+      - scripts/enrich_story_metadata.py
       - assets/supabase-config.js
       - .github/workflows/build-publication.yml
   schedule:
@@ -51,6 +52,9 @@ jobs:
 
       - name: Build canonical writer profile hubs
         run: python scripts/build_author_pages.py
+
+      - name: Link story structured data to canonical writer pages
+        run: python scripts/enrich_story_metadata.py
 
       - name: Commit publication files only when changed
         run: |

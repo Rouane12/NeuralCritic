@@ -2,9 +2,42 @@
   const qs = (s, r = document) => r.querySelector(s);
   const qsa = (s, r = document) => [...r.querySelectorAll(s)];
   let lastDialogTrigger = null;
+  let lastSearchTrigger = null;
 
   function mobileNavOpen() {
     return document.body.classList.contains('mobile-nav-open');
+  }
+
+  function installAccessibilityStyles() {
+    if (document.getElementById('nc-accessibility-chrome')) return;
+    const style = document.createElement('style');
+    style.id = 'nc-accessibility-chrome';
+    style.textContent = `
+      .nc-skip-link{position:fixed;z-index:12000;left:16px;top:14px;transform:translateY(-140%);padding:10px 14px;border:2px solid #55dff5;border-radius:9px;background:#07111f;color:#fff;font:800 11px/1 Inter,system-ui,sans-serif;letter-spacing:.04em;text-decoration:none;box-shadow:0 10px 28px rgba(0,0,0,.28);transition:transform .15s ease}
+      .nc-skip-link:focus{transform:none}
+      :where(a,button,input,textarea,select,[tabindex]):focus-visible{outline:3px solid rgba(85,223,245,.92);outline-offset:3px}
+      html[data-theme="light"] .nc-skip-link{background:#fff;color:#17212f}
+      @media(prefers-reduced-motion:reduce){.nc-skip-link{transition:none}}
+    `;
+    document.head.appendChild(style);
+  }
+
+  function installSkipLink() {
+    if (qs('.nc-skip-link')) return;
+    const main = qs('main');
+    if (!main) return;
+    if (!main.id) main.id = 'main-content';
+    const link = document.createElement('a');
+    link.className = 'nc-skip-link';
+    link.href = `#${main.id}`;
+    link.textContent = 'Skip to main content';
+    link.addEventListener('click', event => {
+      event.preventDefault();
+      if (!main.hasAttribute('tabindex')) main.setAttribute('tabindex', '-1');
+      main.focus({ preventScroll: true });
+      main.scrollIntoView({ block: 'start' });
+    });
+    document.body.prepend(link);
   }
 
   function syncSubmenus() {
@@ -73,16 +106,54 @@
     (preferred || card)?.focus({preventScroll:true});
   }
 
+  function syncSearchDialog() {
+    const overlay = qs('.search-overlay');
+    const panel = qs('.search-panel', overlay || document);
+    const trigger = qs('.header-tools .search');
+    if (!overlay || !panel || !trigger) return;
+    if (!panel.id) panel.id = 'neural-critic-search-dialog';
+    const open = overlay.classList.contains('open');
+    panel.setAttribute('role', 'dialog');
+    panel.setAttribute('aria-modal', 'true');
+    panel.setAttribute('aria-label', 'Search Neural Critic');
+    overlay.setAttribute('aria-hidden', String(!open));
+    trigger.setAttribute('aria-haspopup', 'dialog');
+    trigger.setAttribute('aria-controls', panel.id);
+    trigger.setAttribute('aria-expanded', String(open));
+    const close = qs('.search-close', panel);
+    if (close) {
+      close.type = 'button';
+      close.setAttribute('aria-label', 'Close search');
+    }
+  }
+
+  function focusSearchDialog() {
+    const overlay = qs('.search-overlay.open');
+    if (!overlay) return;
+    const input = qs('#quick-search,input[type="search"]', overlay);
+    const panel = qs('.search-panel', overlay);
+    (input || panel)?.focus({preventScroll:true});
+  }
+
+  function restoreSearchFocus() {
+    if (lastSearchTrigger?.isConnected) lastSearchTrigger.focus({preventScroll:true});
+  }
+
   function installObserver() {
     const observer = new MutationObserver(mutations => {
       let chromeChanged = false;
       let dialogChanged = false;
+      let searchChanged = false;
       for (const mutation of mutations) {
         if (mutation.type === 'attributes' && mutation.target === document.documentElement && mutation.attributeName === 'data-theme') syncThemeControl();
         if (mutation.type === 'attributes' && mutation.target.classList?.contains('reader-auth-modal') && mutation.attributeName === 'hidden') dialogChanged = true;
-        if (mutation.type === 'childList') { chromeChanged = true; dialogChanged = true; }
+        if (mutation.type === 'attributes' && mutation.target.classList?.contains('search-overlay') && mutation.attributeName === 'class') searchChanged = true;
+        if (mutation.type === 'childList') { chromeChanged = true; dialogChanged = true; searchChanged = true; }
       }
-      if (chromeChanged) syncMobileNav();
+      if (chromeChanged) {
+        syncMobileNav();
+        installSkipLink();
+      }
       if (dialogChanged) {
         const wasOpen = qs('.reader-account-button')?.getAttribute('aria-expanded') === 'true';
         syncAccountDialog();
@@ -90,8 +161,15 @@
         if (isOpen && !wasOpen) requestAnimationFrame(focusOpenedDialog);
         if (!isOpen && wasOpen && lastDialogTrigger?.isConnected) lastDialogTrigger.focus({preventScroll:true});
       }
+      if (searchChanged) {
+        const wasOpen = qs('.header-tools .search')?.getAttribute('aria-expanded') === 'true';
+        syncSearchDialog();
+        const isOpen = !!qs('.search-overlay.open');
+        if (isOpen && !wasOpen) requestAnimationFrame(focusSearchDialog);
+        if (!isOpen && wasOpen) requestAnimationFrame(restoreSearchFocus);
+      }
     });
-    observer.observe(document.documentElement, {subtree:true, childList:true, attributes:true, attributeFilter:['hidden','data-theme']});
+    observer.observe(document.documentElement, {subtree:true, childList:true, attributes:true, attributeFilter:['hidden','data-theme','class']});
   }
 
   document.addEventListener('click', event => {
@@ -114,6 +192,16 @@
     }
 
     if (event.target.closest?.('.reader-auth-close')) requestAnimationFrame(syncAccountDialog);
+
+    const searchTrigger = event.target.closest?.('.header-tools .search');
+    if (searchTrigger) {
+      lastSearchTrigger = searchTrigger;
+      requestAnimationFrame(() => { syncSearchDialog(); focusSearchDialog(); });
+    }
+
+    if (event.target.closest?.('.search-close')) {
+      requestAnimationFrame(() => { syncSearchDialog(); restoreSearchFocus(); });
+    }
   }, true);
 
   document.addEventListener('keydown', event => {
@@ -139,8 +227,10 @@
 
     if (event.key !== 'Tab') return;
     const modal = qs('.reader-auth-modal:not([hidden])');
-    if (!modal) return;
-    const items = dialogFocusable(modal);
+    const search = qs('.search-overlay.open .search-panel');
+    const activeDialog = modal || search;
+    if (!activeDialog) return;
+    const items = dialogFocusable(activeDialog);
     if (!items.length) return;
     const first = items[0], last = items[items.length - 1];
     if (event.shiftKey && document.activeElement === first) {
@@ -155,9 +245,12 @@
   }, {passive:true});
 
   function init() {
+    installAccessibilityStyles();
+    installSkipLink();
     syncMobileNav();
     syncThemeControl();
     syncAccountDialog();
+    syncSearchDialog();
     installObserver();
   }
 

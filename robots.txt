@@ -1,6 +1,7 @@
 User-agent: *
 Allow: /NeuralCritic/
 Disallow: /NeuralCritic/studio.html
+Disallow: /NeuralCritic/newsroom.html
 Disallow: /NeuralCritic/subscribers.html
 Disallow: /NeuralCritic/data/
 Disallow: /NeuralCritic/scripts/
