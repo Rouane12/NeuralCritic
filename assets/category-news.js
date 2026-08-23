@@ -143,9 +143,9 @@
 
       const hero = $('.category-work-hero');
       if(hero){
-        let old = $('.category-taxonomy-chips', hero);
+        const old = $('.category-taxonomy-chips', hero);
         if(old) old.remove();
-        let nav = $('.nc-news-category-nav', hero);
+        let nav = $('.nc-news-category-nav-host', hero);
         if(!nav){ nav = document.createElement('div'); nav.className = 'nc-news-category-nav-host'; hero.appendChild(nav); }
         nav.innerHTML = navMarkup(kind, platform);
       }
@@ -182,6 +182,11 @@
     }
   }
 
+  function ownsSpotlight(){
+    const spot = $('#category-spotlight');
+    return !!spot?.querySelector('.nc-news-category-empty,.nc-news-filter-empty,.nc-news-story');
+  }
+
   async function waitForClient(limit=60){
     for(let i=0;i<limit;i++){
       if(window.neuralCriticPublicSupabase) return window.neuralCriticPublicSupabase;
@@ -207,16 +212,16 @@
     const spot = $('#category-spotlight');
     let reassertTimer;
     const observer = spot ? new MutationObserver(() => {
-      if(rendering) return;
+      if(rendering || ownsSpotlight()) return;
       clearTimeout(reassertTimer);
       reassertTimer = setTimeout(render, 0);
     }) : null;
     observer?.observe(spot,{childList:true,subtree:true});
 
     render();
-    setTimeout(render, 150);
-    setTimeout(render, 700);
-    setTimeout(() => observer?.disconnect(), 5000);
+    // publication-nav renders taxonomy views on window.load; reassert once after that pass.
+    window.addEventListener('load', () => setTimeout(() => { if(!ownsSpotlight()) render(); }, 0), { once:true });
+    setTimeout(() => observer?.disconnect(), 10000);
   }
 
   if(document.readyState === 'loading') document.addEventListener('DOMContentLoaded',init,{once:true});
