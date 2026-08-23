@@ -82,7 +82,12 @@
   }
 
   window.dataLayer = window.dataLayer || [];
-  window.gtag = window.gtag || function gtag(){ window.dataLayer.push(arguments); };
+  // Keep direct event calls from newer feature modules behind the same consent gate.
+  // Consent/config commands may queue before the Google tag loads; event commands may not.
+  window.gtag = function gtag(){
+    if (arguments[0] === 'event' && !tagLoaded) return;
+    window.dataLayer.push(arguments);
+  };
 
   // Default to denied. Ad-related storage/signals remain denied even when
   // analytics is accepted because Neural Critic measures editorial use,
