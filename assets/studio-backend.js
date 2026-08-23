@@ -72,7 +72,12 @@
     const {data,error}=await client.from('articles').select('*').order('updated_at',{ascending:false});
     if(error) throw error;
     const backend=(data||[]).map(fromRow), existing=readLocal();
-    const map=new Map(existing.map(x=>[x.slug,x]));
+    const backendSlugs=new Set(backend.map(x=>x.slug).filter(Boolean));
+    // In authenticated CMS mode Supabase is the source of truth for published
+    // content. Keep local drafts/scheduled work, but discard stale published
+    // cache records that no longer have a matching backend article.
+    const preserved=existing.filter(x=>x?.status!=='published'||backendSlugs.has(x.slug));
+    const map=new Map(preserved.map(x=>[x.slug,x]));
     backend.forEach(x=>map.set(x.slug,x));
     const merged=[...map.values()];
     const changed=JSON.stringify(existing)!==JSON.stringify(merged);
