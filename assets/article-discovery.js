@@ -23,10 +23,17 @@
 
   function graphLinks(article, engine) {
     const links=[];
-    if (article.gameKey) links.push(['GAME',article.gameKey,engine.entityHref('game',article.gameKey)]);
-    if (article.series) links.push(['SERIES',article.series,engine.entityHref('series',article.series)]);
-    if (article.franchise && article.franchise !== article.series) links.push(['FRANCHISE',article.franchise,engine.entityHref('franchise',article.franchise)]);
-    if (article.author) links.push(['WRITER',article.author,engine.entityHref('author',article.author)]);
+    const seen=new Set();
+    const add=(type,name) => {
+      const key=engine.normalize(name || '');
+      if (!key || seen.has(key)) return;
+      seen.add(key);
+      links.push([type,name,engine.entityHref(type.toLowerCase(),name)]);
+    };
+    add('GAME',article.gameKey);
+    add('SERIES',article.series);
+    add('FRANCHISE',article.franchise);
+    add('AUTHOR',article.author);
     return links;
   }
 
