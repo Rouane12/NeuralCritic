@@ -19,6 +19,26 @@ window.NEURAL_CRITIC_SUPABASE = {
     document.head.appendChild(router);
   };
 
+  const loadStoryReadinessGuard = () => {
+    if (pageName === 'studio.html' || pageName === 'subscribers.html') return;
+    if (document.querySelector('script[data-nc-story-readiness]')) return;
+    const script = document.createElement('script');
+    script.src = 'assets/story-readiness-guard.js?v=20260823-route1';
+    script.async = true;
+    script.dataset.ncStoryReadiness = '1';
+    document.head.appendChild(script);
+  };
+
+  const loadHomepageCurationGuard = () => {
+    if (pageName !== 'index.html') return;
+    if (document.querySelector('script[data-nc-home-curation]')) return;
+    const script = document.createElement('script');
+    script.src = 'assets/home-curation-guard.js?v=20260823-home1';
+    script.async = true;
+    script.dataset.ncHomeCuration = '1';
+    document.head.appendChild(script);
+  };
+
   const loadRecirculation = () => {
     if (!document.getElementById('article')) return;
     if (!document.querySelector('link[data-nc-recirculation-style]')) {
@@ -81,6 +101,8 @@ window.NEURAL_CRITIC_SUPABASE = {
     loadStoryRouter();
   }
 
+  loadStoryReadinessGuard();
+  loadHomepageCurationGuard();
   loadRecirculation();
   loadMonetization();
 
