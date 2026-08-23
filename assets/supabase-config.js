@@ -11,6 +11,7 @@ window.NEURAL_CRITIC_SUPABASE = {
   const STATIC_META_PAGES = new Set(['privacy.html', 'standards.html', 'commercial.html']);
 
   const loadStoryRouter = () => {
+    if (pageName === 'studio.html' || pageName === 'subscribers.html') return;
     if (document.querySelector('script[data-nc-story-router]')) return;
     const router = document.createElement('script');
     router.src = 'assets/story-router.js?v=20260823-story5';
