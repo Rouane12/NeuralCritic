@@ -125,5 +125,15 @@
     updateProgress();
   }
 
+  function loadAuthorSystem(){
+    if(document.querySelector('script[data-nc-author-system]'))return;
+    const script=document.createElement('script');
+    script.src='assets/author-system.js?v=20260823-author1';
+    script.async=true;
+    script.dataset.ncAuthorSystem='1';
+    document.head.appendChild(script);
+  }
+
+  loadAuthorSystem();
   init();
 })();
