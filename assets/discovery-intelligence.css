@@ -120,6 +120,42 @@
 .search-story-section{padding-top:18px}
 .search-story-section-head{margin:0;padding:0 0 2px}
 
+/* Article Game Graph trail */
+#article .nc-article-graph-trail{
+  display:flex;
+  align-items:flex-start;
+  gap:15px;
+  width:min(100%,980px);
+  margin:13px 0 25px;
+  padding:12px 14px;
+  border:1px solid rgba(124,142,255,.18);
+  border-radius:13px;
+  background:linear-gradient(100deg,rgba(82,226,247,.045),rgba(119,104,255,.045));
+}
+#article .nc-article-graph-trail>small{
+  flex:0 0 auto;
+  padding-top:6px;
+  color:#52e2f7;
+  font:850 7px/1 Inter,system-ui,sans-serif;
+  letter-spacing:.14em;
+}
+#article .nc-article-graph-trail>div{display:flex;flex-wrap:wrap;gap:7px}
+#article .nc-article-graph-trail a{
+  display:inline-flex;
+  align-items:center;
+  gap:6px;
+  min-height:28px;
+  padding:0 9px;
+  border:1px solid rgba(124,142,255,.20);
+  border-radius:999px;
+  color:var(--text,#f7f8ff);
+  background:rgba(8,14,29,.18);
+  transition:border-color .18s,transform .18s,background .18s;
+}
+#article .nc-article-graph-trail a:hover{transform:translateY(-1px);border-color:rgba(82,226,247,.45);background:rgba(82,226,247,.055)}
+#article .nc-article-graph-trail a span{color:#8d82ff;font:850 6.5px/1 Inter,system-ui,sans-serif;letter-spacing:.08em}
+#article .nc-article-graph-trail a b{font:700 8px/1 Inter,system-ui,sans-serif;letter-spacing:-.01em}
+
 /* Related story intelligence */
 #article .work-related-card a small.nc-related-reason{
   display:inline-flex!important;
@@ -143,6 +179,8 @@ html[data-theme="light"] .search-entity-card{
 }
 html[data-theme="light"] .search-entity-media{background:#f2f5f7}
 html[data-theme="light"] .search-entity-copy strong{color:#53616c}
+html[data-theme="light"] #article .nc-article-graph-trail{border-color:#dfe5ea;background:linear-gradient(100deg,#f6fbfc,#f7f6ff)}
+html[data-theme="light"] #article .nc-article-graph-trail a{color:#263440;border-color:#dce2e8;background:#fff}
 html[data-theme="light"] #article .work-related-card a small.nc-related-reason{
   color:#159bb3!important;
   border-color:#bfe9ef;
@@ -154,4 +192,6 @@ html[data-theme="light"] #article .work-related-card a small.nc-related-reason{
   .search-entity-card{grid-template-columns:82px minmax(0,1fr)}
   .search-entity-media{width:82px;height:82px}
   .search-entity-section>header{align-items:flex-start;flex-direction:column;gap:5px}
+  #article .nc-article-graph-trail{display:block}
+  #article .nc-article-graph-trail>small{display:block;margin-bottom:9px;padding:0}
 }
