@@ -27,7 +27,8 @@
   function feedArticles(filter) {
     const all = sortedArticles();
     if (filter === 'latest') {
-      return all.filter(a => !a.homepageSlot || a.homepageSlot === 'regular');
+      const featured = new Set(window.NeuralCriticHomepageState?.featuredSlugs || []);
+      return all.filter(a => !featured.has(a.slug));
     }
     const matched = all.filter(a => matchCategory(a, filter));
     if (filter === 'news' && state.newsKind !== 'all') {
@@ -66,14 +67,16 @@
       ? `${escapeHtml(a.reviewMeta.score)}/10`
       : isNews && a.newsMeta?.kind === 'report'
         ? 'ATTRIBUTED'
-        : '';
+        : isNews && Array.isArray(a.newsMeta?.updates) && a.newsMeta.updates.length
+          ? `${a.newsMeta.updates.length} UPDATE${a.newsMeta.updates.length === 1 ? '' : 'S'}`
+          : '';
     return `<a class="story nc-feed-story ${categoryClass(a)}" href="${articleHref(a)}">
       <div class="thumb">${imageOf(a) ? `<img alt="${escapeHtml(a.imageAlt || a.title)}" src="${imageOf(a)}">` : '<div class="placeholder-art">NC</div>'}<b>${String(index + 1).padStart(2, '0')}</b></div>
       <div class="nc-feed-copy">
-        <div class="nc-feed-meta"><label>${escapeHtml(label)}</label>${auxiliary ? `<span>${auxiliary}</span>` : ''}</div>
+        <div class="nc-feed-meta"><label>${escapeHtml(label)}</label>${auxiliary ? `<span>${escapeHtml(auxiliary)}</span>` : ''}</div>
         <h3>${escapeHtml(a.title)}</h3>
         <p>${escapeHtml(a.description)}</p>
-        <small>BY ${escapeHtml(a.author)} · ${fmtDate(a.publishedAt)} · READ STORY →</small>
+        <small>BY ${escapeHtml(a.author)} · ${fmtDate(a.updatedAt || a.publishedAt)} · READ STORY →</small>
       </div>
     </a>`;
   }
@@ -103,8 +106,8 @@
 
   function newsDeskMarkup(allNews) {
     if (!allNews.length) return emptyNewsDeskMarkup();
-    const latest = allNews[0];
-    return `<div class="nc-news-desk"><div><small>NEWS DESK</small><strong>${allNews.length} ${allNews.length === 1 ? 'LIVE SIGNAL' : 'LIVE SIGNALS'}</strong></div><span>Latest update · ${fmtDate(latest.publishedAt)}</span></div>${newsKindControls(allNews)}`;
+    const latest = [...allNews].sort((a,b) => new Date(b.updatedAt || b.publishedAt || 0) - new Date(a.updatedAt || a.publishedAt || 0))[0];
+    return `<div class="nc-news-desk"><div><small>NEWS DESK</small><strong>${allNews.length} ${allNews.length === 1 ? 'LIVE SIGNAL' : 'LIVE SIGNALS'}</strong></div><span>Latest update · ${fmtDate(latest.updatedAt || latest.publishedAt)}</span></div>${newsKindControls(allNews)}`;
   }
 
   function newsKindEmptyMarkup(kind) {
@@ -164,11 +167,20 @@
       const client = window.neuralCriticPublicSupabase;
       if (client && Array.isArray(ARTICLES) && ARTICLES.length) {
         try {
-          const { data, error } = await client.from('articles').select('slug,news_meta').eq('status', 'published').eq('category', 'NEWS');
+          const { data, error } = await client.from('articles').select('slug,news_meta,updated_at').eq('status', 'published').eq('category', 'NEWS');
           if (error) throw error;
-          const map = new Map((data || []).map(row => [row.slug, row.news_meta && typeof row.news_meta === 'object' ? row.news_meta : {}]));
-          ARTICLES.forEach(article => { if (map.has(article.slug)) article.newsMeta = map.get(article.slug); });
-          if (state.filter === 'news') renderFeed('news');
+          const map = new Map((data || []).map(row => [row.slug, row]));
+          ARTICLES.forEach(article => {
+            const row = map.get(article.slug);
+            if (!row) return;
+            article.newsMeta = row.news_meta && typeof row.news_meta === 'object' ? row.news_meta : {};
+            article.updatedAt = row.updated_at || article.updatedAt;
+          });
+          if (document.getElementById('hero')) {
+            renderHero?.();
+            renderTrending?.();
+          }
+          renderFeed(state.filter);
           return;
         } catch (error) {
           console.warn('Neural Critic News Desk metadata unavailable.', error);
@@ -231,8 +243,6 @@
 
   hydrateNewsMeta();
 
-  // content-api can make the initial article index resolve before this script loads.
-  // Re-assert the upgraded renderer after the current task without disturbing a slow fetch.
   setTimeout(() => {
     if (document.getElementById('story-feed') && Array.isArray(ARTICLES) && ARTICLES.length) {
       renderFeed(state.filter);
