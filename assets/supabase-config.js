@@ -118,13 +118,13 @@ window.NEURAL_CRITIC_SUPABASE = {
     if (!document.querySelector('link[data-nc-article-news-style]')) {
       const style = document.createElement('link');
       style.rel = 'stylesheet';
-      style.href = 'assets/article-news.css?v=20260823-news1';
+      style.href = 'assets/article-news.css?v=20260823-news2';
       style.dataset.ncArticleNewsStyle = '1';
       document.head.appendChild(style);
     }
     if (!document.querySelector('script[data-nc-article-news]')) {
       const script = document.createElement('script');
-      script.src = 'assets/article-news.js?v=20260823-news1';
+      script.src = 'assets/article-news.js?v=20260823-news2';
       script.async = true;
       script.dataset.ncArticleNews = '1';
       document.head.appendChild(script);
