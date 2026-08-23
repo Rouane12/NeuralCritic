@@ -1,5 +1,14 @@
 (() => {
   const qsa = (selector, root = document) => [...root.querySelectorAll(selector)];
+  const pendingVitals = new Map();
+  const interactionDurations = [];
+  let lcpValue = 0;
+  let clsValue = 0;
+  let clsWindowValue = 0;
+  let clsWindowStart = 0;
+  let clsLastEntry = 0;
+  let vitalsFinalized = false;
+  let flushTimer = null;
 
   function installUiRegressionGuards() {
     if (document.getElementById('nc-ui-regression-guards')) return;
@@ -84,9 +93,136 @@
     });
   }
 
+  function rating(name, value) {
+    if (name === 'LCP') return value <= 2500 ? 'good' : value <= 4000 ? 'needs_improvement' : 'poor';
+    if (name === 'CLS') return value <= 0.1 ? 'good' : value <= 0.25 ? 'needs_improvement' : 'poor';
+    if (name === 'INP') return value <= 200 ? 'good' : value <= 500 ? 'needs_improvement' : 'poor';
+    return 'unknown';
+  }
+
+  function navigationType() {
+    try {
+      return performance.getEntriesByType('navigation')[0]?.type || 'navigate';
+    } catch (_) {
+      return 'navigate';
+    }
+  }
+
+  function queueVital(name, value) {
+    if (!Number.isFinite(value) || value < 0) return;
+    const normalized = name === 'CLS' ? Math.round(value * 10000) / 10000 : Math.round(value);
+    pendingVitals.set(name, {
+      metric_name: name,
+      metric_value: normalized,
+      metric_rating: rating(name, value),
+      navigation_type: navigationType()
+    });
+    flushVitals();
+  }
+
+  function flushVitals() {
+    const analytics = window.NeuralCriticAnalytics;
+    if (!analytics?.enabled?.() || !analytics?.track || !pendingVitals.size) return false;
+    pendingVitals.forEach(payload => analytics.track('web_vital', payload));
+    pendingVitals.clear();
+    return true;
+  }
+
+  function startConsentAwareFlush() {
+    if (flushTimer) return;
+    let attempts = 0;
+    const tryFlush = () => {
+      attempts += 1;
+      const complete = flushVitals();
+      if ((complete && vitalsFinalized) || attempts >= 30) {
+        clearInterval(flushTimer);
+        flushTimer = null;
+      }
+    };
+    flushTimer = setInterval(tryFlush, 2000);
+    window.addEventListener('neuralcritic:analytics-script-loaded', tryFlush, { once: true });
+  }
+
+  function observeLcp() {
+    if (!('PerformanceObserver' in window)) return;
+    try {
+      const observer = new PerformanceObserver(list => {
+        const entries = list.getEntries();
+        const last = entries[entries.length - 1];
+        if (last) lcpValue = last.startTime;
+      });
+      observer.observe({ type: 'largest-contentful-paint', buffered: true });
+    } catch (_) {}
+  }
+
+  function observeCls() {
+    if (!('PerformanceObserver' in window)) return;
+    try {
+      const observer = new PerformanceObserver(list => {
+        list.getEntries().forEach(entry => {
+          if (entry.hadRecentInput) return;
+          const time = entry.startTime;
+          if (!clsWindowStart || time - clsLastEntry > 1000 || time - clsWindowStart > 5000) {
+            clsWindowStart = time;
+            clsWindowValue = entry.value;
+          } else {
+            clsWindowValue += entry.value;
+          }
+          clsLastEntry = time;
+          clsValue = Math.max(clsValue, clsWindowValue);
+        });
+      });
+      observer.observe({ type: 'layout-shift', buffered: true });
+    } catch (_) {}
+  }
+
+  function observeInp() {
+    if (!('PerformanceObserver' in window)) return;
+    try {
+      const observer = new PerformanceObserver(list => {
+        list.getEntries().forEach(entry => {
+          if (!entry.interactionId || !Number.isFinite(entry.duration)) return;
+          interactionDurations.push(entry.duration);
+        });
+      });
+      observer.observe({ type: 'event', buffered: true, durationThreshold: 40 });
+    } catch (_) {}
+  }
+
+  function inpValue() {
+    if (!interactionDurations.length) return 0;
+    const sorted = interactionDurations.slice().sort((a, b) => a - b);
+    const index = Math.min(sorted.length - 1, Math.max(0, Math.ceil(sorted.length * 0.98) - 1));
+    return sorted[index];
+  }
+
+  function finalizeVitals() {
+    if (vitalsFinalized) return;
+    vitalsFinalized = true;
+    if (lcpValue) queueVital('LCP', lcpValue);
+    queueVital('CLS', clsValue);
+    const inp = inpValue();
+    if (inp) queueVital('INP', inp);
+    startConsentAwareFlush();
+    flushVitals();
+  }
+
+  function installVitalsObservers() {
+    observeLcp();
+    observeCls();
+    observeInp();
+    startConsentAwareFlush();
+
+    document.addEventListener('visibilitychange', () => {
+      if (document.visibilityState === 'hidden') finalizeVitals();
+    }, { passive: true });
+    window.addEventListener('pagehide', finalizeVitals, { once: true });
+  }
+
   function init() {
     installUiRegressionGuards();
     tuneMedia(document);
+    installVitalsObservers();
 
     const observer = new MutationObserver(mutations => {
       for (const mutation of mutations) {
@@ -100,6 +236,6 @@
     window.addEventListener('load', () => setTimeout(() => observer.disconnect(), 20000), {once: true});
   }
 
-  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init, {once: true});
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init, {once:true});
   else init();
 })();
