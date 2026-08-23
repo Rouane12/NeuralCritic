@@ -35,6 +35,17 @@
     el.classList.toggle('error',error);
   }
 
+  function fallbackHeading(article){
+    const collection=article.collection||'';
+    if(collection==='all-time-greats')return 'A canon should stay open';
+    if(collection==='best-games')return 'What belongs on your list?';
+    if(collection==='game-of-the-year')return 'The final word on the year';
+    if(collection==='upcoming-games')return 'What we’re watching next';
+    if(article.article_format==='review')return 'Final verdict';
+    if(article.article_format==='game-guide')return 'The bottom line';
+    return 'The final word';
+  }
+
   function buildPanel(){
     if($('#conclusion-text'))return;
     const builder=$('.story-builder');
@@ -101,11 +112,11 @@
     if(!client){panelStatus('Conclusion data could not connect to the CMS.',true);return;}
     try{
       const {data,error}=await client.from('articles')
-        .select('conclusion,conclusion_heading,conclusion_heading_style')
+        .select('conclusion,conclusion_heading,conclusion_heading_style,article_format,collection')
         .eq('slug',slug).maybeSingle();
       if(error)throw error;
       if(!data){clearPanel();return;}
-      $('#conclusion-heading').value=data.conclusion_heading||'';
+      $('#conclusion-heading').value=data.conclusion_heading||(data.conclusion?fallbackHeading(data):'');
       $('#conclusion-heading-style').value=['editorial','display','accent','statement'].includes(data.conclusion_heading_style)?data.conclusion_heading_style:'editorial';
       $('#conclusion-text').value=data.conclusion||'';
       panelStatus(data.conclusion?'Conclusion loaded from Neural Critic.':'This story does not have a dedicated conclusion yet.');
