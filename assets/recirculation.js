@@ -22,6 +22,17 @@
     return new URL(`stories/${encodeURIComponent(slug)}/`, SITE_ROOT).href;
   }
 
+  function slugify(value = '') {
+    return String(value).trim().toLowerCase().normalize('NFKD').replace(/[\u0300-\u036f]/g, '')
+      .replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '');
+  }
+
+  function topicUrl(type, value) {
+    const key = slugify(value);
+    if (!key || !['game','series','franchise'].includes(type)) return '';
+    return new URL(`topic.html?${encodeURIComponent(type)}=${encodeURIComponent(key)}`, SITE_ROOT).href;
+  }
+
   function imageUrl(value) {
     const raw = String(value || '').trim();
     if (!raw) return '';
@@ -64,7 +75,47 @@
     return 0;
   }
 
+  function identityValue(article, key) {
+    const aliases = {
+      game: ['gameKey','game_key'],
+      series: ['series'],
+      franchise: ['franchise']
+    };
+    for (const field of aliases[key] || []) {
+      const value = String(article?.[field] || '').trim();
+      if (value) return value;
+    }
+    return '';
+  }
+
+  function sameIdentity(a, b) {
+    return !!a && !!b && slugify(a) === slugify(b);
+  }
+
+  function relationFor(current, candidate) {
+    const currentGame = identityValue(current, 'game');
+    const candidateGame = identityValue(candidate, 'game');
+    if (sameIdentity(currentGame, candidateGame)) {
+      return { key:'same_game', weight:60, type:'game', value:currentGame, label:`More ${displayTag(currentGame)}` };
+    }
+
+    const currentSeries = identityValue(current, 'series');
+    const candidateSeries = identityValue(candidate, 'series');
+    if (sameIdentity(currentSeries, candidateSeries)) {
+      return { key:'same_series', weight:42, type:'series', value:currentSeries, label:`More ${displayTag(currentSeries)}` };
+    }
+
+    const currentFranchise = identityValue(current, 'franchise');
+    const candidateFranchise = identityValue(candidate, 'franchise');
+    if (sameIdentity(currentFranchise, candidateFranchise)) {
+      return { key:'same_franchise', weight:24, type:'franchise', value:currentFranchise, label:`More ${displayTag(currentFranchise)}` };
+    }
+
+    return { key:'', weight:0, type:'', value:'', label:'' };
+  }
+
   function scoreCandidate(current, candidate) {
+    const relation = relationFor(current, candidate);
     const currentTags = normalizedTags(current);
     const candidateTags = normalizedTags(candidate);
     const currentMeaningful = meaningfulTags(current);
@@ -75,7 +126,8 @@
     const candidateTokens = titleTokens(candidate);
     const titleOverlap = [...currentTokens].filter(token => candidateTokens.has(token)).length;
 
-    let score = meaningfulOverlap.length * 14;
+    let score = relation.weight;
+    score += meaningfulOverlap.length * 14;
     score += Math.min(6, allOverlap.length * 2);
     if (String(current.category || '').toLowerCase() === String(candidate.category || '').toLowerCase()) score += 6;
     if (current.articleFormat && current.articleFormat === candidate.articleFormat) score += 4;
@@ -83,19 +135,20 @@
     score += Math.min(8, titleOverlap * 3);
     score += freshness(candidate);
 
-    return { score, meaningfulOverlap };
+    return { score, meaningfulOverlap, relation };
   }
 
-  function reasonFor(current, candidate, overlap) {
-    if (overlap.length) {
-      const tag = String(overlap[0] || '').trim();
+  function reasonFor(current, candidate, scored) {
+    if (scored.relation?.key) return scored.relation;
+    if (scored.meaningfulOverlap.length) {
+      const tag = String(scored.meaningfulOverlap[0] || '').trim();
       const studioLabel = /^fromsoftware$/i.test(tag);
-      return { key: 'game', label: studioLabel ? `More from ${displayTag(tag)}` : `More ${displayTag(tag)}` };
+      return { key:'topic', type:'', value:tag, label:studioLabel ? `More from ${displayTag(tag)}` : `More ${displayTag(tag)}` };
     }
     if (String(current.category || '').toLowerCase() === String(candidate.category || '').toLowerCase()) {
-      return { key: 'category', label: `More ${String(current.category || 'stories').toLowerCase()}` };
+      return { key:'category', type:'', value:'', label:`More ${String(current.category || 'stories').toLowerCase()}` };
     }
-    return { key: 'related', label: 'Related feature' };
+    return { key:'related', type:'', value:'', label:'Related feature' };
   }
 
   function displayTag(value) {
@@ -199,6 +252,17 @@
     observer.observe(module);
   }
 
+  function bestHub(current, primary) {
+    if (primary?.relation?.type && primary.relation.value) return topicUrl(primary.relation.type, primary.relation.value);
+    const series = identityValue(current, 'series');
+    if (series) return topicUrl('series', series);
+    const franchise = identityValue(current, 'franchise');
+    if (franchise) return topicUrl('franchise', franchise);
+    const game = identityValue(current, 'game');
+    if (game) return topicUrl('game', game);
+    return '';
+  }
+
   async function init() {
     const slug = currentSlug();
     if (!slug || $('#nc-recirculation')) return;
@@ -213,36 +277,56 @@
       .filter(article => article?.slug && article.slug !== slug)
       .map(article => {
         const scored = scoreCandidate(current, article);
-        return { article, ...scored, reason: reasonFor(current, article, scored.meaningfulOverlap) };
+        return { article, ...scored, reason: reasonFor(current, article, scored) };
       })
       .sort((a, b) => b.score - a.score || new Date(b.article.publishedAt || 0) - new Date(a.article.publishedAt || 0));
 
     const selected = [];
     const seen = new Set();
-    const gameMatch = ranked.find(item => item.meaningfulOverlap.length);
-    if (gameMatch) { selected.push(gameMatch); seen.add(gameMatch.article.slug); }
+    const directMatch = ranked.find(item => item.relation?.key);
+    const topicMatch = ranked.find(item => item.meaningfulOverlap.length);
+    const primary = directMatch || topicMatch || ranked[0];
+    if (primary) { selected.push(primary); seen.add(primary.article.slug); }
     ranked.forEach(item => {
       if (selected.length >= 3 || seen.has(item.article.slug)) return;
       selected.push(item); seen.add(item.article.slug);
     });
     if (!selected.length) return;
 
-    const primaryGame = selected[0]?.meaningfulOverlap?.[0] || meaningfulTags(current)[0] || '';
-    const eyebrow = primaryGame ? `CONTINUE WITH ${displayTag(primaryGame).toUpperCase()}` : 'KEEP READING';
+    const primaryIdentity = selected[0]?.relation?.value || selected[0]?.meaningfulOverlap?.[0] || meaningfulTags(current)[0] || '';
+    const eyebrow = primaryIdentity ? `CONTINUE WITH ${displayTag(primaryIdentity).toUpperCase()}` : 'KEEP READING';
+    const hubHref = bestHub(current, selected[0]);
+    const fallbackSection = current.editorialSection || (String(current.category || '').toLowerCase() === 'review' ? 'reviews' : String(current.category || 'features').toLowerCase());
+    const exploreHref = hubHref || new URL(`category.html?section=${encodeURIComponent(fallbackSection)}`, SITE_ROOT).href;
+    const exploreLabel = hubHref && primaryIdentity ? `EXPLORE ${displayTag(primaryIdentity).toUpperCase()} →` : 'EXPLORE MORE →';
+
     const module = document.createElement('section');
     module.id = 'nc-recirculation';
     module.className = 'nc-recirculation';
     module.setAttribute('aria-labelledby', 'nc-recirculation-title');
-    module.innerHTML = `<header class="nc-recirc-head"><div><span>${esc(eyebrow)}</span><h2 id="nc-recirculation-title">Your next story is already here.</h2></div><a href="category.html?category=${encodeURIComponent(String(current.category || 'features').toLowerCase())}">EXPLORE MORE →</a></header><div class="nc-recirc-grid">${selected.map(cardMarkup).join('')}</div>`;
+    module.innerHTML = `<header class="nc-recirc-head"><div><span>${esc(eyebrow)}</span><h2 id="nc-recirculation-title">Your next story is already here.</h2></div><a href="${esc(exploreHref)}">${esc(exploreLabel)}</a></header><div class="nc-recirc-grid">${selected.map(cardMarkup).join('')}</div>`;
 
     insertionPoint.insertAdjacentElement('beforebegin', module);
     removeLegacyRelated();
     trackClicks(module);
 
+    module.dataset.primaryReason = selected[0]?.reason?.key || '';
+    module.dataset.primaryScore = String(selected[0]?.score || 0);
+    window.dispatchEvent(new CustomEvent('neuralcritic:recirculation-ready', {
+      detail: {
+        sourceSlug: slug,
+        primarySlug: selected[0]?.article?.slug || '',
+        primaryReason: selected[0]?.reason?.key || '',
+        primaryScore: selected[0]?.score || 0
+      }
+    }));
+
     const cleanupObserver = new MutationObserver(removeLegacyRelated);
     cleanupObserver.observe($('#article') || document.body, { childList: true, subtree: true });
     setTimeout(() => cleanupObserver.disconnect(), 8000);
   }
+
+  window.NeuralCriticRecirculation = { scoreCandidate, relationFor };
 
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init, { once: true });
   else init();
