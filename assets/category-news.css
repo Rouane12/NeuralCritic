@@ -11,6 +11,28 @@
 .nc-news-platform-row a{padding:7px 10px;border-radius:999px;color:#7a8598;font:700 8px/1 Inter,system-ui,sans-serif;text-decoration:none}
 .nc-news-platform-row a.active{background:rgba(44,205,231,.1);color:#18b8d1}
 
+/* Live newsroom ownership: keep the lead package and editorial rail together.
+   Empty News Desk states stay on the full-width standby layout. */
+.nc-news-category-page.nc-news-has-stories .category-work-page{
+  display:grid;
+  grid-template-columns:minmax(0,1fr) 300px;
+  column-gap:44px;
+  align-items:start;
+}
+.nc-news-category-page.nc-news-has-stories .category-work-hero{grid-column:1 / -1;grid-row:1;max-width:1020px;margin-bottom:34px}
+.nc-news-category-page.nc-news-has-stories #category-spotlight{grid-column:1;grid-row:2;min-width:0;margin-bottom:46px}
+.nc-news-category-page.nc-news-has-stories .category-work-content{display:contents}
+.nc-news-category-page.nc-news-has-stories #category-feed-section{grid-column:1;grid-row:3;min-width:0}
+.nc-news-category-page.nc-news-has-stories .category-sidebar{grid-column:2;grid-row:2 / span 2;position:sticky;top:104px;align-self:start}
+.nc-news-category-page.nc-news-has-stories .category-spotlight{grid-template-columns:minmax(0,1.72fr) minmax(270px,.82fr);min-height:500px}
+.nc-news-category-page.nc-news-single-story .category-spotlight.single{grid-template-columns:1fr;min-height:0}
+.nc-news-category-page.nc-news-single-story .category-spotlight.single .category-spotlight-main{min-height:500px}
+.nc-news-category-page.nc-news-single-story .category-spotlight-copy h2{max-width:730px;font-size:clamp(34px,3.15vw,50px)}
+.nc-news-category-page.nc-news-single-story .category-spotlight-copy p{max-width:610px}
+.nc-news-category-page.nc-news-has-stories .category-side-card{background:linear-gradient(145deg,rgba(16,23,42,.96),rgba(9,15,29,.95));border-color:rgba(119,139,185,.22);box-shadow:0 20px 52px rgba(0,0,0,.14)}
+.nc-news-category-page.nc-news-has-stories .category-weekly{background:radial-gradient(circle at 100% 0%,rgba(119,104,255,.18),transparent 40%),linear-gradient(145deg,#111627,#0b1020)!important}
+.nc-news-category-page.nc-news-has-stories #category-feed-section[hidden]{display:none!important}
+
 .nc-news-category-spotlight{margin:0}
 .nc-news-category-empty,.nc-news-filter-empty{position:relative;overflow:hidden;padding:34px;border:1px solid rgba(122,137,163,.18);border-radius:22px;background:linear-gradient(135deg,rgba(255,255,255,.95),rgba(246,249,255,.95));box-shadow:0 18px 48px rgba(24,36,57,.06)}
 .nc-news-category-empty::before,.nc-news-filter-empty::before{content:"";position:absolute;inset:0 0 auto;height:3px;background:linear-gradient(90deg,#32d9eb,#6c63ff,transparent 82%)}
@@ -37,10 +59,24 @@ html[data-theme="dark"] .nc-news-category-empty-head p,html[data-theme="dark"] .
 html[data-theme="dark"] .nc-news-category-lanes article{border-color:rgba(122,140,177,.2);background:rgba(16,24,43,.72)}
 html[data-theme="dark"] .nc-news-category-lanes article b{color:#f7f8ff}
 html[data-theme="dark"] .nc-news-category-lanes article span{color:#9da9bd}
+html[data-theme="light"] .nc-news-category-page.nc-news-has-stories .category-side-card:not(.category-weekly){background:#fff;border-color:#dfe4e8;box-shadow:0 16px 42px rgba(31,43,59,.06)}
 
+@media(max-width:1040px){
+  .nc-news-category-page.nc-news-has-stories .category-work-page{display:block}
+  .nc-news-category-page.nc-news-has-stories .category-work-content{display:grid}
+  .nc-news-category-page.nc-news-has-stories #category-spotlight{margin-bottom:50px}
+  .nc-news-category-page.nc-news-has-stories .category-sidebar{position:relative;top:auto;display:grid;grid-template-columns:1fr 1fr;margin-top:34px}
+  .nc-news-category-page.nc-news-has-stories .category-spotlight{grid-template-columns:1fr;min-height:0}
+  .nc-news-category-page.nc-news-has-stories .category-spotlight-main,.nc-news-category-page.nc-news-single-story .category-spotlight.single .category-spotlight-main{min-height:500px}
+}
 @media(max-width:760px){
   .nc-news-kind-row,.nc-news-platform-row{flex-wrap:nowrap;overflow-x:auto;padding-bottom:4px;scrollbar-width:none}.nc-news-kind-row::-webkit-scrollbar,.nc-news-platform-row::-webkit-scrollbar{display:none}.nc-news-kind-row a,.nc-news-platform-row a{flex:0 0 auto}
   .nc-news-category-empty,.nc-news-filter-empty{padding:26px 20px}.nc-news-category-lanes{grid-template-columns:1fr}.nc-news-category-lanes article{min-height:0}
+}
+@media(max-width:680px){
+  .nc-news-category-page.nc-news-has-stories .category-sidebar{grid-template-columns:1fr}
+  .nc-news-category-page.nc-news-has-stories .category-spotlight-main,.nc-news-category-page.nc-news-single-story .category-spotlight.single .category-spotlight-main{min-height:420px}
+  .nc-news-category-page.nc-news-single-story .category-spotlight-copy h2{font-size:34px}
 }
 
 @media(prefers-reduced-motion:reduce){.nc-news-kind-row a{transition:none}}
