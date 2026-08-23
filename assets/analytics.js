@@ -5,7 +5,8 @@
   const measurementId = String(cfg.measurementId || '').trim();
   const CONSENT_KEY = String(cfg.consentKey || 'neural-critic-analytics-consent-v1');
   const PRIVATE_PAGES = new Set(['studio.html', 'subscribers.html']);
-  const pageName = (location.pathname.split('/').pop() || 'index.html').toLowerCase();
+  const pathname = location.pathname;
+  const pageName = (pathname.split('/').pop() || 'index.html').toLowerCase();
   const validId = /^G-[A-Z0-9]+$/i.test(measurementId);
   const debug = !!cfg.debug;
   const trackedScroll = new Set();
@@ -14,31 +15,55 @@
   let articleContext = null;
   let articleContextPromise = null;
 
+  const canonicalStoryMatch = pathname.match(/\/NeuralCritic\/stories\/([^/]+)(?:\/index\.html)?\/?$/i);
+  const canonicalTopicMatch = pathname.match(/\/NeuralCritic\/topics\/(game|series|franchise)\/([^/]+)(?:\/index\.html)?\/?$/i);
+  const canonicalAuthorMatch = pathname.match(/\/NeuralCritic\/authors\/([^/]+)(?:\/index\.html)?\/?$/i);
+
   function log(...args) {
     if (debug) console.info('[Neural Critic Analytics]', ...args);
   }
 
-  function pageType() {
-    if (pageName === 'article.html') return 'article';
+  function routeType() {
+    if (window.NEURAL_CRITIC_STATIC_SLUG || canonicalStoryMatch || pageName === 'article.html') return 'article';
+    if (window.NEURAL_CRITIC_STATIC_TOPIC || canonicalTopicMatch || pageName === 'topic.html') return 'topic';
+    if (window.NEURAL_CRITIC_STATIC_AUTHOR || canonicalAuthorMatch || pageName === 'author.html') return 'author';
     if (pageName === 'category.html') return 'category';
     if (pageName === 'search.html') return 'search';
     if (pageName === 'about.html') return 'about';
     if (pageName === 'privacy.html') return 'privacy';
+    if (pageName === 'standards.html') return 'standards';
+    if (pageName === 'commercial.html') return 'commercial';
     return 'home';
   }
 
+  function pageType() {
+    return routeType();
+  }
+
   function articleSlug() {
-    return new URLSearchParams(location.search).get('slug') || '';
+    const staticSlug = String(window.NEURAL_CRITIC_STATIC_SLUG || '').trim();
+    if (staticSlug) return staticSlug;
+    const querySlug = new URLSearchParams(location.search).get('slug') || '';
+    if (querySlug) return querySlug;
+    if (canonicalStoryMatch?.[1]) {
+      try { return decodeURIComponent(canonicalStoryMatch[1]); }
+      catch (_) { return canonicalStoryMatch[1]; }
+    }
+    return '';
   }
 
   function safePageUrl() {
     const url = new URL(location.href);
-    if (pageName === 'search.html') url.search = '';
+    if (routeType() === 'search') url.search = '';
+    if (routeType() === 'article' && canonicalStoryMatch) {
+      url.searchParams.delete('slug');
+      if (![...url.searchParams.keys()].length) url.search = '';
+    }
     return url;
   }
 
   function safePageTitle() {
-    return pageName === 'search.html' ? 'Search · Neural Critic' : document.title;
+    return routeType() === 'search' ? 'Search · Neural Critic' : document.title;
   }
 
   function articlePageTitle(article) {
@@ -60,7 +85,7 @@
   window.gtag = window.gtag || function gtag(){ window.dataLayer.push(arguments); };
 
   // Default to denied. Ad-related storage/signals remain denied even when
-  // analytics is accepted because Neural Critic is measuring editorial use,
+  // analytics is accepted because Neural Critic measures editorial use,
   // not advertising profiles.
   window.gtag('consent', 'default', {
     analytics_storage: 'denied',
@@ -71,7 +96,7 @@
   });
 
   function articleDimensions() {
-    if (pageName !== 'article.html' || !articleContext) return {};
+    if (routeType() !== 'article' || !articleContext) return {};
     return {
       article_title: articleContext.title || '',
       article_category: articleContext.category || '',
@@ -99,12 +124,14 @@
   window.NeuralCriticAnalytics = {
     track,
     enabled: () => tagLoaded,
-    consent: storedConsent
+    consent: storedConsent,
+    pageType,
+    articleSlug
   };
 
   async function resolveArticleContext(timeout = 5000) {
     const slug = articleSlug();
-    if (!slug || pageName !== 'article.html') return null;
+    if (!slug || routeType() !== 'article') return null;
     if (articleContext) return articleContext;
     if (articleContextPromise) return articleContextPromise;
 
@@ -131,7 +158,7 @@
   async function sendInitialMeasurement() {
     const safeUrl = safePageUrl();
 
-    if (pageName === 'article.html') {
+    if (routeType() === 'article') {
       const article = await resolveArticleContext();
       const title = articlePageTitle(article);
       if (article?.title && document.title === 'Story · Neural Critic') document.title = title;
@@ -194,7 +221,7 @@
   }
 
   function wireScrollDepth() {
-    if (pageName !== 'article.html') return;
+    if (routeType() !== 'article') return;
     const thresholds = [25, 50, 75, 90];
     const onScroll = () => {
       const root = document.documentElement;
@@ -221,6 +248,19 @@
     return '';
   }
 
+  function selectedStorySlug(anchor) {
+    if (!(anchor instanceof HTMLAnchorElement)) return '';
+    try {
+      const url = new URL(anchor.href, location.href);
+      const query = url.searchParams.get('slug');
+      if (query) return query;
+      const match = url.pathname.match(/\/NeuralCritic\/stories\/([^/]+)\/?$/i);
+      return match?.[1] ? decodeURIComponent(match[1]) : '';
+    } catch (_) {
+      return '';
+    }
+  }
+
   document.addEventListener('click', event => {
     const target = event.target instanceof Element ? event.target.closest('a,button') : null;
     if (!target) return;
@@ -229,7 +269,7 @@
       setTimeout(() => track('theme_change', { theme: document.documentElement.dataset.theme || 'unknown' }), 0);
     }
 
-    const action = pageName === 'article.html' ? actionFromLabel(target.textContent) : '';
+    const action = routeType() === 'article' ? actionFromLabel(target.textContent) : '';
     if (action) track(action);
 
     if (target instanceof HTMLAnchorElement) {
@@ -238,10 +278,8 @@
       if (/^https?:$/.test(url.protocol) && url.hostname !== location.hostname) {
         track('outbound_click', { link_domain: url.hostname });
       }
-      if (target.href.includes('article.html?slug=')) {
-        const slug = new URL(target.href, location.href).searchParams.get('slug') || '';
-        track('select_article', { selected_slug: slug });
-      }
+      const selectedSlug = selectedStorySlug(target);
+      if (selectedSlug) track('select_article', { selected_slug: selectedSlug });
     }
   }, true);
 
@@ -272,7 +310,7 @@
         if (!success) return;
         newsletterTracked.add(form);
         track('newsletter_signup', {
-          signup_source: form.dataset.newsletterSource || (pageName === 'article.html' ? `article:${articleSlug()}` : pageType())
+          signup_source: form.dataset.newsletterSource || (routeType() === 'article' ? `article:${articleSlug()}` : pageType())
         });
       });
     });
