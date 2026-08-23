@@ -5,6 +5,17 @@
   async function loadArticle(){
     const slug=new URLSearchParams(location.search).get('slug');
     if(!slug)return null;
+
+    /* Heading roles should follow the same live CMS record the reader sees.
+       Prefer the public content API, then fall back to the generated JSON. */
+    try{
+      const api=window.NeuralCriticContentAPI;
+      if(api?.publishedArticle){
+        const live=await api.publishedArticle(slug);
+        if(live)return live;
+      }
+    }catch(_){}
+
     try{
       const response=await fetch(`data/articles/${encodeURIComponent(slug)}.json`);
       return response.ok?await response.json():null;
@@ -57,36 +68,17 @@
     });
   }
 
+  /* app.js safely escapes prose before inserting the only supported inline
+     tags (<strong>/<em>). Process highlight/accent tokens at the element HTML
+     level so combinations such as ==**important**== remain nested correctly
+     instead of leaving literal == markers around a <strong> node. */
   function replaceTokens(root){
-    const walker=document.createTreeWalker(root,NodeFilter.SHOW_TEXT);
-    const nodes=[];
-    while(walker.nextNode())nodes.push(walker.currentNode);
-    nodes.forEach(node=>{
-      const text=node.nodeValue||'';
-      if(!text.includes('==')&&!text.includes('^^'))return;
-      const regex=/(==(.+?)==|\^\^(.+?)\^\^)/g;
-      let match,last=0,changed=false;
-      const fragment=document.createDocumentFragment();
-      while((match=regex.exec(text))){
-        changed=true;
-        if(match.index>last)fragment.append(document.createTextNode(text.slice(last,match.index)));
-        if(match[2]!==undefined){
-          const mark=document.createElement('mark');
-          mark.className='nc-text-highlight';
-          mark.textContent=match[2];
-          fragment.append(mark);
-        }else{
-          const span=document.createElement('span');
-          span.className='nc-text-accent';
-          span.textContent=match[3];
-          fragment.append(span);
-        }
-        last=regex.lastIndex;
-      }
-      if(!changed)return;
-      if(last<text.length)fragment.append(document.createTextNode(text.slice(last)));
-      node.parentNode?.replaceChild(fragment,node);
-    });
+    const html=root.innerHTML||'';
+    if(!html.includes('==')&&!html.includes('^^'))return;
+    const next=html
+      .replace(/==([\s\S]+?)==/g,'<mark class="nc-text-highlight">$1</mark>')
+      .replace(/\^\^([\s\S]+?)\^\^/g,'<span class="nc-text-accent">$1</span>');
+    if(next!==html)root.innerHTML=next;
   }
 
   function applyInlineFormatting(body){
