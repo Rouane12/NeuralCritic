@@ -3,6 +3,13 @@
 
   const PAGE_SIZE = 3;
   const state = { filter: 'latest', visible: PAGE_SIZE };
+  const DESK_COPY = {
+    latest: ['STAY IN THE LOOP', 'Latest stories'],
+    news: ['LIVE SIGNALS', 'News desk'],
+    feature: ['DEEP READS', 'Features'],
+    review: ['THE VERDICT', 'Reviews'],
+    pc: ['PLATFORM WATCH', 'PC stories']
+  };
 
   function sortedArticles() {
     return [...ARTICLES].sort((a, b) => new Date(b.publishedAt || 0) - new Date(a.publishedAt || 0));
@@ -14,6 +21,16 @@
       return all.filter(a => !a.homepageSlot || a.homepageSlot === 'regular');
     }
     return all.filter(a => matchCategory(a, filter));
+  }
+
+  function syncDeskHeading(filter) {
+    const head = document.querySelector('#news .sectionhead > div:first-child');
+    if (!head) return;
+    const [eyebrow, title] = DESK_COPY[filter] || [String(filter).toUpperCase(), 'Stories'];
+    const small = head.querySelector('small');
+    const h2 = head.querySelector('h2');
+    if (small) small.textContent = eyebrow;
+    if (h2) h2.textContent = title;
   }
 
   function categoryClass(a) {
@@ -74,6 +91,7 @@
       state.visible = PAGE_SIZE;
     }
 
+    syncDeskHeading(state.filter);
     const list = feedArticles(state.filter);
     const visible = list.slice(0, state.visible);
     const newsDesk = state.filter === 'news' ? newsDeskMarkup(list) : '';
@@ -106,9 +124,10 @@
     const loadMore = event.target.closest?.('#nc-feed-load-more');
     if (loadMore) {
       const total = feedArticles(state.filter).length;
+      const previouslyVisible = state.visible;
       state.visible = Math.min(total, state.visible + PAGE_SIZE);
       renderFeed(state.filter);
-      document.querySelector('.nc-feed-story:nth-last-child(-n+3)')?.focus?.({ preventScroll: true });
+      document.querySelectorAll('.nc-feed-story')[previouslyVisible]?.focus?.({ preventScroll: true });
       window.gtag?.('event', 'homepage_feed_load_more', { feed_filter: state.filter, stories_visible: state.visible });
       return;
     }
