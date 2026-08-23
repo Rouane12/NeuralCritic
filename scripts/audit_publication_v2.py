@@ -232,9 +232,9 @@ def check_routing_recovery() -> None:
             base.error(f"Story readiness guard is missing recovery marker: {marker}")
     for marker in (
         "/NeuralCritic/assets/site.css",
-        "/NeuralCritic/stories/",
-        "/NeuralCritic/topics/",
-        "/NeuralCritic/authors/",
+        "const story=path.match",
+        "const topic=path.match",
+        "const author=path.match",
         "article.html?slug=",
         "topic.html?",
         "author.html?author=",
