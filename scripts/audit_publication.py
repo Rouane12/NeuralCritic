@@ -241,10 +241,11 @@ def check_feed(static_slugs: set[str]) -> None:
 def check_robots() -> None:
     robots = text("robots.txt")
     for directive in (
-        "Disallow: /studio.html",
-        "Disallow: /subscribers.html",
-        "Disallow: /data/",
-        "Disallow: /scripts/",
+        "Allow: /NeuralCritic/",
+        "Disallow: /NeuralCritic/studio.html",
+        "Disallow: /NeuralCritic/subscribers.html",
+        "Disallow: /NeuralCritic/data/",
+        "Disallow: /NeuralCritic/scripts/",
         f"Sitemap: {SITE_URL}sitemap.xml",
     ):
         if directive not in robots:
