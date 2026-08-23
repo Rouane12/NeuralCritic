@@ -155,12 +155,39 @@
     renderUpdates();
   }
 
+  function buildCategoryCue() {
+    if ($('#studio-news-cue')) return;
+    const category = $('#category');
+    const label = category?.closest('label');
+    if (!category || !label) return;
+    const cue = document.createElement('button');
+    cue.id = 'studio-news-cue';
+    cue.className = 'studio-news-cue';
+    cue.type = 'button';
+    cue.hidden = true;
+    cue.innerHTML = '<span>NEWS DESK ACTIVE</span><b>OPEN SETTINGS ↓</b>';
+    cue.addEventListener('click', event => {
+      event.preventDefault();
+      event.stopPropagation();
+      const panel = $('#studio-news-panel');
+      if (!panel) return;
+      panel.hidden = false;
+      panel.scrollIntoView({ behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth', block: 'start' });
+      panel.classList.remove('studio-news-attention');
+      requestAnimationFrame(() => panel.classList.add('studio-news-attention'));
+      setTimeout(() => panel.classList.remove('studio-news-attention'), 900);
+    });
+    label.appendChild(cue);
+  }
+
   function togglePanel() {
     const panel = $('#studio-news-panel');
     if (!panel) return;
     const isNews = ($('#category')?.value || '').toUpperCase() === 'NEWS';
     panel.hidden = !isNews;
     document.body.classList.toggle('studio-editing-news', isNews);
+    const cue = $('#studio-news-cue');
+    if (cue) cue.hidden = !isNews;
     if (isNews && !selectedKind()) refreshGuidance();
   }
 
@@ -268,6 +295,7 @@
 
   function wireCategory() {
     $('#category')?.addEventListener('change', togglePanel);
+    $('#category')?.addEventListener('input', togglePanel);
   }
 
   function wireLibrary() {
@@ -315,6 +343,7 @@
 
   function init() {
     buildPanel();
+    buildCategoryCue();
     wireCategory();
     wireLibrary();
     wireSaves();
