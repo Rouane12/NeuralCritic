@@ -187,6 +187,7 @@
       note.style.cssText = 'margin:8px 0 0;font-size:11px;line-height:1.4';
       form.insertAdjacentElement('afterend', note);
     }
+    note.dataset.error = error ? '1' : '0';
     note.textContent = message;
     note.style.color = error ? '#ff8fa5' : '#67edbd';
   }
@@ -202,6 +203,7 @@
     const email = input?.value?.trim();
     if (!email) return;
 
+    const source = form.dataset.newsletterSource || newsletterSource();
     const oldText = button?.textContent || 'JOIN FREE';
     if (button) { button.disabled = true; button.textContent = 'JOINING…'; }
     newsletterMessage(form, 'Adding you to the Weekly Drop…');
@@ -209,12 +211,13 @@
     try {
       const { error } = await withTimeout(client.rpc('subscribe_newsletter', {
         p_email: email,
-        p_source: form.dataset.newsletterSource || newsletterSource()
+        p_source: source
       }), 5000);
       if (error) throw error;
       if (input) { input.value = ''; input.disabled = true; }
       if (button) button.textContent = 'YOU’RE IN ✓';
-      newsletterMessage(form, 'Welcome to the Weekly Drop. One email, no noise.');
+      window.NeuralCriticAnalytics?.track?.('newsletter_signup', { signup_source: source });
+      newsletterMessage(form, 'Weekly Drop confirmed. One email, no noise.');
     } catch (error) {
       if (button) { button.disabled = false; button.textContent = oldText; }
       newsletterMessage(form, error?.message || 'Could not subscribe right now. Try again.', true);
