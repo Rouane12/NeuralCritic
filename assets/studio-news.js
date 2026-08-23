@@ -19,7 +19,9 @@
       copy: 'Credible reporting, rumors, leaks, or claims that still require explicit attribution and careful wording.'
     }
   };
+
   let pendingSave = null;
+  let currentUpdates = [];
 
   function status(message, error = false) {
     const el = $('[data-news-status]');
@@ -32,11 +34,25 @@
     return $('[name="news-kind"]:checked')?.value || '';
   }
 
-  function setKind(kind = '') {
+  function updateTime(value) {
+    try {
+      return new Intl.DateTimeFormat('en-GB', {
+        day: '2-digit', month: 'short', year: 'numeric', hour: '2-digit', minute: '2-digit'
+      }).format(new Date(value));
+    } catch (_) {
+      return String(value || '');
+    }
+  }
+
+  function setKind(kind = '', fromLoad = false) {
     document.querySelectorAll('[name="news-kind"]').forEach(input => {
       input.checked = input.value === kind;
       input.closest('.studio-news-kind')?.classList.toggle('active', input.checked);
     });
+    const developing = $('#news-developing');
+    if (developing && !fromLoad && !developing.dataset.touched && (kind === 'breaking' || kind === 'update')) {
+      developing.checked = true;
+    }
     refreshGuidance();
   }
 
@@ -50,6 +66,22 @@
     }
     const item = KINDS[kind];
     note.innerHTML = `<b>${item.eyebrow}</b><span>${item.copy}</span>${kind === 'report' ? '<em>Headline rule: use “reportedly”, “according to”, “alleged”, or another clear attribution when the claim is not confirmed.</em>' : ''}`;
+  }
+
+  function renderUpdates() {
+    const host = $('#news-update-list');
+    if (!host) return;
+    if (!currentUpdates.length) {
+      host.innerHTML = '<p>No timestamped updates yet. The story will publish normally until something changes.</p>';
+      return;
+    }
+    host.innerHTML = currentUpdates
+      .slice()
+      .sort((a, b) => new Date(b.at || 0) - new Date(a.at || 0))
+      .map((item, index) => `<div class="studio-news-update-item" data-update-id="${String(item.id || item.at || index).replace(/"/g, '&quot;')}">
+        <div><small>${updateTime(item.at)}</small><p>${String(item.note || '').replace(/[&<>]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;'}[c]))}</p></div>
+        <button type="button" data-remove-news-update="${String(item.id || item.at || index).replace(/"/g, '&quot;')}">REMOVE</button>
+      </div>`).join('');
   }
 
   function buildPanel() {
@@ -79,12 +111,48 @@
         <label>SOURCE URL · OPTIONAL<input id="news-source-url" type="url" placeholder="https://…"></label>
       </div>
       <div class="studio-news-guidance" aria-live="polite"></div>
+      <div class="studio-news-developing">
+        <label><input id="news-developing" type="checkbox"><span><b>DEVELOPING STORY</b><small>Keep this on while material facts may still change. Turn it off when the story is settled.</small></span></label>
+      </div>
+      <div class="studio-news-update-builder">
+        <div class="studio-news-update-head"><div><small>DEVELOPING COVERAGE</small><h3>Update log</h3></div><span>CANONICAL STORY HISTORY</span></div>
+        <label>LATEST UPDATE NOTE<textarea id="news-update-note" rows="3" placeholder="What changed? Keep this concise and factual."></textarea></label>
+        <div class="studio-news-update-actions"><p>Updates are timestamped when added and travel with this article.</p><button id="news-add-update" type="button">ADD TIMESTAMPED UPDATE +</button></div>
+        <div id="news-update-list" class="studio-news-update-list"></div>
+      </div>
       <div class="studio-news-foot"><span data-news-status>News metadata is saved with the article.</span></div>`;
 
     anchor.insertAdjacentElement('afterend', panel);
     panel.addEventListener('change', event => {
       if (event.target.matches('[name="news-kind"]')) setKind(event.target.value);
+      if (event.target.matches('#news-developing')) event.target.dataset.touched = '1';
     });
+
+    $('#news-add-update')?.addEventListener('click', () => {
+      const note = $('#news-update-note')?.value?.trim() || '';
+      if (!note) {
+        status('Write a concise update note before adding it to the timeline.', true);
+        return;
+      }
+      const at = new Date().toISOString();
+      currentUpdates.push({ id: `${Date.now()}-${Math.random().toString(16).slice(2, 8)}`, at, note });
+      $('#news-update-note').value = '';
+      const developing = $('#news-developing');
+      if (developing) developing.checked = true;
+      renderUpdates();
+      status('Timestamped update added. Save or publish the article to sync it.');
+    });
+
+    $('#news-update-list')?.addEventListener('click', event => {
+      const button = event.target.closest('[data-remove-news-update]');
+      if (!button) return;
+      const id = button.dataset.removeNewsUpdate;
+      currentUpdates = currentUpdates.filter((item, index) => String(item.id || item.at || index) !== id);
+      renderUpdates();
+      status('Update removed locally. Save the article to sync the change.');
+    });
+
+    renderUpdates();
   }
 
   function togglePanel() {
@@ -115,9 +183,15 @@
       const { data, error } = await client.from('articles').select('category,news_meta').eq('slug', slug).maybeSingle();
       if (error) throw error;
       const meta = data?.news_meta && typeof data.news_meta === 'object' ? data.news_meta : {};
-      setKind(meta.kind || '');
+      currentUpdates = Array.isArray(meta.updates) ? meta.updates.filter(item => item && item.note) : [];
+      setKind(meta.kind || '', true);
       if ($('#news-source-name')) $('#news-source-name').value = meta.sourceName || '';
       if ($('#news-source-url')) $('#news-source-url').value = meta.sourceUrl || '';
+      if ($('#news-developing')) {
+        $('#news-developing').checked = typeof meta.developing === 'boolean' ? meta.developing : (meta.kind === 'breaking' || meta.kind === 'update');
+        $('#news-developing').dataset.touched = '1';
+      }
+      renderUpdates();
       togglePanel();
       $('#category')?.dispatchEvent(new Event('change', { bubbles: true }));
       status(data?.category === 'NEWS' && meta.kind ? `${KINDS[meta.kind]?.label || 'News'} metadata loaded from Neural Critic.` : 'This story has no structured news metadata yet.');
@@ -138,7 +212,9 @@
         kind,
         verification: kind === 'report' ? 'reported' : 'confirmed',
         sourceName: $('#news-source-name')?.value?.trim() || '',
-        sourceUrl: $('#news-source-url')?.value?.trim() || ''
+        sourceUrl: $('#news-source-url')?.value?.trim() || '',
+        developing: Boolean($('#news-developing')?.checked),
+        updates: currentUpdates.map(item => ({ id: item.id || '', at: item.at || new Date().toISOString(), note: String(item.note || '').trim() })).filter(item => item.note)
       } : {}
     };
   }
@@ -177,6 +253,19 @@
     status('News metadata sync could not find the article row.', true);
   }
 
+  function resetNewsFields() {
+    currentUpdates = [];
+    setKind('', true);
+    if ($('#news-source-name')) $('#news-source-name').value = '';
+    if ($('#news-source-url')) $('#news-source-url').value = '';
+    if ($('#news-developing')) {
+      $('#news-developing').checked = false;
+      delete $('#news-developing').dataset.touched;
+    }
+    if ($('#news-update-note')) $('#news-update-note').value = '';
+    renderUpdates();
+  }
+
   function wireCategory() {
     $('#category')?.addEventListener('change', togglePanel);
   }
@@ -185,9 +274,7 @@
     $('#story-library')?.addEventListener('click', event => {
       const edit = event.target.closest('[data-edit]');
       if (!edit) return;
-      setKind('');
-      if ($('#news-source-name')) $('#news-source-name').value = '';
-      if ($('#news-source-url')) $('#news-source-url').value = '';
+      resetNewsFields();
       setTimeout(() => loadNewsMeta(edit.dataset.edit), 650);
     });
   }
