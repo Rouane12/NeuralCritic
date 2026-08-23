@@ -97,6 +97,16 @@ window.NEURAL_CRITIC_SUPABASE = {
     }
   };
 
+  const loadStudioNewsDuplicateGuard = () => {
+    if (pageName !== 'studio.html') return;
+    if (document.querySelector('script[data-nc-studio-news-duplicate-guard]')) return;
+    const script = document.createElement('script');
+    script.src = 'assets/studio-news-duplicate-guard.js?v=20260823-news1';
+    script.async = true;
+    script.dataset.ncStudioNewsDuplicateGuard = '1';
+    document.head.appendChild(script);
+  };
+
   const loadStudioGameGraph = () => {
     if (pageName !== 'studio.html') return;
     if (!document.querySelector('link[data-nc-studio-game-graph-style]')) {
@@ -238,6 +248,7 @@ window.NEURAL_CRITIC_SUPABASE = {
   loadHomepageCurationGuard();
   loadStudioConclusion();
   loadStudioNews();
+  loadStudioNewsDuplicateGuard();
   loadStudioGameGraph();
   loadArticleConclusion();
   loadArticleNews();
