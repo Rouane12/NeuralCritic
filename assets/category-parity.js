@@ -1,4 +1,9 @@
 (() => {
+  const params = new URLSearchParams(location.search);
+  // Modern publication taxonomy routes are owned by publication-nav.js.
+  // Do not let this legacy ?category= renderer race section/platform/collection views.
+  if (params.has('section') || params.has('platform') || params.has('collection')) return;
+
   const esc = (value='') => String(value).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
   const fmtDate = iso => {
     if (!iso) return '';
@@ -61,7 +66,7 @@
     if (!host) return;
     if (!current.length){
       host.className = 'category-empty';
-      host.innerHTML = `<b>0</b><h2>No stories here yet.</h2><p>This category is ready for the next story published from Neural Critic's Editorial Studio.</p><a href="search.html">BROWSE ALL PUBLISHED STORIES →</a>`;
+      host.innerHTML = `<b>0</b><h2>No stories here yet.</h2><p>This category is ready for the next published Neural Critic story.</p><a href="search.html">BROWSE ALL PUBLISHED STORIES →</a>`;
       return;
     }
     const top = current.slice(0,3);
@@ -109,7 +114,7 @@
   }
 
   async function init(){
-    const category = (new URLSearchParams(location.search).get('category') || 'latest').toLowerCase();
+    const category = (params.get('category') || 'latest').toLowerCase();
     const meta = config[category] || {title:category.charAt(0).toUpperCase()+category.slice(1),deck:`The latest Neural Critic stories tagged ${category}.`};
     document.title = `${meta.title} · Neural Critic`;
     document.getElementById('category-title').textContent = meta.title;
