@@ -43,6 +43,42 @@
   padding-left:0!important;
 }
 
+/* Desktop-only neon trace between reaction actions.
+   The line lives in the label column, so it reads as a deliberate segmented
+   circuit instead of a generic divider through the icon buttons. */
+@media(min-width:1260px){
+  #article.work-article-page .work-react-rail.standard-react-rail button:not(:last-of-type)::after{
+    content:"";
+    position:absolute;
+    right:26px;
+    bottom:-10px;
+    width:2px;
+    height:18px;
+    border-radius:999px;
+    background:linear-gradient(180deg,rgba(85,231,255,0),#55e7ff 26%,#7868ff 76%,rgba(120,104,255,0));
+    box-shadow:0 0 7px rgba(85,231,255,.30),0 0 13px rgba(120,104,255,.16);
+    opacity:.66;
+    pointer-events:none;
+    transition:opacity .18s ease,box-shadow .18s ease;
+  }
+
+  #article.work-article-page .work-react-rail.standard-react-rail button:nth-of-type(even):not(:last-of-type)::after{
+    background:linear-gradient(180deg,rgba(120,104,255,0),#7868ff 26%,#55e7ff 76%,rgba(85,231,255,0));
+  }
+
+  #article.work-article-page .work-react-rail.standard-react-rail button:hover::after,
+  #article.work-article-page .work-react-rail.standard-react-rail button.active::after,
+  #article.work-article-page .work-react-rail.standard-react-rail button.community-active::after{
+    opacity:1;
+    box-shadow:0 0 8px rgba(85,231,255,.42),0 0 16px rgba(120,104,255,.24);
+  }
+
+  html[data-theme="light"] #article.work-article-page .work-react-rail.standard-react-rail button:not(:last-of-type)::after{
+    opacity:.78;
+    box-shadow:0 0 6px rgba(85,231,255,.24),0 0 11px rgba(120,104,255,.14);
+  }
+}
+
 @media(max-width:1180px) and (min-width:901px){
   #article.work-article-page > .work-reading-grid{
     width:100%!important;
