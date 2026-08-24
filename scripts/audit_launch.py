@@ -130,6 +130,43 @@ def check_accessibility_and_performance() -> None:
                 base.error(f"{page} is missing launch-hardening asset: {asset}")
 
 
+def check_reading_map_ownership() -> None:
+    article = base.text("article.html")
+    runtime = base.text("assets/article-runtime-integrity.js")
+    legacy = base.text("assets/article-sidebar-interactive.js")
+
+    runtime_asset = "assets/article-runtime-integrity.js"
+    legacy_asset = "assets/article-sidebar-interactive.js"
+    runtime_index = article.find(runtime_asset)
+    legacy_index = article.find(legacy_asset)
+    if runtime_index < 0:
+        base.error("article.html is missing the authoritative Reading Map controller.")
+    if legacy_index < 0:
+        base.error("article.html is missing the Reading Map presentation layer.")
+    if runtime_index >= 0 and legacy_index >= 0 and runtime_index > legacy_index:
+        base.error("Reading Map controller must load before the legacy sidebar presentation layer.")
+
+    runtime_markers = (
+        "reading-map-v2",
+        "document.addEventListener('click', authoritativeClick, true)",
+        "history.replaceState",
+        "activeSectionForViewport",
+        "aria-current",
+    )
+    for marker in runtime_markers:
+        if marker not in runtime:
+            base.error(f"Authoritative Reading Map runtime missing ownership marker: {marker}")
+
+    legacy_markers = (
+        "hasAuthoritativeController",
+        "legacyNavigation='deferred'",
+        "NeuralCriticReadingMapController?.sync",
+    )
+    for marker in legacy_markers:
+        if marker not in legacy:
+            base.error(f"Legacy Reading Map layer no longer defers correctly: {marker}")
+
+
 def check_account_creation_hardening() -> None:
     guard = base.text("assets/signup-hardening.js")
     bootstrap = base.text("assets/analytics-config.js")
@@ -224,6 +261,7 @@ def main() -> int:
     check_local_references()
     check_private_surface_isolation()
     check_accessibility_and_performance()
+    check_reading_map_ownership()
     check_account_creation_hardening()
     check_monetization_locks()
     check_canonical_author_identity()
