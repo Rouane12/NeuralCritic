@@ -178,6 +178,16 @@
     document.head.appendChild(script);
   }
 
+  function loadRuntimeIntegrity(){
+    if(document.querySelector('script[data-nc-article-runtime-integrity]'))return;
+    const script=document.createElement('script');
+    script.src='assets/article-runtime-integrity.js?v=20260824-integrity1';
+    script.async=true;
+    script.dataset.ncArticleRuntimeIntegrity='1';
+    document.head.appendChild(script);
+  }
+
   loadAuthorSystem();
+  loadRuntimeIntegrity();
   init();
 })();
