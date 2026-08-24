@@ -10,11 +10,12 @@ import urllib.request
 from pathlib import Path
 from typing import Any
 
+from publication_config import SITE_URL
+
 ROOT = Path(__file__).resolve().parents[1]
 AUTHORS_INDEX = ROOT / "data" / "authors.json"
 CONFIG_PATH = ROOT / "assets" / "supabase-config.js"
 STORIES_DIR = ROOT / "stories"
-SITE_URL = "https://rouane12.github.io/NeuralCritic/"
 GENERATED_MARKER = "<!-- generated: neural-critic-story-shell -->"
 STRUCTURED_DATA_RE = re.compile(
     r'(<script\s+id="nc-structured-data"\s+type="application/ld\+json">)(.*?)(</script>)',
