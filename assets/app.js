@@ -25,7 +25,7 @@ function sharedHeader(){
   <header><div class="shell header"><button class="menu" aria-label="Menu">☰</button><a class="brand" href="index.html"><span>NEURAL</span><strong>CRITIC</strong><em>GAMING EDITORIAL</em></a><nav><a href="category.html?category=news">News</a><a href="category.html?category=features">Features</a><a href="category.html?category=guides">Guides</a><a href="category.html?category=reviews">Reviews</a><a href="category.html?category=pc">PC</a><a href="category.html?category=playstation">PlayStation</a><a href="category.html?category=xbox">Xbox</a><a href="category.html?category=nintendo">Nintendo</a></nav><div class="header-tools"><button class="theme-toggle" type="button"><span>☼</span><small>LIGHT</small></button><a class="search" href="search.html" aria-label="Search stories">⌕</a></div></div></header>`;
 }
 function sharedFooter(){
-  return `<footer><div class="shell footer"><div><a class="brand" href="index.html"><span>NEURAL</span><strong>CRITIC</strong><em>GAMING EDITORIAL</em></a><p>Independent gaming news, reviews, and guides for players who want the signal—not the noise.</p></div><div><b>EXPLORE</b><a href="category.html?category=news">News</a><a href="category.html?category=reviews">Reviews</a><a href="category.html?category=guides">Guides</a><a href="search.html">Search</a><a href="feed.xml">RSS</a></div><div><b>ABOUT</b><a href="about.html">Our mission</a><a href="standards.html">Editorial standards</a><a href="privacy.html">Privacy</a><a href="terms.html">Terms</a></div></div><div class="shell copyright">© 2026 Neural Critic <span>Built for players.</span></div></footer>`;
+  return `<footer><div class="shell footer"><div><a class="brand" href="index.html"><span>NEURAL</span><strong>CRITIC</strong><em>GAMING EDITORIAL</em></a><p>Independent gaming news, reviews, and guides for players who want the signal—not the noise.</p></div><div><b>EXPLORE</b><a href="category.html?category=news">News</a><a href="category.html?category=reviews">Reviews</a><a href="category.html?category=guides">Guides</a><a href="search.html">Search</a><a href="feed.xml">RSS</a></div><div><b>ABOUT</b><a href="about.html">Our mission</a><a href="standards.html">Editorial standards</a><a href="privacy.html">Privacy</a><a href="mailto:rouane.mounssif12@gmail.com">Contact</a></div></div><div class="shell copyright">© 2026 Neural Critic <span>Built for players.</span></div></footer>`;
 }
 
 function wireChrome(){
@@ -153,26 +153,39 @@ async function renderArticle(){
     const blocks=Array.isArray(a.contentBlocks)?a.contentBlocks:[];
     const review=a.articleFormat==='review'&&a.reviewMeta?`<section class="review-box"><div><div class="review-score">${escapeHtml(a.reviewMeta.score||'—')}</div><small>OUT OF 10</small></div><div><small class="article-kicker">NEURAL CRITIC VERDICT</small><h2>${escapeHtml(a.reviewMeta.verdict||'')}</h2><div class="proscons"><div><h3>WHAT WORKS</h3><ul>${(Array.isArray(a.reviewMeta.pros)?a.reviewMeta.pros:[]).map(x=>`<li>${escapeHtml(x)}</li>`).join('')}</ul></div><div><h3>WHAT DOESN’T</h3><ul>${(Array.isArray(a.reviewMeta.cons)?a.reviewMeta.cons:[]).map(x=>`<li>${escapeHtml(x)}</li>`).join('')}</ul></div></div></div></section>`:'';
     const bodyBlocks=blocks.map(b=>`<section><h2>${escapeHtml(b.heading||'')}</h2>${prose(b.text||'')}${b.imageLocal?`<figure><img class="article-hero" src="${b.imageLocal}" alt="${escapeHtml(b.imageAlt||'')}"><figcaption>${escapeHtml(b.caption||'')}</figcaption></figure>`:''}</section>`).join('');
-    el.innerHTML=`<small class="article-kicker">${escapeHtml(a.category)}${a.articleFormat==='review'?' · REVIEW':''}</small><h1>${escapeHtml(a.title)}</h1><p class="article-deck">${escapeHtml(a.description)}</p><div class="article-meta"><span>BY ${escapeHtml(a.author)}</span><span>${fmtDate(a.publishedAt)}</span></div>${a.imageLocal?`<figure><img class="article-hero" src="${a.imageLocal}" alt="${escapeHtml(a.imageAlt||'')}"><figcaption>${escapeHtml(a.imageCredit||'')}</figcaption></figure>`:''}<div class="article-layout"><aside><div class="toc"><b>IN THIS ARTICLE</b><a href="#story">Story</a>${review?'<a href="#verdict">Verdict</a>':''}</div></aside><article class="article-body" id="story">${prose(a.body||'')}${bodyBlocks}${review?`<div id="verdict">${review}</div>`:''}${a.conclusion?`<section><h2>${escapeHtml(a.conclusionHeading||'Final thoughts')}</h2>${prose(a.conclusion)}</section>`:''}<div class="tags">${tags.map(t=>`<a href="category.html?tag=${encodeURIComponent(t)}">${escapeHtml(t)}</a>`).join('')}</div></article></div>`;
+    el.innerHTML=`<small class="article-kicker">${escapeHtml(a.category)}${a.articleFormat==='review'?' · REVIEW':''}</small><h1>${escapeHtml(a.title)}</h1><p class="article-deck">${escapeHtml(a.description)}</p><div class="article-meta">BY ${escapeHtml(a.author)} · ${fmtDate(a.publishedAt)} · ${tags.map(escapeHtml).join(' · ')}</div>${imageOf(a)?`<img class="article-hero" src="${imageOf(a)}" alt="${escapeHtml(a.imageAlt)}">`:'<div class="placeholder-art">NEURAL CRITIC</div>'}<div class="article-body">${prose(a.body||'')}${review}${bodyBlocks}</div>`;
   }catch(error){
-    console.error('Neural Critic article render failed.',error);
-    articleFailure(el);
+    console.error('Neural Critic article rendering failed.',error);
+    articleFailure(el,'This story hit a rendering error.');
   }
 }
-
-async function boot(){
-  const header=document.getElementById('shared-header'),footer=document.getElementById('shared-footer'); if(header) header.innerHTML=sharedHeader(); if(footer) footer.innerHTML=sharedFooter(); wireChrome();
-  try{
-    const response=await fetch(DATA_URL,{cache:'no-store'});
-    if(response.ok) ARTICLES=await response.json();
-  }catch(e){console.warn('Static article feed unavailable.',e)}
-  try{
-    if(window.NeuralCriticContent?.listPublished) {
-      const live=await window.NeuralCriticContent.listPublished();
-      if(Array.isArray(live)&&live.length) ARTICLES=live;
-    }
-  }catch(e){console.warn('Live content API unavailable.',e)}
-  renderHome(); renderArticle();
+function renderCategory(){
+  const grid=document.getElementById('category-grid'); if(!grid) return;
+  const cat=(new URLSearchParams(location.search).get('category')||'latest').toLowerCase();
+  const title=document.getElementById('category-title'); if(title) title.textContent=cat==='latest'?'Latest stories':cat.charAt(0).toUpperCase()+cat.slice(1);
+  const list=ARTICLES.filter(a=>matchCategory(a,cat));
+  grid.innerHTML=list.map(a=>`<a class="category-card" href="${articleHref(a)}">${imageOf(a)?`<img src="${imageOf(a)}" alt="${escapeHtml(a.imageAlt||a.title)}">`:'<div class="placeholder-art">NC</div>'}<div><label>${escapeHtml(a.category)}</label><h2>${escapeHtml(a.title)}</h2><p>${escapeHtml(a.description)}</p><small>${fmtDate(a.publishedAt)}</small></div></a>`).join('')||'<p class="notice">No published stories in this category yet.</p>';
 }
-
-document.addEventListener('DOMContentLoaded',boot);
+function renderSearchPage(){
+  const input=document.getElementById('search-page-input'), results=document.getElementById('search-page-results'); if(!input) return;
+  const q=new URLSearchParams(location.search).get('q')||''; input.value=q; renderSearchResults(q,results); input.addEventListener('input',()=>renderSearchResults(input.value,results));
+}
+async function init(){
+  document.getElementById('shared-header')?.insertAdjacentHTML('beforeend',sharedHeader());
+  document.getElementById('shared-footer')?.insertAdjacentHTML('beforeend',sharedFooter());
+  wireChrome();
+  try{
+    const response=await fetch(DATA_URL);
+    if(!response.ok) throw new Error(`article index returned ${response.status}`);
+    const data=await response.json();
+    ARTICLES=Array.isArray(data)?data:[];
+  }catch(e){
+    console.warn('Neural Critic article index unavailable; direct story rendering will continue.',e);
+    ARTICLES=[];
+  }
+  renderHome();
+  await renderArticle();
+  renderCategory();
+  renderSearchPage();
+}
+init().catch(error=>console.error('Neural Critic initialization failed.',error));
