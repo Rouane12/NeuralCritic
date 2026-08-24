@@ -16,7 +16,7 @@ window.NEURAL_CRITIC_SUPABASE = {
     if (document.querySelector('link[data-nc-public-scale]')) return;
     const style = document.createElement('link');
     style.rel = 'stylesheet';
-    style.href = 'assets/public-scale.css?v=20260823-scale1';
+    style.href = 'assets/public-scale.css?v=20260824-scale2';
     style.dataset.ncPublicScale = '1';
     document.head.appendChild(style);
   };
