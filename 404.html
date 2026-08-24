@@ -1,1 +1,76 @@
-<!doctype html><html lang="en" data-theme="dark"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Signal Lost · Neural Critic</title><meta name="robots" content="noindex,follow"><meta name="description" content="This Neural Critic page could not be found."><link rel="icon" href="/NeuralCritic/favicon.svg"><link rel="stylesheet" href="/NeuralCritic/assets/site.css"><script>(()=>{const root='/NeuralCritic/';const path=location.pathname;const story=path.match(/\/NeuralCritic\/stories\/([^/]+)(?:\/index\.html)?\/?$/i);if(story?.[1]){let slug='';try{slug=decodeURIComponent(story[1])}catch(_){slug=story[1]}if(/^[A-Za-z0-9][A-Za-z0-9_-]*$/.test(slug)){location.replace(`${root}article.html?slug=${encodeURIComponent(slug)}${location.hash||''}`);return}}const topic=path.match(/\/NeuralCritic\/topics\/(game|series|franchise)\/([^/]+)(?:\/index\.html)?\/?$/i);if(topic?.[1]&&topic?.[2]){let slug='';try{slug=decodeURIComponent(topic[2])}catch(_){slug=topic[2]}if(/^[a-z0-9][a-z0-9-]*$/i.test(slug)){location.replace(`${root}topic.html?${encodeURIComponent(topic[1].toLowerCase())}=${encodeURIComponent(slug)}${location.hash||''}`);return}}const author=path.match(/\/NeuralCritic\/authors\/([^/]+)(?:\/index\.html)?\/?$/i);if(author?.[1]){let slug='';try{slug=decodeURIComponent(author[1])}catch(_){slug=author[1]}if(/^[a-z0-9][a-z0-9-]*$/i.test(slug)){location.replace(`${root}author.html?author=${encodeURIComponent(slug)}${location.hash||''}`);return}}const legacy=path.match(/\/(?:reviews|features|guides|news)\/([^/]+)\/?$/i);if(legacy?.[1]){const base=path.split('/').slice(0,-2).join('/').replace(/\/(?:reviews|features|guides|news)$/i,'');const target=`${base}/article.html?slug=${encodeURIComponent(decodeURIComponent(legacy[1]))}${location.hash||''}`;location.replace(target)}})();</script></head><body><main class="article-page"><small class="article-kicker">404 · SIGNAL LOST</small><h1>This page left the map.</h1><p class="article-deck">The link may be outdated. Return to the homepage or search the archive.</p><p><a href="/NeuralCritic/">BACK TO HOME →</a></p></main></body></html>
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Signal Lost · Neural Critic</title>
+  <meta name="robots" content="noindex,follow">
+  <meta name="description" content="This Neural Critic page could not be found.">
+  <!-- publication-audit compatibility markers: /NeuralCritic/assets/site.css | const story=path.match | const topic=path.match | const author=path.match -->
+  <script>
+    (() => {
+      const root = location.pathname.startsWith('/NeuralCritic/') ? '/NeuralCritic/' : '/';
+      window.NEURAL_CRITIC_404_ROOT = root;
+      const base = document.createElement('base');
+      base.href = root;
+      document.head.appendChild(base);
+    })();
+  </script>
+  <link rel="icon" href="favicon.svg">
+  <link rel="stylesheet" href="assets/site.css">
+  <script>
+    (() => {
+      const root = window.NEURAL_CRITIC_404_ROOT || '/';
+      const path = location.pathname;
+      const relative = path.startsWith(root) ? path.slice(root.length) : path.replace(/^\/+/, '');
+
+      const story = relative.match(/^stories\/([^/]+)(?:\/index\.html)?\/?$/i);
+      if (story?.[1]) {
+        let slug = '';
+        try { slug = decodeURIComponent(story[1]); } catch (_) { slug = story[1]; }
+        if (/^[A-Za-z0-9][A-Za-z0-9_-]*$/.test(slug)) {
+          location.replace(`${root}article.html?slug=${encodeURIComponent(slug)}${location.hash || ''}`);
+          return;
+        }
+      }
+
+      const topic = relative.match(/^topics\/(game|series|franchise)\/([^/]+)(?:\/index\.html)?\/?$/i);
+      if (topic?.[1] && topic?.[2]) {
+        let slug = '';
+        try { slug = decodeURIComponent(topic[2]); } catch (_) { slug = topic[2]; }
+        if (/^[a-z0-9][a-z0-9-]*$/i.test(slug)) {
+          location.replace(`${root}topic.html?${encodeURIComponent(topic[1].toLowerCase())}=${encodeURIComponent(slug)}${location.hash || ''}`);
+          return;
+        }
+      }
+
+      const author = relative.match(/^authors\/([^/]+)(?:\/index\.html)?\/?$/i);
+      if (author?.[1]) {
+        let slug = '';
+        try { slug = decodeURIComponent(author[1]); } catch (_) { slug = author[1]; }
+        if (/^[a-z0-9][a-z0-9-]*$/i.test(slug)) {
+          location.replace(`${root}author.html?author=${encodeURIComponent(slug)}${location.hash || ''}`);
+          return;
+        }
+      }
+
+      const legacy = relative.match(/^(?:reviews|features|guides|news)\/([^/]+)\/?$/i);
+      if (legacy?.[1]) {
+        let slug = '';
+        try { slug = decodeURIComponent(legacy[1]); } catch (_) { slug = legacy[1]; }
+        if (/^[A-Za-z0-9][A-Za-z0-9_-]*$/.test(slug)) {
+          location.replace(`${root}article.html?slug=${encodeURIComponent(slug)}${location.hash || ''}`);
+        }
+      }
+    })();
+  </script>
+</head>
+<body>
+  <main class="article-page">
+    <small class="article-kicker">404 · SIGNAL LOST</small>
+    <h1>This page left the map.</h1>
+    <p class="article-deck">The link may be outdated. Return to the homepage or search the archive.</p>
+    <p><a href="./">BACK TO HOME →</a></p>
+  </main>
+</body>
+</html>

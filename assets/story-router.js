@@ -1,7 +1,7 @@
 (() => {
   'use strict';
 
-  const SITE_ROOT = new URL('/NeuralCritic/', location.origin);
+  const SITE_ROOT = new URL('./', document.baseURI);
   const STATIC_SLUG = String(window.NEURAL_CRITIC_STATIC_SLUG || '').trim();
   const TOPIC_TYPES = new Set(['game','series','franchise']);
 
@@ -136,8 +136,6 @@
       const next = `${location.pathname}${location.search}#${encodeURIComponent(id)}`;
       history.pushState(null, '', next);
 
-      // Reuse the dedicated article deep-link system so section jumps and
-      // late-layout re-alignment behave consistently across the site.
       try {
         window.dispatchEvent(new HashChangeEvent('hashchange', {
           oldURL,

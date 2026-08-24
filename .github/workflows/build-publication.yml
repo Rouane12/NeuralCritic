@@ -8,6 +8,8 @@ on:
       - topic.html
       - author.html
       - data/**
+      - scripts/publication_config.py
+      - scripts/build_robots.py
       - scripts/build_sitemap.py
       - scripts/build_story_pages.py
       - scripts/build_topic_pages.py
@@ -41,6 +43,9 @@ jobs:
         with:
           python-version: '3.12'
 
+      - name: Refresh robots from configured publication origin
+        run: python scripts/build_robots.py
+
       - name: Refresh sitemap and RSS from published CMS stories
         run: python scripts/build_sitemap.py
 
@@ -58,13 +63,13 @@ jobs:
 
       - name: Commit publication files only when changed
         run: |
-          if git diff --quiet -- sitemap.xml feed.xml stories topics authors; then
-            echo "Publication discovery files, story shells, topic hubs, and writer hubs are already current."
+          if git diff --quiet -- robots.txt sitemap.xml feed.xml stories topics authors; then
+            echo "Publication discovery files, story shells, topic hubs, writer hubs, and robots are already current."
             exit 0
           fi
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add sitemap.xml feed.xml stories topics authors
+          git add robots.txt sitemap.xml feed.xml stories topics authors
           git commit -m "Refresh Neural Critic canonical publication pages"
           git pull --rebase origin main
           git push
