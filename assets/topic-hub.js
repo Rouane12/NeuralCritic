@@ -1,7 +1,7 @@
 (() => {
   'use strict';
 
-  const SITE_ROOT = new URL('/NeuralCritic/', location.origin);
+  const SITE_ROOT = new URL(location.hostname === 'rouane12.github.io' ? '/NeuralCritic/' : '/', location.origin);
   const staticTopic = window.NEURAL_CRITIC_STATIC_TOPIC || null;
   const params = new URLSearchParams(location.search);
   const allowedTypes = ['game','series','franchise'];
@@ -9,7 +9,7 @@
   const requestedSlug = staticTopic?.slug || (requestedType ? params.get(requestedType) : '') || '';
 
   const $ = (selector, root = document) => root.querySelector(selector);
-  const esc = (value = '') => String(value).replace(/[&<>"']/g, char => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[char]));
+  const esc = (value = '') => String(value).replace(/[&<>"']/g, char => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot',"'":'&#39;'}[char]));
 
   function slugify(value = '') {
     return String(value).trim().toLowerCase().normalize('NFKD').replace(/[\u0300-\u036f]/g, '')
