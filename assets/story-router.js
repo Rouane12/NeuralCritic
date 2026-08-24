@@ -117,10 +117,21 @@
     setTimeout(() => observer.disconnect(), 20000);
   }
 
+  function articleRuntimeOwnsReadingMap(link) {
+    const nav = link?.closest?.('.work-toc nav');
+    if (nav?.dataset.runtimeNavigation === 'ready') return true;
+    if (window.NeuralCriticArticleRuntime) return true;
+    return Boolean(document.querySelector('script[src*="article-runtime-integrity.js"]'));
+  }
+
   function bindReadingMap() {
     document.addEventListener('click', event => {
       const link = event.target.closest?.('.work-toc a[href^="#"]');
       if (!link) return;
+
+      // The article runtime owns Reading Map interaction whenever it is present.
+      // Keep this router handler only as a compatibility fallback for legacy pages.
+      if (articleRuntimeOwnsReadingMap(link)) return;
 
       const rawHash = link.getAttribute('href') || '';
       let id = '';

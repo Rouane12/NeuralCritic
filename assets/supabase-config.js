@@ -35,7 +35,7 @@ window.NEURAL_CRITIC_SUPABASE = {
     if (pageName === 'studio.html' || pageName === 'subscribers.html') return;
     if (document.querySelector('script[data-nc-story-router]')) return;
     const router = document.createElement('script');
-    router.src = 'assets/story-router.js?v=20260823-story6';
+    router.src = 'assets/story-router.js?v=20260824-story7';
     router.async = true;
     router.dataset.ncStoryRouter = '1';
     document.head.appendChild(router);
