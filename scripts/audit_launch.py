@@ -15,6 +15,7 @@ from pathlib import Path
 from urllib.parse import urlparse
 
 import audit_publication as base
+from publication_config import BASE_PATH, public_path
 
 ROOT = Path(__file__).resolve().parents[1]
 
@@ -53,12 +54,15 @@ def local_target(page: Path, raw_ref: str) -> Path | None:
     path = parsed.path
     if not path:
         return None
-    if path.startswith("/NeuralCritic/"):
-        target = ROOT / path.removeprefix("/NeuralCritic/")
-    elif path.startswith("/"):
-        return None
+
+    if path.startswith("/"):
+        if BASE_PATH != "/" and not path.startswith(BASE_PATH):
+            return None
+        relative = path[len(BASE_PATH):] if BASE_PATH != "/" else path.lstrip("/")
+        target = ROOT / relative
     else:
         target = page.parent / path
+
     if path.endswith("/"):
         target = target / "index.html"
     return target
@@ -91,7 +95,7 @@ def check_private_surface_isolation() -> None:
         html = base.text(page)
         if "noindex" not in html or "nofollow" not in html:
             base.error(f"{page}: private surface must stay noindex,nofollow.")
-        directive = f"Disallow: /NeuralCritic/{page}"
+        directive = f"Disallow: {public_path(page)}"
         if directive not in robots:
             base.error(f"robots.txt missing private-surface directive: {directive}")
 
@@ -169,6 +173,7 @@ def check_canonical_author_identity() -> None:
         base.error("Launch gate: generated stories directory is missing.")
         return
     checked = 0
+    author_prefix = public_path("authors/")
     for page in stories.glob("*/index.html"):
         html = page.read_text(encoding="utf-8", errors="replace")
         match = STRUCTURED_DATA_RE.search(html)
@@ -183,7 +188,8 @@ def check_canonical_author_identity() -> None:
         if isinstance(author, dict) and author.get("@type") == "Person":
             checked += 1
             url = str(author.get("url") or "")
-            if "/NeuralCritic/authors/" not in url:
+            path = urlparse(url).path
+            if not path.startswith(author_prefix):
                 base.error(f"{page.relative_to(ROOT)}: Person author is missing canonical writer URL.")
     if checked == 0:
         base.error("Launch gate could not verify any canonical Person author links.")
@@ -194,6 +200,8 @@ def check_release_workflow_coverage() -> None:
     direct_paths = (
         "newsroom.html",
         "scripts/enrich_story_metadata.py",
+        "scripts/build_robots.py",
+        "scripts/publication_config.py",
         "scripts/audit_launch.py",
         "supabase/migrations/**",
     )
