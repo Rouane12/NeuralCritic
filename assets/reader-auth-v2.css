@@ -23,7 +23,8 @@
   position:relative!important;
   width:min(438px,100%)!important;
   max-height:min(760px,calc(100vh - 40px))!important;
-  overflow:auto!important;
+  overflow-x:hidden!important;
+  overflow-y:auto!important;
   padding:30px!important;
   border:1px solid var(--nc-auth-border)!important;
   border-radius:22px!important;
@@ -336,7 +337,7 @@ html[data-theme="light"] .reader-auth-field input,html[data-theme="light"] .read
 html[data-theme="light"] .reader-auth-field input::placeholder,html[data-theme="light"] .reader-auth-form input::placeholder{color:#a0aab7!important}
 html[data-theme="light"] .reader-auth-field input:focus,html[data-theme="light"] .reader-auth-form input:focus{background:#fff!important;border-color:#60c9da!important;box-shadow:0 0 0 3px rgba(72,199,220,.09)!important}
 html[data-theme="light"] .reader-auth-password-toggle{background:#f0f4f7;color:#718095}
-html[data-theme="light"] .reader-auth-forgot{color:#168ca1}
+html[data-theme="light"] .reader-auth-forgot{color:#0b6072}
 html[data-theme="light"] .reader-auth-status,html[data-theme="light"] .reader-auth-subview-status{color:#748196!important}
 html[data-theme="light"] .reader-auth-security-note{color:#8995a5}html[data-theme="light"] .reader-auth-security-note b{color:#5b6879}
 
