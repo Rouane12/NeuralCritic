@@ -1,9 +1,22 @@
 (() => {
   const esc = (value='') => String(value).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 
+  function currentSlug() {
+    const staticSlug = String(window.NEURAL_CRITIC_STATIC_SLUG || '').trim();
+    if (staticSlug) return staticSlug;
+    return new URLSearchParams(location.search).get('slug') || '';
+  }
+
   async function loadArticle() {
-    const slug = new URLSearchParams(location.search).get('slug');
+    const slug = currentSlug();
     if (!slug) return null;
+    try {
+      const api = window.NeuralCriticContentAPI;
+      if (api?.publishedArticle) {
+        const article = await api.publishedArticle(slug);
+        if (article) return article;
+      }
+    } catch (_) {}
     try {
       const response = await fetch(`data/articles/${encodeURIComponent(slug)}.json`);
       if (!response.ok) return null;
