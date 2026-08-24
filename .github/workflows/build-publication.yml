@@ -32,6 +32,8 @@ jobs:
   refresh:
     runs-on: ubuntu-latest
     timeout-minutes: 5
+    env:
+      NEURAL_CRITIC_SITE_URL: https://www.neuralcritic.net/
     steps:
       - name: Check out repository
         uses: actions/checkout@v4
