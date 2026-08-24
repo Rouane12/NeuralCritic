@@ -1,9 +1,12 @@
 /* Neural Critic — Discovery Engine + Homepage Intelligence V1 */
 
 /* Homepage programming signals */
-#hero .lead[data-home-program="BREAKING"] .leadcopy label,
-#hero .lead[data-home-program="DEVELOPING UPDATE"] .leadcopy label{
+#hero .lead[data-home-program="BREAKING"] .leadcopy label{
   color:#ff7f9c!important;
+}
+#hero .lead[data-home-program="DEVELOPING UPDATE"] .leadcopy label{
+  color:#aa8cff!important;
+  text-shadow:0 0 16px rgba(170,140,255,.24);
 }
 #hero .lead[data-home-program="BREAKING"] .leadcopy label::before,
 #hero .lead[data-home-program="DEVELOPING UPDATE"] .leadcopy label::before{
