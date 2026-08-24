@@ -18,7 +18,7 @@
     "homepageSlot": "lead",
     "publishedAt": "2026-08-18T17:00:51.777Z",
     "reviewMeta": {},
-    "imageLocal": "https://neuralhustle-gaming.patrock12.chatgpt.site/media/editorial/a4f07700-afe9-4bbb-90a8-9f4205aafed7.jpg"
+    "imageLocal": "images/editorial/a4f07700-afe9-4bbb-90a8-9f4205aafed7.jpg"
   },
   {
     "id": 5,
@@ -43,7 +43,7 @@
     "homepageSlot": "secondary_2",
     "publishedAt": "2026-08-18T18:30:07.436Z",
     "reviewMeta": {},
-    "imageLocal": "https://neuralhustle-gaming.patrock12.chatgpt.site/media/editorial/b24d4702-c29b-4f47-9478-9dd01ad21933.jpg"
+    "imageLocal": "images/editorial/b24d4702-c29b-4f47-9478-9dd01ad21933.jpg"
   },
   {
     "id": 10,
@@ -85,7 +85,7 @@
       "releaseDate": "February 25, 2022",
       "reviewCopy": "Reviewed on PC using a personally purchased copy of the game."
     },
-    "imageLocal": "https://neuralhustle-gaming.patrock12.chatgpt.site/media/editorial/a4f07700-afe9-4bbb-90a8-9f4205aafed7.jpg"
+    "imageLocal": "images/editorial/a4f07700-afe9-4bbb-90a8-9f4205aafed7.jpg"
   },
   {
     "id": 9,
@@ -109,7 +109,7 @@
     "homepageSlot": "regular",
     "publishedAt": "2026-08-19T04:39:29.442Z",
     "reviewMeta": {},
-    "imageLocal": "https://neuralhustle-gaming.patrock12.chatgpt.site/media/editorial/1ae84c6a-463d-41c6-9448-daac21baaad0.jpg"
+    "imageLocal": "images/editorial/1ae84c6a-463d-41c6-9448-daac21baaad0.jpg"
   },
   {
     "id": 2,
@@ -129,6 +129,6 @@
     "homepageSlot": "regular",
     "publishedAt": "2026-08-18T05:52:37.311Z",
     "reviewMeta": {},
-    "imageLocal": "https://neuralhustle-gaming.patrock12.chatgpt.site/media/editorial/9b833d08-7b0f-4be9-aa14-693dcb3714fb.jpg"
+    "imageLocal": "images/editorial/9b833d08-7b0f-4be9-aa14-693dcb3714fb.jpg"
   }
 ]

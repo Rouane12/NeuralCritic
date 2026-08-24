@@ -36,7 +36,7 @@
       "genre": "Open-world action RPG",
       "imageAlt": "A Tarnished overlooking the vast landscape of the Lands Between.",
       "caption": "Elden Ring lets players leave a difficult encounter and return with a stronger build.",
-      "imageLocal": "https://neuralhustle-gaming.patrock12.chatgpt.site/media/editorial/46e8793c-d889-46dc-9e01-336c5fc66ff2.jpg"
+      "imageLocal": "images/editorial/46e8793c-d889-46dc-9e01-336c5fc66ff2.jpg"
     },
     {
       "heading": "Demon's Souls",
@@ -49,7 +49,7 @@
       "genre": "Action RPG",
       "imageAlt": "A lone warrior exploring the ruined kingdom of Boletaria.",
       "caption": "Demon’s Souls often places its harshest challenge between the player and the boss arena.",
-      "imageLocal": "https://neuralhustle-gaming.patrock12.chatgpt.site/media/editorial/e0f80e4d-903c-42a7-be63-1672d1c547ce.jpg"
+      "imageLocal": "images/editorial/e0f80e4d-903c-42a7-be63-1672d1c547ce.jpg"
     },
     {
       "heading": "Dark Souls Remastered",
@@ -62,7 +62,7 @@
       "genre": "Action RPG",
       "imageAlt": "The Chosen Undead crossing one of Lordran’s interconnected environments.",
       "caption": "Dark Souls is demanding at first, but knowledge steadily turns Lordran into familiar territory.",
-      "imageLocal": "https://neuralhustle-gaming.patrock12.chatgpt.site/media/editorial/b6a0104f-2592-48b5-9746-da1666f14d36.jpg"
+      "imageLocal": "images/editorial/b6a0104f-2592-48b5-9746-da1666f14d36.jpg"
     },
     {
       "heading": "Dark Souls II: Scholar of the First Sin",
@@ -75,7 +75,7 @@
       "genre": "Action RPG",
       "imageAlt": "The Bearer of the Curse facing multiple threats in the kingdom of Drangleic.",
       "caption": "Dark Souls II frequently increases difficulty through enemy placement and sustained pressure.",
-      "imageLocal": "https://neuralhustle-gaming.patrock12.chatgpt.site/media/editorial/a83db5ac-2a12-49cd-bd31-519985cb4c6c.webp"
+      "imageLocal": "images/editorial/a83db5ac-2a12-49cd-bd31-519985cb4c6c.webp"
     },
     {
       "heading": "Dark Souls III",
@@ -88,7 +88,7 @@
       "genre": "Action RPG",
       "imageAlt": "The Ashen One confronting one of Lothric’s towering enemies.",
       "caption": "Dark Souls III combines clear controls with some of the trilogy’s fastest and most complex bosses.",
-      "imageLocal": "https://neuralhustle-gaming.patrock12.chatgpt.site/media/editorial/ba384a93-5548-4483-ad4f-4418a40f57b6.jpg"
+      "imageLocal": "images/editorial/ba384a93-5548-4483-ad4f-4418a40f57b6.jpg"
     },
     {
       "heading": "Bloodborne",
@@ -101,7 +101,7 @@
       "genre": "Action RPG",
       "imageAlt": "A Hunter moving through the gothic streets of Yharnam.",
       "caption": "Bloodborne turns forward pressure and quick reactions into essential defensive tools.",
-      "imageLocal": "https://neuralhustle-gaming.patrock12.chatgpt.site/media/editorial/78dfb430-e828-4dc9-ae88-d95053b37bae.jpg"
+      "imageLocal": "images/editorial/78dfb430-e828-4dc9-ae88-d95053b37bae.jpg"
     },
     {
       "heading": "Sekiro: Shadows Die Twice",
@@ -114,11 +114,11 @@
       "genre": "Action-adventure",
       "imageAlt": "The shinobi Wolf in a fierce sword duel.",
       "caption": "Sekiro’s hardest encounters demand mastery of deflection, posture, and attack recognition.",
-      "imageLocal": "https://neuralhustle-gaming.patrock12.chatgpt.site/media/editorial/c669add4-5a61-4731-af02-8c37473db18e.jpg"
+      "imageLocal": "images/editorial/c669add4-5a61-4731-af02-8c37473db18e.jpg"
     }
   ],
   "featured": false,
   "homepageSlot": "regular",
   "publishedAt": "2026-08-19T04:39:29.442Z",
-  "imageLocal": "https://neuralhustle-gaming.patrock12.chatgpt.site/media/editorial/1ae84c6a-463d-41c6-9448-daac21baaad0.jpg"
+  "imageLocal": "images/editorial/1ae84c6a-463d-41c6-9448-daac21baaad0.jpg"
 }

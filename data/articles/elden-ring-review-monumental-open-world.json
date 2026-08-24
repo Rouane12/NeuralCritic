@@ -42,21 +42,21 @@
       "text": "Elden Ring understands that an open world becomes exciting when players can make meaningful decisions about where to go. The map presents striking landmarks without immediately explaining them, encouraging players to choose their own objectives and investigate at their own pace.\n\nExploration frequently produces something valuable: a new weapon, spell, character, dungeon, shortcut, or piece of environmental storytelling. Even when a discovery is not useful for a particular build, the journey often delivers a memorable encounter or a better understanding of the world.",
       "imageAlt": "A Tarnished rests near the outskirts of Leyndell in Elden Ring.",
       "caption": "Leyndell is one of many distant landmarks that gradually becomes a destination.",
-      "imageLocal": "https://neuralhustle-gaming.patrock12.chatgpt.site/media/editorial/8bbbacf0-38bb-47d6-af78-dc1783f53158.jpg"
+      "imageLocal": "images/editorial/8bbbacf0-38bb-47d6-af78-dc1783f53158.jpg"
     },
     {
       "heading": "Combat Supports Remarkably Different Playstyles",
       "text": "The combat remains deliberate and demanding, but Elden Ring offers more ways to approach difficulty than any previous FromSoftware action RPG. Heavy weapons, fast blades, shields, bows, sorceries, incantations, spirit summons, and weapon skills can reshape the rhythm of an encounter.\n\nThis flexibility makes experimentation part of the adventure. A difficult enemy may become manageable after changing equipment, exploring elsewhere, upgrading a summon, or discovering an ability that complements the player's strengths.",
       "imageAlt": "A Tarnished summons a lightning incantation during combat in Elden Ring.",
       "caption": "Incantations and weapon skills give players many ways to control a battle.",
-      "imageLocal": "https://neuralhustle-gaming.patrock12.chatgpt.site/media/editorial/4425dbf2-1b6c-4c74-a584-70a89dab4a5a.avif"
+      "imageLocal": "images/editorial/4425dbf2-1b6c-4c74-a584-70a89dab4a5a.avif"
     },
     {
       "heading": "Its Best Battles Turn Challenge Into Spectacle",
       "text": "Elden Ring's strongest major encounters combine mechanical pressure with unforgettable presentation. Learning attack patterns, choosing safe moments to respond, and adapting a build creates a satisfying progression from uncertainty to control.\n\nThe quality is not perfectly even. Some repeated enemies and late-game difficulty spikes can weaken the sense of discovery, but the finest battles remain among FromSoftware's most ambitious achievements.",
       "imageAlt": "A Tarnished uses a fire incantation during an Elden Ring battle.",
       "caption": "Difficult encounters reward preparation, observation, and experimentation.",
-      "imageLocal": "https://neuralhustle-gaming.patrock12.chatgpt.site/media/editorial/46e1948b-9294-4103-9ad0-5230470fd830.webp"
+      "imageLocal": "images/editorial/46e1948b-9294-4103-9ad0-5230470fd830.webp"
     },
     {
       "heading": "Mystery Is Both a Strength and a Frustration",
@@ -67,5 +67,5 @@
   "featured": false,
   "homepageSlot": "regular",
   "publishedAt": "2026-08-19T19:11:25.058Z",
-  "imageLocal": "https://neuralhustle-gaming.patrock12.chatgpt.site/media/editorial/a4f07700-afe9-4bbb-90a8-9f4205aafed7.jpg"
+  "imageLocal": "images/editorial/a4f07700-afe9-4bbb-90a8-9f4205aafed7.jpg"
 }
