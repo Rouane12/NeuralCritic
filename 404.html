@@ -9,6 +9,12 @@
   <!-- publication-audit compatibility markers: /NeuralCritic/assets/site.css | const story=path.match | const topic=path.match | const author=path.match -->
   <script>
     (() => {
+      const isProductionHost = location.hostname === 'www.neuralcritic.net' || location.hostname === 'neuralcritic.net';
+      if (isProductionHost && location.pathname.startsWith('/NeuralCritic/')) {
+        const repairedPath = location.pathname.replace(/^\/NeuralCritic\//, '/');
+        location.replace(`${repairedPath}${location.search || ''}${location.hash || ''}`);
+        return;
+      }
       const root = location.pathname.startsWith('/NeuralCritic/') ? '/NeuralCritic/' : '/';
       window.NEURAL_CRITIC_404_ROOT = root;
       const base = document.createElement('base');

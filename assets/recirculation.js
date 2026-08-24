@@ -1,7 +1,7 @@
 (() => {
   'use strict';
 
-  const SITE_ROOT = new URL('/NeuralCritic/', location.origin);
+  const SITE_ROOT = new URL(location.hostname === 'rouane12.github.io' ? '/NeuralCritic/' : '/', location.origin);
   const GENERIC_TAGS = new Set([
     'review','reviews','feature','features','news','guide','guides','pc','playstation','xbox','nintendo','mobile',
     'action rpg','action-rpg','rpg','open world','open-world','gaming','game','games'
