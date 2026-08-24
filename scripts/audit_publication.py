@@ -13,13 +13,16 @@ import re
 import sys
 import xml.etree.ElementTree as ET
 from pathlib import Path
-from urllib.parse import parse_qs, urlparse
+from urllib.parse import urlparse
+
+from publication_config import BASE_PATH, SITE_URL
 
 ROOT = Path(__file__).resolve().parents[1]
-SITE_URL = "https://rouane12.github.io/NeuralCritic/"
 MEDIA_MARKER = "/media/editorial/"
 ARTICLE_HOST = '<main class="article-page" id="article"></main>'
 CONSENT_KEY = "neural-critic-analytics-consent-v1"
+SITE_PARTS = urlparse(SITE_URL)
+STORY_PATTERN = re.compile(rf"^{re.escape(BASE_PATH)}stories/([A-Za-z0-9][A-Za-z0-9_-]*)/$")
 
 ERRORS: list[str] = []
 WARNINGS: list[str] = []
@@ -171,6 +174,15 @@ def check_image_budget() -> None:
             warn(f"Large editorial image ({size / 1024 / 1024:.2f} MiB): {image.relative_to(ROOT)}")
 
 
+def _is_production_location(value: str) -> bool:
+    parsed = urlparse(value)
+    return (
+        parsed.scheme == SITE_PARTS.scheme
+        and parsed.netloc == SITE_PARTS.netloc
+        and parsed.path.startswith(BASE_PATH)
+    )
+
+
 def check_sitemap(static_slugs: set[str]) -> None:
     sitemap_path = ROOT / "sitemap.xml"
     if not sitemap_path.exists():
@@ -190,16 +202,16 @@ def check_sitemap(static_slugs: set[str]) -> None:
     sitemap_slugs: set[str] = set()
     for loc in locs:
         parsed = urlparse(loc)
-        if parsed.netloc != "rouane12.github.io" or not parsed.path.startswith("/NeuralCritic/"):
+        if not _is_production_location(loc):
             error(f"Unexpected sitemap host/path: {loc}")
+            continue
         if re.search(r"/(reviews|features|guides|news)/[^/]+/?$", parsed.path):
             error(f"Retired pretty article route found in sitemap: {loc}")
         if parsed.path.endswith("/article.html"):
-            slug = parse_qs(parsed.query).get("slug", [""])[0]
-            if not slug:
-                error(f"Article sitemap URL is missing slug: {loc}")
-            else:
-                sitemap_slugs.add(slug)
+            error(f"Legacy query article URL remains in sitemap: {loc}")
+        match = STORY_PATTERN.fullmatch(parsed.path)
+        if match:
+            sitemap_slugs.add(match.group(1))
 
     missing = static_slugs - sitemap_slugs
     if missing:
@@ -226,10 +238,14 @@ def check_feed(static_slugs: set[str]) -> None:
             error("RSS item is missing a link.")
             continue
         parsed = urlparse(link)
+        if not _is_production_location(link):
+            error(f"Unexpected RSS host/path: {link}")
+            continue
         if parsed.path.endswith("/article.html"):
-            slug = parse_qs(parsed.query).get("slug", [""])[0]
-            if slug:
-                feed_slugs.add(slug)
+            error(f"Legacy query article URL remains in RSS: {link}")
+        match = STORY_PATTERN.fullmatch(parsed.path)
+        if match:
+            feed_slugs.add(match.group(1))
     missing = static_slugs - feed_slugs
     if missing:
         warn("Static fallback articles missing from current RSS feed: " + ", ".join(sorted(missing)))
@@ -241,11 +257,12 @@ def check_feed(static_slugs: set[str]) -> None:
 def check_robots() -> None:
     robots = text("robots.txt")
     for directive in (
-        "Allow: /NeuralCritic/",
-        "Disallow: /NeuralCritic/studio.html",
-        "Disallow: /NeuralCritic/subscribers.html",
-        "Disallow: /NeuralCritic/data/",
-        "Disallow: /NeuralCritic/scripts/",
+        f"Allow: {BASE_PATH}",
+        f"Disallow: {BASE_PATH}studio.html",
+        f"Disallow: {BASE_PATH}newsroom.html",
+        f"Disallow: {BASE_PATH}subscribers.html",
+        f"Disallow: {BASE_PATH}data/",
+        f"Disallow: {BASE_PATH}scripts/",
         f"Sitemap: {SITE_URL}sitemap.xml",
     ):
         if directive not in robots:
@@ -270,7 +287,7 @@ def check_page_metadata() -> None:
             elif requirement == "noindex" and "noindex" not in html:
                 error(f"{page}: search/privacy surface must be noindex.")
 
-    for page in ("studio.html", "subscribers.html"):
+    for page in ("studio.html", "subscribers.html", "newsroom.html"):
         html = text(page)
         if "noindex" not in html or "nofollow" not in html:
             error(f"{page}: private CMS surface is missing noindex,nofollow protection.")

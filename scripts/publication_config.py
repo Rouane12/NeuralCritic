@@ -3,7 +3,7 @@ from __future__ import annotations
 import os
 import urllib.parse
 
-DEFAULT_SITE_URL = "https://rouane12.github.io/NeuralCritic/"
+DEFAULT_SITE_URL = "https://www.neuralcritic.net/"
 
 
 def _normalized_site_url(value: str) -> str:
