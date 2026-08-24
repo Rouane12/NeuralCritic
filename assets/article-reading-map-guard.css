@@ -1,0 +1,45 @@
+/* Reading Map state guard
+   Keep the visual state tied to both the controller class and the semantic
+   aria-current contract. This survives class churn from late article enhancers. */
+#article.work-article-page .work-toc nav a.active,
+#article.work-article-page .work-toc nav a[aria-current="location"]{
+  position:relative!important;
+  color:#fff!important;
+  padding-left:4px!important;
+  font-weight:700!important;
+}
+
+#article.work-article-page .work-toc nav a.active::before,
+#article.work-article-page .work-toc nav a[aria-current="location"]::before{
+  color:#8f79ff!important;
+}
+
+#article.work-article-page .work-toc nav a.active::after,
+#article.work-article-page .work-toc nav a[aria-current="location"]::after{
+  content:""!important;
+  position:absolute!important;
+  z-index:3!important;
+  left:-20px!important;
+  top:50%!important;
+  display:block!important;
+  width:3px!important;
+  height:34px!important;
+  opacity:1!important;
+  transform:translateY(-50%)!important;
+  border-radius:999px!important;
+  background:linear-gradient(180deg,#55e7ff,#7868ff)!important;
+  box-shadow:0 0 12px rgba(85,231,255,.26)!important;
+  pointer-events:none!important;
+}
+
+html[data-theme="light"] #article.work-article-page .work-toc nav a.active,
+html[data-theme="light"] #article.work-article-page .work-toc nav a[aria-current="location"]{
+  color:#101d28!important;
+}
+
+@media(max-width:900px){
+  #article.work-article-page .work-toc nav a.active::after,
+  #article.work-article-page .work-toc nav a[aria-current="location"]::after{
+    left:-16px!important;
+  }
+}
