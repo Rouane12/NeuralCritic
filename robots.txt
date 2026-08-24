@@ -1,9 +1,9 @@
 User-agent: *
-Allow: /NeuralCritic/
-Disallow: /NeuralCritic/studio.html
-Disallow: /NeuralCritic/newsroom.html
-Disallow: /NeuralCritic/subscribers.html
-Disallow: /NeuralCritic/data/
-Disallow: /NeuralCritic/scripts/
+Allow: /
+Disallow: /studio.html
+Disallow: /newsroom.html
+Disallow: /subscribers.html
+Disallow: /data/
+Disallow: /scripts/
 
-Sitemap: https://rouane12.github.io/NeuralCritic/sitemap.xml
+Sitemap: https://www.neuralcritic.net/sitemap.xml
