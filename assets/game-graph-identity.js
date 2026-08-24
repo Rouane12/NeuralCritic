@@ -1,7 +1,7 @@
 (() => {
   'use strict';
 
-  const SITE_ROOT = new URL('/NeuralCritic/', location.origin);
+  const SITE_ROOT = new URL(location.hostname === 'rouane12.github.io' ? '/NeuralCritic/' : '/', location.origin);
   const $ = (selector, root = document) => root.querySelector(selector);
   const esc = (value = '') => String(value).replace(/[&<>"']/g, char => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[char]));
 
