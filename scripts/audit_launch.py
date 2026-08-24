@@ -134,6 +134,7 @@ def check_reading_map_ownership() -> None:
     article = base.text("article.html")
     runtime = base.text("assets/article-runtime-integrity.js")
     legacy = base.text("assets/article-sidebar-interactive.js")
+    state_guard = base.text("assets/article-reading-map-guard.css")
 
     runtime_asset = "assets/article-runtime-integrity.js"
     legacy_asset = "assets/article-sidebar-interactive.js"
@@ -145,13 +146,19 @@ def check_reading_map_ownership() -> None:
         base.error("article.html is missing the Reading Map presentation layer.")
     if runtime_index >= 0 and legacy_index >= 0 and runtime_index > legacy_index:
         base.error("Reading Map controller must load before the legacy sidebar presentation layer.")
+    if "assets/article-reading-map-guard.css" not in article:
+        base.error("article.html is missing the resilient Reading Map state guard.")
 
     runtime_markers = (
-        "reading-map-v2",
+        "reading-map-v3",
         "document.addEventListener('click', authoritativeClick, true)",
         "history.replaceState",
         "activeSectionForViewport",
         "aria-current",
+        "function liveNav()",
+        "nav !== lastNav",
+        "observer.observe(host",
+        "window.addEventListener('pageshow'",
     )
     for marker in runtime_markers:
         if marker not in runtime:
@@ -165,6 +172,10 @@ def check_reading_map_ownership() -> None:
     for marker in legacy_markers:
         if marker not in legacy:
             base.error(f"Legacy Reading Map layer no longer defers correctly: {marker}")
+
+    for marker in ('aria-current="location"', '.work-toc nav a.active'):
+        if marker not in state_guard:
+            base.error(f"Reading Map visual state guard missing resilience marker: {marker}")
 
 
 def check_account_creation_hardening() -> None:
