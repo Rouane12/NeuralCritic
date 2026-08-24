@@ -1,0 +1,45 @@
+name: One-shot footer contact fix
+
+on:
+  push:
+    branches: [main]
+
+permissions:
+  contents: write
+
+jobs:
+  fix-footer-contact:
+    if: github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Replace legacy footer contact address
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          path = Path('assets/app.js')
+          text = path.read_text(encoding='utf-8')
+          old = 'mailto:rouane.mounssif12@gmail.com'
+          new = 'mailto:contact@neuralcritic.net?subject=Neural%20Critic%20inquiry'
+          if old not in text:
+              print('Legacy footer contact address already absent.')
+              raise SystemExit(0)
+          path.write_text(text.replace(old, new), encoding='utf-8')
+          print('Updated shared footer contact address.')
+          PY
+
+      - name: Commit footer fix
+        run: |
+          if git diff --quiet -- assets/app.js; then
+            echo 'No footer change required.'
+            exit 0
+          fi
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add assets/app.js
+          git commit -m 'Point shared footer contact to Neural Critic email'
+          git push
