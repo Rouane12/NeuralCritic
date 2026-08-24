@@ -31,6 +31,7 @@ on:
       - scripts/audit_publication_v2.py
       - scripts/audit_launch.py
       - scripts/audit_domain_readiness.py
+      - scripts/audit_reader_auth.py
       - scripts/publication_config.py
       - scripts/build_robots.py
       - scripts/enrich_story_metadata.py
@@ -69,6 +70,7 @@ on:
       - scripts/audit_publication_v2.py
       - scripts/audit_launch.py
       - scripts/audit_domain_readiness.py
+      - scripts/audit_reader_auth.py
       - scripts/publication_config.py
       - scripts/build_robots.py
       - scripts/enrich_story_metadata.py
@@ -101,6 +103,9 @@ jobs:
 
       - name: Run final production launch gate
         run: python scripts/audit_launch.py
+
+      - name: Audit Reader Auth V2
+        run: python scripts/audit_reader_auth.py
 
       - name: Verify production domain portability
         run: python scripts/audit_domain_readiness.py
