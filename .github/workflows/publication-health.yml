@@ -102,6 +102,8 @@ jobs:
         run: |
           node --check assets/reader-auth-v2.js
           node --check assets/analytics-config.js
+          node --check assets/article-runtime-integrity.js
+          node --check assets/article-sidebar-interactive.js
 
       - name: Audit Neural Critic publication surface
         run: python scripts/audit_publication_v2.py
