@@ -4,3 +4,12 @@ window.NEURAL_CRITIC_ANALYTICS = {
   consentKey: 'neural-critic-analytics-consent-v1',
   debug: false
 };
+
+(() => {
+  if (document.querySelector('script[data-nc-signup-hardening]')) return;
+  const script = document.createElement('script');
+  script.src = 'assets/signup-hardening.js?v=20260824-launch1';
+  script.async = true;
+  script.dataset.ncSignupHardening = '1';
+  document.head.appendChild(script);
+})();

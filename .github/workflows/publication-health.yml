@@ -17,6 +17,7 @@ on:
       - commercial.html
       - studio.html
       - subscribers.html
+      - newsroom.html
       - robots.txt
       - sitemap.xml
       - feed.xml
@@ -28,10 +29,13 @@ on:
       - images/editorial/**
       - scripts/audit_publication.py
       - scripts/audit_publication_v2.py
+      - scripts/audit_launch.py
+      - scripts/enrich_story_metadata.py
       - scripts/build_sitemap.py
       - scripts/build_story_pages.py
       - scripts/build_topic_pages.py
       - scripts/build_author_pages.py
+      - supabase/migrations/**
       - .github/workflows/publication-health.yml
   pull_request:
     paths:
@@ -48,6 +52,7 @@ on:
       - commercial.html
       - studio.html
       - subscribers.html
+      - newsroom.html
       - robots.txt
       - sitemap.xml
       - feed.xml
@@ -59,10 +64,13 @@ on:
       - images/editorial/**
       - scripts/audit_publication.py
       - scripts/audit_publication_v2.py
+      - scripts/audit_launch.py
+      - scripts/enrich_story_metadata.py
       - scripts/build_sitemap.py
       - scripts/build_story_pages.py
       - scripts/build_topic_pages.py
       - scripts/build_author_pages.py
+      - supabase/migrations/**
       - .github/workflows/publication-health.yml
   workflow_dispatch:
 
@@ -84,3 +92,6 @@ jobs:
 
       - name: Audit Neural Critic publication surface
         run: python scripts/audit_publication_v2.py
+
+      - name: Run final production launch gate
+        run: python scripts/audit_launch.py
