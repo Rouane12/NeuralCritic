@@ -98,6 +98,11 @@ jobs:
         with:
           python-version: '3.12'
 
+      - name: Parse-check Reader Auth JavaScript
+        run: |
+          node --check assets/reader-auth-v2.js
+          node --check assets/analytics-config.js
+
       - name: Audit Neural Critic publication surface
         run: python scripts/audit_publication_v2.py
 
