@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Verify Neural Critic publication builders can switch origins safely."""
+"""Verify Neural Critic publication and runtime surfaces can switch origins safely."""
 
 from __future__ import annotations
 
@@ -10,6 +10,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 SCRIPTS = (
+    "build_robots.py",
     "build_sitemap.py",
     "build_story_pages.py",
     "build_topic_pages.py",
@@ -44,6 +45,23 @@ def probe(site_url: str | None) -> tuple[str, str, str]:
     return values[0], values[1], values[2]
 
 
+def probe_robots(site_url: str | None) -> str:
+    env = os.environ.copy()
+    if site_url is None:
+        env.pop("NEURAL_CRITIC_SITE_URL", None)
+    else:
+        env["NEURAL_CRITIC_SITE_URL"] = site_url
+    result = subprocess.run(
+        [sys.executable, "-c", "from build_robots import render; print(render(), end='')"],
+        cwd=ROOT / "scripts",
+        env=env,
+        text=True,
+        capture_output=True,
+        check=True,
+    )
+    return result.stdout
+
+
 def main() -> int:
     errors: list[str] = []
 
@@ -55,6 +73,12 @@ def main() -> int:
     if default_article != "/NeuralCritic/article.html":
         errors.append(f"Default runtime article path changed unexpectedly: {default_article}")
 
+    default_robots = probe_robots(None)
+    if "Disallow: /NeuralCritic/studio.html" not in default_robots:
+        errors.append("Default robots output lost the GitHub Pages private-path prefix")
+    if "Sitemap: https://rouane12.github.io/NeuralCritic/sitemap.xml" not in default_robots:
+        errors.append("Default robots output has the wrong sitemap origin")
+
     custom_url, custom_base, custom_article = probe("https://www.example.com")
     if custom_url != "https://www.example.com/":
         errors.append(f"Custom root-domain URL normalization failed: {custom_url}")
@@ -62,6 +86,14 @@ def main() -> int:
         errors.append(f"Custom root-domain base path failed: {custom_base}")
     if custom_article != "/article.html":
         errors.append(f"Custom root-domain runtime path failed: {custom_article}")
+
+    custom_robots = probe_robots("https://www.example.com")
+    if "Disallow: /studio.html" not in custom_robots:
+        errors.append("Root-domain robots output did not move private paths to the root")
+    if "Sitemap: https://www.example.com/sitemap.xml" not in custom_robots:
+        errors.append("Root-domain robots output has the wrong sitemap origin")
+    if "/NeuralCritic/" in custom_robots:
+        errors.append("Root-domain robots output still contains the legacy project path")
 
     nested_url, nested_base, nested_article = probe("https://example.com/publication")
     if nested_url != "https://example.com/publication/":
@@ -80,6 +112,16 @@ def main() -> int:
             errors.append(f"{filename} still hard-codes the legacy GitHub Pages origin")
         if LEGACY_BASE_LITERAL in text:
             errors.append(f"{filename} still hard-codes the legacy base path")
+
+    router = (ROOT / "assets" / "story-router.js").read_text(encoding="utf-8")
+    if "new URL('./', document.baseURI)" not in router:
+        errors.append("story-router.js is not deriving the site root from document.baseURI")
+    if "new URL('/NeuralCritic/'" in router:
+        errors.append("story-router.js still hard-codes the legacy project root")
+
+    recovery = (ROOT / "404.html").read_text(encoding="utf-8")
+    if "NEURAL_CRITIC_404_ROOT" not in recovery or "location.pathname.startsWith('/NeuralCritic/')" not in recovery:
+        errors.append("404 recovery is not compatible with both GitHub Pages and root-domain paths")
 
     if errors:
         for error in errors:
