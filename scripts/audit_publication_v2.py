@@ -10,10 +10,12 @@ from pathlib import Path
 from urllib.parse import urlparse
 
 import audit_publication as base
+from publication_config import BASE_PATH, SITE_URL
 
 ROOT = Path(__file__).resolve().parents[1]
-SITE_URL = "https://rouane12.github.io/NeuralCritic/"
-STORY_PATTERN = re.compile(r"^/NeuralCritic/stories/([A-Za-z0-9][A-Za-z0-9_-]*)/$")
+SITE_PARTS = urlparse(SITE_URL)
+STORY_PATTERN = re.compile(rf"^{re.escape(BASE_PATH)}stories/([A-Za-z0-9][A-Za-z0-9_-]*)/$")
+BASE_TAG = f'<base href="{BASE_PATH}">'
 GENERATED_STORY_MARKER = "<!-- generated: neural-critic-story-shell -->"
 GENERATED_TOPIC_MARKER = "<!-- generated: neural-critic-topic-hub -->"
 GENERATED_AUTHOR_MARKER = "<!-- generated: neural-critic-author-hub -->"
@@ -50,7 +52,7 @@ def check_story_pages(static_slugs: set[str]) -> set[str]:
         canonical = f"{SITE_URL}stories/{slug}/"
         required = [
             GENERATED_STORY_MARKER,
-            '<base href="/NeuralCritic/">',
+            BASE_TAG,
             "window.NEURAL_CRITIC_STATIC_META=true",
             f'window.NEURAL_CRITIC_STATIC_SLUG="{slug}"',
             'name="description"',
@@ -93,7 +95,7 @@ def check_generated_hubs() -> tuple[set[str], set[str]]:
         topic_urls.add(canonical)
         for marker in (
             GENERATED_TOPIC_MARKER,
-            '<base href="/NeuralCritic/">',
+            BASE_TAG,
             "window.NEURAL_CRITIC_STATIC_META=true",
             "window.NEURAL_CRITIC_STATIC_TOPIC=",
             'name="description"',
@@ -111,7 +113,7 @@ def check_generated_hubs() -> tuple[set[str], set[str]]:
         author_urls.add(canonical)
         for marker in (
             GENERATED_AUTHOR_MARKER,
-            '<base href="/NeuralCritic/">',
+            BASE_TAG,
             "window.NEURAL_CRITIC_STATIC_META=true",
             "window.NEURAL_CRITIC_STATIC_AUTHOR=",
             'name="description"',
@@ -159,7 +161,7 @@ def check_canonical_sitemap(
     story_slugs: set[str] = set()
     for loc in locs:
         parsed = urlparse(loc)
-        if parsed.netloc != "rouane12.github.io" or not parsed.path.startswith("/NeuralCritic/"):
+        if parsed.scheme != SITE_PARTS.scheme or parsed.netloc != SITE_PARTS.netloc or not parsed.path.startswith(BASE_PATH):
             base.error(f"Unexpected sitemap host/path: {loc}")
             continue
         if parsed.path.endswith("/article.html"):
@@ -199,6 +201,9 @@ def check_canonical_feed(generated_story_slugs: set[str]) -> None:
             base.error("RSS item is missing a link.")
             continue
         parsed = urlparse(link)
+        if parsed.scheme != SITE_PARTS.scheme or parsed.netloc != SITE_PARTS.netloc or not parsed.path.startswith(BASE_PATH):
+            base.error(f"Unexpected RSS host/path: {link}")
+            continue
         if parsed.path.endswith("/article.html"):
             base.error(f"Legacy query article URL remains in RSS: {link}")
         match = STORY_PATTERN.fullmatch(parsed.path)
@@ -231,10 +236,7 @@ def check_routing_recovery() -> None:
         if marker not in readiness:
             base.error(f"Story readiness guard is missing recovery marker: {marker}")
     for marker in (
-        "/NeuralCritic/assets/site.css",
-        "const story=path.match",
-        "const topic=path.match",
-        "const author=path.match",
+        "NEURAL_CRITIC_404_ROOT",
         "article.html?slug=",
         "topic.html?",
         "author.html?author=",
