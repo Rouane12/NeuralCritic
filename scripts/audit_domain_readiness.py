@@ -17,6 +17,7 @@ SCRIPTS = (
     "build_author_pages.py",
     "enrich_story_metadata.py",
 )
+PRODUCTION_ORIGIN = "https://www.neuralcritic.net/"
 LEGACY_ORIGIN = "https://rouane12.github.io/NeuralCritic/"
 LEGACY_BASE_LITERAL = '<base href="/NeuralCritic/">'
 
@@ -66,18 +67,34 @@ def main() -> int:
     errors: list[str] = []
 
     default_url, default_base, default_article = probe(None)
-    if default_url != LEGACY_ORIGIN:
-        errors.append(f"Default site URL changed unexpectedly: {default_url}")
-    if default_base != "/NeuralCritic/":
-        errors.append(f"Default base path changed unexpectedly: {default_base}")
-    if default_article != "/NeuralCritic/article.html":
-        errors.append(f"Default runtime article path changed unexpectedly: {default_article}")
+    if default_url != PRODUCTION_ORIGIN:
+        errors.append(f"Default production site URL is wrong: {default_url}")
+    if default_base != "/":
+        errors.append(f"Default production base path must be root: {default_base}")
+    if default_article != "/article.html":
+        errors.append(f"Default production runtime article path is wrong: {default_article}")
 
     default_robots = probe_robots(None)
-    if "Disallow: /NeuralCritic/studio.html" not in default_robots:
-        errors.append("Default robots output lost the GitHub Pages private-path prefix")
-    if "Sitemap: https://rouane12.github.io/NeuralCritic/sitemap.xml" not in default_robots:
-        errors.append("Default robots output has the wrong sitemap origin")
+    if "Disallow: /studio.html" not in default_robots:
+        errors.append("Default production robots output lost the root private path")
+    if "Sitemap: https://www.neuralcritic.net/sitemap.xml" not in default_robots:
+        errors.append("Default production robots output has the wrong sitemap origin")
+    if "/NeuralCritic/" in default_robots:
+        errors.append("Default production robots output still contains the legacy project path")
+
+    legacy_url, legacy_base, legacy_article = probe(LEGACY_ORIGIN)
+    if legacy_url != LEGACY_ORIGIN:
+        errors.append(f"Legacy rollback URL normalization failed: {legacy_url}")
+    if legacy_base != "/NeuralCritic/":
+        errors.append(f"Legacy rollback base path failed: {legacy_base}")
+    if legacy_article != "/NeuralCritic/article.html":
+        errors.append(f"Legacy rollback article path failed: {legacy_article}")
+
+    legacy_robots = probe_robots(LEGACY_ORIGIN)
+    if "Disallow: /NeuralCritic/studio.html" not in legacy_robots:
+        errors.append("Legacy rollback robots output lost the project-path private prefix")
+    if "Sitemap: https://rouane12.github.io/NeuralCritic/sitemap.xml" not in legacy_robots:
+        errors.append("Legacy rollback robots output has the wrong sitemap origin")
 
     custom_url, custom_base, custom_article = probe("https://www.example.com")
     if custom_url != "https://www.example.com/":
@@ -122,6 +139,14 @@ def main() -> int:
     recovery = (ROOT / "404.html").read_text(encoding="utf-8")
     if "NEURAL_CRITIC_404_ROOT" not in recovery or "location.pathname.startsWith('/NeuralCritic/')" not in recovery:
         errors.append("404 recovery is not compatible with both GitHub Pages and root-domain paths")
+
+    home = (ROOT / "index.html").read_text(encoding="utf-8", errors="replace")
+    if LEGACY_ORIGIN in home:
+        errors.append("index.html still exposes the legacy GitHub Pages origin in static metadata")
+    if f'rel="canonical" href="{PRODUCTION_ORIGIN}"' not in home:
+        errors.append("index.html static canonical does not point to the production domain")
+    if f'property="og:url" content="{PRODUCTION_ORIGIN}"' not in home:
+        errors.append("index.html static Open Graph URL does not point to the production domain")
 
     if errors:
         for error in errors:
