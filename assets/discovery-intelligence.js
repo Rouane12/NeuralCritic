@@ -279,4 +279,12 @@
     homepageProgram,
     search
   };
+
+  if (document.getElementById('hero') && typeof window.renderHero === 'function') {
+    queueMicrotask(() => {
+      window.renderHero?.();
+      window.renderTrending?.();
+      window.renderFeed?.();
+    });
+  }
 })();
