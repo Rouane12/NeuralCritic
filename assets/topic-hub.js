@@ -9,7 +9,7 @@
   const requestedSlug = staticTopic?.slug || (requestedType ? params.get(requestedType) : '') || '';
 
   const $ = (selector, root = document) => root.querySelector(selector);
-  const esc = (value = '') => String(value).replace(/[&<>"']/g, char => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot',"'":'&#39;'}[char]));
+  const esc = (value = '') => String(value).replace(/[&<>"']/g, char => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[char]));
 
   function slugify(value = '') {
     return String(value).trim().toLowerCase().normalize('NFKD').replace(/[\u0300-\u036f]/g, '')
