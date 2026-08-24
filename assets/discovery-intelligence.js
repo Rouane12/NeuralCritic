@@ -147,10 +147,7 @@
   function isFreshDevelopingNews(article) {
     if (normalize(article?.category) !== 'news' || !article.newsMeta?.developing) return false;
     const kind = article.newsMeta?.kind;
-    const hours = Math.max(0, (Date.now() - when(article.updatedAt || article.publishedAt)) / 3600000);
-    if (kind === 'breaking') return hours <= 30;
-    if (kind === 'update') return hours <= 16;
-    return false;
+    return kind === 'breaking' || kind === 'update';
   }
 
   function homepageProgram(articles = []) {
