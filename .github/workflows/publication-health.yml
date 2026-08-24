@@ -30,6 +30,8 @@ on:
       - scripts/audit_publication.py
       - scripts/audit_publication_v2.py
       - scripts/audit_launch.py
+      - scripts/audit_domain_readiness.py
+      - scripts/publication_config.py
       - scripts/enrich_story_metadata.py
       - scripts/build_sitemap.py
       - scripts/build_story_pages.py
@@ -65,6 +67,8 @@ on:
       - scripts/audit_publication.py
       - scripts/audit_publication_v2.py
       - scripts/audit_launch.py
+      - scripts/audit_domain_readiness.py
+      - scripts/publication_config.py
       - scripts/enrich_story_metadata.py
       - scripts/build_sitemap.py
       - scripts/build_story_pages.py
@@ -95,3 +99,6 @@ jobs:
 
       - name: Run final production launch gate
         run: python scripts/audit_launch.py
+
+      - name: Verify production domain portability
+        run: python scripts/audit_domain_readiness.py

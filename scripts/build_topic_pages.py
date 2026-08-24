@@ -13,12 +13,13 @@ import xml.etree.ElementTree as ET
 from pathlib import Path
 from typing import Any
 
+from publication_config import BASE_PATH, SITE_URL
+
 ROOT = Path(__file__).resolve().parents[1]
 CONFIG_PATH = ROOT / "assets" / "supabase-config.js"
 TOPIC_TEMPLATE = ROOT / "topic.html"
 TOPICS_DIR = ROOT / "topics"
 SITEMAP_PATH = ROOT / "sitemap.xml"
-SITE_URL = "https://rouane12.github.io/NeuralCritic/"
 GENERATED_MARKER = "<!-- generated: neural-critic-topic-hub -->"
 MEDIA_MARKER = "/media/editorial/"
 TOPIC_TYPES = ("game", "series", "franchise")
@@ -150,7 +151,7 @@ def metadata_markup(record: dict[str, Any]) -> str:
     }
     parts = [
         GENERATED_MARKER,
-        '<base href="/NeuralCritic/">',
+        f'<base href="{esc(BASE_PATH)}">',
         f'<meta name="description" content="{esc(description)}">',
         '<meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1">',
         '<meta property="og:site_name" content="Neural Critic">',

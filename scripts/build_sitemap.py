@@ -18,12 +18,13 @@ from pathlib import Path
 from typing import Any
 from xml.sax.saxutils import escape
 
+from publication_config import SITE_URL
+
 ROOT = Path(__file__).resolve().parents[1]
 CONFIG_PATH = ROOT / "assets" / "supabase-config.js"
 FALLBACK_INDEX = ROOT / "data" / "articles.json"
 SITEMAP_PATH = ROOT / "sitemap.xml"
 FEED_PATH = ROOT / "feed.xml"
-SITE_URL = "https://rouane12.github.io/NeuralCritic/"
 FEED_URL = urllib.parse.urljoin(SITE_URL, "feed.xml")
 
 STATIC_URLS = [
