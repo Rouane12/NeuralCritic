@@ -159,8 +159,9 @@
     if (nav.dataset.runtimeNavigation === 'ready') return;
     nav.dataset.runtimeNavigation = 'ready';
 
+    const liveLinks = () => qsa('a[href^="#"]', nav);
     const activate = id => {
-      links.forEach(link => link.classList.toggle('active', decodeLinkId(link) === id));
+      liveLinks().forEach(link => link.classList.toggle('active', decodeLinkId(link) === id));
     };
 
     nav.addEventListener('click', event => {
@@ -215,7 +216,7 @@
   function validateContract(article, host, body, nav, links) {
     const format = safeFormat(article?.articleFormat);
     const failures = [];
-    if (!host.classList.contains('work-article-page')) failures.push('reading-layout');
+    if (!qs(':scope > .work-reading-grid', host)) failures.push('reading-layout');
     if (!nav || !links.length) failures.push('reading-map');
 
     if (format === 'ranked-list') {
@@ -247,6 +248,7 @@
     const format = safeFormat(article.articleFormat);
     host.dataset.articleFormat = format;
     FORMAT_CLASSES.forEach(name => host.classList.toggle(`article-format-${name}`, name === format));
+    host.classList.toggle('ranked-list-page', format === 'ranked-list');
 
     ensureSectionIds(body);
 
@@ -259,18 +261,18 @@
       return;
     }
 
-    const links = ensureUniversalLinks(nav, body);
+    let links = ensureUniversalLinks(nav, body);
+    normalizeRankedMap(article, body, nav, links);
+
+    // Legacy format enhancers may finish a fraction later. Reconcile once more
+    // against the live CMS record before binding the authoritative interactions.
+    await new Promise(resolve => setTimeout(resolve, 120));
+    ensureSectionIds(body);
+    links = ensureUniversalLinks(nav, body);
     normalizeRankedMap(article, body, nav, links);
     bindNavigation(card, nav, links, body);
 
-    // Legacy format enhancers may finish a fraction later. Reconcile once more
-    // against the live CMS record, then publish one deterministic ready signal.
-    await new Promise(resolve => setTimeout(resolve, 120));
-    ensureSectionIds(body);
-    const finalLinks = ensureUniversalLinks(nav, body);
-    normalizeRankedMap(article, body, nav, finalLinks);
-
-    const failures = validateContract(article, host, body, nav, finalLinks);
+    const failures = validateContract(article, host, body, nav, links);
     const state = failures.length ? 'degraded' : 'ready';
     window.NeuralCriticArticleRuntime = { slug, format, state, failures, article };
     window.dispatchEvent(new CustomEvent('neuralcritic:article-ready', { detail:{ slug, format, state, failures } }));
