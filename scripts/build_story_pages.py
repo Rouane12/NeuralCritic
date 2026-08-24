@@ -20,6 +20,8 @@ import xml.etree.ElementTree as ET
 from pathlib import Path
 from typing import Any
 
+from publication_config import BASE_PATH, SITE_URL, public_path
+
 ROOT = Path(__file__).resolve().parents[1]
 CONFIG_PATH = ROOT / "assets" / "supabase-config.js"
 ARTICLE_TEMPLATE = ROOT / "article.html"
@@ -28,7 +30,6 @@ FALLBACK_DIR = ROOT / "data" / "articles"
 STORIES_DIR = ROOT / "stories"
 SITEMAP_PATH = ROOT / "sitemap.xml"
 FEED_PATH = ROOT / "feed.xml"
-SITE_URL = "https://rouane12.github.io/NeuralCritic/"
 GENERATED_MARKER = "<!-- generated: neural-critic-story-shell -->"
 MEDIA_MARKER = "/media/editorial/"
 GENERIC_TAGS = {
@@ -291,7 +292,7 @@ def metadata_markup(article: dict[str, Any]) -> str:
     esc = lambda value: html.escape(str(value), quote=True)
     parts = [
         GENERATED_MARKER,
-        '<base href="/NeuralCritic/">',
+        f'<base href="{esc(BASE_PATH)}">',
         f'<meta name="description" content="{esc(description)}">',
         '<meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1">',
         '<meta property="og:site_name" content="Neural Critic">',
@@ -328,12 +329,12 @@ def metadata_markup(article: dict[str, Any]) -> str:
     parts.append(f'<script id="nc-structured-data" type="application/ld+json">{json_script(article_schema(article, canonical, image))}</script>')
     parts.append(f'<script id="nc-breadcrumb-data" type="application/ld+json">{json_script(breadcrumb_schema(article, canonical))}</script>')
     slug_json = json.dumps(slug)
+    runtime_article_json = json.dumps(public_path("article.html"))
     parts.append(
         "<script>"
         f"window.NEURAL_CRITIC_STATIC_META=true;window.NEURAL_CRITIC_STATIC_SLUG={slug_json};"
-        "try{const h=location.hash||'';history.replaceState(null,'',"
-        "'/NeuralCritic/article.html?slug='+encodeURIComponent(window.NEURAL_CRITIC_STATIC_SLUG)+h);"
-        "}catch(_){}</script>"
+        f"try{{const h=location.hash||'';history.replaceState(null,'',{runtime_article_json}+'?slug='+encodeURIComponent(window.NEURAL_CRITIC_STATIC_SLUG)+h);}}catch(_){{}}"
+        "</script>"
     )
     return "".join(parts)
 
