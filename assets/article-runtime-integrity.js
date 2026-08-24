@@ -5,7 +5,7 @@
   const qsa = (selector, root = document) => [...root.querySelectorAll(selector)];
   const reduceMotion = window.matchMedia?.('(prefers-reduced-motion: reduce)').matches;
   const FORMAT_CLASSES = ['standard', 'review', 'ranked-list', 'guide'];
-  const CONTROLLER_VERSION = 'reading-map-v2';
+  const CONTROLLER_VERSION = 'reading-map-v3';
 
   let runtimeContext = null;
 
@@ -161,12 +161,17 @@
 
   function activate(nav, id) {
     if (!nav || !id) return;
+    nav.dataset.activeSection = id;
     qsa('a[href^="#"]', nav).forEach(link => {
       const active = decodeLinkId(link) === id;
       link.classList.toggle('active', active);
       if (active) link.setAttribute('aria-current', 'location');
       else link.removeAttribute('aria-current');
     });
+  }
+
+  function liveNav() {
+    return qs('#article .work-toc nav');
   }
 
   function scrollToTarget(target, behavior = reduceMotion ? 'auto' : 'smooth') {
@@ -191,10 +196,9 @@
     return target ? { nav, id, target } : null;
   }
 
-  // Bind the authoritative click owner immediately, before article rendering or
-  // legacy sidebar enhancers can attach. Hash changes are written with
-  // replaceState, so section navigation never causes a document navigation or
-  // hashchange-driven second scroll.
+  // Capture clicks before any compatibility enhancer can interpret a Reading Map
+  // anchor as document navigation. replaceState updates the visible hash without a
+  // hashchange event or page navigation.
   function authoritativeClick(event) {
     if (event.defaultPrevented || event.button > 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
     const link = event.target?.closest?.('#article .work-toc a[href^="#"]');
@@ -217,11 +221,12 @@
     version: CONTROLLER_VERSION,
     navigate(id, behavior = reduceMotion ? 'auto' : 'smooth') {
       const target = id ? document.getElementById(id) : null;
-      const nav = qs('#article .work-toc nav');
+      const nav = liveNav();
       if (!target || !nav) return false;
       scrollToTarget(target, behavior);
       activate(nav, id);
       replaceHash(id);
+      runtimeContext?.sync?.();
       return true;
     },
     sync() { runtimeContext?.sync?.(); }
@@ -232,8 +237,7 @@
     if (window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 4) return sections[sections.length - 1];
 
     // Probe the upper-middle reading lane rather than relying on IntersectionObserver.
-    // This stays stable with Neural Critic's desktop CSS zoom and while large ranked
-    // cards enter/leave the viewport.
+    // This remains stable with Neural Critic's desktop CSS zoom and large ranked cards.
     const probe = Math.max(140, Math.min(360, window.innerHeight * .42));
     const rects = sections.map(section => ({ section, rect:section.getBoundingClientRect() }));
     const containing = rects.find(item => item.rect.top <= probe && item.rect.bottom > probe);
@@ -245,21 +249,38 @@
     }, null)?.section || sections[0];
   }
 
-  function bindNavigation(card, nav, body) {
-    if (nav.dataset.runtimeNavigation === 'ready') return;
-    nav.dataset.runtimeNavigation = 'ready';
-    nav.dataset.navigationOwner = CONTROLLER_VERSION;
-
-    const progress = ensureProgress(card, nav);
+  // V3 deliberately does not retain a nav/card reference. Article enhancers can
+  // legitimately replace sidebar markup after first paint. Every sync reacquires
+  // the live Reading Map and repairs its labels/ownership before applying state.
+  function bindNavigation(body, article) {
     let ticking = false;
+    let lastNav = null;
 
     const sync = () => {
       ticking = false;
-      const links = qsa('a[href^="#"]', nav);
+      if (!body?.isConnected) return;
+
+      const nav = liveNav();
+      const card = nav?.closest('.work-toc');
+      if (!nav || !card) return;
+
+      ensureSectionIds(body);
+      let links = ensureUniversalLinks(nav, body);
+      normalizeRankedMap(article, body, nav, links);
+      links = qsa('a[href^="#"]', nav);
+
+      if (nav !== lastNav) {
+        lastNav = nav;
+        nav.dataset.runtimeNavigation = 'ready';
+        nav.dataset.navigationOwner = CONTROLLER_VERSION;
+        nav.dataset.legacyNavigation = 'deferred';
+      }
+
       const sections = links.map(link => document.getElementById(decodeLinkId(link))).filter(Boolean);
       const active = activeSectionForViewport(sections);
       if (active) activate(nav, active.id);
 
+      const progress = ensureProgress(card, nav);
       const rect = body.getBoundingClientRect();
       const start = window.scrollY + rect.top - window.innerHeight * .2;
       const end = start + Math.max(1, body.scrollHeight - window.innerHeight * .55);
@@ -275,8 +296,23 @@
 
     window.addEventListener('scroll', requestSync, { passive:true });
     window.addEventListener('resize', requestSync, { passive:true });
-    runtimeContext = { nav, body, sync:requestSync };
+    window.addEventListener('pageshow', requestSync);
+    window.addEventListener('focus', requestSync);
+    document.addEventListener('visibilitychange', () => {
+      if (!document.hidden) requestSync();
+    });
+    window.addEventListener('neuralcritic:game-graph-ready', requestSync);
+    window.addEventListener('neuralcritic:article-runtime-ready', requestSync);
+
+    const host = qs('#article');
+    if (host) {
+      const observer = new MutationObserver(requestSync);
+      observer.observe(host, { childList:true, subtree:true, attributes:true, attributeFilter:['id','class','data-rank'] });
+    }
+
+    runtimeContext = { body, article, sync:requestSync };
     sync();
+    [120, 350, 800, 1600, 3200, 6400].forEach(delay => setTimeout(requestSync, delay));
   }
 
   function validateContract(article, host, body, nav, links) {
@@ -318,7 +354,7 @@
 
     ensureSectionIds(body);
 
-    const nav = await waitFor(() => qs('#article .work-toc nav'));
+    const nav = await waitFor(() => liveNav());
     const card = nav?.closest('.work-toc');
     if (!nav || !card) {
       host.dataset.runtimeState = 'degraded';
@@ -330,32 +366,16 @@
     let links = ensureUniversalLinks(nav, body);
     normalizeRankedMap(article, body, nav, links);
 
-    // Legacy format enhancers may finish a fraction later. Reconcile once more
-    // against the live CMS record before binding the authoritative scroll state.
+    // Allow the first enhancement wave to settle, then bind a controller that
+    // reacquires the live map forever rather than trusting this initial node.
     await new Promise(resolve => setTimeout(resolve, 120));
     ensureSectionIds(body);
-    links = ensureUniversalLinks(nav, body);
-    normalizeRankedMap(article, body, nav, links);
-    bindNavigation(card, nav, body);
+    const live = liveNav() || nav;
+    links = ensureUniversalLinks(live, body);
+    normalizeRankedMap(article, body, live, links);
+    bindNavigation(body, article);
 
-    // Late conclusion/format decoration should never leave the Reading Map stale.
-    let reconcileQueued = false;
-    const reconcile = () => {
-      if (reconcileQueued) return;
-      reconcileQueued = true;
-      requestAnimationFrame(() => {
-        reconcileQueued = false;
-        ensureSectionIds(body);
-        const liveLinks = ensureUniversalLinks(nav, body);
-        normalizeRankedMap(article, body, nav, liveLinks);
-        runtimeContext?.sync?.();
-      });
-    };
-    const mutationObserver = new MutationObserver(reconcile);
-    mutationObserver.observe(body, { childList:true, subtree:true });
-    setTimeout(() => mutationObserver.disconnect(), 12000);
-
-    const failures = validateContract(article, host, body, nav, qsa('a[href^="#"]', nav));
+    const failures = validateContract(article, host, body, liveNav(), qsa('a[href^="#"]', liveNav() || live));
     const state = failures.length ? 'degraded' : 'ready';
     window.NeuralCriticArticleRuntime = { slug, format, state, failures, article, readingMapController:CONTROLLER_VERSION };
     window.dispatchEvent(new CustomEvent('neuralcritic:article-ready', { detail:{ slug, format, state, failures } }));
