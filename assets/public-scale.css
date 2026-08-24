@@ -1,10 +1,11 @@
 /* Neural Critic public presentation scale.
-   Desktop public pages intentionally render with the presence of the former
-   browser 110% view while keeping mobile/tablet geometry native. */
+   Desktop public pages intentionally render at the visual equivalent of the
+   site's former 110% baseline viewed at browser 110% (1.10 x 1.10 = 1.21).
+   Mobile/tablet geometry remains native. */
 
 @media (min-width: 1100px){
   html{
-    zoom:1.1;
+    zoom:1.21;
   }
 }
 
