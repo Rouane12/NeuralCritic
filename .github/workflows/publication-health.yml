@@ -32,6 +32,7 @@ on:
       - scripts/audit_launch.py
       - scripts/audit_domain_readiness.py
       - scripts/audit_reader_auth.py
+      - scripts/audit_news_sources.py
       - scripts/publication_config.py
       - scripts/build_robots.py
       - scripts/enrich_story_metadata.py
@@ -71,6 +72,7 @@ on:
       - scripts/audit_launch.py
       - scripts/audit_domain_readiness.py
       - scripts/audit_reader_auth.py
+      - scripts/audit_news_sources.py
       - scripts/publication_config.py
       - scripts/build_robots.py
       - scripts/enrich_story_metadata.py
@@ -98,12 +100,15 @@ jobs:
         with:
           python-version: '3.12'
 
-      - name: Parse-check Reader Auth JavaScript
+      - name: Parse-check public and Studio JavaScript
         run: |
           node --check assets/reader-auth-v2.js
           node --check assets/analytics-config.js
           node --check assets/article-runtime-integrity.js
           node --check assets/article-sidebar-interactive.js
+          node --check assets/article-news.js
+          node --check assets/studio-media.js
+          node --check assets/studio-news.js
 
       - name: Audit Neural Critic publication surface
         run: python scripts/audit_publication_v2.py
@@ -113,6 +118,9 @@ jobs:
 
       - name: Audit Reader Auth V2
         run: python scripts/audit_reader_auth.py
+
+      - name: Audit newsroom source documents
+        run: python scripts/audit_news_sources.py
 
       - name: Verify production domain portability
         run: python scripts/audit_domain_readiness.py
