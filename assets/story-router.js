@@ -85,6 +85,11 @@
   }
 
   function rewriteAnchor(anchor) {
+    // Fragment-only links are owned by their local component. In particular,
+    // Reading Map anchors are exclusively controlled by article-runtime-integrity.js.
+    const raw = anchor?.getAttribute?.('href') || '';
+    if (raw.startsWith('#')) return;
+
     const slug = legacySlugFromAnchor(anchor);
     if (slug) {
       let hash = '';
@@ -113,49 +118,8 @@
         rewriteArticleLinks(node);
       }));
     });
-    observer.observe(document.documentElement, { childList: true, subtree: true });
+    observer.observe(document.documentElement, { childList:true, subtree:true });
     setTimeout(() => observer.disconnect(), 20000);
-  }
-
-  function articleRuntimeOwnsReadingMap(link) {
-    const nav = link?.closest?.('.work-toc nav');
-    if (nav?.dataset.runtimeNavigation === 'ready') return true;
-    if (window.NeuralCriticArticleRuntime) return true;
-    return Boolean(document.querySelector('script[src*="article-runtime-integrity.js"]'));
-  }
-
-  function bindReadingMap() {
-    document.addEventListener('click', event => {
-      const link = event.target.closest?.('.work-toc a[href^="#"]');
-      if (!link) return;
-
-      // The article runtime owns Reading Map interaction whenever it is present.
-      // Keep this router handler only as a compatibility fallback for legacy pages.
-      if (articleRuntimeOwnsReadingMap(link)) return;
-
-      const rawHash = link.getAttribute('href') || '';
-      let id = '';
-      try { id = decodeURIComponent(rawHash.replace(/^#/, '')); }
-      catch (_) { id = rawHash.replace(/^#/, ''); }
-      if (!id || !document.getElementById(id)) return;
-
-      event.preventDefault();
-      event.stopPropagation();
-      event.stopImmediatePropagation();
-
-      const oldURL = location.href;
-      const next = `${location.pathname}${location.search}#${encodeURIComponent(id)}`;
-      history.pushState(null, '', next);
-
-      try {
-        window.dispatchEvent(new HashChangeEvent('hashchange', {
-          oldURL,
-          newURL: location.href
-        }));
-      } catch (_) {
-        window.dispatchEvent(new Event('hashchange'));
-      }
-    }, true);
   }
 
   function bindCanonicalShare() {
@@ -169,7 +133,7 @@
       event.stopImmediatePropagation();
       try {
         if (navigator.share) {
-          await navigator.share({ title: document.title, url: canonical });
+          await navigator.share({ title:document.title, url:canonical });
         } else {
           await navigator.clipboard.writeText(canonical);
           const small = button.querySelector('small');
@@ -195,11 +159,12 @@
       enforceCanonical();
     };
 
-    window.addEventListener('neuralcritic:analytics-script-loaded', restore, { once: true });
+    window.addEventListener('neuralcritic:analytics-script-loaded', restore, { once:true });
     setTimeout(restore, 8000);
   }
 
-  bindReadingMap();
+  // No Reading Map listener belongs in this router. Keeping routing and article
+  // interaction separate removes capture-phase races and makes article behavior deterministic.
   bindCanonicalShare();
   watchLinks();
   enforceCanonical();
