@@ -16,6 +16,7 @@ on:
       - scripts/build_author_pages.py
       - scripts/enrich_story_metadata.py
       - assets/supabase-config.js
+      - assets/article-news-layout-v3.css
       - .github/workflows/build-publication.yml
   schedule:
     - cron: '*/15 * * * *'
@@ -45,6 +46,28 @@ jobs:
         with:
           python-version: '3.12'
 
+      - name: Pin source document layout override in article shell
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import re
+
+          path = Path("article.html")
+          html = path.read_text(encoding="utf-8")
+          marker = 'assets/article-news-layout-v3.css'
+
+          if marker not in html:
+              html, count = re.subn(
+                  r'(<link rel="stylesheet" href="assets/article-news\.css[^"]*">)',
+                  r'\1<link rel="stylesheet" href="assets/article-news-layout-v3.css">',
+                  html,
+                  count=1,
+              )
+              if count != 1:
+                  raise SystemExit("Could not locate article-news.css in article.html")
+              path.write_text(html, encoding="utf-8")
+          PY
+
       - name: Refresh robots from configured publication origin
         run: python scripts/build_robots.py
 
@@ -65,13 +88,13 @@ jobs:
 
       - name: Commit publication files only when changed
         run: |
-          if git diff --quiet -- robots.txt sitemap.xml feed.xml stories topics authors; then
-            echo "Publication discovery files, story shells, topic hubs, writer hubs, and robots are already current."
+          if git diff --quiet -- article.html robots.txt sitemap.xml feed.xml stories topics authors; then
+            echo "Publication discovery files, story shells, topic hubs, writer hubs, article shell, and robots are already current."
             exit 0
           fi
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add robots.txt sitemap.xml feed.xml stories topics authors
+          git add article.html robots.txt sitemap.xml feed.xml stories topics authors
           git commit -m "Refresh Neural Critic canonical publication pages"
           git pull --rebase origin main
           git push
