@@ -8,6 +8,21 @@
     document.head.appendChild(script);
   }
 
+  if (!document.querySelector('link[data-nc-news-placement-style]')) {
+    const style = document.createElement('link');
+    style.rel = 'stylesheet';
+    style.href = 'assets/studio-news-placement.css?v=20260825-placement1';
+    style.dataset.ncNewsPlacementStyle = '1';
+    document.head.appendChild(style);
+  }
+
+  if (!document.querySelector('script[data-nc-news-placement]')) {
+    const script = document.createElement('script');
+    script.src = 'assets/studio-news-placement.js?v=20260825-placement1';
+    script.dataset.ncNewsPlacement = '1';
+    document.head.appendChild(script);
+  }
+
   const requested = new URLSearchParams(location.search).get('slug');
   if (!requested) return;
   let attempts = 0;
