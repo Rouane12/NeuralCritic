@@ -9,10 +9,10 @@
   const articleUrl = article => `article.html?slug=${encodeURIComponent(article.slug)}`;
   const platformNames = {pc:'PC',playstation:'PlayStation',xbox:'Xbox',nintendo:'Nintendo'};
   const collectionDefs = [
-    {key:'game-of-the-year',title:'Game of the Year',eyebrow:'ANNUAL AWARDS',copy:'Finalists, winners, and the games that defined the year.'},
-    {key:'best-games',title:'Best Games',eyebrow:'CURATED PICKS',copy:'Evolving lists built for players deciding what deserves their time.'},
-    {key:'all-time-greats',title:'Best Games of All Time',eyebrow:'THE ESSENTIALS',copy:'The games Neural Critic believes every player should know.'},
-    {key:'upcoming-games',title:'Upcoming Games',eyebrow:'ON THE RADAR',copy:'Promising releases worth watching before they arrive.'}
+    {key:'game-of-the-year',title:'Game of the Year',eyebrow:'ANNUAL AWARDS',copy:'The year’s strongest games, tracked from contenders to the final verdict.',empty:'Awards desk opening soon'},
+    {key:'best-games',title:'Best Games',eyebrow:'CURATED PICKS',copy:'Living recommendations for deciding what genuinely deserves your time.',empty:'Curated picks incoming'},
+    {key:'all-time-greats',title:'Best Games of All Time',eyebrow:'THE ESSENTIALS',copy:'The essential games Neural Critic would put in any permanent library.',empty:'The canon is taking shape'},
+    {key:'upcoming-games',title:'Upcoming Games',eyebrow:'ON THE RADAR',copy:'The releases worth keeping on your radar before they arrive.',empty:'Watchlist opening soon'}
   ];
 
   function mapArticle(row){
@@ -103,10 +103,16 @@
   }
 
   function collectionCard(def,curated){
-    const count = curated.filter(a=>a.collection === def.key).length;
-    return `<a class="wtp-collection" href="${categoryUrl({collection:def.key})}">
-      <small>${def.eyebrow}</small><b>${def.title}</b><p>${def.copy}</p>
-      <footer><span class="wtp-desk-count ${count ? '' : 'empty'}">${count ? `${count} ${count===1?'STORY':'STORIES'}` : 'DESK READY'}</span><span>EXPLORE →</span></footer>
+    const stories = curated.filter(a=>a.collection === def.key);
+    const count = stories.length;
+    const latest = stories[0] || null;
+    const media = latest?.imageLocal
+      ? `<div class="wtp-collection-media"><img src="${esc(latest.imageLocal)}" alt="${esc(latest.imageAlt || latest.title)}"><div class="wtp-collection-storyline"><small>LATEST DESK PICK</small><strong>${esc(latest.title)}</strong></div></div>`
+      : `<div class="wtp-collection-media wtp-collection-media-empty" aria-hidden="true"><span>NC</span><strong>${esc(def.empty)}</strong></div>`;
+    return `<a class="wtp-collection ${count ? 'is-live' : 'is-empty'}" href="${categoryUrl({collection:def.key})}">
+      <div class="wtp-collection-copy"><small>${def.eyebrow}</small><b>${def.title}</b><p>${def.copy}</p></div>
+      ${media}
+      <div class="wtp-collection-footer"><span class="wtp-desk-count ${count ? '' : 'empty'}">${count ? `${count} ${count===1?'STORY':'STORIES'}` : 'OPENING SOON'}</span><span class="wtp-collection-action">${count ? 'EXPLORE DESK' : 'VIEW DESK'} <b>→</b></span></div>
     </a>`;
   }
 
@@ -141,7 +147,7 @@
     hub.innerHTML = `
       <section class="wtp-hero-copy"><small class="wtp-eyebrow">NEURAL CRITIC RECOMMENDS</small><h1>Find your next game.</h1><p>Reviews, rankings, essential picks, and upcoming releases — but only when Neural Critic has explicitly published them to this desk.</p><div class="wtp-hero-meta"><span>${curated.length} CURATED ${curated.length===1?'STORY':'STORIES'}</span><span>·</span><a href="search.html">SEARCH THE ARCHIVE →</a></div></section>
       ${leadMarkup(lead)}
-      <section class="wtp-section"><div class="wtp-section-head"><div><small>CURATED DESKS</small><h2>Go straight to the good stuff.</h2></div><p>Nothing is borrowed from News, Reviews, or Features. These desks only contain stories explicitly assigned in Editorial Studio.</p></div><div class="wtp-collections">${collectionDefs.map(def=>collectionCard(def,curated)).join('')}</div></section>
+      <section class="wtp-section wtp-desks-section"><div class="wtp-section-head"><div><small>CURATED DESKS</small><h2>Go straight to the good stuff.</h2></div><p>Hand-built collections for readers who want a fast route to Neural Critic’s strongest recommendations.</p></div><div class="wtp-collections">${collectionDefs.map(def=>collectionCard(def,curated)).join('')}</div></section>
       <section class="wtp-section"><div class="wtp-section-head"><div><small>CHOOSE YOUR PLATFORM</small><h2>What are you playing on?</h2></div><p>Platform lanes only count Best Games stories deliberately published for that platform.</p></div><div class="wtp-platforms">${Object.entries(platformNames).map(([key,label])=>platformCard(key,label,curated)).join('')}</div></section>
       <section class="wtp-section"><div class="wtp-section-head"><div><small>LATEST RECOMMENDATIONS</small><h2>${curated.length?'Fresh picks and rankings.':'The desk is ready.'}</h2></div><p>${curated.length?'The newest stories explicitly published to What to Play and its collections.':'We have not published any What to Play stories yet. Existing News, Reviews, and Features remain in their original desks.'}</p></div><div class="wtp-latest-layout"><div class="wtp-story-list">${feed.map(feedCard).join('') || '<div class="wtp-side-card wtp-empty-desk"><small>NO CURATED STORIES YET</small><h3>Nothing has been published here.</h3><p class="wtp-side-note">Assign a new story to What to Play or one of its collections in Editorial Studio and it will appear here automatically.</p><a class="wtp-lead-cta" href="studio.html">OPEN EDITORIAL STUDIO →</a></div>'}</div><aside class="wtp-side"><section class="wtp-side-card"><small>QUICK LINKS</small><h3>Browse the desks.</h3><div class="wtp-side-links"><a href="${categoryUrl({collection:'game-of-the-year'})}">Game of the Year <span>→</span></a><a href="${categoryUrl({collection:'all-time-greats'})}">All-Time Greats <span>→</span></a><a href="${categoryUrl({collection:'upcoming-games'})}">Upcoming Games <span>→</span></a><a href="${categoryUrl({collection:'best-games'})}">Best Games <span>→</span></a></div></section><section class="wtp-side-card"><small>EDITORIAL RULE</small><h3>Curated means curated.</h3><p class="wtp-side-note">A story only appears in What to Play when we deliberately assign it there. Publishing elsewhere on Neural Critic does not automatically turn it into a recommendation.</p></section></aside></div></section>`;
     main.appendChild(hub);
