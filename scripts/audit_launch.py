@@ -133,30 +133,38 @@ def check_accessibility_and_performance() -> None:
 def check_reading_map_ownership() -> None:
     article = base.text("article.html")
     runtime = base.text("assets/article-runtime-integrity.js")
-    legacy = base.text("assets/article-sidebar-interactive.js")
+    presentation = base.text("assets/article-sidebar-interactive.js")
+    story_router = base.text("assets/story-router.js")
     state_guard = base.text("assets/article-reading-map-guard.css")
 
     runtime_asset = "assets/article-runtime-integrity.js"
-    legacy_asset = "assets/article-sidebar-interactive.js"
+    bootstrap_asset = "assets/supabase-config.js"
+    presentation_asset = "assets/article-sidebar-interactive.js"
     runtime_index = article.find(runtime_asset)
-    legacy_index = article.find(legacy_asset)
+    bootstrap_index = article.find(bootstrap_asset)
+    presentation_index = article.find(presentation_asset)
     if runtime_index < 0:
         base.error("article.html is missing the authoritative Reading Map controller.")
-    if legacy_index < 0:
+    if bootstrap_index < 0:
+        base.error("article.html is missing the public bootstrap.")
+    if presentation_index < 0:
         base.error("article.html is missing the Reading Map presentation layer.")
-    if runtime_index >= 0 and legacy_index >= 0 and runtime_index > legacy_index:
-        base.error("Reading Map controller must load before the legacy sidebar presentation layer.")
+    if runtime_index >= 0 and bootstrap_index >= 0 and runtime_index > bootstrap_index:
+        base.error("Reading Map controller must load before the public bootstrap stack.")
+    if runtime_index >= 0 and presentation_index >= 0 and runtime_index > presentation_index:
+        base.error("Reading Map controller must load before the sidebar presentation layer.")
     if "assets/article-reading-map-guard.css" not in article:
         base.error("article.html is missing the resilient Reading Map state guard.")
 
     runtime_markers = (
-        "reading-map-v3",
-        "document.addEventListener('click', authoritativeClick, true)",
+        "reading-map-v4-single-owner",
+        "document.addEventListener('click', authoritativeClick, { capture:true })",
+        "ownsInteraction: true",
+        "scrollIntoView",
         "history.replaceState",
         "activeSectionForViewport",
         "aria-current",
         "function liveNav()",
-        "nav !== lastNav",
         "observer.observe(host",
         "window.addEventListener('pageshow'",
     )
@@ -164,19 +172,21 @@ def check_reading_map_ownership() -> None:
         if marker not in runtime:
             base.error(f"Authoritative Reading Map runtime missing ownership marker: {marker}")
 
-    legacy_markers = (
-        "hasAuthoritativeController",
-        "legacyNavigation='deferred'",
-        "NeuralCriticReadingMapController?.sync",
-    )
-    for marker in legacy_markers:
-        if marker not in legacy:
-            base.error(f"Legacy Reading Map layer no longer defers correctly: {marker}")
+    for forbidden in ("event.defaultPrevented", "window.scrollTo({ top"):
+        if forbidden in runtime:
+            base.error(f"Reading Map runtime restored fragile interaction behavior: {forbidden}")
 
-    for marker in ('aria-current="location"', '.work-toc nav a.active'):
+    for forbidden in ("installLegacyFallback", "addEventListener('click'", "window.scrollTo", "history.replaceState"):
+        if forbidden in presentation:
+            base.error(f"Reading Map presentation layer regained navigation authority: {forbidden}")
+
+    for forbidden in ("bindReadingMap", ".work-toc", "HashChangeEvent('hashchange'"):
+        if forbidden in story_router:
+            base.error(f"Story router regained Reading Map authority: {forbidden}")
+
+    for marker in ('scroll-margin-top', 'aria-current="location"', '.work-toc nav a.active'):
         if marker not in state_guard:
-            base.error(f"Reading Map visual state guard missing resilience marker: {marker}")
-
+            base.error(f"Reading Map visual/navigation guard missing resilience marker: {marker}")
 
 def check_account_creation_hardening() -> None:
     guard = base.text("assets/signup-hardening.js")
