@@ -1,9 +1,9 @@
 (() => {
   const BUCKET = 'editorial';
-  const MAX_BYTES = 10 * 1024 * 1024;
+  const IMAGE_MAX_BYTES = 10 * 1024 * 1024;
   const UPLOAD_WAIT_MS = 12000;
   const VERIFY_WAIT_MS = 5000;
-  const ALLOWED = new Set(['image/jpeg','image/png','image/webp','image/avif','image/gif']);
+  const IMAGE_TYPES = new Set(['image/jpeg','image/png','image/webp','image/avif','image/gif']);
   const $ = (s, root=document) => root.querySelector(s);
   const $$ = (s, root=document) => [...root.querySelectorAll(s)];
 
@@ -17,13 +17,13 @@
     el._timer = setTimeout(() => el.classList.remove('show'), 3200);
   }
 
-  function safeName(name='image') {
+  function safeName(name='asset') {
     const dot = name.lastIndexOf('.');
     const base = (dot > 0 ? name.slice(0, dot) : name)
       .toLowerCase()
       .replace(/[^a-z0-9]+/g, '-')
       .replace(/^-|-$/g, '')
-      .slice(0, 70) || 'image';
+      .slice(0, 70) || 'asset';
     const ext = dot > 0 ? name.slice(dot + 1).toLowerCase().replace(/[^a-z0-9]/g,'') : '';
     return ext ? `${base}.${ext}` : base;
   }
@@ -55,11 +55,9 @@
     }
   }
 
-  async function verifyUploadedObject(client, path, status) {
+  async function verifyUploadedObject(client, path, reportStatus) {
     const url = publicUrl(client, path);
-    status.textContent = 'VERIFYING STORAGE…';
-    status.dataset.state = 'busy';
-
+    reportStatus?.('VERIFYING STORAGE…', 'busy');
     for (let attempt = 0; attempt < 5; attempt += 1) {
       if (await objectIsPublic(url)) return url;
       if (attempt < 4) await delay(900);
@@ -67,31 +65,26 @@
     return '';
   }
 
-  function finishUpload(target, status, url, recovered=false) {
-    target.value = url;
-    target.dispatchEvent(new Event('input', { bubbles: true }));
-    target.dispatchEvent(new Event('change', { bubbles: true }));
-    status.textContent = 'UPLOADED ✓';
-    status.dataset.state = 'done';
-    toast(recovered
-      ? 'Image reached Neural Critic storage. Upload state recovered.'
-      : 'Image uploaded to Neural Critic media storage.');
-    return url;
-  }
-
-  async function uploadFile(file, target, status) {
+  async function uploadAsset(file, options = {}) {
     const client = window.neuralCriticSupabase;
     if (!client) throw new Error('The CMS connection is not ready yet.');
-    if (!ALLOWED.has(file.type)) throw new Error('Use JPG, PNG, WEBP, AVIF, or GIF images.');
-    if (file.size > MAX_BYTES) throw new Error('Images must be 10 MB or smaller.');
+
+    const allowed = new Set(options.allowedTypes || [...IMAGE_TYPES]);
+    const maxBytes = Number(options.maxBytes || IMAGE_MAX_BYTES);
+    const label = String(options.label || 'File');
+    const prefix = String(options.pathPrefix || '').replace(/^\/+|\/+$/g, '');
+    const reportStatus = typeof options.onStatus === 'function' ? options.onStatus : null;
+
+    if (!allowed.has(file.type)) throw new Error(`${label} type is not supported.`);
+    if (file.size > maxBytes) throw new Error(`${label} must be ${Math.round(maxBytes / 1024 / 1024)} MB or smaller.`);
 
     const { data: { user } } = await client.auth.getUser();
     if (!user) throw new Error('Sign in to Editorial Studio before uploading media.');
 
     const filename = safeName(file.name);
-    const path = `${user.id}/${Date.now()}-${crypto.randomUUID?.() || Math.random().toString(36).slice(2)}-${filename}`;
-    status.textContent = 'UPLOADING…';
-    status.dataset.state = 'busy';
+    const leaf = `${Date.now()}-${crypto.randomUUID?.() || Math.random().toString(36).slice(2)}-${filename}`;
+    const path = [user.id, prefix, leaf].filter(Boolean).join('/');
+    reportStatus?.('UPLOADING…', 'busy');
 
     const uploadPromise = client.storage.from(BUCKET).upload(path, file, {
       cacheControl: '31536000',
@@ -110,27 +103,55 @@
         }),
       ]);
     } catch (error) {
-      const recoveredUrl = await verifyUploadedObject(client, path, status);
-      if (recoveredUrl) return finishUpload(target, status, recoveredUrl, true);
+      const recoveredUrl = await verifyUploadedObject(client, path, reportStatus);
+      if (recoveredUrl) return { url: recoveredUrl, path, recovered: true, fileName: filename };
       throw error;
     }
 
     if (timedOut || !result) {
-      const recoveredUrl = await verifyUploadedObject(client, path, status);
-      if (recoveredUrl) return finishUpload(target, status, recoveredUrl, true);
+      const recoveredUrl = await verifyUploadedObject(client, path, reportStatus);
+      if (recoveredUrl) return { url: recoveredUrl, path, recovered: true, fileName: filename };
       throw new Error('The upload response timed out before Storage could be verified. Please retry once.');
     }
 
     const { data, error } = result;
     if (error) {
-      const recoveredUrl = await verifyUploadedObject(client, path, status);
-      if (recoveredUrl) return finishUpload(target, status, recoveredUrl, true);
+      const recoveredUrl = await verifyUploadedObject(client, path, reportStatus);
+      if (recoveredUrl) return { url: recoveredUrl, path, recovered: true, fileName: filename };
       throw error;
     }
 
-    const url = publicUrl(client, data?.path || path);
+    const storedPath = data?.path || path;
+    const url = publicUrl(client, storedPath);
     if (!url) throw new Error('Upload succeeded but no public media URL was returned.');
-    return finishUpload(target, status, url, false);
+    reportStatus?.('UPLOADED ✓', 'done');
+    return { url, path: storedPath, recovered: false, fileName: filename };
+  }
+
+  function finishImageUpload(target, status, result) {
+    target.value = result.url;
+    target.dispatchEvent(new Event('input', { bubbles: true }));
+    target.dispatchEvent(new Event('change', { bubbles: true }));
+    status.textContent = 'UPLOADED ✓';
+    status.dataset.state = 'done';
+    toast(result.recovered
+      ? 'Image reached Neural Critic storage. Upload state recovered.'
+      : 'Image uploaded to Neural Critic media storage.');
+    return result.url;
+  }
+
+  async function uploadImage(file, target, status) {
+    const result = await uploadAsset(file, {
+      allowedTypes: [...IMAGE_TYPES],
+      maxBytes: IMAGE_MAX_BYTES,
+      label: 'Image',
+      pathPrefix: 'images',
+      onStatus: (message, state) => {
+        status.textContent = message;
+        status.dataset.state = state;
+      },
+    });
+    return finishImageUpload(target, status, result);
   }
 
   function decorate(target, label='UPLOAD IMAGE') {
@@ -155,7 +176,7 @@
       if (!file) return;
       button.disabled = true;
       try {
-        await uploadFile(file, target, status);
+        await uploadImage(file, target, status);
       } catch (error) {
         status.textContent = 'UPLOAD FAILED';
         status.dataset.state = 'error';
@@ -182,6 +203,13 @@
     decorate($('#profile-image'), 'UPLOAD PROFILE IMAGE');
     $$('input[data-field="imageLocal"]').forEach(input => decorate(input, 'UPLOAD SECTION IMAGE'));
   }
+
+  window.NeuralCriticStudioMedia = Object.freeze({
+    uploadAsset,
+    toast,
+    bucket: BUCKET,
+    imageMaxBytes: IMAGE_MAX_BYTES,
+  });
 
   function init() {
     addSubscriberDeskLink();
