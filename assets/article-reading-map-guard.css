@@ -1,6 +1,14 @@
 /* Reading Map state guard
-   Keep the visual state tied to both the controller class and the semantic
-   aria-current contract. This survives class churn from late article enhancers. */
+   The article runtime is the single interaction owner. Native scrollIntoView()
+   uses these section margins, avoiding custom coordinate math under CSS zoom. */
+#article.work-article-page .article-body > section[id]{
+  scroll-margin-top:96px!important;
+}
+
+#article.work-article-page .work-toc nav a{
+  cursor:pointer!important;
+}
+
 #article.work-article-page .work-toc nav a.active,
 #article.work-article-page .work-toc nav a[aria-current="location"]{
   position:relative!important;
@@ -38,6 +46,9 @@ html[data-theme="light"] #article.work-article-page .work-toc nav a[aria-current
 }
 
 @media(max-width:900px){
+  #article.work-article-page .article-body > section[id]{
+    scroll-margin-top:78px!important;
+  }
   #article.work-article-page .work-toc nav a.active::after,
   #article.work-article-page .work-toc nav a[aria-current="location"]::after{
     left:-16px!important;
