@@ -3,20 +3,20 @@
    and responsive outer gutters. Comment behavior and internal Thread styling
    remain owned by the community system. */
 
-#article.work-article-page > .work-bottom-grid{
+html body #article.work-article-page > .work-bottom-grid{
   width:min(1120px,calc(100% - 72px))!important;
   margin:48px auto 0!important;
 }
 
 @media(max-width:900px){
-  #article.work-article-page > .work-bottom-grid{
+  html body #article.work-article-page > .work-bottom-grid{
     width:min(100% - 40px,1120px)!important;
     margin-top:38px!important;
   }
 }
 
 @media(max-width:620px){
-  #article.work-article-page > .work-bottom-grid{
+  html body #article.work-article-page > .work-bottom-grid{
     width:min(100% - 24px,1120px)!important;
     margin-top:30px!important;
   }
