@@ -1,0 +1,85 @@
+/* Neural Critic primary-source integration v5.
+   Source documents now live inside the editorial reading column as normal story sections. */
+
+#article .article-body > .nc-news-source-library.nc-news-primary-section{
+  box-sizing:border-box!important;
+  width:100%!important;
+  max-width:none!important;
+  margin:42px 0 46px!important;
+  padding:0!important;
+  border:0!important;
+  border-radius:0!important;
+  background:transparent!important;
+  box-shadow:none!important;
+  scroll-margin-top:132px!important;
+}
+
+#article .article-body > .nc-news-primary-section > .nc-news-primary-eyebrow{
+  display:block!important;
+  margin:0 0 10px 2px!important;
+  color:#22b9d8!important;
+  font:850 7px/1 Inter,system-ui,sans-serif!important;
+  letter-spacing:.13em!important;
+}
+
+#article .article-body > .nc-news-primary-section > h2{
+  margin-bottom:12px!important;
+}
+
+#article .article-body > .nc-news-primary-section > .nc-news-source-library-intro{
+  max-width:700px!important;
+  margin:0 0 18px!important;
+  color:#718095!important;
+  font:500 10.5px/1.55 Inter,system-ui,sans-serif!important;
+}
+
+#article .article-body > .nc-news-primary-section .nc-news-source-documents{
+  display:grid!important;
+  gap:14px!important;
+}
+
+#article .article-body > .nc-news-primary-section .nc-news-source-document{
+  overflow:hidden!important;
+  border:1px solid rgba(110,127,158,.2)!important;
+  border-radius:15px!important;
+}
+
+#article .article-body > .nc-news-primary-section .nc-news-source-document > header{
+  gap:14px!important;
+  padding:14px 15px!important;
+}
+
+#article .article-body > .nc-news-primary-section .nc-news-source-document > header h3{
+  font-size:13.5px!important;
+}
+
+#article .article-body > .nc-news-primary-section .nc-news-source-document > header p{
+  max-width:560px!important;
+  margin-top:6px!important;
+}
+
+#article .article-body > .nc-news-primary-section .nc-news-pdf-viewer{
+  height:350px!important;
+  min-height:0!important;
+  max-height:350px!important;
+}
+
+html[data-theme="dark"] #article .article-body > .nc-news-primary-section > .nc-news-source-library-intro{
+  color:#9ca8bb!important;
+}
+
+@media(max-width:720px){
+  #article .article-body > .nc-news-source-library.nc-news-primary-section{
+    margin:34px 0 38px!important;
+    scroll-margin-top:96px!important;
+  }
+
+  #article .article-body > .nc-news-primary-section .nc-news-source-document > header{
+    padding:12px!important;
+  }
+
+  #article .article-body > .nc-news-primary-section .nc-news-pdf-viewer{
+    height:300px!important;
+    max-height:300px!important;
+  }
+}
