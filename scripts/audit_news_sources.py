@@ -25,7 +25,8 @@ def require(path: str, markers: tuple[str, ...]) -> None:
 
 def main() -> int:
     require("article.html", (
-        "assets/article-news.css?v=20260825-sources1",
+        "assets/article-news.css?v=20260825-sources2",
+        "assets/article-news-layout-v3.css",
         "assets/article-news.js?v=20260825-sources1",
     ))
     require("studio.html", (
@@ -61,6 +62,11 @@ def main() -> int:
         ".nc-news-source-library",
         ".nc-news-pdf-viewer",
         ".nc-news-source-document",
+    ))
+    require("assets/article-news-layout-v3.css", (
+        "width:min(920px,calc(100% - 48px))!important",
+        "height:380px!important",
+        "max-height:380px!important",
     ))
     require("supabase/migrations/20260825_allow_editorial_source_documents.sql", (
         "application/pdf",
