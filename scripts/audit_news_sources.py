@@ -41,6 +41,27 @@ def main() -> int:
         "assets/studio-media.js?v=20260825-sources1",
         "assets/studio-news.js?v=20260825-sources1",
         "assets/studio-news.css?v=20260825-sources1",
+        "assets/studio-newsroom-bridge.js?v=20260824-newsroom1",
+    ))
+    require("assets/studio-newsroom-bridge.js", (
+        "assets/studio-news-placement.css?v=20260825-placement1",
+        "assets/studio-news-placement.js?v=20260825-placement1",
+        "data-nc-news-placement",
+    ))
+    require("assets/studio-news-placement.js", (
+        "news-document-section-title",
+        "news-document-section-description",
+        "news-document-placement-heading",
+        "documentSectionTitle",
+        "documentSectionDescription",
+        "documentPlacementAfterHeading",
+        "sectionHeadings",
+        "metadata synced to Neural Critic",
+    ))
+    require("assets/studio-news-placement.css", (
+        ".studio-news-document-placement",
+        ".studio-news-placement-grid",
+        ".studio-news-placement-status",
     ))
     require("assets/studio-media.js", (
         "window.NeuralCriticStudioMedia",
