@@ -51,6 +51,38 @@
     }
   }
 
+  function fileSize(value) {
+    const bytes = Number(value || 0);
+    if (!bytes) return '';
+    if (bytes < 1024) return `${bytes} B`;
+    if (bytes < 1024 * 1024) return `${Math.round(bytes / 102.4) / 10} KB`;
+    return `${Math.round(bytes / 1024 / 102.4) / 10} MB`;
+  }
+
+  function downloadUrl(value, filename = 'source-document') {
+    const url = safeUrl(value);
+    if (!url) return '';
+    try {
+      const parsed = new URL(url);
+      parsed.searchParams.set('download', filename || 'source-document');
+      return parsed.href;
+    } catch (_) {
+      return url;
+    }
+  }
+
+  function pdfEmbedUrl(value) {
+    const url = safeUrl(value);
+    if (!url) return '';
+    try {
+      const parsed = new URL(url);
+      parsed.hash = 'view=FitH&toolbar=1&navpanes=0';
+      return parsed.href;
+    } catch (_) {
+      return url;
+    }
+  }
+
   function markDocumentImage(img) {
     if (!img || img.dataset.ncNewsDocumentChecked === '1') return;
     img.dataset.ncNewsDocumentChecked = '1';
@@ -83,24 +115,76 @@
     $$('.article-body figure img.article-hero', article).forEach(markDocumentImage);
   }
 
+  function renderUpdateSource(item) {
+    const sourceName = String(item?.sourceName || '').trim();
+    const sourceUrl = safeUrl(item?.sourceUrl || '');
+    if (!sourceName && !sourceUrl) return '';
+    const label = sourceName || 'View source';
+    return `<div class="nc-news-update-source"><span>SOURCE</span>${sourceUrl ? `<a href="${sourceUrl}" target="_blank" rel="noopener noreferrer">${esc(label)} ↗</a>` : `<strong>${esc(label)}</strong>`}</div>`;
+  }
+
   function renderUpdateLog(article, meta, context) {
     const updates = Array.isArray(meta?.updates)
       ? meta.updates.filter(item => item && String(item.note || '').trim() && item.at)
         .sort((a, b) => new Date(b.at) - new Date(a.at))
       : [];
-    if (!updates.length || article.querySelector('.nc-news-update-log')) return;
+    const existing = article.querySelector('.nc-news-update-log');
+    if (existing) return existing;
+    if (!updates.length) return null;
 
     const section = document.createElement('section');
     section.className = 'nc-news-update-log';
     section.innerHTML = `
       <header><div><small>DEVELOPING COVERAGE</small><h2>Update log</h2></div><span>${updates.length} ${updates.length === 1 ? 'UPDATE' : 'UPDATES'}</span></header>
       <div class="nc-news-update-items">
-        ${updates.slice(0, 6).map((item, index) => `<article class="nc-news-update-entry${index === 0 ? ' is-latest' : ''}">
+        ${updates.slice(0, 8).map((item, index) => `<article class="nc-news-update-entry${index === 0 ? ' is-latest' : ''}">
           <time datetime="${esc(item.at)}">${esc(updateTime(item.at))}</time>
-          <p>${esc(item.note)}</p>
+          <div class="nc-news-update-copy"><p>${esc(item.note)}</p>${renderUpdateSource(item)}</div>
         </article>`).join('')}
       </div>`;
     context.insertAdjacentElement('afterend', section);
+    return section;
+  }
+
+  function renderDocumentCard(doc) {
+    const url = safeUrl(doc?.url || '');
+    if (!url) return '';
+    const title = String(doc.title || doc.fileName || 'Source document').trim();
+    const sourceName = String(doc.sourceName || '').trim();
+    const description = String(doc.description || '').trim();
+    const mime = String(doc.mime || '').toLowerCase();
+    const fileName = String(doc.fileName || title || 'source-document').trim();
+    const isPdf = mime === 'application/pdf' || /\.pdf(?:$|[?#])/i.test(url);
+    const size = fileSize(doc.size);
+    const meta = [sourceName || 'PRIMARY SOURCE', isPdf ? 'PDF' : (mime ? mime.split('/').pop()?.toUpperCase() : 'FILE'), size].filter(Boolean).join(' · ');
+    const download = downloadUrl(url, fileName);
+
+    return `<article class="nc-news-source-document${isPdf ? ' is-pdf' : ''}">
+      <header>
+        <div><small>${esc(meta)}</small><h3>${esc(title)}</h3>${description ? `<p>${esc(description)}</p>` : ''}</div>
+        <nav aria-label="Source document actions">
+          <a href="${url}" target="_blank" rel="noopener noreferrer">OPEN ORIGINAL ↗</a>
+          <a href="${download || url}" download="${esc(fileName)}">DOWNLOAD ${isPdf ? 'PDF' : 'FILE'} ↓</a>
+        </nav>
+      </header>
+      ${isPdf ? `<div class="nc-news-pdf-viewer"><iframe src="${pdfEmbedUrl(url)}" title="${esc(title)}" loading="lazy"></iframe><div class="nc-news-pdf-fallback"><span>PDF SOURCE DOCUMENT</span><p>If the inline reader is unavailable on this device, open the original document instead.</p><a href="${url}" target="_blank" rel="noopener noreferrer">OPEN PDF ↗</a></div></div>` : `<div class="nc-news-file-preview"><b>${esc((mime.split('/').pop() || 'FILE').toUpperCase())}</b><div><span>SOURCE FILE</span><p>${esc(fileName)}</p></div><a href="${url}" target="_blank" rel="noopener noreferrer">OPEN ↗</a></div>`}
+    </article>`;
+  }
+
+  function renderDocuments(article, meta, anchor) {
+    const documents = Array.isArray(meta?.documents) ? meta.documents.filter(doc => doc && safeUrl(doc.url || '')) : [];
+    const existing = article.querySelector('.nc-news-source-library');
+    if (existing) return existing;
+    if (!documents.length || !anchor) return null;
+
+    const section = document.createElement('section');
+    section.className = 'nc-news-source-library';
+    section.innerHTML = `
+      <header><div><small>PRIMARY MATERIAL</small><h2>Source documents</h2></div><span>${documents.length} ${documents.length === 1 ? 'DOCUMENT' : 'DOCUMENTS'}</span></header>
+      <p class="nc-news-source-library-intro">Read the underlying material Neural Critic used for context. Uploaded copies are provided for reference; the article remains the editorial summary.</p>
+      <div class="nc-news-source-documents">${documents.map(renderDocumentCard).join('')}</div>`;
+    anchor.insertAdjacentElement('afterend', section);
+    return section;
   }
 
   function render(article, meta) {
@@ -157,11 +241,13 @@
         news_kind: kind,
         source_present: sourceName ? 'yes' : 'no',
         developing_story: developing ? 'yes' : 'no',
-        update_count: updateCount
+        update_count: updateCount,
+        source_document_count: Array.isArray(meta.documents) ? meta.documents.length : 0
       });
     }
 
-    renderUpdateLog(article, meta, panel);
+    const updateLog = renderUpdateLog(article, meta, panel);
+    renderDocuments(article, meta, updateLog || panel);
     polishDocumentMedia(article);
     setTimeout(() => polishDocumentMedia(article), 350);
   }
