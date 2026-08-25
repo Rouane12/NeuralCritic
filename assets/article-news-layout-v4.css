@@ -1,0 +1,61 @@
+/* Neural Critic newsroom source document geometry override v4.
+   Final supporting-evidence scale: narrower than discussion/recirculation surfaces
+   so primary material stays useful without becoming a second article. */
+
+#article.nc-news-article > .nc-news-source-library,
+#article.work-article-page > .nc-news-source-library,
+#article .nc-news-source-library{
+  box-sizing:border-box!important;
+  width:min(840px,calc(100% - 64px))!important;
+  max-width:840px!important;
+  margin:54px auto 40px!important;
+  padding:14px 15px 16px!important;
+}
+
+#article .nc-news-source-library > header{
+  padding-bottom:10px!important;
+}
+
+#article .nc-news-source-library-intro{
+  margin:12px 1px 14px!important;
+}
+
+#article .nc-news-source-document > header{
+  gap:14px!important;
+  padding:13px 14px!important;
+}
+
+#article .nc-news-source-document > header h3{
+  font-size:13.5px!important;
+}
+
+#article .nc-news-source-document > header p{
+  max-width:540px!important;
+  margin-top:6px!important;
+}
+
+#article .nc-news-pdf-viewer{
+  height:350px!important;
+  min-height:0!important;
+  max-height:350px!important;
+}
+
+@media(max-width:720px){
+  #article.nc-news-article > .nc-news-source-library,
+  #article.work-article-page > .nc-news-source-library,
+  #article .nc-news-source-library{
+    width:calc(100% - 24px)!important;
+    max-width:none!important;
+    margin:36px auto 30px!important;
+    padding:12px!important;
+  }
+
+  #article .nc-news-source-document > header{
+    padding:12px!important;
+  }
+
+  #article .nc-news-pdf-viewer{
+    height:320px!important;
+    max-height:320px!important;
+  }
+}
