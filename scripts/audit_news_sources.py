@@ -23,11 +23,19 @@ def require(path: str, markers: tuple[str, ...]) -> None:
             ERRORS.append(f"{path} missing newsroom source marker: {marker}")
 
 
+def forbid(path: str, markers: tuple[str, ...]) -> None:
+    content = text(path)
+    for marker in markers:
+        if marker in content:
+            ERRORS.append(f"{path} contains superseded newsroom source behavior: {marker}")
+
+
 def main() -> int:
     require("article.html", (
         "assets/article-news.css?v=20260825-sources2",
-        "assets/article-news-layout-v4.css",
-        "assets/article-news.js?v=20260825-sources1",
+        "assets/article-news-layout-v5.css",
+        "assets/article-news.js?v=20260825-sources3",
+        "assets/article-deep-link.js?v=20260825-sourceflow1",
     ))
     require("studio.html", (
         "assets/studio-media.js?v=20260825-sources1",
@@ -52,8 +60,10 @@ def main() -> int:
     ))
     require("assets/article-news.js", (
         "nc-news-update-source",
-        "nc-news-source-library",
-        "nc-news-pdf-viewer",
+        "nc-news-primary-section",
+        "source-documents",
+        "documentPlacementAfterHeading",
+        "syncDocumentReadingMap",
         "DOWNLOAD ${isPdf ? 'PDF' : 'FILE'}",
         "source_document_count",
     ))
@@ -63,10 +73,17 @@ def main() -> int:
         ".nc-news-pdf-viewer",
         ".nc-news-source-document",
     ))
-    require("assets/article-news-layout-v4.css", (
-        "width:min(840px,calc(100% - 64px))!important",
+    require("assets/article-news-layout-v5.css", (
+        ".article-body > .nc-news-source-library.nc-news-primary-section",
+        "width:100%!important",
         "height:350px!important",
-        "max-height:350px!important",
+        "scroll-margin-top:132px!important",
+    ))
+    forbid("assets/article-deep-link.js", (
+        "placeNewsSourceLibrary",
+        "installNewsSourceCompactStyle",
+        "nc-news-source-library",
+        "nc-news-pdf-viewer",
     ))
     require("supabase/migrations/20260825_allow_editorial_source_documents.sql", (
         "application/pdf",
