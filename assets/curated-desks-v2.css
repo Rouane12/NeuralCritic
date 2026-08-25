@@ -1,0 +1,240 @@
+/* Neural Critic — Curated Desks V2
+   Purpose: premium desk cards with real story previews and deliberate empty states.
+   This file intentionally owns only the Curated Desks block inside What to Play. */
+
+.wtp-desks-section{gap:22px}
+.wtp-desks-section .wtp-section-head{align-items:center}
+.wtp-desks-section .wtp-section-head>div{max-width:720px}
+.wtp-desks-section .wtp-section-head p{max-width:390px;color:#8f99b0;font-size:10.5px;line-height:1.55}
+
+.wtp-collections{
+  display:grid;
+  grid-template-columns:repeat(4,minmax(0,1fr));
+  gap:14px;
+  align-items:stretch;
+}
+
+.wtp-collection{
+  position:relative;
+  display:grid;
+  grid-template-rows:auto 142px auto;
+  min-height:354px;
+  padding:0;
+  overflow:hidden;
+  border:1px solid rgba(124,142,255,.22);
+  border-radius:20px;
+  background:
+    radial-gradient(circle at 100% 0,rgba(119,104,255,.11),transparent 34%),
+    linear-gradient(145deg,rgba(18,22,42,.96),rgba(8,12,26,.98));
+  box-shadow:0 16px 42px rgba(2,6,18,.14);
+  transition:transform .24s cubic-bezier(.16,1,.3,1),border-color .22s,box-shadow .24s;
+}
+.wtp-collection::before{
+  content:"";
+  position:absolute;
+  z-index:4;
+  inset:0 auto auto 0;
+  width:86px;
+  height:2px;
+  background:linear-gradient(90deg,var(--wtp-cyan),var(--wtp-violet));
+}
+.wtp-collection::after{
+  content:"";
+  position:absolute;
+  z-index:0;
+  width:170px;
+  height:170px;
+  right:-92px;
+  bottom:-98px;
+  border-radius:50%;
+  background:radial-gradient(circle,rgba(119,104,255,.13),transparent 68%);
+  pointer-events:none;
+}
+.wtp-collection:hover{
+  transform:translateY(-4px);
+  border-color:rgba(82,226,247,.46);
+  box-shadow:0 24px 54px rgba(2,6,18,.24);
+}
+
+.wtp-collection-copy{
+  position:relative;
+  z-index:2;
+  padding:23px 22px 17px;
+}
+.wtp-collection-copy>small{
+  display:block;
+  color:var(--wtp-cyan);
+  font:850 7.5px/1 Inter,system-ui,sans-serif;
+  letter-spacing:.17em;
+}
+.wtp-collection-copy>b{
+  display:block;
+  max-width:230px;
+  margin:12px 0 9px;
+  color:#f5f7ff;
+  font:650 clamp(21px,1.7vw,26px)/1.01 Inter,system-ui,sans-serif;
+  letter-spacing:-.046em;
+}
+.wtp-collection-copy>p{
+  margin:0;
+  color:#929caf;
+  font:450 10px/1.5 Inter,system-ui,sans-serif;
+  letter-spacing:-.006em;
+}
+
+.wtp-collection-media{
+  position:relative;
+  z-index:2;
+  min-height:142px;
+  margin:0 15px;
+  overflow:hidden;
+  border:1px solid rgba(124,142,255,.18);
+  border-radius:14px;
+  background:#070b16;
+}
+.wtp-collection-media>img{
+  display:block;
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  transition:transform .42s cubic-bezier(.16,1,.3,1),filter .3s;
+}
+.wtp-collection:hover .wtp-collection-media>img{transform:scale(1.035)}
+.wtp-collection-media:not(.wtp-collection-media-empty)::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:linear-gradient(180deg,transparent 25%,rgba(4,7,16,.18) 52%,rgba(4,7,16,.94));
+  pointer-events:none;
+}
+.wtp-collection-storyline{
+  position:absolute;
+  z-index:2;
+  left:14px;
+  right:14px;
+  bottom:12px;
+}
+.wtp-collection-storyline small{
+  display:block;
+  margin-bottom:5px;
+  color:var(--wtp-cyan);
+  font:850 6.5px/1 Inter,system-ui,sans-serif;
+  letter-spacing:.14em;
+}
+.wtp-collection-storyline strong{
+  display:-webkit-box;
+  overflow:hidden;
+  -webkit-box-orient:vertical;
+  -webkit-line-clamp:2;
+  color:#fff;
+  font:650 11px/1.2 Inter,system-ui,sans-serif;
+  letter-spacing:-.018em;
+}
+
+.wtp-collection-media-empty{
+  display:grid;
+  grid-template-columns:48px minmax(0,1fr);
+  align-items:center;
+  gap:13px;
+  padding:17px;
+  background:
+    linear-gradient(rgba(82,226,247,.035) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(119,104,255,.04) 1px,transparent 1px),
+    radial-gradient(circle at 18% 26%,rgba(82,226,247,.11),transparent 28%),
+    radial-gradient(circle at 78% 74%,rgba(119,104,255,.14),transparent 32%),
+    #080c19;
+  background-size:22px 22px,22px 22px,auto,auto,auto;
+}
+.wtp-collection-media-empty>span{
+  display:grid;
+  place-items:center;
+  width:46px;
+  height:46px;
+  border:1px solid rgba(82,226,247,.34);
+  border-radius:13px;
+  background:rgba(82,226,247,.045);
+  color:var(--wtp-cyan);
+  font:850 9px/1 Inter,system-ui,sans-serif;
+  letter-spacing:.08em;
+}
+.wtp-collection-media-empty>strong{
+  color:#cbd2e2;
+  font:650 11px/1.3 Inter,system-ui,sans-serif;
+  letter-spacing:-.016em;
+}
+.wtp-collection.is-empty{border-style:solid}
+.wtp-collection.is-empty .wtp-collection-media{border-style:dashed;border-color:rgba(124,142,255,.20)}
+.wtp-collection.is-empty:hover .wtp-collection-media{border-color:rgba(82,226,247,.32)}
+
+.wtp-collection-footer{
+  position:relative;
+  z-index:2;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:12px;
+  min-height:54px;
+  padding:15px 20px 18px;
+  color:#7f89a2;
+  font:820 7px/1 Inter,system-ui,sans-serif;
+  letter-spacing:.075em;
+}
+.wtp-desk-count{color:var(--wtp-cyan)}
+.wtp-desk-count.empty{color:#737d95}
+.wtp-collection-action{
+  display:flex;
+  align-items:center;
+  gap:7px;
+  color:#dfe4ef;
+  transition:color .2s,transform .2s;
+}
+.wtp-collection-action>b{color:var(--wtp-cyan);font-size:10px}
+.wtp-collection:hover .wtp-collection-action{color:#fff;transform:translateX(2px)}
+
+/* Explicitly neutralize the historical nested-footer collision if cached markup lingers. */
+.wtp-collection>footer{
+  margin:0!important;
+  padding:15px 20px 18px!important;
+  min-height:54px!important;
+  border:0!important;
+  background:transparent!important;
+  box-shadow:none!important;
+}
+
+html[data-theme="light"] .wtp-desks-section .wtp-section-head p{color:#667181}
+html[data-theme="light"] .wtp-collection{
+  border-color:#d8dee8;
+  background:radial-gradient(circle at 100% 0,rgba(119,104,255,.075),transparent 34%),linear-gradient(145deg,#fff,#f7f9fc);
+  box-shadow:0 14px 36px rgba(35,45,65,.07);
+}
+html[data-theme="light"] .wtp-collection:hover{border-color:#79cbd8;box-shadow:0 22px 46px rgba(35,45,65,.11)}
+html[data-theme="light"] .wtp-collection-copy>b{color:#17202b}
+html[data-theme="light"] .wtp-collection-copy>p{color:#667181}
+html[data-theme="light"] .wtp-collection-media{border-color:#d9dfe8;background:#eef2f7}
+html[data-theme="light"] .wtp-collection-media-empty{
+  background:
+    linear-gradient(rgba(47,173,197,.055) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(119,104,255,.055) 1px,transparent 1px),
+    radial-gradient(circle at 18% 26%,rgba(82,226,247,.10),transparent 28%),
+    radial-gradient(circle at 78% 74%,rgba(119,104,255,.10),transparent 32%),
+    #f5f8fb;
+  background-size:22px 22px,22px 22px,auto,auto,auto;
+}
+html[data-theme="light"] .wtp-collection-media-empty>strong{color:#5d6878}
+html[data-theme="light"] .wtp-collection-action{color:#344152}
+
+@media(max-width:1040px){
+  .wtp-collections{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .wtp-collection-copy>b{font-size:25px}
+}
+@media(max-width:720px){
+  .wtp-desks-section .wtp-section-head{align-items:start}
+  .wtp-desks-section .wtp-section-head p{max-width:100%;text-align:left}
+}
+@media(max-width:620px){
+  .wtp-collections{grid-template-columns:1fr}
+  .wtp-collection{min-height:0;grid-template-rows:auto 150px auto}
+  .wtp-collection-copy{padding:21px 20px 16px}
+  .wtp-collection-media{margin:0 14px}
+  .wtp-collection-footer{padding:15px 18px 18px}
+}
