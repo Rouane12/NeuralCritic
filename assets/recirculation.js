@@ -234,7 +234,7 @@
       const link = event.target.closest('[data-recirc-target]');
       if (!link) return;
       window.NeuralCriticAnalytics?.track?.('recirculation_click', {
-        placement: 'article_end',
+        placement: 'after_thread',
         target_slug: link.dataset.recircTarget || '',
         recommendation_reason: link.dataset.recircReason || ''
       });
@@ -245,7 +245,7 @@
       if (!entries.some(entry => entry.isIntersecting)) return;
       observer.disconnect();
       window.NeuralCriticAnalytics?.track?.('recirculation_view', {
-        placement: 'article_end',
+        placement: 'after_thread',
         recommendation_count: module.querySelectorAll('[data-recirc-target]').length
       });
     }, { threshold: 0.25 });
@@ -306,7 +306,10 @@
     module.setAttribute('aria-labelledby', 'nc-recirculation-title');
     module.innerHTML = `<header class="nc-recirc-head"><div><span>${esc(eyebrow)}</span><h2 id="nc-recirculation-title">Your next story is already here.</h2></div><a href="${esc(exploreHref)}">${esc(exploreLabel)}</a></header><div class="nc-recirc-grid">${selected.map(cardMarkup).join('')}</div>`;
 
-    insertionPoint.insertAdjacentElement('beforebegin', module);
+    // Discussion is the first action after an article. Recirculation comes only
+    // after the Reader Thread so readers can respond before being sent away.
+    insertionPoint.insertAdjacentElement('afterend', module);
+    module.dataset.placement = 'after-reader-thread';
     removeLegacyRelated();
     trackClicks(module);
 
