@@ -87,6 +87,8 @@ jobs:
           s = re.sub(pattern, replacement + 'def check_account_creation_hardening() -> None:', s, count=1, flags=re.S)
           p.write_text(s, encoding='utf-8')
           PY
+      - name: Restore generated story metadata enrichment
+        run: python scripts/enrich_story_metadata.py
       - name: Validate v4 contract and launch audit
         run: |
           node --check assets/article-runtime-integrity.js
@@ -94,11 +96,11 @@ jobs:
           node --check assets/story-router.js
           python -m py_compile scripts/audit_launch.py
           python scripts/audit_launch.py
-      - name: Commit v4 audit contract
+      - name: Commit v4 audit contract and repaired story metadata
         run: |
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git add scripts/audit_launch.py
+          git add scripts/audit_launch.py stories
           if git diff --cached --quiet; then exit 0; fi
           git commit -m 'Enforce single-owner Reading Map v4 in launch QA'
           git push
