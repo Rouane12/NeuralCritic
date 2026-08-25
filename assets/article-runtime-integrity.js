@@ -5,7 +5,7 @@
   const qsa = (selector, root = document) => [...root.querySelectorAll(selector)];
   const reduceMotion = window.matchMedia?.('(prefers-reduced-motion: reduce)').matches;
   const FORMAT_CLASSES = ['standard', 'review', 'ranked-list', 'guide'];
-  const CONTROLLER_VERSION = 'reading-map-v3';
+  const CONTROLLER_VERSION = 'reading-map-v4-single-owner';
 
   let runtimeContext = null;
 
@@ -40,7 +40,7 @@
 
   async function liveArticle(slug) {
     if (!slug) return null;
-    for (let attempt = 0; attempt < 20; attempt += 1) {
+    for (let attempt = 0; attempt < 24; attempt += 1) {
       const api = window.NeuralCriticContentAPI;
       if (api?.publishedArticle) {
         try {
@@ -89,9 +89,10 @@
         return;
       }
       const heading = qs(':scope > h2', section)?.textContent || `section-${index + 1}`;
-      let id = slugify(heading);
+      const base = slugify(heading);
+      let id = base;
       let suffix = 2;
-      while (seen.has(id) || document.getElementById(id)) id = `${slugify(heading)}-${suffix++}`;
+      while (seen.has(id) || document.getElementById(id)) id = `${base}-${suffix++}`;
       section.id = id;
       seen.add(id);
     });
@@ -176,8 +177,7 @@
 
   function scrollToTarget(target, behavior = reduceMotion ? 'auto' : 'smooth') {
     if (!target) return false;
-    const top = window.scrollY + target.getBoundingClientRect().top - 86;
-    window.scrollTo({ top:Math.max(0, top), behavior });
+    target.scrollIntoView({ behavior, block:'start', inline:'nearest' });
     return true;
   }
 
@@ -196,11 +196,11 @@
     return target ? { nav, id, target } : null;
   }
 
-  // Capture clicks before any compatibility enhancer can interpret a Reading Map
-  // anchor as document navigation. replaceState updates the visible hash without a
-  // hashchange event or page navigation.
+  // Single-owner interaction contract. This listener is intentionally installed
+  // before the public bootstrap stack in article.html. Reading Map anchors are
+  // never delegated to compatibility layers.
   function authoritativeClick(event) {
-    if (event.defaultPrevented || event.button > 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
+    if ((typeof event.button === 'number' && event.button !== 0) || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
     const link = event.target?.closest?.('#article .work-toc a[href^="#"]');
     if (!link) return;
     const destination = navigationForLink(link);
@@ -213,12 +213,14 @@
     scrollToTarget(destination.target);
     activate(destination.nav, destination.id);
     replaceHash(destination.id);
-    runtimeContext?.sync?.();
+    requestAnimationFrame(() => runtimeContext?.sync?.());
   }
 
-  document.addEventListener('click', authoritativeClick, true);
+  document.addEventListener('click', authoritativeClick, { capture:true });
+
   window.NeuralCriticReadingMapController = Object.freeze({
     version: CONTROLLER_VERSION,
+    ownsInteraction: true,
     navigate(id, behavior = reduceMotion ? 'auto' : 'smooth') {
       const target = id ? document.getElementById(id) : null;
       const nav = liveNav();
@@ -226,7 +228,7 @@
       scrollToTarget(target, behavior);
       activate(nav, id);
       replaceHash(id);
-      runtimeContext?.sync?.();
+      requestAnimationFrame(() => runtimeContext?.sync?.());
       return true;
     },
     sync() { runtimeContext?.sync?.(); }
@@ -236,8 +238,6 @@
     if (!sections.length) return null;
     if (window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 4) return sections[sections.length - 1];
 
-    // Probe the upper-middle reading lane rather than relying on IntersectionObserver.
-    // This remains stable with Neural Critic's desktop CSS zoom and large ranked cards.
     const probe = Math.max(140, Math.min(360, window.innerHeight * .42));
     const rects = sections.map(section => ({ section, rect:section.getBoundingClientRect() }));
     const containing = rects.find(item => item.rect.top <= probe && item.rect.bottom > probe);
@@ -249,9 +249,6 @@
     }, null)?.section || sections[0];
   }
 
-  // V3 deliberately does not retain a nav/card reference. Article enhancers can
-  // legitimately replace sidebar markup after first paint. Every sync reacquires
-  // the live Reading Map and repairs its labels/ownership before applying state.
   function bindNavigation(body, article) {
     let ticking = false;
     let lastNav = null;
@@ -273,7 +270,6 @@
         lastNav = nav;
         nav.dataset.runtimeNavigation = 'ready';
         nav.dataset.navigationOwner = CONTROLLER_VERSION;
-        nav.dataset.legacyNavigation = 'deferred';
       }
 
       const sections = links.map(link => document.getElementById(decodeLinkId(link))).filter(Boolean);
@@ -298,6 +294,7 @@
     window.addEventListener('resize', requestSync, { passive:true });
     window.addEventListener('pageshow', requestSync);
     window.addEventListener('focus', requestSync);
+    if ('onscrollend' in window) window.addEventListener('scrollend', requestSync, { passive:true });
     document.addEventListener('visibilitychange', () => {
       if (!document.hidden) requestSync();
     });
@@ -307,7 +304,7 @@
     const host = qs('#article');
     if (host) {
       const observer = new MutationObserver(requestSync);
-      observer.observe(host, { childList:true, subtree:true, attributes:true, attributeFilter:['id','class','data-rank'] });
+      observer.observe(host, { childList:true, subtree:true, attributes:true, attributeFilter:['id','data-rank'] });
     }
 
     runtimeContext = { body, article, sync:requestSync };
@@ -366,8 +363,6 @@
     let links = ensureUniversalLinks(nav, body);
     normalizeRankedMap(article, body, nav, links);
 
-    // Allow the first enhancement wave to settle, then bind a controller that
-    // reacquires the live map forever rather than trusting this initial node.
     await new Promise(resolve => setTimeout(resolve, 120));
     ensureSectionIds(body);
     const live = liveNav() || nav;
