@@ -145,7 +145,7 @@
       allowedTypes: [...IMAGE_TYPES],
       maxBytes: IMAGE_MAX_BYTES,
       label: 'Image',
-      pathPrefix: 'images',
+      pathPrefix: '',
       onStatus: (message, state) => {
         status.textContent = message;
         status.dataset.state = state;
