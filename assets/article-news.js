@@ -171,19 +171,92 @@
     </article>`;
   }
 
-  function renderDocuments(article, meta, anchor) {
-    const documents = Array.isArray(meta?.documents) ? meta.documents.filter(doc => doc && safeUrl(doc.url || '')) : [];
-    const existing = article.querySelector('.nc-news-source-library');
-    if (existing) return existing;
-    if (!documents.length || !anchor) return null;
+  function normalizeHeading(value = '') {
+    return String(value || '').trim().toLowerCase().replace(/\s+/g, ' ');
+  }
 
-    const section = document.createElement('section');
-    section.className = 'nc-news-source-library';
-    section.innerHTML = `
-      <header><div><small>PRIMARY MATERIAL</small><h2>Source documents</h2></div><span>${documents.length} ${documents.length === 1 ? 'DOCUMENT' : 'DOCUMENTS'}</span></header>
-      <p class="nc-news-source-library-intro">Read the underlying material Neural Critic used for context. Uploaded copies are provided for reference; the article remains the editorial summary.</p>
-      <div class="nc-news-source-documents">${documents.map(renderDocumentCard).join('')}</div>`;
-    anchor.insertAdjacentElement('afterend', section);
+  function documentSectionTitle(meta, documents) {
+    const explicit = String(meta?.documentSectionTitle || '').trim();
+    if (explicit) return explicit;
+    const courtMaterial = documents.some(doc => /court|filing|subpoena/i.test(`${doc?.title || ''} ${doc?.sourceName || ''}`));
+    return courtMaterial ? 'Read the court filing' : 'Read the primary source';
+  }
+
+  function documentSectionDescription(meta) {
+    const explicit = String(meta?.documentSectionDescription || '').trim();
+    if (explicit) return explicit;
+    return 'The material below is part of the primary-source record behind this story. Open or download the original document for the full context.';
+  }
+
+  function placeDocumentSection(article, section, meta) {
+    const body = article.querySelector('.article-body');
+    if (!body || !section) return false;
+
+    const preferredHeading = normalizeHeading(meta?.documentPlacementAfterHeading || '');
+    if (preferredHeading) {
+      const target = $$(':scope > section', body).find(candidate => {
+        if (candidate === section) return false;
+        return normalizeHeading(candidate.querySelector(':scope > h2')?.textContent) === preferredHeading;
+      });
+      if (target) {
+        target.insertAdjacentElement('afterend', section);
+        section.dataset.ncDocumentPlacement = 'after-heading';
+        return true;
+      }
+    }
+
+    const conclusion = body.querySelector(':scope > .article-conclusion');
+    if (conclusion) conclusion.insertAdjacentElement('beforebegin', section);
+    else body.appendChild(section);
+    section.dataset.ncDocumentPlacement = 'before-conclusion';
+    return true;
+  }
+
+  function syncDocumentReadingMap(article, section) {
+    if (!article || !section) return;
+    const title = section.querySelector(':scope > h2')?.textContent?.trim() || 'Primary source';
+    const ensureLink = () => {
+      const nav = article.querySelector('.work-toc nav');
+      if (!nav) return false;
+      let link = nav.querySelector('a[href="#source-documents"]');
+      if (!link) {
+        link = document.createElement('a');
+        link.href = '#source-documents';
+        link.dataset.ncSourceDocumentLink = '1';
+        const links = $$('a[href^="#"]', nav);
+        const conclusionLink = links.find(item => {
+          const id = String(item.getAttribute('href') || '').replace(/^#/, '');
+          return document.getElementById(id)?.classList.contains('article-conclusion');
+        });
+        if (conclusionLink) nav.insertBefore(link, conclusionLink);
+        else nav.appendChild(link);
+      }
+      link.textContent = title;
+      window.NeuralCriticReadingMapController?.sync?.();
+      return true;
+    };
+
+    if (ensureLink()) return;
+    [120, 350, 800, 1600, 2600].forEach(delay => setTimeout(ensureLink, delay));
+  }
+
+  function renderDocuments(article, meta) {
+    const documents = Array.isArray(meta?.documents) ? meta.documents.filter(doc => doc && safeUrl(doc.url || '')) : [];
+    let section = article.querySelector('.nc-news-source-library');
+    if (!documents.length) return section || null;
+
+    if (!section) {
+      section = document.createElement('section');
+      section.id = 'source-documents';
+      section.className = 'nc-news-source-library nc-news-primary-section';
+      section.innerHTML = `
+        <span class="nc-news-primary-eyebrow">PRIMARY SOURCE · ${documents.length} ${documents.length === 1 ? 'DOCUMENT' : 'DOCUMENTS'}</span>
+        <h2>${esc(documentSectionTitle(meta, documents))}</h2>
+        <p class="nc-news-source-library-intro">${esc(documentSectionDescription(meta))}</p>
+        <div class="nc-news-source-documents">${documents.map(renderDocumentCard).join('')}</div>`;
+    }
+
+    if (placeDocumentSection(article, section, meta)) syncDocumentReadingMap(article, section);
     return section;
   }
 
@@ -246,8 +319,8 @@
       });
     }
 
-    const updateLog = renderUpdateLog(article, meta, panel);
-    renderDocuments(article, meta, updateLog || panel);
+    renderUpdateLog(article, meta, panel);
+    renderDocuments(article, meta);
     polishDocumentMedia(article);
     setTimeout(() => polishDocumentMedia(article), 350);
   }
