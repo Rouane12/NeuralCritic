@@ -2,6 +2,7 @@
   'use strict';
 
   const $ = (s, root = document) => root.querySelector(s);
+  const esc = (value='') => String(value).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
   const KINDS = {
     breaking: {
       label: 'BREAKING',
@@ -19,9 +20,12 @@
       copy: 'Credible reporting, rumors, leaks, or claims that still require explicit attribution and careful wording.'
     }
   };
+  const DOCUMENT_TYPES = ['application/pdf','text/plain','text/csv','application/json'];
+  const DOCUMENT_MAX_BYTES = 20 * 1024 * 1024;
 
   let pendingSave = null;
   let currentUpdates = [];
+  let currentDocuments = [];
 
   function status(message, error = false) {
     const el = $('[data-news-status]');
@@ -42,6 +46,14 @@
     } catch (_) {
       return String(value || '');
     }
+  }
+
+  function fileSize(value) {
+    const bytes = Number(value || 0);
+    if (!bytes) return '';
+    if (bytes < 1024) return `${bytes} B`;
+    if (bytes < 1024 * 1024) return `${Math.round(bytes / 102.4) / 10} KB`;
+    return `${Math.round(bytes / 1024 / 102.4) / 10} MB`;
   }
 
   function setKind(kind = '', fromLoad = false) {
@@ -78,10 +90,78 @@
     host.innerHTML = currentUpdates
       .slice()
       .sort((a, b) => new Date(b.at || 0) - new Date(a.at || 0))
-      .map((item, index) => `<div class="studio-news-update-item" data-update-id="${String(item.id || item.at || index).replace(/"/g, '&quot;')}">
-        <div><small>${updateTime(item.at)}</small><p>${String(item.note || '').replace(/[&<>]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;'}[c]))}</p></div>
-        <button type="button" data-remove-news-update="${String(item.id || item.at || index).replace(/"/g, '&quot;')}">REMOVE</button>
+      .map((item, index) => {
+        const source = String(item.sourceName || '').trim();
+        const sourceUrl = String(item.sourceUrl || '').trim();
+        return `<div class="studio-news-update-item" data-update-id="${esc(item.id || item.at || index)}">
+          <div><small>${updateTime(item.at)}</small><p>${esc(item.note || '')}</p>${source || sourceUrl ? `<div class="studio-news-update-source"><span>SOURCE</span>${sourceUrl ? `<a href="${esc(sourceUrl)}" target="_blank" rel="noopener noreferrer">${esc(source || 'Open source')} ↗</a>` : `<b>${esc(source)}</b>`}</div>` : ''}</div>
+          <button type="button" data-remove-news-update="${esc(item.id || item.at || index)}">REMOVE</button>
+        </div>`;
+      }).join('');
+  }
+
+  function renderDocuments() {
+    const host = $('#news-document-list');
+    if (!host) return;
+    if (!currentDocuments.length) {
+      host.innerHTML = '<p>No source documents attached. Upload a filing, release, transcript, or other primary document when it materially helps readers.</p>';
+      return;
+    }
+    host.innerHTML = currentDocuments.map((doc, index) => `
+      <div class="studio-news-document-item" data-document-id="${esc(doc.id || index)}">
+        <div class="studio-news-document-icon">${String(doc.mime || '').includes('pdf') ? 'PDF' : 'FILE'}</div>
+        <div class="studio-news-document-copy">
+          <small>${esc(doc.sourceName || 'SOURCE DOCUMENT')}${doc.size ? ` · ${esc(fileSize(doc.size))}` : ''}</small>
+          <strong>${esc(doc.title || doc.fileName || 'Source document')}</strong>
+          ${doc.description ? `<p>${esc(doc.description)}</p>` : ''}
+          <a href="${esc(doc.url || '')}" target="_blank" rel="noopener noreferrer">OPEN FILE ↗</a>
+        </div>
+        <button type="button" data-remove-news-document="${esc(doc.id || index)}">REMOVE</button>
       </div>`).join('');
+  }
+
+  async function uploadSourceDocument(file) {
+    const media = window.NeuralCriticStudioMedia;
+    if (!media?.uploadAsset) throw new Error('Studio media uploader is not ready yet.');
+    const title = $('#news-document-title')?.value?.trim() || file.name.replace(/\.[^.]+$/, '');
+    const description = $('#news-document-description')?.value?.trim() || '';
+    const sourceName = $('#news-document-source')?.value?.trim() || '';
+    const button = $('#news-document-upload');
+    const uploadStatus = $('#news-document-upload-status');
+    if (button) button.disabled = true;
+    try {
+      const result = await media.uploadAsset(file, {
+        allowedTypes: DOCUMENT_TYPES,
+        maxBytes: DOCUMENT_MAX_BYTES,
+        label: 'Source document',
+        pathPrefix: 'documents',
+        onStatus: (message, state) => {
+          if (!uploadStatus) return;
+          uploadStatus.textContent = message;
+          uploadStatus.dataset.state = state;
+        },
+      });
+      currentDocuments.push({
+        id: `${Date.now()}-${Math.random().toString(16).slice(2, 8)}`,
+        title,
+        description,
+        sourceName,
+        url: result.url,
+        path: result.path || '',
+        fileName: result.fileName || file.name,
+        mime: file.type,
+        size: file.size,
+        uploadedAt: new Date().toISOString(),
+      });
+      if ($('#news-document-title')) $('#news-document-title').value = '';
+      if ($('#news-document-description')) $('#news-document-description').value = '';
+      if ($('#news-document-source')) $('#news-document-source').value = '';
+      renderDocuments();
+      status('Source document attached. Save or publish the article to sync it.');
+      media.toast?.('Source document uploaded to Neural Critic storage.');
+    } finally {
+      if (button) button.disabled = false;
+    }
   }
 
   function buildPanel() {
@@ -117,8 +197,27 @@
       <div class="studio-news-update-builder">
         <div class="studio-news-update-head"><div><small>DEVELOPING COVERAGE</small><h3>Update log</h3></div><span>CANONICAL STORY HISTORY</span></div>
         <label>LATEST UPDATE NOTE<textarea id="news-update-note" rows="3" placeholder="What changed? Keep this concise and factual."></textarea></label>
-        <div class="studio-news-update-actions"><p>Updates are timestamped when added and travel with this article.</p><button id="news-add-update" type="button">ADD TIMESTAMPED UPDATE +</button></div>
+        <div class="studio-news-update-source-grid">
+          <label>UPDATE SOURCE · OPTIONAL<input id="news-update-source-name" placeholder="Court filing, Discord, Rockstar Games…"></label>
+          <label>UPDATE SOURCE URL · OPTIONAL<input id="news-update-source-url" type="url" placeholder="https://…"></label>
+        </div>
+        <div class="studio-news-update-actions"><p>Updates are timestamped when added and can carry their own source link.</p><button id="news-add-update" type="button">ADD TIMESTAMPED UPDATE +</button></div>
         <div id="news-update-list" class="studio-news-update-list"></div>
+      </div>
+      <div class="studio-news-documents">
+        <div class="studio-news-update-head"><div><small>SOURCE LIBRARY</small><h3>Primary documents</h3></div><span>PDF / SOURCE FILES</span></div>
+        <p class="studio-news-document-intro">Attach filings, press releases, transcripts, datasets, or other primary material when the source itself adds useful context. PDFs appear in an inline reader on the published story.</p>
+        <div class="studio-news-document-fields">
+          <label>DOCUMENT TITLE<input id="news-document-title" placeholder="Take-Two DMCA subpoena to Discord"></label>
+          <label>SOURCE / ISSUER · OPTIONAL<input id="news-document-source" placeholder="U.S. District Court, Rockstar Games…"></label>
+          <label class="span-2">DOCUMENT CONTEXT · OPTIONAL<input id="news-document-description" placeholder="What this document establishes and why it matters."></label>
+        </div>
+        <div class="studio-news-document-upload-row">
+          <input id="news-document-file" type="file" accept="application/pdf,text/plain,text/csv,application/json" hidden>
+          <button id="news-document-upload" type="button">UPLOAD SOURCE DOCUMENT +</button>
+          <span id="news-document-upload-status">PDF, TXT, CSV OR JSON · 20 MB MAX</span>
+        </div>
+        <div id="news-document-list" class="studio-news-document-list"></div>
       </div>
       <div class="studio-news-foot"><span data-news-status>News metadata is saved with the article.</span></div>`;
 
@@ -135,8 +234,12 @@
         return;
       }
       const at = new Date().toISOString();
-      currentUpdates.push({ id: `${Date.now()}-${Math.random().toString(16).slice(2, 8)}`, at, note });
+      const sourceName = $('#news-update-source-name')?.value?.trim() || '';
+      const sourceUrl = $('#news-update-source-url')?.value?.trim() || '';
+      currentUpdates.push({ id: `${Date.now()}-${Math.random().toString(16).slice(2, 8)}`, at, note, sourceName, sourceUrl });
       $('#news-update-note').value = '';
+      if ($('#news-update-source-name')) $('#news-update-source-name').value = '';
+      if ($('#news-update-source-url')) $('#news-update-source-url').value = '';
       const developing = $('#news-developing');
       if (developing) developing.checked = true;
       renderUpdates();
@@ -152,7 +255,36 @@
       status('Update removed locally. Save the article to sync the change.');
     });
 
+    $('#news-document-upload')?.addEventListener('click', () => $('#news-document-file')?.click());
+    $('#news-document-file')?.addEventListener('change', async event => {
+      const file = event.target.files?.[0];
+      if (!file) return;
+      try {
+        await uploadSourceDocument(file);
+      } catch (error) {
+        const uploadStatus = $('#news-document-upload-status');
+        if (uploadStatus) {
+          uploadStatus.textContent = 'UPLOAD FAILED';
+          uploadStatus.dataset.state = 'error';
+        }
+        window.NeuralCriticStudioMedia?.toast?.(error?.message || 'Source document upload failed.', true);
+        status(error?.message || 'Source document upload failed.', true);
+      } finally {
+        event.target.value = '';
+      }
+    });
+
+    $('#news-document-list')?.addEventListener('click', event => {
+      const button = event.target.closest('[data-remove-news-document]');
+      if (!button) return;
+      const id = button.dataset.removeNewsDocument;
+      currentDocuments = currentDocuments.filter((item, index) => String(item.id || index) !== id);
+      renderDocuments();
+      status('Document removed from this story. Save the article to sync the change.');
+    });
+
     renderUpdates();
+    renderDocuments();
   }
 
   function buildCategoryCue() {
@@ -211,6 +343,7 @@
       if (error) throw error;
       const meta = data?.news_meta && typeof data.news_meta === 'object' ? data.news_meta : {};
       currentUpdates = Array.isArray(meta.updates) ? meta.updates.filter(item => item && item.note) : [];
+      currentDocuments = Array.isArray(meta.documents) ? meta.documents.filter(item => item && item.url) : [];
       setKind(meta.kind || '', true);
       if ($('#news-source-name')) $('#news-source-name').value = meta.sourceName || '';
       if ($('#news-source-url')) $('#news-source-url').value = meta.sourceUrl || '';
@@ -219,6 +352,7 @@
         $('#news-developing').dataset.touched = '1';
       }
       renderUpdates();
+      renderDocuments();
       togglePanel();
       $('#category')?.dispatchEvent(new Event('change', { bubbles: true }));
       status(data?.category === 'NEWS' && meta.kind ? `${KINDS[meta.kind]?.label || 'News'} metadata loaded from Neural Critic.` : 'This story has no structured news metadata yet.');
@@ -241,7 +375,25 @@
         sourceName: $('#news-source-name')?.value?.trim() || '',
         sourceUrl: $('#news-source-url')?.value?.trim() || '',
         developing: Boolean($('#news-developing')?.checked),
-        updates: currentUpdates.map(item => ({ id: item.id || '', at: item.at || new Date().toISOString(), note: String(item.note || '').trim() })).filter(item => item.note)
+        updates: currentUpdates.map(item => ({
+          id: item.id || '',
+          at: item.at || new Date().toISOString(),
+          note: String(item.note || '').trim(),
+          sourceName: String(item.sourceName || '').trim(),
+          sourceUrl: String(item.sourceUrl || '').trim(),
+        })).filter(item => item.note),
+        documents: currentDocuments.map(doc => ({
+          id: doc.id || '',
+          title: String(doc.title || '').trim(),
+          description: String(doc.description || '').trim(),
+          sourceName: String(doc.sourceName || '').trim(),
+          url: String(doc.url || '').trim(),
+          path: String(doc.path || '').trim(),
+          fileName: String(doc.fileName || '').trim(),
+          mime: String(doc.mime || '').trim(),
+          size: Number(doc.size || 0),
+          uploadedAt: doc.uploadedAt || '',
+        })).filter(doc => doc.url)
       } : {}
     };
   }
@@ -282,6 +434,7 @@
 
   function resetNewsFields() {
     currentUpdates = [];
+    currentDocuments = [];
     setKind('', true);
     if ($('#news-source-name')) $('#news-source-name').value = '';
     if ($('#news-source-url')) $('#news-source-url').value = '';
@@ -289,8 +442,11 @@
       $('#news-developing').checked = false;
       delete $('#news-developing').dataset.touched;
     }
-    if ($('#news-update-note')) $('#news-update-note').value = '';
+    ['#news-update-note','#news-update-source-name','#news-update-source-url','#news-document-title','#news-document-source','#news-document-description'].forEach(selector => {
+      const input = $(selector); if (input) input.value = '';
+    });
     renderUpdates();
+    renderDocuments();
   }
 
   function wireCategory() {
