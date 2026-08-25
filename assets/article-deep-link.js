@@ -39,26 +39,52 @@
     attempt();
   }
 
+  function installNewsSourceCompactStyle() {
+    if (document.querySelector('style[data-nc-news-source-compact]')) return;
+    const style = document.createElement('style');
+    style.dataset.ncNewsSourceCompact = '1';
+    style.textContent = `
+      #article.nc-news-article .nc-news-source-library{
+        width:min(100%,1320px)!important;
+        margin:40px auto 28px!important;
+        padding:16px 18px 18px!important;
+      }
+      #article.nc-news-article .nc-news-source-library-intro{margin:13px 1px 16px!important}
+      #article.nc-news-article .nc-news-source-document>header{padding:15px 16px!important}
+      #article.nc-news-article .nc-news-pdf-viewer{height:clamp(380px,32vw,520px)!important}
+      #article.nc-news-article .nc-news-source-library + .work-bottom-grid{margin-top:22px!important}
+      @media(max-width:720px){
+        #article.nc-news-article .nc-news-source-library{
+          width:calc(100% - 20px)!important;
+          margin:30px auto 24px!important;
+          padding:14px!important;
+        }
+        #article.nc-news-article .nc-news-pdf-viewer{height:400px!important}
+        #article.nc-news-article .nc-news-source-library + .work-bottom-grid{margin-top:16px!important}
+      }
+    `;
+    document.head.appendChild(style);
+  }
+
   function placeNewsSourceLibrary() {
+    installNewsSourceCompactStyle();
     const article = document.querySelector('#article');
     const library = article?.querySelector('.nc-news-source-library');
     if (!article || !library) return false;
 
-    // Keep primary documents after the editorial body. If the enhanced reading
-    // grid already exists, place the source library immediately after it. If it
-    // has not been built yet, placing it after .article-body means the later
-    // grid wrapper naturally leaves the document library at article end.
+    // Keep primary documents after the editorial body and immediately before
+    // the reader discussion area. Recirculation owns the slot after comments.
     const readingGrid = article.querySelector('.work-reading-grid');
     if (readingGrid) {
       if (readingGrid.nextElementSibling !== library) readingGrid.insertAdjacentElement('afterend', library);
-      library.dataset.ncDocumentPlacement = 'article-end';
+      library.dataset.ncDocumentPlacement = 'article-end-before-thread';
       return true;
     }
 
     const body = article.querySelector('.article-body');
     if (body) {
       if (body.nextElementSibling !== library) body.insertAdjacentElement('afterend', library);
-      library.dataset.ncDocumentPlacement = 'article-end';
+      library.dataset.ncDocumentPlacement = 'article-end-before-thread';
       return true;
     }
 
@@ -72,10 +98,12 @@
   if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', () => {
       restoreDeepLink();
+      installNewsSourceCompactStyle();
       placeNewsSourceLibrary();
     }, { once: true });
   } else {
     restoreDeepLink();
+    installNewsSourceCompactStyle();
     placeNewsSourceLibrary();
   }
 
