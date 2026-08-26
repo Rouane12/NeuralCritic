@@ -1,6 +1,9 @@
 (() => {
   'use strict';
 
+  const params = new URLSearchParams(location.search);
+  if (params.get('section') === 'news') return;
+
   const page = document.querySelector('.category-work-page');
   const host = document.getElementById('category-trending');
   if (!page || !host) return;
@@ -76,7 +79,6 @@
   }
 
   function pickAcrossStories(all){
-    const params = new URLSearchParams(location.search);
     const currentSection = params.get('section');
     const alreadyVisible = currentStorySlugs();
     const withImages = all.filter(article => article.imageLocal && !alreadyVisible.has(article.slug));
