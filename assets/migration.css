@@ -7,7 +7,7 @@ body{overflow-x:hidden}
 .search{cursor:pointer}
 
 /* Search overlay used by the standalone build. */
-.search-overlay{position:fixed;inset:0;z-index:80;display:none;background:rgba(4,6,16,.94);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);padding:9vh 22px;color:#fff}
+.search-overlay{position:fixed;inset:0;z-index:140;display:none;overflow-y:auto;background:rgba(4,6,16,.94);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);padding:9vh 22px;color:#fff}
 .search-overlay.open{display:block}
 .search-panel{width:min(860px,100%);margin:auto}
 .search-panel input{width:100%;padding:18px 20px;border:1px solid #59618b66;border-radius:14px;background:#0b0e1d;color:#f8f9ff;outline:none;font-size:clamp(20px,3vw,30px);box-shadow:0 24px 80px #0006}
@@ -18,7 +18,7 @@ body{overflow-x:hidden}
 .search-result small{color:#61e8ff;letter-spacing:.13em;font-size:8px;font-weight:900}
 .search-result h3{margin:6px 0;font-size:18px}
 .search-result p{margin:0;color:#969db7;font-size:12px;line-height:1.5}
-.search-close{float:right;margin:0 0 14px;border:1px solid #515a7a;border-radius:999px;background:#0c1020;color:#fff;padding:9px 13px;cursor:pointer;font-size:9px;font-weight:900;letter-spacing:.08em}
+.search-close{position:sticky;top:0;z-index:3;display:block;float:none;margin:0 0 14px auto;border:1px solid #515a7a;border-radius:999px;background:#0c1020;color:#fff;padding:9px 13px;cursor:pointer;font-size:9px;font-weight:900;letter-spacing:.08em;box-shadow:0 8px 24px #0006}
 
 /* Standalone category/search pages. */
 .category-page{width:min(1120px,calc(100% - 48px));margin:auto;padding:56px 0 96px}
