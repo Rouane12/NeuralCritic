@@ -8,11 +8,11 @@
   const esc = v => String(v ?? '').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
   const fmt = value => { try { return new Intl.DateTimeFormat('en-GB',{day:'2-digit',month:'2-digit',year:'numeric'}).format(new Date(value)); } catch (_) { return ''; } };
 
-  async function editorSession() {
+  async function adminSession() {
     const { data: { session } } = await client.auth.getSession();
     if (!session?.user) return null;
     const { data, error } = await client.from('editor_profiles').select('display_name,role').eq('user_id',session.user.id).maybeSingle();
-    if (error || !data) return null;
+    if (error || !data || data.role !== 'admin') return null;
     return { session, profile:data };
   }
   async function load() {
@@ -42,10 +42,10 @@
     const a=document.createElement('a'); a.href=url; a.download=`neural-critic-subscribers-${new Date().toISOString().slice(0,10)}.csv`; a.click(); URL.revokeObjectURL(url);
   }
   async function init() {
-    const auth = await editorSession();
+    const auth = await adminSession();
     if (!auth) { $('#subscriber-gate').hidden = false; return; }
     $('#subscriber-gate').hidden = true;
-    const user = document.querySelector('.subscriber-topbar nav span'); if (user) user.textContent = auth.profile.display_name || 'Editor';
+    const user = document.querySelector('.subscriber-topbar nav span'); if (user) user.textContent = auth.profile.display_name || 'Admin';
     await load();
     $('#subscriber-search')?.addEventListener('input',render);
     $('#subscriber-tabs')?.addEventListener('click',e=>{const btn=e.target.closest('[data-status]'); if(!btn)return; filter=btn.dataset.status; document.querySelectorAll('#subscriber-tabs button').forEach(x=>x.classList.toggle('active',x===btn)); render();});
