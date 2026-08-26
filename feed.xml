@@ -5,9 +5,17 @@
     <link>https://www.neuralcritic.net/</link>
     <description>Gaming news, reviews, guides, and features for players who want the signal—not the noise.</description>
     <language>en</language>
-    <lastBuildDate>Wed, 26 Aug 2026 11:49:22 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 26 Aug 2026 12:56:38 +0000</lastBuildDate>
     <generator>Neural Critic publication pipeline</generator>
     <atom:link href="https://www.neuralcritic.net/feed.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>2026 Game of the Year Watchlist: The 10 Games Leading the Race So Far</title>
+      <link>https://www.neuralcritic.net/stories/game-of-the-year-2026-watchlist/</link>
+      <guid isPermaLink="true">https://www.neuralcritic.net/stories/game-of-the-year-2026-watchlist/</guid>
+      <description>Neural Critic’s living 2026 Game of the Year watchlist tracks the strongest games released so far and the titles currently making the best case for year-end recognition.</description>
+      <category>FEATURE</category>
+      <pubDate>Wed, 26 Aug 2026 12:35:18 +0000</pubDate>
+    </item>
     <item>
       <title>The 12 Biggest Games Still Coming in 2026</title>
       <link>https://www.neuralcritic.net/stories/biggest-upcoming-games-still-coming-in-2026/</link>
@@ -41,22 +49,6 @@
       <pubDate>Tue, 25 Aug 2026 23:31:11 +0000</pubDate>
     </item>
     <item>
-      <title>HoYoverse Reveals Nodus Fall, a New Co-op Fantasy Action Game</title>
-      <link>https://www.neuralcritic.net/stories/nodus-fall-hoyoverse-gamescom-2026-reveal/</link>
-      <guid isPermaLink="true">https://www.neuralcritic.net/stories/nodus-fall-hoyoverse-gamescom-2026-reveal/</guid>
-      <description>HoYoverse used gamescom Opening Night Live 2026 to unveil Nodus Fall, a new cooperative action game built around team battles against enormous fantasy threats.</description>
-      <category>NEWS</category>
-      <pubDate>Tue, 25 Aug 2026 22:26:40 +0000</pubDate>
-    </item>
-    <item>
-      <title>Gears of War: E-Day’s New Story Trailer Brings Marcus and Dom Back to Emergence Day</title>
-      <link>https://www.neuralcritic.net/stories/gears-of-war-e-day-story-trailer-gamescom-2026/</link>
-      <guid isPermaLink="true">https://www.neuralcritic.net/stories/gears-of-war-e-day-story-trailer-gamescom-2026/</guid>
-      <description>A new gamescom ONL trailer put the relationship between Marcus Fenix and Dominic Santiago back at the center of Gears of War: E-Day ahead of its October 6, 2026 launch.</description>
-      <category>NEWS</category>
-      <pubDate>Tue, 25 Aug 2026 22:26:40 +0000</pubDate>
-    </item>
-    <item>
       <title>Final Fantasy VII Revelation’s New Story Trailer Puts Meteor and the Weapons at the Center</title>
       <link>https://www.neuralcritic.net/stories/final-fantasy-vii-revelation-story-trailer-gamescom-2026/</link>
       <guid isPermaLink="true">https://www.neuralcritic.net/stories/final-fantasy-vii-revelation-story-trailer-gamescom-2026/</guid>
@@ -69,6 +61,14 @@
       <link>https://www.neuralcritic.net/stories/witcher-3-songs-of-the-past-gamescom-2026-reveal/</link>
       <guid isPermaLink="true">https://www.neuralcritic.net/stories/witcher-3-songs-of-the-past-gamescom-2026-reveal/</guid>
       <description>CD Projekt Red used Opening Night Live to show more of Songs of the Past, the new Witcher 3 expansion sending Geralt to the previously unseen region of Letten in 2027.</description>
+      <category>NEWS</category>
+      <pubDate>Tue, 25 Aug 2026 22:26:40 +0000</pubDate>
+    </item>
+    <item>
+      <title>Metro 2039’s New Gamescom Trailer Shows the Stranger Fighting Through Sevastopolskaya</title>
+      <link>https://www.neuralcritic.net/stories/metro-2039-renegade-gameplay-gamescom-2026/</link>
+      <guid isPermaLink="true">https://www.neuralcritic.net/stories/metro-2039-renegade-gameplay-gamescom-2026/</guid>
+      <description>4A Games revealed a new Metro 2039 gameplay sequence at Opening Night Live, showing the Stranger’s combat and movement through Sevastopolskaya Station and the ruins beyond.</description>
       <category>NEWS</category>
       <pubDate>Tue, 25 Aug 2026 22:26:40 +0000</pubDate>
     </item>
@@ -89,6 +89,38 @@
       <pubDate>Tue, 25 Aug 2026 22:26:40 +0000</pubDate>
     </item>
     <item>
+      <title>ANANTA Release Date Set for January 15, 2027 After New Gamescom Gameplay</title>
+      <link>https://www.neuralcritic.net/stories/ananta-release-date-january-15-2027-gamescom/</link>
+      <guid isPermaLink="true">https://www.neuralcritic.net/stories/ananta-release-date-january-15-2027-gamescom/</guid>
+      <description>NetEase and Naked Rain revealed a January 15, 2027 global launch date for ANANTA during Opening Night Live, alongside a fresh look at the free-to-play urban open-world RPG.</description>
+      <category>NEWS</category>
+      <pubDate>Tue, 25 Aug 2026 22:26:40 +0000</pubDate>
+    </item>
+    <item>
+      <title>HoYoverse Reveals Nodus Fall, a New Co-op Fantasy Action Game</title>
+      <link>https://www.neuralcritic.net/stories/nodus-fall-hoyoverse-gamescom-2026-reveal/</link>
+      <guid isPermaLink="true">https://www.neuralcritic.net/stories/nodus-fall-hoyoverse-gamescom-2026-reveal/</guid>
+      <description>HoYoverse used gamescom Opening Night Live 2026 to unveil Nodus Fall, a new cooperative action game built around team battles against enormous fantasy threats.</description>
+      <category>NEWS</category>
+      <pubDate>Tue, 25 Aug 2026 22:26:40 +0000</pubDate>
+    </item>
+    <item>
+      <title>Gears of War: E-Day’s New Story Trailer Brings Marcus and Dom Back to Emergence Day</title>
+      <link>https://www.neuralcritic.net/stories/gears-of-war-e-day-story-trailer-gamescom-2026/</link>
+      <guid isPermaLink="true">https://www.neuralcritic.net/stories/gears-of-war-e-day-story-trailer-gamescom-2026/</guid>
+      <description>A new gamescom ONL trailer put the relationship between Marcus Fenix and Dominic Santiago back at the center of Gears of War: E-Day ahead of its October 6, 2026 launch.</description>
+      <category>NEWS</category>
+      <pubDate>Tue, 25 Aug 2026 22:26:40 +0000</pubDate>
+    </item>
+    <item>
+      <title>EXODUS Release Date Set for April 7, 2027</title>
+      <link>https://www.neuralcritic.net/stories/exodus-release-date-april-7-2027-gamescom/</link>
+      <guid isPermaLink="true">https://www.neuralcritic.net/stories/exodus-release-date-april-7-2027-gamescom/</guid>
+      <description>Archetype Entertainment used gamescom Opening Night Live to set EXODUS for April 7, 2027, while introducing another companion from its far-future sci-fi RPG.</description>
+      <category>NEWS</category>
+      <pubDate>Tue, 25 Aug 2026 22:26:40 +0000</pubDate>
+    </item>
+    <item>
       <title>Rainbow Six Tactics Turns Ubisoft’s Shooter Series Into a Turn-Based Single-Player Game</title>
       <link>https://www.neuralcritic.net/stories/rainbow-six-tactics-announced-gamescom-2026/</link>
       <guid isPermaLink="true">https://www.neuralcritic.net/stories/rainbow-six-tactics-announced-gamescom-2026/</guid>
@@ -101,30 +133,6 @@
       <link>https://www.neuralcritic.net/stories/path-of-exile-2-1-0-release-date-december-11-2026/</link>
       <guid isPermaLink="true">https://www.neuralcritic.net/stories/path-of-exile-2-1-0-release-date-december-11-2026/</guid>
       <description>Grinding Gear Games announced during gamescom Opening Night Live that Path of Exile 2 will reach its full 1.0 release on December 11, 2026.</description>
-      <category>NEWS</category>
-      <pubDate>Tue, 25 Aug 2026 22:26:40 +0000</pubDate>
-    </item>
-    <item>
-      <title>ANANTA Release Date Set for January 15, 2027 After New Gamescom Gameplay</title>
-      <link>https://www.neuralcritic.net/stories/ananta-release-date-january-15-2027-gamescom/</link>
-      <guid isPermaLink="true">https://www.neuralcritic.net/stories/ananta-release-date-january-15-2027-gamescom/</guid>
-      <description>NetEase and Naked Rain revealed a January 15, 2027 global launch date for ANANTA during Opening Night Live, alongside a fresh look at the free-to-play urban open-world RPG.</description>
-      <category>NEWS</category>
-      <pubDate>Tue, 25 Aug 2026 22:26:40 +0000</pubDate>
-    </item>
-    <item>
-      <title>Metro 2039’s New Gamescom Trailer Shows the Stranger Fighting Through Sevastopolskaya</title>
-      <link>https://www.neuralcritic.net/stories/metro-2039-renegade-gameplay-gamescom-2026/</link>
-      <guid isPermaLink="true">https://www.neuralcritic.net/stories/metro-2039-renegade-gameplay-gamescom-2026/</guid>
-      <description>4A Games revealed a new Metro 2039 gameplay sequence at Opening Night Live, showing the Stranger’s combat and movement through Sevastopolskaya Station and the ruins beyond.</description>
-      <category>NEWS</category>
-      <pubDate>Tue, 25 Aug 2026 22:26:40 +0000</pubDate>
-    </item>
-    <item>
-      <title>EXODUS Release Date Set for April 7, 2027</title>
-      <link>https://www.neuralcritic.net/stories/exodus-release-date-april-7-2027-gamescom/</link>
-      <guid isPermaLink="true">https://www.neuralcritic.net/stories/exodus-release-date-april-7-2027-gamescom/</guid>
-      <description>Archetype Entertainment used gamescom Opening Night Live to set EXODUS for April 7, 2027, while introducing another companion from its far-future sci-fi RPG.</description>
       <category>NEWS</category>
       <pubDate>Tue, 25 Aug 2026 22:26:40 +0000</pubDate>
     </item>
