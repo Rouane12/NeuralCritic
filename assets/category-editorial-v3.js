@@ -5,7 +5,7 @@
   const host = document.getElementById('category-trending');
   if (!page || !host) return;
 
-  const esc = (value='') => String(value).replace(/[&<>"']/g, ch => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot',"'":'&#39;'}[ch]));
+  const esc = (value='') => String(value).replace(/[&<>"']/g, ch => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[ch]));
   const sectionNames = {news:'News',reviews:'Reviews',guides:'Guides','what-to-play':'What to Play',features:'Features'};
   const href = article => `article.html?slug=${encodeURIComponent(article.slug)}`;
   let selectedStories = [];
