@@ -1,0 +1,36 @@
+/* Specificity guardrails for Category Editorial Support V3. */
+.category-explore-card .category-trending>a.category-explore-story{
+  display:grid!important;
+  grid-template-columns:1fr!important;
+  grid-template-rows:auto 1fr!important;
+  gap:0!important;
+  padding:0!important;
+  border-bottom:0!important;
+}
+.category-explore-card .category-trending>a.category-explore-story+a.category-explore-story{
+  padding:0!important;
+}
+.category-explore-card .category-trending>a.category-explore-story:last-child{
+  padding:0!important;
+}
+
+@media(max-width:760px){
+  .category-explore-card .category-trending>a.category-explore-story,
+  .category-explore-card .category-trending>a.category-explore-story+a.category-explore-story{
+    grid-template-columns:132px minmax(0,1fr)!important;
+    grid-template-rows:1fr!important;
+    padding:0!important;
+    border-right:0!important;
+    border-bottom:1px solid color-mix(in srgb,var(--line) 80%,transparent)!important;
+  }
+  .category-explore-card .category-trending>a.category-explore-story:last-child{
+    border-bottom:0!important;
+  }
+}
+
+@media(max-width:470px){
+  .category-explore-card .category-trending>a.category-explore-story,
+  .category-explore-card .category-trending>a.category-explore-story+a.category-explore-story{
+    grid-template-columns:108px minmax(0,1fr)!important;
+  }
+}
