@@ -5,9 +5,11 @@
   const host = document.getElementById('category-trending');
   if (!page || !host) return;
 
-  const esc = (value='') => String(value).replace(/[&<>"']/g, ch => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[ch]));
+  const esc = (value='') => String(value).replace(/[&<>"']/g, ch => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot',"'":'&#39;'}[ch]));
   const sectionNames = {news:'News',reviews:'Reviews',guides:'Guides','what-to-play':'What to Play',features:'Features'};
   const href = article => `article.html?slug=${encodeURIComponent(article.slug)}`;
+  let selectedStories = [];
+  let rendering = false;
 
   function inferSection(article){
     if (article.editorialSection) return article.editorialSection;
@@ -101,10 +103,10 @@
   }
 
   function render(stories){
+    if (!stories.length) return;
     const card = host.closest('.category-side-card');
     if (card) card.classList.add('category-explore-card');
-    if (!stories.length) return;
-
+    rendering = true;
     host.innerHTML = stories.map(article => {
       const section = sectionNames[inferSection(article)] || article.category || 'Story';
       return `<a class="category-explore-story" href="${href(article)}">
@@ -116,13 +118,27 @@
         </span>
       </a>`;
     }).join('');
+    rendering = false;
+  }
+
+  function keepEnhancedMarkup(){
+    const observer = new MutationObserver(() => {
+      if (rendering || !selectedStories.length) return;
+      if (!host.querySelector('.category-explore-story')) render(selectedStories);
+    });
+    observer.observe(host,{childList:true});
+    setTimeout(() => {
+      if (selectedStories.length && !host.querySelector('.category-explore-story')) render(selectedStories);
+    },1200);
   }
 
   async function init(){
+    keepEnhancedMarkup();
     try {
       const all = await loadArticles();
       all.sort((a,b) => new Date(b.publishedAt || 0) - new Date(a.publishedAt || 0));
-      render(pickAcrossStories(all));
+      selectedStories = pickAcrossStories(all);
+      render(selectedStories);
     } catch (_) {}
   }
 
