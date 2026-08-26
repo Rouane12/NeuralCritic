@@ -29,46 +29,110 @@ window.NEURAL_CRITIC_ANALYTICS = {
     document.head.appendChild(style);
   }
 
+  /* Keep social login geometry deliberate as providers are enabled over time:
+     1 = full width, 2 = balanced pair, 3 = one clean row on desktop,
+     4 = a roomy 2x2 grid. Narrow screens keep touch targets comfortable. */
+  if (!document.querySelector('style[data-nc-reader-social-polish]')) {
+    const socialStyle = document.createElement('style');
+    socialStyle.dataset.ncReaderSocialPolish = '1';
+    socialStyle.textContent = [
+      '.reader-auth-social{grid-template-columns:repeat(2,minmax(0,1fr))!important}',
+      '.reader-auth-social[data-count="1"]{grid-template-columns:1fr!important}',
+      '.reader-auth-social[data-count="2"]{grid-template-columns:repeat(2,minmax(0,1fr))!important}',
+      '.reader-auth-social[data-count="3"]{grid-template-columns:repeat(3,minmax(0,1fr))!important}',
+      '.reader-auth-social[data-count="4"]{grid-template-columns:repeat(2,minmax(0,1fr))!important}',
+      '.reader-auth-provider{min-width:0!important;padding-inline:9px!important}',
+      '.reader-auth-provider>span:last-child{min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}',
+      '.reader-auth-provider[data-provider="facebook"] .reader-auth-provider-mark{color:#78a7ff}',
+      '@media(max-width:560px){.reader-auth-social[data-count="3"]{grid-template-columns:repeat(2,minmax(0,1fr))!important}.reader-auth-social[data-count="3"] .reader-auth-provider:last-child{grid-column:1/-1}.reader-auth-social[data-count="4"]{grid-template-columns:repeat(2,minmax(0,1fr))!important}}'
+    ].join('');
+    document.head.appendChild(socialStyle);
+  }
+
   /* Load the current Reader Auth stylesheet explicitly so production visitors
      receive auth polish without depending on a hard refresh. */
   if (!document.querySelector('link[data-nc-reader-auth-v2]')) {
     const authStyle = document.createElement('link');
     authStyle.rel = 'stylesheet';
-    authStyle.href = 'assets/reader-auth-v2.css?v=20260824-auth3';
+    authStyle.href = 'assets/reader-auth-v2.css?v=20260826-social1';
     authStyle.dataset.ncReaderAuthV2 = '1';
     document.head.appendChild(authStyle);
   }
 
-  /* Supabase Auth currently supports provider:"x", but /auth/v1/settings does
-     not expose the new X OAuth 2.0 provider in its external provider map. Keep
-     the intended Neural Critic provider visible until that endpoint catches up. */
-  const ensureXProvider = () => {
+  /* Supabase's settings payload does not always mirror every OAuth provider
+     identifier used by the client SDK (notably X). Keep X visible, add Facebook
+     only when Supabase reports it enabled, and continuously normalize the grid
+     after Reader Auth re-renders its provider list. */
+  let facebookEnabled = null;
+
+  const syncSocialGrid = host => {
+    if (!host) return 0;
+    const count = host.querySelectorAll('.reader-auth-provider').length;
+    host.dataset.count = String(count);
+    return count;
+  };
+
+  const resolveFacebookEnabled = async () => {
+    if (facebookEnabled !== null) return facebookEnabled;
+    const cfg = window.NEURAL_CRITIC_SUPABASE;
+    if (!cfg?.url || !cfg?.publishableKey) return false;
+    try {
+      const response = await fetch(`${cfg.url.replace(/\/$/, '')}/auth/v1/settings`, {
+        headers: { apikey: cfg.publishableKey },
+        cache: 'no-store'
+      });
+      if (!response.ok) return false;
+      const payload = await response.json();
+      facebookEnabled = payload?.external?.facebook === true;
+    } catch (_) {
+      facebookEnabled = false;
+    }
+    return facebookEnabled;
+  };
+
+  const ensureSocialProviders = async () => {
     const modal = document.querySelector('.reader-auth-modal');
     const host = modal?.querySelector('.reader-auth-social');
     const divider = modal?.querySelector('.reader-auth-divider');
-    if (!host || host.querySelector('[data-provider="x"]')) return false;
-    host.insertAdjacentHTML('beforeend', `
-      <button class="reader-auth-provider" type="button" data-provider="x" aria-label="Continue with X">
-        <span class="reader-auth-provider-mark" aria-hidden="true">X</span>
-        <span>X</span>
-      </button>`);
-    host.hidden = false;
-    if (divider) divider.hidden = false;
-    return true;
+    if (!host) return false;
+
+    if (!host.querySelector('[data-provider="x"]')) {
+      host.insertAdjacentHTML('beforeend', `
+        <button class="reader-auth-provider" type="button" data-provider="x" aria-label="Continue with X">
+          <span class="reader-auth-provider-mark" aria-hidden="true">X</span>
+          <span>X</span>
+        </button>`);
+    }
+
+    if (await resolveFacebookEnabled() && !host.querySelector('[data-provider="facebook"]')) {
+      const markup = `
+        <button class="reader-auth-provider" type="button" data-provider="facebook" aria-label="Continue with Facebook">
+          <span class="reader-auth-provider-mark" aria-hidden="true">f</span>
+          <span>Facebook</span>
+        </button>`;
+      const xButton = host.querySelector('[data-provider="x"]');
+      if (xButton) xButton.insertAdjacentHTML('beforebegin', markup);
+      else host.insertAdjacentHTML('beforeend', markup);
+    }
+
+    const count = syncSocialGrid(host);
+    host.hidden = count === 0;
+    if (divider) divider.hidden = count === 0;
+    return count > 0;
   };
 
   const auth = document.createElement('script');
-  auth.src = 'assets/reader-auth-v2.js?v=20260824-auth3';
+  auth.src = 'assets/reader-auth-v2.js?v=20260826-social1';
   auth.async = true;
   auth.dataset.ncReaderAuthV2 = '1';
   auth.addEventListener('load', () => {
-    ensureXProvider();
-    const observer = new MutationObserver(() => ensureXProvider());
+    ensureSocialProviders();
+    const observer = new MutationObserver(() => ensureSocialProviders());
     observer.observe(document.documentElement, { childList: true, subtree: true });
     setTimeout(() => {
-      ensureXProvider();
+      ensureSocialProviders();
       observer.disconnect();
-    }, 2500);
+    }, 3500);
   }, { once: true });
   document.head.appendChild(auth);
 })();
