@@ -1,0 +1,50 @@
+name: Social preview QA
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - index.html
+      - category.html
+      - stories/**
+      - topics/**
+      - authors/**
+      - images/brand/**
+      - scripts/audit_social_preview.py
+      - scripts/build_story_pages.py
+      - scripts/build_topic_pages.py
+      - scripts/build_author_pages.py
+      - .github/workflows/social-preview-audit.yml
+  pull_request:
+    paths:
+      - index.html
+      - category.html
+      - stories/**
+      - topics/**
+      - authors/**
+      - images/brand/**
+      - scripts/audit_social_preview.py
+      - scripts/build_story_pages.py
+      - scripts/build_topic_pages.py
+      - scripts/build_author_pages.py
+      - .github/workflows/social-preview-audit.yml
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 3
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Audit crawler-visible social metadata
+        run: python scripts/audit_social_preview.py
