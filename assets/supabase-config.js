@@ -3,6 +3,67 @@ window.NEURAL_CRITIC_SUPABASE = {
   publishableKey: 'sb_publishable_T8ObjS3Mab7Do5aCXnP8nA_jvgYkf8T'
 };
 
+/* Public-action bridge: the browser keeps using the existing Supabase RPC API,
+   but sensitive anonymous mutations are transparently routed through the
+   rate-limited Edge gateway instead of executing privileged database RPCs. */
+(() => {
+  const config = window.NEURAL_CRITIC_SUPABASE;
+  if (!config || !window.fetch || window.__neuralCriticPublicActionBridge) return;
+  window.__neuralCriticPublicActionBridge = true;
+
+  const nativeFetch = window.fetch.bind(window);
+  const edgeUrl = `${config.url}/functions/v1/public-actions`;
+  const actionMap = {
+    subscribe_newsletter: body => ({ action:'subscribe', email:body.p_email || '', source:body.p_source || 'unknown' }),
+    record_article_view: body => ({ action:'record_view', slug:body.p_slug || '' }),
+    get_article_popularity: body => ({ action:'popularity', days:body.p_days ?? 7 })
+  };
+
+  const requestUrl = input => {
+    try {
+      if (typeof input === 'string') return input;
+      if (input instanceof URL) return input.href;
+      return input?.url || '';
+    } catch (_) { return ''; }
+  };
+
+  const requestBody = async (input, init) => {
+    try {
+      if (typeof init?.body === 'string') return JSON.parse(init.body || '{}');
+      if (input instanceof Request) {
+        const text = await input.clone().text();
+        return text ? JSON.parse(text) : {};
+      }
+    } catch (_) {}
+    return {};
+  };
+
+  window.fetch = async (input, init={}) => {
+    const url = requestUrl(input);
+    let rpcName = '';
+    try {
+      const parsed = new URL(url, location.href);
+      const match = parsed.pathname.match(/\/rest\/v1\/rpc\/([^/?#]+)$/);
+      rpcName = match?.[1] || '';
+    } catch (_) {}
+
+    const map = actionMap[rpcName];
+    if (!map) return nativeFetch(input, init);
+
+    const body = await requestBody(input, init);
+    const signal = init?.signal || (input instanceof Request ? input.signal : undefined);
+    return nativeFetch(edgeUrl, {
+      method:'POST',
+      headers:{
+        'content-type':'application/json',
+        'apikey':config.publishableKey
+      },
+      body:JSON.stringify(map(body)),
+      signal
+    });
+  };
+})();
+
 /* Shared public hardening: canonical/social metadata, structured data,
    crawler directives, canonical story routing, analytics, recirculation,
    configurable conclusions, structured news, Game Graph topic hubs,
