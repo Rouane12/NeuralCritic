@@ -1,0 +1,195 @@
+/* Neural Critic — Category Editorial Guardrails
+   Keeps the dedicated News Desk independent from shared archive experiments and
+   prevents one-story desks (notably Guides) from rendering an oversized hero. */
+
+/* A desk with one published story should still feel editorial, not billboard-sized. */
+body:not(.nc-news-category-page) .category-spotlight.single{
+  min-height:0!important;
+  margin-bottom:52px!important;
+}
+body:not(.nc-news-category-page) .category-spotlight.single .category-spotlight-main{
+  min-height:clamp(360px,32vw,460px)!important;
+  max-height:460px!important;
+}
+body:not(.nc-news-category-page) .category-spotlight.single .category-spotlight-copy{
+  max-width:780px;
+}
+body:not(.nc-news-category-page) .category-spotlight.single .category-spotlight-copy h2{
+  font-size:clamp(34px,3.25vw,50px)!important;
+}
+
+/* NEWS DESK ---------------------------------------------------------------
+   category-news.css owns News. The shared V2/V3 archive styles must not turn
+   its sticky newsroom rail and list feed into the generic full-width layout. */
+body.nc-news-category-page.nc-news-has-stories .category-work-page{
+  display:grid!important;
+  grid-template-columns:minmax(0,1fr) 300px!important;
+  column-gap:44px!important;
+  align-items:start!important;
+}
+body.nc-news-category-page.nc-news-has-stories .category-work-hero{
+  grid-column:1 / -1!important;
+  grid-row:1!important;
+}
+body.nc-news-category-page.nc-news-has-stories #category-spotlight{
+  grid-column:1!important;
+  grid-row:2!important;
+  margin-bottom:46px!important;
+}
+body.nc-news-category-page.nc-news-has-stories .category-work-content{
+  display:contents!important;
+}
+body.nc-news-category-page.nc-news-has-stories #category-feed-section{
+  grid-column:1!important;
+  grid-row:3!important;
+}
+body.nc-news-category-page.nc-news-has-stories .category-sidebar{
+  grid-column:2!important;
+  grid-row:2 / span 2!important;
+  position:sticky!important;
+  top:104px!important;
+  display:grid!important;
+  grid-template-columns:1fr!important;
+  gap:20px!important;
+  margin-top:0!important;
+  align-self:start!important;
+}
+
+/* Restore the newsroom's compact list feed. */
+body.nc-news-category-page .category-feed{
+  display:grid!important;
+  grid-template-columns:1fr!important;
+  gap:0!important;
+  padding-top:0!important;
+}
+body.nc-news-category-page .category-feed-card{
+  display:grid!important;
+  grid-template-columns:245px minmax(0,1fr)!important;
+  gap:24px!important;
+  padding:25px 0!important;
+  overflow:visible!important;
+  border:0!important;
+  border-bottom:1px solid color-mix(in srgb,var(--line) 86%,transparent)!important;
+  border-radius:0!important;
+  background:transparent!important;
+  box-shadow:none!important;
+}
+body.nc-news-category-page .category-feed-card::before{display:none!important}
+body.nc-news-category-page .category-feed-card:hover{
+  transform:translateX(3px)!important;
+  box-shadow:none!important;
+}
+body.nc-news-category-page .category-feed-media{
+  height:154px!important;
+  aspect-ratio:auto!important;
+  border:1px solid rgba(124,142,255,.17)!important;
+  border-radius:14px!important;
+}
+body.nc-news-category-page .category-feed-copy{
+  display:block!important;
+  min-height:0!important;
+  align-self:center!important;
+  padding:0!important;
+}
+body.nc-news-category-page .category-feed-copy h3{
+  margin:9px 0!important;
+  font-size:24px!important;
+  line-height:1.06!important;
+}
+body.nc-news-category-page .category-feed-copy p{
+  display:block!important;
+  margin:0 0 13px!important;
+  overflow:visible!important;
+  font-size:12px!important;
+  line-height:1.55!important;
+}
+body.nc-news-category-page .category-feed-copy small{
+  margin-top:0!important;
+  font-size:7.5px!important;
+}
+
+/* Restore the dedicated newsroom rail. */
+body.nc-news-category-page .category-side-card{
+  padding:22px!important;
+  border-radius:18px!important;
+}
+body.nc-news-category-page .category-trending{
+  display:block!important;
+}
+body.nc-news-category-page .category-trending a{
+  display:grid!important;
+  grid-template-columns:32px minmax(0,1fr)!important;
+  gap:11px!important;
+  padding:15px 0!important;
+  border-right:0!important;
+  border-bottom:1px solid color-mix(in srgb,var(--line) 82%,transparent)!important;
+}
+body.nc-news-category-page .category-trending a+a{padding-left:0!important}
+body.nc-news-category-page .category-trending a:last-child{
+  padding-right:0!important;
+  padding-bottom:0!important;
+  border-bottom:0!important;
+}
+
+body.nc-news-category-page .category-weekly{
+  display:block!important;
+  padding:22px!important;
+  background:radial-gradient(circle at 100% 0%,rgba(119,104,255,.18),transparent 40%),linear-gradient(145deg,#111627,#0b1020)!important;
+}
+body.nc-news-category-page .category-weekly>b{
+  display:grid!important;
+  width:34px!important;
+  height:34px!important;
+  margin:0 0 16px!important;
+}
+body.nc-news-category-page .category-weekly>small{display:block!important}
+body.nc-news-category-page .category-weekly h3{
+  margin:10px 0 7px!important;
+  font-size:23px!important;
+}
+body.nc-news-category-page .category-weekly>p{
+  margin:0 0 15px!important;
+  font-size:11px!important;
+}
+body.nc-news-category-page .category-weekly form{
+  display:grid!important;
+  grid-template-columns:1fr!important;
+  gap:8px!important;
+  margin:0!important;
+}
+body.nc-news-category-page .category-weekly input,
+body.nc-news-category-page .category-weekly button{
+  min-height:0!important;
+}
+body.nc-news-category-page .category-weekly input{padding:11px 12px!important}
+body.nc-news-category-page .category-weekly button{padding:12px!important}
+
+body.nc-news-category-page .category-section-head::after{display:none!important}
+
+@media(max-width:1040px){
+  body.nc-news-category-page.nc-news-has-stories .category-work-page{display:block!important}
+  body.nc-news-category-page.nc-news-has-stories .category-work-content{display:grid!important}
+  body.nc-news-category-page.nc-news-has-stories .category-sidebar{
+    position:relative!important;
+    top:auto!important;
+    display:grid!important;
+    grid-template-columns:1fr 1fr!important;
+    margin-top:34px!important;
+  }
+}
+
+@media(max-width:720px){
+  body:not(.nc-news-category-page) .category-spotlight.single .category-spotlight-main{
+    min-height:340px!important;
+    max-height:390px!important;
+  }
+  body.nc-news-category-page .category-feed-card{
+    grid-template-columns:1fr!important;
+    gap:14px!important;
+  }
+  body.nc-news-category-page .category-feed-media{height:220px!important}
+}
+
+@media(max-width:680px){
+  body.nc-news-category-page.nc-news-has-stories .category-sidebar{grid-template-columns:1fr!important}
+}
