@@ -51,6 +51,7 @@ on:
       - scripts/build_game_pages.py
       - scripts/build_author_pages.py
       - supabase/migrations/**
+      - .github/workflows/build-publication.yml
       - .github/workflows/publication-health.yml
   pull_request:
     paths:
@@ -101,6 +102,7 @@ on:
       - scripts/build_game_pages.py
       - scripts/build_author_pages.py
       - supabase/migrations/**
+      - .github/workflows/build-publication.yml
       - .github/workflows/publication-health.yml
   schedule:
     - cron: '17 */6 * * *'
