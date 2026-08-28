@@ -6,6 +6,7 @@ on:
     paths:
       - 404.html
       - article.html
+      - game.html
       - author.html
       - index.html
       - category.html
@@ -23,6 +24,7 @@ on:
       - feed.xml
       - stories/**
       - topics/**
+      - games/**
       - authors/**
       - assets/**
       - data/**
@@ -35,12 +37,14 @@ on:
       - scripts/audit_news_sources.py
       - scripts/audit_discovery_links.py
       - scripts/audit_popularity_v2.py
+      - scripts/audit_games_database.py
       - scripts/publication_config.py
       - scripts/build_robots.py
       - scripts/enrich_story_metadata.py
       - scripts/build_sitemap.py
       - scripts/build_story_pages.py
       - scripts/build_topic_pages.py
+      - scripts/build_game_pages.py
       - scripts/build_author_pages.py
       - supabase/migrations/**
       - .github/workflows/publication-health.yml
@@ -48,6 +52,7 @@ on:
     paths:
       - 404.html
       - article.html
+      - game.html
       - author.html
       - index.html
       - category.html
@@ -65,6 +70,7 @@ on:
       - feed.xml
       - stories/**
       - topics/**
+      - games/**
       - authors/**
       - assets/**
       - data/**
@@ -77,12 +83,14 @@ on:
       - scripts/audit_news_sources.py
       - scripts/audit_discovery_links.py
       - scripts/audit_popularity_v2.py
+      - scripts/audit_games_database.py
       - scripts/publication_config.py
       - scripts/build_robots.py
       - scripts/enrich_story_metadata.py
       - scripts/build_sitemap.py
       - scripts/build_story_pages.py
       - scripts/build_topic_pages.py
+      - scripts/build_game_pages.py
       - scripts/build_author_pages.py
       - supabase/migrations/**
       - .github/workflows/publication-health.yml
@@ -115,6 +123,7 @@ jobs:
           node --check assets/recirculation.js
           node --check assets/popularity-signals.js
           node --check assets/content-api.js
+          node --check assets/game-page.js
           node --check assets/studio-media.js
           node --check assets/studio-news.js
 
@@ -135,6 +144,9 @@ jobs:
 
       - name: Audit Trending and Most Read V2
         run: python scripts/audit_popularity_v2.py
+
+      - name: Audit Games Database V1
+        run: python scripts/audit_games_database.py
 
       - name: Verify production domain portability
         run: python scripts/audit_domain_readiness.py
