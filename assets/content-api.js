@@ -57,7 +57,7 @@
       window.NeuralCriticDiscoveryReady.then(engine => {
         if (!engine || document.querySelector('script[data-nc-popularity-signals]')) return;
         const script = document.createElement('script');
-        script.src = 'assets/popularity-signals.js?v=20260824-popularity1';
+        script.src = 'assets/popularity-signals.js?v=20260828-popularity2';
         script.dataset.ncPopularitySignals = '1';
         document.body.appendChild(script);
       });
