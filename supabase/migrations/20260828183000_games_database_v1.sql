@@ -49,8 +49,29 @@ create index if not exists games_series_idx on public.games(series);
 create index if not exists game_releases_date_idx on public.game_releases(release_date);
 create index if not exists game_releases_platform_idx on public.game_releases(platform);
 
+create or replace function public.set_games_updated_at()
+returns trigger
+language plpgsql
+as $$
+begin
+  new.updated_at = now();
+  return new;
+end;
+$$;
+
+drop trigger if exists games_set_updated_at on public.games;
+create trigger games_set_updated_at before update on public.games
+for each row execute function public.set_games_updated_at();
+
+drop trigger if exists game_releases_set_updated_at on public.game_releases;
+create trigger game_releases_set_updated_at before update on public.game_releases
+for each row execute function public.set_games_updated_at();
+
 alter table public.games enable row level security;
 alter table public.game_releases enable row level security;
 
+drop policy if exists "Public can read games" on public.games;
 create policy "Public can read games" on public.games for select using (true);
+
+drop policy if exists "Public can read game releases" on public.game_releases;
 create policy "Public can read game releases" on public.game_releases for select using (true);
