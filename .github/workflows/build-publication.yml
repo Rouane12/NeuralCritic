@@ -17,6 +17,7 @@ on:
       - scripts/build_game_pages.py
       - scripts/build_author_pages.py
       - scripts/enrich_story_metadata.py
+      - scripts/audit_publication_reliability.py
       - assets/supabase-config.js
       - assets/article-news-layout-v3.css
       - assets/game-page.js
@@ -37,7 +38,7 @@ concurrency:
 jobs:
   refresh:
     runs-on: ubuntu-latest
-    timeout-minutes: 5
+    timeout-minutes: 7
     env:
       NEURAL_CRITIC_SITE_URL: https://www.neuralcritic.net/
     steps:
@@ -56,18 +57,11 @@ jobs:
           python - <<'PY'
           from pathlib import Path
           import re
-
           path = Path("article.html")
           html = path.read_text(encoding="utf-8")
           marker = 'assets/article-news-layout-v3.css'
-
           if marker not in html:
-              html, count = re.subn(
-                  r'(<link rel="stylesheet" href="assets/article-news\.css[^"]*">)',
-                  r'\1<link rel="stylesheet" href="assets/article-news-layout-v3.css">',
-                  html,
-                  count=1,
-              )
+              html, count = re.subn(r'(<link rel="stylesheet" href="assets/article-news\.css[^"]*">)', r'\1<link rel="stylesheet" href="assets/article-news-layout-v3.css">', html, count=1)
               if count != 1:
                   raise SystemExit("Could not locate article-news.css in article.html")
               path.write_text(html, encoding="utf-8")
@@ -93,6 +87,9 @@ jobs:
 
       - name: Link story structured data to canonical writer pages
         run: python scripts/enrich_story_metadata.py
+
+      - name: Reliability gate generated publication state
+        run: python scripts/audit_publication_reliability.py
 
       - name: Commit publication files only when changed
         run: |

@@ -41,6 +41,7 @@ on:
       - scripts/audit_games_database.py
       - scripts/audit_games_directory.py
       - scripts/audit_review_intelligence.py
+      - scripts/audit_publication_reliability.py
       - scripts/publication_config.py
       - scripts/build_robots.py
       - scripts/enrich_story_metadata.py
@@ -90,6 +91,7 @@ on:
       - scripts/audit_games_database.py
       - scripts/audit_games_directory.py
       - scripts/audit_review_intelligence.py
+      - scripts/audit_publication_reliability.py
       - scripts/publication_config.py
       - scripts/build_robots.py
       - scripts/enrich_story_metadata.py
@@ -100,15 +102,21 @@ on:
       - scripts/build_author_pages.py
       - supabase/migrations/**
       - .github/workflows/publication-health.yml
+  schedule:
+    - cron: '17 */6 * * *'
   workflow_dispatch:
 
 permissions:
   contents: read
 
+concurrency:
+  group: neural-critic-publication-health-${{ github.ref }}
+  cancel-in-progress: true
+
 jobs:
   audit:
     runs-on: ubuntu-latest
-    timeout-minutes: 5
+    timeout-minutes: 7
     steps:
       - name: Check out repository
         uses: actions/checkout@v4
@@ -161,6 +169,9 @@ jobs:
 
       - name: Audit Review Intelligence V1
         run: python scripts/audit_review_intelligence.py
+
+      - name: Audit Publication Reliability V2
+        run: python scripts/audit_publication_reliability.py
 
       - name: Verify production domain portability
         run: python scripts/audit_domain_readiness.py
