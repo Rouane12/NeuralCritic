@@ -1,5 +1,28 @@
 [
   {
+    "slug": "games-with-most-game-of-the-year-awards",
+    "title": "Which Game Has Won the Most GOTY Awards? The Most-Awarded Games Explained",
+    "description": "Which games have won the most Game of the Year awards? Neural Critic breaks down the modern GOTY record, why award totals vary by tracker, and the games that dominate the all-time conversation.",
+    "category": "FEATURE",
+    "author": "Rouane Mounssif",
+    "tags": [
+      "Game of the Year",
+      "GOTY Awards",
+      "Most Awarded Games",
+      "Elden Ring",
+      "Clair Obscur Expedition 33",
+      "Baldur's Gate 3",
+      "The Last of Us Part II",
+      "The Witcher 3"
+    ],
+    "imageAlt": "The Game Awards logo displayed over the event’s stylized orange winged trophy artwork.",
+    "articleFormat": "ranked-list",
+    "publishedAt": "2026-08-28T18:25:48.796Z",
+    "updatedAt": "2026-08-28T19:25:01.231958Z",
+    "reviewMeta": {},
+    "imageLocal": "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1787940457554-6f74ed8c-33c1-44eb-8bd8-3752199f2f26-goty-winners.avif"
+  },
+  {
     "id": 4,
     "slug": "elden-ring-open-world-design-legacy",
     "title": "How Elden Ring Reinvented Open-World Exploration",
