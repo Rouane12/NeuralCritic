@@ -51,6 +51,7 @@ on:
       - scripts/build_game_pages.py
       - scripts/build_author_pages.py
       - supabase/migrations/**
+      - .github/workflows/build-publication.yml
       - .github/workflows/publication-health.yml
   pull_request:
     paths:
@@ -101,6 +102,7 @@ on:
       - scripts/build_game_pages.py
       - scripts/build_author_pages.py
       - supabase/migrations/**
+      - .github/workflows/build-publication.yml
       - .github/workflows/publication-health.yml
   schedule:
     - cron: '17 */6 * * *'
@@ -125,6 +127,19 @@ jobs:
         uses: actions/setup-python@v5
         with:
           python-version: '3.12'
+
+      - name: Prepare current generated publication state for pull-request audits
+        if: github.event_name == 'pull_request'
+        env:
+          NEURAL_CRITIC_SITE_URL: https://www.neuralcritic.net/
+        run: |
+          python scripts/build_robots.py
+          python scripts/build_sitemap.py
+          python scripts/build_story_pages.py
+          python scripts/build_topic_pages.py
+          python scripts/build_game_pages.py
+          python scripts/build_author_pages.py
+          python scripts/enrich_story_metadata.py
 
       - name: Parse-check public and Studio JavaScript
         run: |
