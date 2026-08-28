@@ -195,11 +195,16 @@ def sync_sitemap(rows: list[dict[str, Any]]) -> None:
     tree = ET.parse(SITEMAP_PATH)
     root = tree.getroot()
     namespace = "{http://www.sitemaps.org/schemas/sitemap/0.9}"
+    games_root = urllib.parse.urljoin(SITE_URL, "games/")
     for node in list(root):
         loc = node.find(f"{namespace}loc")
         value = (loc.text or "").strip() if loc is not None else ""
-        if "/games/" in urllib.parse.urlparse(value).path:
+        path = urllib.parse.urlparse(value).path
+        if "/games/" in path and value != games_root:
             root.remove(node)
+    if not any((node.find(f"{namespace}loc") is not None and (node.find(f"{namespace}loc").text or "").strip() == games_root) for node in root):
+        node = ET.SubElement(root, f"{namespace}url")
+        ET.SubElement(node, f"{namespace}loc").text = games_root
     seen: set[str] = set()
     for game in rows:
         slug = str(game.get("slug") or "").strip()
