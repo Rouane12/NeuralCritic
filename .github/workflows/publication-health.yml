@@ -128,8 +128,8 @@ jobs:
         with:
           python-version: '3.12'
 
-      - name: Prepare current generated publication state for pull-request audits
-        if: github.event_name == 'pull_request'
+      - name: Prepare current generated publication state for change audits
+        if: github.event_name == 'pull_request' || github.event_name == 'push'
         env:
           NEURAL_CRITIC_SITE_URL: https://www.neuralcritic.net/
         run: |
