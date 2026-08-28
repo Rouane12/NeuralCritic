@@ -6,6 +6,7 @@ on:
     paths:
       - article.html
       - topic.html
+      - game.html
       - author.html
       - data/**
       - scripts/publication_config.py
@@ -13,10 +14,14 @@ on:
       - scripts/build_sitemap.py
       - scripts/build_story_pages.py
       - scripts/build_topic_pages.py
+      - scripts/build_game_pages.py
       - scripts/build_author_pages.py
       - scripts/enrich_story_metadata.py
       - assets/supabase-config.js
       - assets/article-news-layout-v3.css
+      - assets/game-page.js
+      - assets/game-page.css
+      - supabase/migrations/**
       - .github/workflows/build-publication.yml
   schedule:
     - cron: '*/15 * * * *'
@@ -80,6 +85,9 @@ jobs:
       - name: Build canonical Game Graph topic hubs
         run: python scripts/build_topic_pages.py
 
+      - name: Build canonical game database pages
+        run: python scripts/build_game_pages.py
+
       - name: Build canonical writer profile hubs
         run: python scripts/build_author_pages.py
 
@@ -88,13 +96,13 @@ jobs:
 
       - name: Commit publication files only when changed
         run: |
-          if git diff --quiet -- article.html robots.txt sitemap.xml feed.xml stories topics authors; then
-            echo "Publication discovery files, story shells, topic hubs, writer hubs, article shell, and robots are already current."
+          if git diff --quiet -- article.html game.html robots.txt sitemap.xml feed.xml stories topics games authors; then
+            echo "Publication discovery files, story shells, topic hubs, game pages, writer hubs, article shell, and robots are already current."
             exit 0
           fi
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add article.html robots.txt sitemap.xml feed.xml stories topics authors
+          git add article.html game.html robots.txt sitemap.xml feed.xml stories topics games authors
           git commit -m "Refresh Neural Critic canonical publication pages"
           git pull --rebase origin main
           git push
