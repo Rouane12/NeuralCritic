@@ -25,6 +25,7 @@ on:
       - stories/**
       - topics/**
       - games/**
+      - reviews/**
       - authors/**
       - assets/**
       - data/**
@@ -39,6 +40,7 @@ on:
       - scripts/audit_popularity_v2.py
       - scripts/audit_games_database.py
       - scripts/audit_games_directory.py
+      - scripts/audit_review_intelligence.py
       - scripts/publication_config.py
       - scripts/build_robots.py
       - scripts/enrich_story_metadata.py
@@ -72,6 +74,7 @@ on:
       - stories/**
       - topics/**
       - games/**
+      - reviews/**
       - authors/**
       - assets/**
       - data/**
@@ -86,6 +89,7 @@ on:
       - scripts/audit_popularity_v2.py
       - scripts/audit_games_database.py
       - scripts/audit_games_directory.py
+      - scripts/audit_review_intelligence.py
       - scripts/publication_config.py
       - scripts/build_robots.py
       - scripts/enrich_story_metadata.py
@@ -127,6 +131,7 @@ jobs:
           node --check assets/content-api.js
           node --check assets/game-page.js
           node --check assets/games-directory.js
+          node --check assets/review-intelligence.js
           node --check assets/studio-media.js
           node --check assets/studio-news.js
 
@@ -153,6 +158,9 @@ jobs:
 
       - name: Audit Games Directory and Release Calendar
         run: python scripts/audit_games_directory.py
+
+      - name: Audit Review Intelligence V1
+        run: python scripts/audit_review_intelligence.py
 
       - name: Verify production domain portability
         run: python scripts/audit_domain_readiness.py
