@@ -3,7 +3,7 @@
     if (!document.querySelector('link[data-nc-discovery]')) {
       const link = document.createElement('link');
       link.rel = 'stylesheet';
-      link.href = 'assets/discovery-intelligence.css?v=20260823-discovery1';
+      link.href = 'assets/discovery-intelligence.css?v=20260828-discovery2';
       link.dataset.ncDiscovery = '1';
       document.head.appendChild(link);
     }
@@ -19,7 +19,7 @@
               return;
             }
             const script = document.createElement('script');
-            script.src = 'assets/discovery-intelligence.js?v=20260823-discovery1';
+            script.src = 'assets/discovery-intelligence.js?v=20260828-discovery2';
             script.dataset.ncDiscovery = '1';
             script.onload = () => resolve(window.NeuralCriticDiscovery || null);
             script.onerror = () => resolve(null);
@@ -27,13 +27,29 @@
           });
     }
 
-    if (document.getElementById('article') && !document.querySelector('script[data-nc-article-discovery]')) {
+    if (document.getElementById('article')) {
+      if (!document.querySelector('link[data-nc-recirculation]')) {
+        const recirculationStyle = document.createElement('link');
+        recirculationStyle.rel = 'stylesheet';
+        recirculationStyle.href = 'assets/recirculation.css?v=20260828-discovery2';
+        recirculationStyle.dataset.ncRecirculation = '1';
+        document.head.appendChild(recirculationStyle);
+      }
+
       window.NeuralCriticDiscoveryReady.then(engine => {
-        if (!engine || document.querySelector('script[data-nc-article-discovery]')) return;
-        const script = document.createElement('script');
-        script.src = 'assets/article-discovery.js?v=20260823-discovery1';
-        script.dataset.ncArticleDiscovery = '1';
-        document.body.appendChild(script);
+        if (!engine) return;
+        if (!document.querySelector('script[data-nc-article-discovery]')) {
+          const script = document.createElement('script');
+          script.src = 'assets/article-discovery.js?v=20260828-discovery2';
+          script.dataset.ncArticleDiscovery = '1';
+          document.body.appendChild(script);
+        }
+        if (!document.querySelector('script[data-nc-recirculation]')) {
+          const recirculation = document.createElement('script');
+          recirculation.src = 'assets/recirculation.js?v=20260828-discovery2';
+          recirculation.dataset.ncRecirculation = '1';
+          document.body.appendChild(recirculation);
+        }
       });
     }
 
@@ -112,9 +128,7 @@
       const raw = typeof input === 'string' ? input : input?.url || '';
       const url = new URL(raw, location.href);
       return url.pathname.replace(/^.*\/NeuralCritic\//, '').replace(/^\//, '');
-    } catch (_) {
-      return '';
-    }
+    } catch (_) { return ''; }
   }
 
   function currentArticleSlug() {
@@ -137,25 +151,14 @@
   }
 
   async function publishedIndex() {
-    const query = client
-      .from('articles')
-      .select('*')
-      .eq('status', 'published')
-      .lte('published_at', new Date().toISOString())
-      .order('published_at', { ascending: false });
+    const query = client.from('articles').select('*').eq('status', 'published').lte('published_at', new Date().toISOString()).order('published_at', { ascending: false });
     const { data, error } = await withTimeout(query);
     if (error) throw error;
     return (data || []).map(mapRow);
   }
 
   async function publishedArticle(slug) {
-    const query = client
-      .from('articles')
-      .select('*')
-      .eq('slug', slug)
-      .eq('status', 'published')
-      .lte('published_at', new Date().toISOString())
-      .maybeSingle();
+    const query = client.from('articles').select('*').eq('slug', slug).eq('status', 'published').lte('published_at', new Date().toISOString()).maybeSingle();
     const { data, error } = await withTimeout(query);
     if (error) throw error;
     return data ? mapRow(data) : null;
@@ -179,19 +182,13 @@
 
   window.NeuralCriticContentAPI = { publishedIndex, publishedArticle, articlePopularity, recordArticleView, nativeFetch };
 
-  function popularitySessionKey(slug) {
-    return `neural-critic-popularity-view:${slug}`;
-  }
-
+  function popularitySessionKey(slug) { return `neural-critic-popularity-view:${slug}`; }
   function popularityAlreadyCounted(slug) {
     try {
       const last = Number(sessionStorage.getItem(popularitySessionKey(slug)) || 0);
       return last > 0 && Date.now() - last < POPULARITY_DEDUPE_MS;
-    } catch (_) {
-      return false;
-    }
+    } catch (_) { return false; }
   }
-
   function markPopularityCounted(slug) {
     try { sessionStorage.setItem(popularitySessionKey(slug), String(Date.now())); }
     catch (_) {}
@@ -202,7 +199,6 @@
     if (!slug || popularityAlreadyCounted(slug)) return;
     let inFlight = false;
     let finished = false;
-
     const attempt = async () => {
       if (finished || inFlight || popularityAlreadyCounted(slug)) return;
       if (!window.NeuralCriticAnalytics?.enabled?.()) return;
@@ -211,26 +207,20 @@
         await recordArticleView(slug);
         markPopularityCounted(slug);
         finished = true;
-      } catch (error) {
-        console.warn('Neural Critic popularity view was not recorded.', error);
-      } finally {
-        inFlight = false;
-      }
+      } catch (error) { console.warn('Neural Critic popularity view was not recorded.', error); }
+      finally { inFlight = false; }
     };
-
     let polls = 0;
     const timer = setInterval(() => {
       polls += 1;
       attempt();
       if (finished || polls >= 80) clearInterval(timer);
     }, 100);
-
     document.addEventListener('click', event => {
       const target = event.target instanceof Element ? event.target.closest('[data-accept]') : null;
       if (!target) return;
       setTimeout(attempt, 0);
     }, true);
-
     attempt();
   }
 
@@ -241,7 +231,6 @@
       const rows = await publishedIndex();
       const latest = rows[0];
       if (!latest) return;
-
       const apply = () => {
         const ticker = document.querySelector('.ticker');
         if (!ticker) return false;
@@ -257,16 +246,11 @@
         ticker.dataset.cmsLive = '1';
         return true;
       };
-
       if (apply()) return;
-      const observer = new MutationObserver(() => {
-        if (apply()) observer.disconnect();
-      });
+      const observer = new MutationObserver(() => { if (apply()) observer.disconnect(); });
       observer.observe(document.documentElement, { childList:true, subtree:true });
       setTimeout(() => observer.disconnect(), 5000);
-    } catch (error) {
-      console.warn('Neural Critic live feed hydration skipped; keeping fallback ticker.', error);
-    }
+    } catch (error) { console.warn('Neural Critic live feed hydration skipped; keeping fallback ticker.', error); }
   }
 
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', hydrateLiveTicker, { once:true });
@@ -277,7 +261,6 @@
     const isIndex = path === indexPath;
     const isArticle = path.startsWith(articlePrefix) && path.endsWith('.json');
     if (!isIndex && !isArticle) return nativeFetch(...args);
-
     try {
       if (isIndex) {
         const rows = await publishedIndex();
@@ -287,18 +270,13 @@
         const article = await publishedArticle(slug);
         if (article) return jsonResponse(article);
       }
-    } catch (error) {
-      console.warn('Neural Critic CMS read failed quickly; using static fallback.', error);
-    }
-
+    } catch (error) { console.warn('Neural Critic CMS read failed quickly; using static fallback.', error); }
     return nativeFetch(...args);
   };
 
   function newsletterForm(form) {
-    return form.matches('#newsletter-form,#category-newsletter,[data-side-newsletter],[data-newsletter]') ||
-      !!form.closest('.newsletter,.category-weekly,.work-weekly-card');
+    return form.matches('#newsletter-form,#category-newsletter,[data-side-newsletter],[data-newsletter]') || !!form.closest('.newsletter,.category-weekly,.work-weekly-card');
   }
-
   function newsletterSource() {
     const params = new URLSearchParams(location.search);
     const slug = params.get('slug');
@@ -312,7 +290,6 @@
     if (location.pathname.endsWith('index.html') || location.pathname.endsWith('/')) return 'homepage';
     return location.pathname.split('/').pop() || 'unknown';
   }
-
   function newsletterMessage(form, message, error=false) {
     let note = form.parentElement?.querySelector('.newsletter-status');
     if (!note) {
@@ -331,22 +308,16 @@
     if (!(form instanceof HTMLFormElement) || !newsletterForm(form)) return;
     event.preventDefault();
     event.stopImmediatePropagation();
-
     const input = form.querySelector('input[type="email"]');
     const button = form.querySelector('button[type="submit"],button:not([type])');
     const email = input?.value?.trim();
     if (!email) return;
-
     const source = form.dataset.newsletterSource || newsletterSource();
     const oldText = button?.textContent || 'JOIN FREE';
     if (button) { button.disabled = true; button.textContent = 'JOINING…'; }
     newsletterMessage(form, 'Adding you to the Weekly Drop…');
-
     try {
-      const { error } = await withTimeout(client.rpc('subscribe_newsletter', {
-        p_email: email,
-        p_source: source
-      }), 5000);
+      const { error } = await withTimeout(client.rpc('subscribe_newsletter', { p_email: email, p_source: source }), 5000);
       if (error) throw error;
       if (input) { input.value = ''; input.disabled = true; }
       if (button) button.textContent = 'YOU’RE IN ✓';
