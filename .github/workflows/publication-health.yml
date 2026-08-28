@@ -33,6 +33,8 @@ on:
       - scripts/audit_domain_readiness.py
       - scripts/audit_reader_auth.py
       - scripts/audit_news_sources.py
+      - scripts/audit_discovery_links.py
+      - scripts/audit_popularity_v2.py
       - scripts/publication_config.py
       - scripts/build_robots.py
       - scripts/enrich_story_metadata.py
@@ -73,6 +75,8 @@ on:
       - scripts/audit_domain_readiness.py
       - scripts/audit_reader_auth.py
       - scripts/audit_news_sources.py
+      - scripts/audit_discovery_links.py
+      - scripts/audit_popularity_v2.py
       - scripts/publication_config.py
       - scripts/build_robots.py
       - scripts/enrich_story_metadata.py
@@ -107,6 +111,10 @@ jobs:
           node --check assets/article-runtime-integrity.js
           node --check assets/article-sidebar-interactive.js
           node --check assets/article-news.js
+          node --check assets/article-discovery.js
+          node --check assets/recirculation.js
+          node --check assets/popularity-signals.js
+          node --check assets/content-api.js
           node --check assets/studio-media.js
           node --check assets/studio-news.js
 
@@ -121,6 +129,12 @@ jobs:
 
       - name: Audit newsroom source documents
         run: python scripts/audit_news_sources.py
+
+      - name: Audit discovery engine
+        run: python scripts/audit_discovery_links.py
+
+      - name: Audit Trending and Most Read V2
+        run: python scripts/audit_popularity_v2.py
 
       - name: Verify production domain portability
         run: python scripts/audit_domain_readiness.py
