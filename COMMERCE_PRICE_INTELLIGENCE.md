@@ -38,7 +38,7 @@ Canonical products. Game products may reference `public.games`; gaming hardware 
 Current retailer-specific offers, prices, availability, destination URLs, and optional affiliate URLs.
 
 ### `commerce_price_history`
-Historical price snapshots for trend charts, historical-low detection, and price-drop intelligence.
+Historical price snapshots for trend charts, historical-low detection, and price-drop intelligence. Snapshots are generated automatically when a current offer changes price, list price, or availability.
 
 ### `commerce_article_products`
 Explicit links between editorial stories and products for reusable `Where to Buy` modules.
@@ -60,13 +60,13 @@ A dedicated Neural Critic Price Intelligence surface with:
 - last-updated freshness
 - affiliate-safe `View Deal` links
 
-The page must never invent prices. If no verified retailer feed is connected, it shows a clean feed-warming state rather than sample commerce data.
+The page must never invent prices. If no verified retailer feed is connected, it shows a clean feed-warming state rather than sample commerce data. Until real offer data exists, the page remains `noindex,follow` so Neural Critic does not ask Google to index a thin commerce surface.
 
 ### Homepage
-A compact Price Intelligence entry point may appear only when real active offers exist. Do not add permanent visual clutter when the feed is empty.
+A compact Price Intelligence entry point exists but remains hidden unless real active offers exist. This prevents permanent visual clutter while the feed is empty.
 
 ### Articles
-Reviews, buying guides, and relevant stories can receive a `Where to Buy` module through `commerce_article_products` instead of manually embedding store links in editorial copy.
+Reviews, buying guides, and relevant stories can receive a `Where to Buy` module through `commerce_article_products` instead of manually embedding store links in editorial copy. The module renders only when an explicitly linked product also has a live offer.
 
 ## Editorial and trust rules
 
@@ -77,22 +77,28 @@ Reviews, buying guides, and relevant stories can receive a `Where to Buy` module
 5. Separate editorial recommendations from automatic price sorting.
 6. Prefer useful buyer metrics over aggressive conversion UI.
 7. Public browser clients receive read-only commerce access; ingestion/writes stay privileged.
+8. Do not promote or index the commerce surface before verified live offer data exists.
 
 ## Rollout
 
 ### Commerce & Price Intelligence V1
 
 - [x] Data architecture
-- [x] Supabase tables + RLS
-- [ ] Deals page
-- [ ] Price/deal card system
-- [ ] Homepage live-offer entry point
-- [ ] Article `Where to Buy` module
-- [ ] Commerce analytics QA
-- [ ] First retailer/affiliate feed
-- [ ] Price ingestion worker
-- [ ] Price-history snapshots
-- [ ] Historical-low detection QA
+- [x] Supabase tables + hardened RLS
+- [x] Deals page
+- [x] Price/deal card system
+- [x] Homepage live-offer entry point with empty-feed guard
+- [x] Article `Where to Buy` module with explicit story-product linking
+- [x] Commerce analytics instrumentation
+- [x] Provider-neutral server-side feed importer
+- [x] Automatic price-history snapshots
+- [x] Historical-low detection logic
+- [x] Dedicated CI/static commerce audit
+- [ ] First real retailer/affiliate feed
+- [ ] Scheduled provider refresh worker
+- [ ] Analytics QA with real offer clicks
+- [ ] Historical-low QA with real accumulated price history
+- [ ] Remove Deals `noindex` gate after feed launch
 
 ### V2
 
@@ -105,6 +111,8 @@ Reviews, buying guides, and relevant stories can receive a `Where to Buy` module
 - regional pricing
 - programmatic buyer-intent landing pages where genuinely useful
 
-## Launch gate
+## Current checkpoint · 30 August 2026
 
-Commerce UI can ship before a retailer feed is connected, but no fake offers should be seeded. A public promotional entry point should become prominent only after verified active offers exist.
+Commerce & Price Intelligence V1 is structurally implemented on `feature/commerce-intelligence-v1` / PR #26. The live Neural Critic Supabase project contains the commerce schema and automated history trigger, but intentionally contains zero commerce retailers, products, offers, price points, or article-product links until a verified provider is connected.
+
+The next milestone is therefore not more UI. It is **First Provider Feed**: choose and authenticate a real retailer/affiliate data source, normalize it into the importer contract, verify pricing/disclosure behavior with real data, then enable indexing and stronger public discovery.
