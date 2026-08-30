@@ -43,6 +43,7 @@ on:
       - scripts/audit_games_directory.py
       - scripts/audit_review_intelligence.py
       - scripts/audit_publication_reliability.py
+      - scripts/audit_commerce.py
       - scripts/import_commerce_feed.py
       - scripts/publication_config.py
       - scripts/build_robots.py
@@ -96,6 +97,7 @@ on:
       - scripts/audit_games_directory.py
       - scripts/audit_review_intelligence.py
       - scripts/audit_publication_reliability.py
+      - scripts/audit_commerce.py
       - scripts/import_commerce_feed.py
       - scripts/publication_config.py
       - scripts/build_robots.py
@@ -166,7 +168,10 @@ jobs:
           node --check assets/studio-news.js
 
       - name: Parse-check commerce feed tooling
-        run: python -m py_compile scripts/import_commerce_feed.py
+        run: python -m py_compile scripts/import_commerce_feed.py scripts/audit_commerce.py
+
+      - name: Audit Commerce Price Intelligence
+        run: python scripts/audit_commerce.py
 
       - name: Audit Neural Critic publication surface
         run: python scripts/audit_publication_v2.py
