@@ -1,0 +1,70 @@
+name: Refresh commerce provider feeds
+
+on:
+  schedule:
+    - cron: '17,47 * * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: neural-critic-commerce-refresh
+  cancel-in-progress: false
+
+jobs:
+  amazon-creators:
+    runs-on: ubuntu-latest
+    timeout-minutes: 7
+    env:
+      SUPABASE_URL: https://pchrrwfdcfbytggekuzs.supabase.co
+      AMAZON_CREATORS_TOKEN_REGION: NA
+      AMAZON_CREATORS_CLIENT_ID: ${{ secrets.AMAZON_CREATORS_CLIENT_ID }}
+      AMAZON_CREATORS_CLIENT_SECRET: ${{ secrets.AMAZON_CREATORS_CLIENT_SECRET }}
+      AMAZON_ASSOCIATES_PARTNER_TAG: ${{ secrets.AMAZON_ASSOCIATES_PARTNER_TAG }}
+      SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Validate Amazon catalog and provider tooling
+        run: |
+          python scripts/providers/amazon_creators_feed.py \
+            --catalog data/commerce/amazon_catalog.json \
+            --validate-only \
+            --output /tmp/amazon-feed.json
+          python scripts/import_commerce_feed.py --input /tmp/amazon-feed.json --dry-run
+
+      - name: Refresh Amazon Creators API offers
+        shell: bash
+        run: |
+          PRODUCT_COUNT=$(python - <<'PY'
+          import json
+          from pathlib import Path
+          data=json.loads(Path('data/commerce/amazon_catalog.json').read_text(encoding='utf-8'))
+          print(len(data.get('products') or []))
+          PY
+          )
+
+          if [ "$PRODUCT_COUNT" = "0" ]; then
+            echo "Amazon catalog is empty; provider remains dormant."
+            exit 0
+          fi
+
+          if [ -z "$AMAZON_CREATORS_CLIENT_ID" ] || \
+             [ -z "$AMAZON_CREATORS_CLIENT_SECRET" ] || \
+             [ -z "$AMAZON_ASSOCIATES_PARTNER_TAG" ] || \
+             [ -z "$SUPABASE_SERVICE_ROLE_KEY" ]; then
+            echo "Amazon/Supabase provider credentials are not configured; provider remains dormant."
+            exit 0
+          fi
+
+          python scripts/providers/amazon_creators_feed.py \
+            --catalog data/commerce/amazon_catalog.json \
+            --output /tmp/amazon-feed.json
+          python scripts/import_commerce_feed.py --input /tmp/amazon-feed.json
