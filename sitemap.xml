@@ -48,7 +48,7 @@
   </url>
   <url>
     <loc>https://www.neuralcritic.net/stories/elden-ring-beginners-guide/</loc>
-    <lastmod>2026-08-29T17:49:51.323491+00:00</lastmod>
+    <lastmod>2026-08-30T03:17:11.728813+00:00</lastmod>
   </url>
   <url>
     <loc>https://www.neuralcritic.net/stories/games-with-most-game-of-the-year-awards/</loc>
@@ -123,11 +123,15 @@
     <lastmod>2026-08-25T23:31:13.103441+00:00</lastmod>
   </url>
   <url>
-    <loc>https://www.neuralcritic.net/stories/rainbow-six-tactics-announced-gamescom-2026/</loc>
+    <loc>https://www.neuralcritic.net/stories/humankind-2-announced-gamescom-2026/</loc>
     <lastmod>2026-08-26T18:46:40.726973+00:00</lastmod>
   </url>
   <url>
-    <loc>https://www.neuralcritic.net/stories/metro-2039-renegade-gameplay-gamescom-2026/</loc>
+    <loc>https://www.neuralcritic.net/stories/path-of-exile-2-1-0-release-date-december-11-2026/</loc>
+    <lastmod>2026-08-26T18:46:40.726973+00:00</lastmod>
+  </url>
+  <url>
+    <loc>https://www.neuralcritic.net/stories/rainbow-six-tactics-announced-gamescom-2026/</loc>
     <lastmod>2026-08-26T18:46:40.726973+00:00</lastmod>
   </url>
   <url>
@@ -135,15 +139,15 @@
     <lastmod>2026-08-26T18:46:40.726973+00:00</lastmod>
   </url>
   <url>
-    <loc>https://www.neuralcritic.net/stories/humankind-2-announced-gamescom-2026/</loc>
-    <lastmod>2026-08-26T18:46:40.726973+00:00</lastmod>
+    <loc>https://www.neuralcritic.net/stories/final-fantasy-vii-revelation-story-trailer-gamescom-2026/</loc>
+    <lastmod>2026-08-25T22:26:40.676564+00:00</lastmod>
   </url>
   <url>
     <loc>https://www.neuralcritic.net/stories/exodus-release-date-april-7-2027-gamescom/</loc>
     <lastmod>2026-08-26T18:46:40.726973+00:00</lastmod>
   </url>
   <url>
-    <loc>https://www.neuralcritic.net/stories/path-of-exile-2-1-0-release-date-december-11-2026/</loc>
+    <loc>https://www.neuralcritic.net/stories/metro-2039-renegade-gameplay-gamescom-2026/</loc>
     <lastmod>2026-08-26T18:46:40.726973+00:00</lastmod>
   </url>
   <url>
@@ -161,10 +165,6 @@
   <url>
     <loc>https://www.neuralcritic.net/stories/warlock-dungeons-dragons-gameplay-reveal-gamescom-2026/</loc>
     <lastmod>2026-08-26T18:46:40.726973+00:00</lastmod>
-  </url>
-  <url>
-    <loc>https://www.neuralcritic.net/stories/final-fantasy-vii-revelation-story-trailer-gamescom-2026/</loc>
-    <lastmod>2026-08-25T22:26:40.676564+00:00</lastmod>
   </url>
   <url>
     <loc>https://www.neuralcritic.net/stories/best-open-world-games-to-play-right-now-2026/</loc>
@@ -244,7 +244,7 @@
   </url>
   <url>
     <loc>https://www.neuralcritic.net/topics/game/elden-ring/</loc>
-    <lastmod>2026-08-29T17:49:51.323491+00:00</lastmod>
+    <lastmod>2026-08-30T03:17:11.728813+00:00</lastmod>
   </url>
   <url>
     <loc>https://www.neuralcritic.net/topics/game/exodus/</loc>
@@ -344,7 +344,7 @@
   </url>
   <url>
     <loc>https://www.neuralcritic.net/topics/series/elden-ring/</loc>
-    <lastmod>2026-08-29T17:49:51.323491+00:00</lastmod>
+    <lastmod>2026-08-30T03:17:11.728813+00:00</lastmod>
   </url>
   <url>
     <loc>https://www.neuralcritic.net/topics/series/final-fantasy-vii/</loc>
@@ -424,7 +424,7 @@
   </url>
   <url>
     <loc>https://www.neuralcritic.net/topics/franchise/elden-ring/</loc>
-    <lastmod>2026-08-29T17:49:51.323491+00:00</lastmod>
+    <lastmod>2026-08-30T03:17:11.728813+00:00</lastmod>
   </url>
   <url>
     <loc>https://www.neuralcritic.net/topics/franchise/final-fantasy/</loc>
@@ -478,8 +478,12 @@
     <loc>https://www.neuralcritic.net/games/</loc>
   </url>
   <url>
+    <loc>https://www.neuralcritic.net/games/baldurs-gate-3/</loc>
+    <lastmod>2026-08-30T03:20:43.158411+00:00</lastmod>
+  </url>
+  <url>
     <loc>https://www.neuralcritic.net/games/elden-ring/</loc>
-    <lastmod>2026-08-28T17:36:57.425007+00:00</lastmod>
+    <lastmod>2026-08-30T03:17:11.728813+00:00</lastmod>
   </url>
   <url>
     <loc>https://www.neuralcritic.net/games/grand-theft-auto-vi/</loc>
@@ -487,10 +491,18 @@
   </url>
   <url>
     <loc>https://www.neuralcritic.net/games/the-legend-of-zelda-breath-of-the-wild/</loc>
-    <lastmod>2026-08-28T17:36:57.425007+00:00</lastmod>
+    <lastmod>2026-08-30T03:18:58.149574+00:00</lastmod>
+  </url>
+  <url>
+    <loc>https://www.neuralcritic.net/games/the-legend-of-zelda-tears-of-the-kingdom/</loc>
+    <lastmod>2026-08-30T03:20:05.73029+00:00</lastmod>
+  </url>
+  <url>
+    <loc>https://www.neuralcritic.net/games/mario-kart-8-deluxe/</loc>
+    <lastmod>2026-08-30T03:21:13.257569+00:00</lastmod>
   </url>
   <url>
     <loc>https://www.neuralcritic.net/authors/rouane-mounssif/</loc>
-    <lastmod>2026-08-30T02:40:54.386098+00:00</lastmod>
+    <lastmod>2026-08-30T03:17:11.728813+00:00</lastmod>
   </url>
 </urlset>
