@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Game & Hardware Deals | Neural Critic Price Intelligence</title>
+  <meta name="description" content="Track useful gaming deals across games and hardware with current prices, discount context, retailer availability, and price-history intelligence from Neural Critic.">
+  <meta name="robots" content="noindex,follow,max-image-preview:large,max-snippet:-1">
+  <meta property="og:site_name" content="Neural Critic">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Neural Critic Price Intelligence">
+  <meta property="og:description" content="Current game and gaming-hardware offers with useful price context instead of deal-page noise.">
+  <meta property="og:url" content="https://www.neuralcritic.net/deals.html">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Neural Critic Price Intelligence">
+  <meta name="twitter:description" content="Current game and gaming-hardware offers with useful price context instead of deal-page noise.">
+  <link rel="canonical" href="https://www.neuralcritic.net/deals.html">
+  <link rel="alternate" type="application/rss+xml" title="Neural Critic RSS" href="feed.xml">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+  <link rel="preconnect" href="https://pchrrwfdcfbytggekuzs.supabase.co" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap">
+  <link rel="stylesheet" href="assets/site.css">
+  <link rel="stylesheet" href="assets/migration.css">
+  <link rel="stylesheet" href="assets/header-polish.css?v=20260822-header4">
+  <link rel="stylesheet" href="assets/public-responsive.css?v=20260822-a11y1">
+  <link rel="stylesheet" href="assets/public-light-fixes.css">
+  <link rel="stylesheet" href="assets/publication-nav.css?v=20260822-nav4">
+  <link rel="stylesheet" href="assets/community.css?v=20260822-account1">
+  <link rel="stylesheet" href="assets/community-polish.css?v=20260822-account1">
+  <link rel="stylesheet" href="assets/site-stability.css?v=20260822-account1">
+  <link rel="stylesheet" href="assets/commerce.css?v=20260830-commerce1">
+  <script>try{document.documentElement.dataset.theme=localStorage.getItem('neural-critic-theme')||'dark'}catch(e){}</script>
+</head>
+<body>
+  <div id="shared-header"></div>
+  <main class="commerce-page" id="commerce-page">
+    <section class="commerce-hero shell">
+      <div class="commerce-hero-copy">
+        <small>PRICE INTELLIGENCE · BETA</small>
+        <h1>Find the price worth paying.</h1>
+        <p>Games and gaming hardware, ranked with useful price context instead of fake urgency. Neural Critic separates editorial judgment from retailer pricing and only shows verified offers from connected feeds.</p>
+        <div class="commerce-trust-row" aria-label="Price Intelligence principles">
+          <span>Verified offers</span>
+          <span>Price freshness</span>
+          <span>Historical-low context</span>
+          <span>No paid ranking</span>
+        </div>
+      </div>
+      <aside class="commerce-status-card" aria-live="polite">
+        <small>LIVE FEED</small>
+        <strong id="commerce-feed-status">Checking price sources…</strong>
+        <p id="commerce-feed-freshness">Connecting to Neural Critic Price Intelligence.</p>
+      </aside>
+    </section>
+
+    <section class="commerce-workspace shell" aria-label="Deal browser">
+      <div class="commerce-toolbar">
+        <label class="commerce-search">
+          <span>SEARCH</span>
+          <input id="commerce-search" type="search" autocomplete="off" placeholder="Search games, SSDs, monitors, controllers…">
+        </label>
+        <label>
+          <span>CATEGORY</span>
+          <select id="commerce-category">
+            <option value="all">All products</option>
+            <option value="game">Games</option>
+            <option value="storage">Storage</option>
+            <option value="display">Displays</option>
+            <option value="component">PC components</option>
+            <option value="input">Mice & keyboards</option>
+            <option value="audio">Audio</option>
+            <option value="controller">Controllers</option>
+            <option value="hardware">Hardware</option>
+            <option value="accessory">Accessories</option>
+          </select>
+        </label>
+        <label>
+          <span>SORT</span>
+          <select id="commerce-sort">
+            <option value="signal">Best signal</option>
+            <option value="discount">Biggest discount</option>
+            <option value="price-asc">Lowest price</option>
+            <option value="fresh">Recently updated</option>
+          </select>
+        </label>
+      </div>
+
+      <div class="commerce-summary" id="commerce-summary" hidden>
+        <div><strong id="commerce-product-count">0</strong><span>products</span></div>
+        <div><strong id="commerce-offer-count">0</strong><span>live offers</span></div>
+        <div><strong id="commerce-low-count">0</strong><span>at historical low</span></div>
+      </div>
+
+      <div class="commerce-grid" id="commerce-grid" aria-live="polite">
+        <div class="commerce-loading"><span></span><strong>Loading verified offers…</strong></div>
+      </div>
+    </section>
+
+    <section class="commerce-principles shell">
+      <div>
+        <small>HOW THIS WORKS</small>
+        <h2>Price data is useful only when you can trust the context.</h2>
+      </div>
+      <div class="commerce-principle-grid">
+        <article><b>01</b><h3>Retailer prices stay separate from reviews.</h3><p>Commission never changes a score, verdict, recommendation, or editorial ranking.</p></article>
+        <article><b>02</b><h3>Affiliate relationships are disclosed.</h3><p>Eligible outbound links are marked as sponsored. Neural Critic may earn a commission from qualifying purchases.</p></article>
+        <article><b>03</b><h3>No invented deals.</h3><p>If a verified price feed is unavailable, the page says so instead of filling the interface with sample prices.</p></article>
+      </div>
+      <p class="commerce-policy-link"><a href="commercial.html">Read Neural Critic's commercial disclosure →</a></p>
+    </section>
+  </main>
+  <div id="shared-footer"></div>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="assets/supabase-config.js"></script>
+  <script src="assets/content-api.js?v=20260822-live1"></script>
+  <script src="assets/app.js"></script>
+  <script src="assets/reader-account.js?v=20260822-account1"></script>
+  <script src="assets/publication-nav.js?v=20260822-nav4"></script>
+  <script src="assets/commerce.js?v=20260830-commerce1"></script>
+  <script src="assets/motion.js?v=20260821-longform2"></script>
+  <script src="assets/performance.js?v=20260822-perf2"></script>
+  <script src="assets/public-accessibility.js?v=20260822-a11y2"></script>
+</body>
+</html>
