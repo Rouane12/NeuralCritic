@@ -1,0 +1,83 @@
+name: Commerce provider health
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - data/commerce/**
+      - scripts/providers/**
+      - scripts/import_commerce_feed.py
+      - assets/commerce.js
+      - assets/home-commerce.js
+      - assets/article-commerce.js
+      - supabase/migrations/**
+      - .github/workflows/refresh-commerce.yml
+      - .github/workflows/commerce-provider-health.yml
+  pull_request:
+    paths:
+      - data/commerce/**
+      - scripts/providers/**
+      - scripts/import_commerce_feed.py
+      - assets/commerce.js
+      - assets/home-commerce.js
+      - assets/article-commerce.js
+      - supabase/migrations/**
+      - .github/workflows/refresh-commerce.yml
+      - .github/workflows/commerce-provider-health.yml
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Parse-check provider tooling
+        run: |
+          python -m py_compile scripts/providers/amazon_creators_feed.py scripts/import_commerce_feed.py
+          node --check assets/commerce.js
+          node --check assets/home-commerce.js
+          node --check assets/article-commerce.js
+
+      - name: Validate dormant Amazon adapter
+        run: |
+          python scripts/providers/amazon_creators_feed.py \
+            --catalog data/commerce/amazon_catalog.json \
+            --validate-only \
+            --output /tmp/amazon-feed.json
+          python scripts/import_commerce_feed.py --input /tmp/amazon-feed.json --dry-run
+
+      - name: Enforce Amazon retention guardrails
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+
+          provider = Path('scripts/providers/amazon_creators_feed.py').read_text(encoding='utf-8')
+          migrations = '\n'.join(p.read_text(encoding='utf-8') for p in Path('supabase/migrations').glob('*commerce*.sql'))
+          refresh = Path('.github/workflows/refresh-commerce.yml').read_text(encoding='utf-8')
+
+          forbidden = ('images.primary', 'itemInfo.title', 'searchItems')
+          for token in forbidden:
+              if token in provider:
+                  raise SystemExit(f'Amazon provider must not persist/discover durable Amazon content: {token}')
+          if 'timedelta(minutes=55)' not in provider:
+              raise SystemExit('Amazon offers must expire before the 60-minute offer cache limit')
+          if "default 'disabled'" not in migrations or 'price_history_mode' not in migrations:
+              raise SystemExit('Provider price-history retention must default to disabled')
+          if 'neural-critic-commerce-expiry-purge' not in migrations:
+              raise SystemExit('Expired provider content must be purged by database cron')
+          if 'Amazon/Supabase provider credentials are not configured; provider remains dormant.' not in refresh:
+              raise SystemExit('Amazon workflow must remain dormant when credentials are absent')
+
+          print('Commerce provider guardrails passed.')
+          PY
