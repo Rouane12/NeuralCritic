@@ -14,6 +14,11 @@
   function money(value,currency='USD'){
     try{return new Intl.NumberFormat('en-US',{style:'currency',currency:String(currency||'USD').toUpperCase(),maximumFractionDigits:2}).format(Number(value))}catch(_){return `${Number(value).toFixed(2)} ${currency}`}
   }
+  function stamp(iso){
+    const date=new Date(iso||'');
+    if(!Number.isFinite(date.getTime())) return 'time unavailable';
+    try{return new Intl.DateTimeFormat('en-US',{year:'numeric',month:'short',day:'numeric',hour:'numeric',minute:'2-digit',timeZoneName:'short'}).format(date)}catch(_){return date.toISOString()}
+  }
   function active(offer){
     if(!['in_stock','preorder','backorder'].includes(String(offer.availability||'')))return false;
     return !offer.expires_at||new Date(offer.expires_at).getTime()>Date.now();
@@ -55,7 +60,7 @@
     const offers=(offersRes.data||[]).filter(active);
     if(!offers.length)return;
     const retailerIds=[...new Set(offers.map(x=>x.retailer_id))];
-    const retailersRes=await supa.from('commerce_retailers').select('id,slug,name,active').in('id',retailerIds).eq('active',true);
+    const retailersRes=await supa.from('commerce_retailers').select('id,slug,name,affiliate_network,active').in('id',retailerIds).eq('active',true);
     if(retailersRes.error)return;
     const retailers=new Map((retailersRes.data||[]).map(row=>[row.id,row]));
 
@@ -70,6 +75,12 @@
     rows.sort((a,b)=>a.order-b.order);
     if(!rows.length)return;
 
+    const amazonRows=rows.filter(row=>row.retailer?.affiliate_network==='amazon-associates');
+    const amazonFreshest=amazonRows.reduce((latest,row)=>!latest||new Date(row.offer.fetched_at)>new Date(latest)?row.offer.fetched_at:latest,null);
+    const amazonNotice=amazonRows.length
+      ? ` Amazon price/availability as of ${esc(stamp(amazonFreshest))}. Product prices and availability are subject to change; the information displayed on Amazon.com at purchase time will apply.`
+      : '';
+
     const module=document.createElement('aside');
     module.className='nc-where-to-buy';
     module.dataset.ncWhereToBuy='1';
@@ -80,7 +91,7 @@
       const discount=reference?Math.round((1-Number(offer.price)/reference)*100):0;
       const attrs=offer.is_affiliate?'data-affiliate="true" data-affiliate-placement="article-where-to-buy" rel="sponsored noopener noreferrer"':'rel="noopener noreferrer"';
       return `<div class="nc-buy-row"><div class="nc-buy-product"><small>${esc(product.category||'product')}</small><strong>${esc(product.name)}</strong></div><div class="nc-buy-price"><strong>${money(offer.price,offer.currency)}</strong><span>${discount?`-${discount}% · `:''}${esc(retailer.name)}</span></div><a class="nc-buy-action" href="${esc(destination)}" target="_blank" ${attrs} data-commerce-product="${esc(product.slug)}" data-commerce-retailer="${esc(retailer.slug)}">VIEW DEAL ↗</a></div>`;
-    }).join('')}</div><p class="nc-buy-disclosure">Prices and availability can change. Some outbound links may be affiliate links; Neural Critic may earn a commission from qualifying purchases. <a href="commercial.html">Commercial disclosure</a>.</p>`;
+    }).join('')}</div><p class="nc-buy-disclosure">Prices and availability can change. Some outbound links may be affiliate links; Neural Critic may earn a commission from qualifying purchases.${amazonNotice} <a href="commercial.html">Commercial disclosure</a>.</p>`;
     insertModule(module);
 
     module.addEventListener('click',event=>{
