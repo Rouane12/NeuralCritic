@@ -36,15 +36,23 @@
     return `Updated ${days} ${days===1?'day':'days'} ago`;
   }
 
+  function absoluteStamp(iso){
+    if (!iso) return 'time unavailable';
+    const date = new Date(iso);
+    if (!Number.isFinite(date.getTime())) return 'time unavailable';
+    try {
+      return new Intl.DateTimeFormat('en-US',{
+        year:'numeric',month:'short',day:'numeric',hour:'numeric',minute:'2-digit',timeZoneName:'short'
+      }).format(date);
+    } catch (_) {
+      return date.toISOString();
+    }
+  }
+
   function activeOffer(offer){
     if (!['in_stock','preorder','backorder'].includes(String(offer.availability||''))) return false;
     if (!offer.expires_at) return true;
     return new Date(offer.expires_at).getTime() > Date.now();
-  }
-
-  function offerHistoryLow(offerId){
-    const prices = state.history.filter(row => row.offer_id === offerId).map(row => Number(row.price)).filter(Number.isFinite);
-    return prices.length ? Math.min(...prices) : null;
   }
 
   function productView(product){
@@ -89,6 +97,7 @@
   function card(view){
     const {product,best,current,reference,discount,atHistoricalLow,historicalLow,freshest} = view;
     const retailer = state.retailers.get(best.retailer_id);
+    const isAmazon = retailer?.affiliate_network === 'amazon-associates';
     const destination = best.is_affiliate && best.affiliate_url ? best.affiliate_url : best.destination_url;
     const affiliateAttrs = best.is_affiliate
       ? 'data-affiliate="true" data-affiliate-placement="deals-grid" rel="sponsored noopener noreferrer"'
@@ -103,6 +112,9 @@
       : '<div class="commerce-placeholder">PRICE INTELLIGENCE</div>';
     const meta = [product.brand,product.product_type,product.platform].filter(Boolean).join(' · ');
     const lowText = historicalLow != null ? ` · Recorded low ${money(historicalLow,best.currency)}` : '';
+    const providerDisclosure = isAmazon
+      ? `<p class="commerce-provider-disclosure"><strong>Amazon price/availability as of ${escapeHtml(absoluteStamp(freshest))}.</strong> Product prices and availability are subject to change. Any price and availability information displayed on Amazon.com at the time of purchase will apply.</p>`
+      : '';
     return `<article class="commerce-card ${atHistoricalLow?'is-historical-low':''}" data-product-slug="${escapeHtml(product.slug)}">
       <div class="commerce-card-media">${media}<div class="commerce-badges">${badges}</div></div>
       <div class="commerce-card-body">
@@ -115,6 +127,7 @@
         </div>
         <div class="commerce-card-actions"><a href="${escapeHtml(destination)}" target="_blank" ${affiliateAttrs} data-commerce-product="${escapeHtml(product.slug)}" data-commerce-retailer="${escapeHtml(retailer?.slug||'unknown')}">View deal ↗</a></div>
         <div class="commerce-freshness">${escapeHtml(freshness(freshest))}${escapeHtml(lowText)}</div>
+        ${providerDisclosure}
       </div>
     </article>`;
   }
@@ -169,7 +182,7 @@
     if (!supa) throw new Error('Public price client unavailable');
     const [productsRes,retailersRes,offersRes] = await Promise.all([
       supa.from('commerce_products').select('id,slug,name,category,product_type,brand,model,platform,image_url,image_alt,msrp,currency,featured,active').eq('active',true),
-      supa.from('commerce_retailers').select('id,slug,name,region,active').eq('active',true),
+      supa.from('commerce_retailers').select('id,slug,name,region,affiliate_network,active').eq('active',true),
       supa.from('commerce_offers').select('id,product_id,retailer_id,destination_url,affiliate_url,price,list_price,currency,availability,item_condition,region,is_affiliate,fetched_at,expires_at')
     ]);
     if (productsRes.error) throw productsRes.error;
