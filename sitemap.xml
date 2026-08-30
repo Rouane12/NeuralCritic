@@ -31,6 +31,22 @@
     <loc>https://www.neuralcritic.net/category.html?section=what-to-play</loc>
   </url>
   <url>
+    <loc>https://www.neuralcritic.net/stories/exodus-gameplay-story-deep-dive-game-informer-2026/</loc>
+    <lastmod>2026-08-30T21:32:44.802148+00:00</lastmod>
+  </url>
+  <url>
+    <loc>https://www.neuralcritic.net/stories/tomb-raider-legacy-of-atlantis-gamescom-2026-gameplay/</loc>
+    <lastmod>2026-08-30T21:28:20.831163+00:00</lastmod>
+  </url>
+  <url>
+    <loc>https://www.neuralcritic.net/stories/fable-18-minute-gameplay-bowerstone-gamescom-2026/</loc>
+    <lastmod>2026-08-30T21:23:24.645525+00:00</lastmod>
+  </url>
+  <url>
+    <loc>https://www.neuralcritic.net/stories/witcher-3-songs-of-the-past-gameplay-letten-chain/</loc>
+    <lastmod>2026-08-30T21:16:56.762559+00:00</lastmod>
+  </url>
+  <url>
     <loc>https://www.neuralcritic.net/stories/mario-kart-8-deluxe-best-kart-builds/</loc>
     <lastmod>2026-08-30T02:40:54.386098+00:00</lastmod>
   </url>
@@ -123,6 +139,10 @@
     <lastmod>2026-08-25T23:31:13.103441+00:00</lastmod>
   </url>
   <url>
+    <loc>https://www.neuralcritic.net/stories/warlock-dungeons-dragons-gameplay-reveal-gamescom-2026/</loc>
+    <lastmod>2026-08-26T18:46:40.726973+00:00</lastmod>
+  </url>
+  <url>
     <loc>https://www.neuralcritic.net/stories/humankind-2-announced-gamescom-2026/</loc>
     <lastmod>2026-08-26T18:46:40.726973+00:00</lastmod>
   </url>
@@ -139,16 +159,16 @@
     <lastmod>2026-08-26T18:46:40.726973+00:00</lastmod>
   </url>
   <url>
-    <loc>https://www.neuralcritic.net/stories/final-fantasy-vii-revelation-story-trailer-gamescom-2026/</loc>
-    <lastmod>2026-08-25T22:26:40.676564+00:00</lastmod>
-  </url>
-  <url>
     <loc>https://www.neuralcritic.net/stories/exodus-release-date-april-7-2027-gamescom/</loc>
     <lastmod>2026-08-26T18:46:40.726973+00:00</lastmod>
   </url>
   <url>
     <loc>https://www.neuralcritic.net/stories/metro-2039-renegade-gameplay-gamescom-2026/</loc>
     <lastmod>2026-08-26T18:46:40.726973+00:00</lastmod>
+  </url>
+  <url>
+    <loc>https://www.neuralcritic.net/stories/final-fantasy-vii-revelation-story-trailer-gamescom-2026/</loc>
+    <lastmod>2026-08-25T22:26:40.676564+00:00</lastmod>
   </url>
   <url>
     <loc>https://www.neuralcritic.net/stories/witcher-3-songs-of-the-past-gamescom-2026-reveal/</loc>
@@ -161,10 +181,6 @@
   <url>
     <loc>https://www.neuralcritic.net/stories/gears-of-war-e-day-story-trailer-gamescom-2026/</loc>
     <lastmod>2026-08-25T22:26:40.676564+00:00</lastmod>
-  </url>
-  <url>
-    <loc>https://www.neuralcritic.net/stories/warlock-dungeons-dragons-gameplay-reveal-gamescom-2026/</loc>
-    <lastmod>2026-08-26T18:46:40.726973+00:00</lastmod>
   </url>
   <url>
     <loc>https://www.neuralcritic.net/stories/best-open-world-games-to-play-right-now-2026/</loc>
@@ -248,7 +264,11 @@
   </url>
   <url>
     <loc>https://www.neuralcritic.net/topics/game/exodus/</loc>
-    <lastmod>2026-08-26T18:46:40.726973+00:00</lastmod>
+    <lastmod>2026-08-30T21:32:44.802148+00:00</lastmod>
+  </url>
+  <url>
+    <loc>https://www.neuralcritic.net/topics/game/fable/</loc>
+    <lastmod>2026-08-30T21:23:24.645525+00:00</lastmod>
   </url>
   <url>
     <loc>https://www.neuralcritic.net/topics/game/final-fantasy-vii-revelation/</loc>
@@ -312,11 +332,15 @@
   </url>
   <url>
     <loc>https://www.neuralcritic.net/topics/game/the-witcher-3-wild-hunt/</loc>
-    <lastmod>2026-08-25T22:26:40.676564+00:00</lastmod>
+    <lastmod>2026-08-30T21:16:56.762559+00:00</lastmod>
   </url>
   <url>
     <loc>https://www.neuralcritic.net/topics/game/tom-clancy-s-rainbow-six-tactics/</loc>
     <lastmod>2026-08-26T18:46:40.726973+00:00</lastmod>
+  </url>
+  <url>
+    <loc>https://www.neuralcritic.net/topics/game/tomb-raider-legacy-of-atlantis/</loc>
+    <lastmod>2026-08-30T21:28:20.831163+00:00</lastmod>
   </url>
   <url>
     <loc>https://www.neuralcritic.net/topics/game/warlock-dungeons-dragons/</loc>
@@ -345,6 +369,10 @@
   <url>
     <loc>https://www.neuralcritic.net/topics/series/elden-ring/</loc>
     <lastmod>2026-08-30T03:17:11.728813+00:00</lastmod>
+  </url>
+  <url>
+    <loc>https://www.neuralcritic.net/topics/series/fable/</loc>
+    <lastmod>2026-08-30T21:23:24.645525+00:00</lastmod>
   </url>
   <url>
     <loc>https://www.neuralcritic.net/topics/series/final-fantasy-vii/</loc>
@@ -396,11 +424,15 @@
   </url>
   <url>
     <loc>https://www.neuralcritic.net/topics/series/the-witcher/</loc>
-    <lastmod>2026-08-25T22:26:40.676564+00:00</lastmod>
+    <lastmod>2026-08-30T21:16:56.762559+00:00</lastmod>
   </url>
   <url>
     <loc>https://www.neuralcritic.net/topics/series/tom-clancy-s-rainbow-six/</loc>
     <lastmod>2026-08-26T18:46:40.726973+00:00</lastmod>
+  </url>
+  <url>
+    <loc>https://www.neuralcritic.net/topics/series/tomb-raider/</loc>
+    <lastmod>2026-08-30T21:28:20.831163+00:00</lastmod>
   </url>
   <url>
     <loc>https://www.neuralcritic.net/topics/franchise/baldur-s-gate/</loc>
@@ -425,6 +457,10 @@
   <url>
     <loc>https://www.neuralcritic.net/topics/franchise/elden-ring/</loc>
     <lastmod>2026-08-30T03:17:11.728813+00:00</lastmod>
+  </url>
+  <url>
+    <loc>https://www.neuralcritic.net/topics/franchise/fable/</loc>
+    <lastmod>2026-08-30T21:23:24.645525+00:00</lastmod>
   </url>
   <url>
     <loc>https://www.neuralcritic.net/topics/franchise/final-fantasy/</loc>
@@ -472,7 +508,11 @@
   </url>
   <url>
     <loc>https://www.neuralcritic.net/topics/franchise/the-witcher/</loc>
-    <lastmod>2026-08-25T22:26:40.676564+00:00</lastmod>
+    <lastmod>2026-08-30T21:16:56.762559+00:00</lastmod>
+  </url>
+  <url>
+    <loc>https://www.neuralcritic.net/topics/franchise/tomb-raider/</loc>
+    <lastmod>2026-08-30T21:28:20.831163+00:00</lastmod>
   </url>
   <url>
     <loc>https://www.neuralcritic.net/games/</loc>
@@ -503,6 +543,6 @@
   </url>
   <url>
     <loc>https://www.neuralcritic.net/authors/rouane-mounssif/</loc>
-    <lastmod>2026-08-30T03:17:11.728813+00:00</lastmod>
+    <lastmod>2026-08-30T21:32:44.802148+00:00</lastmod>
   </url>
 </urlset>
