@@ -49,7 +49,7 @@
   }
 
   function entryMarkup(item, index) {
-    return `<article class="nc-news-update-entry${index === 0 ? ' is-latest' : ''}" data-nc-update-index="${index}">
+    return `<article class="nc-news-update-entry" data-nc-update-index="${index}">
       <time datetime="${esc(item.at)}">${esc(fmtTime(item.at))}</time>
       <div class="nc-news-update-copy"><p>${esc(item.note)}</p>${item.sourceName || item.sourceUrl ? `<div class="nc-news-update-source"><span>SOURCE</span>${sourceMarkup(item) || `<strong>${esc(item.sourceName || 'Source')}</strong>`}</div>` : ''}</div>
     </article>`;
@@ -94,7 +94,9 @@
     section.dataset.ncTimelineReady = '1';
 
     const latest = updates[0];
-    const initialVisible = Math.min(4, updates.length);
+    const earlierUpdates = updates.slice(1);
+    const initialVisible = Math.min(4, earlierUpdates.length);
+    const hiddenCount = Math.max(0, earlierUpdates.length - initialVisible);
     section.innerHTML = `
       <header><div><small>DEVELOPING COVERAGE</small><h2>Latest updates</h2></div><span>${updates.length} ${updates.length === 1 ? 'UPDATE' : 'UPDATES'}</span></header>
       <div class="nc-developing-summary">
@@ -103,10 +105,10 @@
         <p>${esc(latest.note)}</p>
         ${sourceMarkup(latest)}
       </div>
-      <div class="nc-news-update-items">
-        ${updates.map(entryMarkup).join('')}
-      </div>
-      ${updates.length > initialVisible ? `<div class="nc-news-update-toggle"><button type="button" aria-expanded="false">SHOW ${updates.length - initialVisible} EARLIER ${updates.length - initialVisible === 1 ? 'UPDATE' : 'UPDATES'} ↓</button></div>` : ''}`;
+      ${earlierUpdates.length ? `<div class="nc-news-update-items">
+        ${earlierUpdates.map(entryMarkup).join('')}
+      </div>` : ''}
+      ${hiddenCount ? `<div class="nc-news-update-toggle"><button type="button" aria-expanded="false">SHOW ${hiddenCount} EARLIER ${hiddenCount === 1 ? 'UPDATE' : 'UPDATES'} ↓</button></div>` : ''}`;
 
     if (!existing) context.insertAdjacentElement('afterend', section);
 
@@ -120,7 +122,7 @@
         button.setAttribute('aria-expanded', String(!expanded));
         entries.forEach((entry, index) => { entry.hidden = expanded ? index >= initialVisible : false; });
         button.textContent = expanded
-          ? `SHOW ${updates.length - initialVisible} EARLIER ${updates.length - initialVisible === 1 ? 'UPDATE' : 'UPDATES'} ↓`
+          ? `SHOW ${hiddenCount} EARLIER ${hiddenCount === 1 ? 'UPDATE' : 'UPDATES'} ↓`
           : 'SHOW FEWER UPDATES ↑';
         if (expanded) section.scrollIntoView({ behavior: 'smooth', block: 'start' });
         window.gtag?.('event', 'developing_timeline_toggle', { expanded: expanded ? 'no' : 'yes', update_count: updates.length });
