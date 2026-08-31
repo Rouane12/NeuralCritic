@@ -1,0 +1,65 @@
+{
+  "id": "c0016916-9b3b-474c-b371-44f878cc426b",
+  "slug": "crazy-taxi-world-tour-germany-map-network-test",
+  "title": "Crazy Taxi: World Tour Reveals Germany Map, New Crazy Drift Move and September Network Test",
+  "description": "Sega has shown the Germany map for Crazy Taxi: World Tour at gamescom 2026, alongside new driving mechanics and a multiplayer closed network test scheduled for September.",
+  "body": "Crazy Taxi: World Tour is ==playable publicly for the first time at gamescom 2026==, where Sega is showing a newly revealed ==Germany map — one of five international locations planned for the game==. The latest update also details a new Crazy Drift move, a Nitro Boost mechanic, and an upcoming multiplayer closed network test that will give players outside gamescom an early chance to try the game.",
+  "category": "NEWS",
+  "author": "Rouane Mounssif",
+  "tags": [
+    "Crazy Taxi: World Tour",
+    "Crazy Taxi",
+    "Sega",
+    "gamescom 2026",
+    "Racing Games"
+  ],
+  "imageAlt": "A yellow taxi drives through a European-style town square lined with half-timbered buildings and a clock tower in Crazy Taxi: World Tour.",
+  "imageCredit": "World Tour official gameplay screenshot.",
+  "articleFormat": "standard",
+  "reviewMeta": {},
+  "contentBlocks": [
+    {
+      "text": "The Germany map is built around winding streets, tight turns, open fields, regional landmarks, and branded locations. Sega’s new trailer also confirms Bad Religion’s “Ten in 2010” as part of the returning soundtrack lineup.",
+      "heading": "Germany is one of five international maps",
+      "headingStyle": "editorial"
+    },
+    {
+      "text": "Returning Crazy Moves such as Crazy Dash and Crazy Stop are joined by the ==new Crazy Drift==. Players can also use ==Nitro Boost== for extra speed, with missions and challenges designed around linking movement techniques into fast, risky routes.",
+      "heading": "Crazy Drift and Nitro expand the driving toolkit",
+      "headingStyle": "editorial"
+    },
+    {
+      "text": "Sega says the Crazy Taxi: World Tour Multiplayer Closed Network Test will run from ==September 11 to September 13==, with ==applications closing August 31==. The game is currently scheduled to arrive on PlayStation 5 in 2027.",
+      "heading": "A multiplayer test is coming in September",
+      "headingStyle": "editorial"
+    }
+  ],
+  "quickRead": [],
+  "conclusion": "",
+  "conclusionHeading": "",
+  "conclusionHeadingStyle": "editorial",
+  "featured": false,
+  "homepageSlot": "regular",
+  "publishedAt": "2026-08-27T00:14:08.922+00:00",
+  "updatedAt": "2026-08-27T00:19:15.696829+00:00",
+  "imageLocal": "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1787789447003-d394929d-ae6b-45b6-b6e8-ea4a13d0ba28-taxi-tour.webp",
+  "editorialSection": "news",
+  "platforms": [],
+  "collection": null,
+  "collectionYear": null,
+  "gameKey": "Crazy Taxi: World Tour",
+  "series": "Crazy Taxi",
+  "franchise": "Crazy Taxi",
+  "newsMeta": {
+    "kind": "update",
+    "updates": [],
+    "documents": [],
+    "sourceUrl": "https://blog.playstation.com/?p=422147",
+    "developing": false,
+    "sourceName": "Sega gameplay update via PlayStation.Blog",
+    "verification": "confirmed",
+    "documentSectionTitle": "",
+    "documentSectionDescription": "",
+    "documentPlacementAfterHeading": ""
+  }
+}

@@ -1,0 +1,130 @@
+{
+  "id": "16b7d269-0534-48df-a674-fb26ba994a49",
+  "slug": "tears-of-the-kingdom-beginners-guide",
+  "title": "Tears of the Kingdom Beginner’s Guide: Essential Tips for Exploring Hyrule",
+  "description": "A spoiler-light introduction to Ultrahand, Fuse, Ascend, Recall, exploration, resources, and the systems that define Tears of the Kingdom.",
+  "body": "Tears of the Kingdom can feel even more overwhelming than Breath of the Wild because it gives you several new abilities almost immediately and then opens Hyrule in multiple directions. The key is not to master every system at once. Learn what each ability is good at, keep useful materials on hand, and treat experimentation as part of the game rather than something you need to optimize.\n\nThis beginner’s guide stays spoiler-light and focuses on the systems that matter most during the opening hours: Ultrahand, Fuse, Ascend, Recall, Zonai devices, shrines, stamina, resources, and how to move between the sky and the surface without turning exploration into a checklist.",
+  "category": "GUIDE",
+  "author": "Rouane Mounssif",
+  "tags": [
+    "The Legend of Zelda: Tears of the Kingdom",
+    "Nintendo",
+    "Beginner Guide",
+    "Tips",
+    "Zelda",
+    "Nintendo Switch"
+  ],
+  "imageAlt": "Link overlooks the vast landscape of Hyrule in The Legend of Zelda: Tears of the Kingdom, with floating sky islands visible above the open world.",
+  "imageCredit": "Nintendo / The Legend of Zelda: Tears of the Kingdom official artwork.",
+  "articleFormat": "game-guide",
+  "reviewMeta": {},
+  "contentBlocks": [
+    {
+      "text": "Great Sky Island is designed to introduce Tears of the Kingdom’s core abilities before the wider world fully opens. Take your time there. Each early shrine teaches one of Link’s major new powers, and the routes between them make you use those abilities in practical situations.\n\nThe most important goal is not speed. It is understanding what each power changes about how you move through the world. Ultrahand solves construction problems, Fuse improves equipment, Ascend creates vertical shortcuts, and Recall lets you manipulate movement and timing.\n\nOnce those ideas start to feel natural, the rest of Hyrule becomes much easier to read because many later puzzles are simply more complicated versions of the same principles.",
+      "caption": "Great Sky Island introduces the abilities and traversal ideas that shape the rest of Tears of the Kingdom.",
+      "heading": "Use Great Sky Island as a Systems Tutorial",
+      "imageAlt": "Link explores Great Sky Island in The Legend of Zelda: Tears of the Kingdom, with floating islands and the open sky visible around him.",
+      "imageLocal": "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1788034923682-9ec1237f-4bae-4563-bae1-f3d4f45b6887-first-section-totk.png",
+      "headingStyle": "editorial"
+    },
+    {
+      "text": "Ultrahand lets Link pick up, rotate, move, and attach objects. You can build elaborate vehicles with it, but beginners should start much simpler.\n\nAsk what the immediate problem is. Do you need a bridge, a raft, a platform, or a way to move something heavy? Build only enough to solve that problem. Two or three correctly placed pieces are often more useful than a complicated machine that takes several minutes to assemble.\n\nThe game rewards creativity, but creativity does not mean complexity. If a crude solution works, it is a successful solution.",
+      "caption": "Ultrahand is most useful when you build only what the immediate problem requires.",
+      "heading": "Treat Ultrahand as a Problem-Solving Tool, Not a Building Contest",
+      "imageAlt": "Link uses Ultrahand to move and attach objects while building a simple structure in The Legend of Zelda: Tears of the Kingdom.",
+      "imageLocal": "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1788035378581-ffe13e7a-c868-4f80-a68c-8beafd81030b-fifth-section.avif",
+      "headingStyle": "editorial"
+    },
+    {
+      "text": "Fuse is one of the most important systems to understand because it changes how weapons, shields, and arrows work. Fusing materials can increase damage, improve durability, extend reach, or add useful effects depending on the combination.\n\nDo not save every monster horn or useful material for later. If your current weapon is weak, attaching a suitable material can immediately make it more useful. Common monster parts are especially good early choices because you will keep finding more of them.\n\nArrows also become much more flexible when fused with materials. Experiment with items you already carry instead of assuming every combat problem needs a different weapon.",
+      "caption": "Fuse turns ordinary weapons and materials into more useful tools, making experimentation more valuable than hoarding early gear.",
+      "heading": "Fuse Early and Often",
+      "imageAlt": "Link uses Fuse to attach a material to a weapon in The Legend of Zelda: Tears of the Kingdom.",
+      "imageLocal": "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1788034946818-1f0ae195-ef2a-409f-bfdf-cb0a728cbbdf-third-section.avif",
+      "headingStyle": "editorial"
+    },
+    {
+      "text": "Ascend allows Link to pass through many solid surfaces above him. It is easy to forget because climbing already feels familiar, but Ascend can save stamina and turn awkward vertical routes into simple shortcuts.\n\nWhenever you are inside a cave, beneath a platform, under a bridge, or at the bottom of a structure, look upward before committing to a long climb. If the ceiling is valid, Ascend may take you directly to the next level.\n\nThis habit matters throughout the game. Tears of the Kingdom often hides an easy vertical solution in a place that initially looks like a climbing problem.",
+      "caption": "Ascend can turn awkward vertical routes into quick shortcuts and save valuable stamina.",
+      "heading": "Look Up Before You Start Climbing — Ascend May Be Faster",
+      "imageAlt": "Link uses Ascend beneath a solid surface in The Legend of Zelda: Tears of the Kingdom.",
+      "imageLocal": "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1788035043258-efd2cea6-44bc-40c9-bc66-90050208f618-look-up-before.jpg",
+      "headingStyle": "editorial"
+    },
+    {
+      "text": "Recall reverses an object’s recent movement. The early game teaches obvious uses, such as sending moving platforms backward, but the ability becomes much more useful once you start watching the environment for motion.\n\nFalling rocks, moving machinery, rolling objects, and things that have just been thrown or displaced can all become opportunities. If something moved in a useful direction a moment ago, Recall may let you reuse that movement in reverse.\n\nWhen a puzzle seems to depend on timing, pause and ask whether you can manipulate the movement instead of trying to react faster.",
+      "caption": "Recall becomes much more flexible once you start treating recent movement itself as a resource.",
+      "heading": "Recall Is More Useful Than It First Appears",
+      "imageAlt": "Link activates Recall on a moving object in The Legend of Zelda: Tears of the Kingdom.",
+      "imageLocal": "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1788035003362-235c7f9d-7a5c-4c6a-bff4-2bea65255831-fifth-section.avif",
+      "headingStyle": "editorial"
+    },
+    {
+      "text": "Fans, wheels, rockets, wings, and other Zonai devices can power vehicles and solve environmental problems, but beginners do not need to memorize every combination.\n\nFirst learn what each device does on its own. A fan creates thrust, a wheel creates rotation, and a rocket produces a strong burst of movement. Once you understand the basic behavior, combining devices with Ultrahand becomes much easier.\n\nAlso remember that powered devices consume energy. Early builds should be simple enough that your available battery can support them for the time you actually need.",
+      "caption": "Understanding individual Zonai devices makes simple, reliable builds easier than memorizing complicated machines.",
+      "heading": "Learn What Zonai Devices Do Before Building Around Them",
+      "imageAlt": "A simple Zonai device build uses basic components in The Legend of Zelda: Tears of the Kingdom.",
+      "imageLocal": "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1788034980055-0c71a9a3-8f63-4c40-a806-7320cc84b998-sixth-section.avif",
+      "headingStyle": "editorial"
+    },
+    {
+      "text": "Shrines remain one of the clearest forms of progression. Discovering them expands your fast-travel network, while completing them earns Light of Blessing that can eventually be exchanged for additional hearts or stamina.\n\nThat makes a visible shrine useful even if you are not ready to solve it immediately. Activating the entrance gives you a travel point you can return to later.\n\nIf the world begins to feel too open, heading toward a shrine is usually productive because it gives you a short puzzle, a permanent travel anchor, and progress toward stronger base stats.",
+      "caption": "Shrines provide Light of Blessing, fast-travel anchors, and a steady way to improve Link’s base stats.",
+      "heading": "Shrines Still Matter for Progression and Fast Travel",
+      "imageAlt": "Link approaches a shrine in The Legend of Zelda: Tears of the Kingdom.",
+      "imageLocal": "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1788034986706-b1b9d756-743f-44b6-a92e-22a447499b51-seventh-section.webp",
+      "headingStyle": "editorial"
+    },
+    {
+      "text": "Stamina affects climbing, swimming, sprinting, and gliding, so it continues to shape how freely you can explore. Hearts improve survivability, but stamina often determines whether you can reach the place you are trying to investigate.\n\nWhen spending Light of Blessing, choose based on what is actually stopping you. If combat mistakes are the main problem, more hearts may help. If you constantly run out of stamina while climbing or gliding, another stamina segment may open more routes immediately.\n\nThere is no single correct early order. Build around the limitations you notice in your own play.",
+      "caption": "Stamina directly affects climbing, gliding, swimming, and how freely you can explore Hyrule’s vertical world.",
+      "heading": "Stamina Is Still an Exploration Stat",
+      "imageAlt": "Link moves through Hyrule while the green stamina wheel is visible in The Legend of Zelda: Tears of the Kingdom.",
+      "imageLocal": "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1788034994921-8ab55609-0fff-4c01-9639-72dcc8a796a7-eight-section.avif",
+      "headingStyle": "editorial"
+    },
+    {
+      "text": "Materials are more versatile in Tears of the Kingdom because the same item may be useful for cooking, selling, upgrading, throwing, or fusing to equipment.\n\nThat makes gathering especially valuable. Pick up monster parts, plants, ores, Zonai materials, and useful environmental items as you explore. You do not need to hoard everything forever, but a broad inventory gives you more options when a puzzle or fight suddenly asks for a specific effect.\n\nThe game is built around improvisation, and improvisation is much easier when you have a healthy supply of ordinary materials.",
+      "caption": "A broad stock of materials gives you more options for Fuse, cooking, upgrades, selling, and improvised solutions.",
+      "heading": "Pick Up More Materials Than You Think You Need",
+      "imageAlt": "The materials inventory in The Legend of Zelda: Tears of the Kingdom shows a range of collected resources and monster parts.",
+      "imageLocal": "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1788035059435-bc39610b-816f-49d7-86e7-c124a495f86b-ninth-section.png",
+      "headingStyle": "editorial"
+    },
+    {
+      "text": "Tears of the Kingdom expands exploration vertically. The sky, surface, caves, and wells are not separate activities so much as different layers of the same world.\n\nA sky island may reveal a destination below. A cave may contain an Ascend route back to the surface. A fallen object may provide a Recall route upward. Once you start thinking vertically, travel becomes less about following roads and more about finding connections between layers.\n\nWhen you feel stuck in one direction, changing elevation can be as useful as changing region.",
+      "caption": "The sky, surface, caves, and wells work best when you treat them as connected layers rather than separate activities.",
+      "heading": "Use the Sky, Surface, Caves, and Wells as Connected Layers",
+      "imageAlt": "Link explores one of Hyrule’s vertical layers in The Legend of Zelda: Tears of the Kingdom, with terrain extending above and below.",
+      "imageLocal": "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1788035105682-026ac600-23c0-469f-9750-76b32650996d-tenth-section.jpg",
+      "headingStyle": "editorial"
+    },
+    {
+      "text": "Tears of the Kingdom is full of impressive player-made machines, but you do not need advanced engineering to play well. The game is designed to accept many kinds of solutions, including awkward ones.\n\nIf a bridge reaches the other side, it worked. If a fused weapon gets you through a fight, it worked. If a simple fan-powered platform crosses a gap, there is no bonus for making it ten times more complicated.\n\nThe best beginner habit is to try an idea quickly, learn from what happens, and adjust. The game becomes much more approachable once experimentation feels disposable instead of precious.",
+      "caption": "A simple solution that works is usually better than spending extra time building something unnecessarily complicated.",
+      "heading": "Do Not Overengineer Your First Solutions",
+      "imageAlt": "Link uses a simple improvised construction to solve a traversal problem in The Legend of Zelda: Tears of the Kingdom.",
+      "imageLocal": "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1788035108631-9a2de97d-90ac-404b-b765-df10982c5eb7-eleventh-section.jpg",
+      "headingStyle": "editorial"
+    }
+  ],
+  "quickRead": [],
+  "conclusion": "Tears of the Kingdom becomes easier to understand once you stop treating its new systems as separate mechanics you need to master one by one. Ultrahand, Fuse, Ascend, and Recall are all different ways of changing the problem in front of you. Use them together, keep ordinary materials available, and let simple solutions teach you what works.\n\nMost importantly, do not compare your early creations or routes to elaborate builds you may have seen elsewhere. Hyrule is designed around experimentation. A rough bridge, an improvised weapon, or an unexpected Ascend shortcut is exactly the kind of success the game encourages. Learn the tools, stay curious, and let the world give you reasons to use them.",
+  "conclusionHeading": "The bottom line",
+  "conclusionHeadingStyle": "editorial",
+  "featured": false,
+  "homepageSlot": "regular",
+  "publishedAt": "2026-08-29T20:40:47.568+00:00",
+  "updatedAt": "2026-08-29T20:40:48.630498+00:00",
+  "imageLocal": "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1788035815554-52fc1189-ff1d-4268-9eb1-19b086466b99-tears-of-the-kingdom-main.jpg",
+  "editorialSection": "guides",
+  "platforms": [
+    "nintendo"
+  ],
+  "collection": null,
+  "collectionYear": null,
+  "gameKey": "The Legend of Zelda: Tears of the Kingdom",
+  "series": "The Legend of Zelda",
+  "franchise": "The Legend of Zelda",
+  "newsMeta": {}
+}

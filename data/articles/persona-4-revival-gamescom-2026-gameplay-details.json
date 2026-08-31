@@ -1,0 +1,66 @@
+{
+  "id": "7fd652fa-f9c3-4d8b-9138-a46a9cbae826",
+  "slug": "persona-4-revival-gamescom-2026-gameplay-details",
+  "title": "Persona 4 Revival Gamescom Demo Reveals Modernized Dungeons and a New Prime Time Meter",
+  "description": "Sega and P-Studio have detailed Persona 4 Revival’s first public playable demo at gamescom 2026, including three demo channels, modernized dungeons, and the new Prime Time combat meter.",
+  "body": "Persona 4 Revival is making its ==first public playable appearance at gamescom 2026==, and Sega has outlined exactly what the demo is designed to show. The remake’s hands-on build is split into three “Channels” covering the opening story, dungeon exploration, and daily life in Inaba. The demo also introduces a ==new Prime Time meter==, giving the first concrete look at one of the remake’s new combat systems ahead of its February 18, 2027 release on PlayStation 5.",
+  "category": "NEWS",
+  "author": "Rouane Mounssif",
+  "tags": [
+    "Persona 4 Revival",
+    "Persona 4",
+    "Atlus",
+    "P-Studio",
+    "Sega",
+    "gamescom 2026"
+  ],
+  "imageAlt": "The protagonist of Persona 4 Revival poses at the center of colorful promotional artwork surrounded by members of the Investigation Team and their Personas.",
+  "imageCredit": "Atlus / Sega / Persona 4 Revival official promotional artwork.",
+  "articleFormat": "standard",
+  "reviewMeta": {},
+  "contentBlocks": [
+    {
+      "text": "Channel 1 starts near the beginning of the story in Inaba’s Shopping District, leading into the first Shadow encounter and the awakening of Izanagi. Channel 2 shifts toward free exploration inside a ==modernized version of Yukiko’s Castle==, ending with a fight against Shadow Chie.",
+      "heading": "Three demo Channels show different sides of the remake",
+      "headingStyle": "editorial"
+    },
+    {
+      "text": "A third section, available to press and creators, focuses more heavily on daily life before returning to the dungeon. Sega says this section introduces the ==new Prime Time meter, which can be used to trigger high-impact combo sequences in battle==.",
+      "heading": "Prime Time is one of the newly detailed combat systems",
+      "headingStyle": "editorial"
+    },
+    {
+      "text": "Sega says Persona 4 Revival will launch on PlayStation 5 on ==February 18, 2027==. The gamescom demo is the clearest look yet at how P-Studio is updating the RPG’s dungeon flow and combat while preserving the Inaba setting and social-life structure.",
+      "heading": "Persona 4 Revival launches in February 2027",
+      "headingStyle": "editorial"
+    }
+  ],
+  "quickRead": [],
+  "conclusion": "",
+  "conclusionHeading": "",
+  "conclusionHeadingStyle": "editorial",
+  "featured": false,
+  "homepageSlot": "regular",
+  "publishedAt": "2026-08-27T00:13:37.096+00:00",
+  "updatedAt": "2026-08-27T00:19:34.166744+00:00",
+  "imageLocal": "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1787788799447-c0236d3b-fd89-4a19-9711-d6fc95ce4b7e-persona-news.jpg",
+  "editorialSection": "news",
+  "platforms": [],
+  "collection": null,
+  "collectionYear": null,
+  "gameKey": "Persona 4 Revival",
+  "series": "Persona",
+  "franchise": "Persona",
+  "newsMeta": {
+    "kind": "update",
+    "updates": [],
+    "documents": [],
+    "sourceUrl": "https://blog.playstation.com/?p=422147",
+    "developing": false,
+    "sourceName": "Sega gameplay update via PlayStation.Blog",
+    "verification": "confirmed",
+    "documentSectionTitle": "",
+    "documentSectionDescription": "",
+    "documentPlacementAfterHeading": ""
+  }
+}

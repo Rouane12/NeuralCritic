@@ -1,0 +1,132 @@
+{
+  "id": "3b6e1076-6f01-47e2-bd98-bdbb540f7ea5",
+  "slug": "baldurs-gate-3-beginners-guide",
+  "title": "Baldur’s Gate 3 Beginner’s Guide: Classes, Combat and Exploration Explained",
+  "description": "A clear introduction to classes, ability checks, turn-based combat, companions, rests, exploration, and the choices new Baldur’s Gate 3 players face early on.",
+  "body": "Baldur’s Gate 3 can feel dense at first because it asks you to learn several systems at once: character classes, dice rolls, dialogue checks, turn-based combat, companions, spells, rests, exploration, and a world that often reacts to what you say or do. The important thing is that you do not need to understand every rule before you begin.\n\nYour first hours are better spent learning how the game responds to choices. Try things, read tooltips, use your companions, and accept that some rolls will fail. Baldur’s Gate 3 is built around adaptation rather than perfect play, and many of its best moments come from plans that do not go exactly as expected.",
+  "category": "GUIDE",
+  "author": "Rouane Mounssif",
+  "tags": [
+    "Baldur’s Gate 3",
+    "Larian Studios",
+    "Beginner Guide",
+    "RPG",
+    "Combat Guide",
+    "Dungeons & Dragons"
+  ],
+  "imageAlt": "The central Baldur’s Gate 3 cast is shown together against a dramatic fantasy backdrop in official promotional artwork.",
+  "imageCredit": "Larian Studios / Baldur’s Gate 3 official artwork.",
+  "articleFormat": "game-guide",
+  "reviewMeta": {},
+  "contentBlocks": [
+    {
+      "text": "Your class shapes your abilities, combat role, and some dialogue options, but beginners do not need to solve the entire character-building system before starting.\n\nPick the class fantasy that sounds interesting. Fighters are straightforward in combat, Rogues reward positioning and skills, Clerics combine support with strong utility, Wizards offer a wide range of spells, and the other classes each create their own rhythm. What matters most is choosing something you are curious enough to learn.\n\nDo not worry about creating a flawless build on the character-creation screen. Baldur’s Gate 3 gives you time to understand your abilities, and your companions also cover many roles your main character does not.",
+      "caption": "Class choice shapes your early abilities and combat role, but the best starting point is a class you genuinely want to learn.",
+      "heading": "Choose a Class You Want to Play, Not the “Best” One",
+      "imageAlt": "The Baldur’s Gate 3 character creation screen displays class options for a new character.",
+      "imageLocal": "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1788055313583-7ab21b92-4090-4d98-8e06-0afbbb9cba83-section-1-baldur.jpg",
+      "headingStyle": "editorial"
+    },
+    {
+      "text": "A large part of Baldur’s Gate 3 runs on ability checks. Strength, Dexterity, Constitution, Intelligence, Wisdom, and Charisma influence different actions, while proficiencies improve checks tied to skills your character knows well.\n\nYou do not need to memorize the whole ruleset. Start by noticing which checks your character is naturally good at. A high-Charisma character may excel in Persuasion or Deception, while a Dexterity-focused character may be better suited to Stealth or Sleight of Hand.\n\nWhen a dialogue or exploration check appears, pay attention to the bonuses shown on screen. The game is constantly teaching you which characters are suited to which problems.",
+      "caption": "Ability scores and proficiencies explain what a character is naturally good at, making them more useful to understand than chasing an optimized build immediately.",
+      "heading": "Read Your Ability Scores and Proficiencies Before Chasing Builds",
+      "imageAlt": "A Baldur’s Gate 3 character screen shows ability scores, skills and proficiencies.",
+      "imageLocal": "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1788055317089-3edb3b6f-e8b6-48ca-9e5d-acb03ead13f2-section-2-baldur.jpg",
+      "headingStyle": "editorial"
+    },
+    {
+      "text": "Baldur’s Gate 3 uses visible dice rolls for many conversations and interactions. It is tempting to treat every failed roll as something that must be corrected, but failure often creates a different route rather than ending your progress.\n\nA failed Persuasion check might lead to a fight, another conversation, or a completely different solution. A missed Perception check may simply mean you discover something later from another angle.\n\nSave often because the game rewards experimentation, but try not to turn every roll into a demand for the perfect result. Learning to continue after an imperfect outcome is one of the easiest ways to enjoy the game’s reactive structure.",
+      "caption": "Failed checks often create different consequences rather than ending progress, which is part of Baldur’s Gate 3’s reactive storytelling.",
+      "heading": "Let Failed Dice Rolls Become Part of the Story",
+      "imageAlt": "A dice-roll ability check appears during a conversation in Baldur’s Gate 3.",
+      "imageLocal": "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1788055321024-1015e6a8-40b2-448a-b9b0-0865f3d92009-section-3-baldur.jpg",
+      "headingStyle": "editorial"
+    },
+    {
+      "text": "Your companions are not just extra damage in combat. Each character brings different proficiencies, abilities, spells, and dialogue strengths, so switching who handles a task can make a major difference.\n\nIf your main character struggles to pick a lock, another party member may be better equipped. If a conversation involves knowledge of religion, magic, or nature, a companion with the right background may have stronger options. In combat, one character can control enemies while another attacks, heals, or takes a better position.\n\nThink of the party as a shared toolbox. You do not need one character who can do everything when four characters can solve problems together.",
+      "caption": "Companions bring different skills, spells and combat roles, so the party works best when treated as a shared toolbox.",
+      "heading": "Use the Whole Party, Not Just Your Main Character",
+      "imageAlt": "A four-character adventuring party travels together in Baldur’s Gate 3.",
+      "imageLocal": "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1788055324776-d901633c-ae81-499b-909e-42523c3550d7-section-4-baldur.webp",
+      "headingStyle": "editorial"
+    },
+    {
+      "text": "Combat pauses the action and gives every participant a place in the initiative order, so there is rarely a reason to rush your turn.\n\nBefore committing to an attack, look at the battlefield. Check elevation, movement range, nearby hazards, enemy positions, and which party members still have actions available. Moving to higher ground, taking cover, spreading the party out, or focusing several characters on one dangerous enemy can matter as much as raw damage.\n\nThe strongest beginner habit is simple: use the time the game gives you. Read what your actions do and make a plan for the full party instead of treating each character as a separate turn.",
+      "caption": "Elevation, movement and enemy positioning can matter as much as raw damage, so taking time to read the battlefield is usually rewarded.",
+      "heading": "Turn-Based Combat Rewards Positioning More Than Speed",
+      "imageAlt": "A turn-based battle in Baldur’s Gate 3 shows party members and enemies positioned across the battlefield.",
+      "imageLocal": "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1788055327874-a80373f3-2b19-4429-a3e4-fac532673649-section-5-baldur.avif",
+      "headingStyle": "editorial"
+    },
+    {
+      "text": "Most turns are built around a few basic resources. Characters usually have movement, an action, and sometimes a useful bonus action, with specific abilities explaining what they consume.\n\nAn attack or spell may use your action, while jumping, shoving, drinking a potion, hiding, or certain class abilities may use a bonus action depending on the situation. Learning which resource an ability spends makes turns much easier to plan.\n\nBefore ending a turn, glance at what is still available. Beginners often leave useful movement or a bonus action unused simply because the interface contains more options than expected.",
+      "caption": "Learning how actions, bonus actions and movement fit together makes each combat turn easier to plan efficiently.",
+      "heading": "Understand Actions, Bonus Actions, and Movement",
+      "imageAlt": "The Baldur’s Gate 3 combat interface shows available actions and abilities during a character’s turn.",
+      "imageLocal": "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1788055331395-54040a82-dfab-4991-8c93-e8c0b6e19977-section-6-baldur.webp",
+      "headingStyle": "editorial"
+    },
+    {
+      "text": "Powerful abilities are limited for a reason, but saving every spell slot or class feature for a hypothetical future battle can make ordinary encounters harder than they need to be.\n\nUse strong tools when they solve a real problem. A control spell that stops several enemies from acting, a healing ability that keeps a party member standing, or a class feature that turns a difficult round in your favor is doing exactly what it is meant to do.\n\nThe important part is learning which resources return on a short rest and which come back after a long rest. Once you understand that rhythm, using abilities feels much less risky.",
+      "caption": "Spells and class abilities are resources meant to solve real problems, not items that need to be saved indefinitely.",
+      "heading": "Do Not Hoard Spells and Abilities Forever",
+      "imageAlt": "The Baldur’s Gate 3 interface displays several spells and class abilities available to a character.",
+      "imageLocal": "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1788055334475-f6f765e0-1f00-4307-a1ea-0a21471f76b9-section-7-baldur.jpg",
+      "headingStyle": "editorial"
+    },
+    {
+      "text": "Short rests and long rests are part of the game’s normal progression. They restore health and class resources in different ways, and camp is also where many companion conversations and story moments take place.\n\nDo not treat resting as a sign that you played badly. If your party is low on health, spell slots, or important abilities, continuing into another difficult encounter may create a much harder problem than simply taking a break.\n\nLong rests use camp supplies, so gathering food and supply packs while exploring is useful. Resting regularly also helps you see camp scenes that can deepen your understanding of the companions travelling with you.",
+      "caption": "Resting restores important resources and also creates space for companion conversations and other camp story moments.",
+      "heading": "Rest Before the Party Is Completely Exhausted",
+      "imageAlt": "The adventuring party gathers at camp in Baldur’s Gate 3.",
+      "imageLocal": "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1788055338382-d1b58c24-79ec-46ae-b1e3-b115147369e1-section-8-baldur.jpg",
+      "headingStyle": "editorial"
+    },
+    {
+      "text": "Baldur’s Gate 3 hides useful routes above, below, behind, and around the obvious path. Ladders, rooftops, caves, ledges, doors, destructible objects, and small side paths can completely change how you approach an area.\n\nThe environment also matters during combat. Height can improve your position, narrow doorways can control movement, and interactive objects may give you options that are not obvious from the ability bar.\n\nIf an encounter or location seems impossible from the front, stop and look around. The game often rewards players who treat the map like a space to investigate rather than a corridor to clear.",
+      "caption": "Ladders, ledges, rooftops and environmental objects can open routes that are easy to miss when following only the obvious path.",
+      "heading": "Explore Vertically and Interact With the Environment",
+      "imageAlt": "A Baldur’s Gate 3 party explores an elevated or alternate route through the environment.",
+      "imageLocal": "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1788055342365-f8d29021-b10d-4eac-a5de-0082e97f0124-section-9-baldur.avif",
+      "headingStyle": "editorial"
+    },
+    {
+      "text": "Many situations that look dangerous can be approached through conversation, stealth, exploration, or a different route. Dialogue is not just story between battles; it is one of the game’s main systems.\n\nSpeak to characters, ask questions, and pay attention to what your class, background, race, skills, and companions add to conversations. Different dialogue options can reveal information, change relationships, or open paths that are not available through direct confrontation.\n\nYou will not see every outcome in one playthrough, and that is part of the design. Follow the version of events your character creates instead of trying to uncover every branch at once.",
+      "caption": "Dialogue is one of the game’s main systems, and many encounters can change through conversation before combat ever begins.",
+      "heading": "Talk to People Before Assuming Combat Is the Only Answer",
+      "imageAlt": "A Baldur’s Gate 3 dialogue scene presents multiple conversation choices during an encounter.",
+      "imageLocal": "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1788055348946-d78621fb-475c-47ef-ab34-d1f3305ff01d-section-10-baldur.webp",
+      "headingStyle": "editorial"
+    },
+    {
+      "text": "Baldur’s Gate 3 gives you enormous freedom, which also means mistakes happen. You may start a fight earlier than expected, spend a resource badly, misunderstand a spell, or choose a dialogue option with consequences you did not predict.\n\nFrequent saves make experimentation easier, especially before entering a dangerous area or testing an unfamiliar idea. But constant reloading can also make the game feel like a puzzle with one correct answer when it usually is not.\n\nUse saves as a safety net, not as a demand for perfection. The game is at its best when choices have enough room to surprise you.",
+      "caption": "Frequent saves support experimentation, but imperfect outcomes are often part of what makes a playthrough feel personal.",
+      "heading": "Save Often, but Do Not Try to Perfect Every Decision",
+      "imageAlt": "A Baldur’s Gate 3 adventuring party moves through an uncertain exploration scene.",
+      "imageLocal": "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1788055352262-e4037c63-d6c7-4dac-8feb-b04f10b08da2-section-11-baldur.jpg",
+      "headingStyle": "editorial"
+    }
+  ],
+  "quickRead": [],
+  "conclusion": "Baldur’s Gate 3 becomes much easier once you stop trying to master every rule at the same time. Learn your own class first, use the rest of the party as a shared set of tools, and take combat one turn at a time. Read what abilities cost, pay attention to positioning, and rest when your resources are running low.\n\nOutside combat, explore patiently and treat dialogue, dice rolls, and failed plans as part of the game rather than interruptions to it. You are not expected to find every secret or produce the perfect outcome on your first run. The real beginner skill is learning how many different solutions Baldur’s Gate 3 is willing to accept — and becoming comfortable choosing one of them.",
+  "conclusionHeading": "The bottom line",
+  "conclusionHeadingStyle": "editorial",
+  "featured": false,
+  "homepageSlot": "regular",
+  "publishedAt": "2026-08-30T02:13:50.995+00:00",
+  "updatedAt": "2026-08-30T02:13:52.41206+00:00",
+  "imageLocal": "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1788055269829-bfaf6d87-4b50-424e-9a33-ee55d699511d-baldurs-gate-3-wallpaper-3440x1440-5120x1440-v0-a7eos4ir1jcb1.webp",
+  "editorialSection": "guides",
+  "platforms": [
+    "pc",
+    "playstation",
+    "xbox"
+  ],
+  "collection": null,
+  "collectionYear": null,
+  "gameKey": "Baldur’s Gate 3",
+  "series": "Baldur’s Gate",
+  "franchise": "Baldur’s Gate",
+  "newsMeta": {}
+}

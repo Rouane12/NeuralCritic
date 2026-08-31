@@ -1,0 +1,68 @@
+{
+  "id": "389c1406-a9bc-4d79-af39-44462bc32ba9",
+  "slug": "humankind-2-announced-gamescom-2026",
+  "title": "HUMANKIND 2 Announced for 2027 With Deeper Culture Progression and Climate Systems",
+  "description": "Amplitude Studios revealed HUMANKIND 2 at gamescom Opening Night Live, confirming a 2027 release and a sequel built around deeper cultural progression, climate change, and player-driven civilizations.",
+  "body": "Amplitude Studios announced HUMANKIND 2 during gamescom Opening Night Live on August 25, bringing its historical 4X strategy series back for a sequel planned for 2027.\n\nThe official Steam listing expands on the reveal with several concrete changes: deeper cultural progression trees, new progression systems, a modernized interface, enhanced visuals, and a world where climate changes can reshape biomes, cities, resources, and long-term strategy.",
+  "category": "NEWS",
+  "author": "Rouane Mounssif",
+  "tags": [
+    "HUMANKIND 2",
+    "HUMANKIND",
+    "Amplitude Studios",
+    "gamescom 2026",
+    "Opening Night Live",
+    "4X strategy"
+  ],
+  "imageAlt": "HUMANKIND 2 key art showing historical figures before a civilization-spanning cityscape beneath the game logo.",
+  "imageCredit": "AMPLITUDE Studios",
+  "articleFormat": "standard",
+  "reviewMeta": {},
+  "contentBlocks": [
+    {
+      "text": "HUMANKIND 2 keeps the original game’s core idea of building a civilization across multiple eras, but Amplitude is pitching the sequel around more continuity and customization as cultures evolve. The studio says each era can unlock culture-specific progression trees that shape the identity of the civilization being built.",
+      "heading": "HUMANKIND is getting a full sequel",
+      "headingStyle": "editorial"
+    },
+    {
+      "text": "Amplitude’s official listing says climate changes can transform the strategic map over time, affecting biomes, cities, economies, and access to resources. That gives the sequel a world-state system that can force players to adapt rather than treating the map as a static backdrop.",
+      "heading": "Climate is becoming a strategic system",
+      "headingStyle": "editorial"
+    },
+    {
+      "text": "HUMANKIND 2 is currently scheduled for 2027. The Steam listing confirms both single-player and multiplayer support; no more specific release date was announced during Opening Night Live.",
+      "heading": "Amplitude is targeting 2027",
+      "headingStyle": "editorial"
+    }
+  ],
+  "quickRead": [],
+  "conclusion": "",
+  "conclusionHeading": "",
+  "conclusionHeadingStyle": "editorial",
+  "featured": false,
+  "homepageSlot": "regular",
+  "publishedAt": "2026-08-25T22:26:40.676564+00:00",
+  "updatedAt": "2026-08-26T18:46:40.726973+00:00",
+  "imageLocal": "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1787696166437-e84664fb-b4aa-4fde-a841-923abfd7fc2c-humankind-section.jpg",
+  "editorialSection": "news",
+  "platforms": [
+    "PC"
+  ],
+  "collection": null,
+  "collectionYear": null,
+  "gameKey": "HUMANKIND 2",
+  "series": "HUMANKIND",
+  "franchise": "HUMANKIND",
+  "newsMeta": {
+    "kind": "update",
+    "updates": [],
+    "documents": [],
+    "sourceUrl": "https://www.youtube.com/watch?v=qwC9EFT6EFk",
+    "developing": false,
+    "sourceName": "gamescom Opening Night Live 2026 official livestream",
+    "verification": "confirmed",
+    "documentSectionTitle": "",
+    "documentSectionDescription": "",
+    "documentPlacementAfterHeading": ""
+  }
+}

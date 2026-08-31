@@ -1,0 +1,130 @@
+{
+  "id": "de19d275-89b3-4b80-9284-3bd2915fdb3f",
+  "slug": "breath-of-the-wild-beginners-guide",
+  "title": "Breath of the Wild Beginner’s Guide: What to Do First in Hyrule",
+  "description": "The essential things new players should understand about exploration, shrines, weapons, cooking, stamina, and surviving Hyrule’s opening hours.",
+  "body": "Breath of the Wild can feel unusually open during its first few hours. After a short introduction, Hyrule starts presenting towers, shrines, enemy camps, mountains, weather, ingredients, breakable equipment, and distant landmarks without giving you a strict order for handling them.\n\nThe important thing to understand is that the game is built around experimentation. You are not expected to clear every nearby challenge immediately or follow one perfect route. The Great Plateau teaches you the basic tools, then the rest of Hyrule rewards curiosity, preparation, and the willingness to change plans when the environment pushes back.",
+  "category": "GUIDE",
+  "author": "Rouane Mounssif",
+  "tags": [
+    "The Legend of Zelda: Breath of the Wild",
+    "Nintendo",
+    "Beginner Guide",
+    "Tips",
+    "Zelda",
+    "Nintendo Switch"
+  ],
+  "imageAlt": "Link stands on a rocky overlook above Hyrule in The Legend of Zelda: Breath of the Wild, with the open landscape stretching into the distance.",
+  "imageCredit": "Nintendo / The Legend of Zelda: Breath of the Wild official artwork.",
+  "articleFormat": "game-guide",
+  "reviewMeta": {},
+  "contentBlocks": [
+    {
+      "text": "The Great Plateau is more than an opening area. It is a compact version of the systems Breath of the Wild expects you to use everywhere else.\n\nTake time to visit its shrines, experiment with the Sheikah Slate runes, climb to high points, gather ingredients, and test how temperature and terrain affect Link. The Plateau is small enough to make mistakes without feeling lost, but varied enough to teach the habits that matter later.\n\nDo not rush toward the edge simply because the larger map is waiting. Leaving with a basic understanding of movement, runes, cooking, and environmental problem-solving will make the rest of Hyrule much easier to read.",
+      "caption": "The Great Plateau is a compact introduction to Breath of the Wild’s core systems before Hyrule fully opens up.",
+      "heading": "Use the Great Plateau as Your Tutorial",
+      "imageAlt": "Link stands on the Great Plateau overlooking the open landscape of Hyrule in The Legend of Zelda: Breath of the Wild.",
+      "imageLocal": "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1788031743512-da9830f9-974b-4028-b758-75caff10486b-great-plateau.webp",
+      "headingStyle": "editorial"
+    },
+    {
+      "text": "Shrines are one of the most useful landmarks in the game. Completing them earns Spirit Orbs, while discovering them also gives you convenient fast-travel points.\n\nThat means a shrine can be valuable even before you are ready to finish its challenge. If you spot one from a tower, mountain, or ridge, reaching it can expand your travel network and give you another anchor point on the map.\n\nSpirit Orbs eventually let you increase Link’s health or stamina, so shrine hunting naturally supports both exploration and progression. You do not need to complete every shrine as soon as you find it; marking difficult ones for later is perfectly reasonable.",
+      "caption": "Shrines provide Spirit Orbs, fast-travel points, and a steady way to build Link’s health or stamina.",
+      "heading": "Shrines Are More Than Puzzle Rooms",
+      "imageAlt": "Link approaches a glowing Sheikah shrine in The Legend of Zelda: Breath of the Wild.",
+      "imageLocal": "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1788031757844-3d6fd40e-b78f-4390-a025-81f95f6df2a5-shrine-exploration.avif",
+      "headingStyle": "editorial"
+    },
+    {
+      "text": "Towers reveal large sections of the map and give you excellent vantage points for spotting shrines, roads, villages, stables, and unusual landmarks.\n\nThey are useful early objectives, but the map is intentionally not covered in traditional quest markers. Use towers to understand the landscape, then decide what actually interests you. A glowing shrine in the distance, a strange ruin, a stable, or a mountain that looks climbable can all become a worthwhile destination.\n\nBreath of the Wild works best when the map helps you choose a direction rather than telling you exactly what to clear next.",
+      "caption": "Climbing towers reveals regional map data and gives you a useful vantage point for choosing where to explore next.",
+      "heading": "Climb Towers Early, but Do Not Treat Them as Checklists",
+      "imageAlt": "A Sheikah Tower rises above the surrounding landscape in The Legend of Zelda: Breath of the Wild.",
+      "imageLocal": "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1788031674988-02b5bc4d-59d6-4434-85c6-d839747398e2-sheikah-tower.avif",
+      "headingStyle": "editorial"
+    },
+    {
+      "text": "One of the biggest adjustments for new players is weapon durability. Most equipment wears out through normal use, so losing a favorite early weapon is part of the game’s rhythm rather than a mistake.\n\nThe useful habit is to think of your inventory as a rotating set of tools. Pick up replacements when you find them, keep a few different options available, and avoid becoming attached to one early piece of gear.\n\nThis system encourages improvisation. A weapon breaking during a fight is inconvenient, but it also pushes you to pay attention to what the environment and defeated enemies are giving you instead of relying on one permanent loadout.",
+      "caption": "Weapons are temporary tools in Breath of the Wild, so a healthy inventory is more useful than relying on one favorite weapon.",
+      "heading": "Expect Weapons to Break",
+      "imageAlt": "The Breath of the Wild inventory screen displays Link’s collection of weapons and equipment.",
+      "imageLocal": "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1788031762950-58530c52-9a60-44a5-ba11-d77c84dddf09-inventory-botw.jpeg",
+      "headingStyle": "editorial"
+    },
+    {
+      "text": "Cooking is one of Breath of the Wild’s most important survival systems. Ingredients found across Hyrule can restore health, and many dishes can also provide temporary bonuses such as resistance to harsh temperatures or improvements to other abilities.\n\nA simple beginner habit is to cook whenever you reach a safe pot instead of waiting until your inventory is nearly empty. Keeping a small range of healing meals and situational dishes makes exploration much more forgiving.\n\nYou do not need to memorize an enormous recipe list. Pay attention to ingredient descriptions, combine items with similar effects, and learn through experimentation. The game gives you enough ingredients that early mistakes are rarely costly.",
+      "caption": "Cooking before a difficult journey gives Link healing meals and useful temporary effects for exploration.",
+      "heading": "Cook Before You Need the Food",
+      "imageAlt": "Link cooks ingredients in a cooking pot in The Legend of Zelda: Breath of the Wild.",
+      "imageLocal": "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1788031767388-12863c40-8ad6-4c72-9b81-03e8fc3b96f8-botw-cooking.jpeg",
+      "headingStyle": "editorial"
+    },
+    {
+      "text": "Stamina controls climbing, sprinting, swimming, and several other actions, which makes it one of the most important exploration resources in the game.\n\nWhen climbing, watch the stamina wheel and look for ledges or flat surfaces where Link can recover. Rain can make climbing much harder, so sometimes the right choice is to find another route or wait for better conditions.\n\nWhen it comes time to spend Spirit Orbs, both hearts and stamina are useful. Hearts provide more room for mistakes in combat, while stamina expands what you can reach and how freely you can move through the world. There is no single correct early balance; choose based on what is limiting you most.",
+      "caption": "Stamina determines how far Link can climb, swim, sprint, and glide, making it one of the game’s most important exploration resources.",
+      "heading": "Stamina Changes How Much of Hyrule You Can Reach",
+      "imageAlt": "Link climbs a steep surface in Breath of the Wild while the green stamina wheel is visible.",
+      "imageLocal": "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1788031772171-d5a86954-c3d0-4fdb-b24f-790ad1c5fcfa-stamina-botw.webp",
+      "headingStyle": "editorial"
+    },
+    {
+      "text": "Hyrule’s climate can be just as important as its enemies. Cold, heat, storms, and other environmental conditions can turn a simple route into a problem that needs preparation.\n\nClothing, food effects, fire, and alternate paths can all help depending on the situation. If Link starts taking environmental damage or a climb becomes unreliable in the rain, treat that as information rather than punishment.\n\nBreath of the Wild frequently asks you to solve travel problems with the same mindset you would use in a shrine: observe what is happening, check the tools you have, and change your approach.",
+      "caption": "Temperature and weather can turn travel into a puzzle, so clothing, food effects, and route choices all matter.",
+      "heading": "Weather and Clothing Are Part of the Puzzle",
+      "imageAlt": "Link travels through a cold region of Hyrule while dressed for the freezing environment in Breath of the Wild.",
+      "imageLocal": "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1788031777403-e2ebb01d-76eb-4a80-a288-98a305e4530d-cold-weather-botw.jpg",
+      "headingStyle": "editorial"
+    },
+    {
+      "text": "If the open world ever feels too directionless, roads and stables provide a useful rhythm. Stables can act as safe stopping points, and the roads around them naturally connect different parts of Hyrule.\n\nThey are also good places to reset after a long stretch of exploration. You can organize your inventory, prepare food, register or retrieve horses, and decide which nearby landmark to investigate next.\n\nYou do not have to stay on the road, but following one for a while can help you learn how regions connect before you disappear back into the wilderness.",
+      "caption": "Stables and roads provide useful structure when Hyrule’s open world starts to feel overwhelming.",
+      "heading": "Explore Stables and Roads When You Need Structure",
+      "imageAlt": "Link rides a horse near a stable in The Legend of Zelda: Breath of the Wild.",
+      "imageLocal": "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1788031795118-e4810960-7a2d-4440-bdbd-99faaafa8e84-horses-botw.avif",
+      "headingStyle": "editorial"
+    },
+    {
+      "text": "Early rupees can feel scarce because shops quickly introduce armor, arrows, ingredients, and other useful purchases.\n\nYou do not need to buy everything you see. Prioritize items that solve an immediate problem, especially clothing or supplies that open up areas you are currently struggling to explore. Selling excess materials can help, but keep some common ingredients and monster parts because they remain useful for cooking, elixirs, upgrades, and quests.\n\nA small reserve of rupees gives you flexibility when you reach a new village or discover a piece of gear that genuinely changes what you can do.",
+      "caption": "Keeping some rupees in reserve gives you flexibility when a village or shop offers something that solves an immediate problem.",
+      "heading": "Do Not Spend Every Rupee Immediately",
+      "imageAlt": "The Breath of the Wild interface shows Link’s current rupee total during gameplay.",
+      "imageLocal": "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1788031800595-6afb4ffe-edb2-4d92-8857-f2fd33b11e21-rupee-count.jpg",
+      "headingStyle": "editorial"
+    },
+    {
+      "text": "After collecting enough Spirit Orbs, you can increase either Link’s hearts or stamina. New players often worry that there is a perfect order, but the better question is what currently prevents you from progressing comfortably.\n\nIf ordinary fights are ending too quickly, more health can make the learning process less punishing. If you constantly fall just short of a climb, swim, or glide, more stamina may improve exploration immediately.\n\nYou can continue earning both over the course of the game, so an early choice is not a commitment to one style forever.",
+      "caption": "Spend Spirit Orbs on hearts or stamina according to what is limiting you most rather than following a fixed upgrade order.",
+      "heading": "Choose Hearts or Stamina Based on What Is Stopping You",
+      "imageAlt": "Link stands before a Goddess Statue in Breath of the Wild where Spirit Orbs can be exchanged for a Heart Container or Stamina Vessel.",
+      "imageLocal": "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1788031805770-71ffc4be-ef9b-4fb1-bd3b-7c6bf7d6699c-goddess-statue-botw.avif",
+      "headingStyle": "editorial"
+    },
+    {
+      "text": "Once you have the Paraglider and leave the Great Plateau, Hyrule becomes dramatically larger. The main quest gives you useful direction, but you do not need to turn that direction into a strict itinerary.\n\nPick one visible goal and let the journey change along the way. A tower may reveal a shrine. A shrine may lead you toward a stable. A stable may point you toward a village or road you had not planned to visit. That chain of discoveries is the structure of Breath of the Wild.\n\nThe most important beginner skill is learning to trust your curiosity. You will miss things, take inefficient routes, and occasionally reach places before you are ready. That is not playing incorrectly; it is how the game creates a personal version of Hyrule.",
+      "caption": "Once the Paraglider opens Hyrule, following your curiosity becomes more important than following a strict route.",
+      "heading": "Leave the Great Plateau With a Direction, Not a Schedule",
+      "imageAlt": "Link glides over Hyrule with the Paraglider after leaving the Great Plateau in Breath of the Wild.",
+      "imageLocal": "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1788031816689-e484f358-b2b8-46c9-883d-df8918e52829-glider-botw.jpg",
+      "headingStyle": "editorial"
+    }
+  ],
+  "quickRead": [],
+  "conclusion": "Breath of the Wild becomes much easier to understand once you stop looking for the one correct route. Use the Great Plateau to learn the core systems, seek out shrines and towers when they are useful, cook before difficult journeys, and treat stamina, weather, clothing, and equipment as parts of the same exploration toolkit.\n\nMost importantly, let the world interrupt your plans. A distant shrine, a mountain, a road, or an unfamiliar ruin can become the next objective simply because it caught your attention. Hyrule is designed around that freedom, and a first playthrough is strongest when discovery still feels like your own.",
+  "conclusionHeading": "The bottom line",
+  "conclusionHeadingStyle": "editorial",
+  "featured": false,
+  "homepageSlot": "regular",
+  "publishedAt": "2026-08-29T19:35:42.503+00:00",
+  "updatedAt": "2026-08-29T19:35:43.628433+00:00",
+  "imageLocal": "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1788032048167-e8811b89-71af-4047-8fb7-64087a88745a-botw-art.webp",
+  "editorialSection": "guides",
+  "platforms": [
+    "nintendo"
+  ],
+  "collection": null,
+  "collectionYear": null,
+  "gameKey": "The Legend of Zelda: Breath of the Wild",
+  "series": "The Legend of Zelda",
+  "franchise": "The Legend of Zelda",
+  "newsMeta": {}
+}

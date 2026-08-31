@@ -1,0 +1,68 @@
+{
+  "id": "a405f87a-5d29-426d-999f-25359c3be3fd",
+  "slug": "rainbow-six-tactics-announced-gamescom-2026",
+  "title": "Rainbow Six Tactics Turns Ubisoft’s Shooter Series Into a Turn-Based Single-Player Game",
+  "description": "Ubisoft announced Rainbow Six Tactics at gamescom Opening Night Live 2026, shifting the franchise into a new single-player, turn-based tactical format planned for 2027.",
+  "body": "Ubisoft announced Tom Clancy’s Rainbow Six Tactics during gamescom Opening Night Live on August 25. Rather than extending Rainbow Six Siege’s competitive formula, the new project is being presented as a single-player Rainbow Six experience with turn-based tactics.\n\nUbisoft’s own site describes it as a newly announced single-player game with a turn-based twist and points players to the first gameplay look. The ONL presentation attached a 2027 release window; no more specific date was announced.",
+  "category": "NEWS",
+  "author": "Rouane Mounssif",
+  "tags": [
+    "Rainbow Six Tactics",
+    "Rainbow Six",
+    "Ubisoft",
+    "gamescom 2026",
+    "Opening Night Live",
+    "Turn-based tactics"
+  ],
+  "imageAlt": "Rainbow Six Tactics promotional art showing a four-person tactical squad moving through a ruined urban combat zone.",
+  "imageCredit": "Ubisoft",
+  "articleFormat": "standard",
+  "reviewMeta": {},
+  "contentBlocks": [
+    {
+      "text": "The headline change is structural rather than cosmetic. Rainbow Six Tactics is built as a single-player tactical game, taking the series’ planning-and-breach identity into a turn-based format instead of another competitive shooter.",
+      "heading": "Rainbow Six is changing perspective",
+      "headingStyle": "editorial"
+    },
+    {
+      "text": "The reveal presented encounters around squad positioning and tactical execution, a natural fit for a franchise that has always revolved around information, angles, and coordinated entry. Ubisoft is explicitly calling it a new single-player Rainbow Six experience.",
+      "heading": "The first gameplay look emphasizes deliberate decisions",
+      "headingStyle": "editorial"
+    },
+    {
+      "text": "Opening Night Live gave Rainbow Six Tactics a 2027 release window. Ubisoft has not announced a specific launch date, so the draft keeps the timing at the year level.",
+      "heading": "Ubisoft is targeting 2027",
+      "headingStyle": "editorial"
+    }
+  ],
+  "quickRead": [],
+  "conclusion": "",
+  "conclusionHeading": "",
+  "conclusionHeadingStyle": "editorial",
+  "featured": false,
+  "homepageSlot": "regular",
+  "publishedAt": "2026-08-25T22:26:40.676564+00:00",
+  "updatedAt": "2026-08-26T18:46:40.726973+00:00",
+  "imageLocal": "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1787695937045-967d3e09-a4e6-4a73-95da-658c7f6fe2af-rainbow-section.jpg",
+  "editorialSection": "news",
+  "platforms": [
+    "PC"
+  ],
+  "collection": null,
+  "collectionYear": null,
+  "gameKey": "Tom Clancy's Rainbow Six Tactics",
+  "series": "Tom Clancy's Rainbow Six",
+  "franchise": "Rainbow Six",
+  "newsMeta": {
+    "kind": "update",
+    "updates": [],
+    "documents": [],
+    "sourceUrl": "https://www.youtube.com/watch?v=qwC9EFT6EFk",
+    "developing": false,
+    "sourceName": "gamescom Opening Night Live 2026 official livestream",
+    "verification": "confirmed",
+    "documentSectionTitle": "",
+    "documentSectionDescription": "",
+    "documentPlacementAfterHeading": ""
+  }
+}

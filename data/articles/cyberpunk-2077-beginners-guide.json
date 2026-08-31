@@ -1,0 +1,121 @@
+{
+  "id": "42bd25ce-7261-443c-91cd-d06368d8e674",
+  "slug": "cyberpunk-2077-beginners-guide",
+  "title": "Cyberpunk 2077 Beginner’s Guide: What New Players Should Know",
+  "description": "A modern starting guide to builds, perks, cyberware, weapons, gigs, exploration, and the systems that matter most when beginning a new life in Night City.",
+  "body": "Cyberpunk 2077 can feel overwhelming during its opening hours because Night City introduces several progression systems at once: Attributes, Perks, cyberware, gigs, side jobs, quickhacks, vehicles, vendors, crafting, and an enormous map full of distractions.\n\nThe good news is that new players do not need to master everything immediately. The modern version of Cyberpunk 2077 is much better at supporting experimentation than the launch-era game, especially after the major 2.0 progression overhaul. The smartest way to begin is to understand which decisions matter, which ones can be changed later, and which systems are worth paying attention to from the start.",
+  "category": "GUIDE",
+  "author": "Rouane Mounssif",
+  "tags": [
+    "Cyberpunk 2077",
+    "CD Projekt Red",
+    "Beginner Guide",
+    "Tips",
+    "RPG",
+    "Night City"
+  ],
+  "imageAlt": "V stands amid the neon-lit streets and towering architecture of Night City in Cyberpunk 2077.",
+  "imageCredit": "",
+  "articleFormat": "game-guide",
+  "reviewMeta": {},
+  "contentBlocks": [
+    {
+      "text": "Cyberpunk 2077 begins by asking you to choose between Nomad, Streetkid, and Corpo. Each lifepath gives V a different introduction, background, and set of occasional dialogue options, but it does not create three completely separate campaigns.\n\nThat means new players should choose the identity that sounds most interesting rather than searching for an objectively “best” lifepath. A Corpo V may understand corporate politics differently, a Streetkid may recognize people and places around Night City, and a Nomad brings an outsider’s perspective. Those differences add personality to conversations without locking you into a particular combat style or progression path.\n\nThink of lifepath as role-playing flavor. Pick the version of V you want to inhabit, then let the rest of the character develop naturally.",
+      "caption": "Lifepaths shape V’s background and open occasional dialogue options, but they do not lock the player into a particular build or campaign path.",
+      "heading": "Your Lifepath Matters Less Than You Might Think",
+      "imageAlt": "The Cyberpunk 2077 lifepath selection screen presents Nomad, Streetkid, and Corpo as the three possible backgrounds for V.",
+      "imageLocal": "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1787768815703-54714d9a-fc52-4321-83c6-5ea0453cb030-lifepath.webp",
+      "headingStyle": "editorial"
+    },
+    {
+      "text": "The skill screen can look intimidating at first, but Cyberpunk 2077 gives players room to experiment. Perk points can be refunded individually, which makes it much easier to try abilities and reorganize parts of a build as you learn what you enjoy.\n\nAttributes deserve more thought because they define the major branches of V’s development. Rather than spreading points evenly across everything, start by identifying two or three areas that support the way you naturally play. If you enjoy moving quickly and staying aggressive, you may value a different combination than someone who prefers stealth, hacking, or a more durable approach.\n\nThe important lesson is not to copy an endgame build during your first hour. Learn what the systems do, spend gradually, and let your own habits tell you where the next point belongs.",
+      "caption": "Perks are flexible enough to experiment with, while Attributes are worth planning around the playstyle you discover you enjoy most.",
+      "heading": "Do Not Panic About Building V Perfectly",
+      "imageAlt": "Cyberpunk 2077’s Attributes and Perks interface displays the progression trees used to shape V’s abilities and playstyle.",
+      "imageLocal": "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1787768825476-810d030d-f7ed-4dce-9296-6b64d63c4e13-perks.jpg",
+      "headingStyle": "editorial"
+    },
+    {
+      "text": "A useful beginner question is not “What is the strongest build?” but “How do I want encounters to feel?” Cyberpunk 2077 supports several broad identities, including direct combat, stealth, hacking, mobility-focused setups, and hybrids that combine pieces of each.\n\nOnce you know what feels satisfying, the Perk trees become easier to read. Instead of buying abilities because their numbers look large, look for perks that change what V can actually do: new movement options, new ways to control enemies, stronger defensive tools, or abilities that make a preferred approach smoother.\n\nThe game is at its best when progression changes your behavior rather than simply making numbers bigger.",
+      "caption": "Choosing how you want encounters to feel makes the game’s many Perks and combat options much easier to understand.",
+      "heading": "Choose a Playstyle Before You Chase a Build",
+      "imageAlt": "V moves through Night City during gameplay, illustrating Cyberpunk 2077’s emphasis on mobility and different approaches to encounters.",
+      "imageLocal": "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1787768902410-3e54bcdf-b569-40ca-92a4-3cdc87798577-movement.jpg",
+      "headingStyle": "editorial"
+    },
+    {
+      "text": "Cyberware is not a side system. It is one of the foundations of a modern Cyberpunk 2077 build. After Update 2.0, most armor comes from cyberware rather than clothing, and implants can directly support specific styles of play.\n\nVisit ripperdocs regularly instead of treating them as shops you only need during story missions. As V levels up, stronger options become available, and existing cyberware can be upgraded from the ripperdoc interface. Cyberware Capacity limits how much chrome V can equip, so progression becomes a balancing act between choosing powerful implants and staying within that limit.\n\nThis also means fashion and defense are less tightly connected than they once were. You can dress V for style while letting cyberware handle most of the heavy statistical work.",
+      "caption": "Cyberware is a core progression system, so regular Ripperdoc visits are essential as stronger implants and additional capacity become available.",
+      "heading": "Cyberware Is One of Your Most Important Progression Systems",
+      "imageAlt": "The Ripperdoc cyberware interface in Cyberpunk 2077 shows implant slots and upgrades used to enhance V.",
+      "imageLocal": "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1787768845781-cc379c59-b633-4bcf-8d62-bed3d22e1086-cyberware.jpg",
+      "headingStyle": "editorial"
+    },
+    {
+      "text": "One of the most important choices in Cyberpunk 2077 is the operating system installed in V’s cyberware setup. A cyberdeck supports quickhacking and gives you access to digital tools during exploration and encounters, while other operating-system choices can push V toward very different styles.\n\nFor beginners, the main takeaway is simple: changing this slot can change the way the entire game feels. If you enjoy scanning environments, manipulating devices, distracting enemies, or solving situations through hacking, keep a cyberdeck in mind. If you eventually move toward another operating system, expect your toolkit to change with it.\n\nYou do not need to make that decision immediately. Experiment first, then commit once you understand which abilities you actually miss when they are gone.",
+      "caption": "A cyberdeck opens up quickhacking, device control, and other digital options that can completely change how V approaches a situation.",
+      "heading": "Understand What Your Operating System Changes",
+      "imageAlt": "V scans the environment in Cyberpunk 2077 with the scanner and quickhacking interface visible on screen.",
+      "imageLocal": "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1787768855123-0cec4636-7b8b-4362-b24a-282c592f6224-scaning.webp",
+      "headingStyle": "editorial"
+    },
+    {
+      "text": "It is easy to follow the yellow main-story marker from one major mission to the next, but doing that too aggressively means missing a large part of what makes Night City memorable.\n\nSide jobs often develop characters, relationships, and corners of the setting that the main plot only touches briefly. Gigs are usually more compact, but they are useful for learning districts, earning money, testing new abilities, and seeing how different approaches can solve the same problem.\n\nA good rhythm is to complete a major story mission, then spend some time exploring nearby side content before pushing forward again. This keeps progression moving without turning the campaign into a sprint.",
+      "caption": "Side jobs and gigs add character stories, money, experience, and opportunities to learn Night City beyond the main campaign.",
+      "heading": "Side Jobs and Gigs Are Not Filler",
+      "imageAlt": "Cyberpunk 2077’s Journal interface lists missions and activities available to V across Night City.",
+      "imageLocal": "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1787768859838-0ebd187f-cc5d-4e19-850e-ecf15cb815f1-jounal.webp",
+      "headingStyle": "editorial"
+    },
+    {
+      "text": "Night City constantly throws items, vendors, crafting components, vehicles, apartments, and upgrades at the player. Newcomers can easily spend too much time trying to pick up and compare everything.\n\nYou do not need to empty every room. Loot now scales with V’s level, and the game’s modern progression is built around equipment tiers rather than the old rarity system. Keep what clearly supports your current setup, sell things when you need cash, and use crafting components when an upgrade genuinely matters.\n\nThe goal is to avoid turning every mission into inventory maintenance. If something is not useful and does not interest you, moving on is often the correct decision.",
+      "caption": "Not every piece of loot deserves attention; keeping inventory focused on useful gear makes progression far less overwhelming.",
+      "heading": "Treat Money and Loot as Tools, Not the Objective",
+      "imageAlt": "The Cyberpunk 2077 inventory interface displays V’s equipment, weapons, items, and resources.",
+      "imageLocal": "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1787768867710-cf195adb-ace9-45c6-ac24-b53361f2f95f-inventory.png",
+      "headingStyle": "editorial"
+    },
+    {
+      "text": "Fast travel is convenient, but Cyberpunk 2077 benefits from spending time at street level. Driving or walking between objectives helps you understand how districts connect, and it gives the city a stronger sense of place than jumping between icons on a map.\n\nYou also do not need to clear every marker the moment it appears. Follow whatever catches your attention: a side job from a character you like, a fixer offering work nearby, a new district, a shop, or simply a road you have not taken before.\n\nNight City is more convincing when it feels like somewhere you are living rather than a board full of tasks waiting to be erased.",
+      "caption": "Driving and walking between objectives helps Night City feel like a real place rather than a map filled with icons to clear.",
+      "heading": "Explore Night City Without Turning It Into a Checklist",
+      "imageAlt": "A street-level view of Night City in Cyberpunk 2077 shows the dense futuristic cityscape players can explore between missions.",
+      "imageLocal": "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1787768874341-32a88da5-75c7-463b-a9cb-84168c3b2e38-exploration.jpg",
+      "headingStyle": "editorial"
+    },
+    {
+      "text": "For a first playthrough, there is little reason to skip directly into Phantom Liberty. The expansion is designed to connect with the main game, and playing the opening portions of Cyberpunk 2077 first gives its characters, stakes, and progression systems much more context.\n\nDuring a normal campaign, Phantom Liberty becomes available after completing the main quest Transmission. At that point, the expansion can be entered naturally without abandoning the rest of Night City. You can still move between base-game content and the expansion rather than treating Dogtown as a completely separate post-game mode.\n\nThe game also offers a skip-ahead option when starting a new character, but that makes more sense for returning players than newcomers.",
+      "caption": "Phantom Liberty fits naturally into a normal playthrough once it unlocks, while the skip-ahead option is better suited to returning players.",
+      "heading": "When Should You Start Phantom Liberty?",
+      "imageAlt": "A spoiler-light Cyberpunk 2077: Phantom Liberty scene represents the expansion and its Dogtown setting.",
+      "imageLocal": "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1787768878577-e9c32dc2-2e9e-46ca-a234-e6213ab8fdcb-phantom-liberty.webp",
+      "headingStyle": "editorial"
+    },
+    {
+      "text": "Cyberpunk 2077 becomes much easier to understand once you stop trying to optimize every decision. Save before major story choices when you want room to reconsider, read perk descriptions before spending points, revisit ripperdocs as your level rises, and allow yourself to change direction when a new system suddenly clicks.\n\nMore importantly, give the game time. Some of its best moments arrive through conversations, side stories, unexpected calls, and detours that do not look important from the map. A perfectly efficient route through Night City would miss much of what makes the place worth exploring.\n\nYour first playthrough should be about discovering what kind of V you want to become, not proving that you understood every system before leaving Watson.",
+      "heading": "The Best Beginner Advice Is to Let Night City Breathe",
+      "headingStyle": "editorial"
+    }
+  ],
+  "quickRead": [],
+  "conclusion": "Cyberpunk 2077 gives new players an enormous number of systems to think about, but very few need to be mastered immediately. Choose a lifepath you like, spend Attribute points with some intention, experiment freely with Perks, keep cyberware upgraded, and make room for side stories between major missions.\n\nThe most important thing is to resist turning Night City into a spreadsheet. Follow interesting characters, explore districts at your own pace, and let your build evolve around the way you actually play. The strongest first playthrough is not the most optimized one — it is the one that feels like your version of V.",
+  "conclusionHeading": "Start With Curiosity, Not Optimization",
+  "conclusionHeadingStyle": "accent",
+  "featured": false,
+  "homepageSlot": "regular",
+  "publishedAt": "2026-08-26T18:44:53.363+00:00",
+  "updatedAt": "2026-08-26T18:44:55.651142+00:00",
+  "imageLocal": "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1787768919142-0ac7837e-d9a1-4064-8d49-6b6267e767da-cyberpoonk-section.jpg",
+  "editorialSection": "guides",
+  "platforms": [
+    "pc",
+    "playstation",
+    "xbox"
+  ],
+  "collection": null,
+  "collectionYear": null,
+  "gameKey": "Cyberpunk 2077",
+  "series": "Cyberpunk",
+  "franchise": "Cyberpunk",
+  "newsMeta": {}
+}

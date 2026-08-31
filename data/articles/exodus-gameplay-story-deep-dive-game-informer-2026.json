@@ -1,0 +1,83 @@
+{
+  "id": "97418d7d-ba9f-4f56-a002-e388a0f7d3ca",
+  "slug": "exodus-gameplay-story-deep-dive-game-informer-2026",
+  "title": "EXODUS Gameplay Deep Dive Reveals Salt, Combat and a Time-Dilated Sci-Fi RPG",
+  "description": "Game Informer’s new EXODUS deep dive follows a four-hour hands-on session at Archetype Entertainment, revealing more about Salt, combat, the Awakened and the RPG’s time-dilation story.",
+  "body": "EXODUS has already shown its release date and broad RPG structure, but a new hands-on deep dive from Game Informer gives a much clearer sense of how Archetype Entertainment’s sci-fi RPG plays and how its biggest narrative idea — time dilation — affects the world around protagonist Jun Aslan. Game Informer visited Archetype’s Austin studio and played roughly four hours of the game, with its latest discussion focusing on combat, lore, companions and one of EXODUS’ most unusual Awakened characters: Salt, an intelligent octopus who operates from inside a heavily armed mech. The new material expands on systems Archetype previously introduced without replacing the core pitch: Jun is a salvager turned Traveler crossing the Centauri Cluster, assembling a crew and making decisions that can reshape the people and societies left behind.",
+  "category": "NEWS",
+  "author": "Rouane Mounssif",
+  "tags": [
+    "EXODUS",
+    "Archetype Entertainment",
+    "Wizards of the Coast",
+    "Game Informer",
+    "Salt",
+    "Awakened",
+    "gamescom 2026",
+    "RPG"
+  ],
+  "imageAlt": "A Traveller walks through a dark alien cavern toward companions and a hovering drone beneath the glowing face of a Celestial figure.",
+  "imageCredit": "Archetype Entertainment / Wizards of the Coast",
+  "articleFormat": "standard",
+  "reviewMeta": {},
+  "contentBlocks": [
+    {
+      "text": "The latest EXODUS coverage comes from a studio visit rather than another trailer. Game Informer says its editors traveled to Archetype Entertainment in Austin and played roughly four hours of the game before discussing the experience in a new story and gameplay deep dive. That makes the coverage useful as a hands-on follow-up to the material Archetype has already released publicly. The session included combat, exploration and time spent with companions, while also giving the publication more context on the setting and the people Jun meets across the Centauri Cluster.",
+      "heading": "Game Informer played around four hours of EXODUS",
+      "headingStyle": "editorial"
+    },
+    {
+      "text": "Salt is one of EXODUS’ Awakened — intelligent animals that live alongside humans in the game’s far-future society. Archetype’s release-date trailer introduced her as a mercenary and bounty hunter, but the new deep dive spends more time on what makes her memorable: she is an octopus operating from inside a railgun-equipped mech and can become part of Jun’s crew. Archetype has said companions can include both humans and Awakened animals, each with their own history, skills and reasons for joining the mission.",
+      "heading": "Salt is more than the strange octopus in the trailer",
+      "headingStyle": "editorial"
+    },
+    {
+      "text": "Salt is not an isolated novelty. Archetype narrative director Drew Karpyshyn has described the Awakened as one of the defining ideas of the EXODUS universe, alongside time dilation. Game Informer’s hands-on coverage also describes the Kay, a society of giant intelligent frogs encountered at the Khonsu space station. These characters help establish that the game’s far future is not simply built around humans and conventional alien factions; evolution and engineered intelligence have produced societies that can be physically and culturally very different from Jun’s own.",
+      "heading": "The Awakened make EXODUS’ universe stranger than a standard space opera",
+      "headingStyle": "editorial"
+    },
+    {
+      "text": "Archetype’s earlier extended gameplay reveal established the foundation: third-person combat across hostile worlds, exploration of fallen civilizations, human and Awakened companions, and decisions that shape Jun’s path. The studio has also shown Paladin and Immortal morality alignments that influence who Jun becomes. The new Game Informer material adds hands-on context to those systems rather than presenting a completely different game. EXODUS is still being positioned as a story-heavy action RPG where shooting and exploration sit alongside companion relationships, moral decisions and long-term consequences.",
+      "heading": "Combat sits inside a much larger choice-driven RPG structure",
+      "headingStyle": "editorial"
+    },
+    {
+      "text": "EXODUS is set roughly 40,000 years in the future, and Archetype is treating relativity as more than background lore. Travelers such as Jun can cross interstellar distances, but the people and societies they leave behind continue aging while far less time passes for the Traveler. Archetype has repeatedly framed that difference as a source of emotional and political consequences: returning from a mission can mean discovering that years or decades have passed elsewhere. That gives the game a built-in way to make major choices echo beyond the immediate mission and helps distinguish its story structure from a conventional planet-hopping RPG.",
+      "heading": "Time dilation is still EXODUS’ most important narrative mechanic",
+      "headingStyle": "editorial"
+    },
+    {
+      "text": "Archetype Entertainment has confirmed that EXODUS launches on April 7, 2027 for PlayStation 5, Xbox Series X|S and PC. Neural Critic previously covered the [EXODUS April 7, 2027 release-date announcement](/stories/exodus-release-date-april-7-2027-gamescom/) from Opening Night Live. The newer hands-on coverage is valuable for a different reason: it moves the conversation beyond when EXODUS is coming out and toward how its combat, companions and time-dilated universe actually fit together. With Game Informer now having played several hours, EXODUS is beginning to look less like an ambitious pitch and more like a playable RPG whose unusual ideas can be judged on their implementation.",
+      "heading": "EXODUS launches April 7, 2027",
+      "headingStyle": "editorial"
+    }
+  ],
+  "quickRead": [],
+  "conclusion": "",
+  "conclusionHeading": "",
+  "conclusionHeadingStyle": "editorial",
+  "featured": false,
+  "homepageSlot": "regular",
+  "publishedAt": "2026-08-30T21:32:41.757+00:00",
+  "updatedAt": "2026-08-31T00:08:23.505969+00:00",
+  "imageLocal": "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1788125517410-f4fee1b7-6737-4801-927b-9dfd8da2ec54-exodues.jpg",
+  "editorialSection": "news",
+  "platforms": [],
+  "collection": null,
+  "collectionYear": null,
+  "gameKey": "EXODUS",
+  "series": "",
+  "franchise": "",
+  "newsMeta": {
+    "kind": "update",
+    "updates": [],
+    "documents": [],
+    "sourceUrl": "https://gameinformer.com/video-podcast/2026/08/29/exclusive-exodus-story-and-gameplay-deep-dive-the-game-informer-show",
+    "developing": false,
+    "sourceName": "Game Informer / Exclusive EXODUS Story And Gameplay Deep Dive",
+    "verification": "confirmed",
+    "documentSectionTitle": "",
+    "documentSectionDescription": "",
+    "documentPlacementAfterHeading": ""
+  }
+}

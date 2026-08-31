@@ -1,5 +1,5 @@
 {
-  "id": 10,
+  "id": "a39e1a77-8ccf-4abb-b5f7-679def13b821",
   "slug": "elden-ring-review-monumental-open-world",
   "title": "Elden Ring Review: A Monumental Open World Worth Getting Lost In",
   "description": "FromSoftware transforms its demanding action-RPG formula into a vast, mysterious adventure where curiosity is rewarded at nearly every turn.",
@@ -15,57 +15,73 @@
     "Review"
   ],
   "imageAlt": "A Tarnished overlooks the expansive Lands Between beneath the glowing Erdtree in Elden Ring.",
+  "imageCredit": "",
   "articleFormat": "review",
   "reviewMeta": {
-    "score": "9.5",
-    "verdict": "A towering action RPG whose freedom, atmosphere, and build variety outweigh its occasional repetition and technical roughness.",
+    "cons": [
+      "Some late-game enemies and encounters feel repeated",
+      "Performance can be inconsistent on PC",
+      "Several questlines are unnecessarily difficult to follow"
+    ],
     "pros": [
       "A world that constantly rewards curiosity",
       "Exceptional build and combat variety",
       "Memorable bosses, regions, and visual direction",
       "Player freedom without excessive hand-holding"
     ],
-    "cons": [
-      "Some late-game enemies and encounters feel repeated",
-      "Performance can be inconsistent on PC",
-      "Several questlines are unnecessarily difficult to follow"
-    ],
-    "testedPlatform": "PC",
+    "score": "10",
+    "verdict": "A towering action RPG whose freedom, atmosphere, and build variety outweigh its occasional repetition and technical roughness.",
     "developer": "FromSoftware",
     "publisher": "Bandai Namco Entertainment",
+    "reviewCopy": "Reviewed on PC using a personally purchased copy of the game.",
     "releaseDate": "February 25, 2022",
-    "reviewCopy": "Reviewed on PC using a personally purchased copy of the game."
+    "testedPlatform": "PC"
   },
   "contentBlocks": [
     {
-      "heading": "The Lands Between Makes Exploration Feel Personal",
       "text": "Elden Ring understands that an open world becomes exciting when players can make meaningful decisions about where to go. The map presents striking landmarks without immediately explaining them, encouraging players to choose their own objectives and investigate at their own pace.\n\nExploration frequently produces something valuable: a new weapon, spell, character, dungeon, shortcut, or piece of environmental storytelling. Even when a discovery is not useful for a particular build, the journey often delivers a memorable encounter or a better understanding of the world.",
-      "imageAlt": "A Tarnished rests near the outskirts of Leyndell in Elden Ring.",
       "caption": "Leyndell is one of many distant landmarks that gradually becomes a destination.",
-      "imageLocal": "images/editorial/8bbbacf0-38bb-47d6-af78-dc1783f53158.jpg"
+      "heading": "The Lands Between Makes Exploration Feel Personal",
+      "imageAlt": "A Tarnished rests near the outskirts of Leyndell in Elden Ring.",
+      "imageLocal": "images/editorial/8bbbacf0-38bb-47d6-af78-dc1783f53158.jpg",
+      "headingStyle": "accent"
     },
     {
-      "heading": "Combat Supports Remarkably Different Playstyles",
       "text": "The combat remains deliberate and demanding, but Elden Ring offers more ways to approach difficulty than any previous FromSoftware action RPG. Heavy weapons, fast blades, shields, bows, sorceries, incantations, spirit summons, and weapon skills can reshape the rhythm of an encounter.\n\nThis flexibility makes experimentation part of the adventure. A difficult enemy may become manageable after changing equipment, exploring elsewhere, upgrading a summon, or discovering an ability that complements the player's strengths.",
-      "imageAlt": "A Tarnished summons a lightning incantation during combat in Elden Ring.",
       "caption": "Incantations and weapon skills give players many ways to control a battle.",
-      "imageLocal": "images/editorial/4425dbf2-1b6c-4c74-a584-70a89dab4a5a.avif"
+      "heading": "Combat Supports Remarkably Different Playstyles",
+      "imageAlt": "A Tarnished summons a lightning incantation during combat in Elden Ring.",
+      "imageLocal": "images/editorial/4425dbf2-1b6c-4c74-a584-70a89dab4a5a.avif",
+      "headingStyle": "accent"
     },
     {
-      "heading": "Its Best Battles Turn Challenge Into Spectacle",
       "text": "Elden Ring's strongest major encounters combine mechanical pressure with unforgettable presentation. Learning attack patterns, choosing safe moments to respond, and adapting a build creates a satisfying progression from uncertainty to control.\n\nThe quality is not perfectly even. Some repeated enemies and late-game difficulty spikes can weaken the sense of discovery, but the finest battles remain among FromSoftware's most ambitious achievements.",
-      "imageAlt": "A Tarnished uses a fire incantation during an Elden Ring battle.",
       "caption": "Difficult encounters reward preparation, observation, and experimentation.",
-      "imageLocal": "images/editorial/46e1948b-9294-4103-9ad0-5230470fd830.webp"
-    },
-    {
-      "heading": "Mystery Is Both a Strength and a Frustration",
-      "text": "The game trusts players to interpret its world through item descriptions, architecture, character dialogue, and environmental clues. That restraint gives the Lands Between an unusual sense of history and makes community discussion part of the experience.\n\nHowever, the same approach can make character quests difficult to follow. Important steps may depend on returning to an unexpected location or speaking to someone after an unclear trigger. Mystery strengthens the atmosphere, but clearer ways to review conversations would improve accessibility without removing discovery.",
-      "imageLocal": ""
+      "heading": "Its Best Battles Turn Challenge Into Spectacle",
+      "imageAlt": "A Tarnished uses a fire incantation during an Elden Ring battle.",
+      "imageLocal": "images/editorial/46e1948b-9294-4103-9ad0-5230470fd830.webp",
+      "headingStyle": "accent"
     }
   ],
+  "quickRead": [],
+  "conclusion": "==The game trusts players to interpret its world through item descriptions, architecture, character dialogue, and environmental clues. That restraint gives the Lands Between an unusual sense of history and makes community discussion part of the experience.\n==\n==However, the same approach can make character quests difficult to follow. Important steps may depend on returning to an unexpected location or speaking to someone after an unclear trigger. Mystery strengthens the atmosphere, but clearer ways to review conversations would improve accessibility without removing discovery.==",
+  "conclusionHeading": "Mystery Is Both a Strength and a Frustration",
+  "conclusionHeadingStyle": "statement",
   "featured": false,
-  "homepageSlot": "regular",
-  "publishedAt": "2026-08-19T19:11:25.058Z",
-  "imageLocal": "images/editorial/a4f07700-afe9-4bbb-90a8-9f4205aafed7.jpg"
+  "homepageSlot": "secondary-bottom",
+  "publishedAt": "2026-08-19T19:11:25.058+00:00",
+  "updatedAt": "2026-08-24T17:42:04.270898+00:00",
+  "imageLocal": "images/editorial/a4f07700-afe9-4bbb-90a8-9f4205aafed7.jpg",
+  "editorialSection": "reviews",
+  "platforms": [
+    "pc",
+    "playstation",
+    "xbox"
+  ],
+  "collection": "recommendations",
+  "collectionYear": 2026,
+  "gameKey": "Elden Ring",
+  "series": "Elden Ring",
+  "franchise": "Elden Ring",
+  "newsMeta": {}
 }

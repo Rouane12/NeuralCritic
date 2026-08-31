@@ -1,5 +1,5 @@
 {
-  "id": 2,
+  "id": "d8d19b90-3484-444b-85a2-9a9b44c2e577",
   "slug": "how-breath-of-the-wild-changed-the-open-world-genre",
   "title": "How Breath of the Wild Changed the Open-World Genre",
   "description": "Breath of the Wild transformed Hyrule into a world driven by curiosity, experimentation, and player freedom. These are the design ideas that helped reshape the modern open-world genre.",
@@ -12,45 +12,60 @@
     "Nintendo Switch"
   ],
   "imageAlt": "Link overlooks the expansive landscape of Hyrule in The Legend of Zelda: Breath of the Wild.",
+  "imageCredit": "",
   "articleFormat": "standard",
   "reviewMeta": {},
   "contentBlocks": [
     {
-      "heading": "1. A world designed around curiosity",
-      "text": "From the opening moments on the Great Plateau, distant mountains, unusual structures, towers, and patches of light constantly invite investigation. The game rarely needs to place a mission marker in front of the player because the landscape itself provides direction.\n\nThis makes exploration feel personal. Players travel somewhere because it looks interesting, not simply because the interface tells them to go there. Even small discoveries—such as a hidden Korok, an abandoned camp, or an unusual rock formation—reward the habit of paying attention.",
-      "imageAlt": "Link overlooks the expansive landscape of Hyrule from a high viewpoint, with mountains and landmarks visible in the distance.",
+      "text": "From the opening moments on the Great Plateau, distant mountains, unusual structures, towers, and patches of light constantly invite investigation. The game rarely needs to place a mission marker in front of the player because the landscape itself provides ==direction==.\n\nThis makes exploration feel personal. Players travel somewhere because it looks interesting, not simply because the interface tells them to go there. Even small discoveries—such as a ==hidden Korok==, an abandoned camp, or an unusual rock formation—reward the habit of paying attention.",
       "caption": "Hyrule’s distinctive landmarks naturally encourage players to choose their own destinations.",
-      "imageLocal": "images/editorial/1787506616254-601a76cd-62a8-476a-b743-e0bc92a4888b-section-1-image.jpg"
+      "heading": "1. A world designed around curiosity",
+      "imageAlt": "Link overlooks the expansive landscape of Hyrule from a high viewpoint, with mountains and landmarks visible in the distance.",
+      "imageLocal": "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1787506616254-601a76cd-62a8-476a-b743-e0bc92a4888b-section-1-image.jpg",
+      "headingStyle": "editorial"
     },
     {
-      "heading": "2. Freedom to approach the adventure in any order",
-      "text": "After leaving the Great Plateau, players can travel toward almost any visible destination. The four Divine Beasts can be completed in different orders, large portions of the world can be ignored, and experienced players can even head toward Hyrule Castle unusually early.\n\nThis freedom changes the relationship between the player and the story. Instead of following one tightly controlled route, every player creates a different journey through Hyrule. The game still provides objectives, but it rarely dictates how or when they must be completed.",
-      "imageAlt": "Link observes several regions of Hyrule from an elevated location, illustrating the scale and openness of the world.",
+      "text": "After leaving the Great Plateau, players can travel toward almost any visible destination. ==The four Divine Beasts== can be completed in different orders, large portions of the world can be ignored, and experienced players can even head toward Hyrule Castle unusually early.\n\nThis freedom changes the relationship between the player and the story. Instead of following one tightly controlled route, every player creates a different journey through Hyrule. The game still provides objectives, but it rarely dictates how or when they must be completed.",
       "caption": "After leaving the Great Plateau, players are free to explore Hyrule and pursue its major objectives in almost any order.",
-      "imageLocal": "images/editorial/1787506624145-1a26e335-5c8c-4f4a-bf54-12767ca270d7-section-2-image.jpg"
+      "heading": "2. Freedom to approach the adventure in any order",
+      "imageAlt": "Link observes several regions of Hyrule from an elevated location, illustrating the scale and openness of the world.",
+      "imageLocal": "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1787506624145-1a26e335-5c8c-4f4a-bf54-12767ca270d7-section-2-image.jpg",
+      "headingStyle": "editorial"
     },
     {
-      "heading": "3. Climbing transformed the landscape",
-      "text": "The ability to climb almost any surface fundamentally changed how players navigated an open world. Mountains, ruins, towers, and cliffs were no longer decorative barriers—they became possible routes.\n\nClimbing also reduced the need to search for the one path intended by the designer. If players could see a destination and had enough stamina, they could often create their own way there. Later open-world games increasingly adopted similar traversal systems because of how effectively they turned the environment into part of the gameplay.",
-      "imageAlt": "Link climbs the side of a steep mountain, tower, or ancient structure above the surrounding landscape.",
+      "text": "The ability to climb almost any surface fundamentally changed how players navigated an open world. Mountains, ruins, towers, and cliffs were no longer decorative barriers—they became possible routes.\n\nClimbing also reduced the need to search for the one path intended by the designer. If players could see a destination and had enough stamina, they could often create their own way there. Later open-world games increasingly adopted similar traversal systems because of ==how effectively they turned the environment into part of the gameplay.==",
       "caption": "The ability to climb almost any surface transforms mountains and ruins into possible routes rather than barriers.",
-      "imageLocal": "images/editorial/1787506638496-f928d3ea-15c3-4fd3-857b-5c2d2295b092-section-4-image.jpg"
+      "heading": "3. Climbing transformed the landscape",
+      "imageAlt": "Link climbs the side of a steep mountain, tower, or ancient structure above the surrounding landscape.",
+      "imageLocal": "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1787506638496-f928d3ea-15c3-4fd3-857b-5c2d2295b092-section-4-image.jpg",
+      "headingStyle": "editorial"
     },
     {
-      "heading": "4. Systems that encourage experimentation",
       "text": "Fire spreads through dry grass, metal attracts electricity, wind carries objects, temperatures affect Link, and different materials react to forces in predictable ways. Because these systems follow understandable rules, players can combine them to produce solutions the game never explicitly teaches.\n\nA metal weapon can conduct lightning. A fire can create an updraft. A heavy object can become a weapon when moved with Magnesis. These interactions make Hyrule feel less like a static collection of missions and more like a world players can manipulate.",
-      "imageAlt": "Link uses fire, wind, electricity, or a Sheikah Slate rune to interact with objects in the environment.",
       "caption": "Interconnected systems allow players to combine tools, physics, weather, and environmental elements in unexpected ways.",
-      "imageLocal": "images/editorial/1787506652339-6ece24c0-7e15-42d0-ae5d-704e4ee0dda0-section-5-image.jpg"
-    },
-    {
-      "heading": "And one last thing…",
-      "text": "If Breath of the Wild teaches us anything, it is that the best plan is often the one you invent five seconds after your original plan goes completely wrong. A thunderstorm interrupts your climb? Find another route. Your weapon breaks during a fight? Pick up whatever is nearby. Notice something suspicious on top of a distant mountain? You already know you are going to climb it.\n\nThat unpredictability is what makes Hyrule so memorable. Its systems do not simply give players more activities—they create small, personal stories. Two people can visit the same location and leave with completely different memories of what happened there.\n\nAnd perhaps that is the game’s greatest contribution to the open-world genre: it trusts curiosity more than instructions. It gives players a landscape, a collection of interconnected tools, and just enough encouragement to ask, “I wonder if this will work?”\n\nMost of the time, it does. And when it doesn’t, the result is usually even more entertaining.",
-      "imageLocal": ""
+      "heading": "4. Systems that encourage experimentation",
+      "imageAlt": "Link uses fire, wind, electricity, or a Sheikah Slate rune to interact with objects in the environment.",
+      "imageLocal": "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1787506652339-6ece24c0-7e15-42d0-ae5d-704e4ee0dda0-section-5-image.jpg",
+      "headingStyle": "editorial"
     }
   ],
+  "quickRead": [],
+  "conclusion": "==If Breath of the Wild teaches us anything, it is that the best plan is often the one you invent five seconds after your original plan goes completely wrong. A thunderstorm interrupts your climb? Find another route. Your weapon breaks during a fight? Pick up whatever is nearby. Notice something suspicious on top of a distant mountain? You already know you are going to climb it.==\n\n==That unpredictability is what makes Hyrule so memorable. Its systems do not simply give players more activities—they create small, personal stories. Two people can visit the same location and leave with completely different memories of what happened there.==\n\n==And perhaps that is the game’s greatest contribution to the open-world genre: it trusts curiosity more than instructions. It gives players a landscape, a collection of interconnected tools, and just enough encouragement to ask, “I wonder if this will work?”==\n\n==Most of the time, it does. And when it doesn’t, the result is usually even more entertaining.==",
+  "conclusionHeading": "And one last thing…",
+  "conclusionHeadingStyle": "statement",
   "featured": false,
   "homepageSlot": "regular",
-  "publishedAt": "2026-08-18T05:52:37.311Z",
-  "imageLocal": "images/editorial/9b833d08-7b0f-4be9-aa14-693dcb3714fb.jpg"
+  "publishedAt": "2026-08-18T05:52:37.311+00:00",
+  "updatedAt": "2026-08-23T21:55:57.548994+00:00",
+  "imageLocal": "images/editorial/9b833d08-7b0f-4be9-aa14-693dcb3714fb.jpg",
+  "editorialSection": "features",
+  "platforms": [
+    "nintendo"
+  ],
+  "collection": null,
+  "collectionYear": null,
+  "gameKey": "The Legend of Zelda: Breath of the Wild",
+  "series": "The Legend of Zelda",
+  "franchise": "The Legend of Zelda",
+  "newsMeta": {}
 }

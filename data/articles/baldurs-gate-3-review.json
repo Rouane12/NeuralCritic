@@ -1,0 +1,105 @@
+{
+  "id": "53c4da01-8879-4874-a5bf-4eab3c4c162d",
+  "slug": "baldurs-gate-3-review",
+  "title": "Baldur’s Gate 3 Review: A New Standard for RPG Freedom",
+  "description": "Larian’s role-playing epic turns player choice, flexible problem solving, and memorable companions into one of the most reactive adventures in modern RPGs.",
+  "body": "Baldur's Gate 3 begins with a familiar role-playing promise: create a character, gather a party, make choices, and see where the adventure goes. What separates Larian's RPG is how seriously it takes the last part. The game is unusually willing to let plans fail, conversations spiral in unexpected directions, quests resolve through methods the designers never explicitly highlight, and consequences follow decisions far beyond the moment they were made.\n\nThat reactivity gives Baldur's Gate 3 a rare sense of ownership. A player can talk their way through an encounter, fight it, sneak past it, manipulate the environment, use magic in an unconventional way, or create a disaster and live with the result. The game constantly invites experimentation because it has been built to respond to experimentation.\n\nIt is not frictionless. Inventory management is clumsy, camera and pathfinding issues can disrupt exploration, and the final act is so dense that performance, pacing, and quest clarity become less consistent. Yet those weaknesses sit beside some of the strongest companion writing, tactical combat, and role-playing freedom in the genre. Baldur's Gate 3 does not simply offer many choices. It makes those choices feel like part of a world capable of answering back.",
+  "category": "REVIEW",
+  "author": "Rouane Mounssif",
+  "tags": [
+    "Baldur’s Gate 3",
+    "Larian Studios",
+    "Baldur’s Gate",
+    "RPG",
+    "Dungeons & Dragons",
+    "Review"
+  ],
+  "imageAlt": "The main companions of Baldur’s Gate 3 stand together beneath a stormy fantasy sky, with the game’s logo and a looming mind flayer threat framing the official promotional artwork.",
+  "imageCredit": "Larian Studios / Baldur’s Gate 3 official promotional artwork.",
+  "articleFormat": "review",
+  "reviewMeta": {
+    "cons": [
+      "Inventory management remains cumbersome across a long campaign",
+      "Camera, pathfinding, and vertical navigation can become awkward",
+      "Act 3 is less focused and can feel overloaded compared with the earlier acts",
+      "The number of systems, spells, and rules can be intimidating for newcomers"
+    ],
+    "pros": [
+      "Exceptional player freedom and quest reactivity",
+      "Companions are memorable, layered, and deeply integrated into the story",
+      "Turn-based combat rewards creativity rather than a single optimal solution",
+      "Exploration constantly produces meaningful discoveries and alternate paths",
+      "Outstanding replayability thanks to classes, origins, choices, and branching outcomes"
+    ],
+    "score": "9.3",
+    "verdict": "A landmark RPG whose extraordinary reactivity, characters, and tactical freedom outweigh occasional technical friction and an overstuffed final act.",
+    "developer": "Larian Studios",
+    "publisher": "Larian Studios",
+    "reviewCopy": "",
+    "releaseDate": "August 3, 2023",
+    "testedPlatform": ""
+  },
+  "contentBlocks": [
+    {
+      "text": "Many RPGs present choices through dialogue menus. Baldur's Gate 3 expands that idea into nearly every system. A door can be lockpicked, broken, bypassed from another route, opened with magic, or ignored entirely. A hostile encounter might become a negotiation, an ambush, a rescue, or a mistake that changes several quests at once.\n\nThe important part is not that every possibility exists. It is that enough possibilities work consistently for players to trust experimentation. Once that trust forms, the game becomes much more than a sequence of authored solutions.\n\nFailure contributes to that freedom. A missed dice roll does not always mean reloading a save. Sometimes failure reveals a different conversation, relationship, or route through a quest. Baldur's Gate 3 is strongest when players allow imperfect outcomes to become part of their version of the story.",
+      "heading": "Choice Matters Because the Game Is Prepared to Respond",
+      "headingStyle": "editorial"
+    },
+    {
+      "text": "Shadowheart, Lae'zel, Astarion, Gale, Wyll, Karlach, and the rest of the cast begin with strong archetypes, but their stories become more complicated as the campaign develops. Beliefs change, loyalties are tested, and personal quests can reshape how entire characters are understood.\n\nThe writing benefits from patience. Companions react not only to major story decisions but also to smaller patterns in the player's behavior. Approval systems are still systems, yet they rarely feel completely detached from characterization.\n\nPerformance capture and voice acting add enormous weight. A conversation in camp can carry as much emotional importance as a major battle because the characters feel present rather than stored away until their next quest marker appears. The party is not simply a collection of combat abilities; it is the emotional center of the campaign.",
+      "heading": "Its Companions Are More Than Party Roles",
+      "headingStyle": "editorial"
+    },
+    {
+      "text": "Baldur's Gate 3 translates Dungeons & Dragons combat into a system that is tactical without becoming rigid. Positioning, elevation, surfaces, spell interactions, environmental objects, summons, stealth, and improvised weapons create opportunities that extend far beyond choosing the strongest attack each turn.\n\nA difficult fight can change completely after pushing an enemy from a ledge, blocking a doorway, extinguishing fire, creating an electrified surface, or using a spell for a purpose that has nothing to do with direct damage.\n\nThe large number of classes and subclasses makes party composition equally flexible. Some combinations are naturally stronger than others, but the game is generous enough that experimentation rarely feels punished on standard difficulty. Combat becomes another language for role-playing: the way a party fights can reflect the characters the player chose to build.",
+      "heading": "Turn-Based Combat Rewards Imagination",
+      "headingStyle": "editorial"
+    },
+    {
+      "text": "The environments are dense rather than enormous. Roads branch, caves hide beneath familiar areas, rooftops reveal alternate entrances, and apparently decorative spaces can contain quests, secrets, or entirely different approaches to an objective.\n\nThat density makes exploration meaningful. The game frequently rewards players for reading notes, talking to animals, noticing a suspicious wall, jumping somewhere inconvenient, or revisiting a location after learning new information.\n\nBecause quests overlap geographically and narratively, discoveries often connect. A small clue can alter a later conversation, and a side path can reveal context that changes how a major faction is understood. Baldur's Gate 3 rarely needs to place a giant reward at the end of exploration because information itself is often valuable.",
+      "heading": "Exploration Constantly Rewards Looking Twice",
+      "headingStyle": "editorial"
+    },
+    {
+      "text": "The visible dice system makes chance part of the game's identity. Persuasion, deception, investigation, saving throws, attacks, and many other actions depend on probabilities shaped by character abilities and circumstances.\n\nThat randomness can create frustration, especially when a carefully planned conversation collapses because of one poor roll. But it also prevents the player from controlling every outcome and gives character builds meaning outside combat.\n\nA persuasive bard and an intimidating barbarian can experience the same scene differently because their strengths change which risks are reasonable. Inspiration, bonuses, spells, and advantage give the player ways to influence chance without eliminating it completely. The result is a campaign that feels authored and unpredictable at the same time.",
+      "heading": "Dice Rolls Give Uncertainty a Visible Shape",
+      "headingStyle": "editorial"
+    },
+    {
+      "text": "For all of its systemic sophistication, Baldur's Gate 3 can be surprisingly awkward to manage. Long campaigns generate enormous inventories, containers multiply, useful items are easy to forget, and shifting equipment between party members can become tedious.\n\nCamera behavior is another persistent weakness. Vertical spaces sometimes make it difficult to understand where party members are standing, and pathfinding can produce strange routes or leave companions behind.\n\nNone of these issues destroys the experience, but they accumulate because the game is so long and so dense with objects. Larian built a world where almost everything can matter; the interface is not always equally good at helping the player manage everything they have collected.",
+      "heading": "Inventory and Interface Friction Never Fully Disappear",
+      "headingStyle": "editorial"
+    },
+    {
+      "text": "The city of Baldur's Gate is packed with characters, quests, locations, companion resolutions, faction conflicts, and major story decisions. That density is exciting, but it also changes the rhythm of the campaign.\n\nEarlier acts are easier to read because exploration, narrative momentum, and major objectives are more naturally separated. Act 3 can feel like everything arrives at once. Quest logs grow, important characters compete for attention, and technical performance has historically been less consistent in the busiest areas.\n\nThere are extraordinary moments throughout the final act, including some of the game's best character conclusions. The issue is not a lack of quality. It is concentration. Baldur's Gate 3 becomes so full of possibility that its structure struggles to make every possibility feel equally urgent.",
+      "heading": "Act 3 Is Ambitious Enough to Become Overwhelming",
+      "headingStyle": "editorial"
+    },
+    {
+      "text": "Replayability is where Baldur's Gate 3 separates itself most clearly from many story-driven RPGs. Different classes change exploration and conversation. Origin characters provide new perspectives. The Dark Urge creates a substantially different role-playing framework. Companion choices, romances, faction decisions, quest outcomes, and simple dice luck can redirect entire sequences.\n\nMore importantly, players learn how much they missed. Finishing one campaign often reveals how many situations could have unfolded differently, which makes a second playthrough feel less like repetition and more like testing another interpretation of the same world.\n\nThe game does not require players to see everything. In fact, its confidence comes partly from allowing content to disappear when choices close doors. That willingness gives each campaign more identity.",
+      "heading": "Few RPGs Offer This Much Reason to Start Again",
+      "headingStyle": "editorial"
+    }
+  ],
+  "quickRead": [],
+  "conclusion": "==Baldur's Gate 3 is one of the clearest demonstrations of what role-playing games can achieve when systems, writing, exploration, and character choice are allowed to overlap. Its greatest strength is not simply the number of options available, but the confidence that the world will usually recognize what the player tried to do.==\n\n==Inventory friction, awkward navigation, and an overloaded final act keep the experience from feeling perfectly controlled, but perfection would almost work against the game's personality. Baldur's Gate 3 is messy because it is extraordinarily reactive, and that reactivity makes its best moments feel personal in a way few modern RPGs can match.==",
+  "conclusionHeading": "Final verdict",
+  "conclusionHeadingStyle": "editorial",
+  "featured": false,
+  "homepageSlot": "regular",
+  "publishedAt": "2026-08-26T20:15:07.785+00:00",
+  "updatedAt": "2026-08-26T22:36:41.404961+00:00",
+  "imageLocal": "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1787783795570-bfa2c7c4-26b7-49c9-a7e8-ea8bdabd262f-baldurs-gate-3-wallpaper-3440x1440-5120x1440-v0-a7eos4ir1jcb1.webp",
+  "editorialSection": "what-to-play",
+  "platforms": [
+    "pc",
+    "playstation",
+    "xbox"
+  ],
+  "collection": "recommendations",
+  "collectionYear": 2026,
+  "gameKey": "Baldur’s Gate 3",
+  "series": "Baldur’s Gate",
+  "franchise": "Baldur’s Gate",
+  "newsMeta": {}
+}

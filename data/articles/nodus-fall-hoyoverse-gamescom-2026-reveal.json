@@ -1,0 +1,66 @@
+{
+  "id": "4faa35ab-8d52-4b68-a734-25c393f251c0",
+  "slug": "nodus-fall-hoyoverse-gamescom-2026-reveal",
+  "title": "HoYoverse Reveals Nodus Fall, a New Co-op Fantasy Action Game",
+  "description": "HoYoverse used gamescom Opening Night Live 2026 to unveil Nodus Fall, a new cooperative action game built around team battles against enormous fantasy threats.",
+  "body": "HoYoverse revealed Nodus Fall during gamescom Opening Night Live on August 25, introducing a new cooperative action game with a darker fantasy tone than the publisher’s best-known releases.\n\nThe debut trailer focused on coordinated combat and enormous creatures, but the reveal stopped short of announcing a release date or confirmed platforms. Neural Critic is treating those details as unannounced rather than filling in the gaps from speculation.",
+  "category": "NEWS",
+  "author": "Rouane Mounssif",
+  "tags": [
+    "Nodus Fall",
+    "HoYoverse",
+    "gamescom 2026",
+    "Opening Night Live",
+    "Co-op games",
+    "Action games"
+  ],
+  "imageAlt": "Nodus Fall key art showing warriors facing enormous fantasy creatures beneath the game logo.",
+  "imageCredit": "HoYoverse",
+  "articleFormat": "standard",
+  "reviewMeta": {},
+  "contentBlocks": [
+    {
+      "text": "Nodus Fall made its public debut during Opening Night Live with a cinematic-and-gameplay presentation centered on a hostile fantasy setting and teams fighting oversized enemies. The reveal establishes the project as a new HoYoverse title rather than an update to one of the company’s existing games.",
+      "heading": "HoYoverse introduces a new world",
+      "headingStyle": "editorial"
+    },
+    {
+      "text": "The trailer’s strongest gameplay signal is cooperation. Multiple characters are shown confronting large threats together, making team combat the core idea Neural Critic can verify from the reveal. Beyond that, HoYoverse has not yet provided enough official detail to responsibly characterize progression, monetization, or long-term structure.",
+      "heading": "Co-op combat is the clearest hook",
+      "headingStyle": "editorial"
+    },
+    {
+      "text": "No release date, launch window, or platform list was confirmed during the reveal. Those omissions matter: early reports may infer details from HoYoverse’s other games, but Nodus Fall should be treated on its own announced terms until the developer publishes more.",
+      "heading": "Release timing and platforms remain unannounced",
+      "headingStyle": "editorial"
+    }
+  ],
+  "quickRead": [],
+  "conclusion": "",
+  "conclusionHeading": "",
+  "conclusionHeadingStyle": "editorial",
+  "featured": false,
+  "homepageSlot": "regular",
+  "publishedAt": "2026-08-25T22:26:40.676564+00:00",
+  "updatedAt": "2026-08-26T18:46:40.726973+00:00",
+  "imageLocal": "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1787695995279-765ef5ac-66ba-4fce-8d46-58e8a243b04f-nodus-section.jpg",
+  "editorialSection": "news",
+  "platforms": [],
+  "collection": null,
+  "collectionYear": null,
+  "gameKey": "Nodus Fall",
+  "series": "",
+  "franchise": "",
+  "newsMeta": {
+    "kind": "update",
+    "updates": [],
+    "documents": [],
+    "sourceUrl": "https://www.youtube.com/watch?v=qwC9EFT6EFk",
+    "developing": false,
+    "sourceName": "gamescom Opening Night Live 2026 official livestream",
+    "verification": "confirmed",
+    "documentSectionTitle": "",
+    "documentSectionDescription": "",
+    "documentPlacementAfterHeading": ""
+  }
+}

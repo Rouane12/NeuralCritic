@@ -1,0 +1,130 @@
+{
+  "id": "86a3df6a-cfa3-4b6f-9c4d-5f332e4fdc9e",
+  "slug": "elden-ring-beginners-guide",
+  "title": "Elden Ring Beginner’s Guide: What to Know Before Entering the Lands Between",
+  "description": "A practical starting guide to exploration, combat, leveling, equipment, Sites of Grace, and the early decisions that make Elden Ring easier to understand.",
+  "body": "Elden Ring is intimidating because it gives you very little pressure to follow a single route. Within the first hour, the Lands Between can put a difficult field boss in front of you, point you toward a castle, scatter caves and ruins in every direction, and hand you a character sheet full of statistics that are not immediately obvious.\n\nThe useful thing to understand is that Elden Ring is designed around that uncertainty. You are not expected to defeat every enemy the moment you meet it, build a perfect character from the start, or follow the Guidance of Grace as if it were a mandatory quest marker. A strong first playthrough comes from learning how the world communicates, strengthening the parts of your character that keep you alive, and treating exploration as part of progression rather than a distraction from it.",
+  "category": "GUIDE",
+  "author": "Rouane Mounssif",
+  "tags": [
+    "Elden Ring",
+    "FromSoftware",
+    "Beginner Guide",
+    "Tips",
+    "Action RPG",
+    "Open World"
+  ],
+  "imageAlt": "A Tarnished stands beneath the glowing Erdtree in Elden Ring, framed by golden branches, ruined stone structures and the Lands Between below.",
+  "imageCredit": "Neural Critic / Elden Ring gameplay screenshot.",
+  "articleFormat": "game-guide",
+  "reviewMeta": {},
+  "contentBlocks": [
+    {
+      "text": "Elden Ring asks you to choose a starting class before you have enough context to know exactly how you want to play. Do not let that choice paralyze you.\n\nA class mainly determines your opening statistics and equipment. It does not lock your character into a permanent role, and the game gives you room to develop in another direction as you gain levels and discover new gear, spells, and systems. The Idus Knight and Heavy Knight starting classes added with the Tarnished Pack follow the same basic idea: your class shapes your first steps, not your entire journey.\n\nFor a first character, choose something that makes immediate sense to you rather than trying to predict an endgame setup. The more important decision is what you learn about your own preferences during the opening hours.",
+      "caption": "Starting class determines your opening stats and equipment, but it does not lock you into a permanent build.",
+      "heading": "Your Starting Class Is a Beginning, Not a Build",
+      "imageAlt": "The Elden Ring starting-class screen shows Samurai, Prisoner and Confessor with their starting stats and equipment.",
+      "imageLocal": "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1788025585803-ea32d516-a23d-4ccb-8fd2-e9dbda4acc6f-starting-class.png",
+      "headingStyle": "editorial"
+    },
+    {
+      "text": "Shortly after the opening, Elden Ring gives you access to the Cave of Knowledge. It is worth doing even if you have played other FromSoftware games.\n\nThe tutorial introduces several systems the wider game expects you to understand but rarely stops to explain again. It also gives you a safe place to learn how movement, stamina, targeting, skills, and other basic interactions fit together before the open world starts introducing more complicated situations.\n\nYou can revisit tutorial information later through the Info section of your inventory, so there is no need to memorize every prompt. The goal is simply to recognize the game’s basic language before you start exploring Limgrave.",
+      "caption": "The Cave of Knowledge is easy to miss, but it introduces combat and movement systems the wider game expects you to understand.",
+      "heading": "Do the Cave of Knowledge Tutorial",
+      "imageAlt": "The player character stands inside the dimly lit Cave of Knowledge tutorial area in Elden Ring.",
+      "imageLocal": "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1788025591373-baf40bc8-053c-4d21-b4d6-d3ccaf9bc283-cave-knowledge.jpeg",
+      "headingStyle": "editorial"
+    },
+    {
+      "text": "Sites of Grace are checkpoints, fast-travel points, and places where several progression systems become available. Some of them also point in a suggested direction through the Guidance of Grace.\n\nTreat that guidance as a recommendation, not an instruction. Following it early helps you reach the encounters that unlock core systems, including leveling and your spectral steed, Torrent. Once those pieces are in place, exploring away from the main route becomes one of the best ways to make progress.\n\nIf a castle gate, field boss, or difficult area feels far beyond you, mark it mentally or on the map and leave. Elden Ring repeatedly rewards players who return later with more health, better-upgraded gear, additional flask charges, stronger summons, and a better understanding of the game.",
+      "caption": "Sites of Grace point toward important early objectives, but their guidance is a direction to consider rather than a route you must follow.",
+      "heading": "Follow Grace Until the Game Opens Up — Then Wander",
+      "imageAlt": "The Elden Ring map shows Sites of Grace and Guidance of Grace routes across Limgrave and nearby early-game areas.",
+      "imageLocal": "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1788025597445-d799cdc6-ea9d-4d81-9435-634acfa0b5ed-sites-of-grace.webp",
+      "headingStyle": "editorial"
+    },
+    {
+      "text": "Elden Ring’s stat screen can encourage new players to spread points everywhere. That usually makes the opening harder to read because every level feels small and your character remains fragile.\n\nFor most beginners, Vigor is the most useful early safety stat because it increases maximum HP. More health gives you room to survive mistakes long enough to understand what happened, which is often more valuable than chasing a small increase in damage.\n\nAfter that, invest with a purpose. Raise the attributes required by the gear or magic you actually want to use, and avoid trying to support every possible playstyle on one early character. A focused character is easier to understand, and Elden Ring eventually provides ways to reconsider parts of your build later in the game.",
+      "caption": "Vigor increases maximum HP, giving new players more room to survive mistakes while learning enemy attacks.",
+      "heading": "Make Vigor Your Early Safety Net",
+      "imageAlt": "The Elden Ring status screen shows a high Vigor value alongside the character’s other attributes and defensive statistics.",
+      "imageLocal": "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1788025603530-885ec2e6-ecd4-462c-a828-454daf00e311-leveling-up.jpg",
+      "headingStyle": "editorial"
+    },
+    {
+      "text": "One of the easiest systems to overlook is equipment load. Your equipped gear contributes to a weight total, and that weight affects how your character moves.\n\nYou do not need to chase the lightest possible setup, but you should pay attention to the load category shown on the status screen. If your character suddenly feels much less responsive after equipping heavier gear, check that value before assuming the controls changed.\n\nThis is a good example of how Elden Ring communicates through systems rather than tutorials. When something about your character feels different, the status screen often explains why.",
+      "caption": "Equip Load affects how your character moves and rolls, so heavier equipment is not automatically the safer choice.",
+      "heading": "Equipment Load Matters More Than It First Appears",
+      "imageAlt": "The Elden Ring equipment screen highlights the character’s Equip Load and Medium Load status.",
+      "imageLocal": "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1788025607913-696e2ddf-bf57-4b76-9623-6f862d43fb69-equip-load.jpg",
+      "headingStyle": "editorial"
+    },
+    {
+      "text": "Character levels are only one part of progression. Elden Ring also expects you to improve the gear and supporting tools you are already using.\n\nSmithing Stones are used to strengthen many pieces of equipment, while Spirit Ashes have their own upgrade path later. Flask upgrades increase how much recovery you can carry or how effective each use becomes. These improvements can make a larger practical difference than several unfocused character levels.\n\nBeginners often save every resource because they are worried something better may appear later. It is usually more useful to strengthen a setup that already works for you. Elden Ring contains many upgrade materials across its world, and early investment helps you reach the places where more become available.",
+      "caption": "Upgrading a weapon you already use can make a larger early-game difference than waiting for a supposedly perfect replacement.",
+      "heading": "Upgrade What You Use Instead of Waiting for Perfect Gear",
+      "imageAlt": "The Elden Ring blacksmith menu shows a weapon upgrade and the Smithing Stone materials required to strengthen it.",
+      "imageLocal": "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1788025613100-ea3b1429-9073-4e9c-8759-5e04d016db65-smithing.jpg",
+      "headingStyle": "editorial"
+    },
+    {
+      "text": "The world map starts deliberately incomplete. New regions become much easier to read once you find their map fragments, which are often indicated by small monument symbols on the unexplored map.\n\nFrom there, use markers for your own memory. A cave you skipped, a merchant you want to revisit, a sealed path, an unusually difficult enemy, or an unexplored ruin can all be worth marking.\n\nThis keeps exploration from becoming a list of chores. You are building your own record of the Lands Between instead of trying to clear every icon before moving on. That matters because Elden Ring often expects you to notice something interesting, investigate it, and decide for yourself whether it is worth pursuing now.",
+      "caption": "Custom markers are useful for remembering caves, merchants, difficult encounters and other places worth revisiting.",
+      "heading": "Use the Map as a Memory Tool, Not a Checklist",
+      "imageAlt": "The Elden Ring world map is open with the custom marker menu displayed over Limgrave, Liurnia and Caelid.",
+      "imageLocal": "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1788025618036-5f936f73-172c-4a15-811e-49bf4191e139-markers.jpg",
+      "headingStyle": "editorial"
+    },
+    {
+      "text": "Dying in Elden Ring causes you to drop the runes you were carrying. If you reach that location again before dying a second time, you can recover them.\n\nThat can make every loss feel more serious than it really is. Runes are valuable because they pay for levels and purchases, but losing a pile of them is not the same as losing your character’s progress. You keep discovered Sites of Grace, collected equipment, map knowledge, upgrade progress, and—most importantly—what you learned.\n\nA useful habit is to spend a large amount of runes when you are close to a level or planned purchase before entering an area that looks especially difficult. Beyond that, accept that some runes will disappear. Treating every lost currency drop as a disaster makes experimentation much harder than the game intends.",
+      "caption": "Losing runes can sting, but discovered locations, equipment, upgrades and everything you learned remain with you.",
+      "heading": "Death Costs Runes, Not Progress",
+      "imageAlt": "The Elden Ring map is centered on an early-game area with the player’s location and nearby landmarks visible.",
+      "imageLocal": "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1788025624565-15f21e0f-8014-4b71-b83e-089186405643-rune-reteieval.jpg",
+      "headingStyle": "editorial"
+    },
+    {
+      "text": "Elden Ring gives you several forms of assistance, including Spirit Ashes in eligible encounters, summonable NPCs in some situations, and cooperative multiplayer.\n\nUsing them is not a lesser way to play. They are systems deliberately built into the game, and they can make difficult encounters easier to understand by giving you more room to observe what is happening.\n\nSpirit Ashes can also be upgraded, so a summon that feels useful early can remain relevant for longer if you invest in it. If you prefer playing alone, you can still use many of these single-player support systems without turning the game into a multiplayer experience.",
+      "caption": "Spirit Ashes and other summons are built into Elden Ring as tools that can create breathing room during difficult encounters.",
+      "heading": "Spirit Ashes, NPC Help, and Co-op Are Part of the Game",
+      "imageAlt": "A spectral Spirit Ash ally materializes beside the player character on a stone path in Elden Ring.",
+      "imageLocal": "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1788025628776-74cbe876-3714-42c5-acb0-ff913a3ed9d3-spirit-ashes.jpg",
+      "headingStyle": "editorial"
+    },
+    {
+      "text": "The main route quickly points toward Stormveil Castle, but there is no prize for arriving there underprepared.\n\nLimgrave contains caves, tunnels, ruins, churches, merchants, flask upgrades, equipment, and optional encounters that teach the game at a gentler pace. The Weeping Peninsula to the south is also a useful early region for players who want more room to explore before pushing deeper into the main path.\n\nThis is one of Elden Ring’s most important lessons: when a major obstacle feels impossible, the answer is often somewhere else on the map. Exploring is not procrastination. It is how the game lets you build strength, gather options, and return with a better chance of understanding the challenge.",
+      "caption": "Limgrave gives new players plenty of room to explore, upgrade and learn before committing to the path through Stormveil.",
+      "heading": "Explore Limgrave Before Forcing Your Way Through Stormveil",
+      "imageAlt": "A Tarnished rides Torrent through the grassy landscape of Limgrave with a large castle visible ahead.",
+      "imageLocal": "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1788025632650-ffff63a9-fb77-4991-8f4f-7ea0f7040a95-weeping.jpg",
+      "headingStyle": "editorial"
+    },
+    {
+      "text": "Elden Ring has enough hidden quests, rare items, branching character stories, and build possibilities to make a perfect first playthrough unrealistic.\n\nTrying to follow an exact checklist can also undermine the reason the open world works so well. The strongest moments often come from seeing something strange in the distance, finding a path you were not looking for, or realizing that an area you once avoided is now manageable.\n\nUse guides when a system is genuinely confusing or when you are stuck, but give yourself permission to miss things. You can return to large parts of the world later, and a first journey through the Lands Between is more memorable when discovery still belongs to you.",
+      "heading": "Do Not Turn Your First Playthrough Into an Optimization Project",
+      "headingStyle": "editorial"
+    }
+  ],
+  "quickRead": [],
+  "conclusion": "Elden Ring becomes much easier to understand once you stop treating every obstacle as a test you must pass immediately. Follow Grace far enough to unlock the core systems, invest in survivability, keep the gear and summons you use upgraded, and let exploration do much of the work of progression.\n\nMost importantly, do not measure a first playthrough by how efficiently you reach the next major boss. The Lands Between are built around curiosity. Mark places you want to revisit, walk away from challenges that are not working yet, and let your character develop around the discoveries that actually interest you. That rhythm is not a workaround for Elden Ring’s difficulty — it is one of the ways the game is designed to be played.",
+  "conclusionHeading": "The bottom line",
+  "conclusionHeadingStyle": "editorial",
+  "featured": false,
+  "homepageSlot": "regular",
+  "publishedAt": "2026-08-29T17:49:50.655+00:00",
+  "updatedAt": "2026-08-30T03:17:11.728813+00:00",
+  "imageLocal": "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1788025565917-72a0d1a0-a227-4ed8-8654-7336912c4915-main-elden-rang.jpg",
+  "editorialSection": "guides",
+  "platforms": [
+    "pc",
+    "playstation",
+    "xbox",
+    "nintendo"
+  ],
+  "collection": null,
+  "collectionYear": null,
+  "gameKey": "Elden Ring",
+  "series": "Elden Ring",
+  "franchise": "Elden Ring",
+  "newsMeta": {}
+}

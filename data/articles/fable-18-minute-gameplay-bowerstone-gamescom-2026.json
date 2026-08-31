@@ -1,0 +1,82 @@
+{
+  "id": "6f9d3a89-1996-40da-b123-ec3a354895b7",
+  "slug": "fable-18-minute-gameplay-bowerstone-gamescom-2026",
+  "title": "Fable’s 18-Minute Gameplay Shows Bowerstone, Property Ownership and Choice",
+  "description": "Playground Games has released 18 minutes of Fable gameplay from gamescom 2026, showing a quest through Bowerstone, property ownership, choice and consequence, and combat.",
+  "body": "Playground Games has released 18 minutes of new Fable gameplay from gamescom 2026, giving players one of the clearest looks yet at how Albion’s reimagined capital, Bowerstone, works in practice. The footage follows a full quest through the city and puts several of Fable’s core ideas on display at once: exploration, property ownership, character interaction, choice and consequence, and combat. It also introduces Humphry, the disgraced leader of the Heroes’ Guild, as part of the quest. Fable is scheduled to launch February 23, 2027.",
+  "category": "NEWS",
+  "author": "Rouane Mounssif",
+  "tags": [
+    "Fable",
+    "Playground Games",
+    "Xbox Game Studios",
+    "Bowerstone",
+    "gamescom 2026",
+    "Xbox Series X|S",
+    "PlayStation 5",
+    "PC"
+  ],
+  "imageAlt": "The Fable hero stands in a glowing forest clearing, looking toward a distant castle beneath the game’s logo.",
+  "imageCredit": "Playground Games / Xbox Game Studios",
+  "articleFormat": "standard",
+  "reviewMeta": {},
+  "contentBlocks": [
+    {
+      "text": "Xbox has published the full 18-minute quest demonstration that Playground Games showed at gamescom 2026. Rather than cutting quickly between isolated mechanics, the footage follows the Hero through Bowerstone and gives the city room to function as a place rather than just a backdrop. The demonstration shows streets, interiors, conversations and quest progression while introducing Humphry, the disgraced leader of the Heroes’ Guild. It is a much more useful look at how Fable’s world fits together moment to moment than a conventional trailer.",
+      "heading": "The new footage spends 18 minutes inside Bowerstone",
+      "headingStyle": "editorial"
+    },
+    {
+      "text": "One of the most striking details highlighted by Playground Games is the degree of access players have to Bowerstone. Xbox says every building in the city can be entered and every house can be purchased. That puts property ownership back near the center of Fable’s life-simulation side, rather than treating the city as a collection of decorative storefronts. The footage reinforces Playground’s broader pitch for a living Albion where the Hero can build a life outside the main quest instead of simply passing through settlements between combat encounters.",
+      "heading": "Every building can be entered — and every house can be bought",
+      "headingStyle": "editorial"
+    },
+    {
+      "text": "The Bowerstone quest also demonstrates Fable’s familiar emphasis on player decisions. Xbox specifically points to choice and consequence as one of the systems shown during the walkthrough, tying individual actions to the wider reputation system Playground Games has been describing for the reboot. The studio’s official material says a Hero’s noble deeds and questionable decisions can affect relationships with individual villagers and can shape the world around them. The new quest footage is useful because it shows those ideas inside ordinary play rather than presenting them only as a high-level feature list.",
+      "heading": "Choice and consequence are built into the quest",
+      "headingStyle": "editorial"
+    },
+    {
+      "text": "The extended gameplay includes multiple combat encounters, building on the playable gamescom demo Playground Games previously used to explain Fable’s combat system. The reboot evolves the original trilogy’s Strength, Skill and Will framework by letting players move between melee weapons, ranged attacks and magic during the same fight. Equipment and unlocked skills can change how those options work together, but the basic idea is flexibility: the Hero is not locked into one combat discipline when a situation changes.",
+      "heading": "Combat mixes melee, ranged attacks and magic",
+      "headingStyle": "editorial"
+    },
+    {
+      "text": "Fable is scheduled to launch on February 23, 2027. Xbox lists Xbox Series X|S, Xbox on PC, cloud play and Game Pass support, with Xbox Play Anywhere between console and PC. PlayStation also lists a PlayStation 5 version for the same February 23 release date, marking the series’ first appearance on PS5. The Premium Edition includes early access beginning February 18. With the release date now set, the gamescom footage shifts the conversation from what Playground’s reboot is trying to be toward how its systems actually feel when they are allowed to run together across a full quest.",
+      "heading": "Fable launches in February 2027",
+      "headingStyle": "editorial"
+    }
+  ],
+  "quickRead": [],
+  "conclusion": "",
+  "conclusionHeading": "",
+  "conclusionHeadingStyle": "editorial",
+  "featured": false,
+  "homepageSlot": "regular",
+  "publishedAt": "2026-08-30T21:23:21.32+00:00",
+  "updatedAt": "2026-08-30T21:23:24.645525+00:00",
+  "imageLocal": "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1788124905537-f860a416-eed8-4c3a-bf95-7e3720bc3644-fable.jpg",
+  "editorialSection": "news",
+  "platforms": [
+    "pc",
+    "playstation",
+    "xbox"
+  ],
+  "collection": null,
+  "collectionYear": null,
+  "gameKey": "Fable",
+  "series": "Fable",
+  "franchise": "Fable",
+  "newsMeta": {
+    "kind": "update",
+    "updates": [],
+    "documents": [],
+    "sourceUrl": "https://news.xbox.com/en-us/2026/08/28/fable-watch-brand-new-quest-gameplay-from-gamescom-2026/",
+    "developing": false,
+    "sourceName": "Xbox Wire / Fable: Watch Brand New Quest Gameplay from gamescom 2026",
+    "verification": "confirmed",
+    "documentSectionTitle": "",
+    "documentSectionDescription": "",
+    "documentPlacementAfterHeading": ""
+  }
+}
