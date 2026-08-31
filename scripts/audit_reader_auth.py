@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Release checks for Neural Critic Reader Auth V2 and Saved Stories."""
+"""Release checks for Neural Critic Reader Auth V2, Saved Stories, and entity follows."""
 
 from __future__ import annotations
 
@@ -23,7 +23,9 @@ def main() -> int:
     style = text("assets/reader-auth-v2.css")
     signup_guard = text("assets/signup-hardening.js")
     saved = text("assets/saved-stories.js")
+    follows = text("assets/entity-follows.js")
     saved_migration = text("supabase/migrations/20260831204500_reader_saved_stories_v1.sql")
+    follows_migration = text("supabase/migrations/20260831225300_reader_entity_follows_v1.sql")
 
     for marker in (
         "assets/reader-auth-v2.js",
@@ -33,6 +35,8 @@ def main() -> int:
         "newsroom.html",
         "assets/saved-stories.js?v=20260831-saved5",
         "data-nc-saved-stories",
+        "assets/entity-follows.js?v=20260831-follow1",
+        "data-nc-entity-follows",
     ):
         if marker not in bootstrap:
             errors.append(f"Reader Auth V2 bootstrap missing marker: {marker}")
@@ -118,6 +122,23 @@ def main() -> int:
         errors.append("Saved Stories account content must not mount inside the mutable reader profile slot.")
 
     for marker in (
+        "reader_entity_follows",
+        "nc-entity-follow-cta",
+        "nc-following-account",
+        "NeuralCriticEntityFollows",
+        "nc:entity-follows-changed",
+        "reader-account-extensions",
+        "readerAccountExtension = 'entity-follows'",
+        "LATEST FROM YOUR FOLLOWS",
+        "window.NEURAL_CRITIC_STATIC_TOPIC",
+        "window.NEURAL_CRITIC_STATIC_GAME_SLUG",
+        "entity_followed",
+        "entity_unfollowed",
+    ):
+        if marker not in follows:
+            errors.append(f"Entity follows runtime missing marker: {marker}")
+
+    for marker in (
         "create table if not exists public.reader_saved_stories",
         "primary key (user_id, article_slug)",
         "enable row level security",
@@ -130,13 +151,25 @@ def main() -> int:
     if "grant" in saved_migration.lower() and " to anon" in saved_migration.lower() and "revoke all" not in saved_migration.lower():
         errors.append("Saved Stories must not grant table access to anon readers.")
 
+    for marker in (
+        "create table if not exists public.reader_entity_follows",
+        "primary key (user_id, entity_type, entity_slug)",
+        "entity_type in ('game','series','franchise')",
+        "enable row level security",
+        "revoke all on table public.reader_entity_follows from anon",
+        "grant select, insert, delete on table public.reader_entity_follows to authenticated",
+        "auth.uid()) = user_id",
+    ):
+        if marker not in follows_migration:
+            errors.append(f"Entity follows migration missing marker: {marker}")
+
     if errors:
         for error in errors:
             print(f"ERROR: {error}", file=sys.stderr)
         print(f"Reader Auth V2 audit failed with {len(errors)} error(s).", file=sys.stderr)
         return 1
 
-    print("Neural Critic Reader Auth V2 + Saved Stories audit passed.")
+    print("Neural Critic Reader Auth V2 + Saved Stories + Entity Follows audit passed.")
     return 0
 
 
