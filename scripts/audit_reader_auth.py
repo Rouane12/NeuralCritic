@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Release checks for Neural Critic Reader Auth V2."""
+"""Release checks for Neural Critic Reader Auth V2 and Saved Stories."""
 
 from __future__ import annotations
 
@@ -22,6 +22,8 @@ def main() -> int:
     runtime = text("assets/reader-auth-v2.js")
     style = text("assets/reader-auth-v2.css")
     signup_guard = text("assets/signup-hardening.js")
+    saved = text("assets/saved-stories.js")
+    saved_migration = text("supabase/migrations/20260831204500_reader_saved_stories_v1.sql")
 
     for marker in (
         "assets/reader-auth-v2.js",
@@ -29,6 +31,8 @@ def main() -> int:
         "studio.html",
         "subscribers.html",
         "newsroom.html",
+        "assets/saved-stories.js?v=20260831-saved1",
+        "data-nc-saved-stories",
     ):
         if marker not in bootstrap:
             errors.append(f"Reader Auth V2 bootstrap missing marker: {marker}")
@@ -80,13 +84,38 @@ def main() -> int:
         if marker not in signup_guard:
             errors.append(f"Shared signup password guard missing marker: {marker}")
 
+    for marker in (
+        "reader_saved_stories",
+        "nc-save-story",
+        "nc-saved-account",
+        "NeuralCriticSavedStories",
+        "nc:saved-stories-changed",
+        "/data/articles.json",
+        "/stories/${encodeURIComponent(row.article_slug)}/",
+    ):
+        if marker not in saved:
+            errors.append(f"Saved Stories runtime missing marker: {marker}")
+
+    for marker in (
+        "create table if not exists public.reader_saved_stories",
+        "primary key (user_id, article_slug)",
+        "enable row level security",
+        "grant select, insert, delete",
+        "auth.uid()) = user_id",
+    ):
+        if marker not in saved_migration:
+            errors.append(f"Saved Stories migration missing marker: {marker}")
+
+    if "grant" in saved_migration.lower() and " to anon" in saved_migration.lower() and "revoke all" not in saved_migration.lower():
+        errors.append("Saved Stories must not grant table access to anon readers.")
+
     if errors:
         for error in errors:
             print(f"ERROR: {error}", file=sys.stderr)
         print(f"Reader Auth V2 audit failed with {len(errors)} error(s).", file=sys.stderr)
         return 1
 
-    print("Neural Critic Reader Auth V2 audit passed.")
+    print("Neural Critic Reader Auth V2 + Saved Stories audit passed.")
     return 0
 
 

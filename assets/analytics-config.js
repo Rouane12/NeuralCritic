@@ -136,3 +136,14 @@ window.NEURAL_CRITIC_ANALYTICS = {
   }, { once: true });
   document.head.appendChild(auth);
 })();
+
+(() => {
+  const pageName = (location.pathname.split('/').pop() || 'index.html').toLowerCase();
+  const privatePages = new Set(['studio.html', 'subscribers.html', 'newsroom.html']);
+  if (privatePages.has(pageName) || document.querySelector('script[data-nc-saved-stories]')) return;
+  const saved = document.createElement('script');
+  saved.src = 'assets/saved-stories.js?v=20260831-saved1';
+  saved.async = true;
+  saved.dataset.ncSavedStories = '1';
+  document.head.appendChild(saved);
+})();
