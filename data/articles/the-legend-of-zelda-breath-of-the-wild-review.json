@@ -82,9 +82,9 @@
   "featured": false,
   "homepageSlot": "regular",
   "publishedAt": "2026-08-26T19:10:57.692+00:00",
-  "updatedAt": "2026-08-26T19:10:59.80935+00:00",
+  "updatedAt": "2026-08-31T23:28:08.232805+00:00",
   "imageLocal": "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1787771343973-ad27323d-a684-4b20-a465-e2fd4d9efaf4-zelda-review.jpg",
-  "editorialSection": "what-to-play",
+  "editorialSection": "reviews",
   "platforms": [
     "nintendo"
   ],
