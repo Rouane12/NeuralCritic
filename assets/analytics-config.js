@@ -147,3 +147,14 @@ window.NEURAL_CRITIC_ANALYTICS = {
   saved.dataset.ncSavedStories = '1';
   document.head.appendChild(saved);
 })();
+
+(() => {
+  const pageName = (location.pathname.split('/').pop() || 'index.html').toLowerCase();
+  const privatePages = new Set(['studio.html', 'subscribers.html', 'newsroom.html']);
+  if (privatePages.has(pageName) || document.querySelector('script[data-nc-entity-follows]')) return;
+  const follows = document.createElement('script');
+  follows.src = 'assets/entity-follows.js?v=20260831-follow1';
+  follows.async = true;
+  follows.dataset.ncEntityFollows = '1';
+  document.head.appendChild(follows);
+})();
