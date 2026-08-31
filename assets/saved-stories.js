@@ -48,7 +48,7 @@
           if (!error && data?.user) return { sb, user:data.user };
         } catch (_) {}
       }
-      if (clients.length && !waitForClient) break;
+      if (clients.length) return { sb:fallback, user:null };
       await sleep(80);
     }
     return { sb:fallback, user:null };
@@ -205,8 +205,10 @@
     const button = document.createElement('button');
     button.className = 'nc-save-story';
     button.type = 'button';
+    button.dataset.state = 'ready';
     button.setAttribute('aria-pressed', 'false');
-    paintButton(false);
+    button.setAttribute('aria-label', 'Save story for later');
+    button.innerHTML = `<b aria-hidden="true">${bookmarkIcon(false)}</b><small>SAVE</small>`;
     const share = $('[data-article-share]', rail);
     if (share) rail.insertBefore(button, share); else rail.appendChild(button);
     button.addEventListener('click', toggleCurrent);
