@@ -31,7 +31,7 @@ def main() -> int:
         "studio.html",
         "subscribers.html",
         "newsroom.html",
-        "assets/saved-stories.js?v=20260831-saved4",
+        "assets/saved-stories.js?v=20260831-saved5",
         "data-nc-saved-stories",
     ):
         if marker not in bootstrap:
@@ -98,6 +98,10 @@ def main() -> int:
         "Saved Stories insert could not be verified.",
         "Saved Stories removal could not be verified.",
         "accountModalIsOpen",
+        "accountExtensionHost",
+        "reader-account-extensions",
+        "data.readerAccountExtensions",
+        "readerAccountExtension = 'saved-stories'",
         "refreshAccountSoon",
         "visibilitychange",
         "relativeSavedAt",
@@ -110,6 +114,8 @@ def main() -> int:
 
     if "nc-save-story-wrap" in saved:
         errors.append("Saved Stories must live in the existing article reaction rail, not a standalone article-header control.")
+    if "const slot = $('.reader-profile-slot')" in saved:
+        errors.append("Saved Stories account content must not mount inside the mutable reader profile slot.")
 
     for marker in (
         "create table if not exists public.reader_saved_stories",
