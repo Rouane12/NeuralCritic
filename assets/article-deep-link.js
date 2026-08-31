@@ -41,7 +41,7 @@
   function loadDevelopingTimeline() {
     if (document.querySelector('script[data-nc-developing-timeline]')) return;
     const script = document.createElement('script');
-    script.src = 'assets/developing-story-timeline.js?v=20260831-timeline2';
+    script.src = 'assets/developing-story-timeline.js?v=20260831-timeline3';
     script.dataset.ncDevelopingTimeline = '1';
     script.defer = true;
     document.head.appendChild(script);
