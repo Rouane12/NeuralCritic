@@ -25,6 +25,25 @@
   let allArticles = [];
   let current = [];
 
+  function mapRow(row){
+    return {
+      slug: row.slug,
+      title: row.title,
+      description: row.description || '',
+      category: row.category || 'FEATURE',
+      author: row.author_name || row.author || 'Neural Critic',
+      tags: Array.isArray(row.tags) ? row.tags : [],
+      articleFormat: row.article_format || row.articleFormat || 'standard',
+      imageLocal: row.image_url || row.imageLocal || '',
+      imageAlt: row.image_alt || row.imageAlt || '',
+      publishedAt: row.published_at || row.publishedAt || null,
+      body: row.body || '',
+      contentBlocks: row.content_blocks || row.contentBlocks || [],
+      conclusion: row.conclusion || '',
+      editorialSection: row.editorial_section || row.editorialSection || null
+    };
+  }
+
   function matches(article, category){
     if (category === 'latest') return true;
     const cat = String(article.category || '').toLowerCase();
@@ -103,12 +122,26 @@
   }
 
   async function load(){
-    const summary = await fetch('data/articles.json').then(r=>r.json());
-    allArticles = await Promise.all(summary.map(async item => {
+    const client = window.neuralCriticPublicSupabase;
+    if (client) {
+      const { data, error } = await client
+        .from('articles')
+        .select('slug,title,description,category,author_name,tags,article_format,image_url,image_alt,published_at,body,content_blocks,conclusion,editorial_section,status')
+        .eq('status','published')
+        .lte('published_at',new Date().toISOString())
+        .order('published_at',{ascending:false});
+      if (!error) {
+        allArticles = (data || []).map(mapRow);
+        return;
+      }
+    }
+
+    const summary = await fetch('data/articles.json',{cache:'no-store'}).then(r=>r.ok?r.json():[]);
+    allArticles = await Promise.all((summary || []).map(async item => {
       try {
-        const detail = await fetch(`data/articles/${encodeURIComponent(item.slug)}.json`).then(r=>r.ok?r.json():null);
-        return detail ? {...item,...detail} : item;
-      } catch (_) { return item; }
+        const detail = await fetch(`data/articles/${encodeURIComponent(item.slug)}.json`,{cache:'no-store'}).then(r=>r.ok?r.json():null);
+        return mapRow(detail ? {...item,...detail} : item);
+      } catch (_) { return mapRow(item); }
     }));
     allArticles.sort((a,b)=>new Date(b.publishedAt || 0)-new Date(a.publishedAt || 0));
   }
