@@ -3,7 +3,7 @@
 
   const TABLE = 'reader_saved_stories';
   const $ = (s, r = document) => r.querySelector(s);
-  const esc = (v = '') => String(v).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+  const esc = (v = '') => String(v).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot',"'":'&#39;'}[c]));
   const sleep = ms => new Promise(resolve => setTimeout(resolve, ms));
   const slug = () => window.NEURAL_CRITIC_STATIC_SLUG || new URLSearchParams(location.search).get('slug') || location.pathname.match(/^\/stories\/([^/]+)\/?$/)?.[1] || '';
   let articleIndex = null;
@@ -14,10 +14,10 @@
     const style = document.createElement('style');
     style.dataset.ncSavedStories = '1';
     style.textContent = `
-      .nc-save-story{display:inline-flex;align-items:center;gap:7px;min-height:34px;padding:0 12px;border:1px solid rgba(116,105,255,.28);border-radius:999px;background:rgba(116,105,255,.07);color:#8179f8;font:850 8px/1 Inter,system-ui,sans-serif;letter-spacing:.06em;cursor:pointer;transition:.16s ease}.nc-save-story:hover,.nc-save-story:focus-visible{border-color:rgba(64,217,239,.48);background:rgba(64,217,239,.08);color:#32cbe2;outline:none}.nc-save-story[aria-pressed="true"]{border-color:rgba(64,217,239,.4);background:rgba(64,217,239,.1);color:#37d4e8}.nc-save-story:disabled{opacity:.55;cursor:wait}.nc-save-story-wrap{display:flex;justify-content:flex-end;margin:12px 0 18px}
+      .work-react-rail .nc-save-story[aria-pressed="true"]{color:#665dff}.work-react-rail .nc-save-story:disabled{opacity:.55;cursor:wait}
       .nc-saved-account{margin-top:18px;padding-top:17px;border-top:1px solid rgba(126,145,184,.18)}.nc-saved-account-head{display:flex;align-items:end;justify-content:space-between;gap:12px;margin-bottom:10px}.nc-saved-account-head small{display:block;color:#55dcea;font:850 7px/1 Inter,system-ui,sans-serif;letter-spacing:.14em}.nc-saved-account-head strong{display:block;margin-top:5px;color:#eef3ff;font:780 16px/1.1 Inter,system-ui,sans-serif}.nc-saved-count{color:#7e8ba3;font:800 7px/1 Inter,system-ui,sans-serif;letter-spacing:.08em}.nc-saved-list{display:grid;gap:8px}.nc-saved-card{display:grid;grid-template-columns:58px minmax(0,1fr) auto;gap:10px;align-items:center;padding:8px;border:1px solid rgba(126,145,184,.16);border-radius:11px;background:rgba(8,14,28,.55)}.nc-saved-card img{width:58px;height:44px;object-fit:cover;border-radius:8px}.nc-saved-card-copy{min-width:0}.nc-saved-card a{display:-webkit-box;overflow:hidden;-webkit-line-clamp:2;-webkit-box-orient:vertical;color:#e9eef9;font:700 9px/1.3 Inter,system-ui,sans-serif;text-decoration:none}.nc-saved-card a:hover{text-decoration:underline;text-underline-offset:2px}.nc-saved-card span{display:block;margin-top:4px;color:#77859f;font:650 7px/1 Inter,system-ui,sans-serif;letter-spacing:.06em}.nc-saved-remove{width:28px;height:28px;border:1px solid rgba(126,145,184,.2);border-radius:50%;background:transparent;color:#8996ac;cursor:pointer}.nc-saved-remove:hover,.nc-saved-remove:focus-visible{border-color:rgba(255,115,139,.4);color:#ff8299;outline:none}.nc-saved-empty{margin:0;color:#8996ac;font:500 9px/1.5 Inter,system-ui,sans-serif}
       html[data-theme="light"] .nc-saved-account-head strong,html[data-theme="light"] .nc-saved-card a{color:#1c2738}html[data-theme="light"] .nc-saved-card{background:rgba(245,248,252,.8)}
-      @media(max-width:560px){.nc-save-story-wrap{justify-content:flex-start}.nc-saved-card{grid-template-columns:50px minmax(0,1fr) auto}.nc-saved-card img{width:50px;height:40px}}
+      @media(max-width:560px){.nc-saved-card{grid-template-columns:50px minmax(0,1fr) auto}.nc-saved-card img{width:50px;height:40px}}
     `;
     document.head.appendChild(style);
   }
@@ -100,7 +100,8 @@
       const current = await user();
       const saved = current ? await isSaved(articleSlug) : false;
       button.setAttribute('aria-pressed', String(saved));
-      button.innerHTML = saved ? '<span aria-hidden="true">✓</span> SAVED' : '<span aria-hidden="true">＋</span> SAVE STORY';
+      button.classList.toggle('active', saved);
+      button.innerHTML = `<b aria-hidden="true">${saved ? '✓' : '▯'}</b><small>${saved ? 'SAVED' : 'SAVE'}</small>`;
       button.title = current ? (saved ? 'Remove from Saved Stories' : 'Save for later') : 'Sign in to save this story';
     } catch (_) {}
   }
@@ -124,14 +125,17 @@
 
   function injectButton() {
     if (!slug() || $('.nc-save-story')) return !!$('.nc-save-story');
-    const article = $('#article');
-    if (!article) return false;
-    const wrap = document.createElement('div');
-    wrap.className = 'nc-save-story-wrap';
-    wrap.innerHTML = '<button class="nc-save-story" type="button" aria-pressed="false"><span aria-hidden="true">＋</span> SAVE STORY</button>';
-    const target = article.querySelector('.article-meta,.nc-article-meta,.story-meta,.article-hero') || article.firstElementChild;
-    if (target) target.insertAdjacentElement('afterend', wrap); else article.prepend(wrap);
-    $('.nc-save-story', wrap)?.addEventListener('click', toggleCurrent);
+    const rail = $('.work-react-rail');
+    if (!rail) return false;
+    const button = document.createElement('button');
+    button.className = 'nc-save-story';
+    button.type = 'button';
+    button.setAttribute('aria-pressed', 'false');
+    button.setAttribute('aria-label', 'Save story for later');
+    button.innerHTML = '<b aria-hidden="true">▯</b><small>SAVE</small>';
+    const share = $('[data-article-share]', rail);
+    if (share) rail.insertBefore(button, share); else rail.appendChild(button);
+    button.addEventListener('click', toggleCurrent);
     syncButton();
     return true;
   }
@@ -178,8 +182,9 @@
   function init() {
     ensureStyles();
     let tries = 0;
-    const articleTimer = setInterval(() => { if (injectButton() || ++tries > 70) clearInterval(articleTimer); }, 100);
+    const articleTimer = setInterval(() => { if (injectButton() || ++tries > 100) clearInterval(articleTimer); }, 100);
     const observer = new MutationObserver(() => {
+      injectButton();
       const slot = $('.reader-profile-slot');
       if (slot && !$('.nc-saved-account', slot)) renderAccountSaved();
     });

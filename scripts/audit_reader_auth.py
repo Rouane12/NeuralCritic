@@ -31,7 +31,7 @@ def main() -> int:
         "studio.html",
         "subscribers.html",
         "newsroom.html",
-        "assets/saved-stories.js?v=20260831-saved1",
+        "assets/saved-stories.js?v=20260831-saved2",
         "data-nc-saved-stories",
     ):
         if marker not in bootstrap:
@@ -90,11 +90,16 @@ def main() -> int:
         "nc-saved-account",
         "NeuralCriticSavedStories",
         "nc:saved-stories-changed",
+        ".work-react-rail",
+        "data-article-share",
         "/data/articles.json",
         "/stories/${encodeURIComponent(row.article_slug)}/",
     ):
         if marker not in saved:
             errors.append(f"Saved Stories runtime missing marker: {marker}")
+
+    if "nc-save-story-wrap" in saved:
+        errors.append("Saved Stories must live in the existing article reaction rail, not a standalone article-header control.")
 
     for marker in (
         "create table if not exists public.reader_saved_stories",
