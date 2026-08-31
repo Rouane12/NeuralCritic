@@ -1333,7 +1333,7 @@
     "featured": false,
     "homepageSlot": "regular",
     "publishedAt": "2026-08-27T15:50:37.578+00:00",
-    "updatedAt": "2026-08-28T16:59:40.084076+00:00",
+    "updatedAt": "2026-08-31T20:12:40.484802+00:00",
     "imageLocal": "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1787845680877-23801051-356c-45b5-a8b2-389e3c4969df-tarnished-edition.webp",
     "editorialSection": "news",
     "platforms": [
@@ -1351,7 +1351,7 @@
       "sourceUrl": "https://www.bandainamcoent.com/news/elden-ring-tarnished-edition-now-available-on-nintendo-switch-2",
       "developing": false,
       "sourceName": "Bandai Namco Entertainment",
-      "verification": "reported",
+      "verification": "confirmed",
       "documentSectionTitle": "",
       "documentSectionDescription": "",
       "documentPlacementAfterHeading": ""
@@ -5103,6 +5103,11 @@
         "headingStyle": "editorial"
       },
       {
+        "text": "The CyberLeek incident is now reaching Take-Two’s investor narrative as well as its legal response. On August 31, Investing.com reported that Take-Two shares fell about **7.2% in morning trading**, with the continuing GTA VI leak situation cited as a factor weighing on sentiment.\n\nBofA Securities nevertheless reiterated a **Buy** rating and a **$368 price target** on Take-Two. More importantly for the leak itself, the firm said details in the unauthorized footage appear consistent with access to a **genuine playable build**, while finding **no clear evidence that a distributable copy of GTA VI exists** at this stage.\n\nThat distinction matters. Access to an internal, development or otherwise restricted playable build is not the same thing as possessing a complete copy that can be distributed publicly. CyberLeek has created the impression of broad access, but the public evidence still does not verify possession of a full distributable game. Until Rockstar, Take-Two, investigators or independently verifiable evidence establishes otherwise, claims that CyberLeek has the ‘full game’ should remain treated as unproven.",
+        "heading": "The leak is now reaching investors — but a full distributable build remains unproven",
+        "headingStyle": "editorial"
+      },
+      {
         "text": "The confirmed picture is now substantial: unauthorized GTA VI material circulated under the CyberLeek name; Take-Two opened four DMCA subpoena proceedings spanning Microsoft, Discord, X and Google/YouTube; Rockstar publicly condemned the leaks; the campaign continued into reported story material; and on-chain reporting documented a large $CYBERLEEK token cash-out.\n\nWhat remains unresolved is just as important. There is still **no verified public identification of CyberLeek**, no confirmed public explanation of how the material was obtained, and no verified announcement that Discord, Google, X or Microsoft records have unmasked the source. Accounts appearing in filings or online discussions should not be treated as the original leaker without evidence.\n\nNeural Critic will continue separating those confirmed events from speculation and will not redistribute the unauthorized footage.",
         "heading": "What is confirmed — and what remains unknown",
         "headingStyle": "editorial"
@@ -5120,7 +5125,7 @@
     "featured": false,
     "homepageSlot": "regular",
     "publishedAt": "2026-08-23T19:12:26.423+00:00",
-    "updatedAt": "2026-08-28T16:51:25.957284+00:00",
+    "updatedAt": "2026-08-31T19:18:13.270261+00:00",
     "imageLocal": "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1787509341778-476aaa5e-158b-4936-8656-59fbb2284876-jason-and-lucia-robbery-with-logo-landscape.jpg",
     "editorialSection": "news",
     "platforms": [],
@@ -5179,6 +5184,12 @@
           "note": "Court-record reporting confirms that Take-Two’s GTA VI leak-identification effort spans four separate DMCA subpoena proceedings involving Microsoft, Discord, X Corp. and Google/YouTube. The Google/YouTube proceeding adds another major platform to the documented hunt. The procedural distinction remains important: an application or order directing issuance does not itself prove that a provider has been served, produced records, or identified CyberLeek. No verified public identification or confirmed four-platform data handover has been established.",
           "sourceUrl": "https://torrentfreak.com/take-two-expands-gta-6-leak-hunt-with-dmca-subpoenas/",
           "sourceName": "Court-record reporting / TorrentFreak"
+        },
+        {
+          "at": "2026-08-31T19:12:00Z",
+          "note": "BofA Securities reiterated its Buy rating and $368 price target on Take-Two while assessing the GTA VI leak risk. The firm said parts of the leaked material appear consistent with access to a genuine playable build, but found no clear evidence that a distributable copy of GTA VI exists. Separately, Investing.com reported Take-Two shares down roughly 7.2% in morning trading as the leak situation weighed on investor sentiment. This adds a market-impact angle while reinforcing that claims CyberLeek possesses a full distributable build remain unverified.",
+          "sourceUrl": "https://uk.investing.com/news/stock-market-news/why-is-taketwo-interactive-stock-sliding-today-93CH-4853039",
+          "sourceName": "Investing.com / BofA Securities"
         }
       ],
       "documents": [

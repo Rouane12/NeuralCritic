@@ -52,7 +52,7 @@
   "featured": false,
   "homepageSlot": "regular",
   "publishedAt": "2026-08-27T15:50:37.578+00:00",
-  "updatedAt": "2026-08-28T16:59:40.084076+00:00",
+  "updatedAt": "2026-08-31T20:12:40.484802+00:00",
   "imageLocal": "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1787845680877-23801051-356c-45b5-a8b2-389e3c4969df-tarnished-edition.webp",
   "editorialSection": "news",
   "platforms": [
@@ -70,7 +70,7 @@
     "sourceUrl": "https://www.bandainamcoent.com/news/elden-ring-tarnished-edition-now-available-on-nintendo-switch-2",
     "developing": false,
     "sourceName": "Bandai Namco Entertainment",
-    "verification": "reported",
+    "verification": "confirmed",
     "documentSectionTitle": "",
     "documentSectionDescription": "",
     "documentPlacementAfterHeading": ""
