@@ -21,7 +21,7 @@ const prose = (text='') => String(text || '').split(/\n\n+/).filter(Boolean).map
 }).join('');
 
 function sharedHeader(){
-  return `<div class="ticker"><div class="shell"><b>NEURAL FEED</b><p>Fresh signals from across gaming — reveals, releases, reviews, and stories worth your time</p><span>LIVE NOW ↗</span></div></div>
+  return `<div class="ticker"><div class="shell"><b>NEURAL FEED</b><p>Fresh signals from across gaming — reveals, releases, reviews, and stories worth your time</p></div></div>
   <header><div class="shell header"><button class="menu" aria-label="Menu">☰</button><a class="brand" href="index.html"><span>NEURAL</span><strong>CRITIC</strong><em>GAMING EDITORIAL</em></a><nav><a href="category.html?category=news">News</a><a href="category.html?category=features">Features</a><a href="category.html?category=guides">Guides</a><a href="category.html?category=reviews">Reviews</a><a href="category.html?category=pc">PC</a><a href="category.html?category=playstation">PlayStation</a><a href="category.html?category=xbox">Xbox</a><a href="category.html?category=nintendo">Nintendo</a></nav><div class="header-tools"><button class="theme-toggle" type="button"><span>☼</span><small>LIGHT</small></button><a class="search" href="search.html" aria-label="Search stories">⌕</a></div></div></header>`;
 }
 function sharedFooter(){
