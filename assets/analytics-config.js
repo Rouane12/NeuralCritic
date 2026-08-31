@@ -29,9 +29,6 @@ window.NEURAL_CRITIC_ANALYTICS = {
     document.head.appendChild(style);
   }
 
-  /* Keep social login geometry deliberate as providers are enabled over time:
-     1 = full width, 2 = balanced pair, 3 = one clean row on desktop,
-     4 = a roomy 2x2 grid. Narrow screens keep touch targets comfortable. */
   if (!document.querySelector('style[data-nc-reader-social-polish]')) {
     const socialStyle = document.createElement('style');
     socialStyle.dataset.ncReaderSocialPolish = '1';
@@ -49,8 +46,6 @@ window.NEURAL_CRITIC_ANALYTICS = {
     document.head.appendChild(socialStyle);
   }
 
-  /* Load the current Reader Auth stylesheet explicitly so production visitors
-     receive auth polish without depending on a hard refresh. */
   if (!document.querySelector('link[data-nc-reader-auth-v2]')) {
     const authStyle = document.createElement('link');
     authStyle.rel = 'stylesheet';
@@ -59,10 +54,6 @@ window.NEURAL_CRITIC_ANALYTICS = {
     document.head.appendChild(authStyle);
   }
 
-  /* Supabase's settings payload does not always mirror every OAuth provider
-     identifier used by the client SDK (notably X). Keep X visible, add Facebook
-     only when Supabase reports it enabled, and continuously normalize the grid
-     after Reader Auth re-renders its provider list. */
   let facebookEnabled = null;
 
   const syncSocialGrid = host => {
@@ -153,7 +144,7 @@ window.NEURAL_CRITIC_ANALYTICS = {
   const privatePages = new Set(['studio.html', 'subscribers.html', 'newsroom.html']);
   if (privatePages.has(pageName) || document.querySelector('script[data-nc-entity-follows]')) return;
   const follows = document.createElement('script');
-  follows.src = 'assets/entity-follows.js?v=20260831-follow1';
+  follows.src = 'assets/entity-follows-v2.js?v=20260831-follow2';
   follows.async = true;
   follows.dataset.ncEntityFollows = '1';
   document.head.appendChild(follows);
