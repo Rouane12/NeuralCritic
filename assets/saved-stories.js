@@ -179,9 +179,11 @@
     ensureStyles();
     let tries = 0;
     const articleTimer = setInterval(() => { if (injectButton() || ++tries > 70) clearInterval(articleTimer); }, 100);
-    const observer = new MutationObserver(() => { renderAccountSaved(); });
+    const observer = new MutationObserver(() => {
+      const slot = $('.reader-profile-slot');
+      if (slot && !$('.nc-saved-account', slot)) renderAccountSaved();
+    });
     observer.observe(document.documentElement, { childList:true, subtree:true });
-    setTimeout(() => observer.disconnect(), 12000);
     document.addEventListener('nc:reader-auth', () => { syncButton(); renderAccountSaved(); });
     document.addEventListener('nc:saved-stories-changed', () => { syncButton(); renderAccountSaved(); });
     window.addEventListener('neuralcritic:account-refreshed', renderAccountSaved);
