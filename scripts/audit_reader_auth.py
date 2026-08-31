@@ -100,7 +100,7 @@ def main() -> int:
         "accountModalIsOpen",
         "accountExtensionHost",
         "reader-account-extensions",
-        "data.readerAccountExtensions",
+        "dataset.readerAccountExtensions",
         "readerAccountExtension = 'saved-stories'",
         "refreshAccountSoon",
         "visibilitychange",
