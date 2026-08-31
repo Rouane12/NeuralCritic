@@ -24,6 +24,7 @@ def main() -> int:
     signup_guard = text("assets/signup-hardening.js")
     saved = text("assets/saved-stories.js")
     follows = text("assets/entity-follows-v2.js")
+    topic = text("topic.html")
     saved_migration = text("supabase/migrations/20260831204500_reader_saved_stories_v1.sql")
     follows_migration = text("supabase/migrations/20260831225300_reader_entity_follows_v1.sql")
 
@@ -148,6 +149,15 @@ def main() -> int:
         errors.append("Entity follow toggles must reuse one authenticated client/user context rather than reacquiring auth mid-write.")
     if "data-article-follow" not in follows or "cloneNode(true)" not in follows:
         errors.append("Article rail follow control must be deliberately taken over from writer-follow semantics for entity following.")
+
+    for marker in (
+        "assets/reader-account.js",
+        "assets/community.css",
+        "assets/community-polish.css",
+        "assets/topic-hub.css",
+    ):
+        if marker not in topic:
+            errors.append(f"Topic hub template missing reader-account presentation dependency: {marker}")
 
     for marker in (
         "create table if not exists public.reader_saved_stories",
