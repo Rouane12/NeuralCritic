@@ -8,6 +8,8 @@
   const slug = () => window.NEURAL_CRITIC_STATIC_SLUG || new URLSearchParams(location.search).get('slug') || location.pathname.match(/^\/stories\/([^/]+)\/?$/)?.[1] || '';
   let articleIndex = null;
   let busy = false;
+  let libraryRenderId = 0;
+  let accountRefreshTimer = 0;
 
   const bookmarkIcon = saved => `
     <svg viewBox="0 0 24 24" width="18" height="18" fill="${saved ? 'currentColor' : 'none'}" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
@@ -20,7 +22,7 @@
     style.dataset.ncSavedStories = '1';
     style.textContent = `
       .work-react-rail .nc-save-story b{display:grid;place-items:center}.work-react-rail .nc-save-story b svg{display:block;width:18px;height:18px}.work-react-rail .nc-save-story[aria-pressed="true"]{color:#665dff}.work-react-rail .nc-save-story[data-state="error"]{color:#c04d67}.work-react-rail .nc-save-story:disabled{opacity:.62;cursor:wait}
-      .nc-saved-account{margin-top:18px;padding-top:17px;border-top:1px solid rgba(126,145,184,.18)}.nc-saved-account-head{display:flex;align-items:end;justify-content:space-between;gap:12px;margin-bottom:10px}.nc-saved-account-head small{display:block;color:#55dcea;font:850 7px/1 Inter,system-ui,sans-serif;letter-spacing:.14em}.nc-saved-account-head strong{display:block;margin-top:5px;color:#eef3ff;font:780 16px/1.1 Inter,system-ui,sans-serif}.nc-saved-count{color:#7e8ba3;font:800 7px/1 Inter,system-ui,sans-serif;letter-spacing:.08em}.nc-saved-list{display:grid;gap:8px}.nc-saved-card{display:grid;grid-template-columns:58px minmax(0,1fr) auto;gap:10px;align-items:center;padding:8px;border:1px solid rgba(126,145,184,.16);border-radius:11px;background:rgba(8,14,28,.55)}.nc-saved-card img{width:58px;height:44px;object-fit:cover;border-radius:8px}.nc-saved-card-copy{min-width:0}.nc-saved-card a{display:-webkit-box;overflow:hidden;-webkit-line-clamp:2;-webkit-box-orient:vertical;color:#e9eef9;font:700 9px/1.3 Inter,system-ui,sans-serif;text-decoration:none}.nc-saved-card a:hover{text-decoration:underline;text-underline-offset:2px}.nc-saved-card span{display:block;margin-top:4px;color:#77859f;font:650 7px/1 Inter,system-ui,sans-serif;letter-spacing:.06em}.nc-saved-remove{width:28px;height:28px;border:1px solid rgba(126,145,184,.2);border-radius:50%;background:transparent;color:#8996ac;cursor:pointer}.nc-saved-remove:hover,.nc-saved-remove:focus-visible{border-color:rgba(255,115,139,.4);color:#ff8299;outline:none}.nc-saved-empty{margin:0;color:#8996ac;font:500 9px/1.5 Inter,system-ui,sans-serif}
+      .nc-saved-account{margin-top:18px;padding-top:17px;border-top:1px solid rgba(126,145,184,.18)}.nc-saved-account-head{display:flex;align-items:end;justify-content:space-between;gap:12px;margin-bottom:10px}.nc-saved-account-head small{display:block;color:#55dcea;font:850 7px/1 Inter,system-ui,sans-serif;letter-spacing:.14em}.nc-saved-account-head strong{display:block;margin-top:5px;color:#eef3ff;font:780 16px/1.1 Inter,system-ui,sans-serif}.nc-saved-count{color:#7e8ba3;font:800 7px/1 Inter,system-ui,sans-serif;letter-spacing:.08em}.nc-saved-sync{display:block;margin-top:3px;color:#65738c;font:700 6px/1.2 Inter,system-ui,sans-serif;letter-spacing:.07em;text-align:right}.nc-saved-list{display:grid;gap:8px}.nc-saved-card{display:grid;grid-template-columns:58px minmax(0,1fr) auto;gap:10px;align-items:center;padding:8px;border:1px solid rgba(126,145,184,.16);border-radius:11px;background:rgba(8,14,28,.55)}.nc-saved-card img{width:58px;height:44px;object-fit:cover;border-radius:8px}.nc-saved-card-copy{min-width:0}.nc-saved-card a{display:-webkit-box;overflow:hidden;-webkit-line-clamp:2;-webkit-box-orient:vertical;color:#e9eef9;font:700 9px/1.3 Inter,system-ui,sans-serif;text-decoration:none}.nc-saved-card a:hover{text-decoration:underline;text-underline-offset:2px}.nc-saved-card span{display:block;margin-top:4px;color:#77859f;font:650 7px/1 Inter,system-ui,sans-serif;letter-spacing:.06em}.nc-saved-remove{width:28px;height:28px;border:1px solid rgba(126,145,184,.2);border-radius:50%;background:transparent;color:#8996ac;cursor:pointer}.nc-saved-remove:hover,.nc-saved-remove:focus-visible{border-color:rgba(255,115,139,.4);color:#ff8299;outline:none}.nc-saved-empty,.nc-saved-loading{margin:0;color:#8996ac;font:500 9px/1.5 Inter,system-ui,sans-serif}.nc-saved-loading{opacity:.8}
       html[data-theme="light"] .nc-saved-account-head strong,html[data-theme="light"] .nc-saved-card a{color:#1c2738}html[data-theme="light"] .nc-saved-card{background:rgba(245,248,252,.8)}
       @media(max-width:560px){.nc-saved-card{grid-template-columns:50px minmax(0,1fr) auto}.nc-saved-card img{width:50px;height:40px}}
     `;
@@ -122,6 +124,16 @@
     return articleIndex;
   }
 
+  function relativeSavedAt(value) {
+    const timestamp = Date.parse(value || '');
+    if (!Number.isFinite(timestamp)) return 'SAVED';
+    const seconds = Math.max(0, Math.round((Date.now() - timestamp) / 1000));
+    if (seconds < 60) return 'SAVED JUST NOW';
+    if (seconds < 3600) return `SAVED ${Math.floor(seconds / 60)}M AGO`;
+    if (seconds < 86400) return `SAVED ${Math.floor(seconds / 3600)}H AGO`;
+    return `SAVED ${Math.floor(seconds / 86400)}D AGO`;
+  }
+
   function paintButton(saved, state = 'ready') {
     const button = $('.nc-save-story');
     if (!button) return;
@@ -182,6 +194,7 @@
       paintButton(after);
       button.title = after ? 'Remove from Saved Stories' : 'Save for later';
       document.dispatchEvent(new CustomEvent('nc:saved-stories-changed', { detail:{ slug:articleSlug, saved:after } }));
+      refreshAccountSoon(0);
       window.gtag?.('event', after ? 'story_saved' : 'story_unsaved', { article_slug:articleSlug });
     } catch (error) {
       console.warn('Saved Stories action failed.', error);
@@ -216,19 +229,38 @@
     return true;
   }
 
-  async function renderAccountSaved() {
-    const slot = $('.reader-profile-slot');
-    if (!slot) return false;
-    const { user } = await authContext(false);
+  function accountModalIsOpen() {
+    const modal = $('.reader-auth-modal');
+    return !!modal && !modal.hidden && modal.getAttribute('aria-hidden') !== 'true';
+  }
+
+  function ensureAccountSection(slot) {
     let section = $('.nc-saved-account', slot);
-    if (!user) { section?.remove(); return false; }
     if (!section) {
       section = document.createElement('section');
       section.className = 'nc-saved-account';
       slot.appendChild(section);
     }
+    return section;
+  }
+
+  async function renderAccountSaved(options = {}) {
+    const slot = $('.reader-profile-slot');
+    if (!slot) return false;
+    const renderId = ++libraryRenderId;
+    const { user } = await authContext(options.waitForAuth !== false);
+    let section = $('.nc-saved-account', slot);
+    if (!user) { section?.remove(); return false; }
+    section = ensureAccountSection(slot);
+
+    const previousMarkup = section.innerHTML;
+    if (options.showLoading && !previousMarkup) {
+      section.innerHTML = '<p class="nc-saved-loading">Syncing your Saved Stories…</p>';
+    }
+
     try {
       const [saved, articles] = await Promise.all([list(), loadArticles()]);
+      if (renderId !== libraryRenderId) return false;
       const cards = saved.map(row => {
         const item = articles.get(row.article_slug) || {};
         const title = item.title || row.article_slug.replace(/-/g, ' ');
@@ -236,42 +268,78 @@
         const category = item.category || 'STORY';
         return `<article class="nc-saved-card" data-saved-slug="${esc(row.article_slug)}">
           ${image ? `<img src="${esc(image)}" alt="" loading="lazy">` : '<span></span>'}
-          <div class="nc-saved-card-copy"><a href="/stories/${encodeURIComponent(row.article_slug)}/">${esc(title)}</a><span>${esc(category)} · SAVED</span></div>
+          <div class="nc-saved-card-copy"><a href="/stories/${encodeURIComponent(row.article_slug)}/">${esc(title)}</a><span>${esc(category)} · ${esc(relativeSavedAt(row.created_at))}</span></div>
           <button class="nc-saved-remove" type="button" aria-label="Remove ${esc(title)} from Saved Stories">×</button>
         </article>`;
       }).join('');
-      section.innerHTML = `<div class="nc-saved-account-head"><div><small>YOUR LIBRARY</small><strong>Saved Stories</strong></div><span class="nc-saved-count">${saved.length} SAVED</span></div>${cards ? `<div class="nc-saved-list">${cards}</div>` : '<p class="nc-saved-empty">Stories you save will appear here so you can come back to them from any signed-in device.</p>'}`;
+      section.innerHTML = `<div class="nc-saved-account-head"><div><small>YOUR LIBRARY</small><strong>Saved Stories</strong></div><div><span class="nc-saved-count">${saved.length} SAVED</span><span class="nc-saved-sync">SYNCED NOW</span></div></div>${cards ? `<div class="nc-saved-list">${cards}</div>` : '<p class="nc-saved-empty">Stories you save will appear here so you can come back to them from any signed-in device.</p>'}`;
       section.querySelectorAll('.nc-saved-remove').forEach(button => button.addEventListener('click', async () => {
         const card = button.closest('[data-saved-slug]');
         if (!card) return;
         button.disabled = true;
-        try { await remove(card.dataset.savedSlug); await renderAccountSaved(); await syncButton(); }
-        catch (_) { button.disabled = false; }
+        try {
+          await remove(card.dataset.savedSlug);
+          await renderAccountSaved({ waitForAuth:false });
+          await syncButton();
+        } catch (_) { button.disabled = false; }
       }));
       return true;
     } catch (error) {
+      if (renderId !== libraryRenderId) return false;
       console.warn('Saved Stories library render failed.', error);
-      section.innerHTML = '<p class="nc-saved-empty">Saved Stories are temporarily unavailable. Please try again shortly.</p>';
+      section.innerHTML = previousMarkup || '<p class="nc-saved-empty">Saved Stories are temporarily unavailable. Please try again shortly.</p>';
       return false;
     }
   }
 
-  function init() {
-    ensureStyles();
-    let tries = 0;
-    const articleTimer = setInterval(() => { if (injectButton() || ++tries > 100) clearInterval(articleTimer); }, 100);
-    const observer = new MutationObserver(() => {
-      injectButton();
+  function refreshAccountSoon(delay = 40) {
+    clearTimeout(accountRefreshTimer);
+    accountRefreshTimer = setTimeout(() => {
       const slot = $('.reader-profile-slot');
-      if (slot && !$('.nc-saved-account', slot)) renderAccountSaved();
-    });
-    observer.observe(document.documentElement, { childList:true, subtree:true });
-    document.addEventListener('nc:reader-auth', () => { syncButton(); renderAccountSaved(); });
-    document.addEventListener('nc:saved-stories-changed', () => { syncButton(); renderAccountSaved(); });
-    window.addEventListener('neuralcritic:account-refreshed', renderAccountSaved);
-    renderAccountSaved();
+      if (!slot) return;
+      renderAccountSaved({ waitForAuth:true, showLoading:true });
+    }, delay);
   }
 
-  window.NeuralCriticSavedStories = { list, isSaved, save, remove, refresh:renderAccountSaved };
+  function bindAccountRefresh() {
+    document.addEventListener('click', event => {
+      const trigger = event.target.closest?.('[data-reader-auth-open],.reader-account-button,[data-article-account],[aria-label*="account" i]');
+      if (trigger) refreshAccountSoon(80);
+    }, true);
+
+    window.addEventListener('focus', () => {
+      if (accountModalIsOpen()) refreshAccountSoon(0);
+    });
+
+    document.addEventListener('visibilitychange', () => {
+      if (!document.hidden && accountModalIsOpen()) refreshAccountSoon(0);
+    });
+  }
+
+  function init() {
+    ensureStyles();
+    bindAccountRefresh();
+    let tries = 0;
+    const articleTimer = setInterval(() => { if (injectButton() || ++tries > 100) clearInterval(articleTimer); }, 100);
+    const observer = new MutationObserver(records => {
+      injectButton();
+      let accountBecameVisible = false;
+      for (const record of records) {
+        if (record.type === 'attributes' && record.target?.classList?.contains('reader-auth-modal') && accountModalIsOpen()) {
+          accountBecameVisible = true;
+          break;
+        }
+      }
+      const slot = $('.reader-profile-slot');
+      if (slot && (!$('.nc-saved-account', slot) || accountBecameVisible)) refreshAccountSoon(accountBecameVisible ? 0 : 40);
+    });
+    observer.observe(document.documentElement, { childList:true, subtree:true, attributes:true, attributeFilter:['hidden','aria-hidden','class'] });
+    document.addEventListener('nc:reader-auth', () => { syncButton(); refreshAccountSoon(0); });
+    document.addEventListener('nc:saved-stories-changed', () => { syncButton(); refreshAccountSoon(0); });
+    window.addEventListener('neuralcritic:account-refreshed', () => refreshAccountSoon(0));
+    renderAccountSaved({ waitForAuth:false });
+  }
+
+  window.NeuralCriticSavedStories = { list, isSaved, save, remove, refresh:() => renderAccountSaved({ waitForAuth:true, showLoading:true }) };
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init, { once:true }); else init();
 })();
