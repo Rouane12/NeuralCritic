@@ -23,7 +23,7 @@ def main() -> int:
     style = text("assets/reader-auth-v2.css")
     signup_guard = text("assets/signup-hardening.js")
     saved = text("assets/saved-stories.js")
-    follows = text("assets/entity-follows.js")
+    follows = text("assets/entity-follows-v2.js")
     saved_migration = text("supabase/migrations/20260831204500_reader_saved_stories_v1.sql")
     follows_migration = text("supabase/migrations/20260831225300_reader_entity_follows_v1.sql")
 
@@ -35,7 +35,7 @@ def main() -> int:
         "newsroom.html",
         "assets/saved-stories.js?v=20260831-saved5",
         "data-nc-saved-stories",
-        "assets/entity-follows.js?v=20260831-follow1",
+        "assets/entity-follows-v2.js?v=20260831-follow2",
         "data-nc-entity-follows",
     ):
         if marker not in bootstrap:
@@ -132,11 +132,22 @@ def main() -> int:
         "LATEST FROM YOUR FOLLOWS",
         "window.NEURAL_CRITIC_STATIC_TOPIC",
         "window.NEURAL_CRITIC_STATIC_GAME_SLUG",
+        "setFollowStateWithContext",
+        "followedWithContext",
+        "Entity follow ${following ? 'save' : 'removal'} could not be verified.",
+        "data-entity-article-follow",
+        "FOLLOW ${articleEntity.type.toUpperCase()}",
+        "${articleEntity.type.toUpperCase()} ✓",
         "entity_followed",
         "entity_unfollowed",
     ):
         if marker not in follows:
             errors.append(f"Entity follows runtime missing marker: {marker}")
+
+    if "await follow(currentEntity)" in follows or "await unfollow(currentEntity)" in follows:
+        errors.append("Entity follow toggles must reuse one authenticated client/user context rather than reacquiring auth mid-write.")
+    if "data-article-follow" not in follows or "cloneNode(true)" not in follows:
+        errors.append("Article rail follow control must be deliberately taken over from writer-follow semantics for entity following.")
 
     for marker in (
         "create table if not exists public.reader_saved_stories",
@@ -169,7 +180,7 @@ def main() -> int:
         print(f"Reader Auth V2 audit failed with {len(errors)} error(s).", file=sys.stderr)
         return 1
 
-    print("Neural Critic Reader Auth V2 + Saved Stories + Entity Follows audit passed.")
+    print("Neural Critic Reader Auth V2 + Saved Stories + coherent Entity Follows audit passed.")
     return 0
 
 
