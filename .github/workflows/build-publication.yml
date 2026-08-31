@@ -19,6 +19,7 @@ on:
       - scripts/build_author_pages.py
       - scripts/enrich_story_metadata.py
       - scripts/audit_publication_reliability.py
+      - scripts/audit_runtime_consistency.py
       - assets/supabase-config.js
       - assets/article-news-layout-v3.css
       - assets/game-page.js
@@ -99,6 +100,9 @@ jobs:
 
       - name: Reliability gate generated publication state
         run: python scripts/audit_publication_reliability.py
+
+      - name: Enforce browser runtime consistency invariant
+        run: python scripts/audit_runtime_consistency.py
 
       - name: Commit publication files only when changed
         run: |
