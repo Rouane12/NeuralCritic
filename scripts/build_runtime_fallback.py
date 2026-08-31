@@ -11,6 +11,7 @@ from __future__ import annotations
 
 import json
 import re
+import time
 import urllib.parse
 import urllib.request
 from pathlib import Path
@@ -20,6 +21,42 @@ ROOT = Path(__file__).resolve().parents[1]
 CONFIG_PATH = ROOT / "assets" / "supabase-config.js"
 INDEX_PATH = ROOT / "data" / "articles.json"
 DETAIL_DIR = ROOT / "data" / "articles"
+PAGE_SIZE = 20
+REQUEST_TIMEOUT_SECONDS = 30
+MAX_ATTEMPTS = 3
+SELECT_FIELDS = ",".join(
+    [
+        "id",
+        "slug",
+        "title",
+        "description",
+        "body",
+        "category",
+        "author_name",
+        "tags",
+        "image_alt",
+        "image_credit",
+        "article_format",
+        "review_meta",
+        "content_blocks",
+        "quick_read",
+        "conclusion",
+        "conclusion_heading",
+        "conclusion_heading_style",
+        "homepage_slot",
+        "published_at",
+        "updated_at",
+        "image_url",
+        "editorial_section",
+        "platforms",
+        "collection",
+        "collection_year",
+        "game_key",
+        "series",
+        "franchise",
+        "news_meta",
+    ]
+)
 
 
 def read_supabase_config() -> tuple[str, str]:
@@ -71,32 +108,57 @@ def runtime_row(row: dict[str, Any]) -> dict[str, Any]:
     }
 
 
-def fetch_published() -> list[dict[str, Any]]:
-    supabase_url, key = read_supabase_config()
+def fetch_page(supabase_url: str, key: str, offset: int) -> list[dict[str, Any]]:
     query = urllib.parse.urlencode(
         {
-            "select": "*",
+            "select": SELECT_FIELDS,
             "status": "eq.published",
             "published_at": "lte.now()",
             "order": "published_at.desc",
-            "limit": "500",
+            "limit": str(PAGE_SIZE),
+            "offset": str(offset),
         },
         safe=".*,:()+-",
     )
-    request = urllib.request.Request(
-        f"{supabase_url}/rest/v1/articles?{query}",
-        headers={
-            "apikey": key,
-            "Authorization": f"Bearer {key}",
-            "Accept": "application/json",
-            "User-Agent": "NeuralCritic-RuntimeFallback/1.0",
-        },
-    )
-    with urllib.request.urlopen(request, timeout=20) as response:
-        payload = json.loads(response.read().decode("utf-8"))
-    if not isinstance(payload, list):
-        raise RuntimeError("Supabase article response was not a list.")
-    rows = [runtime_row(row) for row in payload if isinstance(row, dict) and valid_slug(row.get("slug"))]
+    url = f"{supabase_url}/rest/v1/articles?{query}"
+    last_error: Exception | None = None
+    for attempt in range(1, MAX_ATTEMPTS + 1):
+        request = urllib.request.Request(
+            url,
+            headers={
+                "apikey": key,
+                "Authorization": f"Bearer {key}",
+                "Accept": "application/json",
+                "User-Agent": "NeuralCritic-RuntimeFallback/1.1",
+            },
+        )
+        try:
+            with urllib.request.urlopen(request, timeout=REQUEST_TIMEOUT_SECONDS) as response:
+                payload = json.loads(response.read().decode("utf-8"))
+            if not isinstance(payload, list):
+                raise RuntimeError("Supabase article response was not a list.")
+            return [row for row in payload if isinstance(row, dict)]
+        except Exception as exc:
+            last_error = exc
+            if attempt < MAX_ATTEMPTS:
+                time.sleep(attempt * 2)
+    raise RuntimeError(f"Supabase runtime fallback page at offset {offset} failed after {MAX_ATTEMPTS} attempts: {last_error}")
+
+
+def fetch_published() -> list[dict[str, Any]]:
+    supabase_url, key = read_supabase_config()
+    payload: list[dict[str, Any]] = []
+    offset = 0
+    while True:
+        page = fetch_page(supabase_url, key, offset)
+        payload.extend(page)
+        if len(page) < PAGE_SIZE:
+            break
+        offset += PAGE_SIZE
+        if offset >= 500:
+            raise RuntimeError("Published article fallback exceeded the 500-row safety limit.")
+
+    rows = [runtime_row(row) for row in payload if valid_slug(row.get("slug"))]
     if not rows:
         raise RuntimeError("Supabase returned no published articles; refusing to replace runtime fallback.")
     return rows
