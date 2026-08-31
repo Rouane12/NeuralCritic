@@ -6,6 +6,7 @@
   const esc = (v = '') => String(v).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
   const sleep = ms => new Promise(resolve => setTimeout(resolve, ms));
   const slug = () => window.NEURAL_CRITIC_STATIC_SLUG || new URLSearchParams(location.search).get('slug') || location.pathname.match(/^\/stories\/([^/]+)\/?$/)?.[1] || '';
+
   let articleIndex = null;
   let busy = false;
   let libraryRenderId = 0;
@@ -22,7 +23,7 @@
     style.dataset.ncSavedStories = '1';
     style.textContent = `
       .work-react-rail .nc-save-story b{display:grid;place-items:center}.work-react-rail .nc-save-story b svg{display:block;width:18px;height:18px}.work-react-rail .nc-save-story[aria-pressed="true"]{color:#665dff}.work-react-rail .nc-save-story[data-state="error"]{color:#c04d67}.work-react-rail .nc-save-story:disabled{opacity:.62;cursor:wait}
-      .nc-saved-account{margin-top:18px;padding-top:17px;border-top:1px solid rgba(126,145,184,.18)}.nc-saved-account-head{display:flex;align-items:end;justify-content:space-between;gap:12px;margin-bottom:10px}.nc-saved-account-head small{display:block;color:#55dcea;font:850 7px/1 Inter,system-ui,sans-serif;letter-spacing:.14em}.nc-saved-account-head strong{display:block;margin-top:5px;color:#eef3ff;font:780 16px/1.1 Inter,system-ui,sans-serif}.nc-saved-count{color:#7e8ba3;font:800 7px/1 Inter,system-ui,sans-serif;letter-spacing:.08em}.nc-saved-sync{display:block;margin-top:3px;color:#65738c;font:700 6px/1.2 Inter,system-ui,sans-serif;letter-spacing:.07em;text-align:right}.nc-saved-list{display:grid;gap:8px}.nc-saved-card{display:grid;grid-template-columns:58px minmax(0,1fr) auto;gap:10px;align-items:center;padding:8px;border:1px solid rgba(126,145,184,.16);border-radius:11px;background:rgba(8,14,28,.55)}.nc-saved-card img{width:58px;height:44px;object-fit:cover;border-radius:8px}.nc-saved-card-copy{min-width:0}.nc-saved-card a{display:-webkit-box;overflow:hidden;-webkit-line-clamp:2;-webkit-box-orient:vertical;color:#e9eef9;font:700 9px/1.3 Inter,system-ui,sans-serif;text-decoration:none}.nc-saved-card a:hover{text-decoration:underline;text-underline-offset:2px}.nc-saved-card span{display:block;margin-top:4px;color:#77859f;font:650 7px/1 Inter,system-ui,sans-serif;letter-spacing:.06em}.nc-saved-remove{width:28px;height:28px;border:1px solid rgba(126,145,184,.2);border-radius:50%;background:transparent;color:#8996ac;cursor:pointer}.nc-saved-remove:hover,.nc-saved-remove:focus-visible{border-color:rgba(255,115,139,.4);color:#ff8299;outline:none}.nc-saved-empty,.nc-saved-loading{margin:0;color:#8996ac;font:500 9px/1.5 Inter,system-ui,sans-serif}.nc-saved-loading{opacity:.8}
+      .reader-account-extensions{display:block}.nc-saved-account{margin-top:18px;padding-top:17px;border-top:1px solid rgba(126,145,184,.18)}.nc-saved-account-head{display:flex;align-items:end;justify-content:space-between;gap:12px;margin-bottom:10px}.nc-saved-account-head small{display:block;color:#55dcea;font:850 7px/1 Inter,system-ui,sans-serif;letter-spacing:.14em}.nc-saved-account-head strong{display:block;margin-top:5px;color:#eef3ff;font:780 16px/1.1 Inter,system-ui,sans-serif}.nc-saved-count{display:block;color:#7e8ba3;font:800 7px/1 Inter,system-ui,sans-serif;letter-spacing:.08em;text-align:right}.nc-saved-sync{display:block;margin-top:3px;color:#65738c;font:700 6px/1.2 Inter,system-ui,sans-serif;letter-spacing:.07em;text-align:right}.nc-saved-list{display:grid;gap:8px}.nc-saved-card{display:grid;grid-template-columns:58px minmax(0,1fr) auto;gap:10px;align-items:center;padding:8px;border:1px solid rgba(126,145,184,.16);border-radius:11px;background:rgba(8,14,28,.55)}.nc-saved-card img{width:58px;height:44px;object-fit:cover;border-radius:8px}.nc-saved-card-copy{min-width:0}.nc-saved-card a{display:-webkit-box;overflow:hidden;-webkit-line-clamp:2;-webkit-box-orient:vertical;color:#e9eef9;font:700 9px/1.3 Inter,system-ui,sans-serif;text-decoration:none}.nc-saved-card a:hover{text-decoration:underline;text-underline-offset:2px}.nc-saved-card span{display:block;margin-top:4px;color:#77859f;font:650 7px/1 Inter,system-ui,sans-serif;letter-spacing:.06em}.nc-saved-remove{width:28px;height:28px;border:1px solid rgba(126,145,184,.2);border-radius:50%;background:transparent;color:#8996ac;cursor:pointer}.nc-saved-remove:hover,.nc-saved-remove:focus-visible{border-color:rgba(255,115,139,.4);color:#ff8299;outline:none}.nc-saved-empty,.nc-saved-loading{margin:0;color:#8996ac;font:500 9px/1.5 Inter,system-ui,sans-serif}.nc-saved-loading{opacity:.8}
       html[data-theme="light"] .nc-saved-account-head strong,html[data-theme="light"] .nc-saved-card a{color:#1c2738}html[data-theme="light"] .nc-saved-card{background:rgba(245,248,252,.8)}
       @media(max-width:560px){.nc-saved-card{grid-template-columns:50px minmax(0,1fr) auto}.nc-saved-card img{width:50px;height:40px}}
     `;
@@ -50,7 +51,7 @@
           if (!error && data?.user) return { sb, user:data.user };
         } catch (_) {}
       }
-      if (clients.length) return { sb:fallback, user:null };
+      if (clients.length && !waitForClient) return { sb:fallback, user:null };
       await sleep(80);
     }
     return { sb:fallback, user:null };
@@ -58,8 +59,7 @@
 
   function openLogin() {
     if (window.NeuralCriticReaderAuth?.openAuth) return window.NeuralCriticReaderAuth.openAuth('login');
-    const trigger = $('[data-reader-auth-open],.reader-account-button');
-    trigger?.click();
+    $('[data-reader-auth-open],.reader-account-button')?.click();
   }
 
   async function list() {
@@ -120,7 +120,9 @@
       const response = await fetch('/data/articles.json', { cache:'no-cache' });
       const rows = response.ok ? await response.json() : [];
       articleIndex = new Map((Array.isArray(rows) ? rows : []).map(item => [item.slug, item]));
-    } catch (_) { articleIndex = new Map(); }
+    } catch (_) {
+      articleIndex = new Map();
+    }
     return articleIndex;
   }
 
@@ -137,13 +139,13 @@
   function paintButton(saved, state = 'ready') {
     const button = $('.nc-save-story');
     if (!button) return;
-    const isSavedState = saved === true;
+    const on = saved === true;
     button.dataset.state = state;
-    button.setAttribute('aria-pressed', String(isSavedState));
-    button.classList.toggle('active', isSavedState);
-    const label = state === 'saving' ? 'SAVING' : state === 'removing' ? 'REMOVING' : state === 'error' ? 'RETRY' : isSavedState ? 'SAVED' : 'SAVE';
-    button.innerHTML = `<b aria-hidden="true">${bookmarkIcon(isSavedState)}</b><small>${label}</small>`;
-    button.setAttribute('aria-label', state === 'error' ? 'Retry saving this story' : isSavedState ? 'Remove story from Saved Stories' : 'Save story for later');
+    button.setAttribute('aria-pressed', String(on));
+    button.classList.toggle('active', on);
+    const label = state === 'saving' ? 'SAVING' : state === 'removing' ? 'REMOVING' : state === 'error' ? 'RETRY' : on ? 'SAVED' : 'SAVE';
+    button.innerHTML = `<b aria-hidden="true">${bookmarkIcon(on)}</b><small>${label}</small>`;
+    button.setAttribute('aria-label', state === 'error' ? 'Retry Saved Stories action' : on ? 'Remove story from Saved Stories' : 'Save story for later');
   }
 
   async function syncButton() {
@@ -164,7 +166,6 @@
     } catch (error) {
       console.warn('Saved Stories state check failed.', error);
       paintButton(false, 'error');
-      button.title = 'Saved Stories could not be checked. Click to retry.';
       return false;
     }
   }
@@ -192,19 +193,13 @@
       const after = await savedWithContext(sb, user, articleSlug);
       if (after === before) throw new Error(`Saved Stories ${before ? 'removal' : 'save'} was not persisted.`);
       paintButton(after);
-      button.title = after ? 'Remove from Saved Stories' : 'Save for later';
       document.dispatchEvent(new CustomEvent('nc:saved-stories-changed', { detail:{ slug:articleSlug, saved:after } }));
       refreshAccountSoon(0);
       window.gtag?.('event', after ? 'story_saved' : 'story_unsaved', { article_slug:articleSlug });
     } catch (error) {
       console.warn('Saved Stories action failed.', error);
-      try {
-        const actual = await isSaved(articleSlug);
-        paintButton(actual, 'error');
-      } catch (_) {
-        paintButton(before, 'error');
-      }
-      button.title = 'Saved Stories could not update. Click to retry.';
+      try { paintButton(await isSaved(articleSlug), 'error'); }
+      catch (_) { paintButton(before, 'error'); }
     } finally {
       busy = false;
       button.disabled = false;
@@ -218,7 +213,6 @@
     const button = document.createElement('button');
     button.className = 'nc-save-story';
     button.type = 'button';
-    button.dataset.state = 'ready';
     button.setAttribute('aria-pressed', 'false');
     button.setAttribute('aria-label', 'Save story for later');
     button.innerHTML = `<b aria-hidden="true">${bookmarkIcon(false)}</b><small>SAVE</small>`;
@@ -234,29 +228,42 @@
     return !!modal && !modal.hidden && modal.getAttribute('aria-hidden') !== 'true';
   }
 
-  function ensureAccountSection(slot) {
-    let section = $('.nc-saved-account', slot);
+  function accountExtensionHost(create = true) {
+    const card = $('.reader-auth-card');
+    if (!card) return null;
+    let host = $('.reader-account-extensions', card);
+    if (!host && create) {
+      host = document.createElement('div');
+      host.className = 'reader-account-extensions';
+      host.dataset.readerAccountExtensions = '1';
+      const signout = $('.reader-auth-signout', card);
+      if (signout) card.insertBefore(host, signout);
+      else card.appendChild(host);
+    }
+    return host;
+  }
+
+  function ensureAccountSection(host) {
+    let section = $('.nc-saved-account', host);
     if (!section) {
       section = document.createElement('section');
       section.className = 'nc-saved-account';
-      slot.appendChild(section);
+      section.dataset.readerAccountExtension = 'saved-stories';
+      host.appendChild(section);
     }
     return section;
   }
 
   async function renderAccountSaved(options = {}) {
-    const slot = $('.reader-profile-slot');
-    if (!slot) return false;
+    const host = accountExtensionHost();
+    if (!host) return false;
     const renderId = ++libraryRenderId;
     const { user } = await authContext(options.waitForAuth !== false);
-    let section = $('.nc-saved-account', slot);
+    let section = $('.nc-saved-account', host);
     if (!user) { section?.remove(); return false; }
-    section = ensureAccountSection(slot);
-
+    section = ensureAccountSection(host);
     const previousMarkup = section.innerHTML;
-    if (options.showLoading && !previousMarkup) {
-      section.innerHTML = '<p class="nc-saved-loading">Syncing your Saved Stories…</p>';
-    }
+    if (options.showLoading && !previousMarkup) section.innerHTML = '<p class="nc-saved-loading">Syncing your Saved Stories…</p>';
 
     try {
       const [saved, articles] = await Promise.all([list(), loadArticles()]);
@@ -281,7 +288,9 @@
           await remove(card.dataset.savedSlug);
           await renderAccountSaved({ waitForAuth:false });
           await syncButton();
-        } catch (_) { button.disabled = false; }
+        } catch (_) {
+          button.disabled = false;
+        }
       }));
       return true;
     } catch (error) {
@@ -295,8 +304,7 @@
   function refreshAccountSoon(delay = 40) {
     clearTimeout(accountRefreshTimer);
     accountRefreshTimer = setTimeout(() => {
-      const slot = $('.reader-profile-slot');
-      if (!slot) return;
+      if (!accountExtensionHost()) return;
       renderAccountSaved({ waitForAuth:true, showLoading:true });
     }, delay);
   }
@@ -304,16 +312,10 @@
   function bindAccountRefresh() {
     document.addEventListener('click', event => {
       const trigger = event.target.closest?.('[data-reader-auth-open],.reader-account-button,[data-article-account],[aria-label*="account" i]');
-      if (trigger) refreshAccountSoon(80);
+      if (trigger) refreshAccountSoon(60);
     }, true);
-
-    window.addEventListener('focus', () => {
-      if (accountModalIsOpen()) refreshAccountSoon(0);
-    });
-
-    document.addEventListener('visibilitychange', () => {
-      if (!document.hidden && accountModalIsOpen()) refreshAccountSoon(0);
-    });
+    window.addEventListener('focus', () => { if (accountModalIsOpen()) refreshAccountSoon(0); });
+    document.addEventListener('visibilitychange', () => { if (!document.hidden && accountModalIsOpen()) refreshAccountSoon(0); });
   }
 
   function init() {
@@ -325,18 +327,16 @@
       injectButton();
       let accountBecameVisible = false;
       for (const record of records) {
-        if (record.type === 'attributes' && record.target?.classList?.contains('reader-auth-modal') && accountModalIsOpen()) {
-          accountBecameVisible = true;
-          break;
-        }
+        if (record.type === 'attributes' && record.target?.classList?.contains('reader-auth-modal') && accountModalIsOpen()) accountBecameVisible = true;
       }
-      const slot = $('.reader-profile-slot');
-      if (slot && (!$('.nc-saved-account', slot) || accountBecameVisible)) refreshAccountSoon(accountBecameVisible ? 0 : 40);
+      const card = $('.reader-auth-card');
+      if (card && (!accountExtensionHost(false) || accountBecameVisible)) refreshAccountSoon(accountBecameVisible ? 0 : 30);
     });
     observer.observe(document.documentElement, { childList:true, subtree:true, attributes:true, attributeFilter:['hidden','aria-hidden','class'] });
     document.addEventListener('nc:reader-auth', () => { syncButton(); refreshAccountSoon(0); });
     document.addEventListener('nc:saved-stories-changed', () => { syncButton(); refreshAccountSoon(0); });
     window.addEventListener('neuralcritic:account-refreshed', () => refreshAccountSoon(0));
+    window.addEventListener('neuralcritic:community-refreshed', () => refreshAccountSoon(0));
     renderAccountSaved({ waitForAuth:false });
   }
 
