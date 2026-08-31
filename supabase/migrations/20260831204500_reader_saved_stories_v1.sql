@@ -11,6 +11,7 @@ create index if not exists reader_saved_stories_user_created_idx
 alter table public.reader_saved_stories enable row level security;
 
 revoke all on table public.reader_saved_stories from anon;
+revoke all on table public.reader_saved_stories from authenticated;
 grant select, insert, delete on table public.reader_saved_stories to authenticated;
 
 drop policy if exists "Readers can view their saved stories" on public.reader_saved_stories;
