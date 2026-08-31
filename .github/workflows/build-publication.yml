@@ -10,6 +10,7 @@ on:
       - author.html
       - data/**
       - scripts/publication_config.py
+      - scripts/build_runtime_fallback.py
       - scripts/build_robots.py
       - scripts/build_sitemap.py
       - scripts/build_story_pages.py
@@ -72,6 +73,9 @@ jobs:
               path.write_text(html, encoding="utf-8")
           PY
 
+      - name: Refresh runtime CMS fallback
+        run: python scripts/build_runtime_fallback.py
+
       - name: Refresh robots from configured publication origin
         run: python scripts/build_robots.py
 
@@ -98,13 +102,13 @@ jobs:
 
       - name: Commit publication files only when changed
         run: |
-          if git diff --quiet -- article.html game.html robots.txt sitemap.xml feed.xml stories topics games authors; then
-            echo "Publication discovery files, story shells, topic hubs, game pages, writer hubs, article shell, and robots are already current."
+          if git diff --quiet -- article.html game.html robots.txt sitemap.xml feed.xml data/articles.json data/articles stories topics games authors; then
+            echo "Publication runtime fallback, discovery files, story shells, topic hubs, game pages, writer hubs, article shell, and robots are already current."
             exit 0
           fi
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add article.html game.html robots.txt sitemap.xml feed.xml stories topics games authors
+          git add article.html game.html robots.txt sitemap.xml feed.xml data/articles.json data/articles stories topics games authors
           git commit -m "Refresh Neural Critic canonical publication pages"
           git pull --rebase origin main
           git push
