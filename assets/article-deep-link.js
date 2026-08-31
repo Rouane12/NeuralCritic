@@ -38,11 +38,24 @@
     attempt();
   }
 
+  function loadDevelopingTimeline() {
+    if (document.querySelector('script[data-nc-developing-timeline]')) return;
+    const script = document.createElement('script');
+    script.src = 'assets/developing-story-timeline.js?v=20260831-timeline2';
+    script.dataset.ncDevelopingTimeline = '1';
+    script.defer = true;
+    document.head.appendChild(script);
+  }
+
   window.addEventListener('hashchange', () => restoreDeepLink({ behavior: 'smooth', limit: 30 }));
 
   if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', () => restoreDeepLink(), { once: true });
+    document.addEventListener('DOMContentLoaded', () => {
+      restoreDeepLink();
+      loadDevelopingTimeline();
+    }, { once: true });
   } else {
     restoreDeepLink();
+    loadDevelopingTimeline();
   }
 })();
