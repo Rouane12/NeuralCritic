@@ -31,7 +31,7 @@ def main() -> int:
         "studio.html",
         "subscribers.html",
         "newsroom.html",
-        "assets/saved-stories.js?v=20260831-saved3",
+        "assets/saved-stories.js?v=20260831-saved4",
         "data-nc-saved-stories",
     ):
         if marker not in bootstrap:
@@ -97,6 +97,11 @@ def main() -> int:
         "insert({ user_id:user.id, article_slug:articleSlug })",
         "Saved Stories insert could not be verified.",
         "Saved Stories removal could not be verified.",
+        "accountModalIsOpen",
+        "refreshAccountSoon",
+        "visibilitychange",
+        "relativeSavedAt",
+        "SYNCED NOW",
         "/data/articles.json",
         "/stories/${encodeURIComponent(row.article_slug)}/",
     ):
