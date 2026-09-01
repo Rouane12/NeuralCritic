@@ -7,7 +7,7 @@
     try { return new Intl.DateTimeFormat('en-GB',{day:'2-digit',month:'2-digit',year:'numeric'}).format(new Date(iso)); }
     catch (_) { return ''; }
   };
-  const href = article => `article.html?slug=${encodeURIComponent(article.slug)}`;
+  const href = article => `stories/${encodeURIComponent(article.slug)}/`;
   const filters = ['all','news','feature','guide','review','games','franchises','authors','pc','playstation','xbox','nintendo'];
   const entityOnlyFilters = new Set(['games','franchises','authors']);
   let articles = [];

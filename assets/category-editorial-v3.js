@@ -10,7 +10,7 @@
 
   const esc = (value='') => String(value).replace(/[&<>"']/g, ch => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[ch]));
   const sectionNames = {news:'News',reviews:'Reviews',guides:'Guides','what-to-play':'What to Play',features:'Features'};
-  const href = article => `article.html?slug=${encodeURIComponent(article.slug)}`;
+  const href = article => `stories/${encodeURIComponent(article.slug)}/`;
   let selectedStories = [];
   let rendering = false;
 
@@ -48,11 +48,18 @@
 
   function currentStorySlugs(){
     const slugs = new Set();
-    document.querySelectorAll('#category-spotlight a[href*="slug="],#category-feed a[href*="slug="]').forEach(link => {
+    document.querySelectorAll('#category-spotlight a[href],#category-feed a[href]').forEach(link => {
       try {
         const url = new URL(link.href, location.href);
-        const slug = url.searchParams.get('slug');
-        if (slug) slugs.add(slug);
+        const querySlug = url.searchParams.get('slug');
+        if (querySlug) {
+          slugs.add(querySlug);
+          return;
+        }
+        const match = url.pathname.match(/\/stories\/([^/]+)(?:\/index\.html)?\/?$/i);
+        if (!match?.[1]) return;
+        try { slugs.add(decodeURIComponent(match[1])); }
+        catch (_) { slugs.add(match[1]); }
       } catch (_) {}
     });
     return slugs;

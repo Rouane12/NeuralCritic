@@ -7,7 +7,7 @@
   const requestedYear = Number(params.get('year')) || null;
   const esc = (v='') => String(v).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
   const slugify = (v='') => String(v).toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,'');
-  const articleUrl = a => `article.html?slug=${encodeURIComponent(a.slug)}`;
+  const articleUrl = a => `stories/${encodeURIComponent(a.slug)}/`;
 
   function copyForCollection(){
     if (collection === 'all-time-greats') return {

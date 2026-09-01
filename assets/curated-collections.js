@@ -14,7 +14,7 @@
     'upcoming-games': {eyebrow:'ON THE RADAR',title:'Upcoming Games',deck:'The releases we are watching before launch, from imminent arrivals to long-range standouts.',empty:'The Upcoming Games desk is ready for its first watchlist.'}
   };
 
-  const articleUrl = a => `article.html?slug=${encodeURIComponent(a.slug)}`;
+  const articleUrl = a => `stories/${encodeURIComponent(a.slug)}/`;
   const collectionUrl = values => `category.html?${new URLSearchParams(Object.entries(values).filter(([,v])=>v!==null&&v!==undefined&&v!=='')).toString()}`;
 
   function mapArticle(r){return {slug:r.slug,title:r.title,description:r.description||'',category:r.category||'FEATURE',author:r.author_name||'Neural Critic',articleFormat:r.article_format||'standard',image:r.image_url||'',imageAlt:r.image_alt||r.title||'',platforms:Array.isArray(r.platforms)?r.platforms.map(x=>String(x).toLowerCase()):[],collection:r.collection||null,collectionYear:r.collection_year||null,publishedAt:r.published_at||''};}

@@ -10,7 +10,7 @@
     try { return new Intl.DateTimeFormat('en-GB',{day:'2-digit',month:'2-digit',year:'numeric'}).format(new Date(iso)); }
     catch (_) { return ''; }
   };
-  const href = article => `article.html?slug=${encodeURIComponent(article.slug)}`;
+  const href = article => `stories/${encodeURIComponent(article.slug)}/`;
   const config = {
     latest:{title:'Latest stories',deck:'The newest signals from across Neural Critic — features, reviews, guides, and platform coverage worth your time.'},
     news:{title:'News',deck:'Fresh gaming news, announcements, releases, and industry developments without the clutter.'},

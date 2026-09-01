@@ -18,7 +18,7 @@ def require(path: Path, markers: tuple[str, ...], failures: list[str]) -> None:
 
 def main() -> int:
     failures: list[str] = []
-    require(ROOT / "game.html", ("id=\"game-page\"", "assets/game-page.js?v=20260828-games1", "assets/game-page.css?v=20260828-games1"), failures)
+    require(ROOT / "game.html", ("id=\"game-page\"", "assets/game-page.js?v=20260901-recirculation3", "assets/game-page.css?v=20260828-games1"), failures)
     require(ROOT / "assets" / "game-page.js", ("from('games')", "from('game_releases')", "game_page_view", "stories/${encodeURIComponent(s)}/", "topics/${t}/${slugify(v)}/"), failures)
     require(ROOT / "scripts" / "build_game_pages.py", ("generated: neural-critic-game-shell", "games/{urllib.parse.quote", "VideoGame", "sync_sitemap", "NEURAL_CRITIC_STATIC_GAME_SLUG"), failures)
     require(ROOT / "supabase" / "migrations" / "20260828183000_games_database_v1.sql", ("create table if not exists public.games", "create table if not exists public.game_releases", "enable row level security", "Public can read games"), failures)

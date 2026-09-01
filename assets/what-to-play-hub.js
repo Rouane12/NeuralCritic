@@ -6,7 +6,7 @@
 
   const esc = (value='') => String(value).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
   const categoryUrl = values => `category.html?${new URLSearchParams(values).toString()}`;
-  const articleUrl = article => `article.html?slug=${encodeURIComponent(article.slug)}`;
+  const articleUrl = article => `stories/${encodeURIComponent(article.slug)}/`;
   const platformNames = {pc:'PC',playstation:'PlayStation',xbox:'Xbox',nintendo:'Nintendo'};
   const collectionDefs = [
     {key:'game-of-the-year',title:'Game of the Year',eyebrow:'ANNUAL AWARDS',copy:'The year’s strongest games, tracked from contenders to the final verdict.',empty:'Awards desk opening soon'},
