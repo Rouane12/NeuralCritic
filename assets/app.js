@@ -7,7 +7,7 @@ const fmtDate = (iso) => {
   return new Intl.DateTimeFormat('en-GB', {day:'2-digit', month:'2-digit', year:'numeric'}).format(d);
 };
 
-const articleHref = (a) => `article.html?slug=${encodeURIComponent(a.slug)}`;
+const articleHref = (a) => `stories/${encodeURIComponent(a.slug)}/`;
 const imageOf = (a) => a?.imageLocal || '';
 const escapeHtml = (value='') => String(value).replace(/[&<>'"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;',"'":'&#39;','"':'&quot;'}[c]));
 const inlineMd = (s='') => escapeHtml(s).replace(/\*\*(.+?)\*\*/g,'<strong>$1</strong>').replace(/\*(.+?)\*/g,'<em>$1</em>');
