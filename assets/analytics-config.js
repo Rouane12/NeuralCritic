@@ -144,8 +144,19 @@ window.NEURAL_CRITIC_ANALYTICS = {
   const privatePages = new Set(['studio.html', 'subscribers.html', 'newsroom.html']);
   if (privatePages.has(pageName) || document.querySelector('script[data-nc-entity-follows]')) return;
   const follows = document.createElement('script');
-  follows.src = 'assets/entity-follows-v2.js?v=20260831-follow2';
+  follows.src = 'assets/entity-follows-v2.js?v=20260831-follow3';
   follows.async = true;
   follows.dataset.ncEntityFollows = '1';
   document.head.appendChild(follows);
+})();
+
+(() => {
+  const pageName = (location.pathname.split('/').pop() || 'index.html').toLowerCase();
+  const privatePages = new Set(['studio.html', 'subscribers.html', 'newsroom.html']);
+  if (privatePages.has(pageName) || document.querySelector('script[data-nc-entity-follow-polish]')) return;
+  const polish = document.createElement('script');
+  polish.src = 'assets/entity-follows-polish.js?v=20260831-follow1';
+  polish.async = true;
+  polish.dataset.ncEntityFollowPolish = '1';
+  document.head.appendChild(polish);
 })();
