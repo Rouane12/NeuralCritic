@@ -1,0 +1,40 @@
+{
+  "campaign_id": "witcher_songs_gameplay",
+  "created_at": "2026-09-01",
+  "platform": "x",
+  "status": "ready_to_post",
+  "article": {
+    "slug": "witcher-3-songs-of-the-past-gameplay-letten-chain",
+    "title": "The Witcher 3: Songs of the Past Gameplay Shows Letten and Geralt’s New Chain",
+    "canonical_url": "https://www.neuralcritic.net/stories/witcher-3-songs-of-the-past-gameplay-letten-chain/"
+  },
+  "tracking": {
+    "source": "x",
+    "medium": "social",
+    "campaign": "witcher_songs_gameplay",
+    "original_post_url": "https://www.neuralcritic.net/stories/witcher-3-songs-of-the-past-gameplay-letten-chain/?utm_source=x&utm_medium=social&utm_campaign=witcher_songs_gameplay&utm_content=original_post",
+    "reply_url": "https://www.neuralcritic.net/stories/witcher-3-songs-of-the-past-gameplay-letten-chain/?utm_source=x&utm_medium=social&utm_campaign=witcher_songs_gameplay&utm_content=reply"
+  },
+  "target_conversation": {
+    "account": "@thewitcher",
+    "description": "Official Songs of the Past gamescom 2026 showcase-supercut post",
+    "selection_reason": "Fresh official post with large active audience and direct relevance to the published Neural Critic story."
+  },
+  "copy": {
+    "original_post": "The Witcher 3: Songs of the Past just got a much clearer gameplay showcase.\n\nThe 12-minute supercut gives us a proper look at Letten, an early quest, new monsters and how Geralt’s return is shaping up for 2027.\n\nHere’s what stood out ↓",
+    "reply": "The biggest takeaway for us is how familiar the quest rhythm still feels while Letten has a very different identity from Velen or Toussaint. The new footage finally makes the expansion feel like a substantial new Witcher 3 chapter rather than just a nostalgic return.\n\nOur breakdown:"
+  },
+  "baseline": {
+    "window": "previous_7_days",
+    "x_impressions": 3383,
+    "x_engagement_rate_percent": 0.4,
+    "x_profile_visits": 1,
+    "x_link_clicks": 4
+  },
+  "measurement": {
+    "checkpoints_hours": [24, 168],
+    "x_metrics": ["impressions", "engagement_rate", "profile_visits", "link_clicks"],
+    "ga4_metrics": ["sessions", "engaged_sessions", "article_scroll", "newsletter_signup"],
+    "success_signal": "Tracked X traffic produces qualified article readers, not just impressions."
+  }
+}
