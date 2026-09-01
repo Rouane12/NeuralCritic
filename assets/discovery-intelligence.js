@@ -16,7 +16,7 @@
   const unique = values => [...new Set(values.filter(Boolean))];
   const tagsOf = article => Array.isArray(article?.tags) ? article.tags : [];
   const platformsOf = article => Array.isArray(article?.platforms) ? article.platforms : [];
-  const articleHref = article => `article.html?slug=${encodeURIComponent(article.slug)}`;
+  const articleHref = article => `stories/${encodeURIComponent(article.slug)}/`;
 
   function entityHref(type, name) {
     const slug = slugify(name);
