@@ -47,6 +47,10 @@ def main() -> int:
     require(newsletter_admin, 'Deno.env.get("RESEND_API_KEY")', "newsletter admin function lost provider configuration")
     require(newsletter_admin, '/auth/v1/user', "newsletter admin function no longer validates the requesting Supabase user")
     require(newsletter_admin, 'role !== "admin"', "newsletter admin function no longer enforces admin role")
+    require(newsletter_admin, '"https://neuralcritic.net"', "newsletter admin lost the production origin allowlist")
+    require(newsletter_admin, '"https://www.neuralcritic.net"', "newsletter admin lost the www origin allowlist")
+    require(newsletter_admin, 'req.method === "OPTIONS"', "newsletter admin no longer accepts browser CORS preflight")
+    require(newsletter_admin, '"Access-Control-Allow-Headers": "authorization, content-type, apikey"', "newsletter admin CORS no longer permits authenticated Subscriber Desk headers")
     require(newsletter_admin, 'action === "status"', "provider readiness action is missing")
     require(newsletter_admin, 'action === "sync"', "provider reconciliation action is missing")
     require(newsletter_admin, 'action === "set_status"', "admin status propagation action is missing")
@@ -71,7 +75,7 @@ def main() -> int:
     require(doc, "outbound sending remains disabled", "delivery guide no longer states the provider activation boundary")
     require(doc, "Full access", "delivery guide no longer documents the provider permission required for Contacts and Segments")
 
-    print("Newsletter delivery audit passed: provider sync, admin auth, Edge auth config, and unsubscribe safeguards are present.")
+    print("Newsletter delivery audit passed: provider sync, admin auth/CORS, Edge auth config, and unsubscribe safeguards are present.")
     return 0
 
 
