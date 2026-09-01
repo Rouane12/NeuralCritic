@@ -24,6 +24,7 @@ def main() -> int:
     signup_guard = text("assets/signup-hardening.js")
     saved = text("assets/saved-stories.js")
     follows = text("assets/entity-follows-v2.js")
+    follows_polish = text("assets/entity-follows-polish.js")
     topic = text("topic.html")
     saved_migration = text("supabase/migrations/20260831204500_reader_saved_stories_v1.sql")
     follows_migration = text("supabase/migrations/20260831225300_reader_entity_follows_v1.sql")
@@ -36,8 +37,10 @@ def main() -> int:
         "newsroom.html",
         "assets/saved-stories.js?v=20260831-saved5",
         "data-nc-saved-stories",
-        "assets/entity-follows-v2.js?v=20260831-follow2",
+        "assets/entity-follows-v2.js?v=20260831-follow3",
         "data-nc-entity-follows",
+        "assets/entity-follows-polish.js?v=20260831-follow1",
+        "data-nc-entity-follow-polish",
     ):
         if marker not in bootstrap:
             errors.append(f"Reader Auth V2 bootstrap missing marker: {marker}")
@@ -144,6 +147,18 @@ def main() -> int:
     ):
         if marker not in follows:
             errors.append(f"Entity follows runtime missing marker: {marker}")
+
+    for marker in (
+        "balancedFeed",
+        "matchForArticle",
+        "data-follow-context",
+        "LATEST FROM YOUR FOLLOWS",
+        "data-covered-by-parent",
+        "Already included through your",
+        "specificity = { game: 3, series: 2, franchise: 1 }",
+    ):
+        if marker not in follows_polish:
+            errors.append(f"Entity follows polish missing marker: {marker}")
 
     if "await follow(currentEntity)" in follows or "await unfollow(currentEntity)" in follows:
         errors.append("Entity follow toggles must reuse one authenticated client/user context rather than reacquiring auth mid-write.")
