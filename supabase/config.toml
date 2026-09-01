@@ -1,0 +1,5 @@
+[functions.public-actions]
+verify_jwt = false
+
+[functions.newsletter-admin]
+verify_jwt = false

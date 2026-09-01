@@ -7,6 +7,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 PUBLIC_ACTIONS = ROOT / "supabase" / "functions" / "public-actions" / "index.ts"
 NEWSLETTER_ADMIN = ROOT / "supabase" / "functions" / "newsletter-admin" / "index.ts"
+SUPABASE_CONFIG = ROOT / "supabase" / "config.toml"
 SUBSCRIBERS_HTML = ROOT / "subscribers.html"
 SUBSCRIBERS_JS = ROOT / "assets" / "subscribers.js"
 DOC = ROOT / "NEWSLETTER_DELIVERY.md"
@@ -30,6 +31,7 @@ def require(haystack: str, marker: str, message: str) -> None:
 def main() -> int:
     public_actions = text(PUBLIC_ACTIONS)
     newsletter_admin = text(NEWSLETTER_ADMIN)
+    supabase_config = text(SUPABASE_CONFIG)
     subscribers_html = text(SUBSCRIBERS_HTML)
     subscribers_js = text(SUBSCRIBERS_JS)
     doc = text(DOC)
@@ -51,6 +53,12 @@ def main() -> int:
     require(newsletter_admin, "provider_only_removed", "sync no longer prevents provider-only recipients from staying in the Weekly Drop segment")
     require(newsletter_admin, "provider_unsubscribes_applied", "provider unsubscribe reconciliation is missing")
 
+    require(supabase_config, "[functions.public-actions]", "Supabase function config no longer declares public-actions")
+    require(supabase_config, "[functions.newsletter-admin]", "Supabase function config no longer declares newsletter-admin")
+    newsletter_admin_config = supabase_config.split("[functions.newsletter-admin]", 1)[1]
+    if "verify_jwt = false" not in newsletter_admin_config.split("[functions.", 1)[0]:
+        fail("newsletter-admin must disable the legacy gateway JWT check because authorization is enforced inside the function")
+
     require(subscribers_html, 'id="delivery-status"', "Subscriber Desk no longer exposes provider readiness")
     require(subscribers_html, 'id="sync-delivery"', "Subscriber Desk no longer exposes delivery synchronization")
     require(subscribers_js, '/functions/v1/newsletter-admin', "Subscriber Desk no longer uses the protected newsletter admin function")
@@ -61,8 +69,9 @@ def main() -> int:
     require(doc, "updates.neuralcritic.net", "delivery activation guide lost the dedicated sending-subdomain recommendation")
     require(doc, "unsubscribed", "delivery guide no longer documents unsubscribe handling")
     require(doc, "outbound sending remains disabled", "delivery guide no longer states the provider activation boundary")
+    require(doc, "Full access", "delivery guide no longer documents the provider permission required for Contacts and Segments")
 
-    print("Newsletter delivery audit passed: provider sync, admin auth, and unsubscribe safeguards are present.")
+    print("Newsletter delivery audit passed: provider sync, admin auth, Edge auth config, and unsubscribe safeguards are present.")
     return 0
 
 
