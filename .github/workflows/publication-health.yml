@@ -48,6 +48,7 @@ on:
       - scripts/audit_commerce.py
       - scripts/import_commerce_feed.py
       - scripts/publication_config.py
+      - scripts/build_runtime_fallback.py
       - scripts/build_robots.py
       - scripts/enrich_story_metadata.py
       - scripts/build_sitemap.py
@@ -104,6 +105,7 @@ on:
       - scripts/audit_commerce.py
       - scripts/import_commerce_feed.py
       - scripts/publication_config.py
+      - scripts/build_runtime_fallback.py
       - scripts/build_robots.py
       - scripts/enrich_story_metadata.py
       - scripts/build_sitemap.py
@@ -143,6 +145,7 @@ jobs:
         env:
           NEURAL_CRITIC_SITE_URL: https://www.neuralcritic.net/
         run: |
+          python scripts/build_runtime_fallback.py
           python scripts/build_robots.py
           python scripts/build_sitemap.py
           python scripts/build_story_pages.py
