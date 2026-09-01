@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Fail when Neural Critic discovery regresses to legacy routes or loses V2 wiring."""
+"""Fail when Neural Critic discovery regresses to legacy routes or loses Game Graph recirculation wiring."""
 
 from pathlib import Path
 
@@ -8,12 +8,11 @@ ROOT = Path(__file__).resolve().parents[1]
 
 def main() -> int:
     failures: list[str] = []
-    article_path = ROOT / "assets" / "article-discovery.js"
-    recirc_path = ROOT / "assets" / "recirculation.js"
-    api_path = ROOT / "assets" / "content-api.js"
-    article = article_path.read_text(encoding="utf-8")
-    recirc = recirc_path.read_text(encoding="utf-8")
-    api = api_path.read_text(encoding="utf-8")
+    article = (ROOT / "assets" / "article-discovery.js").read_text(encoding="utf-8")
+    recirc = (ROOT / "assets" / "recirculation.js").read_text(encoding="utf-8")
+    engine = (ROOT / "assets" / "discovery-intelligence.js").read_text(encoding="utf-8")
+    game_page = (ROOT / "assets" / "game-page.js").read_text(encoding="utf-8")
+    api = (ROOT / "assets" / "content-api.js").read_text(encoding="utf-8")
 
     for pattern in ('href="article.html?slug=', "`article.html?slug="):
         if pattern in article:
@@ -24,10 +23,27 @@ def main() -> int:
         "data-discovery-target",
         "discovery_click",
         "connected_coverage_click",
+        "engine.related(current,articles",
     )
     for marker in article_required:
         if marker not in article:
-            failures.append(f"assets/article-discovery.js is missing V2 marker: {marker}")
+            failures.append(f"assets/article-discovery.js is missing discovery marker: {marker}")
+
+    engine_required = (
+        "function relatedRelation(",
+        "function relatedScore(",
+        "function selectRelated(",
+        "function complementaryKindBonus(",
+        "same_game",
+        "same_series",
+        "same_franchise",
+        "shared_topic",
+        "meaningfulTopics",
+        "relatedScore,",
+    )
+    for marker in engine_required:
+        if marker not in engine:
+            failures.append(f"assets/discovery-intelligence.js is missing Game Graph recommendation marker: {marker}")
 
     recirc_required = (
         "topics/${encodeURIComponent(type)}/${encodeURIComponent(key)}/",
@@ -37,32 +53,58 @@ def main() -> int:
         "recirculation_hub_click",
         "recirculation_view",
         "after-reader-thread",
+        "engine.related(current, index, 3)",
+        "recommendationKinds",
     )
     for marker in recirc_required:
         if marker not in recirc:
-            failures.append(f"assets/recirculation.js is missing V2 marker: {marker}")
+            failures.append(f"assets/recirculation.js is missing recirculation marker: {marker}")
 
-    forbidden_recirc = ("topic.html?", "removeLegacyRelated", "cleanupObserver")
+    forbidden_recirc = (
+        "topic.html?",
+        "removeLegacyRelated",
+        "cleanupObserver",
+        "function scoreCandidate(",
+        "function relationFor(",
+    )
     for marker in forbidden_recirc:
         if marker in recirc:
-            failures.append(f"assets/recirculation.js still contains deprecated behavior: {marker}")
+            failures.append(f"assets/recirculation.js still contains deprecated or duplicate recommendation behavior: {marker}")
+
+    game_required = (
+        "function graphSeed(",
+        "engine.related(graphSeed(game)",
+        "same_game",
+        "same_series",
+        "same_franchise",
+        "shared_topic",
+        "game_page_recirculation_click",
+        "recommendation_engine",
+    )
+    for marker in game_required:
+        if marker not in game_page:
+            failures.append(f"assets/game-page.js is missing Game Graph recirculation marker: {marker}")
 
     api_required = (
+        "assets/discovery-intelligence.js?v=20260828-discovery2",
         "assets/recirculation.css?v=20260828-discovery2",
         "assets/recirculation.js?v=20260828-discovery2",
         "data-nc-recirculation",
     )
     for marker in api_required:
         if marker not in api:
-            failures.append(f"assets/content-api.js is missing recirculation bootstrap marker: {marker}")
+            failures.append(f"assets/content-api.js is missing discovery bootstrap marker: {marker}")
 
     if failures:
-        print("Discovery V2 audit failed:")
+        print("Discovery / Game Graph recirculation audit failed:")
         for failure in failures:
             print(f" - {failure}")
         return 1
 
-    print("Discovery V2 audit passed: canonical routes, sidebar preservation, recirculation wiring and analytics markers are present.")
+    print(
+        "Discovery / Game Graph recirculation audit passed: canonical routes, shared ranking, "
+        "diversified article recommendations, game-page adoption, analytics, and bootstrap wiring are present."
+    )
     return 0
 
 
