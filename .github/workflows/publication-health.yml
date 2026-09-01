@@ -44,9 +44,11 @@ on:
       - scripts/audit_review_intelligence.py
       - scripts/audit_publication_reliability.py
       - scripts/audit_runtime_consistency.py
+      - scripts/audit_newsletter_acquisition.py
       - scripts/audit_commerce.py
       - scripts/import_commerce_feed.py
       - scripts/publication_config.py
+      - scripts/build_runtime_fallback.py
       - scripts/build_robots.py
       - scripts/enrich_story_metadata.py
       - scripts/build_sitemap.py
@@ -99,9 +101,11 @@ on:
       - scripts/audit_review_intelligence.py
       - scripts/audit_publication_reliability.py
       - scripts/audit_runtime_consistency.py
+      - scripts/audit_newsletter_acquisition.py
       - scripts/audit_commerce.py
       - scripts/import_commerce_feed.py
       - scripts/publication_config.py
+      - scripts/build_runtime_fallback.py
       - scripts/build_robots.py
       - scripts/enrich_story_metadata.py
       - scripts/build_sitemap.py
@@ -141,6 +145,7 @@ jobs:
         env:
           NEURAL_CRITIC_SITE_URL: https://www.neuralcritic.net/
         run: |
+          python scripts/build_runtime_fallback.py
           python scripts/build_robots.py
           python scripts/build_sitemap.py
           python scripts/build_story_pages.py
@@ -166,6 +171,7 @@ jobs:
           node --check assets/game-page.js
           node --check assets/games-directory.js
           node --check assets/review-intelligence.js
+          node --check assets/newsletter.js
           node --check assets/studio-media.js
           node --check assets/studio-news.js
 
@@ -201,6 +207,9 @@ jobs:
 
       - name: Audit Review Intelligence V1
         run: python scripts/audit_review_intelligence.py
+
+      - name: Audit Newsletter Acquisition V1
+        run: python scripts/audit_newsletter_acquisition.py
 
       - name: Audit Publication Reliability V2
         run: python scripts/audit_publication_reliability.py

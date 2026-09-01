@@ -67,7 +67,8 @@ window.NEURAL_CRITIC_SUPABASE = {
 /* Shared public hardening: canonical/social metadata, structured data,
    crawler directives, canonical story routing, analytics, recirculation,
    configurable conclusions, structured news, Game Graph topic hubs,
-   monetization readiness, public presentation scale, and image hints. */
+   monetization readiness, public presentation scale, image hints,
+   and newsletter acquisition. */
 (() => {
   const pageName = (location.pathname.split('/').pop() || 'index.html').toLowerCase();
   const STATIC_META_PAGES = new Set(['privacy.html', 'standards.html', 'commercial.html', 'topic.html', 'author.html']);
@@ -119,6 +120,16 @@ window.NEURAL_CRITIC_SUPABASE = {
     script.src = 'assets/home-curation-guard.js?v=20260823-home1';
     script.async = true;
     script.dataset.ncHomeCuration = '1';
+    document.head.appendChild(script);
+  };
+
+  const loadNewsletter = () => {
+    if (pageName === 'studio.html' || pageName === 'subscribers.html') return;
+    if (document.querySelector('script[data-nc-newsletter]')) return;
+    const script = document.createElement('script');
+    script.src = 'assets/newsletter.js?v=20260901-newsletter1';
+    script.async = true;
+    script.dataset.ncNewsletter = '1';
     document.head.appendChild(script);
   };
 
@@ -307,6 +318,7 @@ window.NEURAL_CRITIC_SUPABASE = {
 
   loadStoryReadinessGuard();
   loadHomepageCurationGuard();
+  loadNewsletter();
   loadStudioConclusion();
   loadStudioNews();
   loadStudioNewsDuplicateGuard();
