@@ -72,7 +72,7 @@
   function readMinutes(article){const text=[article.body||'',...(article.contentBlocks||[]).map(x=>x.text||'')].join(' ');return Math.max(1,Math.ceil(text.trim().split(/\s+/).filter(Boolean).length/220));}
   function fmtDate(iso){try{return new Intl.DateTimeFormat('en-GB',{day:'2-digit',month:'2-digit',year:'numeric'}).format(new Date(iso))}catch(_){return''}}
   function cardImage(a){return a.imageLocal?`<img src="${esc(a.imageLocal)}" alt="${esc(a.imageAlt||a.title)}">`:'<div class="placeholder-art">NEURAL CRITIC</div>'}
-  const href=a=>`article.html?slug=${encodeURIComponent(a.slug)}`;
+  const href=a=>`stories/${encodeURIComponent(a.slug)}/`;
   function spotlightCard(a,side=false){return `<a class="${side?'':'category-spotlight-main'}" href="${href(a)}">${cardImage(a)}<div class="category-spotlight-shade"></div><div class="category-spotlight-copy"><span>${esc(sectionNames[inferSection(a)]||a.category||'STORY')}</span><h2>${esc(a.title)}</h2><p>${esc(a.description||'')}</p><small>BY ${esc(a.author||'Neural Critic')} · ${readMinutes(a)} MIN READ · ${fmtDate(a.publishedAt)}</small></div></a>`}
 
   function viewMeta(params){
