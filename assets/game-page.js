@@ -5,8 +5,8 @@
   const esc = (value = '') => String(value).replace(/[&<>"']/g, char => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[char]));
   const root = new URL(location.hostname === 'rouane12.github.io' ? '/NeuralCritic/' : '/', location.origin);
   const slugify = (value = '') => String(value).trim().toLowerCase().normalize('NFKD').replace(/[\u0300-\u036f]/g, '').replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '');
-  const storyUrl = slug => new URL(`stories/${encodeURIComponent(slug)}/`, root).href;
-  const topicUrl = (type, value) => new URL(`topics/${type}/${slugify(value)}/`, root).href;
+  const storyUrl = s => new URL(`stories/${encodeURIComponent(s)}/`, root).href;
+  const topicUrl = (t, v) => new URL(`topics/${t}/${slugify(v)}/`, root).href;
 
   function slug() {
     const query = new URLSearchParams(location.search).get('slug');
