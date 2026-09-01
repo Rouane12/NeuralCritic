@@ -2,6 +2,11 @@
   'use strict';
 
   const DAY = 86400000;
+  const GENERIC_TAGS = new Set([
+    'review','reviews','feature','features','news','guide','guides',
+    'pc','playstation','xbox','nintendo','mobile','gaming','game','games',
+    'rpg','action rpg','action-rpg','open world','open-world'
+  ]);
   const normalize = (value = '') => String(value || '').toLowerCase().normalize('NFKD').replace(/[\u0300-\u036f]/g, '').trim();
   const slugify = (value = '') => normalize(value).replace(/&/g, ' and ').replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '');
   const when = value => {
@@ -60,42 +65,144 @@
     return [...map.values()].sort((a, b) => b.count - a.count || when(b.latestAt) - when(a.latestAt) || a.name.localeCompare(b.name));
   }
 
-  function overlapCount(a = [], b = []) {
-    const right = new Set(b.map(normalize));
-    return unique(a.map(normalize)).filter(item => right.has(item)).length;
+  function overlapValues(a = [], b = [], { meaningful = false } = {}) {
+    const right = new Set(b.map(normalize).filter(Boolean));
+    const seen = new Set();
+    return a.map(value => ({ value: String(value || '').trim(), key: normalize(value) }))
+      .filter(item => item.key && right.has(item.key))
+      .filter(item => !meaningful || !GENERIC_TAGS.has(item.key))
+      .filter(item => !seen.has(item.key) && seen.add(item.key));
   }
 
-  function relatedReason(current, candidate) {
-    if (current.gameKey && normalize(current.gameKey) === normalize(candidate.gameKey)) return 'SAME GAME';
-    if (current.series && normalize(current.series) === normalize(candidate.series)) return 'SAME SERIES';
-    if (current.franchise && normalize(current.franchise) === normalize(candidate.franchise)) return 'SAME FRANCHISE';
-    if (overlapCount(tagsOf(current), tagsOf(candidate))) return 'SHARED TOPIC';
-    if (normalize(current.category) === normalize(candidate.category)) return 'SAME DESK';
-    return 'MORE COVERAGE';
+  function overlapCount(a = [], b = [], options) {
+    return overlapValues(a, b, options).length;
+  }
+
+  function articleKind(article) {
+    const category = normalize(article?.category);
+    const format = normalize(article?.articleFormat);
+    const tags = tagsOf(article).map(normalize);
+    if (format === 'review' || category === 'review' || tags.includes('review')) return 'review';
+    if (format.includes('guide') || category === 'guide' || tags.includes('guide')) return 'guide';
+    if (format === 'ranked-list' || format === 'ranking' || tags.includes('ranking')) return 'ranking';
+    if (category === 'news') return 'news';
+    return 'feature';
+  }
+
+  function relatedRelation(current, candidate) {
+    const currentGame = String(current?.gameKey || '').trim();
+    if (currentGame && normalize(currentGame) === normalize(candidate?.gameKey)) {
+      return { key:'same_game', type:'game', value:currentGame, label:'SAME GAME', weight:150 };
+    }
+    const currentSeries = String(current?.series || '').trim();
+    if (currentSeries && normalize(currentSeries) === normalize(candidate?.series)) {
+      return { key:'same_series', type:'series', value:currentSeries, label:'SAME SERIES', weight:98 };
+    }
+    const currentFranchise = String(current?.franchise || '').trim();
+    if (currentFranchise && normalize(currentFranchise) === normalize(candidate?.franchise)) {
+      return { key:'same_franchise', type:'franchise', value:currentFranchise, label:'SAME FRANCHISE', weight:72 };
+    }
+    const sharedTopics = overlapValues(tagsOf(current), tagsOf(candidate), { meaningful:true });
+    if (sharedTopics.length) {
+      return { key:'shared_topic', type:'', value:sharedTopics[0].value, label:'SHARED TOPIC', weight:28 };
+    }
+    if (current?.collection && normalize(current.collection) === normalize(candidate?.collection)) {
+      return { key:'same_collection', type:'', value:String(current.collection), label:'SAME COLLECTION', weight:18 };
+    }
+    if (normalize(current?.category) && normalize(current.category) === normalize(candidate?.category)) {
+      return { key:'same_desk', type:'', value:String(current.category || ''), label:'SAME DESK', weight:7 };
+    }
+    return { key:'related', type:'', value:'', label:'MORE COVERAGE', weight:0 };
+  }
+
+  function complementaryKindBonus(currentKind, candidateKind) {
+    if (!currentKind || !candidateKind || currentKind === candidateKind) return 0;
+    const usefulPairs = {
+      review: new Set(['guide','feature','news','ranking']),
+      guide: new Set(['review','feature','news','ranking']),
+      news: new Set(['feature','guide','review','ranking']),
+      feature: new Set(['review','guide','news','ranking']),
+      ranking: new Set(['review','guide','feature','news'])
+    };
+    return usefulPairs[currentKind]?.has(candidateKind) ? 10 : 5;
   }
 
   function relatedScore(current, candidate) {
-    if (!current || !candidate || current.slug === candidate.slug) return -Infinity;
-    let score = 0;
-    if (current.gameKey && normalize(current.gameKey) === normalize(candidate.gameKey)) score += 120;
-    if (current.series && normalize(current.series) === normalize(candidate.series)) score += 78;
-    if (current.franchise && normalize(current.franchise) === normalize(candidate.franchise)) score += 58;
-    score += overlapCount(tagsOf(current), tagsOf(candidate)) * 14;
-    score += overlapCount(platformsOf(current), platformsOf(candidate)) * 3;
-    if (normalize(current.category) === normalize(candidate.category)) score += 7;
-    if (current.articleFormat && current.articleFormat === candidate.articleFormat) score += 4;
+    if (!current || !candidate || (current.slug && current.slug === candidate.slug)) return -Infinity;
+    const relation = relatedRelation(current, candidate);
+    const meaningfulTopics = overlapValues(tagsOf(current), tagsOf(candidate), { meaningful:true });
+    const platformOverlap = overlapCount(platformsOf(current), platformsOf(candidate));
+    const currentKind = articleKind(current);
+    const candidateKind = articleKind(candidate);
+
+    let score = relation.weight;
+    score += meaningfulTopics.length * 16;
+    score += Math.min(8, platformOverlap * 2);
+    if (normalize(current.category) && normalize(current.category) === normalize(candidate.category)) score += 5;
+    if (current.collection && normalize(current.collection) === normalize(candidate.collection)) score += 9;
+    score += complementaryKindBonus(currentKind, candidateKind);
+    if (currentKind === candidateKind) score += 2;
+
     const ageDays = Math.max(0, (Date.now() - when(candidate.updatedAt || candidate.publishedAt)) / DAY);
-    score += Math.max(0, 12 - ageDays * 0.45);
+    score += Math.max(0, 8 - ageDays * 0.22);
     return score;
   }
 
+  function relatedItem(current, article) {
+    const relation = relatedRelation(current, article);
+    const meaningfulTopics = overlapValues(tagsOf(current), tagsOf(article), { meaningful:true });
+    return {
+      article,
+      score: relatedScore(current, article),
+      reason: relation.label,
+      relation,
+      kind: articleKind(article),
+      signals: {
+        meaningfulTopics: meaningfulTopics.map(item => item.value),
+        platformOverlap: overlapCount(platformsOf(current), platformsOf(article))
+      }
+    };
+  }
+
+  function selectRelated(ranked, limit, currentKind) {
+    const remaining = [...ranked];
+    const selected = [];
+    const kindUse = new Map();
+    const relationUse = new Map();
+
+    while (remaining.length && selected.length < limit) {
+      let bestIndex = 0;
+      let bestAdjusted = -Infinity;
+      remaining.forEach((item, index) => {
+        const usedKind = kindUse.get(item.kind) || 0;
+        const usedRelation = relationUse.get(item.relation.key) || 0;
+        let adjusted = item.score;
+        if (item.kind && item.kind !== currentKind && usedKind === 0) adjusted += 8;
+        if (usedKind > 0) adjusted -= Math.min(16, usedKind * 8);
+        if (usedRelation > 0 && !['same_game','same_series','same_franchise'].includes(item.relation.key)) adjusted -= Math.min(10, usedRelation * 5);
+        if (item.relation.key === 'related') adjusted -= 12;
+        if (adjusted > bestAdjusted) {
+          bestAdjusted = adjusted;
+          bestIndex = index;
+        }
+      });
+      const [picked] = remaining.splice(bestIndex, 1);
+      selected.push(picked);
+      kindUse.set(picked.kind, (kindUse.get(picked.kind) || 0) + 1);
+      relationUse.set(picked.relation.key, (relationUse.get(picked.relation.key) || 0) + 1);
+    }
+    return selected;
+  }
+
   function related(current, articles = [], limit = 3) {
-    return articles
+    const safeLimit = Math.max(0, Number(limit) || 0);
+    if (!current || !safeLimit) return [];
+    const ranked = articles
       .filter(candidate => candidate?.slug && candidate.slug !== current?.slug)
-      .map(article => ({ article, score: relatedScore(current, article), reason: relatedReason(current, article) }))
+      .map(article => relatedItem(current, article))
       .filter(item => Number.isFinite(item.score) && item.score > 0)
-      .sort((a, b) => b.score - a.score || when(b.article.updatedAt || b.article.publishedAt) - when(a.article.updatedAt || a.article.publishedAt))
-      .slice(0, limit);
+      .sort((a, b) => b.score - a.score || when(b.article.updatedAt || b.article.publishedAt) - when(a.article.updatedAt || a.article.publishedAt));
+    return selectRelated(ranked, safeLimit, articleKind(current));
   }
 
   function trendScore(article, articles = []) {
@@ -274,6 +381,7 @@
     entityHref,
     buildEntities,
     related,
+    relatedScore,
     trending,
     trendScore,
     homepageProgram,
