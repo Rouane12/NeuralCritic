@@ -23,7 +23,7 @@ def main() -> int:
         "data-discovery-target",
         "discovery_click",
         "connected_coverage_click",
-        "engine.related(current,articles",
+        "engine.related(current,all,3)",
     )
     for marker in article_required:
         if marker not in article:
