@@ -26,6 +26,8 @@ Required Supabase Edge Function secrets:
 - `RESEND_API_KEY`
 - `RESEND_NEWSLETTER_SEGMENT_ID`
 
+The Resend API key needs **Full access** because the bridge manages Contacts and Segments as well as delivery. A sending-only key is insufficient for the reconciliation workflow.
+
 Never expose either value to public JavaScript or commit either value to GitHub.
 
 ## Runtime contract
@@ -41,7 +43,9 @@ Never expose either value to public JavaScript or commit either value to GitHub.
 
 ### Subscriber Desk
 
-The private Subscriber Desk calls the JWT-protected `newsletter-admin` Edge Function.
+The private Subscriber Desk calls the `newsletter-admin` Edge Function.
+
+Supabase's legacy platform `verify_jwt` gate is disabled for this function because the project uses current publishable keys and the handler performs its own authorization. The handler still requires a bearer user session, validates that session through `/auth/v1/user`, and then requires `editor_profiles.role = 'admin'` before any provider or subscriber operation runs.
 
 - `status`: verifies whether the provider is configured and the Weekly Drop segment is reachable.
 - `sync`: reconciles Resend opt-outs into Supabase, removes provider-only records from the dedicated segment, then ensures every Supabase subscriber has the correct provider status.
@@ -72,9 +76,9 @@ Do not send a Broadcast while provider readiness is blocked or before the sendin
 3. Add the required SPF/DKIM DNS records and wait for Resend verification.
 4. Add DMARC where appropriate for the sending domain.
 5. Create the `Neural Critic Weekly Drop` segment.
-6. Create a sending-only Resend API key restricted to the verified domain when available.
+6. Create a **Full access** Resend API key for the production bridge; domain scoping is only available for sending-only keys and does not cover Contacts/Segments operations.
 7. Store `RESEND_API_KEY` and `RESEND_NEWSLETTER_SEGMENT_ID` as Supabase Edge Function secrets.
-8. Deploy tracked `public-actions` and `newsletter-admin` functions.
+8. Deploy tracked `public-actions` and `newsletter-admin` functions with the repository's `supabase/config.toml` auth settings.
 9. Update the public Privacy Policy to name Resend as the active newsletter delivery processor.
 10. Open Subscriber Desk and run the first sync. Existing Supabase subscribers must appear in the Weekly Drop segment.
 11. Send a real test email to the editor and verify From, SPF/DKIM, links, mobile rendering, and unsubscribe behavior.
