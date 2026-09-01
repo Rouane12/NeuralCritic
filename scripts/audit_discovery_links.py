@@ -33,6 +33,48 @@ def main() -> int:
         if "article.html?slug=${encodeURIComponent" in text:
             failures.append(f"{relative} still emits compatibility story URLs from a discovery surface")
 
+    runtime_pages = {
+        "index.html": (
+            "assets/content-api.js?v=20260901-canonical1",
+            "assets/app.js?v=20260901-canonical1",
+            "assets/publication-nav.js?v=20260901-canonical1",
+            "assets/home-what-to-play.js?v=20260901-canonical1",
+        ),
+        "category.html": (
+            "assets/content-api.js?v=20260901-canonical1",
+            "assets/app.js?v=20260901-canonical1",
+            "assets/category-parity.js?v=20260901-canonical1",
+            "assets/publication-nav.js?v=20260901-canonical1",
+            "assets/category-editorial-v3.js?v=20260901-canonical1",
+            "assets/category-news.js?v=20260901-canonical1",
+            "assets/what-to-play-hub.js?v=20260901-canonical1",
+            "assets/curated-collections.js?v=20260901-canonical1",
+            "assets/collection-ranking-preview.js?v=20260901-canonical1",
+        ),
+        "search.html": (
+            "assets/content-api.js?v=20260901-canonical1",
+            "assets/app.js?v=20260901-canonical1",
+            "assets/search-parity.js?v=20260901-canonical1",
+            "assets/publication-nav.js?v=20260901-canonical1",
+        ),
+        "article.html": (
+            "assets/content-api.js?v=20260901-canonical1",
+            "assets/app.js?v=20260901-canonical1",
+            "assets/publication-nav.js?v=20260901-canonical1",
+        ),
+        "game.html": (
+            "assets/content-api.js?v=20260901-canonical1",
+            "assets/app.js?v=20260901-canonical1",
+            "assets/publication-nav.js?v=20260901-canonical1",
+            "assets/game-page.js?v=20260901-recirculation3",
+        ),
+    }
+    for relative, markers in runtime_pages.items():
+        text = (ROOT / relative).read_text(encoding="utf-8")
+        for marker in markers:
+            if marker not in text:
+                failures.append(f"{relative} is missing refreshed discovery runtime marker: {marker}")
+
     for pattern in ('href="article.html?slug=', "`article.html?slug="):
         if pattern in article:
             failures.append(f"assets/article-discovery.js still contains legacy discovery URL: {pattern}")
