@@ -1,5 +1,97 @@
 [
   {
+    "id": "19c498a9-a8b9-459e-9a2d-7e7541964e90",
+    "slug": "intergalactic-heretic-prophet-wraps-cinematic-shoot",
+    "title": "Intergalactic: The Heretic Prophet Wraps ‘Very Ambitious’ Cinematic Shoot",
+    "description": "Naughty Dog has wrapped Intergalactic’s cinematic shoot, marking a major PS5 development milestone. A September 3 State of Play is confirmed, but the game is not.",
+    "body": "Naughty Dog has completed the cinematic shoot for Intergalactic: The Heretic Prophet, giving the studio’s new PS5 franchise its clearest public development milestone in months.\n\nIn an August 31 social post, Naughty Dog described the shoot as “very ambitious” and said it was eager to show the cast’s work “when the time is right.” The announcement was accompanied by a new production image of lead actor Tati Gabrielle, who plays bounty hunter Jordan A. Mun.\n\nThe timing will inevitably fuel speculation about Sony’s September 3 State of Play, but PlayStation has not announced Intergalactic for the presentation. The game also still has no confirmed release date.",
+    "category": "NEWS",
+    "author": "Rouane Mounssif",
+    "tags": [
+      "Intergalactic: The Heretic Prophet",
+      "Naughty Dog",
+      "PlayStation 5",
+      "Tati Gabrielle",
+      "State of Play"
+    ],
+    "imageAlt": "Jordan A. Mun stands in official Intergalactic: The Heretic Prophet key art against a science-fiction backdrop.",
+    "imageCredit": "Sony Interactive Entertainment / Naughty Dog — official Intergalactic artwork",
+    "articleFormat": "standard",
+    "reviewMeta": {},
+    "contentBlocks": [
+      {
+        "text": "Wrapping the cinematic shoot is a meaningful production milestone, but it does not mean Intergalactic itself is finished. Naughty Dog has not announced how much gameplay, animation, engineering or post-production work remains, and the studio did not attach a release window to the update. The safest reading is therefore the simplest one: the cast-led cinematic work has reached an important endpoint while the wider game remains in development.",
+        "heading": "A major production milestone, not a release-date announcement",
+        "headingStyle": "editorial"
+      },
+      {
+        "text": "Tati Gabrielle plays Jordan A. Mun, the bounty hunter at the center of Intergalactic. Naughty Dog’s original announcement says Jordan becomes stranded on Sempiria, a distant planet cut off from the wider universe, and must try to become the first person in more than 600 years to leave its orbit. The studio has said the PS5 project has been in development since 2020.",
+        "heading": "Tati Gabrielle remains at the center of Naughty Dog’s new franchise",
+        "headingStyle": "editorial"
+      },
+      {
+        "text": "The shoot-wrap follows another recent cast update. On August 21, veteran performer Robin Atkin Downes publicly confirmed that he is working on Intergalactic and said he was happy to be collaborating with Naughty Dog again. His role has not been revealed, so any attempt to identify his character would be speculation.",
+        "heading": "Robin Atkin Downes recently added another confirmed cast name",
+        "headingStyle": "editorial"
+      },
+      {
+        "text": "Sony has announced a State of Play for September 3 featuring updates from PlayStation Studios and third-party partners. Intergalactic was not named in PlayStation’s announcement. The close timing between that showcase and Naughty Dog’s production update makes a new appearance an obvious possibility for fans to discuss, but there is currently no official confirmation that the game will be shown.",
+        "heading": "State of Play is confirmed — Intergalactic is not",
+        "headingStyle": "editorial"
+      },
+      {
+        "text": "PlayStation’s current game page lists Intergalactic: The Heretic Prophet for PS5 with its release date still to be confirmed. Reports and community speculation around a possible 2027 launch should therefore remain separate from the confirmed record until Sony or Naughty Dog announces a window.",
+        "heading": "Intergalactic still has no confirmed release date",
+        "headingStyle": "editorial"
+      }
+    ],
+    "quickRead": [],
+    "conclusion": "==For now, the meaningful news is straightforward: Intergalactic has completed its ambitious cinematic shoot, Naughty Dog is publicly marking progress again, and the cast picture continues to expand. Anything beyond that — including a September 3 appearance or a specific release window — remains unconfirmed.==",
+    "conclusionHeading": "The final word",
+    "conclusionHeadingStyle": "editorial",
+    "featured": false,
+    "homepageSlot": "regular",
+    "publishedAt": "2026-09-01T08:24:39.242157+00:00",
+    "updatedAt": "2026-09-01T08:33:05.059786+00:00",
+    "imageLocal": "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1788251579376-760ade45-be4f-4669-a0ce-def697167c97-jordan-keyart-16x9-1.avif",
+    "editorialSection": "news",
+    "platforms": [
+      "playstation"
+    ],
+    "collection": null,
+    "collectionYear": null,
+    "gameKey": "Intergalactic: The Heretic Prophet",
+    "series": "Intergalactic",
+    "franchise": "Intergalactic",
+    "newsMeta": {
+      "kind": "report",
+      "updates": [
+        {
+          "at": "2026-08-21T00:00:00Z",
+          "id": "",
+          "note": "Robin Atkin Downes publicly confirmed that he is working on Intergalactic; his role remains undisclosed.",
+          "sourceUrl": "https://www.gamesradar.com/games/action/intergalactic-the-heretic-prophet-shows-first-signs-of-life-in-months-as-naughty-dog-adds-an-uncharted-and-the-last-of-us-actor-to-its-cast/",
+          "sourceName": "Robin Atkin Downes / GamesRadar"
+        },
+        {
+          "at": "2026-08-31T00:00:00Z",
+          "id": "",
+          "note": "PlayStation announced a September 3 State of Play but did not name Intergalactic among the confirmed games.",
+          "sourceUrl": "https://blog.playstation.com/2026/08/31/state-of-play-state-of-play-japan-return-on-september-3/",
+          "sourceName": "PlayStation.Blog"
+        }
+      ],
+      "documents": [],
+      "sourceUrl": "https://www.gamesradar.com/games/adventure/naughty-dog-says-intergalactic-the-heretic-prophet-is-finished-filming-ambitious-cinematic-shoot-cannot-wait-to-show-you/",
+      "developing": false,
+      "sourceName": "Naughty Dog official social post / GamesRadar",
+      "verification": "reported",
+      "documentSectionTitle": "",
+      "documentSectionDescription": "",
+      "documentPlacementAfterHeading": ""
+    }
+  },
+  {
     "id": "97418d7d-ba9f-4f56-a002-e388a0f7d3ca",
     "slug": "exodus-gameplay-story-deep-dive-game-informer-2026",
     "title": "EXODUS Gameplay Deep Dive Reveals Salt, Combat and a Time-Dilated Sci-Fi RPG",
@@ -1284,7 +1376,7 @@
     "slug": "elden-ring-tarnished-edition-91-metacritic-switch-2",
     "title": "Elden Ring: Tarnished Edition Hits 91 on Metacritic After Switch 2 Performance Fears",
     "description": "Elden Ring: Tarnished Edition is now available on Nintendo Switch 2, and final reviews suggest FromSoftware has turned a worrying early port into a surprisingly strong handheld version of the Lands Between.",
-    "body": "Elden Ring: Tarnished Edition is heading into its Nintendo Switch 2 launch with a far stronger critical reception than its troubled road to release once suggested. The new edition is currently sitting at 91 on Metacritic based on 31 critic reviews reported in the latest review roundups, with reviewers repeatedly highlighting how well FromSoftware’s enormous open-world RPG has survived the move to Nintendo’s hybrid hardware.\\n\\nThat reception is particularly notable because Tarnished Edition spent much of its pre-release cycle under a cloud of performance concerns. Earlier demonstrations raised questions about whether the Switch 2 version could deliver the consistency Elden Ring demands. After additional development time, however, the final release is being described by several reviewers as a surprisingly accomplished port.\\n\\nTarnished Edition launches on August 28, 2026, and includes Elden Ring, the Shadow of the Erdtree expansion, and additional content created for this release.",
+    "body": "Elden Ring: Tarnished Edition launched on Nintendo Switch 2 on August 28, 2026, with a far stronger critical reception than its troubled road to release once suggested. Initial review roundups put the new edition at 91 on Metacritic from 31 critic reviews, and the score remained at 91 as more reviews were added. Reviewers repeatedly highlighted how well FromSoftware’s enormous open-world RPG survived the move to Nintendo’s hybrid hardware.\n\nThat reception is particularly notable because Tarnished Edition spent much of its pre-release cycle under a cloud of performance concerns. Earlier demonstrations raised questions about whether the Switch 2 version could deliver the consistency Elden Ring demands. After additional development time, however, final-build reviews described a surprisingly accomplished port.\n\nTarnished Edition includes Elden Ring, the Shadow of the Erdtree expansion, and additional content created for this release.",
     "category": "NEWS",
     "author": "Rouane Mounssif",
     "tags": [
@@ -1327,13 +1419,13 @@
       }
     ],
     "quickRead": [],
-    "conclusion": "==The strongest story surrounding Tarnished Edition may not be that Elden Ring remains an exceptional game four years later. It is that a Switch 2 version once defined by technical concern has reached launch with critics talking about how successfully FromSoftware turned it around. For players who have been waiting to explore the Lands Between on Nintendo hardware, August 28 now looks considerably more promising than the port’s early showings suggested.==",
+    "conclusion": "==The strongest story surrounding Tarnished Edition may not be that Elden Ring remains an exceptional game four years later. It is that a Switch 2 version once defined by technical concern reached launch with critics talking about how successfully FromSoftware turned it around. For players who wanted to explore the Lands Between on Nintendo hardware, the finished release is a much stronger proposition than the port’s early showings suggested.==",
     "conclusionHeading": "The final word",
     "conclusionHeadingStyle": "editorial",
     "featured": false,
     "homepageSlot": "regular",
     "publishedAt": "2026-08-27T15:50:37.578+00:00",
-    "updatedAt": "2026-08-31T20:12:40.484802+00:00",
+    "updatedAt": "2026-09-01T08:11:25.383742+00:00",
     "imageLocal": "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1787845680877-23801051-356c-45b5-a8b2-389e3c4969df-tarnished-edition.webp",
     "editorialSection": "news",
     "platforms": [
@@ -1341,7 +1433,7 @@
     ],
     "collection": null,
     "collectionYear": null,
-    "gameKey": "elden-ring",
+    "gameKey": "Elden Ring",
     "series": "Elden Ring",
     "franchise": "Elden Ring",
     "newsMeta": {
