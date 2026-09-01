@@ -1,0 +1,12 @@
+{
+  "source": "x",
+  "medium": "social",
+  "content_values": [
+    "original_post",
+    "reply",
+    "thread",
+    "pinned_post",
+    "profile"
+  ],
+  "notes": "Use UTMs only on outbound X distribution links. Canonical, sitemap, feed, internal navigation, and article URLs remain clean."
+}
