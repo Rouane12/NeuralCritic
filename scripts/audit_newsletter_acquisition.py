@@ -49,7 +49,7 @@ def main() -> int:
     require(config, "data-nc-newsletter", "newsletter autoload does not have a duplicate-load guard")
     require(config, "loadNewsletter();", "newsletter loader is declared but not activated")
 
-    require(index, "id=\"weekly-drop\"", "homepage Weekly Drop acquisition surface is missing")
+    require(index, "id=\"newsletter-form\"", "homepage Weekly Drop acquisition surface is missing")
     require(category, "id=\"category-newsletter\"", "category newsletter acquisition surface is missing")
     require(article_extras, "data-side-newsletter", "article sidebar newsletter acquisition surface is missing")
     require(article_extras, "work-weekly-card", "article Weekly Drop acquisition surface is missing")
