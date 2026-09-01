@@ -1,17 +1,33 @@
 import "jsr:@supabase/functions-js/edge-runtime.d.ts";
 
+const allowedOrigins = new Set([
+  "https://www.neuralcritic.net",
+  "https://neuralcritic.net"
+]);
+
 const supabaseUrl = Deno.env.get("SUPABASE_URL") || "";
 const anonKey = Deno.env.get("SUPABASE_ANON_KEY") || "";
 const serviceRoleKey = Deno.env.get("SUPABASE_SERVICE_ROLE_KEY") || "";
 const resendApiKey = Deno.env.get("RESEND_API_KEY") || "";
 const resendNewsletterSegmentId = Deno.env.get("RESEND_NEWSLETTER_SEGMENT_ID") || "";
 
-function json(status: number, payload: unknown) {
+function cors(origin: string) {
+  return {
+    "Access-Control-Allow-Origin": origin,
+    "Access-Control-Allow-Methods": "POST, OPTIONS",
+    "Access-Control-Allow-Headers": "authorization, content-type, apikey",
+    "Access-Control-Max-Age": "86400",
+    "Vary": "Origin"
+  };
+}
+
+function json(status: number, payload: unknown, origin: string) {
   return new Response(JSON.stringify(payload), {
     status,
     headers: {
       "content-type": "application/json; charset=utf-8",
-      "cache-control": "no-store"
+      "cache-control": "no-store",
+      ...cors(origin)
     }
   });
 }
@@ -77,20 +93,13 @@ async function ensureProviderContact(email: string, unsubscribed: boolean) {
   if (!providerConfigured()) return false;
   const create = await resend("/contacts", {
     method: "POST",
-    body: JSON.stringify({
-      email,
-      unsubscribed,
-      segments: [{ id: resendNewsletterSegmentId }]
-    })
+    body: JSON.stringify({ email, unsubscribed, segments: [{ id: resendNewsletterSegmentId }] })
   });
   if (create.response.ok) return true;
   if (create.response.status !== 409) throw new Error(`Resend contact create failed (${create.response.status}).`);
 
   const contactPath = `/contacts/${encodeURIComponent(email)}`;
-  const update = await resend(contactPath, {
-    method: "PATCH",
-    body: JSON.stringify({ unsubscribed })
-  });
+  const update = await resend(contactPath, { method: "PATCH", body: JSON.stringify({ unsubscribed }) });
   if (!update.response.ok) throw new Error(`Resend contact update failed (${update.response.status}).`);
 
   const segment = await resend(`${contactPath}/segments/${encodeURIComponent(resendNewsletterSegmentId)}`, {
@@ -144,7 +153,15 @@ async function providerStatus() {
 }
 
 Deno.serve(async (req: Request) => {
-  if (req.method !== "POST") return json(405, { ok: false, error: "Method not allowed." });
+  const origin = req.headers.get("origin") || "";
+  if (!allowedOrigins.has(origin)) {
+    return new Response(JSON.stringify({ ok: false, error: "Origin not allowed." }), {
+      status: 403,
+      headers: { "content-type": "application/json; charset=utf-8", "cache-control": "no-store" }
+    });
+  }
+  if (req.method === "OPTIONS") return new Response(null, { status: 204, headers: cors(origin) });
+  if (req.method !== "POST") return json(405, { ok: false, error: "Method not allowed." }, origin);
 
   try {
     await requireAdmin(req);
@@ -152,28 +169,28 @@ Deno.serve(async (req: Request) => {
     const action = String(payload?.action || "status");
 
     if (action === "status") {
-      return json(200, { ok: true, provider: "resend", ...(await providerStatus()) });
+      return json(200, { ok: true, provider: "resend", ...(await providerStatus()) }, origin);
     }
 
     if (action === "set_status") {
       const id = String(payload?.id || "");
       const status = String(payload?.status || "");
-      if (!id || !["active", "unsubscribed"].includes(status)) return json(400, { ok: false, error: "Invalid subscriber status." });
+      if (!id || !["active", "unsubscribed"].includes(status)) return json(400, { ok: false, error: "Invalid subscriber status." }, origin);
       const rows = await rest(`newsletter_subscribers?id=eq.${encodeURIComponent(id)}&select=id,email,status&limit=1`);
       const row = Array.isArray(rows) ? rows[0] as Record<string, unknown> | undefined : undefined;
       const email = String(row?.email || "");
-      if (!email) return json(404, { ok: false, error: "Subscriber not found." });
+      if (!email) return json(404, { ok: false, error: "Subscriber not found." }, origin);
 
       await updateLocalStatusByEmail(email, status as "active" | "unsubscribed");
       let providerSynced = false;
       if (providerConfigured()) providerSynced = await ensureProviderContact(email, status === "unsubscribed");
-      return json(200, { ok: true, status, provider_synced: providerSynced });
+      return json(200, { ok: true, status, provider_synced: providerSynced }, origin);
     }
 
     if (action === "sync") {
-      if (!providerConfigured()) return json(503, { ok: false, error: "Newsletter delivery provider is not configured." });
+      if (!providerConfigured()) return json(503, { ok: false, error: "Newsletter delivery provider is not configured." }, origin);
       const status = await providerStatus();
-      if (!status.ready) return json(503, { ok: false, error: "Newsletter delivery provider is not ready.", provider: status });
+      if (!status.ready) return json(503, { ok: false, error: "Newsletter delivery provider is not ready.", provider: status }, origin);
 
       let local = await localSubscribers();
       const providerContacts = await listProviderContacts();
@@ -212,16 +229,16 @@ Deno.serve(async (req: Request) => {
         unsubscribed: local.filter(row => row.status === "unsubscribed").length,
         provider_unsubscribes_applied: providerUnsubscribesApplied,
         provider_only_removed: providerOnlyRemoved
-      });
+      }, origin);
     }
 
-    return json(400, { ok: false, error: "Unknown action." });
+    return json(400, { ok: false, error: "Unknown action." }, origin);
   } catch (error) {
     const code = String((error as Error)?.message || "");
-    if (code === "AUTH") return json(401, { ok: false, error: "Sign in required." });
-    if (code === "FORBIDDEN") return json(403, { ok: false, error: "Admin access required." });
-    if (code === "SERVICE") return json(503, { ok: false, error: "Service unavailable." });
+    if (code === "AUTH") return json(401, { ok: false, error: "Sign in required." }, origin);
+    if (code === "FORBIDDEN") return json(403, { ok: false, error: "Admin access required." }, origin);
+    if (code === "SERVICE") return json(503, { ok: false, error: "Service unavailable." }, origin);
     console.error("newsletter-admin", error);
-    return json(500, { ok: false, error: "Newsletter provider operation failed." });
+    return json(500, { ok: false, error: "Newsletter provider operation failed." }, origin);
   }
 });
