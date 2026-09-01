@@ -19,7 +19,7 @@
               return;
             }
             const script = document.createElement('script');
-            script.src = 'assets/discovery-intelligence.js?v=20260828-discovery2';
+            script.src = 'assets/discovery-intelligence.js?v=20260901-recirculation3';
             script.dataset.ncDiscovery = '1';
             script.onload = () => resolve(window.NeuralCriticDiscovery || null);
             script.onerror = () => resolve(null);
@@ -46,7 +46,7 @@
         }
         if (!document.querySelector('script[data-nc-recirculation]')) {
           const recirculation = document.createElement('script');
-          recirculation.src = 'assets/recirculation.js?v=20260828-discovery2';
+          recirculation.src = 'assets/recirculation.js?v=20260901-recirculation3';
           recirculation.dataset.ncRecirculation = '1';
           document.body.appendChild(recirculation);
         }
@@ -239,7 +239,7 @@
         const status = ticker.querySelector('span');
         if (badge) badge.textContent = 'NEURAL FEED';
         if (copy) {
-          const href = `article.html?slug=${encodeURIComponent(latest.slug)}`;
+          const href = `stories/${encodeURIComponent(latest.slug)}/`;
           copy.innerHTML = `<a href="${href}">${String(latest.title || '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}</a>`;
         }
         if (status) status.textContent = `${String(latest.category || 'LATEST').toUpperCase()} · LIVE NOW ↗`;
