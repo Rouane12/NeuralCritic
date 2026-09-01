@@ -15,7 +15,7 @@
   let allNews = [];
 
   const esc = (value='') => String(value).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
-  const href = article => `article.html?slug=${encodeURIComponent(article.slug)}`;
+  const href = article => `stories/${encodeURIComponent(article.slug)}/`;
   const categoryUrl = values => `category.html?${new URLSearchParams(Object.entries(values).filter(([,v]) => v)).toString()}`;
 
   function fmtDate(iso){
