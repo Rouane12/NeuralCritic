@@ -75,9 +75,19 @@
     });
   }
 
+  function loadReliableCommentActions(){
+    if(document.querySelector('script[data-nc-community-actions-v2]'))return;
+    const script=document.createElement('script');
+    script.src='assets/community-actions-v2.js?v=20260902-actions1';
+    script.async=true;
+    script.dataset.ncCommunityActionsV2='1';
+    document.body.appendChild(script);
+  }
+
   function refreshVisuals(){updateHeaderAccount();ensureProfileEditor();ensureAdminModeration();}
   function queue(){if(queued)return;queued=true;requestAnimationFrame(()=>{queued=false;refreshVisuals()})}
   async function init(){
+    loadReliableCommentActions();
     await loadViewer();refreshVisuals();
     const observer=new MutationObserver(ms=>{if(ms.some(m=>[...m.addedNodes].some(n=>n instanceof Element&&(n.matches?.('.reader-auth-card,.reader-account-button,.community-comment')||n.querySelector?.('.reader-auth-card,.reader-account-button,.community-comment')))))queue()});
     observer.observe(document.body,{childList:true,subtree:true});
