@@ -47,6 +47,22 @@
     return button.closest('.community-comment[data-comment-id]')?.dataset.commentId || '';
   }
 
+  // Nested replies live inside their parent comment in the DOM. querySelector()
+  // on a parent therefore sees reply controls before the parent's own controls.
+  // Always scope actions to the element whose nearest comment is the comment
+  // currently being processed.
+  function belongsToComment(element, comment) {
+    return !!element && element.closest('.community-comment[data-comment-id]') === comment;
+  }
+
+  function localOne(selector, comment) {
+    return $$(selector, comment).find(element => belongsToComment(element, comment)) || null;
+  }
+
+  function localAll(selector, comment) {
+    return $$(selector, comment).filter(element => belongsToComment(element, comment));
+  }
+
   function permalink(id) {
     const canonical = $('link[rel="canonical"]')?.href || location.href;
     const url = new URL(canonical, location.href);
@@ -116,8 +132,8 @@
 
       comments.forEach(comment => {
         const id = comment.dataset.commentId;
-        const like = $('[data-vote="like"]', comment);
-        const dislike = $('[data-vote="dislike"]', comment);
+        const like = localOne('[data-vote="like"]', comment);
+        const dislike = localOne('[data-vote="dislike"]', comment);
         if (like) {
           const count = $('.count', like);
           if (count) count.textContent = String(likes.get(id) || 0);
@@ -158,8 +174,9 @@
       return;
     }
 
-    const comment = button.closest('.community-comment');
-    const voteButtons = $$('[data-vote]', comment);
+    const comment = button.closest('.community-comment[data-comment-id]');
+    if (!comment) return;
+    const voteButtons = localAll('[data-vote]', comment);
     voteButtons.forEach(item => { item.disabled = true; });
 
     try {
@@ -191,7 +208,7 @@
   }
 
   function removeReplyForm(comment) {
-    $('.community-reply-form[data-actions-v2="1"]', comment)?.remove();
+    localOne('.community-reply-form[data-actions-v2="1"]', comment)?.remove();
   }
 
   async function openReply(button) {
@@ -199,7 +216,7 @@
     const id = comment?.dataset.commentId || '';
     if (!comment || !id) return;
 
-    const existing = $('.community-reply-form[data-actions-v2="1"]', comment);
+    const existing = localOne('.community-reply-form[data-actions-v2="1"]', comment);
     if (existing) {
       existing.remove();
       return;
@@ -216,7 +233,7 @@
     form.dataset.actionsV2 = '1';
     form.innerHTML = '<textarea maxlength="1200" rows="3" placeholder="Write a reply…"></textarea><div><small data-reply-status>Replying in this thread</small><button type="button" data-cancel>CANCEL</button><button type="submit">POST REPLY</button></div>';
 
-    const anchor = $('.community-comment-native-actions', comment) || $('.community-comment-footer', comment);
+    const anchor = localOne('.community-comment-native-actions', comment) || localOne('.community-comment-footer', comment);
     if (anchor) anchor.after(form);
     else comment.appendChild(form);
 
