@@ -204,6 +204,22 @@ No newsletter, provider-sync, commerce-provider, service-role, or synthetic-subs
 
 The live security advisor still reports `auth_leaked_password_protection` disabled. Supabase's current password-security guidance and current Auth changelog were reviewed. The setting was not changed. Product-owner recommendation and required signup/sign-in/recovery/session regression coverage are recorded in `docs/MILESTONE_3_REPORT.md`.
 
+### E-MAIN-RECONCILIATION-M4
+
+`origin/main` was fetched at `a175407aced7e9207c44cdc3f5cadcbc6b89e538` from merge base `ddb6aa88bdd76756c85beb06627fc95dac261023`. Its four post-divergence commits cumulatively changed only `feed.xml`, advancing the generated RSS `lastBuildDate` from `Wed, 02 Sep 2026 01:34:28 +0000` to `Wed, 02 Sep 2026 17:42:21 +0000`. The local merge completed without a content conflict; the published branch records `main` as merge ancestry and preserves the same reconciled tree. No protected runtime owner or Milestone 2/3 fix was superseded.
+
+### E-READER-BASELINE-M4
+
+`node scripts/test_reader_baseline.js` provides four deterministic source-contract checks: the desktop article grid keeps shrinkable tracks without hiding overflow; every image-viewer close path retains and restores a connected opener while scaled viewer rows remain viewport-bound; search restoration uses the current trigger without relying on a throttled animation frame; and the community owner establishes a neutral signed-out author-follow state before returning. Publication Health watches, parse-checks, and runs this suite. All `4/4` checks pass.
+
+### E-CI-EXACT-M4
+
+GitHub Actions Publication Health run `#403` (`33676784897`) completed successfully against exact merge-ancestry branch commit `5df66dcee973e4c9427d6be110ac590fc63a9993`, whose product tree is `62de17623eb8e099c63686dca76017eb78fecfbf`. The workflow includes all publication builders, JavaScript parsing, the `5/5` protected-runtime suite, the new `4/4` reader-baseline suite, capability-ledger validation, live/static content parity, and the live anonymous-auth boundary audit. This is exact-branch integration evidence, not a substitute for credentialed V4 testing or unavailable viewport sizes.
+
+### E-READER-BROWSER-M4
+
+Real Chrome exercised the immutable product tree `62de17623eb8e099c63686dca76017eb78fecfbf`, published on branch commit `f8c0e938b43983529df87af11f9f2bf8d406b3ca` and unchanged by merge-ancestry commit `5df66dcee973e4c9427d6be110ac590fc63a9993`. At the available `1363 × 936` viewport, standard, review, guide, and ranked-list runtimes each reported `documentElement.scrollWidth=1348`, no wider than the viewport; the previously fixed 1240px track set now contracted to `132px 550px 376px`. Dark and light article states both remained overflow-free. The image viewer opened by pointer and keyboard, retained alt/caption/credit and four-image navigation, kept its Close control inside the viewport, and returned focus to the invoking image after pointer Close and Escape. Homepage search retained nine results for `elden ring` and returned focus to the search trigger within the immediate post-close check for both pointer- and keyboard-opened flows. The signed-out author button settled as `FOLLOW`, `aria-pressed=false`, without followed styling. No site-owned console exception appeared; browser-extension metadata errors were external, and the canary logged the existing audience-signals fallback warning. The browser exposes no supported viewport mutation, so this does not prove mobile, tablet, or wide-desktop behavior.
+
 ## Verified pre-existing bugs and gaps
 
 | ID | Finding | Evidence | Branch-introduced? |
@@ -229,6 +245,15 @@ The live security advisor still reports `auth_leaked_password_protection` disabl
 | `BUG-M1-02` | Fixed by applying homepage hardening only when the homepage's real hero and feed surfaces exist. | `E-PROTECTED-RUNTIME-M2`; `E-TITLE-BROWSER-M3` | Exact shell titles are correct; Games/Reviews post-script browser settlement remains blocked by the canary base path. |
 | `BUG-M1-03` | Fixed in source by creating one private Supabase client and making both Newsroom consumers reuse it. | `E-PROTECTED-RUNTIME-M2`; `E-PRIVATE-CONSOLE-M3` | Exact signed-out private pages emit no duplicate-client warning; authenticated consumers remain blocked. |
 | `SEC-M2-01` | Pre-existing Supabase Auth leaked-password protection is disabled; deliberately not changed without operational authorization. | `E-SUPABASE-ADVISOR-M2` | Authorized owner decision and post-change auth regression testing. |
+
+## Milestone 4 reader-baseline resolution
+
+| ID | Exact branch state | Evidence | Remaining verification |
+|---|---|---|---|
+| `BUG-M3-01` | Fixed by allowing the three desktop article tracks to contract beneath their 1240px reference maxima. Four article formats are overflow-free at the reproduced 1363px viewport. | `E-READER-BASELINE-M4`; `E-READER-BROWSER-M4` | Real narrow, intermediate, and wide viewport mutation remains unavailable. |
+| `BUG-M3-02` | Fixed in the existing article/community owners. Signed-out author follow settles as `FOLLOW`, unpressed and unstyled. | `E-READER-BASELINE-M4`; `E-READER-BROWSER-M4` | Signed-in follow persistence remains blocked by the lack of an approved fixture. |
+| `BUG-M3-03` | Fixed by retaining the invoking image in the shared viewer close path and restoring it after Close/Escape. Scaled viewer rows are constrained so Close stays on-screen. | `E-READER-BASELINE-M4`; `E-READER-BROWSER-M4` | Real mobile viewport behavior remains unverified. |
+| `BUG-M3-04` | Fixed by restoring to the connected/current search trigger on an immediate task rather than a throttle-prone animation frame. | `E-READER-BASELINE-M4`; `E-READER-BROWSER-M4` | No exhaustive assistive-technology pass was performed. |
 
 ## Milestone 3 boundary
 
