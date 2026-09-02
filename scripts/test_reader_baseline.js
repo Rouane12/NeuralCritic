@@ -27,12 +27,18 @@ function testFlexibleArticleGrid() {
 
 function testImageViewerFocusOwnership() {
   const viewer = source('assets/image-viewer.js');
+  const viewerCss = source('assets/image-viewer.css');
   assert.match(viewer, /let opener=null;/, 'image viewer must retain its invoking control');
   assert.match(viewer, /opener=img;/, 'image viewer must record the image used to open it');
   assert.match(
     viewer,
     /const returnTarget=opener;[\s\S]*?returnTarget\?\.isConnected\) returnTarget\.focus\(\{preventScroll:true\}\);/,
     'every shared image-viewer close path must restore focus to a connected opener',
+  );
+  assert.match(
+    viewerCss,
+    /\.image-viewer-top,\.image-viewer-stage,\.image-viewer-footer\{box-sizing:border-box;width:100%;min-width:0;\}/,
+    'viewer rows must stay inside the fixed viewport when public desktop scale is active',
   );
 }
 
