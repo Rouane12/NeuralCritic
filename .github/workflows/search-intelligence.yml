@@ -1,6 +1,11 @@
 name: Sync Search Console intelligence
 
 on:
+  pull_request:
+    paths:
+      - scripts/sync_search_console.py
+      - supabase/migrations/20260902000000_search_intelligence_v1.sql
+      - .github/workflows/search-intelligence.yml
   schedule:
     - cron: '23 7 * * *'
   workflow_dispatch:
@@ -15,12 +20,12 @@ permissions:
   contents: read
 
 concurrency:
-  group: neural-critic-search-intelligence
+  group: neural-critic-search-intelligence-${{ github.ref }}
   cancel-in-progress: false
 
 jobs:
   sync:
-    if: github.event_name == 'workflow_dispatch' || vars.SEARCH_INTELLIGENCE_ENABLED == 'true'
+    if: github.event_name == 'pull_request' || github.event_name == 'workflow_dispatch' || vars.SEARCH_INTELLIGENCE_ENABLED == 'true'
     runs-on: ubuntu-latest
     timeout-minutes: 10
     env:
@@ -47,6 +52,7 @@ jobs:
         run: python scripts/sync_search_console.py --self-test
 
       - name: Check private configuration
+        if: github.event_name != 'pull_request'
         id: config
         shell: bash
         run: |
@@ -75,7 +81,7 @@ jobs:
           echo "ready=true" >> "$GITHUB_OUTPUT"
 
       - name: Sync finalized Search Console rows
-        if: steps.config.outputs.ready == 'true'
+        if: github.event_name != 'pull_request' && steps.config.outputs.ready == 'true'
         shell: bash
         run: |
           args=()
