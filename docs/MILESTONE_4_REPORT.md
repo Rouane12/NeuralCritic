@@ -1,9 +1,9 @@
 # Neural Critic Overhaul — Milestone 4 Report
 
-Date: 2026-09-02  
-Branch: `overhaul/baseline-regression-safety`  
-Reconciled `main`: `a175407aced7e9207c44cdc3f5cadcbc6b89e538`  
-Exact browser/CI product commit: `5df66dcee973e4c9427d6be110ac590fc63a9993`  
+Date: 2026-09-02
+Branch: `overhaul/baseline-regression-safety`
+Reconciled `main`: `a175407aced7e9207c44cdc3f5cadcbc6b89e538`
+Exact browser/CI product commit: `5df66dcee973e4c9427d6be110ac590fc63a9993`
 Exact product tree: `62de17623eb8e099c63686dca76017eb78fecfbf`
 
 Milestone 4 reconciles the overhaul branch with current `main` and fixes only the four reader-baseline defects recorded by Milestone 3. It does not redesign a surface, implement a missing benchmark capability, change a Supabase policy, or merge into `main`.
@@ -92,7 +92,7 @@ Final counts are `126 ✅ / 68 🟡 / 6 ❌ / 0 🚫`. Verification levels remai
 
 ### Exact-branch CI
 
-GitHub Actions Publication Health run `#403` (`33676784897`) succeeded against `5df66dcee973e4c9427d6be110ac590fc63a9993`. This exact product commit includes reconciled `main` ancestry and all four reader fixes. The documentation-only completion commit is separately required to pass the same workflow before handoff.
+GitHub Actions Publication Health run `#403` (`33676784897`) succeeded against `5df66dcee973e4c9427d6be110ac590fc63a9993`. This exact product commit includes reconciled `main` ancestry and all four reader fixes. Publication Health run `#404` (`33679169624`) also succeeded against documentation commit `f380228c52fdafcc3ca73006b10be2bce114e9bb`; every reported job step completed successfully.
 
 ### Local deterministic checks
 
