@@ -21,6 +21,8 @@ on:
       - scripts/audit_publication_reliability.py
       - scripts/audit_runtime_consistency.py
       - assets/supabase-config.js
+      - assets/community-actions-v2.js
+      - assets/community-profile.js
       - assets/article-news-layout-v3.css
       - assets/game-page.js
       - assets/game-page.css
@@ -72,6 +74,45 @@ jobs:
               if count != 1:
                   raise SystemExit("Could not locate article-news.css in article.html")
               path.write_text(html, encoding="utf-8")
+          PY
+
+      - name: Pin Reader Thread action runtime in article shell
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import hashlib
+          import re
+
+          article = Path("article.html")
+          actions = Path("assets/community-actions-v2.js")
+          profile = Path("assets/community-profile.js")
+          html = article.read_text(encoding="utf-8")
+
+          if not actions.exists() or not profile.exists():
+              raise SystemExit("Reader Thread action runtime assets are missing")
+
+          version = hashlib.sha256(actions.read_bytes() + profile.read_bytes()).hexdigest()[:12]
+          action_tag = f'<script src="assets/community-actions-v2.js?v={version}" data-nc-community-actions-v2="1"></script>'
+          profile_tag = f'<script src="assets/community-profile.js?v={version}"></script>'
+          recovery_tag = '<script src="assets/community-thread-recovery.js"></script>'
+
+          html = re.sub(
+              r'<script src="assets/community-actions-v2\.js[^"]*"[^>]*></script>',
+              '',
+              html,
+          )
+          html, profile_count = re.subn(
+              r'<script src="assets/community-profile\.js[^"]*"></script>',
+              profile_tag,
+              html,
+              count=1,
+          )
+          if profile_count != 1:
+              raise SystemExit("Could not locate community-profile.js in article.html")
+          if recovery_tag not in html:
+              raise SystemExit("Could not locate community-thread-recovery.js in article.html")
+          html = html.replace(recovery_tag, recovery_tag + action_tag, 1)
+          article.write_text(html, encoding="utf-8")
           PY
 
       - name: Refresh runtime CMS fallback
