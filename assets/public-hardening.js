@@ -16,6 +16,19 @@
     try { return new URL(value, base).href; } catch (_) { return ''; }
   }
 
+  function storyCanonical(slug) {
+    const value = String(slug || '');
+    if (!/^[A-Za-z0-9][A-Za-z0-9_-]*$/.test(value)) return '';
+    const routed = window.NeuralCriticStoryRouter?.storyUrl?.(value);
+    if (routed) return routed;
+    try {
+      const siteRoot = new URL('./', document.baseURI);
+      return new URL(`stories/${encodeURIComponent(value)}/`, siteRoot).href;
+    } catch (_) {
+      return '';
+    }
+  }
+
   function seoImage(value) {
     const raw = String(value || '').trim();
     if (!raw) return '';
@@ -229,7 +242,11 @@
       return;
     }
 
-    const canonical = new URL(`article.html?slug=${encodeURIComponent(slug)}`, base).href;
+    const canonical = storyCanonical(slug);
+    if (!canonical) {
+      setMeta('robots', 'noindex,follow');
+      return;
+    }
     let article = null;
 
     try {
@@ -390,5 +407,7 @@
     hardenAbout();
     return;
   }
-  hardenHome();
+  if (document.getElementById('hero') && document.getElementById('story-feed')) {
+    hardenHome();
+  }
 })();

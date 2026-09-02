@@ -24,6 +24,13 @@ on:
       - sitemap.xml
       - feed.xml
       - NEWSLETTER_DELIVERY.md
+      - docs/OVERHAUL_BASELINE.md
+      - docs/CAPABILITY_STATUS.md
+      - docs/CAPABILITY_STATUS.csv
+      - docs/VERIFICATION_EVIDENCE.md
+      - docs/VERIFICATION_ENVIRONMENT.md
+      - docs/MILESTONE_1_REPORT.md
+      - docs/MILESTONE_2_REPORT.md
       - stories/**
       - topics/**
       - games/**
@@ -34,6 +41,13 @@ on:
       - images/editorial/**
       - scripts/audit_publication.py
       - scripts/audit_publication_v2.py
+      - scripts/audit_overhaul_baseline.py
+      - scripts/audit_capability_ledger.py
+      - scripts/audit_content_parity.py
+      - scripts/render_capability_ledger.py
+      - scripts/manage_verification_identities.py
+      - scripts/test_protected_runtime.js
+      - scripts/audit_live_auth_boundaries.py
       - scripts/audit_launch.py
       - scripts/audit_domain_readiness.py
       - scripts/audit_reader_auth.py
@@ -84,6 +98,13 @@ on:
       - sitemap.xml
       - feed.xml
       - NEWSLETTER_DELIVERY.md
+      - docs/OVERHAUL_BASELINE.md
+      - docs/CAPABILITY_STATUS.md
+      - docs/CAPABILITY_STATUS.csv
+      - docs/VERIFICATION_EVIDENCE.md
+      - docs/VERIFICATION_ENVIRONMENT.md
+      - docs/MILESTONE_1_REPORT.md
+      - docs/MILESTONE_2_REPORT.md
       - stories/**
       - topics/**
       - games/**
@@ -94,6 +115,13 @@ on:
       - images/editorial/**
       - scripts/audit_publication.py
       - scripts/audit_publication_v2.py
+      - scripts/audit_overhaul_baseline.py
+      - scripts/audit_capability_ledger.py
+      - scripts/audit_content_parity.py
+      - scripts/render_capability_ledger.py
+      - scripts/manage_verification_identities.py
+      - scripts/test_protected_runtime.js
+      - scripts/audit_live_auth_boundaries.py
       - scripts/audit_launch.py
       - scripts/audit_domain_readiness.py
       - scripts/audit_reader_auth.py
@@ -181,15 +209,43 @@ jobs:
           node --check assets/subscribers.js
           node --check assets/studio-media.js
           node --check assets/studio-news.js
+          node --check assets/local-assets.js
+          node --check assets/story-router.js
+          node --check assets/public-hardening.js
+          node --check assets/supabase-config.js
+          node --check assets/supabase-client-config.js
+          node --check assets/newsroom-dashboard.js
+          node --check assets/newsroom-guards.js
+          node --check scripts/test_protected_runtime.js
+
+      - name: Verify protected runtime ownership and ordering
+        run: node scripts/test_protected_runtime.js
+
+      - name: Audit live anonymous auth boundaries
+        run: python scripts/audit_live_auth_boundaries.py
 
       - name: Parse-check commerce feed tooling
         run: python -m py_compile scripts/import_commerce_feed.py scripts/audit_commerce.py
+
+      - name: Parse-check verification tooling
+        run: python -m py_compile scripts/audit_capability_ledger.py scripts/audit_content_parity.py scripts/audit_live_auth_boundaries.py scripts/render_capability_ledger.py scripts/manage_verification_identities.py
 
       - name: Audit Commerce Price Intelligence
         run: python scripts/audit_commerce.py
 
       - name: Audit Neural Critic publication surface
         run: python scripts/audit_publication_v2.py
+
+      - name: Audit overhaul baseline contracts
+        run: python scripts/audit_overhaul_baseline.py
+
+      - name: Verify 200-capability ledger
+        run: |
+          python scripts/render_capability_ledger.py --check
+          python scripts/audit_capability_ledger.py
+
+      - name: Audit live and generated content parity
+        run: python scripts/audit_content_parity.py
 
       - name: Run final production launch gate
         run: python scripts/audit_launch.py

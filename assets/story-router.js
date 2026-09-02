@@ -59,6 +59,15 @@
     return canonical;
   }
 
+  // Canonical story identity has one runtime owner. Metadata hardening and
+  // sharing consumers use this contract instead of constructing legacy URLs.
+  window.NeuralCriticStoryRouter = Object.freeze({
+    currentSlug,
+    storyUrl,
+    topicUrl,
+    enforceCanonical
+  });
+
   function legacySlugFromAnchor(anchor) {
     if (!(anchor instanceof HTMLAnchorElement)) return '';
     try {

@@ -33,10 +33,26 @@
     }
   };
 
-  if (!document.querySelector('script[data-publication-nav]')) {
-    const script = document.createElement('script');
-    script.src = 'assets/publication-nav.js';
-    script.dataset.publicationNav = '1';
-    document.head.appendChild(script);
+  const ensurePublicationNav = () => {
+    const publicationNavLoaded = Array.from(document.scripts).some(script => {
+      try {
+        return new URL(script.src, document.baseURI).pathname.endsWith('/assets/publication-nav.js');
+      } catch (_) {
+        return false;
+      }
+    });
+
+    if (!publicationNavLoaded) {
+      const script = document.createElement('script');
+      script.src = 'assets/publication-nav.js';
+      script.dataset.publicationNav = '1';
+      document.head.appendChild(script);
+    }
+  };
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', ensurePublicationNav, { once:true });
+  } else {
+    ensurePublicationNav();
   }
 })();

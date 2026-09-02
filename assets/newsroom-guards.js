@@ -2,8 +2,7 @@
   'use strict';
 
   const $ = (selector, root = document) => root.querySelector(selector);
-  const cfg = window.NEURAL_CRITIC_SUPABASE;
-  const client = cfg && window.supabase ? window.supabase.createClient(cfg.url, cfg.publishableKey) : null;
+  const client = window.neuralCriticPrivateSupabase || null;
   let reviewRefreshTimer = null;
 
   function showToast(message, error = false) {
