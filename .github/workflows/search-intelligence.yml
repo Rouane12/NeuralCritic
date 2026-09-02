@@ -1,0 +1,85 @@
+name: Sync Search Console intelligence
+
+on:
+  schedule:
+    - cron: '23 7 * * *'
+  workflow_dispatch:
+    inputs:
+      dry_run:
+        description: Fetch Search Console data without writing to Supabase
+        required: true
+        default: true
+        type: boolean
+
+permissions:
+  contents: read
+
+concurrency:
+  group: neural-critic-search-intelligence
+  cancel-in-progress: false
+
+jobs:
+  sync:
+    if: github.event_name == 'workflow_dispatch' || vars.SEARCH_INTELLIGENCE_ENABLED == 'true'
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    env:
+      SUPABASE_URL: https://pchrrwfdcfbytggekuzs.supabase.co
+      SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
+      GOOGLE_SEARCH_CONSOLE_CREDENTIALS_JSON: ${{ secrets.GOOGLE_SEARCH_CONSOLE_CREDENTIALS_JSON }}
+      GSC_SITE_URL: ${{ vars.GSC_SITE_URL }}
+      GSC_SEARCH_TYPE: web
+      REQUESTED_DRY_RUN: ${{ inputs.dry_run }}
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install Search Console client dependencies
+        run: python -m pip install --disable-pip-version-check "google-auth>=2.35,<3" "requests>=2.32,<3"
+
+      - name: Run offline collector self-test
+        run: python scripts/sync_search_console.py --self-test
+
+      - name: Check private configuration
+        id: config
+        shell: bash
+        run: |
+          missing=()
+          if [ -z "$GOOGLE_SEARCH_CONSOLE_CREDENTIALS_JSON" ]; then
+            missing+=("GOOGLE_SEARCH_CONSOLE_CREDENTIALS_JSON")
+          fi
+          if [ -z "$GSC_SITE_URL" ]; then
+            missing+=("GSC_SITE_URL repository variable")
+          fi
+          if [ "${REQUESTED_DRY_RUN:-false}" != "true" ] && [ -z "$SUPABASE_SERVICE_ROLE_KEY" ]; then
+            missing+=("SUPABASE_SERVICE_ROLE_KEY")
+          fi
+
+          if [ "${#missing[@]}" -gt 0 ]; then
+            printf 'Missing Search Intelligence configuration: %s\n' "${missing[*]}"
+            if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
+              echo "::error::Configure the missing Search Intelligence values before running this workflow."
+              exit 1
+            fi
+            echo "::notice::Search Intelligence remains dormant until its private configuration is complete."
+            echo "ready=false" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+
+          echo "ready=true" >> "$GITHUB_OUTPUT"
+
+      - name: Sync finalized Search Console rows
+        if: steps.config.outputs.ready == 'true'
+        shell: bash
+        run: |
+          args=()
+          if [ "${REQUESTED_DRY_RUN:-false}" = "true" ]; then
+            args+=(--dry-run)
+          fi
+          python scripts/sync_search_console.py "${args[@]}"
