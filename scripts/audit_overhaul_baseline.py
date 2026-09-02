@@ -329,6 +329,9 @@ def audit_client_secret_hygiene(audit: Audit) -> None:
 
 def audit_ci_wiring(audit: Audit) -> None:
     workflow = read_text(ROOT / ".github/workflows/publication-health.yml")
+    milestone_3_report = ROOT / "docs/MILESTONE_3_REPORT.md"
+    audit.require(milestone_3_report.is_file(), "Missing Milestone 3 evidence report")
+    audit.require("docs/MILESTONE_3_REPORT.md" in workflow, "Publication health workflow does not watch the Milestone 3 evidence report")
     audit.require("scripts/audit_overhaul_baseline.py" in workflow, "Publication health workflow does not watch the overhaul baseline audit")
     audit.require("python scripts/audit_overhaul_baseline.py" in workflow, "Publication health workflow does not run the overhaul baseline audit")
     audit.require("scripts/test_protected_runtime.js" in workflow, "Publication health workflow does not watch the protected runtime regression suite")

@@ -5,13 +5,16 @@ This runbook supports evidence collection without using personal accounts, weake
 ## Current environment state
 
 - Public production is available for signed-out and read-only verification.
+- `overhaul/baseline-regression-safety` now exists remotely as an unmerged draft pull request. Publication Health passed on exact commit `cfc8f993abbb2ea246c7b8182d4acfec6aea8ac5`, tree `bf173b15b5a59c2c1d9625fbd0e65849df222d00`.
+- A real Chrome exact-commit canary is available through an immutable commit-CDN path. Fully hydrated checks are possible for the homepage, category/search, legacy article runtime, Studio, Newsroom, and Subscriber Desk. Generated nested shells use `<base href="/">`, so their root-relative assets cannot hydrate correctly beneath the CDN's commit subpath; use a root-hosted exact-branch preview for final clean-story, Games, Reviews, game, and topic runtime proof.
+- The available browser controller exposes a desktop `1363 × 936` viewport but no supported viewport mutation. Do not claim mobile verification from this environment.
 - The live published article dataset is readable through the existing publishable client configuration and exactly matches the generated fallback at the recorded Milestone 1 check.
 - The connected production Supabase project currently has no disposable development branch. Read-only catalog inspection confirms RLS enabled on 11 relevant reader/editor/admin tables, and the live anonymous boundary audit receives authorization denials from all seven directly tested protected tables.
 - No safe reader, editor, or admin test identity was available in this workspace.
-- No service-role, newsletter-provider, commerce-provider, or GitHub write credential was available.
+- No service-role, newsletter-provider, commerce-provider, or synthetic-subscriber credential was available. The shell push path was blocked before network contact; an authorized GitHub repository connection was used for the branch and draft pull request.
 - Supabase CLI and a complete base-schema migration history are not present, so a faithful local Supabase clone cannot be created from this repository alone.
 - Therefore no identity was created and no authenticated write was claimed. The provisioning tool is ready for an authorized operator-controlled environment.
-- Supabase's live security advisor reports that leaked-password protection is disabled. Milestone 2 does not alter this production setting; an authorized owner should evaluate it with auth regression coverage.
+- Supabase's live security advisor reports that leaked-password protection is disabled. Milestone 3 does not alter this production setting; an authorized owner should evaluate it with signup, sign-in, recovery/password-update, session, Reader, Studio, and Newsroom regression coverage.
 
 ## Verification identity contract
 
@@ -146,4 +149,4 @@ For browser parity, compare the same story on the clean shell and legacy runtime
 
 ## Evidence boundary
 
-The current evidence can legitimately prove public rendering observed during Milestone 1, static/build contracts, live/fallback parity, deterministic protected-runtime integration on the exact branch, signed-out live API denials, signed-out gates, copy/share behavior, and local theme persistence. Until the identity/provider prerequisites above exist, authenticated persistence, privileged authorization, provider delivery, and production-equivalent publication remain 🟡 rather than ✅. Until the exact branch is deployed into a browser-capable environment, branch-specific console/network, mobile, theme, and interactive-route claims also remain pending.
+The current evidence can legitimately prove exact-commit GitHub Actions health; exact-branch signed-out desktop behavior on fully hydrated canary routes; exact compatibility-route canonical/share ownership; static clean-shell metadata; representative pointer/keyboard behavior; private-page singleton console behavior; static/build contracts; live/fallback parity; deterministic protected-runtime integration; signed-out live API denials and gates; copy/share behavior; and local theme persistence. It cannot prove mobile width, fully hydrated clean/nested routes on a root host, authenticated persistence, privileged authorization, provider delivery, or production-equivalent publication. Those paths remain 🟡 rather than being promoted from source or optimistic UI.

@@ -413,3 +413,11 @@ Milestone 1 populates the full 200-capability ledger and adds evidence, live/gen
 ## Milestone 2 protected-runtime boundary
 
 Milestone 2 is limited to the recommended protected-runtime and verification closure. It gives canonical metadata one existing-owner contract, prevents nested non-home directories from receiving homepage metadata, consolidates the existing private Newsroom Supabase client, and adds deterministic/live-read-only regression gates. It does not redesign a page, add a benchmark capability, change schema/RLS, create a production identity, publish content, or alter ranking/commerce/provider behavior. Authenticated persistence and post-deployment browser evidence remain explicitly blocked where the authorized environment is absent.
+
+## Milestone 3 exact-branch evidence boundary
+
+Milestone 3 adds exact-commit GitHub Actions evidence and a real signed-out desktop browser canary. It records canonical/share ownership on the hydrated compatibility runtime, correct static clean-shell identity, representative pointer/keyboard/theme behavior, private-page Supabase-client console behavior, and the live anonymous RLS boundary. It also records horizontal overflow, misleading signed-out author-follow copy, and two focus-restoration defects without repairing them.
+
+The canary host serves commits beneath a subpath while generated shells deliberately use `<base href="/">`; Games, Reviews, generated game/topic pages, and clean story shells therefore cannot hydrate in that canary. The available controller cannot change viewport size. No safe disposable Supabase branch, reader/editor/admin fixture authority, or provider credential exists. Mobile, authenticated V4/V5, privileged role, provider, and clean-route post-hydration claims remain blocked rather than inferred.
+
+Before a later visible overhaul, reconcile this long-lived branch with current `main` through review, provide a root-hosted exact-branch preview, and provide a scoped non-production identity/provider verification lane if those capabilities are expected to advance. Do not treat source presence, hidden UI, or policy text as a replacement for the documented server re-read/reload/cleanup protocol.

@@ -1,6 +1,6 @@
 # Neural Critic verification evidence registry
 
-This registry gives the capability ledger stable, non-secret evidence IDs. Evidence is dated `2026-09-02` unless stated otherwise. Milestone 1 browser observations were made against the then-deployed public site, which represents `main`, not this unpushed branch. Repository checks apply to the exact branch working tree. Milestone 2 additions explicitly distinguish deterministic branch evidence from live read-only production evidence.
+This registry gives the capability ledger stable, non-secret evidence IDs. Evidence is dated `2026-09-02` unless stated otherwise. Milestone 1 browser observations were made against the then-deployed public site. Milestone 2 added deterministic branch and live read-only production evidence. Milestone 3 adds an immutable exact-commit canary, exact-commit GitHub Actions evidence, and a conservative record of every credentialed path that remained blocked.
 
 ## Evidence handling rules
 
@@ -78,7 +78,7 @@ Representative Milestone 1 console review found browser-extension metadata error
 
 ### E-GHA-LIVE
 
-Milestone 0 recorded current `main` workflow health: Publication health run `#394` success, Refresh publication `#240` success, Pages `#937` success, commerce refresh `#17` success; Pages `#936` was cancelled because superseded. This branch has not been pushed, so no exact-commit Actions run exists.
+Milestone 0 recorded then-current `main` workflow health: Publication health run `#394` success, Refresh publication `#240` success, Pages `#937` success, commerce refresh `#17` success; Pages `#936` was cancelled because superseded. This is historical `main` evidence; exact branch evidence is `E-CI-EXACT-M3`.
 
 ### E-SUPABASE-STRUCTURE
 
@@ -160,6 +160,50 @@ The live Supabase security advisor returned one pre-existing warning: Auth leake
 
 The workspace has the Playwright Node package but no usable browser binary. Browser installation attempts repeatedly timed out against the available download endpoints. Therefore the exact branch could not receive a real browser console/network, mobile viewport, light/dark, or authenticated interaction pass. The deterministic runtime harness and live read-only API checks are reported at their actual levels rather than presented as browser proof.
 
+### E-CI-EXACT-M3
+
+The branch tree `bf173b15b5a59c2c1d9625fbd0e65849df222d00` was published as commit `cfc8f993abbb2ea246c7b8182d4acfec6aea8ac5` on `overhaul/baseline-regression-safety`. Publication Health pull-request run `#398` (`33664791942`), job `100363752745`, completed successfully on that exact commit. Draft pull request `#54` remains open and unmerged. The shell push path was blocked before network contact; it was not misreported as a credential failure.
+
+### E-CANARY-M3
+
+A real Chrome session loaded the immutable exact-commit tree through a commit CDN. Homepage, News category, search, the legacy article runtime, Studio, Newsroom, and Subscriber Desk hydrated. Games, Reviews, generated game/topic pages, and the clean story shell exposed correct static metadata but could not hydrate because `<base href="/">` sends root-relative resources outside the CDN's commit subpath. That hosting limitation is recorded rather than promoted into deployment-equivalent proof. The available browser controller exposed only a `1363 × 936` desktop viewport, so mobile remains unverified.
+
+### E-CANONICAL-BROWSER-M3
+
+After the exact-branch legacy Elden Ring review settled, canonical link, `og:url`, Review JSON-LD `url` and `mainEntityOfPage`, final Breadcrumb item, and Share output all resolved to the clean `/stories/elden-ring-review-monumental-open-world/` identity. The compatibility query route remained in the address bar. The clean shell's static metadata matched, but its runtime could not hydrate on the subpath canary; this evidence therefore does not promote canonical parity beyond V3.
+
+### E-TITLE-BROWSER-M3
+
+The exact-branch homepage, News category, and legacy article retained correct final hydrated titles. Games, Reviews, game, topic, and clean-story shells exposed correct distinct static titles. Because their root-based runtime assets could not hydrate on the canary host, post-script Games/Reviews title isolation remains proven by `E-PROTECTED-RUNTIME-M2`, not by a fully settled browser route.
+
+### E-ARTICLE-BROWSER-M3
+
+The hydrated exact-branch legacy review rendered title, deck, byline, hero, body, Reading Map, review verdict/score, image metadata, Related Coverage, Connected Coverage, recirculation, Game Graph links, community/share/save/follow controls, and footer. Reading Map navigation worked. The score completed its viewport-triggered animation to `10`. The image viewer opened by pointer and keyboard, displayed matching alt/caption/credit, and closed with Escape. No duplicate script URL or broken article image was observed. The page did expose `BUG-M3-01` horizontal overflow and `BUG-M3-03` focus loss.
+
+### E-INTERACTION-M3
+
+Exact-branch pointer and keyboard checks opened search and the image viewer, navigated Reading Map, copied clean article/comment permalinks, and toggled theme. Light and dark choices each survived reload. Signed-out Article Like, Save, game follow, author follow, Reply, comment Like, and comment Dislike reached the real auth gate without creating a write. Search and viewer Escape behavior exposed focus-restoration defects. Clipboard and local theme evidence do not establish server persistence.
+
+### E-PRIVATE-CONSOLE-M3
+
+Studio, Newsroom, and Subscriber Desk reached their exact-branch signed-out private gates with no Neural Critic site-origin multiple-GoTrue-client warning. No warning was suppressed. Browser-extension metadata noise was classified separately. No editor/admin login existed, so post-login consumers remain unverified.
+
+### E-AUTH-FIXTURE-BLOCKED-M3
+
+The connected Supabase project still exposes no disposable branch, and the workspace has no `NC_VERIFY_*` reader/editor/admin credentials or service-role value. `python scripts/manage_verification_identities.py plan` succeeded without network or writes. No production user was created, no credential was committed or logged, and no authenticated V4/V5 capability was promoted.
+
+### E-RLS-M3
+
+The Milestone 3 preflight and final regression repeated the read-only live boundary audit: the published-article control succeeded, and all seven protected-table anonymous reads returned HTTP `401`. Reader/editor/admin positive and negative server paths remained blocked by missing approved fixtures. Existing live policy inspection is structural evidence only; no RLS or Auth configuration changed.
+
+### E-PROVIDER-BLOCKED-M3
+
+No newsletter, provider-sync, commerce-provider, service-role, or synthetic-subscriber authority was present. No provider mutation, delivery, unsubscribe, or cleanup was attempted, and no subscriber address was logged.
+
+### E-SUPABASE-ADVISOR-M3
+
+The live security advisor still reports `auth_leaked_password_protection` disabled. Supabase's current password-security guidance and current Auth changelog were reviewed. The setting was not changed. Product-owner recommendation and required signup/sign-in/recovery/session regression coverage are recorded in `docs/MILESTONE_3_REPORT.md`.
+
 ## Verified pre-existing bugs and gaps
 
 | ID | Finding | Evidence | Branch-introduced? |
@@ -172,19 +216,27 @@ The workspace has the Playwright Node package but no usable browser binary. Brow
 | `GAP-M1-03` | RSS intentionally/operationally contains only the newest `30` of `53` stories, and its `lastBuildDate` is generated non-deterministically. | source/build inspection; `E-AUDIT-PUBLIC` | No |
 | `GAP-M1-04` | The repository lacks the original migrations for several mature base tables, so a fresh local Supabase recreation cannot be proven from version control alone. | `E-SUPABASE-STRUCTURE` | No |
 | `GAP-M1-05` | The game directory Upcoming state currently has no mapped game records. | `E-BROWSER-GAMES` | No |
+| `BUG-M3-01` | The representative article overflows horizontally at `1363 × 936`: document width `1534`, with `.work-article-sidebar` reaching the overflow edge. | `E-ARTICLE-BROWSER-M3`; production comparison | No |
+| `BUG-M3-02` | The exact branch labels the signed-out author control `FOLLOWING`, but activation opens sign-in. Current production labels the same state `FOLLOW`, exposing branch drift. | `E-INTERACTION-M3`; production comparison | No Milestone 3 product edit |
+| `BUG-M3-03` | Image-viewer Escape closure leaves focus on `BODY` instead of the invoking image. | `E-ARTICLE-BROWSER-M3`; production comparison; source inspection | No |
+| `BUG-M3-04` | Search-overlay Escape closure on the exact canary leaves focus on `BODY` rather than the search trigger. | `E-INTERACTION-M3` | No Milestone 3 product edit |
 
 ## Milestone 2 resolution and new findings
 
 | ID | Exact branch state | Evidence | Remaining verification |
 |---|---|---|---|
-| `BUG-M1-01` | Fixed by making Story Router the explicit canonical contract and making hardening consume the clean story URL. | `E-PROTECTED-RUNTIME-M2` | Exact-branch post-deployment browser metadata comparison remains pending. |
-| `BUG-M1-02` | Fixed by applying homepage hardening only when the homepage's real hero and feed surfaces exist. | `E-PROTECTED-RUNTIME-M2` | Exact-branch post-deployment title observation remains pending. |
-| `BUG-M1-03` | Fixed in source by creating one private Supabase client and making both Newsroom consumers reuse it. | `E-PROTECTED-RUNTIME-M2` | Exact-branch private-page browser console observation remains pending. |
+| `BUG-M1-01` | Fixed by making Story Router the explicit canonical contract and making hardening consume the clean story URL. | `E-PROTECTED-RUNTIME-M2`; `E-CANONICAL-BROWSER-M3` | Legacy runtime is exact-branch browser-verified; clean runtime hydration remains blocked by the canary base path. |
+| `BUG-M1-02` | Fixed by applying homepage hardening only when the homepage's real hero and feed surfaces exist. | `E-PROTECTED-RUNTIME-M2`; `E-TITLE-BROWSER-M3` | Exact shell titles are correct; Games/Reviews post-script browser settlement remains blocked by the canary base path. |
+| `BUG-M1-03` | Fixed in source by creating one private Supabase client and making both Newsroom consumers reuse it. | `E-PROTECTED-RUNTIME-M2`; `E-PRIVATE-CONSOLE-M3` | Exact signed-out private pages emit no duplicate-client warning; authenticated consumers remain blocked. |
 | `SEC-M2-01` | Pre-existing Supabase Auth leaked-password protection is disabled; deliberately not changed without operational authorization. | `E-SUPABASE-ADVISOR-M2` | Authorized owner decision and post-change auth regression testing. |
+
+## Milestone 3 boundary
+
+Milestone 3 produces exact-commit CI and browser evidence and no product repair. No public runtime, CSS, template, schema, migration, RLS, provider, auth setting, or benchmark capability changes. The exact canary's hosting and credential limitations remain visible. Capability rows change only where real browser evidence supports them; one desktop capability is downgraded because a reproducible overflow invalidates its prior complete classification.
 
 ## Final branch validation
 
-All commands below exited `0` on the Milestone 1 working tree unless a limitation is explicitly stated.
+All commands below exited `0` on the final Milestone 3 working tree unless a limitation is explicitly stated.
 
 Publication generation:
 
@@ -207,7 +259,7 @@ All audit entry points:
 for audit_script in scripts/audit_*.py; do python "$audit_script"; done
 ```
 
-All `20` audit scripts exited `0`. Known warnings remained visible: three reviews missing tested platform, `23` article game keys without Games Database records, and `23` stories outside the newest-30 RSS cap.
+All `21` audit scripts exited `0`. Known warnings remained visible: three reviews missing tested platform, `23` article game keys without Games Database records, and `23` stories outside the newest-30 RSS cap.
 
 New focused gates:
 
@@ -215,20 +267,22 @@ New focused gates:
 python scripts/render_capability_ledger.py --check
 python scripts/audit_capability_ledger.py
 python scripts/audit_content_parity.py
+node scripts/test_protected_runtime.js
+python scripts/audit_live_auth_boundaries.py
 python scripts/manage_verification_identities.py plan
 ```
 
-Results: Markdown synchronized with `200` rows; ledger `0` errors/`0` warnings with `✅=126, 🟡=68, ❌=6, 🚫=0` and `V0=0, V1=6, V2=113, V3=77, V4=3, V5=1`; parity `0` errors with `live=53, fallback=53, details=53, shells=53`; identity plan performed no network call or write.
+Results: Markdown synchronized with exactly `200` rows and IDs `NC-GS-001` through `NC-GS-200`; ledger `0` errors/`0` warnings with `✅=125, 🟡=69, ❌=6, 🚫=0` and `V0=0, V1=6, V2=109, V3=81, V4=3, V5=1`; parity `0` errors with `live=53, fallback=53, details=53, shells=53`; protected runtime `5/5`; the live public control succeeded and all seven protected anonymous table reads returned HTTP `401`; identity plan performed no network call or write.
 
 Syntax and workflow checks:
 
 ```bash
-node --check <each of 89 JavaScript files>
-python -m py_compile scripts/*.py scripts/providers/*.py
+node --check <each of 90 JavaScript files>
+python -m py_compile <each of 35 Python files under scripts/>
 python <PyYAML safe-load of all 6 .github/workflows/*.yml files>
-git diff --cached --check
+git diff --check
 ```
 
-All passed. The baseline audit secret-scanned `299` client-facing HTML/JavaScript/JSON files and found no service-role/provider secret. The added service-role variable name exists only in the operator script/runbook; no credential value exists in the repository.
+All passed. The baseline audit secret-scan found no service-role/provider secret in client-facing HTML/JavaScript/JSON files. Service-role variable names remain confined to operator tooling/runbooks; no credential value exists in the repository.
 
-Browser evidence is summarized by `E-BROWSER-*`. It covers current production `main`, signed-out desktop public/private journeys, canonical/legacy comparison, a live public Reader Thread, clipboard behavior, and theme reload persistence. It does not cover an exact branch deployment, real mobile viewport, authenticated writes, editor/admin authorization, or provider delivery. Those remain explicitly blocked rather than passed.
+Exact-branch browser evidence is summarized by `E-*-M3`. It covers a signed-out desktop canary, hydrated public/private routes, the compatibility article runtime, canonical/share ownership, clipboard behavior, theme reload persistence, and representative pointer/keyboard states. It does not cover real mobile width, root-hosted clean-shell hydration, authenticated writes, editor/admin authorization, or provider delivery. Those remain explicitly blocked rather than passed.
