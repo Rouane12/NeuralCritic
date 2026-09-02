@@ -2,28 +2,30 @@
 
 Date: 2026-09-02
 Branch: `overhaul/baseline-regression-safety`
-Reconciled `main`: `a175407aced7e9207c44cdc3f5cadcbc6b89e538`
-Exact browser/CI product commit: `5df66dcee973e4c9427d6be110ac590fc63a9993`
+Reconciled `main`: `c54d50161b901b20437f981ed9bf4a9707e0f846`
+Resumed browser canary commit: `19f305334e8f4a2fbd8e428bc636d6963c71d234`
+Original exact product/CI commit: `5df66dcee973e4c9427d6be110ac590fc63a9993`
 Exact product tree: `62de17623eb8e099c63686dca76017eb78fecfbf`
 
 Milestone 4 reconciles the overhaul branch with current `main` and fixes only the four reader-baseline defects recorded by Milestone 3. It does not redesign a surface, implement a missing benchmark capability, change a Supabase policy, or merge into `main`.
 
 ## A. `main` changes reconciled
 
-The branch diverged from `main` at `ddb6aa88bdd76756c85beb06627fc95dac261023`. Four later `main` commits were inspected before reconciliation:
+The branch diverged from `main` at `ddb6aa88bdd76756c85beb06627fc95dac261023`. Five later `main` commits were inspected before final reconciliation:
 
 - `236bab3` — Refresh Neural Critic canonical publication pages
 - `94ad28c` — Refresh Neural Critic canonical publication pages
 - `89edd3d` — Refresh Neural Critic canonical publication pages
 - `a175407` — Refresh Neural Critic canonical publication pages
+- `c54d501` — Refresh Neural Critic canonical publication pages
 
-Their cumulative content change is limited to `feed.xml`: the generated RSS `lastBuildDate` advanced from `Wed, 02 Sep 2026 01:34:28 +0000` to `Wed, 02 Sep 2026 17:42:21 +0000`. No protected runtime, canonical owner, publishing implementation, Game Graph, discovery/coverage/recirculation/popularity module, reader/community/follow owner, commerce module, analytics module, or Supabase boundary changed. None superseded a Milestone 2 or 3 fix.
+Their cumulative content change is limited to `feed.xml`: the generated RSS `lastBuildDate` advanced from `Wed, 02 Sep 2026 01:34:28 +0000` to `Wed, 02 Sep 2026 20:07:20 +0000`. No protected runtime, canonical owner, publishing implementation, Game Graph, discovery/coverage/recirculation/popularity module, reader/community/follow owner, commerce module, analytics module, or Supabase boundary changed. None superseded a Milestone 2 or 3 fix.
 
-The remote overhaul branch records `a175407` as merge ancestry. Production routing was not altered.
+The overhaul branch records `c54d501` as merge ancestry. Production routing was not altered.
 
 ## B. Conflicts and resolutions
 
-The local `main` merge completed without a content conflict. Reconciliation with the already-published overhaul history also produced no content conflict because both histories represented the same product tree. Mature implementation owners were preserved; no parallel system was created.
+The original `main` merge completed without a content conflict. On resume, the clean local checkout was still at a parallel Milestone 2 history, so merging the completed remote branch surfaced seven textual/add-add conflicts in the workflow, ledger documents, verification documents, and baseline audit. Each side was compared: the remote versions retained the Milestone 2 contract and added the later Milestone 3/4 evidence, 27 evidence-level ledger revisions, report wiring, and reader test. Those verified later versions resolved the conflicts while the local history remained a merge parent. The subsequent `c54d501` merge was clean and changed only `feed.xml`. No product implementation conflict occurred, mature owners were preserved, and no parallel system was created.
 
 Publication builders regenerated timestamp-bearing feed/sitemap artifacts during validation. Those incidental outputs were restored to the reconciled branch versions, and `git diff --exit-code -- feed.xml sitemap.xml` confirmed no generated-publication drift.
 
@@ -60,7 +62,7 @@ Pointer-opened and keyboard-opened browser paths both focused the query field, r
 
 ## G. Responsive and browser evidence
 
-Real Chrome exercised the immutable exact-branch product tree at the available `1363 × 936` viewport.
+Real Chrome re-exercised immutable branch commit `19f305334e8f4a2fbd8e428bc636d6963c71d234` at the available `1363 × 936` viewport. The later `main` merge changes only the RSS build timestamp, so the tested reader assets are identical in the reconciled working tree.
 
 | Surface | Result |
 |---|---|
@@ -92,12 +94,12 @@ Final counts are `126 ✅ / 68 🟡 / 6 ❌ / 0 🚫`. Verification levels remai
 
 ### Exact-branch CI
 
-GitHub Actions Publication Health run `#403` (`33676784897`) succeeded against `5df66dcee973e4c9427d6be110ac590fc63a9993`. This exact product commit includes reconciled `main` ancestry and all four reader fixes. Publication Health run `#404` (`33679169624`) also succeeded against documentation commit `f380228c52fdafcc3ca73006b10be2bce114e9bb`; every reported job step completed successfully.
+GitHub Actions Publication Health run `#403` (`33676784897`) succeeded against `5df66dcee973e4c9427d6be110ac590fc63a9993`. This exact product commit includes all four reader fixes. Runs `#404` (`33679169624`) and `#405` (`33679402981`) also succeeded against the completed documentation commits through `19f305334e8f4a2fbd8e428bc636d6963c71d234`; every reported job step completed successfully.
 
 ### Local deterministic checks
 
-- Capability ledger audit: pass before the final documentation-only publish; 200 contiguous rows.
-- Ledger renderer check: pass before the final documentation-only publish.
+- Capability ledger audit after the final `main` reconciliation: pass; 200 contiguous rows.
+- Ledger renderer check after the final `main` reconciliation: pass.
 - Protected runtime: `5/5` pass.
 - Reader baseline: `4/4` pass.
 - Live/fallback/detail/shell parity: `53/53/53/53`, zero errors.
