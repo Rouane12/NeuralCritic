@@ -48,6 +48,7 @@ on:
       - scripts/render_capability_ledger.py
       - scripts/manage_verification_identities.py
       - scripts/test_protected_runtime.js
+      - scripts/test_reader_baseline.js
       - scripts/audit_live_auth_boundaries.py
       - scripts/audit_launch.py
       - scripts/audit_domain_readiness.py
@@ -123,6 +124,7 @@ on:
       - scripts/render_capability_ledger.py
       - scripts/manage_verification_identities.py
       - scripts/test_protected_runtime.js
+      - scripts/test_reader_baseline.js
       - scripts/audit_live_auth_boundaries.py
       - scripts/audit_launch.py
       - scripts/audit_domain_readiness.py
@@ -219,9 +221,13 @@ jobs:
           node --check assets/newsroom-dashboard.js
           node --check assets/newsroom-guards.js
           node --check scripts/test_protected_runtime.js
+          node --check scripts/test_reader_baseline.js
 
       - name: Verify protected runtime ownership and ordering
         run: node scripts/test_protected_runtime.js
+
+      - name: Verify reader baseline contracts
+        run: node scripts/test_reader_baseline.js
 
       - name: Audit live anonymous auth boundaries
         run: python scripts/audit_live_auth_boundaries.py

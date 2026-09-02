@@ -159,7 +159,7 @@
       <aside class="work-react-rail" aria-label="Article reactions">
         <span>REACT</span>
         <button type="button" data-article-like><b>♥</b><small>LIKE</small></button>
-        <button type="button" class="active" data-article-follow><b>★</b><small>FOLLOWING</small></button>
+        <button type="button" data-article-follow><b>★</b><small>FOLLOW</small></button>
         <button type="button" data-article-discuss><b>◌</b><small>DISCUSS</small></button>
         <button type="button" data-article-share><b>↗</b><small>SHARE</small></button>
       </aside>`);
@@ -177,7 +177,7 @@
             <div><strong>${esc(article.author || 'Neural Critic')}</strong><small>Neural Critic</small></div>
           </div>
           <p>Following this writer keeps their latest features and reviews close at hand.</p>
-          <button type="button" data-author-follow>FOLLOWING</button>
+          <button type="button" data-author-follow>FOLLOW</button>
         </section>
         <section class="work-side-card work-weekly-card">
           <b>ϟ</b><span>THE WEEKLY DROP</span>
