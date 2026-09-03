@@ -182,8 +182,8 @@
     if (!section || !listEl) return;
 
     const isMostRead = state.mode === 'most-read';
-    const featured = new Set(window.NeuralCriticHomepageState?.featuredSlugs || []);
-    const distinct = ARTICLES.filter(article => !featured.has(article.slug));
+    const reserved = new Set([...(window.NeuralCriticHomepageState?.featuredSlugs || []),...(window.NeuralCriticHomepageState?.feedSlugs || [])]);
+    const distinct = ARTICLES.filter(article => !reserved.has(article.slug));
     const candidates = distinct.length >= 3 ? distinct : ARTICLES;
     const ranked = isMostRead ? state.engine.mostRead(candidates, 3) : state.engine.trending(candidates, 3);
     const items = ranked.map(item => item.article || item).filter(Boolean);

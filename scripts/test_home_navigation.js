@@ -69,7 +69,7 @@ check(
 
 check(
   'adjacent modules honor programmed-story de-duplication',
-  feed.includes('NeuralCriticHomepageState?.featuredSlugs') && app.includes('reviews.find(x=>!featured.has(x.slug))') && whatToPlay.includes('curatedAll.filter(article => !featured.has(article.slug))') && popularity.includes('ARTICLES.filter(article => !featured.has(article.slug))'),
+  feed.includes('NeuralCriticHomepageState?.featuredSlugs') && feed.includes('NeuralCriticHomepageState.feedSlugs') && app.includes('reviews.find(x=>!featured.has(x.slug))') && app.includes('NeuralCriticHomepageState?.feedSlugs') && whatToPlay.includes('curatedAll.filter(article => !featured.has(article.slug))') && popularity.includes('NeuralCriticHomepageState?.feedSlugs'),
   'Latest, Reviews, What to Play, and popularity presentation'
 );
 

@@ -72,7 +72,7 @@
         : isNews && Array.isArray(a.newsMeta?.updates) && a.newsMeta.updates.length
           ? `${a.newsMeta.updates.length} UPDATE${a.newsMeta.updates.length === 1 ? '' : 'S'}`
           : '';
-    return `<a class="story nc-feed-story ${categoryClass(a)}" href="${articleHref(a)}">
+    return `<a class="story nc-feed-story ${categoryClass(a)}" href="${articleHref(a)}" data-home-story="${escapeHtml(a.slug)}">
       <div class="thumb">${imageOf(a) ? `<img alt="${escapeHtml(a.imageAlt || a.title)}" src="${imageOf(a)}">` : '<div class="placeholder-art">NC</div>'}<b>${String(index + 1).padStart(2, '0')}</b></div>
       <div class="nc-feed-copy">
         <div class="nc-feed-meta"><label>${escapeHtml(label)}</label>${auxiliary ? `<span>${escapeHtml(auxiliary)}</span>` : ''}</div>
@@ -162,6 +162,8 @@
       btn.classList.toggle('active', active);
       btn.setAttribute('aria-pressed', active ? 'true' : 'false');
     });
+    if (window.NeuralCriticHomepageState) window.NeuralCriticHomepageState.feedSlugs = visible.map(article => article.slug);
+    window.dispatchEvent(new CustomEvent('neuralcritic:homepage-feed-rendered', { detail:{ filter:state.filter, slugs:visible.map(article => article.slug) } }));
   };
 
   async function hydrateNewsMeta() {

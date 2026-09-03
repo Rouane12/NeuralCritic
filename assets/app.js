@@ -84,7 +84,10 @@ function renderFeed(filter='latest'){
 function renderTrending(){
   const el=document.getElementById('trending'); if(!el) return;
   const engine=discovery();
-  const ranked=engine?.trending?.(ARTICLES,3) || [...ARTICLES].sort((a,b)=>new Date(b.publishedAt)-new Date(a.publishedAt)).slice(0,3).map(article=>({article}));
+  const reserved=new Set([...(window.NeuralCriticHomepageState?.featuredSlugs || []),...(window.NeuralCriticHomepageState?.feedSlugs || [])]);
+  const distinct=ARTICLES.filter(article=>!reserved.has(article.slug));
+  const candidates=distinct.length>=3 ? distinct : ARTICLES;
+  const ranked=engine?.trending?.(candidates,3) || [...candidates].sort((a,b)=>new Date(b.publishedAt)-new Date(a.publishedAt)).slice(0,3).map(article=>({article}));
   const list=ranked.map(item=>item.article || item).filter(Boolean);
   const label=document.querySelector('.trending .sidetitle small');
   if(label) label.textContent='EDITORIAL MOMENTUM';
@@ -115,17 +118,19 @@ function renderGuides(){
 }
 function renderHome(){
   if(!document.getElementById('hero')) return;
-  renderHero(); renderFeed(); renderTrending(); renderReview(); renderGuides();
+  renderHero(); renderFeed();
+  if(!window.NeuralCriticHomepageState?.feedSlugs) renderTrending();
+  renderReview(); renderGuides();
   const overlay=document.getElementById('search-overlay'), q=document.getElementById('quick-search'), results=document.getElementById('quick-results');
   document.querySelector('.header-tools .search')?.addEventListener('click',e=>{e.preventDefault();overlay?.classList.add('open');setTimeout(()=>q?.focus(),10)});
   document.querySelector('.search-close')?.addEventListener('click',()=>overlay?.classList.remove('open'));
   q?.addEventListener('input',()=>renderSearchResults(q.value,results));
 }
+window.addEventListener('neuralcritic:homepage-feed-rendered',()=>renderTrending());
 window.addEventListener('neuralcritic:homepage-slots-applied',()=>{
   const slugs=[...document.querySelectorAll('#hero [data-home-story]')].map(node=>node.dataset.homeStory).filter(Boolean);
   if(window.NeuralCriticHomepageState) window.NeuralCriticHomepageState.featuredSlugs=[...new Set(slugs)];
   renderFeed?.();
-  renderTrending?.();
   renderReview();
   renderGuides();
 });
