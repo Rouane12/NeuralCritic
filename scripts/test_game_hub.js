@@ -33,6 +33,14 @@ check(
 );
 
 check(
+  'article index keeps live-first generated-fallback behavior',
+  gameJs.includes('NeuralCriticContentAPI?.publishedIndex?.()') &&
+    gameJs.includes("fetch('data/articles.json')") &&
+    gameJs.includes('Game Hub live article index unavailable; using generated fallback.'),
+  'live Content API first, same-origin generated JSON second'
+);
+
+check(
   'coverage views are Latest Reviews Guides and Deals with explicit states',
   ['latest','reviews','guides','deals'].every(view => gameJs.includes(`'${view}'`)) &&
     gameJs.includes('data-game-view=') &&
@@ -40,6 +48,14 @@ check(
     gameJs.includes('No verified offers right now.') &&
     gameJs.includes('No ${esc(state.view)} coverage yet.'),
   'button group with counts and empty states'
+);
+
+check(
+  'featured review is de-duplicated from Latest when alternatives exist',
+  gameJs.includes('const featuredReview = reviewArticle(game, state.articles);') &&
+    gameJs.includes('alternatives.length >= 3') &&
+    gameJs.includes('state.coverage = alternatives;'),
+  'avoid adjacent review repetition without thinning sparse hubs'
 );
 
 check(
@@ -53,14 +69,18 @@ check(
 );
 
 check(
-  'commerce is game-mapped and verified-offer gated',
+  'commerce is game-mapped verified-offer gated and disclosed',
   gameJs.includes(".eq('game_id', game.id)") &&
     gameJs.includes(".eq('active', true)") &&
     gameJs.includes("['in_stock','preorder','backorder']") &&
+    gameJs.includes('Number.isFinite(Number(offer.price))') &&
+    gameJs.includes('offerDestination(offer)') &&
     gameJs.includes('offer.expires_at') &&
     gameJs.includes('affiliate_url') &&
-    gameJs.includes('rel="sponsored noopener noreferrer"'),
-  'existing commerce tables, active products/retailers, current eligible offers'
+    gameJs.includes('rel="sponsored noopener noreferrer"') &&
+    gameJs.includes('AFFILIATE LINK') &&
+    gameJs.includes('Commercial disclosure'),
+  'existing commerce tables, active products/retailers, eligible destination/price/availability, disclosure'
 );
 
 check(
