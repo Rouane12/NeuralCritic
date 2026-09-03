@@ -153,11 +153,80 @@
   border-radius:999px;
   color:var(--text,#f7f8ff);
   background:rgba(8,14,29,.18);
+  text-decoration:none;
   transition:border-color .18s,transform .18s,background .18s;
 }
 #article .nc-article-graph-trail a:hover{transform:translateY(-1px);border-color:rgba(82,226,247,.45);background:rgba(82,226,247,.055)}
+#article .nc-article-graph-trail a:focus-visible{outline:2px solid #52e2f7;outline-offset:3px}
 #article .nc-article-graph-trail a span{color:#8d82ff;font:850 6.5px/1 Inter,system-ui,sans-serif;letter-spacing:.08em}
 #article .nc-article-graph-trail a b{font:700 8px/1 Inter,system-ui,sans-serif;letter-spacing:-.01em}
+
+/* Article Journey 2.0 — canonical Game Hub entry */
+#article .nc-article-graph-trail.has-game-hub{
+  display:grid;
+  grid-template-columns:minmax(250px,1.08fr) minmax(0,.92fr);
+  gap:0;
+  padding:0;
+  overflow:hidden;
+  border-color:rgba(124,142,255,.25);
+  border-radius:16px;
+  background:color-mix(in srgb,var(--surface,#111625) 94%,transparent);
+  box-shadow:0 14px 38px rgba(3,7,18,.08);
+}
+#article .nc-article-graph-trail.has-game-hub>.nc-article-game-hub{
+  display:grid;
+  align-content:center;
+  justify-items:start;
+  gap:7px;
+  min-width:0;
+  min-height:118px;
+  padding:18px 20px;
+  border:0;
+  border-right:1px solid rgba(124,142,255,.20);
+  border-radius:0;
+  background:linear-gradient(118deg,rgba(82,226,247,.10),rgba(119,104,255,.11));
+}
+#article .nc-article-graph-trail.has-game-hub>.nc-article-game-hub:hover{
+  transform:none;
+  border-color:rgba(124,142,255,.20);
+  background:linear-gradient(118deg,rgba(82,226,247,.15),rgba(119,104,255,.15));
+}
+#article .nc-article-game-hub>span{
+  color:#52e2f7!important;
+  font:900 7px/1 Inter,system-ui,sans-serif!important;
+  letter-spacing:.16em!important;
+}
+#article .nc-article-game-hub>b{
+  max-width:100%;
+  color:var(--text,#f7f8ff);
+  font:760 18px/1.12 Inter,system-ui,sans-serif!important;
+  letter-spacing:-.035em!important;
+}
+#article .nc-article-game-hub>small{
+  color:var(--muted,#a7aab3);
+  font:750 7px/1.35 Inter,system-ui,sans-serif;
+  letter-spacing:.07em;
+}
+#article .nc-article-game-hub>strong{
+  margin-top:2px;
+  color:#8d82ff;
+  font:900 7px/1 Inter,system-ui,sans-serif;
+  letter-spacing:.1em;
+}
+#article .nc-article-game-hub>strong i{font-style:normal}
+#article .nc-article-graph-links{
+  display:grid!important;
+  align-content:center;
+  gap:10px!important;
+  min-width:0;
+  padding:17px 18px;
+}
+#article .nc-article-graph-links>small{
+  color:#8d82ff;
+  font:850 7px/1 Inter,system-ui,sans-serif;
+  letter-spacing:.14em;
+}
+#article .nc-article-graph-links>div{display:flex;flex-wrap:wrap;gap:7px}
 
 /* Related story intelligence */
 #article .work-related-card a small.nc-related-reason{
@@ -184,6 +253,10 @@ html[data-theme="light"] .search-entity-media{background:#f2f5f7}
 html[data-theme="light"] .search-entity-copy strong{color:#53616c}
 html[data-theme="light"] #article .nc-article-graph-trail{border-color:#dfe5ea;background:linear-gradient(100deg,#f6fbfc,#f7f6ff)}
 html[data-theme="light"] #article .nc-article-graph-trail a{color:#263440;border-color:#dce2e8;background:#fff}
+html[data-theme="light"] #article .nc-article-graph-trail.has-game-hub{border-color:#dce3ea;background:#fff;box-shadow:0 12px 30px rgba(31,43,59,.055)}
+html[data-theme="light"] #article .nc-article-graph-trail.has-game-hub>.nc-article-game-hub{border-color:#dce3ea;background:linear-gradient(118deg,#effbfd,#f4f2ff)}
+html[data-theme="light"] #article .nc-article-graph-trail.has-game-hub>.nc-article-game-hub:hover{background:linear-gradient(118deg,#e7f9fc,#efedff)}
+html[data-theme="light"] #article .nc-article-game-hub>b{color:#17212f}
 html[data-theme="light"] #article .work-related-card a small.nc-related-reason{
   color:#159bb3!important;
   border-color:#bfe9ef;
@@ -197,4 +270,11 @@ html[data-theme="light"] #article .work-related-card a small.nc-related-reason{
   .search-entity-section>header{align-items:flex-start;flex-direction:column;gap:5px}
   #article .nc-article-graph-trail{display:block}
   #article .nc-article-graph-trail>small{display:block;margin-bottom:9px;padding:0}
+  #article .nc-article-graph-trail.has-game-hub{display:grid;grid-template-columns:1fr}
+  #article .nc-article-graph-trail.has-game-hub>.nc-article-game-hub{min-height:0;border-right:0;border-bottom:1px solid rgba(124,142,255,.20)}
+  #article .nc-article-graph-links{padding:15px 16px}
+}
+
+@media(prefers-reduced-motion:reduce){
+  #article .nc-article-graph-trail a,.search-entity-card{transition:none}
 }
