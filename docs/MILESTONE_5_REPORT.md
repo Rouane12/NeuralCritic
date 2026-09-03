@@ -184,7 +184,9 @@ That reconciled commit then passed:
 
 The first final report commit passed Publication Health `#414` and Social Preview QA `#22`. During accumulated PR review, cross-module de-duplication was hardened in commits `a3358f8f3f7bc0ecf2cbff5cc5718b66a05bb3af`, `fd8e4552216b9693c95ade4af91688b9bc7379cd`, and `3eef0e90f9f341e1fc8a9abc9cd25ab3db96c8c7`; that review head passed Publication Health `#417` and Social Preview QA `#25`, including the strengthened homepage/navigation contract.
 
-No merge to `main` had been performed at the time this report was updated.
+The report-update head `62712b9f36521a3bd9a98bf682d2bab9f210f080` then passed Publication Health `#418` and Social Preview QA `#26` with the full accumulated suite still green.
+
+No merge to `main` had been performed at the time this report was finalized.
 
 ## M. Files changed in the Milestone 5 slice
 
