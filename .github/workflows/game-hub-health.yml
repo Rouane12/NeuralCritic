@@ -1,0 +1,49 @@
+name: Game Hub health
+
+on:
+  pull_request:
+    paths:
+      - game.html
+      - games/**
+      - assets/game-page.js
+      - assets/game-page.css
+      - assets/entity-follows-v2.js
+      - assets/content-api.js
+      - assets/discovery-intelligence.js
+      - scripts/build_game_pages.py
+      - scripts/test_game_hub.js
+      - .github/workflows/game-hub-health.yml
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: neural-critic-game-hub-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  game-hub:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Regenerate canonical game shells
+        env:
+          NEURAL_CRITIC_SITE_URL: https://www.neuralcritic.net/
+        run: python scripts/build_game_pages.py
+
+      - name: Parse-check Game Hub runtime and regression contract
+        run: |
+          node --check assets/game-page.js
+          node --check scripts/test_game_hub.js
+
+      - name: Verify Game Hub 2.0 contracts
+        run: node scripts/test_game_hub.js

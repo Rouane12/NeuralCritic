@@ -66,7 +66,7 @@ def main() -> int:
             "assets/content-api.js?v=20260901-canonical1",
             "assets/app.js?v=20260901-canonical1",
             "assets/publication-nav.js?v=20260901-canonical1",
-            "assets/game-page.js?v=20260901-recirculation3",
+            "assets/game-page.js?v=20260903-gamehub2",
         ),
     }
     for relative, markers in runtime_pages.items():
