@@ -15,6 +15,7 @@ const popularity = read('assets/popularity-signals.js');
 const nav = read('assets/publication-nav.js');
 const navCss = read('assets/publication-nav.css');
 const homeCss = read('assets/homepage-v2.css');
+const accessibility = read('assets/public-accessibility.js');
 
 const checks = [];
 const check = (name, condition, detail) => checks.push({ name, ok:Boolean(condition), detail });
@@ -74,9 +75,42 @@ check(
 );
 
 check(
+  'homepage feed filters render through their established owner',
+  feed.includes("const nextFilter = filterButton.dataset.filter || 'latest';") && feed.includes('renderFeed(nextFilter);') && !app.includes("document.querySelectorAll('.filters button')"),
+  'one filter interaction owner in assets/home-feed.js'
+);
+
+check(
   'responsive hierarchy and focus-visible contracts are present',
   ['@media(max-width:1180px)', '@media(max-width:980px)', '@media(max-width:700px)', '@media(max-width:460px)'].every(token => homeCss.includes(token)) && navCss.includes('@media(max-width:980px)') && homeCss.includes('body.nc-home-v2:has(#hero) #reviews.home-service-desk') && navCss.includes('.publication-nav .nav-group.open>.nav-menu') && !navCss.includes('.nav-group:hover>.nav-menu') && !navCss.includes('.nav-group:focus-within>.nav-menu') && !homeCss.includes('overflow-x:hidden'),
   'wide, desktop/intermediate, tablet/mobile, narrow'
+);
+
+check(
+  'mobile homepage keeps the lead, cards, filters, and entry points usable',
+  homeCss.includes('body.nc-home-v2 .hero{grid-template-columns:1fr!important;height:auto!important}') &&
+    homeCss.includes('body.nc-home-v2 .content{grid-template-columns:1fr!important') &&
+    homeCss.includes('body.nc-home-v2 .features{grid-template-columns:1fr!important}') &&
+    homeCss.includes('body.nc-home-v2 .filters{width:100%;overflow-x:auto') &&
+    homeCss.includes('body.nc-home-v2 .home-wtp-explore nav{grid-template-columns:1fr}') &&
+    !homeCss.includes('body.nc-home-v2 .lead p{display:none'),
+  'single-column hierarchy with an intentionally scrollable filter row'
+);
+
+check(
+  'mobile navigation owns its drawer, scrolling, disclosure, and touch targets',
+  navCss.includes('body.mobile-nav-open') &&
+    navCss.includes('max-height:min(67dvh,560px)!important') &&
+    navCss.includes('overflow:auto!important') &&
+    navCss.includes('grid-template-columns:minmax(0,1fr) 46px!important') &&
+    navCss.includes('min-height:46px!important') &&
+    navCss.includes('width:40px!important;height:40px!important') &&
+    nav.includes("event.key!=='Escape'") &&
+    nav.includes("setAttribute('aria-expanded'") &&
+    app.includes("document.body.classList.toggle('mobile-nav-open')") &&
+    accessibility.includes("closeMobileNav({focus:true})") &&
+    accessibility.includes("menu.setAttribute('aria-expanded'"),
+  'fixed publication drawer, accordion state, Escape, and body scroll lock'
 );
 
 check(

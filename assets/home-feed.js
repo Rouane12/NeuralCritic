@@ -241,7 +241,9 @@
     if (filterButton) {
       state.visible = PAGE_SIZE;
       state.newsKind = 'all';
-      window.gtag?.('event', 'homepage_feed_filter', { feed_filter: filterButton.dataset.filter || 'latest' });
+      const nextFilter = filterButton.dataset.filter || 'latest';
+      renderFeed(nextFilter);
+      window.gtag?.('event', 'homepage_feed_filter', { feed_filter: nextFilter });
     }
   }, true);
 
