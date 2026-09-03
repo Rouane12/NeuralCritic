@@ -1,0 +1,46 @@
+name: Article Journey health
+
+on:
+  pull_request:
+    paths:
+      - article.html
+      - assets/article-discovery.js
+      - assets/recirculation.js
+      - assets/discovery-intelligence.css
+      - assets/content-api.js
+      - scripts/audit_discovery_links.py
+      - scripts/test_article_journey.js
+      - .github/workflows/article-journey-health.yml
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: neural-critic-article-journey-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  article-journey:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Parse-check Article Journey runtimes
+        run: |
+          node --check assets/article-discovery.js
+          node --check assets/recirculation.js
+          node --check scripts/test_article_journey.js
+
+      - name: Verify Article Journey 2.0 contracts
+        run: node scripts/test_article_journey.js
+
+      - name: Verify shared discovery architecture
+        run: python scripts/audit_discovery_links.py

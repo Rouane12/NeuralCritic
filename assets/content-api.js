@@ -3,7 +3,7 @@
     if (!document.querySelector('link[data-nc-discovery]')) {
       const link = document.createElement('link');
       link.rel = 'stylesheet';
-      link.href = 'assets/discovery-intelligence.css?v=20260828-discovery2';
+      link.href = 'assets/discovery-intelligence.css?v=20260903-articlejourney1';
       link.dataset.ncDiscovery = '1';
       document.head.appendChild(link);
     }
@@ -40,13 +40,13 @@
         if (!engine) return;
         if (!document.querySelector('script[data-nc-article-discovery]')) {
           const script = document.createElement('script');
-          script.src = 'assets/article-discovery.js?v=20260828-discovery2';
+          script.src = 'assets/article-discovery.js?v=20260903-articlejourney1';
           script.dataset.ncArticleDiscovery = '1';
           document.body.appendChild(script);
         }
         if (!document.querySelector('script[data-nc-recirculation]')) {
           const recirculation = document.createElement('script');
-          recirculation.src = 'assets/recirculation.js?v=20260901-recirculation3';
+          recirculation.src = 'assets/recirculation.js?v=20260903-articlejourney1';
           recirculation.dataset.ncRecirculation = '1';
           document.body.appendChild(recirculation);
         }
