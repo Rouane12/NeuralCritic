@@ -17,13 +17,13 @@
   const slotOf = article => article?.homepageSlot || article?.homepage_slot || 'regular';
 
   function articleHref(article) {
-    return `article.html?slug=${encodeURIComponent(slugOf(article))}`;
+    return `stories/${encodeURIComponent(slugOf(article))}/`;
   }
 
   function card(article) {
     const image = imageOf(article);
     const alt = article?.imageAlt || article?.image_alt || titleOf(article);
-    return `<a class="feature-link" href="${articleHref(article)}"><article>${image?`<img alt="${esc(alt)}" src="${esc(image)}">`:'<div class="placeholder-art">NEURAL CRITIC</div>'}<div class="shade"></div><div><label>${esc(categoryOf(article))}</label><h2>${esc(titleOf(article))}</h2><small>${fmtDate(publishedOf(article))} · READ STORY →</small></div></article></a>`;
+    return `<a class="feature-link" href="${articleHref(article)}" data-home-story="${esc(slugOf(article))}"><article>${image?`<img alt="${esc(alt)}" src="${esc(image)}">`:'<div class="placeholder-art">NEURAL CRITIC</div>'}<div class="shade"></div><div><label>${esc(categoryOf(article))}</label><h2>${esc(titleOf(article))}</h2><small>${fmtDate(publishedOf(article))} · READ STORY →</small></div></article></a>`;
   }
 
   async function loadArticles() {

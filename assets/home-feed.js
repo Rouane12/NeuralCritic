@@ -4,11 +4,11 @@
   const PAGE_SIZE = 3;
   const state = { filter: 'latest', visible: PAGE_SIZE, newsKind: 'all' };
   const DESK_COPY = {
-    latest: ['STAY IN THE LOOP', 'Latest stories'],
-    news: ['LIVE SIGNALS', 'News desk'],
-    feature: ['DEEP READS', 'Features'],
-    review: ['THE VERDICT', 'Reviews'],
-    pc: ['PLATFORM WATCH', 'PC stories']
+    latest: ['THE LATEST', 'Latest coverage', 'Newly published reporting, criticism, and practical help.'],
+    news: ['LIVE SIGNALS', 'News desk', 'Confirmed releases, announcements, updates, and attributed reports.'],
+    feature: ['DEEP READS', 'Features', 'Analysis, reporting, and ideas worth spending time with.'],
+    review: ['THE VERDICT', 'Reviews', 'Scored criticism with a clear verdict and useful context.'],
+    pc: ['PLATFORM WATCH', 'PC stories', 'The latest Neural Critic coverage for PC players.']
   };
   const NEWS_KINDS = {
     breaking: { label: 'BREAKING', copy: 'Confirmed, time-sensitive developments.' },
@@ -40,11 +40,13 @@
   function syncDeskHeading(filter) {
     const head = document.querySelector('#news .sectionhead > div:first-child');
     if (!head) return;
-    const [eyebrow, title] = DESK_COPY[filter] || [String(filter).toUpperCase(), 'Stories'];
+    const [eyebrow, title, description] = DESK_COPY[filter] || [String(filter).toUpperCase(), 'Stories', 'Published Neural Critic coverage.'];
     const small = head.querySelector('small');
     const h2 = head.querySelector('h2');
+    const paragraph = head.querySelector('p');
     if (small) small.textContent = eyebrow;
     if (h2) h2.textContent = title;
+    if (paragraph) paragraph.textContent = description;
   }
 
   function categoryClass(a) {

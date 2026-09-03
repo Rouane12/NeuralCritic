@@ -33,6 +33,7 @@ on:
       - docs/MILESTONE_2_REPORT.md
       - docs/MILESTONE_3_REPORT.md
       - docs/MILESTONE_4_REPORT.md
+      - docs/MILESTONE_5_READER_HIERARCHY.md
       - stories/**
       - topics/**
       - games/**
@@ -50,6 +51,7 @@ on:
       - scripts/manage_verification_identities.py
       - scripts/test_protected_runtime.js
       - scripts/test_reader_baseline.js
+      - scripts/test_home_navigation.js
       - scripts/audit_live_auth_boundaries.py
       - scripts/audit_launch.py
       - scripts/audit_domain_readiness.py
@@ -110,6 +112,7 @@ on:
       - docs/MILESTONE_2_REPORT.md
       - docs/MILESTONE_3_REPORT.md
       - docs/MILESTONE_4_REPORT.md
+      - docs/MILESTONE_5_READER_HIERARCHY.md
       - stories/**
       - topics/**
       - games/**
@@ -127,6 +130,7 @@ on:
       - scripts/manage_verification_identities.py
       - scripts/test_protected_runtime.js
       - scripts/test_reader_baseline.js
+      - scripts/test_home_navigation.js
       - scripts/audit_live_auth_boundaries.py
       - scripts/audit_launch.py
       - scripts/audit_domain_readiness.py
@@ -224,12 +228,16 @@ jobs:
           node --check assets/newsroom-guards.js
           node --check scripts/test_protected_runtime.js
           node --check scripts/test_reader_baseline.js
+          node --check scripts/test_home_navigation.js
 
       - name: Verify protected runtime ownership and ordering
         run: node scripts/test_protected_runtime.js
 
       - name: Verify reader baseline contracts
         run: node scripts/test_reader_baseline.js
+
+      - name: Verify homepage and navigation contracts
+        run: node scripts/test_home_navigation.js
 
       - name: Audit live anonymous auth boundaries
         run: python scripts/audit_live_auth_boundaries.py

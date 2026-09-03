@@ -30,6 +30,9 @@ python scripts/audit_overhaul_baseline.py
 python scripts/render_capability_ledger.py --check
 python scripts/audit_capability_ledger.py
 python scripts/audit_content_parity.py
+node scripts/test_protected_runtime.js
+node scripts/test_reader_baseline.js
+node scripts/test_home_navigation.js
 ```
 
 This check complements, rather than replaces, the existing domain-specific publication audits.

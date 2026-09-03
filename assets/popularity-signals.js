@@ -131,17 +131,34 @@
       tabs.className = 'nc-popularity-tabs';
       tabs.setAttribute('role', 'tablist');
       tabs.setAttribute('aria-label', 'Popular stories view');
-      tabs.innerHTML = '<button type="button" role="tab" data-popularity-mode="trending" aria-selected="true">TRENDING</button><button type="button" role="tab" data-popularity-mode="most-read" aria-selected="false">MOST READ</button>';
+      tabs.innerHTML = '<button id="popularity-tab-trending" type="button" role="tab" data-popularity-mode="trending" aria-controls="trending" aria-selected="true">TRENDING</button><button id="popularity-tab-most-read" type="button" role="tab" data-popularity-mode="most-read" aria-controls="trending" aria-selected="false">MOST READ</button>';
       list.insertAdjacentElement('beforebegin', tabs);
-      tabs.addEventListener('click', event => {
-        const button = event.target.closest('[data-popularity-mode]');
-        if (!button) return;
-        const next = button.dataset.popularityMode;
+      const selectMode = next => {
         if (!['trending','most-read'].includes(next) || next === state.mode) return;
         state.mode = next;
         renderPopularity();
         window.NeuralCriticAnalytics?.track?.('popularity_tab_switch', { popularity_mode:next, most_read_window_days:state.mostReadDays });
+      };
+      tabs.addEventListener('click', event => {
+        const button = event.target.closest('[data-popularity-mode]');
+        if (!button) return;
+        selectMode(button.dataset.popularityMode);
       });
+      tabs.addEventListener('keydown', event => {
+        if (!['ArrowLeft','ArrowRight','Home','End'].includes(event.key)) return;
+        event.preventDefault();
+        const buttons = [...tabs.querySelectorAll('[data-popularity-mode]')];
+        const current = Math.max(0, buttons.indexOf(document.activeElement));
+        const nextIndex = event.key === 'Home' ? 0 : event.key === 'End' ? buttons.length - 1 : event.key === 'ArrowRight' ? (current + 1) % buttons.length : (current - 1 + buttons.length) % buttons.length;
+        buttons[nextIndex]?.focus();
+        selectMode(buttons[nextIndex]?.dataset.popularityMode);
+      });
+    }
+    let definition = section.querySelector('.nc-popularity-definition');
+    if (!definition) {
+      definition = document.createElement('p');
+      definition.className = 'nc-popularity-definition';
+      tabs.insertAdjacentElement('afterend', definition);
     }
     return section;
   }
@@ -165,18 +182,26 @@
     if (!section || !listEl) return;
 
     const isMostRead = state.mode === 'most-read';
-    const ranked = isMostRead ? state.engine.mostRead(ARTICLES, 3) : state.engine.trending(ARTICLES, 3);
+    const featured = new Set(window.NeuralCriticHomepageState?.featuredSlugs || []);
+    const distinct = ARTICLES.filter(article => !featured.has(article.slug));
+    const candidates = distinct.length >= 3 ? distinct : ARTICLES;
+    const ranked = isMostRead ? state.engine.mostRead(candidates, 3) : state.engine.trending(candidates, 3);
     const items = ranked.map(item => item.article || item).filter(Boolean);
     const eyebrow = section.querySelector('.sidetitle small');
     const title = section.querySelector('.sidetitle h2');
+    const definition = section.querySelector('.nc-popularity-definition');
     if (eyebrow) eyebrow.textContent = isMostRead ? `READER SIGNAL · ${state.mostReadDays} DAYS` : 'LIVE MOMENTUM';
     if (title) title.textContent = isMostRead ? 'Most read' : 'Trending now';
+    if (definition) definition.textContent = isMostRead ? `Measured reader activity across the last ${state.mostReadDays} days.` : 'Fresh coverage gaining editorial and reader momentum now.';
 
     section.querySelectorAll('[data-popularity-mode]').forEach(button => {
       const selected = button.dataset.popularityMode === state.mode;
       button.setAttribute('aria-selected', selected ? 'true' : 'false');
+      button.setAttribute('tabindex', selected ? '0' : '-1');
       button.classList.toggle('active', selected);
     });
+    listEl.setAttribute('role','tabpanel');
+    listEl.setAttribute('aria-labelledby',isMostRead ? 'popularity-tab-most-read' : 'popularity-tab-trending');
 
     if (!items.length && isMostRead) {
       listEl.innerHTML = '<div class="nc-popularity-warmup"><b>AUDIENCE SIGNALS ARE WARMING UP</b><p>Most Read appears as real reader activity accumulates.</p></div>';
