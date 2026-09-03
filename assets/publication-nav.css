@@ -149,6 +149,14 @@
   pointer-events:auto;
   transform:translate(-50%,0) scale(1);
 }
+@media(min-width:981px){
+  .publication-nav:has(.nav-group.open) .nav-group:not(.open)>.nav-menu{
+    opacity:0;
+    visibility:hidden;
+    pointer-events:none;
+    transform:translate(-50%,-8px) scale(.982);
+  }
+}
 .publication-nav .nav-menu a{
   display:grid;
   gap:4px;

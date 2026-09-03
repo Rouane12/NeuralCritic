@@ -75,7 +75,7 @@ check(
 
 check(
   'responsive hierarchy and focus-visible contracts are present',
-  ['@media(max-width:1180px)', '@media(max-width:980px)', '@media(max-width:700px)', '@media(max-width:460px)'].every(token => homeCss.includes(token)) && navCss.includes('@media(max-width:980px)') && !homeCss.includes('overflow-x:hidden'),
+  ['@media(max-width:1180px)', '@media(max-width:980px)', '@media(max-width:700px)', '@media(max-width:460px)'].every(token => homeCss.includes(token)) && navCss.includes('@media(max-width:980px)') && homeCss.includes('body.nc-home-v2:has(#hero) #reviews.home-service-desk') && navCss.includes(':has(.nav-group.open) .nav-group:not(.open)>.nav-menu') && !homeCss.includes('overflow-x:hidden'),
   'wide, desktop/intermediate, tablet/mobile, narrow'
 );
 
