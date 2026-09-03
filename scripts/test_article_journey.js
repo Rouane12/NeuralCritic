@@ -21,18 +21,20 @@ check(
   articleDiscovery.includes("window.neuralCriticPublicSupabase") &&
     articleDiscovery.includes("client.from('games')") &&
     articleDiscovery.includes(".select('slug,title,release_status,platforms,primary_release_date')") &&
-    articleDiscovery.includes(".eq('slug',gameSlug)") &&
+    articleDiscovery.includes(".eq('title',gameKey)") &&
+    !articleDiscovery.includes(".eq('slug',gameSlug)") &&
     !articleDiscovery.includes("from('reader_entity_follows')"),
-  'read-only games lookup only; no new persistence owner'
+  'authoritative game title lookup returns the stored canonical slug; no inferred Game Hub route'
 );
 
 check(
   'mapped games link to canonical Game Hub URLs',
   articleDiscovery.includes('games/${encodeURIComponent(gameSlug)}/') &&
+    articleDiscovery.includes('href:gameHref(data.slug)') &&
     articleDiscovery.includes('data-discovery-destination="game_hub"') &&
     articleDiscovery.includes('OPEN GAME HUB') &&
     articleDiscovery.includes('trail.dataset.gameHubSlug=game.slug'),
-  '/games/<slug>/ is the mapped-game destination'
+  '/games/<stored slug>/ is the mapped-game destination'
 );
 
 check(
