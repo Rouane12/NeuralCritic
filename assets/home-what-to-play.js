@@ -90,8 +90,8 @@
       .sort((a,b) => new Date(b.publishedAt||0) - new Date(a.publishedAt||0));
 
     if (!curatedAll.length) { host.hidden = true; return; }
-    const featured = new Set(window.NeuralCriticHomepageState?.featuredSlugs || []);
-    const distinct = curatedAll.filter(article => !featured.has(article.slug));
+    const reserved = new Set([...(window.NeuralCriticHomepageState?.featuredSlugs || []),...(window.NeuralCriticHomepageState?.feedSlugs || [])]);
+    const distinct = curatedAll.filter(article => !reserved.has(article.slug));
     const curated = distinct.length ? distinct : curatedAll;
     host.hidden = false;
     const lead = curated[0];
@@ -145,6 +145,9 @@
     });
   }, true);
   window.addEventListener('neuralcritic:homepage-slots-applied', () => {
+    if (cachedArticles.length) render(cachedArticles);
+  });
+  window.addEventListener('neuralcritic:homepage-feed-rendered', () => {
     if (cachedArticles.length) render(cachedArticles);
   });
 
