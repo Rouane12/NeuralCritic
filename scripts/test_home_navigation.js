@@ -69,9 +69,16 @@ check(
 );
 
 check(
-  'adjacent modules honor programmed-story de-duplication',
-  feed.includes('NeuralCriticHomepageState?.featuredSlugs') && feed.includes('NeuralCriticHomepageState.feedSlugs') && app.includes('reviews.find(x=>!featured.has(x.slug))') && app.includes('NeuralCriticHomepageState?.feedSlugs') && whatToPlay.includes('curatedAll.filter(article => !featured.has(article.slug))') && popularity.includes('NeuralCriticHomepageState?.feedSlugs'),
-  'Latest, Reviews, What to Play, and popularity presentation'
+  'adjacent homepage modules honor visible-story de-duplication',
+  feed.includes('NeuralCriticHomepageState.feedSlugs') &&
+    app.includes('function homepageReservedSlugs()') &&
+    app.includes('reviews.find(x=>!reserved.has(x.slug))') &&
+    app.includes('guides.filter(a=>!reserved.has(a.slug))') &&
+    app.includes("window.addEventListener('neuralcritic:homepage-feed-rendered',()=>{renderTrending();renderReview();renderGuides();});") &&
+    whatToPlay.includes('NeuralCriticHomepageState?.feedSlugs') &&
+    whatToPlay.includes("window.addEventListener('neuralcritic:homepage-feed-rendered'") &&
+    popularity.includes('NeuralCriticHomepageState?.feedSlugs'),
+  'Hero, visible Latest, Trending/Most Read, Reviews, Guides, and What to Play stay distinct when alternatives exist'
 );
 
 check(
