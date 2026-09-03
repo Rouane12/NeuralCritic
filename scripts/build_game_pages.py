@@ -153,7 +153,13 @@ def metadata_markup(game: dict[str, Any]) -> str:
 def render_game(template: str, game: dict[str, Any]) -> str:
     title = html.escape(f"{game.get('title') or 'Game'} | Neural Critic Game Database", quote=False)
     summary = html.escape(str(game.get("summary") or "Neural Critic game intelligence."), quote=False)
-    output = template.replace("<head>", f"<head>{metadata_markup(game)}", 1)
+    output = re.sub(
+        r'<meta name="description" content="Game information, release details and connected Neural Critic coverage\.">',
+        "",
+        template,
+        count=1,
+    )
+    output = output.replace("<head>", f"<head>{metadata_markup(game)}", 1)
     output = output.replace("<title>Game · Neural Critic</title>", f"<title>{title}</title>", 1)
     output = output.replace("<h1 id=\"game-title\">Loading game…</h1>", f'<h1 id="game-title">{html.escape(str(game.get("title") or "Game"))}</h1>', 1)
     output = output.replace("<p id=\"game-summary\">Loading Neural Critic game intelligence.</p>", f'<p id="game-summary">{summary}</p>', 1)
