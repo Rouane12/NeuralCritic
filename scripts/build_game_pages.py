@@ -200,7 +200,7 @@ def sync_sitemap(rows: list[dict[str, Any]]) -> None:
     ET.register_namespace("", "http://www.sitemaps.org/schemas/sitemap/0.9")
     tree = ET.parse(SITEMAP_PATH)
     root = tree.getroot()
-    namespace = "{http://www.sitemaps.org/schemas/sitemap/0.9)}"
+    namespace = "{http://www.sitemaps.org/schemas/sitemap/0.9}"
     games_root = urllib.parse.urljoin(SITE_URL, "games/")
     for node in list(root):
         loc = node.find(f"{namespace}loc")
