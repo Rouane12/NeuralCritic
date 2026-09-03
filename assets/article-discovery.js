@@ -4,7 +4,6 @@
   const SITE_ROOT = new URL(location.hostname === 'rouane12.github.io' ? '/NeuralCritic/' : '/', location.origin);
   const esc = (value='') => String(value).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
   const slug = () => window.NEURAL_CRITIC_STATIC_SLUG || new URLSearchParams(location.search).get('slug') || '';
-  const slugify = (value='') => String(value).trim().toLowerCase().normalize('NFKD').replace(/[\u0300-\u036f]/g,'').replace(/[^a-z0-9]+/g,'-').replace(/^-+|-+$/g,'');
   const storyHref = storySlug => new URL(`stories/${encodeURIComponent(storySlug)}/`, SITE_ROOT).href;
   const gameHref = gameSlug => new URL(`games/${encodeURIComponent(gameSlug)}/`, SITE_ROOT).href;
 
@@ -27,13 +26,12 @@
 
   async function resolveGameContext(article) {
     const gameKey=String(article?.gameKey || article?.game_key || '').trim();
-    const gameSlug=slugify(gameKey);
     const client=window.neuralCriticPublicSupabase;
-    if (!gameSlug || !client) return null;
+    if (!gameKey || !client) return null;
     try {
       const {data,error}=await client.from('games')
         .select('slug,title,release_status,platforms,primary_release_date')
-        .eq('slug',gameSlug)
+        .eq('title',gameKey)
         .maybeSingle();
       if (error || !data?.slug) return null;
       return {
