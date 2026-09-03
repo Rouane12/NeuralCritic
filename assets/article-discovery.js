@@ -2,7 +2,7 @@
   'use strict';
 
   const SITE_ROOT = new URL(location.hostname === 'rouane12.github.io' ? '/NeuralCritic/' : '/', location.origin);
-  const esc = (value='') => String(value).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot',"'":'&#39;'}[c]));
+  const esc = (value='') => String(value).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
   const slug = () => window.NEURAL_CRITIC_STATIC_SLUG || new URLSearchParams(location.search).get('slug') || '';
   const slugify = (value='') => String(value).trim().toLowerCase().normalize('NFKD').replace(/[\u0300-\u036f]/g,'').replace(/[^a-z0-9]+/g,'-').replace(/^-+|-+$/g,'');
   const storyHref = storySlug => new URL(`stories/${encodeURIComponent(storySlug)}/`, SITE_ROOT).href;
@@ -50,6 +50,7 @@
   function publishGameContext(game) {
     const detail=game ? {...game} : null;
     window.NeuralCriticArticleGameContext=detail;
+    window.NeuralCriticArticleGameContextReady=true;
     window.dispatchEvent(new CustomEvent('neuralcritic:article-game-context-ready',{detail}));
   }
 
