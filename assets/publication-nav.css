@@ -141,21 +141,11 @@
   background:linear-gradient(90deg,#55e7ff,#7768ff,transparent 86%);
   opacity:.9;
 }
-.publication-nav .nav-group:hover>.nav-menu,
-.publication-nav .nav-group:focus-within>.nav-menu,
 .publication-nav .nav-group.open>.nav-menu{
   opacity:1;
   visibility:visible;
   pointer-events:auto;
   transform:translate(-50%,0) scale(1);
-}
-@media(min-width:981px){
-  .publication-nav:has(.nav-group.open) .nav-group:not(.open)>.nav-menu{
-    opacity:0;
-    visibility:hidden;
-    pointer-events:none;
-    transform:translate(-50%,-8px) scale(.982);
-  }
 }
 .publication-nav .nav-menu a{
   display:grid;
