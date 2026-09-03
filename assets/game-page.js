@@ -202,16 +202,19 @@
     const host = $('#game-review-feature');
     if (!host) return;
     const review = reviewArticle(game, articles);
-    if (!review || game.neural_critic_score == null) {
+    if (!review) {
       host.hidden = true;
       host.innerHTML = '';
       return;
     }
     const meta = review.reviewMeta || review.review_meta || {};
     const score = meta.score ?? game.neural_critic_score;
+    const scoreMarkup = score != null && String(score).trim()
+      ? `<div class="nc-game-review-score"><strong>${esc(score)}</strong><span>OUT OF 10</span></div>`
+      : '<div class="nc-game-review-score"><span>NEURAL CRITIC<br>REVIEW</span></div>';
     host.hidden = false;
     host.innerHTML = `<section class="nc-game-review-card">
-      <div class="nc-game-review-score"><strong>${esc(score)}</strong><span>OUT OF 10</span></div>
+      ${scoreMarkup}
       <div class="nc-game-review-copy">
         <small>NEURAL CRITIC REVIEW</small>
         <h2>${esc(review.title)}</h2>
@@ -427,10 +430,13 @@
     const chips = [...(game.genres || []), ...(game.platforms || [])].slice(0,10);
     $('#game-chips').innerHTML = chips.map(value => `<span>${esc(value)}</span>`).join('');
 
-    if (game.neural_critic_score != null) {
+    const reviewMeta = featuredReview?.reviewMeta || featuredReview?.review_meta || {};
+    const effectiveScore = game.neural_critic_score ?? reviewMeta.score ?? null;
+    const effectiveReviewSlug = game.score_article_slug || featuredReview?.slug || '';
+    if (effectiveScore != null && String(effectiveScore).trim() && Number.isFinite(Number(effectiveScore))) {
       const score = $('#game-score');
       score.hidden = false;
-      score.innerHTML = `<strong>${Number(game.neural_critic_score).toFixed(1)}</strong><span>NEURAL CRITIC<br>SCORE</span>${game.score_article_slug ? `<a href="${storyUrl(game.score_article_slug)}" data-game-review-target="${esc(game.score_article_slug)}">READ REVIEW →</a>` : ''}`;
+      score.innerHTML = `<strong>${Number(effectiveScore).toFixed(1)}</strong><span>NEURAL CRITIC<br>SCORE</span>${effectiveReviewSlug ? `<a href="${storyUrl(effectiveReviewSlug)}" data-game-review-target="${esc(effectiveReviewSlug)}">READ REVIEW →</a>` : ''}`;
     }
 
     renderFacts(game);
