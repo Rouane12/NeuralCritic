@@ -10,6 +10,8 @@ const articleDiscovery = read('assets/article-discovery.js');
 const recirculation = read('assets/recirculation.js');
 const discoveryCss = read('assets/discovery-intelligence.css');
 const discoveryEngine = read('assets/discovery-intelligence.js');
+const contentApi = read('assets/content-api.js');
+const articleTemplate = read('article.html');
 
 const checks = [];
 const check = (name, condition, detail = '') => checks.push({ name, ok:Boolean(condition), detail });
@@ -95,6 +97,15 @@ check(
     recirculation.includes("NeuralCriticAnalytics?.track?.('recirculation_hub_click'") &&
     recirculation.includes("destination:hub.dataset.recircHubDestination"),
   'no second analytics implementation'
+);
+
+check(
+  'Article Journey runtime versions are cache-busted through the established bootstrap',
+  articleTemplate.includes('assets/content-api.js?v=20260903-articlejourney1') &&
+    contentApi.includes('assets/discovery-intelligence.css?v=20260903-articlejourney1') &&
+    contentApi.includes('assets/article-discovery.js?v=20260903-articlejourney1') &&
+    contentApi.includes('assets/recirculation.js?v=20260903-articlejourney1'),
+  'returning readers should receive the new article journey assets rather than stale cached owners'
 );
 
 check(
