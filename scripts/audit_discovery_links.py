@@ -58,7 +58,7 @@ def main() -> int:
             "assets/publication-nav.js?v=20260901-canonical1",
         ),
         "article.html": (
-            "assets/content-api.js?v=20260901-canonical1",
+            "assets/content-api.js?v=20260903-articlejourney1",
             "assets/app.js?v=20260901-canonical1",
             "assets/publication-nav.js?v=20260901-canonical1",
         ),
