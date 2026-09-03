@@ -35,8 +35,14 @@
     } catch (_) { return `${Number(value).toFixed(2)} ${currency}`; }
   }
 
+  function offerDestination(offer) {
+    return String(offer?.is_affiliate && offer?.affiliate_url ? offer.affiliate_url : offer?.destination_url || '').trim();
+  }
+
   function isOfferActive(offer) {
     if (!['in_stock','preorder','backorder'].includes(String(offer.availability || ''))) return false;
+    if (!Number.isFinite(Number(offer.price))) return false;
+    if (!offerDestination(offer)) return false;
     if (offer.expires_at && new Date(offer.expires_at).getTime() <= Date.now()) return false;
     return true;
   }
@@ -46,6 +52,21 @@
       if (window.NeuralCriticDiscoveryReady) return await window.NeuralCriticDiscoveryReady;
     } catch (_) {}
     return window.NeuralCriticDiscovery || null;
+  }
+
+  async function loadArticles() {
+    try {
+      const live = await window.NeuralCriticContentAPI?.publishedIndex?.();
+      if (Array.isArray(live) && live.length) return live;
+    } catch (error) {
+      console.warn('Game Hub live article index unavailable; using generated fallback.', error);
+    }
+    try {
+      const response = await fetch('data/articles.json');
+      if (!response.ok) return [];
+      const rows = await response.json();
+      return Array.isArray(rows) ? rows : [];
+    } catch (_) { return []; }
   }
 
   function graphSeed(game) {
@@ -214,17 +235,18 @@
 
   function dealCard(row) {
     const { product, offer, retailer } = row;
-    const destination = offer.is_affiliate && offer.affiliate_url ? offer.affiliate_url : offer.destination_url;
+    const destination = offerDestination(offer);
     const reference = Number(offer.list_price) > Number(offer.price) ? Number(offer.list_price) : null;
     const discount = reference ? Math.round((1 - Number(offer.price) / reference) * 100) : 0;
     const attrs = offer.is_affiliate
       ? 'data-affiliate="true" data-affiliate-placement="game-hub-deals" rel="sponsored noopener noreferrer"'
       : 'rel="noopener noreferrer"';
+    const affiliateNote = offer.is_affiliate ? '<em>AFFILIATE LINK</em>' : '';
     return `<a class="nc-game-deal-card" href="${esc(destination)}" target="_blank" ${attrs} data-game-commerce-product="${esc(product.slug)}" data-game-commerce-retailer="${esc(retailer.slug)}">
       <small>${esc(product.category || 'PRODUCT')} · ${esc(retailer.name)}</small>
       <h3>${esc(product.name)}</h3>
       <p><strong>${money(offer.price, offer.currency)}</strong>${discount ? `<span>-${discount}%</span>` : ''}</p>
-      <b>VIEW DEAL ↗</b>
+      ${affiliateNote}<b>VIEW DEAL ↗</b>
     </a>`;
   }
 
@@ -260,7 +282,7 @@
     if (state.view === 'deals') {
       host.classList.add('is-deals');
       host.innerHTML = items.length
-        ? items.map(dealCard).join('')
+        ? `${items.map(dealCard).join('')}<p class="nc-game-commerce-disclosure">Prices and availability can change. Some outbound links may be affiliate links; Neural Critic may earn a commission from qualifying purchases. <a href="commercial.html">Commercial disclosure</a>.</p>`
         : '<div class="nc-game-empty-state"><small>DEALS</small><h3>No verified offers right now.</h3><p>We only show live retailer offers that are mapped to this game and pass Neural Critic commerce checks.</p></div>';
     } else {
       host.classList.remove('is-deals');
@@ -376,7 +398,7 @@
 
     const [{ data:releases }, articles, engine] = await Promise.all([
       client.from('game_releases').select('*').eq('game_id', game.id).order('release_date', { ascending:true }),
-      window.NeuralCriticContentAPI?.publishedIndex?.() || Promise.resolve([]),
+      loadArticles(),
       discoveryEngine()
     ]);
 
@@ -384,6 +406,11 @@
     state.game = game;
     state.articles = Array.isArray(articles) ? articles : [];
     state.coverage = connectedRecommendations(game, state.articles, engine);
+    const featuredReview = reviewArticle(game, state.articles);
+    if (featuredReview) {
+      const alternatives = state.coverage.filter(item => item.article?.slug !== featuredReview.slug);
+      if (alternatives.length >= 3) state.coverage = alternatives;
+    }
     state.deals = await loadDeals(client, game);
 
     document.title = `${game.title} | Neural Critic Game Database`;
