@@ -83,18 +83,18 @@
   <link rel="stylesheet" href="assets/community.css?v=20260822-account1">
   <link rel="stylesheet" href="assets/community-polish.css?v=20260822-account1">
   <link rel="stylesheet" href="assets/site-stability.css?v=20260822-account1">
-  <style>body:has(#hero) .reviews-intro h2{color:#f7f8ff!important;text-shadow:none!important}body:has(#hero) .newsletter i{font-size:0!important;font-style:normal!important}body:has(#hero) .newsletter i::before{content:"⚡";font:700 15px/1 Inter,system-ui,sans-serif;color:#07101b}</style>
+  <link rel="stylesheet" href="assets/homepage-v2.css?v=20260903-home2">
   <script>try{document.documentElement.dataset.theme=localStorage.getItem('neural-critic-theme')||'dark'}catch(e){}</script>
 </head>
-<body class="antialiased">
+<body class="antialiased nc-home-v2">
   <div id="shared-header"></div>
   <main id="app">
     <div id="top" class="shell page">
-      <section class="hero" id="hero"></section>
-      <section id="news" class="content">
+      <section class="hero" id="hero" aria-label="Top stories"></section>
+      <section id="news" class="content" aria-label="Latest and popular coverage" data-feed-owner="home-feed">
         <div class="feed">
           <div class="sectionhead">
-            <div><small>STAY IN THE LOOP</small><h2>Latest stories</h2></div>
+            <div><small>THE LATEST</small><h2>Latest coverage</h2><p>Newly published reporting, criticism, and practical help.</p></div>
             <div class="filters">
               <button class="active" data-filter="latest" aria-pressed="true">LATEST</button>
               <button data-filter="news" aria-pressed="false">NEWS</button>
@@ -105,31 +105,37 @@
           </div>
           <div id="story-feed" aria-live="polite"></div>
         </div>
-        <aside>
-          <section class="trending">
-            <div class="sidetitle"><small>WHAT’S HOT</small><h2>Trending now</h2></div>
+        <aside aria-label="Popular coverage and newsletter">
+          <section class="trending" aria-labelledby="home-popular-title">
+            <div class="sidetitle"><small>LIVE MOMENTUM</small><h2 id="home-popular-title">Trending now</h2></div>
             <div id="trending"></div>
           </section>
-          <section class="newsletter">
-            <i>ϟ</i><small>THE WEEKLY DROP</small><h2>Your gaming week, sorted.</h2>
+          <section class="newsletter" aria-labelledby="home-newsletter-title">
+            <i>ϟ</i><small>THE WEEKLY DROP</small><h2 id="home-newsletter-title">Your gaming week, sorted.</h2>
             <p>The biggest stories, sharpest takes, and games worth your time. One email. No noise.</p>
-            <div class="signup"><form id="newsletter-form"><input required type="email" placeholder="you@email.com"><button>JOIN FREE</button></form></div>
+            <div class="signup"><form id="newsletter-form" data-newsletter-source="homepage"><label class="visually-hidden" for="homepage-newsletter-email">Email address</label><input id="homepage-newsletter-email" required type="email" autocomplete="email" placeholder="you@email.com"><button type="submit">JOIN FREE</button></form></div>
           </section>
         </aside>
       </section>
     </div>
-    <section id="home-commerce" class="home-commerce" hidden></section>
-    <section id="home-what-to-play" class="home-wtp" hidden></section>
-    <section id="reviews" class="reviews">
+    <section id="reviews" class="reviews home-service-desk" aria-labelledby="home-service-title">
       <div class="shell">
         <div class="reviews-intro">
-          <small>THE VERDICT</small><h2>Reviews that respect your time.</h2>
-          <p>Clear opinions, useful context, and no unnecessary noise.</p>
-          <a href="category.html?section=reviews">SEE ALL REVIEWS →</a>
+          <small>PLAY WITH CONTEXT</small><h2 id="home-service-title">Reviews and guides worth opening.</h2>
+          <p>Clear verdicts when you are deciding what to play, and focused help when you are already in.</p>
+          <div class="home-service-links"><a href="category.html?section=reviews">ALL REVIEWS →</a><a href="category.html?section=guides">ALL GUIDES →</a></div>
         </div>
-        <div id="review-showcase"></div>
+        <div class="home-service-grid">
+          <div id="review-showcase"></div>
+          <section class="home-guide-showcase" aria-labelledby="home-guides-title">
+            <header><small>PLAYER HELP</small><h3 id="home-guides-title">Guides to keep close.</h3></header>
+            <div id="guide-showcase"></div>
+          </section>
+        </div>
       </div>
     </section>
+    <section id="home-what-to-play" class="home-wtp" hidden></section>
+    <section id="home-commerce" class="home-commerce" hidden></section>
   </main>
   <div id="shared-footer"></div>
   <div class="search-overlay" id="search-overlay">

@@ -39,9 +39,9 @@ html[data-theme="light"] #article.work-article-page .work-toc nav a.active{color
 /* --------------------------------------------------------------------------
    NEURAL CRITIC ARTICLE REFERENCE COMPOSITION
 
-   1240px frame = 132px reactions + 732px editorial lane + 376px sidebar.
-   Sidebar gutters are intentionally a little tighter now, allowing the two
-   editorial cards to breathe at roughly 320px without narrowing body copy.
+   The wide frame tops out at 1240px: 132px reactions + 732px editorial lane
+   + 376px sidebar. Each track can contract when the desktop presentation
+   scale leaves less layout space, so the frame never forces page overflow.
    -------------------------------------------------------------------------- */
 
 @media(min-width:1260px){
@@ -51,7 +51,7 @@ html[data-theme="light"] #article.work-article-page .work-toc nav a.active{color
     --nc-reference-sidebar:376px;
     width:1240px!important;
     max-width:100%!important;
-    grid-template-columns:var(--nc-reference-rail) var(--nc-reference-copy) var(--nc-reference-sidebar)!important;
+    grid-template-columns:minmax(108px,var(--nc-reference-rail)) minmax(0,var(--nc-reference-copy)) minmax(280px,var(--nc-reference-sidebar))!important;
     column-gap:0!important;
     row-gap:0!important;
     align-items:start!important;

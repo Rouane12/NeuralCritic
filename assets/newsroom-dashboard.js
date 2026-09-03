@@ -1,9 +1,8 @@
 (() => {
   'use strict';
 
-  const cfg = window.NEURAL_CRITIC_SUPABASE;
-  if (!cfg || !window.supabase) return;
-  const client = window.supabase.createClient(cfg.url, cfg.publishableKey);
+  const client = window.neuralCriticPrivateSupabase;
+  if (!client) return;
   const $ = (s, root=document) => root.querySelector(s);
   const esc = (v='') => String(v).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
   const priorityRank = {urgent:0,high:1,normal:2,low:3};

@@ -274,6 +274,21 @@
       setTimeout(() => track('theme_change', { theme: document.documentElement.dataset.theme || 'unknown' }), 0);
     }
 
+    const navLink = target.closest('header .publication-nav a[href]');
+    if (navLink) {
+      track('publication_nav_select', {
+        nav_label:String(navLink.textContent || '').trim().slice(0,48),
+        nav_level:navLink.closest('.nav-menu') ? 'submenu' : 'primary'
+      });
+    }
+    const navToggle = target.closest('header .publication-nav .nav-trigger');
+    if (navToggle) {
+      setTimeout(() => track('publication_nav_menu', {
+        nav_label:String(navToggle.closest('.nav-group')?.querySelector('.nav-primary')?.textContent || '').trim().slice(0,48),
+        nav_state:navToggle.getAttribute('aria-expanded') === 'true' ? 'open' : 'closed'
+      }), 0);
+    }
+
     const action = routeType() === 'article' ? actionFromLabel(target.textContent) : '';
     if (action) track(action);
 

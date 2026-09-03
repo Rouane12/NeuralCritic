@@ -136,7 +136,10 @@
   }
 
   function restoreSearchFocus() {
-    if (lastSearchTrigger?.isConnected) lastSearchTrigger.focus({preventScroll:true});
+    const trigger = lastSearchTrigger?.isConnected ? lastSearchTrigger : qs('.header-tools .search');
+    if (!trigger) return;
+    lastSearchTrigger = trigger;
+    trigger.focus({preventScroll:true});
   }
 
   function installObserver() {
@@ -166,7 +169,7 @@
         syncSearchDialog();
         const isOpen = !!qs('.search-overlay.open');
         if (isOpen && !wasOpen) requestAnimationFrame(focusSearchDialog);
-        if (!isOpen && wasOpen) requestAnimationFrame(restoreSearchFocus);
+        if (!isOpen && wasOpen) setTimeout(restoreSearchFocus, 0);
       }
     });
     observer.observe(document.documentElement, {subtree:true, childList:true, attributes:true, attributeFilter:['hidden','data-theme','class']});
@@ -200,7 +203,7 @@
     }
 
     if (event.target.closest?.('.search-close')) {
-      requestAnimationFrame(() => { syncSearchDialog(); restoreSearchFocus(); });
+      setTimeout(() => { syncSearchDialog(); restoreSearchFocus(); }, 0);
     }
   }, true);
 

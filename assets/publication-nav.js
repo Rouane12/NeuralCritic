@@ -7,6 +7,11 @@
   const collectionNames = {'game-of-the-year':'Game of the Year','best-games':'Best Games','upcoming-games':'Upcoming Games',recommendations:'Recommendations','all-time-greats':'Best Games of All Time'};
 
   function addStyles(){
+    const existing = $$('link[rel="stylesheet"]').find(link => {
+      try { return new URL(link.href, document.baseURI).pathname.endsWith('/assets/publication-nav.css'); }
+      catch (_) { return false; }
+    });
+    if (existing) { existing.dataset.publicationNav='1'; return; }
     if ($('link[data-publication-nav]')) return;
     const link=document.createElement('link'); link.rel='stylesheet'; link.href='assets/publication-nav.css'; link.dataset.publicationNav='1'; document.head.appendChild(link);
   }
@@ -15,29 +20,45 @@
 
   function navMarkup(){
     const platformLinks = section => Object.entries(platformNames).map(([key,label])=>`<a href="${categoryUrl({section,platform:key})}"><b>${label}</b><small>${label} ${sectionNames[section].toLowerCase()}</small></a>`).join('');
+    const group = (key,label,featured,links) => `<div class="nav-group" data-nav-section="${key}">
+      <a class="nav-primary" href="${categoryUrl({section:key})}">${label}</a>
+      <button class="nav-trigger" type="button" aria-label="Open ${label} menu" aria-expanded="false" aria-controls="publication-submenu-${key}"><span aria-hidden="true">⌄</span></button>
+      <div class="nav-menu" id="publication-submenu-${key}">${featured}<span class="nav-menu-label">EXPLORE</span>${links}</div>
+    </div>`;
     return `
-      <div class="nav-group"><button class="nav-trigger" type="button">News</button><div class="nav-menu"><a class="nav-featured" href="${categoryUrl({section:'news'})}"><b>Latest News</b><small>Releases, announcements, industry moves and breaking stories.</small></a><span class="nav-menu-label">BY PLATFORM</span>${platformLinks('news')}</div></div>
-      <div class="nav-group"><button class="nav-trigger" type="button">Reviews</button><div class="nav-menu"><a class="nav-featured" href="${categoryUrl({section:'reviews'})}"><b>Latest Reviews</b><small>Neural Critic verdicts, scores and long-form criticism.</small></a><span class="nav-menu-label">BY PLATFORM</span>${platformLinks('reviews')}</div></div>
-      <div class="nav-group"><button class="nav-trigger" type="button">Guides</button><div class="nav-menu"><a class="nav-featured" href="${categoryUrl({section:'guides'})}"><b>Game Guides</b><small>Walkthroughs, builds, tips and focused help.</small></a><span class="nav-menu-label">BY PLATFORM</span>${platformLinks('guides')}</div></div>
-      <div class="nav-group"><button class="nav-trigger" type="button">What to Play</button><div class="nav-menu">
-        <a class="nav-featured" href="${categoryUrl({section:'what-to-play'})}"><b>What to Play</b><small>Our recommendations, rankings and essential games.</small></a>
-        <a href="${categoryUrl({collection:'game-of-the-year'})}"><b>Game of the Year</b><small>Neural Critic's annual awards and GOTY picks.</small></a>
-        <a href="${categoryUrl({collection:'all-time-greats'})}"><b>Best Games of All Time</b><small>The games we consider essential.</small></a>
-        <a href="${categoryUrl({collection:'best-games',platform:'pc'})}"><b>Best PC Games</b><small>Essential PC recommendations.</small></a>
-        <a href="${categoryUrl({collection:'best-games',platform:'playstation'})}"><b>Best PlayStation Games</b><small>Our PlayStation picks.</small></a>
-        <a href="${categoryUrl({collection:'best-games',platform:'xbox'})}"><b>Best Xbox Games</b><small>Our Xbox picks.</small></a>
-        <a href="${categoryUrl({collection:'best-games',platform:'nintendo'})}"><b>Best Nintendo Games</b><small>Our Nintendo picks.</small></a>
-        <a href="${categoryUrl({collection:'upcoming-games'})}"><b>Upcoming Games</b><small>Games worth keeping on your radar.</small></a>
-      </div></div>
-      <a href="${categoryUrl({section:'features'})}">Features</a>`;
+      ${group('news','News',`<a class="nav-featured" href="${categoryUrl({section:'news'})}"><b>Latest News</b><small>Releases, announcements, industry moves, and developing stories.</small></a>`,platformLinks('news'))}
+      ${group('reviews','Reviews',`<a class="nav-featured" href="${categoryUrl({section:'reviews'})}"><b>Latest Reviews</b><small>Scores, verdicts, and criticism that explains the experience.</small></a>`,platformLinks('reviews'))}
+      ${group('guides','Guides',`<a class="nav-featured" href="${categoryUrl({section:'guides'})}"><b>Game Guides</b><small>Walkthroughs, builds, tips, and focused player help.</small></a>`,platformLinks('guides'))}
+      <a class="nav-direct" href="${categoryUrl({section:'features'})}">Features</a>
+      ${group('what-to-play','What to Play',`<a class="nav-featured" href="${categoryUrl({section:'what-to-play'})}"><b>What to Play</b><small>Recommendations, rankings, awards, and essential games.</small></a>`,`
+        <a href="${categoryUrl({collection:'game-of-the-year'})}"><b>Game of the Year</b><small>Annual awards and defining games.</small></a>
+        <a href="${categoryUrl({collection:'all-time-greats'})}"><b>Best Games of All Time</b><small>The Neural Critic canon.</small></a>
+        <a href="${categoryUrl({collection:'best-games'})}"><b>Best Games</b><small>Curated picks across platforms.</small></a>
+        <a href="${categoryUrl({collection:'upcoming-games'})}"><b>Upcoming Games</b><small>Releases worth keeping on your radar.</small></a>`)}
+      <a class="nav-direct" href="games/">Games</a>`;
   }
 
   function installNav(){
     const nav=$('#shared-header header nav'); if(!nav || nav.dataset.publicationReady) return;
     nav.dataset.publicationReady='1'; nav.className='publication-nav'; nav.innerHTML=navMarkup();
-    $$('.nav-trigger',nav).forEach(button=>button.addEventListener('click',e=>{
-      if (matchMedia('(max-width:860px)').matches){e.preventDefault(); const group=button.closest('.nav-group'); $$('.nav-group',nav).forEach(x=>{if(x!==group)x.classList.remove('open')}); group.classList.toggle('open');}
+    const setOpen=(group,open)=>{
+      if(!group)return;
+      group.classList.toggle('open',open);
+      const button=$('.nav-trigger',group);
+      if(button){button.setAttribute('aria-expanded',String(open));button.setAttribute('aria-label',`${open?'Close':'Open'} ${$('.nav-primary',group)?.textContent?.trim()||'section'} menu`)}
+    };
+    $$('.nav-trigger',nav).forEach(button=>button.addEventListener('click',()=>{
+      const owner=button.closest('.nav-group');
+      const next=!owner?.classList.contains('open');
+      $$('.nav-group',nav).forEach(group=>setOpen(group,group===owner&&next));
     }));
+    nav.addEventListener('click',event=>{if(event.target.closest('.nav-menu a,.nav-primary,.nav-direct')) $$('.nav-group',nav).forEach(group=>setOpen(group,false))});
+    document.addEventListener('click',event=>{if(!event.target.closest('.publication-nav')) $$('.nav-group',nav).forEach(group=>setOpen(group,false))});
+    document.addEventListener('keydown',event=>{
+      if(event.key!=='Escape')return;
+      const open=$('.nav-group.open',nav);if(!open)return;
+      event.preventDefault();const button=$('.nav-trigger',open);setOpen(open,false);button?.focus();
+    });
   }
 
   function inferSection(article){

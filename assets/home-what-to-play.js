@@ -6,6 +6,7 @@
   const slugify = (v='') => String(v).toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,'');
   const articleUrl = a => `stories/${encodeURIComponent(a.slug)}/`;
   const collectionUrl = collection => `category.html?collection=${encodeURIComponent(collection)}`;
+  let cachedArticles = [];
   const defs = [
     ['all-time-greats','All-Time Greats','THE CANON'],
     ['game-of-the-year','Game of the Year','ANNUAL AWARDS'],
@@ -74,17 +75,30 @@
     </a>`;
   }
 
+  function graphEntries(all){
+    const engine = window.NeuralCriticDiscovery;
+    if (!engine?.buildEntities) return [];
+    return engine.buildEntities(all)
+      .filter(entity => ['game','series','franchise'].includes(entity.type) && entity.href && entity.href !== '#')
+      .slice(0,4);
+  }
+
   function render(all){
-    const curated = all
+    cachedArticles = all;
+    const curatedAll = all
       .filter(a => a.editorialSection === 'what-to-play' || Boolean(a.collection))
       .sort((a,b) => new Date(b.publishedAt||0) - new Date(a.publishedAt||0));
 
-    if (!curated.length) { host.hidden = true; return; }
+    if (!curatedAll.length) { host.hidden = true; return; }
+    const reserved = new Set([...(window.NeuralCriticHomepageState?.featuredSlugs || []),...(window.NeuralCriticHomepageState?.feedSlugs || [])]);
+    const distinct = curatedAll.filter(article => !reserved.has(article.slug));
+    const curated = distinct.length ? distinct : curatedAll;
     host.hidden = false;
     const lead = curated[0];
     const top = rankedTopThree(lead);
-    const counts = Object.fromEntries(defs.map(([key]) => [key, curated.filter(a => a.collection === key).length]));
+    const counts = Object.fromEntries(defs.map(([key]) => [key, curatedAll.filter(a => a.collection === key).length]));
     const more = curated.slice(1,4);
+    const entities = graphEntries(all);
 
     const media = lead.imageLocal
       ? `<img src="${esc(lead.imageLocal)}" alt="${esc(lead.imageAlt)}">`
@@ -111,8 +125,34 @@
       <nav class="home-wtp-desks" aria-label="What to Play collections">
         ${defs.map(([key,title,eyebrow])=>`<a href="${collectionUrl(key)}"><small>${eyebrow}</small><strong>${title}</strong><span>${counts[key] ? `${counts[key]} LIVE` : 'DESK READY'} <b>→</b></span></a>`).join('')}
       </nav>
+
+      <section class="home-wtp-explore" aria-labelledby="home-wtp-explore-title">
+        <div><small>EXPLORE DEEPER</small><h3 id="home-wtp-explore-title">Games, series, and worlds in context.</h3><p>Move from a recommendation into every connected review, guide, feature, and update.</p></div>
+        <nav aria-label="Game Graph entry points">
+          <a href="games/" data-home-explore="games-directory"><small>GAME DIRECTORY</small><strong>Browse every game</strong><span>OPEN DIRECTORY →</span></a>
+          ${entities.map(entity=>`<a href="${esc(entity.href)}" data-home-explore="${esc(entity.type)}" data-home-entity="${esc(entity.slug)}"><small>${esc(entity.type.toUpperCase())}</small><strong>${esc(entity.name)}</strong><span>${entity.count} ${entity.count===1?'STORY':'STORIES'} →</span></a>`).join('')}
+        </nav>
+      </section>
     </div>`;
   }
 
-  loadArticles().then(render).catch(() => { host.hidden = true; });
+  host.addEventListener('click', event => {
+    const link = event.target.closest?.('[data-home-explore]');
+    if (!link) return;
+    window.NeuralCriticAnalytics?.track?.('homepage_discovery_click', {
+      discovery_type:link.dataset.homeExplore || '',
+      entity_slug:link.dataset.homeEntity || ''
+    });
+  }, true);
+  window.addEventListener('neuralcritic:homepage-slots-applied', () => {
+    if (cachedArticles.length) render(cachedArticles);
+  });
+  window.addEventListener('neuralcritic:homepage-feed-rendered', () => {
+    if (cachedArticles.length) render(cachedArticles);
+  });
+
+  loadArticles().then(async articles => {
+    await (window.NeuralCriticDiscoveryReady || Promise.resolve(window.NeuralCriticDiscovery || null));
+    render(articles);
+  }).catch(() => { host.hidden = true; });
 })();

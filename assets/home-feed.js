@@ -4,11 +4,11 @@
   const PAGE_SIZE = 3;
   const state = { filter: 'latest', visible: PAGE_SIZE, newsKind: 'all' };
   const DESK_COPY = {
-    latest: ['STAY IN THE LOOP', 'Latest stories'],
-    news: ['LIVE SIGNALS', 'News desk'],
-    feature: ['DEEP READS', 'Features'],
-    review: ['THE VERDICT', 'Reviews'],
-    pc: ['PLATFORM WATCH', 'PC stories']
+    latest: ['THE LATEST', 'Latest coverage', 'Newly published reporting, criticism, and practical help.'],
+    news: ['LIVE SIGNALS', 'News desk', 'Confirmed releases, announcements, updates, and attributed reports.'],
+    feature: ['DEEP READS', 'Features', 'Analysis, reporting, and ideas worth spending time with.'],
+    review: ['THE VERDICT', 'Reviews', 'Scored criticism with a clear verdict and useful context.'],
+    pc: ['PLATFORM WATCH', 'PC stories', 'The latest Neural Critic coverage for PC players.']
   };
   const NEWS_KINDS = {
     breaking: { label: 'BREAKING', copy: 'Confirmed, time-sensitive developments.' },
@@ -40,11 +40,13 @@
   function syncDeskHeading(filter) {
     const head = document.querySelector('#news .sectionhead > div:first-child');
     if (!head) return;
-    const [eyebrow, title] = DESK_COPY[filter] || [String(filter).toUpperCase(), 'Stories'];
+    const [eyebrow, title, description] = DESK_COPY[filter] || [String(filter).toUpperCase(), 'Stories', 'Published Neural Critic coverage.'];
     const small = head.querySelector('small');
     const h2 = head.querySelector('h2');
+    const paragraph = head.querySelector('p');
     if (small) small.textContent = eyebrow;
     if (h2) h2.textContent = title;
+    if (paragraph) paragraph.textContent = description;
   }
 
   function categoryClass(a) {
@@ -70,7 +72,7 @@
         : isNews && Array.isArray(a.newsMeta?.updates) && a.newsMeta.updates.length
           ? `${a.newsMeta.updates.length} UPDATE${a.newsMeta.updates.length === 1 ? '' : 'S'}`
           : '';
-    return `<a class="story nc-feed-story ${categoryClass(a)}" href="${articleHref(a)}">
+    return `<a class="story nc-feed-story ${categoryClass(a)}" href="${articleHref(a)}" data-home-story="${escapeHtml(a.slug)}">
       <div class="thumb">${imageOf(a) ? `<img alt="${escapeHtml(a.imageAlt || a.title)}" src="${imageOf(a)}">` : '<div class="placeholder-art">NC</div>'}<b>${String(index + 1).padStart(2, '0')}</b></div>
       <div class="nc-feed-copy">
         <div class="nc-feed-meta"><label>${escapeHtml(label)}</label>${auxiliary ? `<span>${escapeHtml(auxiliary)}</span>` : ''}</div>
@@ -160,6 +162,8 @@
       btn.classList.toggle('active', active);
       btn.setAttribute('aria-pressed', active ? 'true' : 'false');
     });
+    if (window.NeuralCriticHomepageState) window.NeuralCriticHomepageState.feedSlugs = visible.map(article => article.slug);
+    window.dispatchEvent(new CustomEvent('neuralcritic:homepage-feed-rendered', { detail:{ filter:state.filter, slugs:visible.map(article => article.slug) } }));
   };
 
   async function hydrateNewsMeta() {
@@ -237,7 +241,9 @@
     if (filterButton) {
       state.visible = PAGE_SIZE;
       state.newsKind = 'all';
-      window.gtag?.('event', 'homepage_feed_filter', { feed_filter: filterButton.dataset.filter || 'latest' });
+      const nextFilter = filterButton.dataset.filter || 'latest';
+      renderFeed(nextFilter);
+      window.gtag?.('event', 'homepage_feed_filter', { feed_filter: nextFilter });
     }
   }, true);
 

@@ -3,6 +3,7 @@
   const qsa=(s,r=document)=>[...r.querySelectorAll(s)];
   let items=[];
   let index=0;
+  let opener=null;
 
   function captionFor(img){
     const fig=img.closest('figure');
@@ -78,6 +79,7 @@
     collect();
     const found=items.indexOf(img);
     if(found<0) return;
+    opener=img;
     index=found;
     const viewer=ensureViewer();
     render();
@@ -90,9 +92,12 @@
   function close(){
     const viewer=qs('#image-viewer');
     if(!viewer?.classList.contains('open')) return;
+    const returnTarget=opener;
+    opener=null;
     viewer.classList.remove('open');
     viewer.setAttribute('aria-hidden','true');
     document.body.classList.remove('image-viewer-lock');
+    if(returnTarget?.isConnected) returnTarget.focus({preventScroll:true});
   }
 
   function step(delta){index+=delta;render();}

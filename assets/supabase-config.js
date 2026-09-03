@@ -72,6 +72,20 @@ window.NEURAL_CRITIC_SUPABASE = {
 (() => {
   const pageName = (location.pathname.split('/').pop() || 'index.html').toLowerCase();
   const STATIC_META_PAGES = new Set(['privacy.html', 'standards.html', 'commercial.html', 'topic.html', 'author.html']);
+  const hasAsset = (tagName, fileName) => Array.from(document.querySelectorAll(`${tagName}[src], ${tagName}[href]`)).some(node => {
+    try {
+      return new URL(node.src || node.href, document.baseURI).pathname.endsWith(`/assets/${fileName}`);
+    } catch (_) {
+      return false;
+    }
+  });
+  const afterDocumentParsed = callback => {
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', callback, { once:true });
+      return;
+    }
+    callback();
+  };
 
   const loadPublicScale = () => {
     if (pageName === 'studio.html' || pageName === 'subscribers.html') return;
@@ -93,13 +107,34 @@ window.NEURAL_CRITIC_SUPABASE = {
     document.head.appendChild(style);
   };
 
-  const loadStoryRouter = () => {
-    if (pageName === 'studio.html' || pageName === 'subscribers.html') return;
-    if (document.querySelector('script[data-nc-story-router]')) return;
+  const loadStoryRouter = (onReady = null) => {
+    const ready = () => {
+      if (typeof onReady === 'function') onReady();
+    };
+    if (pageName === 'studio.html' || pageName === 'subscribers.html') {
+      ready();
+      return;
+    }
+    if (window.NeuralCriticStoryRouter?.storyUrl) {
+      ready();
+      return;
+    }
+    const existing = document.querySelector('script[data-nc-story-router]');
+    if (existing) {
+      if (typeof onReady === 'function') {
+        existing.addEventListener('load', ready, { once:true });
+        existing.addEventListener('error', ready, { once:true });
+      }
+      return;
+    }
     const router = document.createElement('script');
-    router.src = 'assets/story-router.js?v=20260825-story8';
+    router.src = 'assets/story-router.js?v=20260902-protected1';
     router.async = true;
     router.dataset.ncStoryRouter = '1';
+    if (typeof onReady === 'function') {
+      router.addEventListener('load', ready, { once:true });
+      router.addEventListener('error', ready, { once:true });
+    }
     document.head.appendChild(router);
   };
 
@@ -125,12 +160,14 @@ window.NEURAL_CRITIC_SUPABASE = {
 
   const loadNewsletter = () => {
     if (pageName === 'studio.html' || pageName === 'subscribers.html') return;
-    if (document.querySelector('script[data-nc-newsletter]')) return;
-    const script = document.createElement('script');
-    script.src = 'assets/newsletter.js?v=20260901-newsletter1';
-    script.async = true;
-    script.dataset.ncNewsletter = '1';
-    document.head.appendChild(script);
+    afterDocumentParsed(() => {
+      if (document.querySelector('script[data-nc-newsletter]') || hasAsset('script', 'newsletter.js')) return;
+      const script = document.createElement('script');
+      script.src = 'assets/newsletter.js?v=20260901-newsletter1';
+      script.async = true;
+      script.dataset.ncNewsletter = '1';
+      document.head.appendChild(script);
+    });
   };
 
   const loadStudioConclusion = () => {
@@ -153,20 +190,22 @@ window.NEURAL_CRITIC_SUPABASE = {
 
   const loadStudioNews = () => {
     if (pageName !== 'studio.html') return;
-    if (!document.querySelector('link[data-nc-studio-news-style]')) {
-      const style = document.createElement('link');
-      style.rel = 'stylesheet';
-      style.href = 'assets/studio-news.css?v=20260823-news1';
-      style.dataset.ncStudioNewsStyle = '1';
-      document.head.appendChild(style);
-    }
-    if (!document.querySelector('script[data-nc-studio-news]')) {
-      const script = document.createElement('script');
-      script.src = 'assets/studio-news.js?v=20260823-news1';
-      script.async = true;
-      script.dataset.ncStudioNews = '1';
-      document.head.appendChild(script);
-    }
+    afterDocumentParsed(() => {
+      if (!document.querySelector('link[data-nc-studio-news-style]') && !hasAsset('link', 'studio-news.css')) {
+        const style = document.createElement('link');
+        style.rel = 'stylesheet';
+        style.href = 'assets/studio-news.css?v=20260823-news1';
+        style.dataset.ncStudioNewsStyle = '1';
+        document.head.appendChild(style);
+      }
+      if (!document.querySelector('script[data-nc-studio-news]') && !hasAsset('script', 'studio-news.js')) {
+        const script = document.createElement('script');
+        script.src = 'assets/studio-news.js?v=20260823-news1';
+        script.async = true;
+        script.dataset.ncStudioNews = '1';
+        document.head.appendChild(script);
+      }
+    });
   };
 
   const loadStudioNewsDuplicateGuard = () => {
@@ -217,20 +256,22 @@ window.NEURAL_CRITIC_SUPABASE = {
 
   const loadArticleNews = () => {
     if (!document.getElementById('article')) return;
-    if (!document.querySelector('link[data-nc-article-news-style]')) {
-      const style = document.createElement('link');
-      style.rel = 'stylesheet';
-      style.href = 'assets/article-news.css?v=20260823-news2';
-      style.dataset.ncArticleNewsStyle = '1';
-      document.head.appendChild(style);
-    }
-    if (!document.querySelector('script[data-nc-article-news]')) {
-      const script = document.createElement('script');
-      script.src = 'assets/article-news.js?v=20260823-news2';
-      script.async = true;
-      script.dataset.ncArticleNews = '1';
-      document.head.appendChild(script);
-    }
+    afterDocumentParsed(() => {
+      if (!document.querySelector('link[data-nc-article-news-style]') && !hasAsset('link', 'article-news.css')) {
+        const style = document.createElement('link');
+        style.rel = 'stylesheet';
+        style.href = 'assets/article-news.css?v=20260823-news2';
+        style.dataset.ncArticleNewsStyle = '1';
+        document.head.appendChild(style);
+      }
+      if (!document.querySelector('script[data-nc-article-news]') && !hasAsset('script', 'article-news.js')) {
+        const script = document.createElement('script');
+        script.src = 'assets/article-news.js?v=20260823-news2';
+        script.async = true;
+        script.dataset.ncArticleNews = '1';
+        document.head.appendChild(script);
+      }
+    });
   };
 
   const loadArticleGameGraphIdentity = () => {
@@ -304,14 +345,16 @@ window.NEURAL_CRITIC_SUPABASE = {
   loadArticleThreadLayout();
 
   const shouldRuntimeHarden = !window.NEURAL_CRITIC_STATIC_META && !STATIC_META_PAGES.has(pageName);
-  if (shouldRuntimeHarden && !document.querySelector('script[data-nc-hardening]')) {
+  const loadRuntimeHardening = () => {
+    if (!shouldRuntimeHarden || document.querySelector('script[data-nc-hardening]')) return;
     const hardening = document.createElement('script');
-    hardening.src = 'assets/public-hardening.js?v=20260822-launch1';
+    hardening.src = 'assets/public-hardening.js?v=20260902-protected1';
     hardening.async = true;
     hardening.dataset.ncHardening = '1';
-    hardening.addEventListener('load', loadStoryRouter, { once: true });
-    hardening.addEventListener('error', loadStoryRouter, { once: true });
     document.head.appendChild(hardening);
+  };
+  if (shouldRuntimeHarden) {
+    loadStoryRouter(loadRuntimeHardening);
   } else {
     loadStoryRouter();
   }
