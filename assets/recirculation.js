@@ -101,6 +101,24 @@
     return window.NeuralCriticDiscovery || null;
   }
 
+  function waitForArticleGameContext(timeout = 3200) {
+    if (window.NeuralCriticArticleGameContextReady) {
+      return Promise.resolve(window.NeuralCriticArticleGameContext || null);
+    }
+    return new Promise(resolve => {
+      let settled = false;
+      const finish = value => {
+        if (settled) return;
+        settled = true;
+        window.removeEventListener('neuralcritic:article-game-context-ready', onReady);
+        resolve(value || null);
+      };
+      const onReady = event => finish(event.detail || null);
+      window.addEventListener('neuralcritic:article-game-context-ready', onReady, { once:true });
+      setTimeout(() => finish(window.NeuralCriticArticleGameContext || null), timeout);
+    });
+  }
+
   function cardMarkup(item, position) {
     const article = item.article;
     const image = imageUrl(article.imageLocal || article.image || article.heroImage || '');
@@ -148,7 +166,8 @@
         window.NeuralCriticAnalytics?.track?.('recirculation_hub_click', {
           placement:'after_thread',
           hub_type:hub.dataset.recircHub || '',
-          hub_value:hub.dataset.recircHubValue || ''
+          hub_value:hub.dataset.recircHubValue || '',
+          destination:hub.dataset.recircHubDestination || 'topic_hub'
         });
       }
     });
@@ -166,18 +185,26 @@
     observer.observe(module);
   }
 
-  function bestHub(current, primary) {
+  function bestHub(current, primary, gameContext) {
+    if (gameContext?.href && gameContext?.slug) {
+      return {
+        href:gameContext.href,
+        type:'game',
+        value:gameContext.title || current?.gameKey || '',
+        destination:'game_hub'
+      };
+    }
     const relation = primary?.relation;
     if (relation?.type && relation.value) {
-      return { href:topicUrl(relation.type, relation.value), type:relation.type, value:relation.value };
+      return { href:topicUrl(relation.type, relation.value), type:relation.type, value:relation.value, destination:'topic_hub' };
     }
     const series = String(current?.series || '').trim();
-    if (series) return { href:topicUrl('series', series), type:'series', value:series };
+    if (series) return { href:topicUrl('series', series), type:'series', value:series, destination:'topic_hub' };
     const franchise = String(current?.franchise || '').trim();
-    if (franchise) return { href:topicUrl('franchise', franchise), type:'franchise', value:franchise };
+    if (franchise) return { href:topicUrl('franchise', franchise), type:'franchise', value:franchise, destination:'topic_hub' };
     const game = String(current?.gameKey || '').trim();
-    if (game) return { href:topicUrl('game', game), type:'game', value:game };
-    return { href:'', type:'', value:'' };
+    if (game) return { href:topicUrl('game', game), type:'game', value:game, destination:'topic_hub' };
+    return { href:'', type:'', value:'', destination:'' };
   }
 
   function primaryIdentity(current, primary) {
@@ -203,23 +230,27 @@
     const selected = engine.related(current, index, 3);
     if (!selected.length) return;
 
-    const identity = primaryIdentity(current, selected[0]);
+    const gameContext = current.gameKey ? await waitForArticleGameContext() : null;
+    const identity = gameContext?.title || primaryIdentity(current, selected[0]);
     const eyebrow = identity ? `CONTINUE WITH ${displayTag(identity).toUpperCase()}` : 'KEEP READING';
-    const hub = bestHub(current, selected[0]);
+    const hub = bestHub(current, selected[0], gameContext);
     const fallbackSection = current.editorialSection || (String(current.category || '').toLowerCase() === 'review' ? 'reviews' : String(current.category || 'features').toLowerCase());
     const exploreHref = hub.href || new URL(`category.html?section=${encodeURIComponent(fallbackSection)}`, SITE_ROOT).href;
-    const exploreLabel = hub.href && identity ? `EXPLORE ${displayTag(identity).toUpperCase()} →` : 'EXPLORE MORE →';
+    const exploreLabel = hub.destination === 'game_hub'
+      ? 'OPEN GAME HUB →'
+      : hub.href && identity ? `EXPLORE ${displayTag(identity).toUpperCase()} →` : 'EXPLORE MORE →';
 
     const module = document.createElement('section');
     module.id = 'nc-recirculation';
     module.className = 'nc-recirculation';
     module.setAttribute('aria-labelledby', 'nc-recirculation-title');
-    module.innerHTML = `<header class="nc-recirc-head"><div><span>${esc(eyebrow)}</span><h2 id="nc-recirculation-title">Your next story is already here.</h2></div><a href="${esc(exploreHref)}"${hub.href ? ` data-recirc-hub="${esc(hub.type)}" data-recirc-hub-value="${esc(hub.value)}"` : ''}>${esc(exploreLabel)}</a></header><div class="nc-recirc-grid">${selected.map(cardMarkup).join('')}</div>`;
+    module.innerHTML = `<header class="nc-recirc-head"><div><span>${esc(eyebrow)}</span><h2 id="nc-recirculation-title">Your next story is already here.</h2></div><a href="${esc(exploreHref)}"${hub.href ? ` data-recirc-hub="${esc(hub.type)}" data-recirc-hub-value="${esc(hub.value)}" data-recirc-hub-destination="${esc(hub.destination || 'topic_hub')}"` : ''}>${esc(exploreLabel)}</a></header><div class="nc-recirc-grid">${selected.map(cardMarkup).join('')}</div>`;
     insertionPoint.insertAdjacentElement('afterend', module);
 
     module.dataset.placement = 'after-reader-thread';
     module.dataset.primaryReason = selected[0]?.relation?.key || 'related';
     module.dataset.primaryScore = String(selected[0]?.score || 0);
+    if (gameContext?.slug) module.dataset.gameHubSlug = gameContext.slug;
     trackClicks(module);
 
     window.dispatchEvent(new CustomEvent('neuralcritic:recirculation-ready', {
@@ -228,7 +259,8 @@
         primarySlug:selected[0]?.article?.slug || '',
         primaryReason:selected[0]?.relation?.key || 'related',
         primaryScore:selected[0]?.score || 0,
-        recommendationKinds:selected.map(item => item.kind || '').filter(Boolean)
+        recommendationKinds:selected.map(item => item.kind || '').filter(Boolean),
+        gameHubSlug:gameContext?.slug || ''
       }
     }));
   }
