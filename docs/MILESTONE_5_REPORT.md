@@ -60,6 +60,8 @@ A browser canary exposed a fallback-only discovery defect where fallback Trendin
 
 A later interaction review found that feed filter buttons still emitted analytics without re-rendering the selected feed. `assets/home-feed.js` now calls its existing `renderFeed(nextFilter)` owner before emitting the existing analytics event.
 
+The accumulated PR review then found a future-data edge case that the representative browser dataset did not expose: a newly published review, guide, or What to Play story could appear in the visible Latest feed and its service module at the same time. Before merge, the existing module owners were hardened to consume the visible feed slug set as well as hero/supporting slugs, and the homepage/navigation regression check was strengthened to enforce that cross-module contract. No ranking or content-selection engine was duplicated.
+
 ## D. Navigation changes
 
 The global publication navigation now makes the six core reader destinations visibly primary while search, theme, and account remain utilities.
@@ -87,10 +89,11 @@ The milestone improves presentation and adjacency, not recommendation scoring.
 - Programmed hero/supporting slugs are preserved.
 - The visible feed publishes its current slug set through `window.NeuralCriticHomepageState`.
 - Trending/Most Read consume the existing popularity engine but exclude hero/feed slugs when enough eligible alternatives exist.
+- Reviews, Guides, and What to Play now also avoid the visible hero/feed slug set when eligible alternatives exist and re-evaluate when the visible feed changes.
 - Review/guide/What to Play presentation continues to use existing editorial/discovery owners.
 - The fallback Trending renderer follows the same adjacent-story de-duplication intent when live audience signals are unavailable.
 
-The corrected browser canary reported zero story overlap between Hero, Latest, Trending, and the Reviews/Guides presentation in the representative dataset.
+The corrected browser canary reported zero story overlap between Hero, Latest, Trending, and the Reviews/Guides presentation in the representative dataset. The accumulated review added deterministic protection for the same intent across future Review, Guide, and What to Play feed combinations.
 
 ## G. Accessibility results
 
@@ -179,7 +182,9 @@ That reconciled commit then passed:
 - Publication Health run `#413` / workflow run `33703303729`
 - Social Preview QA run `#21` / workflow run `33703303745`
 
-No merge to `main` was performed.
+The first final report commit passed Publication Health `#414` and Social Preview QA `#22`. During accumulated PR review, cross-module de-duplication was hardened in commits `a3358f8f3f7bc0ecf2cbff5cc5718b66a05bb3af`, `fd8e4552216b9693c95ade4af91688b9bc7379cd`, and `3eef0e90f9f341e1fc8a9abc9cd25ab3db96c8c7`; that review head passed Publication Health `#417` and Social Preview QA `#25`, including the strengthened homepage/navigation contract.
+
+No merge to `main` had been performed at the time this report was updated.
 
 ## M. Files changed in the Milestone 5 slice
 
