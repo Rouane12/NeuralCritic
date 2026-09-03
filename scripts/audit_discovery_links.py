@@ -81,7 +81,10 @@ def main() -> int:
 
     article_required = (
         "stories/${encodeURIComponent(storySlug)}/",
+        "games/${encodeURIComponent(gameSlug)}/",
         "data-discovery-target",
+        "data-discovery-destination=\"game_hub\"",
+        "NeuralCriticArticleGameContextReady=true",
         "discovery_click",
         "connected_coverage_click",
         "engine.related(current,all,3)",
@@ -111,11 +114,13 @@ def main() -> int:
         "topics/${encodeURIComponent(type)}/${encodeURIComponent(key)}/",
         "data-recirc-target",
         "data-recirc-hub",
+        "data-recirc-hub-destination",
         "recirculation_click",
         "recirculation_hub_click",
         "recirculation_view",
         "after-reader-thread",
         "engine.related(current, index, 3)",
+        "destination:'game_hub'",
         "recommendationKinds",
     )
     for marker in recirc_required:
@@ -148,9 +153,11 @@ def main() -> int:
             failures.append(f"assets/game-page.js is missing Game Graph recirculation marker: {marker}")
 
     api_required = (
+        "assets/discovery-intelligence.css?v=20260903-articlejourney1",
         "assets/discovery-intelligence.js?v=20260901-recirculation3",
         "assets/recirculation.css?v=20260828-discovery2",
-        "assets/recirculation.js?v=20260901-recirculation3",
+        "assets/article-discovery.js?v=20260903-articlejourney1",
+        "assets/recirculation.js?v=20260903-articlejourney1",
         "stories/${encodeURIComponent(latest.slug)}/",
         "data-nc-recirculation",
     )
@@ -170,8 +177,8 @@ def main() -> int:
         return 1
 
     print(
-        "Discovery / Game Graph recirculation audit passed: canonical routes, shared ranking, "
-        "diversified article recommendations, game-page adoption, analytics, and fresh bootstrap wiring are present."
+        "Discovery / Game Graph recirculation audit passed: canonical story/game routes, shared ranking, "
+        "diversified recommendations, article-to-Game-Hub journey, analytics, and fresh bootstrap wiring are present."
     )
     return 0
 
