@@ -96,21 +96,24 @@ function renderTrending(){
     return `<a href="${articleHref(a)}"><b>${String(i+1).padStart(2,'0')}</b><div><p>${escapeHtml(a.title)}</p><small>${escapeHtml(a.category || 'STORY')}${kind} · ${fmtDate(a.updatedAt || a.publishedAt)}</small></div></a>`;
   }).join('');
 }
+function homepageReservedSlugs(){
+  return new Set([...(window.NeuralCriticHomepageState?.featuredSlugs || []),...(window.NeuralCriticHomepageState?.feedSlugs || [])]);
+}
 function renderReview(){
   const el=document.getElementById('review-showcase'); if(!el) return;
-  const featured=new Set(window.NeuralCriticHomepageState?.featuredSlugs || []);
+  const reserved=homepageReservedSlugs();
   const reviews=[...ARTICLES].filter(x=>x.articleFormat==='review').sort((x,y)=>new Date(y.publishedAt||0)-new Date(x.publishedAt||0));
-  const a=reviews.find(x=>!featured.has(x.slug)) || reviews[0]; if(!a) return;
+  const a=reviews.find(x=>!reserved.has(x.slug)) || reviews[0]; if(!a) return;
   el.innerHTML=`<a class="review-showcase" href="${articleHref(a)}" data-home-service="review" data-home-story="${escapeHtml(a.slug)}"><div class="review-showcase-image">${imageOf(a)?`<img alt="${escapeHtml(a.imageAlt)}" src="${imageOf(a)}">`:'<div class="placeholder-art">REVIEW</div>'}<span>LATEST REVIEW</span></div><div class="review-showcase-copy"><div class="review-showcase-score"><b>${escapeHtml(a.reviewMeta?.score||'—')}</b><small>OUT OF 10</small></div><div><small>NEURAL CRITIC VERDICT</small><h3>${escapeHtml(a.title)}</h3><p>${escapeHtml(a.reviewMeta?.verdict||a.description)}</p><strong>READ REVIEW →</strong></div></div></a>`;
 }
 function renderGuides(){
   const el=document.getElementById('guide-showcase'); if(!el) return;
   const section=el.closest('.home-guide-showcase');
-  const featured=new Set(window.NeuralCriticHomepageState?.featuredSlugs || []);
+  const reserved=homepageReservedSlugs();
   const guides=[...ARTICLES]
     .filter(a=>a.articleFormat==='game-guide' || String(a.category||'').toLowerCase()==='guide' || String(a.editorialSection||'').toLowerCase()==='guides')
     .sort((a,b)=>new Date(b.publishedAt||0)-new Date(a.publishedAt||0));
-  const distinct=guides.filter(a=>!featured.has(a.slug));
+  const distinct=guides.filter(a=>!reserved.has(a.slug));
   const selected=(distinct.length ? distinct : guides).slice(0,2);
   if(!selected.length){if(section)section.hidden=true;return;}
   if(section)section.hidden=false;
@@ -126,7 +129,7 @@ function renderHome(){
   document.querySelector('.search-close')?.addEventListener('click',()=>overlay?.classList.remove('open'));
   q?.addEventListener('input',()=>renderSearchResults(q.value,results));
 }
-window.addEventListener('neuralcritic:homepage-feed-rendered',()=>renderTrending());
+window.addEventListener('neuralcritic:homepage-feed-rendered',()=>{renderTrending();renderReview();renderGuides();});
 window.addEventListener('neuralcritic:homepage-slots-applied',()=>{
   const slugs=[...document.querySelectorAll('#hero [data-home-story]')].map(node=>node.dataset.homeStory).filter(Boolean);
   if(window.NeuralCriticHomepageState) window.NeuralCriticHomepageState.featuredSlugs=[...new Set(slugs)];
