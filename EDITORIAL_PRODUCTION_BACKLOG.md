@@ -23,7 +23,7 @@ This file is the durable production queue for the current growth phase. Supabase
 - Roadmap drafts still to create: **0**.
 - Total CMS drafts: **42**, because the older `2026-video-game-release-calendar` draft sits outside the 41-piece roadmap.
 - Current draft mix: 16 Guides, 11 Reviews, 8 What to Play roadmap pieces, 6 Features, plus the separate release-calendar What to Play draft.
-- Fully drafted roadmap pieces: **4** (three Elden Ring guides + BG3 class guide).
+- Fully drafted roadmap pieces: **9**.
 - Creation phase is complete. The default task is now to move drafts through research, writing, metadata, imagery, internal linking, QA and publication.
 
 ## Batch 1 — ACTIVE PRODUCTION
@@ -52,24 +52,37 @@ This file is the durable production queue for the current growth phase. Supabase
 
 Game Hub records for Sekiro, Bloodborne and Dark Souls III exist in Supabase and are linked to their review drafts.
 
-## Batch 2 — ACTIVE PRODUCTION
-
-### Fully drafted
+## Batch 2 — FULLY DRAFTED EXCEPT WITCHER HOLDS
 
 1. `baldurs-gate-3-best-classes-beginners` — **Baldur’s Gate 3 Best Classes for Beginners: Which Class Should You Pick?**
    - Fully drafted against the current Patch 8 class state.
    - Current editorial recommendation: Fighter best overall beginner class; Barbarian simplest frontline option; Warlock easiest caster introduction; Paladin/Bard strongest dialogue-focused alternatives.
-   - Respec and multiclass guidance verified against Larian’s published class-system documentation.
-
-### Draft shells
 
 2. `baldurs-gate-3-companions-guide` — **Baldur’s Gate 3 Companions Guide: Who to Recruit and What They Do**
+   - Fully drafted, spoiler-light, covering the six Origin companions plus Halsin, Minthara, Jaheira and Minsc.
+   - Focuses on default classes, beginner party roles and party composition rather than exhaustive recruitment spoilers.
+
 3. `baldurs-gate-3-difficulty-modes-explained` — **Baldur’s Gate 3 Difficulty Modes Explained: Which Should You Choose?**
+   - Fully drafted for Explorer, Balanced, Tactician, Honour and Custom.
+   - Balanced is the default beginner recommendation; Honour is framed as a later high-stakes challenge.
+
 4. `cyberpunk-2077-life-paths-explained` — **Cyberpunk 2077 Life Paths Explained: Corpo, Nomad or Streetkid?**
+   - Fully drafted.
+   - Clarifies that life path changes the prologue and recurring dialogue flavor but does not lock the build or create three separate main campaigns.
+
 5. `cyberpunk-2077-best-attributes-perks-beginners` — **Cyberpunk 2077 Best Attributes and Perks for Beginners**
+   - Fully drafted against the Update 2.0-and-later progression model.
+   - Emphasizes concentrated attribute investment, perk experimentation, cyberware relevance and the one-time attribute reset.
+
 6. `dark-souls-remastered-beginners-guide` — **Dark Souls Remastered Beginner’s Guide: What to Know Before Lordran**
+   - Fully drafted.
+   - Covers bonfires, stamina, equipment load, souls, upgrades, leveling, shortcuts, Estus and the game’s learning loop without duplicating the existing interconnected-world feature.
+
+### Held for Remastered verification
+
 7. `the-witcher-3-beginners-guide` — **The Witcher 3 Beginner’s Guide: Combat, Signs, Alchemy and Exploration**
    - Re-verify Remastered changes before final production.
+
 8. `the-witcher-3-best-skills-abilities` — **The Witcher 3 Best Skills and Abilities for New Players**
    - Re-verify Remastered progression changes before final production.
 
@@ -124,14 +137,14 @@ Supabase is the source of truth for these records. Verify canonical generated pa
 
 ## Next production order
 
-1. Baldur’s Gate 3 companions guide.
-2. Baldur’s Gate 3 difficulty guide.
-3. Cyberpunk 2077 life-path guide.
-4. Cyberpunk 2077 attributes/perks guide.
-5. Dark Souls Remastered beginner guide.
-6. FromSoftware review sequence when tested-platform editorial judgment is available.
-7. Review the timeless What to Play drafts against search opportunity and internal-link coverage, then produce the strongest ones.
-8. Produce Features around clusters already supported by reviews/guides/Game Hubs.
+1. Red Dead Redemption 2 beginner guide.
+2. Tears of the Kingdom early armor/upgrades guide.
+3. Breath of the Wild early armor/upgrades guide.
+4. Super Mario Odyssey Power Moons guide.
+5. Mario Kart 8 Deluxe 200cc guide.
+6. Review the timeless What to Play drafts against search opportunity and internal-link coverage, then produce the strongest ones.
+7. Produce Features around clusters already supported by reviews/guides/Game Hubs.
+8. FromSoftware review sequence only when tested-platform editorial judgment is available.
 9. Revisit Witcher 3 review/guide work after Remastered verification.
 
 ## News lane
