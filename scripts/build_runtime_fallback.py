@@ -114,7 +114,7 @@ def fetch_page(supabase_url: str, key: str, offset: int) -> list[dict[str, Any]]
             "select": SELECT_FIELDS,
             "status": "eq.published",
             "published_at": "lte.now()",
-            "order": "published_at.desc",
+            "order": "published_at.desc,id.desc",
             "limit": str(PAGE_SIZE),
             "offset": str(offset),
         },
