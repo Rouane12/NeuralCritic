@@ -1,0 +1,5 @@
+/* Game Hub completeness polish: sparse verified data should not look like an unfinished template. */
+.nc-game-cover:not(:has(img)){display:none}
+.nc-game-hero:not(:has(.nc-game-cover img)){grid-template-columns:minmax(0,1fr)}
+#game-releases:has(> .nc-game-empty){display:none}
+@media(max-width:820px){.nc-game-hero:not(:has(.nc-game-cover img)){grid-template-columns:minmax(0,1fr)}}
