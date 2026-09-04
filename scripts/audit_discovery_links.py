@@ -2,6 +2,7 @@
 """Fail when Neural Critic discovery regresses to legacy routes or loses Game Graph recirculation wiring."""
 
 from pathlib import Path
+import re
 
 ROOT = Path(__file__).resolve().parents[1]
 
@@ -37,14 +38,12 @@ def main() -> int:
         "index.html": (
             "assets/content-api.js?v=20260901-canonical1",
             "assets/app.js?v=20260901-canonical1",
-            "assets/publication-nav.js?v=20260901-canonical1",
             "assets/home-what-to-play.js?v=20260901-canonical1",
         ),
         "category.html": (
             "assets/content-api.js?v=20260901-canonical1",
             "assets/app.js?v=20260901-canonical1",
             "assets/category-parity.js?v=20260901-canonical1",
-            "assets/publication-nav.js?v=20260901-canonical1",
             "assets/category-editorial-v3.js?v=20260901-canonical1",
             "assets/category-news.js?v=20260901-canonical1",
             "assets/what-to-play-hub.js?v=20260901-canonical1",
@@ -55,17 +54,14 @@ def main() -> int:
             "assets/content-api.js?v=20260901-canonical1",
             "assets/app.js?v=20260901-canonical1",
             "assets/search-parity.js?v=20260901-canonical1",
-            "assets/publication-nav.js?v=20260901-canonical1",
         ),
         "article.html": (
             "assets/content-api.js?v=20260903-articlejourney1",
             "assets/app.js?v=20260901-canonical1",
-            "assets/publication-nav.js?v=20260901-canonical1",
         ),
         "game.html": (
             "assets/content-api.js?v=20260901-canonical1",
             "assets/app.js?v=20260901-canonical1",
-            "assets/publication-nav.js?v=20260901-canonical1",
             "assets/game-page.js?v=20260903-gamehub2",
         ),
     }
@@ -74,6 +70,10 @@ def main() -> int:
         for marker in markers:
             if marker not in text:
                 failures.append(f"{relative} is missing refreshed discovery runtime marker: {marker}")
+        if not re.search(r'assets/publication-nav\.js\?v=[0-9a-f]{12}', text):
+            failures.append(f"{relative} is missing content-hashed publication navigation runtime")
+        if not re.search(r'assets/navigation-canonical-hotfix\.js\?v=[0-9a-f]{12}', text):
+            failures.append(f"{relative} is missing content-hashed canonical navigation compatibility runtime")
 
     for pattern in ('href="article.html?slug=', "`article.html?slug="):
         if pattern in article:
@@ -178,7 +178,7 @@ def main() -> int:
 
     print(
         "Discovery / Game Graph recirculation audit passed: canonical story/game routes, shared ranking, "
-        "diversified recommendations, article-to-Game-Hub journey, analytics, and fresh bootstrap wiring are present."
+        "diversified recommendations, article-to-Game-Hub journey, analytics, fresh bootstrap wiring, and hashed navigation runtimes are present."
     )
     return 0
 
