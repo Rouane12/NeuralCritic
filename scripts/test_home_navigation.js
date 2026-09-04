@@ -57,6 +57,17 @@ check(
 );
 
 check(
+  'Reviews and Guides use canonical hubs instead of compatibility redirects',
+  nav.includes("if(section==='reviews'||section==='guides')") &&
+    nav.includes('return `${section}/${platform?`?platform=${encodeURIComponent(platform)}`:\'\'}`;') &&
+    index.includes('<a href="reviews/">ALL REVIEWS →</a>') &&
+    index.includes('<a href="guides/">ALL GUIDES →</a>') &&
+    !index.includes('category.html?section=reviews') &&
+    !index.includes('category.html?section=guides'),
+  '/reviews/ and /guides/ are the primary public destinations; category.html remains compatibility-only'
+);
+
+check(
   'dropdown and mobile accordion semantics stay with publication-nav',
   nav.includes('class="nav-trigger"') && nav.includes('aria-expanded="false"') && nav.includes("event.key!=='Escape'") && navCss.includes('body.mobile-nav-open header .publication-nav'),
   'direct link + separate disclosure button + Escape handling'
