@@ -77,6 +77,8 @@ def main() -> int:
     require('https://www.neuralcritic.net/guides/' in guide_html, "Guides hub canonical is missing", failures)
     require('assets/review-intelligence.js?v=20260904-reviewguide1' in review_html, "Reviews hub is not pinned to the M9 runtime", failures)
     require('assets/guide-intelligence.js?v=20260904-reviewguide1' in guide_html, "Guides hub is not pinned to the M9 runtime", failures)
+    require('assets/review-intelligence.css?v=20260904-lightfix1' in review_html, "Reviews hub is not pinned to the light-mode contrast stylesheet", failures)
+    require('assets/guide-intelligence.css?v=20260904-lightfix1' in guide_html, "Guides hub is not pinned to the light-mode contrast stylesheet", failures)
     require('assets/content-api.js?v=20260904-reviewguide1' in review_html and 'assets/content-api.js?v=20260904-reviewguide1' in guide_html, "Reviews/Guides hubs must pin the shared M9 Content API", failures)
 
     require("async function publishedGames()" in content_api, "Content API must own Games Database index reads", failures)
@@ -99,6 +101,14 @@ def main() -> int:
 
     require("@media(max-width:620px)" in review_css and ":focus-visible" in review_css and "prefers-reduced-motion" in review_css, "Reviews responsive/focus/reduced-motion contract is incomplete", failures)
     require("@media(max-width:620px)" in guide_css and ":focus-visible" in guide_css and "prefers-reduced-motion" in guide_css, "Guides responsive/focus/reduced-motion contract is incomplete", failures)
+    require('html[data-theme="light"] body.nc-reviews-page .nc-review-toolbar' in review_css and 'html[data-theme="light"] body.nc-reviews-page .nc-review-card' in review_css and 'var(--nc-light-text,#171b22)!important' in review_css, "Reviews light mode must use readable light toolbar/card surfaces", failures)
+    require('html[data-theme="light"] body.nc-guides-page .nc-guide-toolbar' in guide_css and 'html[data-theme="light"] body.nc-guides-page .nc-guide-card' in guide_css and 'var(--nc-light-text,#171b22)!important' in guide_css, "Guides light mode must use readable light toolbar/card surfaces", failures)
+    require('color-scheme:light' in review_css and '.nc-review-filter-row input::placeholder' in review_css and '.nc-review-filter-row select option' in review_css, "Reviews light-mode filter controls must keep readable values, placeholders and options", failures)
+    require('color-scheme:light' in guide_css and '.nc-guide-toolbar input::placeholder' in guide_css and '.nc-guide-toolbar select option' in guide_css, "Guides light-mode filter controls must keep readable values, placeholders and options", failures)
+    require('.nc-review-tabs button.is-active' in review_css and '.nc-review-read-link' in review_css and '.nc-review-game-link' in review_css, "Reviews light-mode tabs and actions must own readable contrast", failures)
+    require('.nc-guide-read-link' in guide_css and '.nc-guide-game-link' in guide_css, "Guides light-mode actions must own readable contrast", failures)
+    require('.nc-review-card-media>span{color:#fff!important}' in review_css, "Review score overlays must remain readable on images in light mode", failures)
+    require('.nc-review-filter-row input:focus-visible' in review_css and '.nc-guide-toolbar input:focus-visible' in guide_css, "Reviews/Guides light-mode controls must preserve explicit keyboard focus", failures)
 
     require('urllib.parse.urljoin(SITE_URL, "reviews/")' in sitemap_builder, "Sitemap builder must include clean /reviews/", failures)
     require('urllib.parse.urljoin(SITE_URL, "guides/")' in sitemap_builder, "Sitemap builder must include clean /guides/", failures)
@@ -133,7 +143,7 @@ def main() -> int:
     print(
         "Reviews + Guides journey audit passed: "
         f"{len(reviews)} reviews and {len(guides)} guides map to generated canonical Game Hubs; "
-        "shared Content API, clean hub, story, sitemap, accessibility and analytics contracts are present."
+        "shared Content API, clean hub, story, sitemap, accessibility, light-mode contrast and analytics contracts are present."
     )
     return 0
 
