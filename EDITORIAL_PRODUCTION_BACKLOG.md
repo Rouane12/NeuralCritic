@@ -2,14 +2,14 @@
 
 Last updated: 2026-09-04
 
-This file is the durable production queue for the current growth phase. Supabase remains the source of truth for article records and status; this document records sequencing and editorial intent so future work can resume without reconstructing the plan from chat.
+Supabase is the source of truth for article records and status. This file is the compact durable production queue for the current growth phase.
 
 ## Operating rules
 
 - Prioritize cluster depth before broad category expansion.
 - Keep timely news as a parallel lane; do not let the evergreen backlog block meaningful current coverage.
-- Finalize review verdicts, scores, pros/cons, tested-platform notes, and opinion-led headlines only after the editorial review is actually completed.
 - Verify current facts and search intent immediately before publication.
+- Finalize review verdicts, scores, pros/cons, tested-platform notes and opinion-led headlines only after the editorial review is actually completed.
 - Recommendation/list pages are maintained assets and should be reviewed for freshness on a recurring basis.
 - Prefer durable recommendation titles over unnecessary "Right Now" wording.
 - Do not publish drafts merely to hit a numeric content target.
@@ -20,132 +20,85 @@ This file is the durable production queue for the current growth phase. Supabase
 - First library milestone: about 100 strong published stories.
 - Evergreen roadmap: 41 additional stories.
 - Roadmap draft records created: **41 of 41 — COMPLETE**.
-- Roadmap drafts still to create: **0**.
-- Total CMS drafts: **42**, because the older `2026-video-game-release-calendar` draft sits outside the 41-piece roadmap.
-- Current draft mix: 16 Guides, 11 Reviews, 8 What to Play roadmap pieces, 6 Features, plus the separate release-calendar What to Play draft.
-- Fully drafted roadmap pieces: **9**.
-- Creation phase is complete. The default task is now to move drafts through research, writing, metadata, imagery, internal linking, QA and publication.
+- Total CMS drafts: **42**, including the separate `2026-video-game-release-calendar` draft.
+- Fully drafted roadmap pieces: **14**.
+- Current roadmap mix: 16 Guides, 11 Reviews, 8 What to Play pages and 6 Features.
+- Draft-creation phase is complete. Default work is now research → full article → metadata → imagery → internal links → QA → publication.
 
-## Batch 1 — ACTIVE PRODUCTION
+## Fully drafted roadmap pieces
 
-### Fully drafted
-
+### Elden Ring / FromSoftware
 1. `elden-ring-best-starting-classes-beginners` — **Elden Ring Best Starting Class for Beginners: All 12 Classes Explained**
 2. `elden-ring-stats-soft-caps-explained` — **Elden Ring Stats and Soft Caps Explained: Vigor, Mind, Endurance and More**
 3. `elden-ring-early-progression-what-to-upgrade-first` — **Elden Ring Early Game Progression Guide: What to Upgrade First**
+4. `dark-souls-remastered-beginners-guide` — **Dark Souls Remastered Beginner’s Guide: What to Know Before Lordran**
 
-### Research/editorial scaffold
+### Baldur’s Gate 3
+5. `baldurs-gate-3-best-classes-beginners` — **Baldur’s Gate 3 Best Classes for Beginners: Which Class Should You Pick?**
+6. `baldurs-gate-3-companions-guide` — **Baldur’s Gate 3 Companions Guide: Who to Recruit and What They Do**
+7. `baldurs-gate-3-difficulty-modes-explained` — **Baldur’s Gate 3 Difficulty Modes Explained: Which Should You Choose?**
 
-4. `cyberpunk-2077-review` — **Cyberpunk 2077 Review**
-   - No score, verdict, pros/cons, tested-platform judgment or opinion-led headline until editorial review is completed.
+### Cyberpunk 2077
+8. `cyberpunk-2077-life-paths-explained` — **Cyberpunk 2077 Life Paths Explained: Corpo, Nomad or Streetkid?**
+9. `cyberpunk-2077-best-attributes-perks-beginners` — **Cyberpunk 2077 Best Attributes and Perks for Beginners**
 
-### Held for dated product change
+### Batch 3 guides
+10. `red-dead-redemption-2-beginners-guide` — **Red Dead Redemption 2 Beginner’s Guide: What to Do First**
+11. `tears-of-the-kingdom-best-early-armor-upgrades` — **Tears of the Kingdom Best Early Armor and Upgrades**
+12. `breath-of-the-wild-best-early-armor-upgrades` — **Breath of the Wild Best Early Armor and Essential Upgrades**
+13. `super-mario-odyssey-power-moons-explained` — **Super Mario Odyssey Power Moons Explained: How Many You Need and What They Unlock**
+14. `mario-kart-8-deluxe-200cc-guide` — **Mario Kart 8 Deluxe 200cc Guide: Braking, Drifting and Kart Setup**
 
-5. `the-witcher-3-wild-hunt-review` — **The Witcher 3: Wild Hunt Review**
-   - Re-verify against the September 29, 2026 Remastered release before production/publishing.
+All 14 remain `draft` in Supabase. They still require image packages, internal-link passes, final factual/SEO QA and publication verification before going live.
 
-### Review shells
+## Review work
 
-6. `sekiro-shadows-die-twice-review` — **Sekiro: Shadows Die Twice Review**
-7. `bloodborne-review` — **Bloodborne Review**
-8. `dark-souls-iii-review` — **Dark Souls III Review**
+- `cyberpunk-2077-review` has a current-state editorial/research scaffold but no score or verdict.
+- `sekiro-shadows-die-twice-review`, `bloodborne-review`, `dark-souls-iii-review`, `dark-souls-remastered-review`, `god-of-war-ragnarok-review`, `persona-5-royal-review`, `ghost-of-tsushima-directors-cut-review`, `hades-review`, and `clair-obscur-expedition-33-review` remain neutral review shells.
+- Review/scoring work only proceeds when tested-platform editorial judgment is available.
 
-Game Hub records for Sekiro, Bloodborne and Dark Souls III exist in Supabase and are linked to their review drafts.
+## Witcher 3 hold
 
-## Batch 2 — FULLY DRAFTED EXCEPT WITCHER HOLDS
+The following drafts must be re-verified against the September 29, 2026 Remastered release before final production/publishing:
 
-1. `baldurs-gate-3-best-classes-beginners` — **Baldur’s Gate 3 Best Classes for Beginners: Which Class Should You Pick?**
-   - Fully drafted against the current Patch 8 class state.
-   - Current editorial recommendation: Fighter best overall beginner class; Barbarian simplest frontline option; Warlock easiest caster introduction; Paladin/Bard strongest dialogue-focused alternatives.
+- `the-witcher-3-wild-hunt-review`
+- `the-witcher-3-beginners-guide`
+- `the-witcher-3-best-skills-abilities`
+- `witcher-3-side-quests-standard`
 
-2. `baldurs-gate-3-companions-guide` — **Baldur’s Gate 3 Companions Guide: Who to Recruit and What They Do**
-   - Fully drafted, spoiler-light, covering the six Origin companions plus Halsin, Minthara, Jaheira and Minsc.
-   - Focuses on default classes, beginner party roles and party composition rather than exhaustive recruitment spoilers.
+## Remaining What to Play drafts
 
-3. `baldurs-gate-3-difficulty-modes-explained` — **Baldur’s Gate 3 Difficulty Modes Explained: Which Should You Choose?**
-   - Fully drafted for Explorer, Balanced, Tactician, Honour and Custom.
-   - Balanced is the default beginner recommendation; Honour is framed as a later high-stakes challenge.
+- `best-soulslike-games` — **The 12 Best Soulslike Games**
+- `best-games-like-elden-ring` — **The 10 Best Games Like Elden Ring**
+- `best-games-like-baldurs-gate-3` — **The 10 Best Games Like Baldur’s Gate 3**
+- `best-story-driven-games` — **The 12 Best Story-Driven Games**
+- `best-action-rpgs` — **The 12 Best Action RPGs**
+- `best-3d-platformers` — **The 12 Best 3D Platformers**
+- `best-games-under-20-hours` — **The 10 Best Games You Can Finish in Under 20 Hours**
+- `best-turn-based-rpgs` — **The 12 Best Turn-Based RPGs**
 
-4. `cyberpunk-2077-life-paths-explained` — **Cyberpunk 2077 Life Paths Explained: Corpo, Nomad or Streetkid?**
-   - Fully drafted.
-   - Clarifies that life path changes the prologue and recurring dialogue flavor but does not lock the build or create three separate main campaigns.
+## Remaining Feature drafts
 
-5. `cyberpunk-2077-best-attributes-perks-beginners` — **Cyberpunk 2077 Best Attributes and Perks for Beginners**
-   - Fully drafted against the Update 2.0-and-later progression model.
-   - Emphasizes concentrated attribute investment, perk experimentation, cyberware relevance and the one-time attribute reset.
-
-6. `dark-souls-remastered-beginners-guide` — **Dark Souls Remastered Beginner’s Guide: What to Know Before Lordran**
-   - Fully drafted.
-   - Covers bonfires, stamina, equipment load, souls, upgrades, leveling, shortcuts, Estus and the game’s learning loop without duplicating the existing interconnected-world feature.
-
-### Held for Remastered verification
-
-7. `the-witcher-3-beginners-guide` — **The Witcher 3 Beginner’s Guide: Combat, Signs, Alchemy and Exploration**
-   - Re-verify Remastered changes before final production.
-
-8. `the-witcher-3-best-skills-abilities` — **The Witcher 3 Best Skills and Abilities for New Players**
-   - Re-verify Remastered progression changes before final production.
-
-## Batch 3 — DRAFT SHELLS CREATED
-
-1. `red-dead-redemption-2-beginners-guide` — **Red Dead Redemption 2 Beginner’s Guide: What to Do First**
-2. `tears-of-the-kingdom-best-early-armor-upgrades` — **Tears of the Kingdom Best Early Armor and Upgrades**
-3. `breath-of-the-wild-best-early-armor-upgrades` — **Breath of the Wild Best Early Armor and Essential Upgrades**
-4. `super-mario-odyssey-power-moons-explained` — **Super Mario Odyssey Power Moons Explained: How Many You Need and What They Unlock**
-5. `mario-kart-8-deluxe-200cc-guide` — **Mario Kart 8 Deluxe 200cc Guide: Braking, Drifting and Kart Setup**
-6. `dark-souls-remastered-review` — **Dark Souls Remastered Review**
-7. `god-of-war-ragnarok-review` — **God of War Ragnarök Review**
-8. `persona-5-royal-review` — **Persona 5 Royal Review**
-
-## Batch 4 — DRAFT SHELLS CREATED
-
-1. `ghost-of-tsushima-directors-cut-review` — **Ghost of Tsushima Director’s Cut Review**
-2. `hades-review` — **Hades Review**
-3. `clair-obscur-expedition-33-review` — **Clair Obscur: Expedition 33 Review**
-4. `best-soulslike-games` — **The 12 Best Soulslike Games**
-5. `best-games-like-elden-ring` — **The 10 Best Games Like Elden Ring**
-6. `best-games-like-baldurs-gate-3` — **The 10 Best Games Like Baldur’s Gate 3**
-7. `best-story-driven-games` — **The 12 Best Story-Driven Games**
-8. `best-action-rpgs` — **The 12 Best Action RPGs**
-
-## Batch 5 — DRAFT SHELLS CREATED
-
-1. `best-3d-platformers` — **The 12 Best 3D Platformers**
-2. `best-games-under-20-hours` — **The 10 Best Games You Can Finish in Under 20 Hours**
-3. `best-turn-based-rpgs` — **The 12 Best Turn-Based RPGs**
-4. `baldurs-gate-3-companions-player-choice` — **Why Baldur’s Gate 3’s Companions Make Player Choice Feel Personal**
-5. `witcher-3-side-quests-standard` — **Why The Witcher 3’s Side Quests Still Set the Standard**
-6. `red-dead-redemption-2-world-feels-alive` — **Why Red Dead Redemption 2’s World Still Feels Alive**
-7. `super-mario-galaxy-gravity-mechanics` — **Why Super Mario Galaxy’s Gravity Mechanics Still Feel Brilliant**
-8. `fromsoftware-boss-fights-memorable` — **What Makes FromSoftware Boss Fights So Memorable?**
-9. `hades-failure-feels-like-progress` — **Why Hades Makes Failure Feel Like Progress**
-
-## Game Hub expansion created with the roadmap
-
-The following new Game Hub records were added to support review/feature clusters:
-
-- `sekiro-shadows-die-twice`
-- `bloodborne`
-- `dark-souls-iii`
-- `god-of-war-ragnarok`
-- `persona-5-royal`
-- `ghost-of-tsushima-directors-cut`
-- `hades`
-- `clair-obscur-expedition-33`
-
-Supabase is the source of truth for these records. Verify canonical generated pages as part of normal publication/deployment work before relying on them publicly.
+- `baldurs-gate-3-companions-player-choice`
+- `red-dead-redemption-2-world-feels-alive`
+- `super-mario-galaxy-gravity-mechanics`
+- `fromsoftware-boss-fights-memorable`
+- `hades-failure-feels-like-progress`
+- `witcher-3-side-quests-standard` — held for Remastered verification
 
 ## Next production order
 
-1. Red Dead Redemption 2 beginner guide.
-2. Tears of the Kingdom early armor/upgrades guide.
-3. Breath of the Wild early armor/upgrades guide.
-4. Super Mario Odyssey Power Moons guide.
-5. Mario Kart 8 Deluxe 200cc guide.
-6. Review the timeless What to Play drafts against search opportunity and internal-link coverage, then produce the strongest ones.
-7. Produce Features around clusters already supported by reviews/guides/Game Hubs.
-8. FromSoftware review sequence only when tested-platform editorial judgment is available.
-9. Revisit Witcher 3 review/guide work after Remastered verification.
+1. Evaluate the eight timeless What to Play drafts against current search opportunity and existing Neural Critic internal-link coverage.
+2. Fully draft the strongest first What to Play batch, prioritizing the FromSoftware/Elden Ring and Baldur’s Gate 3 clusters if search intent supports them.
+3. Produce Features around clusters already supported by reviews, guides and Game Hubs.
+4. Keep review shells separate until tested-platform editorial judgment is available.
+5. Revisit Witcher 3 work after Remastered verification.
+
+## Game Hub expansion already created
+
+Roadmap Game Hubs added in Supabase: `sekiro-shadows-die-twice`, `bloodborne`, `dark-souls-iii`, `god-of-war-ragnarok`, `persona-5-royal`, `ghost-of-tsushima-directors-cut`, `hades`, `clair-obscur-expedition-33`.
+
+Verify canonical generated pages during normal publication/deployment work before relying on them publicly.
 
 ## News lane
 
