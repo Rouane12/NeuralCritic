@@ -24,6 +24,7 @@ Supabase is the source of truth for article records and status. This file is the
 - Fully drafted roadmap pieces: **27 of 41**.
 - Remaining roadmap pieces needing full editorial completion: **14**.
 - Current roadmap mix: 16 Guides, 11 Reviews, 8 What to Play pages and 6 Features.
+- First publication-readiness cluster: **3 Elden Ring guides complete and verified as drafts**.
 
 ## Fully drafted roadmap work — 27
 
@@ -59,18 +60,35 @@ Editorial notes:
 - All recommendation pages use durable titles and should receive freshness reviews after publication.
 
 ### Features — 5 complete
-1. `fromsoftware-boss-fights-memorable` — **What Makes FromSoftware Boss Fights So Memorable?**
-   - Focuses on encounter learning, readability, animation, arena design, music, phase structure and player mastery rather than duplicating the existing difficulty ranking.
-2. `baldurs-gate-3-companions-player-choice` — **Why Baldur’s Gate 3’s Companions Make Player Choice Feel Personal**
-   - Focuses on approval, disagreement, camp follow-up, companion priorities and selective reactivity rather than recruitment guidance.
-3. `red-dead-redemption-2-world-feels-alive` — **Why Red Dead Redemption 2’s World Still Feels Alive**
-   - Focuses on overlapping world systems, wildlife, towns, camp, travel, environmental detail and deliberate pacing.
-4. `super-mario-galaxy-gravity-mechanics` — **Why Super Mario Galaxy’s Gravity Mechanics Still Feel Brilliant**
-   - Grounded in Nintendo’s own development interviews describing gravity and spherical fields as the game’s core design idea.
-5. `hades-failure-feels-like-progress` — **Why Hades Makes Failure Feel Like Progress**
-   - Focuses on the return-to-House narrative loop, permanent progression, contextual dialogue, knowledge and run variation.
+- `fromsoftware-boss-fights-memorable`
+- `baldurs-gate-3-companions-player-choice`
+- `red-dead-redemption-2-world-feels-alive`
+- `super-mario-galaxy-gravity-mechanics`
+- `hades-failure-feels-like-progress`
 
-All 27 fully drafted roadmap pieces remain `draft` in Supabase. They still need image packages, internal-link passes, final factual/SEO QA, publication and post-publication verification.
+## Publish-readiness batch 1 — Elden Ring COMPLETE
+
+The following three drafts completed the pre-publication pass on 2026-09-04:
+
+1. `elden-ring-best-starting-classes-beginners`
+2. `elden-ring-stats-soft-caps-explained`
+3. `elden-ring-early-progression-what-to-upgrade-first`
+
+Verified work:
+- current factual pass completed against the current 2026 base-game state;
+- feature images assigned only from assets with provenance already recorded in Neural Critic’s CMS;
+- literal image alt text and existing verified credits preserved/assigned;
+- canonical `/stories/<slug>/` internal links added across the Elden Ring cluster and to relevant already-published Elden Ring coverage;
+- metadata reviewed;
+- all three re-queried in Supabase after writes;
+- all three remain `status='draft'` with `published_at=NULL`.
+
+Internal-link verification after the write:
+- starting-class guide: 4 story links;
+- stats/soft-caps guide: 3 story links;
+- early-progression guide: 3 story links.
+
+No publication was performed. These three are now the first roadmap pieces at **pre-publication ready** status, pending the final publish/production-verification step.
 
 ## Remaining 14 roadmap pieces — editorial gates
 
@@ -98,15 +116,15 @@ Do not invent first-hand impressions, tested-platform claims, scores, verdicts, 
 
 ## Next production phase
 
-The normal drafting phase is effectively complete for everything that can be responsibly completed today.
+Next default batch: **Baldur’s Gate 3 publish-readiness**.
 
-Next default work:
-1. Select the strongest fully drafted evergreen pieces for publication-readiness.
-2. For each: image package → internal-link pass → metadata/factual/SEO QA → publish → verify production URL, canonical, sitemap/discovery and Game Hub recirculation where relevant.
-3. Prioritize cluster launches rather than isolated articles: Elden Ring / FromSoftware first, then Baldur’s Gate 3, Cyberpunk and adjacent discovery pages.
-4. Keep real news running in parallel when it has genuine reader/search value.
-5. Keep review shells gated until real tested-platform editorial judgment is available.
-6. Revisit Witcher 3 after Remastered verification.
+1. `baldurs-gate-3-best-classes-beginners`
+2. `baldurs-gate-3-companions-guide`
+3. `baldurs-gate-3-difficulty-modes-explained`
+
+For each: provenance-safe image package → canonical internal-link pass → metadata/factual/SEO QA → Supabase re-query. Keep them as drafts unless the user explicitly decides to publish.
+
+After BG3, continue with Cyberpunk and the strongest adjacent discovery pages. Keep real news running in parallel when it has genuine reader/search value. Keep review shells gated until real tested-platform editorial judgment is available. Revisit Witcher 3 after Remastered verification.
 
 ## Game Hub expansion already created
 
