@@ -16,7 +16,14 @@
     const link=document.createElement('link'); link.rel='stylesheet'; link.href='assets/publication-nav.css'; link.dataset.publicationNav='1'; document.head.appendChild(link);
   }
 
-  const categoryUrl = params => `category.html?${new URLSearchParams(params).toString()}`;
+  const categoryUrl = params => {
+    const section=String(params?.section||'').trim();
+    if(section==='reviews'||section==='guides'){
+      const platform=String(params?.platform||'').trim();
+      return `${section}/${platform?`?platform=${encodeURIComponent(platform)}`:''}`;
+    }
+    return `category.html?${new URLSearchParams(params).toString()}`;
+  };
 
   function navMarkup(){
     const platformLinks = section => Object.entries(platformNames).map(([key,label])=>`<a href="${categoryUrl({section,platform:key})}"><b>${label}</b><small>${label} ${sectionNames[section].toLowerCase()}</small></a>`).join('');
