@@ -63,7 +63,7 @@
   "featured": false,
   "homepageSlot": "regular",
   "publishedAt": "2026-08-23T19:12:26.423+00:00",
-  "updatedAt": "2026-08-31T19:18:13.270261+00:00",
+  "updatedAt": "2026-09-04T05:51:19.118558+00:00",
   "imageLocal": "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1787509341778-476aaa5e-158b-4936-8656-59fbb2284876-jason-and-lucia-robbery-with-logo-landscape.jpg",
   "editorialSection": "news",
   "platforms": [],
@@ -76,58 +76,10 @@
     "kind": "update",
     "updates": [
       {
-        "at": "2026-08-23T22:38:00Z",
-        "note": "Court records and AFP reporting now confirm that two federal judges approved Take-Two's DMCA subpoena requests. Microsoft and Discord are required to provide responsive records by September 4, moving the story from requested subpoenas to court-authorized demands.",
-        "sourceUrl": "https://www.theverge.com/games/983323/grand-theft-auto-vi-gta-leaks-microsoft-discord-subpoenaed",
-        "sourceName": "Court records / AFP via The Verge"
-      },
-      {
-        "at": "2026-08-22T08:46:00Z",
-        "note": "Discord publicly responded to the subpoena reporting, telling Variety that it reviews and complies with valid DMCA-related subpoenas when received. The statement did not confirm that Discord had received this specific Take-Two subpoena or handed over any CyberLeek-related account information.",
-        "sourceUrl": "https://au.variety.com/2026/more/global/gta-6-leaks-rockstar-subpoenas-microsoft-discord-39599/",
-        "sourceName": "Variety"
-      },
-      {
-        "at": "2026-08-24T16:09:00Z",
-        "note": "Discord marketing director Ryan K. Rigney clarified that Discord had not yet been served with Take-Two’s subpoena. He said the company would evaluate the subpoena’s validity and scope before responding. Court approval therefore does not mean Discord has received the subpoena or supplied user information.",
-        "sourceUrl": "https://www.gamesradar.com/games/grand-theft-auto/discord-will-evaluate-the-validity-and-scope-before-responding-to-controversial-gta-6-leaks-court-order-but-the-platform-has-not-yet-been-served/",
-        "sourceName": "Discord statement via Ryan K. Rigney / GamesRadar"
-      },
-      {
-        "at": "2026-08-25T15:53:00Z",
-        "note": "New reporting says a New York federal court approved Take-Two’s subpoena to X Corp. for records tied to the @cyberleek_ar_io account, while Take-Two has also executed the Microsoft subpoena seeking access to a OneDrive account connected to a separate leak lead. The targeted X account has not been verified as belonging to the original CyberLeek, and there is still no confirmed public identification of the leaker or reported Discord data handover.",
-        "sourceUrl": "https://gameranx.com/updates/id/563815/article/take-twos-gta-6-subpoenas-on-twitter-and-microsoft-have-been-granted-but-will-they-really-help-them-find-cyberleek/",
-        "sourceName": "Court-stage reporting / Gameranx"
-      },
-      {
-        "at": "2026-08-26T11:30:00Z",
-        "note": "Rockstar Games publicly addressed the recent Grand Theft Auto VI gameplay leaks for the first time, saying the unauthorized footage was heartbreaking for the team and not how it intended players to see the game. Rockstar said development is nearly finished, acknowledged that spoilers may affect the intended experience, thanked the community for its support, and reiterated that its official Extended Look arrives August 27 ahead of the November 19, 2026 launch.",
-        "sourceUrl": "https://www.theverge.com/games/984959/gta-vi-leaks-rockstar-games-official-statement-heartbreaking",
-        "sourceName": "Rockstar Games statement / The Verge"
-      },
-      {
-        "at": "2026-08-27T20:02:00Z",
-        "note": "Fresh on-chain reporting indicates that the person or group behind CyberLeek cashed out roughly $250,000–$270,000 connected to the $CYBERLEEK token on August 27. CoinDesk reports that the contract owner claimed about $146,000 in wrapped SOL plus 15.4 million tokens in creator fees, then sold that token allocation for roughly $125,000 in SOL. The proceeds were split across fresh wallets, with part of the trail reportedly reaching a KYC-verified KuCoin account. This may create an additional attribution lead alongside Take-Two’s platform subpoenas, but there is still no verified public identification of CyberLeek and no confirmation from Take-Two, an exchange, or authorities tying the transactions to a named person.",
-        "sourceUrl": "https://www.coindesk.com/business/2026/08/27/gta-6-leaker-cashes-out-of-his-own-memecoin-hours-before-rockstar-s-gameplay-reveal",
-        "sourceName": "CoinDesk / on-chain reporting"
-      },
-      {
-        "at": "2026-08-28T04:12:00Z",
-        "note": "CyberLeek escalated the leak campaign from gameplay and systems footage into significant story material by releasing an unauthorized roughly 4-minute-38-second sequence described by multiple reports as part of Lucia’s prologue. The release followed only hours after Rockstar publicly called the ongoing leaks heartbreaking, showing that the campaign continued despite Rockstar’s response and Take-Two’s legal pressure. Neural Critic is not reproducing or describing the leaked story details. There is still no verified public identification of CyberLeek or confirmed new Microsoft/Discord data handover tied to this development.",
-        "sourceUrl": "https://www.gamesradar.com/games/grand-theft-auto/gta-6-leaker-turns-to-story-spoilers-cyberleek-uploads-4-minute-lucia-prologue-clip-hours-after-rockstar-says-the-leaks-are-heartbreaking/",
-        "sourceName": "GamesRadar / corroborated reporting"
-      },
-      {
-        "at": "2026-08-28T16:48:00Z",
-        "note": "Court-record reporting confirms that Take-Two’s GTA VI leak-identification effort spans four separate DMCA subpoena proceedings involving Microsoft, Discord, X Corp. and Google/YouTube. The Google/YouTube proceeding adds another major platform to the documented hunt. The procedural distinction remains important: an application or order directing issuance does not itself prove that a provider has been served, produced records, or identified CyberLeek. No verified public identification or confirmed four-platform data handover has been established.",
-        "sourceUrl": "https://torrentfreak.com/take-two-expands-gta-6-leak-hunt-with-dmca-subpoenas/",
+        "at": "2026-09-04T05:51:19Z",
+        "note": "Take-Two says its GTA VI leak investigation is \"rapidly evolving.\" In new August 31 court filings, the company sought a second, more targeted Discord subpoena and asked to keep the identifying details under seal to avoid tipping off the people being investigated. Take-Two also withdrew its Google/YouTube subpoena request after determining that the requested information was no longer needed. There is still no verified public identification of CyberLeek or confirmed public disclosure that provider records have unmasked the source.",
+        "sourceUrl": "https://torrentfreak.com/take-two-says-gta-6-leak-probe-is-rapidly-evolving-wants-new-discord-demands-under-seal/",
         "sourceName": "Court-record reporting / TorrentFreak"
-      },
-      {
-        "at": "2026-08-31T19:12:00Z",
-        "note": "BofA Securities reiterated its Buy rating and $368 price target on Take-Two while assessing the GTA VI leak risk. The firm said parts of the leaked material appear consistent with access to a genuine playable build, but found no clear evidence that a distributable copy of GTA VI exists. Separately, Investing.com reported Take-Two shares down roughly 7.2% in morning trading as the leak situation weighed on investor sentiment. This adds a market-impact angle while reinforcing that claims CyberLeek possesses a full distributable build remain unverified.",
-        "sourceUrl": "https://uk.investing.com/news/stock-market-news/why-is-taketwo-interactive-stock-sliding-today-93CH-4853039",
-        "sourceName": "Investing.com / BofA Securities"
       }
     ],
     "documents": [
