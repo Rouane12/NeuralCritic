@@ -7,11 +7,13 @@ on:
       - games/**
       - assets/game-page.js
       - assets/game-page.css
+      - assets/game-page-completeness.css
       - assets/entity-follows-v2.js
       - assets/content-api.js
       - assets/discovery-intelligence.js
       - scripts/build_game_pages.py
       - scripts/test_game_hub.js
+      - scripts/test_game_hub_completeness.js
       - .github/workflows/game-hub-health.yml
   workflow_dispatch:
 
@@ -44,6 +46,9 @@ jobs:
         run: |
           node --check assets/game-page.js
           node --check scripts/test_game_hub.js
+          node --check scripts/test_game_hub_completeness.js
 
       - name: Verify Game Hub 2.0 contracts
-        run: node scripts/test_game_hub.js
+        run: |
+          node scripts/test_game_hub.js
+          node scripts/test_game_hub_completeness.js
