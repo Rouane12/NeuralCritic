@@ -33,10 +33,9 @@ STATIC_URLS = [
     urllib.parse.urljoin(SITE_URL, "standards.html"),
     urllib.parse.urljoin(SITE_URL, "commercial.html"),
     urllib.parse.urljoin(SITE_URL, "reviews/"),
+    urllib.parse.urljoin(SITE_URL, "guides/"),
     urllib.parse.urljoin(SITE_URL, "category.html?category=news"),
     urllib.parse.urljoin(SITE_URL, "category.html?category=features"),
-    urllib.parse.urljoin(SITE_URL, "category.html?category=guides"),
-    urllib.parse.urljoin(SITE_URL, "category.html?category=reviews"),
     urllib.parse.urljoin(SITE_URL, "category.html?section=what-to-play"),
 ]
 
