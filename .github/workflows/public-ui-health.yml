@@ -1,0 +1,83 @@
+name: Public UI health
+
+on:
+  pull_request:
+    paths:
+      - 404.html
+      - '*.html'
+      - games/**
+      - reviews/**
+      - guides/**
+      - stories/**
+      - topics/**
+      - authors/**
+      - assets/**
+      - scripts/test_public_ui_browser.js
+      - scripts/audit_public_ui_light.py
+      - scripts/build_runtime_fallback.py
+      - scripts/build_story_pages.py
+      - scripts/build_topic_pages.py
+      - scripts/build_game_pages.py
+      - scripts/build_author_pages.py
+      - .github/workflows/public-ui-health.yml
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: neural-critic-public-ui-${{ github.ref }}
+  cancel-in-progress: true
+
+env:
+  NC_UI_BASE_URL: http://127.0.0.1:4173
+  NEURAL_CRITIC_SITE_URL: https://www.neuralcritic.net/
+
+jobs:
+  browser-sweep:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Build current generated publication shells
+        run: |
+          python scripts/build_runtime_fallback.py
+          python scripts/build_story_pages.py
+          python scripts/build_topic_pages.py
+          python scripts/build_game_pages.py
+          python scripts/build_author_pages.py
+          python scripts/enrich_story_metadata.py
+
+      - name: Verify scoped light-mode ownership
+        run: python scripts/audit_public_ui_light.py
+
+      - name: Install browser QA dependencies
+        run: |
+          npm install --no-save playwright @axe-core/playwright
+          npx playwright install --with-deps chromium
+
+      - name: Start local publication server
+        run: |
+          python -m http.server 4173 >/tmp/neural-critic-ui-server.log 2>&1 &
+          echo $! >/tmp/neural-critic-ui-server.pid
+          sleep 2
+          curl --fail --silent http://127.0.0.1:4173/ >/dev/null
+
+      - name: Run public browser sweep
+        run: node scripts/test_public_ui_browser.js
+
+      - name: Upload failure screenshots
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: public-ui-sweep
+          path: tmp/public-ui-sweep
+          if-no-files-found: ignore
+          retention-days: 7

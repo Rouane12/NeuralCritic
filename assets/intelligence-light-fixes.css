@@ -1,0 +1,147 @@
+/* Reader-facing intelligence surface light-mode ownership.
+   Loaded after component CSS on Reviews, Guides and Game Hubs so dark-mode
+   fallback surfaces can never inherit light-mode foreground colors. */
+
+html[data-theme="light"] body.nc-reviews-page,
+html[data-theme="light"] body.nc-guides-page,
+html[data-theme="light"] body.nc-game-page{
+  --nc-intel-text:var(--nc-light-text,#171b22);
+  --nc-intel-soft:var(--nc-light-text-soft,#303944);
+  --nc-intel-muted:var(--nc-light-muted,#66717d);
+  --nc-intel-line:var(--nc-light-line,#cfd4d6);
+  --nc-intel-line-soft:var(--nc-light-line-soft,#dde1e2);
+  --nc-intel-surface:var(--nc-light-white,#fff);
+  --nc-intel-surface-cool:var(--nc-light-surface-cool,#eef2f4);
+  --nc-intel-accent:#5b43c8;
+}
+
+/* Reviews */
+html[data-theme="light"] body.nc-reviews-page .nc-review-toolbar,
+html[data-theme="light"] body.nc-reviews-page .nc-review-card,
+html[data-theme="light"] body.nc-reviews-page .nc-review-stats{
+  background:var(--nc-intel-surface)!important;
+  color:var(--nc-intel-text)!important;
+  border-color:var(--nc-intel-line)!important;
+  box-shadow:0 12px 30px rgba(39,46,55,.055);
+}
+html[data-theme="light"] body.nc-reviews-page .nc-review-stats div,
+html[data-theme="light"] body.nc-reviews-page .nc-review-tabs,
+html[data-theme="light"] body.nc-reviews-page .nc-review-scoreboard-list,
+html[data-theme="light"] body.nc-reviews-page .nc-review-scoreboard-list>a,
+html[data-theme="light"] body.nc-reviews-page .nc-review-card-copy>div{
+  border-color:var(--nc-intel-line)!important;
+}
+html[data-theme="light"] body.nc-reviews-page .nc-review-filter-row input,
+html[data-theme="light"] body.nc-reviews-page .nc-review-filter-row select{
+  background:var(--nc-intel-surface)!important;
+  color:var(--nc-intel-text)!important;
+  border-color:var(--nc-intel-line)!important;
+  color-scheme:light;
+}
+html[data-theme="light"] body.nc-reviews-page .nc-review-filter-row input::placeholder{color:var(--nc-intel-muted)!important}
+html[data-theme="light"] body.nc-reviews-page .nc-review-filter-row select option{background:#fff;color:#171b22}
+html[data-theme="light"] body.nc-reviews-page .nc-review-card-media{background:linear-gradient(145deg,#f1efff,#edf7f7)!important;color:var(--nc-intel-soft)!important}
+html[data-theme="light"] body.nc-reviews-page .nc-review-card-media>span{background:rgba(9,10,13,.92)!important;color:#fff!important}
+html[data-theme="light"] body.nc-reviews-page .nc-review-card-copy h3,
+html[data-theme="light"] body.nc-reviews-page .nc-review-card-copy h3 a,
+html[data-theme="light"] body.nc-reviews-page .nc-review-scoreboard-list>a{color:var(--nc-intel-text)!important}
+html[data-theme="light"] body.nc-reviews-page .nc-reviews-hero p,
+html[data-theme="light"] body.nc-reviews-page .nc-review-card-copy p,
+html[data-theme="light"] body.nc-reviews-page .nc-review-card-copy>div,
+html[data-theme="light"] body.nc-reviews-page .nc-review-scoreboard-list>a>b,
+html[data-theme="light"] body.nc-reviews-page .nc-review-scoreboard-list>a div strong,
+html[data-theme="light"] body.nc-reviews-page .nc-review-stats span,
+html[data-theme="light"] body.nc-reviews-page .nc-review-section-head>span,
+html[data-theme="light"] body.nc-reviews-page .nc-review-filter-row label>span{color:var(--nc-intel-muted)!important}
+html[data-theme="light"] body.nc-reviews-page .nc-reviews-hero small,
+html[data-theme="light"] body.nc-reviews-page .nc-review-section-head small,
+html[data-theme="light"] body.nc-reviews-page .nc-review-card-copy>small,
+html[data-theme="light"] body.nc-reviews-page .nc-review-game-link{color:var(--nc-intel-accent)!important}
+html[data-theme="light"] body.nc-reviews-page .nc-review-read-link{color:var(--nc-intel-soft)!important;border-color:var(--nc-intel-line)!important}
+html[data-theme="light"] body.nc-reviews-page .nc-review-game-link{border-color:#8b78d8!important;background:#f1effb!important}
+html[data-theme="light"] body.nc-reviews-page .nc-review-tabs button{color:var(--nc-intel-soft)!important;border-color:var(--nc-intel-line)!important}
+html[data-theme="light"] body.nc-reviews-page .nc-review-tabs button.is-active{color:#4933b2!important;border-color:#7964d4!important;background:#eeebfa!important}
+
+/* Guides */
+html[data-theme="light"] body.nc-guides-page .nc-guide-toolbar,
+html[data-theme="light"] body.nc-guides-page .nc-guide-card,
+html[data-theme="light"] body.nc-guides-page .nc-guide-stats{
+  background:var(--nc-intel-surface)!important;
+  color:var(--nc-intel-text)!important;
+  border-color:var(--nc-intel-line)!important;
+  box-shadow:0 12px 30px rgba(39,46,55,.055);
+}
+html[data-theme="light"] body.nc-guides-page .nc-guide-stats div,
+html[data-theme="light"] body.nc-guides-page .nc-guide-card-copy>div{border-color:var(--nc-intel-line)!important}
+html[data-theme="light"] body.nc-guides-page .nc-guide-toolbar input,
+html[data-theme="light"] body.nc-guides-page .nc-guide-toolbar select{
+  background:var(--nc-intel-surface)!important;
+  color:var(--nc-intel-text)!important;
+  border-color:var(--nc-intel-line)!important;
+  color-scheme:light;
+}
+html[data-theme="light"] body.nc-guides-page .nc-guide-toolbar input::placeholder{color:var(--nc-intel-muted)!important}
+html[data-theme="light"] body.nc-guides-page .nc-guide-toolbar select option{background:#fff;color:#171b22}
+html[data-theme="light"] body.nc-guides-page .nc-guide-card-media{background:linear-gradient(145deg,#f1efff,#edf7f7)!important;color:var(--nc-intel-soft)!important}
+html[data-theme="light"] body.nc-guides-page .nc-guide-card-copy h3,
+html[data-theme="light"] body.nc-guides-page .nc-guide-card-copy h3 a{color:var(--nc-intel-text)!important}
+html[data-theme="light"] body.nc-guides-page .nc-guides-hero p,
+html[data-theme="light"] body.nc-guides-page .nc-guide-card-copy p,
+html[data-theme="light"] body.nc-guides-page .nc-guide-card-copy>div,
+html[data-theme="light"] body.nc-guides-page .nc-guide-stats span,
+html[data-theme="light"] body.nc-guides-page .nc-guide-section-head>span,
+html[data-theme="light"] body.nc-guides-page .nc-guide-toolbar label>span{color:var(--nc-intel-muted)!important}
+html[data-theme="light"] body.nc-guides-page .nc-guides-hero small,
+html[data-theme="light"] body.nc-guides-page .nc-guide-section-head small,
+html[data-theme="light"] body.nc-guides-page .nc-guide-card-copy>small,
+html[data-theme="light"] body.nc-guides-page .nc-guide-game-link{color:var(--nc-intel-accent)!important}
+html[data-theme="light"] body.nc-guides-page .nc-guide-read-link{color:var(--nc-intel-soft)!important;border-color:var(--nc-intel-line)!important}
+html[data-theme="light"] body.nc-guides-page .nc-guide-game-link{border-color:#8b78d8!important;background:#f1effb!important}
+
+/* Canonical Game Hubs */
+html[data-theme="light"] body.nc-game-page .nc-game-panel,
+html[data-theme="light"] body.nc-game-page .nc-game-facts div{
+  background:var(--nc-intel-surface)!important;
+  color:var(--nc-intel-text)!important;
+  border-color:var(--nc-intel-line)!important;
+}
+html[data-theme="light"] body.nc-game-page .nc-game-panel{box-shadow:0 12px 30px rgba(39,46,55,.05)}
+html[data-theme="light"] body.nc-game-page .nc-game-facts{background:var(--nc-intel-line)!important;border-color:var(--nc-intel-line)!important}
+html[data-theme="light"] body.nc-game-page .nc-game-chips span,
+html[data-theme="light"] body.nc-game-page .nc-game-score,
+html[data-theme="light"] body.nc-game-page .nc-game-stories>a,
+html[data-theme="light"] body.nc-game-page #game-relations>a,
+html[data-theme="light"] body.nc-game-page #game-links>a,
+html[data-theme="light"] body.nc-game-page .nc-game-empty-state{
+  color:var(--nc-intel-text)!important;
+  border-color:var(--nc-intel-line)!important;
+}
+html[data-theme="light"] body.nc-game-page .nc-game-score{background:#f1effb!important;border-color:#8b78d8!important}
+html[data-theme="light"] body.nc-game-page .nc-game-coverage-nav{background:#f5f6f8!important;border-color:var(--nc-intel-line)!important}
+html[data-theme="light"] body.nc-game-page .nc-game-coverage-nav button{color:var(--nc-intel-soft)!important}
+html[data-theme="light"] body.nc-game-page .nc-game-coverage-nav button.active,
+html[data-theme="light"] body.nc-game-page .nc-game-coverage-nav button[aria-pressed="true"]{background:#eae6fa!important;color:#4933b2!important}
+html[data-theme="light"] body.nc-game-page .nc-game-coverage-nav button b{background:#e2e5e8!important;color:#303944!important}
+html[data-theme="light"] body.nc-game-page .nc-game-intro>p,
+html[data-theme="light"] body.nc-game-page .nc-game-review-copy p,
+html[data-theme="light"] body.nc-game-page .nc-game-review-meta,
+html[data-theme="light"] body.nc-game-page .nc-game-stories p,
+html[data-theme="light"] body.nc-game-page .nc-game-empty,
+html[data-theme="light"] body.nc-game-page .nc-game-empty-state p,
+html[data-theme="light"] body.nc-game-page .nc-game-facts small,
+html[data-theme="light"] body.nc-game-page .nc-game-releases small,
+html[data-theme="light"] body.nc-game-page .nc-game-commerce-disclosure{color:var(--nc-intel-muted)!important}
+html[data-theme="light"] body.nc-game-page .nc-game-intro>small,
+html[data-theme="light"] body.nc-game-page .nc-game-panel header small,
+html[data-theme="light"] body.nc-game-page .nc-game-review-copy>small,
+html[data-theme="light"] body.nc-game-page .nc-game-stories small,
+html[data-theme="light"] body.nc-game-page #game-relations small{color:var(--nc-intel-accent)!important}
+
+/* Form focus remains visible in both themes. */
+body.nc-reviews-page .nc-review-filter-row input:focus-visible,
+body.nc-reviews-page .nc-review-filter-row select:focus-visible,
+body.nc-guides-page .nc-guide-toolbar input:focus-visible,
+body.nc-guides-page .nc-guide-toolbar select:focus-visible{
+  outline:2px solid var(--accent,#8c7cff);
+  outline-offset:2px;
+}
