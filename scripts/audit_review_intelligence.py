@@ -69,6 +69,7 @@ def main() -> int:
     review_css = (ROOT / "assets" / "review-intelligence.css").read_text(encoding="utf-8")
     guide_js = (ROOT / "assets" / "guide-intelligence.js").read_text(encoding="utf-8")
     guide_css = (ROOT / "assets" / "guide-intelligence.css").read_text(encoding="utf-8")
+    content_api = (ROOT / "assets" / "content-api.js").read_text(encoding="utf-8")
     category_html = (ROOT / "category.html").read_text(encoding="utf-8")
     sitemap_builder = (ROOT / "scripts" / "build_sitemap.py").read_text(encoding="utf-8")
 
@@ -76,10 +77,17 @@ def main() -> int:
     require('https://www.neuralcritic.net/guides/' in guide_html, "Guides hub canonical is missing", failures)
     require('assets/review-intelligence.js?v=20260904-reviewguide1' in review_html, "Reviews hub is not pinned to the M9 runtime", failures)
     require('assets/guide-intelligence.js?v=20260904-reviewguide1' in guide_html, "Guides hub is not pinned to the M9 runtime", failures)
+    require('assets/content-api.js?v=20260904-reviewguide1' in review_html and 'assets/content-api.js?v=20260904-reviewguide1' in guide_html, "Reviews/Guides hubs must pin the shared M9 Content API", failures)
+
+    require("async function publishedGames()" in content_api, "Content API must own Games Database index reads", failures)
+    require("from('games')" in content_api and "publishedGames" in content_api, "Content API Games Database read/export is missing", failures)
+    require("from('articles')" in content_api and "publishedIndex" in content_api, "Content API published article index is missing", failures)
 
     for label, script in (("review", review_js), ("guide", guide_js)):
-        require("from('articles')" in script, f"{label} hub must reuse published articles", failures)
-        require("from('games')" in script, f"{label} hub must resolve against the existing Games Database", failures)
+        require("NeuralCriticContentAPI" in script, f"{label} hub must reuse the shared Content API", failures)
+        require("publishedIndex" in script, f"{label} hub must reuse the shared published article index", failures)
+        require("publishedGames" in script, f"{label} hub must reuse the shared Games Database index", failures)
+        require("from('articles')" not in script and "from('games')" not in script, f"{label} hub must not create a second direct Supabase content owner", failures)
         require("stories/${encodeURIComponent(slug)}/" in script, f"{label} hub must use canonical story links", failures)
         require("games/${encodeURIComponent(slug)}/" in script, f"{label} hub must use stored canonical game slugs", failures)
         require("slugify(" not in script, f"{label} hub must not guess game slugs from titles", failures)
@@ -125,7 +133,7 @@ def main() -> int:
     print(
         "Reviews + Guides journey audit passed: "
         f"{len(reviews)} reviews and {len(guides)} guides map to generated canonical Game Hubs; "
-        "clean hub, story, sitemap, accessibility and analytics contracts are present."
+        "shared Content API, clean hub, story, sitemap, accessibility and analytics contracts are present."
     )
     return 0
 
