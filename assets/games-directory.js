@@ -9,15 +9,22 @@
   const yearOf=v=>v?String(v).slice(0,4):'';
   let games=[]; let releases=[]; let view='all';
 
+  function scoreBadge(g,inline=false){
+    if(g.neural_critic_score==null)return '';
+    const cls=inline?'nc-game-card-score-inline':'nc-game-card-score';
+    return `<span class="${cls}"><strong>${Number(g.neural_critic_score).toFixed(1)}</strong><span>NC</span></span>`;
+  }
   function gameCard(g){
-    const score=g.neural_critic_score!=null?`<div class="nc-game-card-score"><strong>${Number(g.neural_critic_score).toFixed(1)}</strong><span>NC</span></div>`:'';
-    const image=g.cover_image_url?`<img src="${esc(g.cover_image_url)}" alt="${esc(g.cover_image_alt||`${g.title} cover art`)}" loading="lazy" decoding="async">`:'<div class="nc-game-card-fallback">NEURAL<br>CRITIC</div>';
-    return `<a class="nc-game-library-card" href="${gameUrl(g.slug)}" data-game-card="${esc(g.slug)}"><div class="nc-game-card-media">${image}${score}</div><div class="nc-game-card-copy"><small>${esc(String(g.release_status||'game').replaceAll('_',' ').toUpperCase())}</small><h3>${esc(g.title)}</h3><p>${esc([g.developer,g.primary_release_date?fmtDate(g.primary_release_date):''].filter(Boolean).join(' · '))}</p><div>${(g.platforms||[]).slice(0,3).map(p=>`<span>${esc(p)}</span>`).join('')}</div></div></a>`;
+    const hasCover=Boolean(String(g.cover_image_url||'').trim());
+    const media=hasCover?`<div class="nc-game-card-media"><img src="${esc(g.cover_image_url)}" alt="${esc(g.cover_image_alt||`${g.title} cover art`)}" loading="lazy" decoding="async">${scoreBadge(g)}</div>`:'';
+    const status=String(g.release_status||'game').replaceAll('_',' ').toUpperCase();
+    return `<a class="nc-game-library-card ${hasCover?'has-cover':'is-text-only'}" href="${gameUrl(g.slug)}" data-game-card="${esc(g.slug)}">${media}<div class="nc-game-card-copy"><div class="nc-game-card-heading"><small>${esc(status)}</small>${hasCover?'':scoreBadge(g,true)}</div><h3>${esc(g.title)}</h3><p>${esc([g.developer,g.primary_release_date?fmtDate(g.primary_release_date):''].filter(Boolean).join(' · '))}</p><div class="nc-game-card-platforms">${(g.platforms||[]).slice(0,3).map(p=>`<span>${esc(p)}</span>`).join('')}</div></div></a>`;
   }
   function releaseCard(r){
     const g=games.find(x=>x.id===r.game_id); if(!g)return '';
     const when=r.release_date?fmtDate(r.release_date):(r.release_window||'TBA');
-    return `<a href="${gameUrl(g.slug)}" data-release-game="${esc(g.slug)}"><time>${esc(when)}</time><div><small>${esc(r.platform||'Platform TBA')}</small><strong>${esc(g.title)}</strong></div><span>${esc(String(r.status||'announced').replaceAll('_',' ').toUpperCase())}</span></a>`;
+    const platforms=(r.platforms||[r.platform]).filter(Boolean);
+    return `<a href="${gameUrl(g.slug)}" data-release-game="${esc(g.slug)}"><time>${esc(when)}</time><div><small>${esc(platforms.join(' · ')||'Platform TBA')}</small><strong>${esc(g.title)}</strong></div><span>${esc(String(r.status||'announced').replaceAll('_',' ').toUpperCase())}</span></a>`;
   }
   function uniqueValues(field){return [...new Set(games.flatMap(g=>Array.isArray(g[field])?g[field]:[]).filter(Boolean))].sort((a,b)=>String(a).localeCompare(String(b)));}
   function hydrateFilters(){
@@ -46,9 +53,19 @@
     });
   }
   function renderGames(){const rows=filteredGames();$('#games-grid').innerHTML=rows.map(gameCard).join('')||'<p class="nc-games-empty">No games match these filters yet.</p>';$('#games-result-count').textContent=`${rows.length} ${rows.length===1?'GAME':'GAMES'}`;}
-  function renderCalendar(){
+  function upcomingReleaseGroups(){
     const today=new Date();today.setHours(0,0,0,0);
-    const upcoming=releases.filter(r=>r.release_date&&new Date(`${r.release_date}T00:00:00`)>=today&&['confirmed','estimated','tba'].includes(String(r.status||''))).sort((a,b)=>String(a.release_date).localeCompare(String(b.release_date))).slice(0,12);
+    const grouped=new Map();
+    releases.filter(r=>r.release_date&&new Date(`${r.release_date}T00:00:00`)>=today&&['confirmed','estimated','tba'].includes(String(r.status||''))).forEach(r=>{
+      const key=[r.game_id,r.release_date,r.status||'',r.region||''].join('|');
+      if(!grouped.has(key))grouped.set(key,{...r,platforms:[]});
+      const row=grouped.get(key);
+      if(r.platform&&!row.platforms.includes(r.platform))row.platforms.push(r.platform);
+    });
+    return [...grouped.values()].sort((a,b)=>String(a.release_date).localeCompare(String(b.release_date))||String(a.game_id).localeCompare(String(b.game_id))).slice(0,12);
+  }
+  function renderCalendar(){
+    const upcoming=upcomingReleaseGroups();
     $('#release-calendar').innerHTML=upcoming.map(releaseCard).join('')||'<p class="nc-games-empty">No dated upcoming releases are in the database yet.</p>';
     $('#calendar-count').textContent=`${upcoming.length} UPCOMING`;
   }
