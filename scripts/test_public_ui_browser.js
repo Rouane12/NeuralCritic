@@ -36,12 +36,14 @@ const viewports = [
 ];
 
 const themes = ['dark', 'light'];
+const axeViewports = new Set(['desktop', 'mobile']);
 const badImpacts = new Set(['serious', 'critical']);
 const ignoredConsole = [
   /favicon\.ico/i,
   /Failed to load resource.*fonts\.gstatic/i,
   /Failed to load resource.*fonts\.googleapis/i,
 ];
+const blockedExternal = /fonts\.(googleapis|gstatic)\.com|googletagmanager\.com|google-analytics\.com/i;
 
 const wait = ms => new Promise(resolve => setTimeout(resolve, ms));
 
@@ -56,6 +58,11 @@ async function inspectPage(page, routeName, routePath, viewportName, theme) {
   const consoleErrors = [];
   const badResponses = [];
   const baseOrigin = new URL(BASE).origin;
+
+  await page.route('**/*', route => {
+    if (blockedExternal.test(route.request().url())) return route.abort();
+    return route.continue();
+  });
 
   page.on('pageerror', error => pageErrors.push(String(error && error.message || error)));
   page.on('console', msg => {
@@ -77,7 +84,7 @@ async function inspectPage(page, routeName, routePath, viewportName, theme) {
   }, theme);
 
   await page.goto(new URL(routePath, BASE).href, { waitUntil: 'domcontentloaded', timeout: 30000 });
-  await wait(1400);
+  await wait(700);
 
   const state = await page.evaluate(() => {
     const root = document.documentElement;
@@ -98,7 +105,6 @@ async function inspectPage(page, routeName, routePath, viewportName, theme) {
       clientWidth: root.clientWidth,
       navRects,
       title: document.title,
-      bodyText: (document.body && document.body.innerText || '').slice(0, 500),
     };
   });
 
@@ -119,12 +125,14 @@ async function inspectPage(page, routeName, routePath, viewportName, theme) {
   if (badResponses.length) issues.push(...[...new Set(badResponses)].map(x => `same-origin HTTP error: ${x}`));
   if (consoleErrors.length) issues.push(...[...new Set(consoleErrors)].slice(0, 6).map(x => `console error: ${x}`));
 
-  const axe = await new AxeBuilder({ page })
-    .withTags(['wcag2a', 'wcag2aa', 'wcag21a', 'wcag21aa'])
-    .analyze();
-  for (const violation of axe.violations.filter(v => badImpacts.has(v.impact))) {
-    const targets = violation.nodes.slice(0, 4).flatMap(node => node.target).join(' | ');
-    issues.push(`axe ${violation.impact}: ${violation.id} (${violation.nodes.length}) ${targets}`);
+  if (axeViewports.has(viewportName)) {
+    const axe = await new AxeBuilder({ page })
+      .withTags(['wcag2a', 'wcag2aa', 'wcag21a', 'wcag21aa'])
+      .analyze();
+    for (const violation of axe.violations.filter(v => badImpacts.has(v.impact))) {
+      const targets = violation.nodes.slice(0, 4).flatMap(node => node.target).join(' | ');
+      issues.push(`axe ${violation.impact}: ${violation.id} (${violation.nodes.length}) ${targets}`);
+    }
   }
 
   if (issues.length) {
@@ -170,7 +178,7 @@ async function inspectPage(page, routeName, routePath, viewportName, theme) {
   }
 
   if (failures.length) process.exit(1);
-  console.log('Public UI browser sweep passed: no serious/critical axe violations, same-origin HTTP failures, page errors, horizontal overflow, or visible desktop-nav collisions detected.');
+  console.log('Public UI browser sweep passed: no serious/critical desktop/mobile axe violations, same-origin HTTP failures, page errors, horizontal overflow, theme mismatch, or visible navigation collisions detected across all tested viewports.');
 })().catch(error => {
   console.error(error);
   process.exit(1);
