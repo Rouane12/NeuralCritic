@@ -3,11 +3,12 @@
   const $=(s,r=document)=>r.querySelector(s), $$=(s,r=document)=>[...r.querySelectorAll(s)];
   const esc=(v='')=>String(v).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
   const storyHref=slug=>`stories/${encodeURIComponent(slug)}/`;
+  const gameHref=slug=>`games/${encodeURIComponent(slug)}/`;
   const norm=v=>String(v||'').trim().toLowerCase();
   const scoreOf=r=>{const n=Number(r.review_meta?.score);return Number.isFinite(n)?n:null};
   const fmtDate=v=>{try{return new Intl.DateTimeFormat('en',{year:'numeric',month:'short',day:'numeric'}).format(new Date(v))}catch(_){return''}};
   const platformLabel=v=>({pc:'PC',playstation:'PlayStation',xbox:'Xbox',nintendo:'Nintendo',mobile:'Mobile'}[norm(v)]||v);
-  let reviews=[], view='all';
+  let reviews=[], view='all', gamesByTitle=new Map();
 
   function mapRow(r){return {slug:r.slug,title:r.title||'',description:r.description||'',gameKey:r.game_key||'',platforms:Array.isArray(r.platforms)?r.platforms:[],review_meta:r.review_meta&&typeof r.review_meta==='object'?r.review_meta:{},published_at:r.published_at||'',image_url:r.image_url||''};}
   async function loadReviews(){
@@ -17,9 +18,19 @@
     if(error) return [];
     return (data||[]).filter(r=>norm(r.category)==='review'||norm(r.article_format)==='review').map(mapRow).filter(r=>scoreOf(r)!=null);
   }
+  async function loadGames(){
+    const client=window.neuralCriticPublicSupabase;
+    if(!client) return [];
+    const {data,error}=await client.from('games').select('slug,title').order('title',{ascending:true});
+    if(error) return [];
+    return (data||[]).filter(g=>g?.slug&&g?.title);
+  }
+  function gameFor(review){return gamesByTitle.get(norm(review?.gameKey))||null;}
   function fillFilters(){
     const platforms=[...new Set(reviews.flatMap(r=>r.platforms.map(norm)).filter(Boolean))].sort();
     $('#review-platform').innerHTML='<option value="">All platforms</option>'+platforms.map(p=>`<option value="${esc(p)}">${esc(platformLabel(p))}</option>`).join('');
+    const requested=norm(new URLSearchParams(location.search).get('platform'));
+    if(requested&&platforms.includes(requested)) $('#review-platform').value=requested;
   }
   function renderStats(){
     const scores=reviews.map(scoreOf).filter(x=>x!=null), avg=scores.length?scores.reduce((a,b)=>a+b,0)/scores.length:0, elite=scores.filter(x=>x>=9.5).length;
@@ -40,14 +51,28 @@
     else out.sort((a,b)=>(scoreOf(b)||0)-(scoreOf(a)||0));
     return out;
   }
-  function card(r){const score=scoreOf(r);return `<article class="nc-review-card"><a class="nc-review-card-media" href="${storyHref(r.slug)}" data-review-target="${esc(r.slug)}" data-review-placement="archive">${r.image_url?`<img src="${esc(r.image_url)}" alt="${esc(r.gameKey||r.title)}">`:'<div>NEURAL CRITIC</div>'}<span>${score.toFixed(1)}</span></a><div class="nc-review-card-copy"><small>${esc(r.platforms.map(platformLabel).join(' · ')||'REVIEW')}</small><h3><a href="${storyHref(r.slug)}" data-review-target="${esc(r.slug)}" data-review-placement="archive">${esc(r.gameKey||r.title.replace(/\s+Review:.*/i,''))}</a></h3><p>${esc(r.review_meta.verdict||r.description)}</p><div><span>${esc(r.review_meta.developer||'')}</span><time>${esc(fmtDate(r.published_at))}</time></div></div></article>`}
+  function card(r){
+    const score=scoreOf(r), game=gameFor(r);
+    const gameLink=game?`<a class="nc-review-game-link" href="${gameHref(game.slug)}" data-review-game-target="${esc(game.slug)}" data-review-source="${esc(r.slug)}">OPEN GAME HUB <span aria-hidden="true">→</span></a>`:'';
+    return `<article class="nc-review-card"><a class="nc-review-card-media" href="${storyHref(r.slug)}" data-review-target="${esc(r.slug)}" data-review-placement="archive">${r.image_url?`<img src="${esc(r.image_url)}" alt="${esc(r.gameKey||r.title)}">`:'<div>NEURAL CRITIC</div>'}<span>${score.toFixed(1)}</span></a><div class="nc-review-card-copy"><small>${esc(r.platforms.map(platformLabel).join(' · ')||'REVIEW')}</small><h3><a href="${storyHref(r.slug)}" data-review-target="${esc(r.slug)}" data-review-placement="archive">${esc(r.gameKey||r.title.replace(/\s+Review:.*/i,''))}</a></h3><p>${esc(r.review_meta.verdict||r.description)}</p><div class="nc-review-card-meta"><span>${esc(r.review_meta.developer||'')}</span><time>${esc(fmtDate(r.published_at))}</time></div><div class="nc-review-card-actions"><a class="nc-review-read-link" href="${storyHref(r.slug)}" data-review-target="${esc(r.slug)}" data-review-placement="archive_cta">READ REVIEW <span aria-hidden="true">→</span></a>${gameLink}</div></div></article>`;
+  }
   function renderGrid(){const out=filtered();$('#review-result-count').textContent=`${out.length} ${out.length===1?'REVIEW':'REVIEWS'}`;$('#review-grid').innerHTML=out.length?out.map(card).join(''):'<p class="nc-review-empty">No reviews match these filters.</p>'}
   function track(name,params={}){window.NeuralCriticAnalytics?.track?.(name,params)}
   function bind(){
     $$('.nc-review-tabs button').forEach(btn=>btn.addEventListener('click',()=>{view=btn.dataset.reviewView||'all';$$('.nc-review-tabs button').forEach(x=>{const active=x===btn;x.classList.toggle('is-active',active);x.setAttribute('aria-selected',String(active))});renderGrid();track('review_intelligence_view_change',{view});}));
     ['review-search','review-platform','review-sort'].forEach(id=>$('#'+id)?.addEventListener(id==='review-search'?'input':'change',renderGrid));
-    document.addEventListener('click',e=>{const a=e.target instanceof Element?e.target.closest('[data-review-target]'):null;if(a)track('review_intelligence_click',{target_slug:a.dataset.reviewTarget||'',placement:a.dataset.reviewPlacement||''})});
+    document.addEventListener('click',e=>{
+      const game=e.target instanceof Element?e.target.closest('[data-review-game-target]'):null;
+      if(game){track('review_game_hub_click',{game_slug:game.dataset.reviewGameTarget||'',source_review_slug:game.dataset.reviewSource||'',placement:'review_archive'});return;}
+      const a=e.target instanceof Element?e.target.closest('[data-review-target]'):null;
+      if(a)track('review_intelligence_click',{target_slug:a.dataset.reviewTarget||'',placement:a.dataset.reviewPlacement||''});
+    });
   }
-  async function init(){reviews=await loadReviews();fillFilters();renderStats();renderScoreboard();renderGrid();bind();track('review_intelligence_view',{review_count:reviews.length,scored_count:reviews.filter(r=>scoreOf(r)!=null).length});}
+  async function init(){
+    const [loadedReviews,games]=await Promise.all([loadReviews(),loadGames()]);
+    reviews=loadedReviews;
+    gamesByTitle=new Map(games.map(game=>[norm(game.title),game]));
+    fillFilters();renderStats();renderScoreboard();renderGrid();bind();track('review_intelligence_view',{review_count:reviews.length,scored_count:reviews.filter(r=>scoreOf(r)!=null).length,mapped_game_count:reviews.filter(r=>gameFor(r)).length});
+  }
   if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',init,{once:true});else init();
 })();
