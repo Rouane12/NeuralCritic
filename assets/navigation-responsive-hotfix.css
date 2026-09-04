@@ -1,0 +1,77 @@
+/* Neural Critic navigation production hotfix.
+   Loaded after publication-nav.css. It protects the intermediate desktop range
+   where the full publication nav, brand, and account utilities share one row. */
+
+@media (min-width:981px) and (max-width:1279px){
+  header .shell.header{
+    grid-template-columns:minmax(140px,auto) minmax(0,1fr) max-content!important;
+    column-gap:12px!important;
+  }
+  header .brand{min-width:140px!important}
+  header .brand span,header .brand strong{font-size:19px!important}
+
+  .header-tools{gap:4px!important}
+  .header-tools .search{
+    width:39px!important;
+    min-width:39px!important;
+    height:39px!important;
+    min-height:39px!important;
+  }
+  .theme-toggle{
+    width:39px!important;
+    min-width:39px!important;
+    height:39px!important;
+    min-height:39px!important;
+    padding:0!important;
+  }
+  .theme-toggle small{display:none!important}
+  .reader-account-button{
+    min-width:74px!important;
+    max-width:104px!important;
+    height:39px!important;
+    min-height:39px!important;
+    padding-inline:9px!important;
+  }
+  .reader-account-button.signed-in{max-width:110px!important}
+
+  .publication-nav{gap:4px!important}
+  .publication-nav .nav-group{grid-template-columns:minmax(0,auto) 20px!important}
+  .publication-nav .nav-primary,.publication-nav>.nav-direct{
+    padding:0 6px!important;
+    font-size:9px!important;
+    letter-spacing:.035em!important;
+  }
+  .publication-nav>.nav-direct{padding-inline:8px!important}
+  .publication-nav .nav-trigger{width:20px!important}
+}
+
+/* The narrow edge of desktop gets one additional compacting step instead of
+   allowing labels or utility controls to collide. The mobile drawer still
+   takes over at the established 980px boundary. */
+@media (min-width:981px) and (max-width:1080px){
+  header .shell.header{column-gap:9px!important}
+  header .brand{min-width:126px!important}
+  header .brand span,header .brand strong{font-size:18px!important}
+
+  .reader-account-button{
+    min-width:68px!important;
+    max-width:86px!important;
+    padding-inline:8px!important;
+    font-size:8px!important;
+  }
+  .reader-account-button.signed-in{
+    width:39px!important;
+    min-width:39px!important;
+    max-width:39px!important;
+    padding:0!important;
+  }
+  .reader-account-button.signed-in [data-reader-account-label]{display:none!important}
+
+  .publication-nav{gap:2px!important}
+  .publication-nav .nav-primary,.publication-nav>.nav-direct{
+    padding-inline:5px!important;
+    font-size:8.8px!important;
+    letter-spacing:.025em!important;
+  }
+  .publication-nav>.nav-direct{padding-inline:7px!important}
+}
