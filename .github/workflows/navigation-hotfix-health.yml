@@ -1,0 +1,79 @@
+name: Navigation Hotfix Health
+
+on:
+  pull_request:
+    paths:
+      - assets/publication-nav.css
+      - assets/publication-nav.js
+      - assets/navigation-responsive-hotfix.css
+      - assets/navigation-canonical-hotfix.js
+      - scripts/stamp_navigation_assets.py
+      - scripts/test_navigation_hotfix.js
+      - .github/workflows/navigation-hotfix-health.yml
+  push:
+    branches: [main]
+    paths:
+      - assets/publication-nav.css
+      - assets/publication-nav.js
+      - assets/navigation-responsive-hotfix.css
+      - assets/navigation-canonical-hotfix.js
+      - scripts/stamp_navigation_assets.py
+      - scripts/test_navigation_hotfix.js
+      - .github/workflows/navigation-hotfix-health.yml
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: neural-critic-publication-discovery-refresh
+  cancel-in-progress: false
+
+jobs:
+  verify-and-stamp:
+    runs-on: ubuntu-latest
+    timeout-minutes: 7
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Synchronize push checkout with current main
+        if: github.event_name == 'push' || github.event_name == 'workflow_dispatch'
+        run: |
+          git fetch origin main
+          git checkout -B main origin/main
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Parse-check hotfix assets
+        run: |
+          python -m py_compile scripts/stamp_navigation_assets.py
+          node --check assets/navigation-canonical-hotfix.js
+          node --check scripts/test_navigation_hotfix.js
+
+      - name: Stamp fresh navigation assets across public shells
+        run: python scripts/stamp_navigation_assets.py
+
+      - name: Verify navigation hotfix contract
+        run: |
+          node scripts/test_home_navigation.js
+          node scripts/test_navigation_hotfix.js
+
+      - name: Commit stamped public shells
+        if: github.event_name == 'push' || github.event_name == 'workflow_dispatch'
+        run: |
+          if git diff --quiet -- '*.html'; then
+            echo "Public navigation asset stamps are already current."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -- '*.html'
+          git commit -m "Refresh Neural Critic navigation asset stamps"
+          git pull --rebase origin main
+          git push
