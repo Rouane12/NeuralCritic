@@ -7,26 +7,25 @@ Supabase is the source of truth for article records and status. This file is the
 ## Operating rules
 
 - Prioritize cluster depth before broad category expansion.
-- Keep timely news as a parallel lane; do not let the evergreen backlog block meaningful current coverage.
+- Keep timely news as a parallel lane.
 - Verify current facts and search intent immediately before publication.
 - Finalize review verdicts, scores, pros/cons, tested-platform notes and opinion-led headlines only after the editorial review is actually completed.
-- Recommendation/list pages are maintained assets and should be reviewed for freshness on a recurring basis.
-- Prefer durable recommendation titles over unnecessary "Right Now" wording.
-- Do not publish drafts merely to hit a numeric content target.
+- Recommendation/list pages are maintained assets and need recurring freshness reviews.
+- Prefer durable recommendation titles over unnecessary “Right Now” wording.
+- Do not publish merely to hit a numeric target.
 
 ## Current milestone state
 
-- Published library: 59 stories.
-- First library milestone: about 100 strong published stories.
-- Evergreen roadmap: 41 additional stories.
+- Published library: **59 stories**.
+- First library milestone: about **100 strong published stories**.
+- Evergreen roadmap: **41 additional stories**.
 - Roadmap draft records created: **41 of 41 — COMPLETE**.
 - Total CMS drafts: **42**, including the separate `2026-video-game-release-calendar` draft.
-- Fully drafted roadmap pieces: **22**.
+- Fully drafted roadmap pieces: **27 of 41**.
+- Remaining roadmap pieces needing full editorial completion: **14**.
 - Current roadmap mix: 16 Guides, 11 Reviews, 8 What to Play pages and 6 Features.
-- All 8 roadmap What to Play pages are now fully drafted.
-- Default work is now: remaining Features → image/internal-link/QA production passes → publication, while review drafts remain gated by real tested-platform editorial judgment.
 
-## Fully drafted roadmap pieces
+## Fully drafted roadmap work — 27
 
 ### Guides — 14 complete
 - `elden-ring-best-starting-classes-beginners`
@@ -45,54 +44,69 @@ Supabase is the source of truth for article records and status. This file is the
 - `mario-kart-8-deluxe-200cc-guide`
 
 ### What to Play — 8 complete
-- `best-soulslike-games` — **The 12 Best Soulslike Games**
-- `best-games-like-elden-ring` — **The 10 Best Games Like Elden Ring**
-- `best-games-like-baldurs-gate-3` — **The 10 Best Games Like Baldur’s Gate 3**
-- `best-turn-based-rpgs` — **The 12 Best Turn-Based RPGs**
-- `best-action-rpgs` — **The 12 Best Action RPGs**
-- `best-story-driven-games` — **The 12 Best Story-Driven Games**
-- `best-3d-platformers` — **The 12 Best 3D Platformers**
-- `best-games-under-20-hours` — **The 10 Best Games You Can Finish in Under 20 Hours**
+- `best-soulslike-games`
+- `best-games-like-elden-ring`
+- `best-games-like-baldurs-gate-3`
+- `best-turn-based-rpgs`
+- `best-action-rpgs`
+- `best-story-driven-games`
+- `best-3d-platformers`
+- `best-games-under-20-hours`
 
-Current What to Play editorial notes:
-- Turn-based RPGs and action RPGs showed the clearest current 2026 search intent in the second batch.
-- The under-20-hours article defines the threshold as typical main-story/critical-path time, not 100% completion time.
-- `best-action-rpgs` includes The Witcher 3 and therefore must be re-verified against the September 29, 2026 Remastered release before publication.
-- All recommendation pages use durable titles and should receive recurring freshness reviews after publication.
+Editorial notes:
+- `best-action-rpgs` contains a Witcher 3 entry and must be re-verified after the September 29, 2026 Remastered release.
+- `best-games-under-20-hours` uses typical main-story / critical-path time rather than 100% completion time.
+- All recommendation pages use durable titles and should receive freshness reviews after publication.
 
-All 22 fully drafted roadmap pieces remain `draft` in Supabase. They still require image packages, internal-link passes, final factual/SEO QA and publication verification before going live.
-
-## Remaining Feature drafts
-
-Produce next, in this order unless fresh search/editorial evidence changes priority:
+### Features — 5 complete
 1. `fromsoftware-boss-fights-memorable` — **What Makes FromSoftware Boss Fights So Memorable?**
+   - Focuses on encounter learning, readability, animation, arena design, music, phase structure and player mastery rather than duplicating the existing difficulty ranking.
 2. `baldurs-gate-3-companions-player-choice` — **Why Baldur’s Gate 3’s Companions Make Player Choice Feel Personal**
+   - Focuses on approval, disagreement, camp follow-up, companion priorities and selective reactivity rather than recruitment guidance.
 3. `red-dead-redemption-2-world-feels-alive` — **Why Red Dead Redemption 2’s World Still Feels Alive**
+   - Focuses on overlapping world systems, wildlife, towns, camp, travel, environmental detail and deliberate pacing.
 4. `super-mario-galaxy-gravity-mechanics` — **Why Super Mario Galaxy’s Gravity Mechanics Still Feel Brilliant**
+   - Grounded in Nintendo’s own development interviews describing gravity and spherical fields as the game’s core design idea.
 5. `hades-failure-feels-like-progress` — **Why Hades Makes Failure Feel Like Progress**
-6. `witcher-3-side-quests-standard` — **HOLD** for Remastered verification.
+   - Focuses on the return-to-House narrative loop, permanent progression, contextual dialogue, knowledge and run variation.
 
-## Review work
+All 27 fully drafted roadmap pieces remain `draft` in Supabase. They still need image packages, internal-link passes, final factual/SEO QA, publication and post-publication verification.
 
-- `cyberpunk-2077-review` has a current-state editorial/research scaffold but no score or verdict.
-- `sekiro-shadows-die-twice-review`, `bloodborne-review`, `dark-souls-iii-review`, `dark-souls-remastered-review`, `god-of-war-ragnarok-review`, `persona-5-royal-review`, `ghost-of-tsushima-directors-cut-review`, `hades-review`, and `clair-obscur-expedition-33-review` remain neutral review shells.
-- Review/scoring work only proceeds when tested-platform editorial judgment is available.
+## Remaining 14 roadmap pieces — editorial gates
 
-## Witcher 3 hold
-
-Re-verify against the September 29, 2026 Remastered release before final production/publishing:
-- `the-witcher-3-wild-hunt-review`
+### Witcher 3 — HOLD until Remastered verification
 - `the-witcher-3-beginners-guide`
 - `the-witcher-3-best-skills-abilities`
 - `witcher-3-side-quests-standard`
-- the Witcher 3 entry inside `best-action-rpgs`
+- `the-witcher-3-wild-hunt-review`
+
+The Witcher 3: Wild Hunt — Remastered is scheduled for September 29, 2026. Re-verify mechanics, progression, platforms, visuals and the reviewed version before finalizing these pieces.
+
+### Reviews — tested-platform/editorial judgment required
+- `cyberpunk-2077-review` — current-state research scaffold exists; no score or verdict.
+- `sekiro-shadows-die-twice-review`
+- `bloodborne-review`
+- `dark-souls-iii-review`
+- `dark-souls-remastered-review`
+- `god-of-war-ragnarok-review`
+- `persona-5-royal-review`
+- `ghost-of-tsushima-directors-cut-review`
+- `hades-review`
+- `clair-obscur-expedition-33-review`
+
+Do not invent first-hand impressions, tested-platform claims, scores, verdicts, pros/cons or review-copy details.
 
 ## Next production phase
 
-1. Fully draft the five non-Witcher Features, starting with FromSoftware and BG3.
-2. Then begin publish-readiness passes on the strongest completed evergreen drafts: images → internal links → factual/SEO QA → publish → verify.
-3. Keep review shells separate until real tested-platform editorial judgment is available.
-4. Revisit Witcher 3 work after Remastered verification.
+The normal drafting phase is effectively complete for everything that can be responsibly completed today.
+
+Next default work:
+1. Select the strongest fully drafted evergreen pieces for publication-readiness.
+2. For each: image package → internal-link pass → metadata/factual/SEO QA → publish → verify production URL, canonical, sitemap/discovery and Game Hub recirculation where relevant.
+3. Prioritize cluster launches rather than isolated articles: Elden Ring / FromSoftware first, then Baldur’s Gate 3, Cyberpunk and adjacent discovery pages.
+4. Keep real news running in parallel when it has genuine reader/search value.
+5. Keep review shells gated until real tested-platform editorial judgment is available.
+6. Revisit Witcher 3 after Remastered verification.
 
 ## Game Hub expansion already created
 
