@@ -113,6 +113,16 @@
     };
   }
 
+  function mapGameRow(row) {
+    return {
+      slug: row.slug || '',
+      title: row.title || '',
+      releaseStatus: row.release_status || '',
+      primaryReleaseDate: row.primary_release_date || '',
+      platforms: Array.isArray(row.platforms) ? row.platforms : []
+    };
+  }
+
   function jsonResponse(payload) {
     return new Response(JSON.stringify(payload), {
       status: 200,
@@ -164,6 +174,13 @@
     return data ? mapRow(data) : null;
   }
 
+  async function publishedGames() {
+    const query = client.from('games').select('slug,title,release_status,primary_release_date,platforms').order('title', { ascending: true });
+    const { data, error } = await withTimeout(query);
+    if (error) throw error;
+    return (data || []).map(mapGameRow).filter(game => game.slug && game.title);
+  }
+
   async function articlePopularity(days = 7) {
     const parsed = Number(days);
     const safeDays = Math.min(30, Math.max(1, Number.isFinite(parsed) ? Math.round(parsed) : 7));
@@ -180,7 +197,7 @@
     return true;
   }
 
-  window.NeuralCriticContentAPI = { publishedIndex, publishedArticle, articlePopularity, recordArticleView, nativeFetch };
+  window.NeuralCriticContentAPI = { publishedIndex, publishedArticle, publishedGames, articlePopularity, recordArticleView, nativeFetch };
 
   function popularitySessionKey(slug) { return `neural-critic-popularity-view:${slug}`; }
   function popularityAlreadyCounted(slug) {
