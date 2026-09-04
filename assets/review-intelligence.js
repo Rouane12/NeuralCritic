@@ -10,20 +10,19 @@
   const platformLabel=v=>({pc:'PC',playstation:'PlayStation',xbox:'Xbox',nintendo:'Nintendo',mobile:'Mobile'}[norm(v)]||v);
   let reviews=[], view='all', gamesByTitle=new Map();
 
-  function mapRow(r){return {slug:r.slug,title:r.title||'',description:r.description||'',gameKey:r.game_key||'',platforms:Array.isArray(r.platforms)?r.platforms:[],review_meta:r.review_meta&&typeof r.review_meta==='object'?r.review_meta:{},published_at:r.published_at||'',image_url:r.image_url||''};}
+  function mapRow(r){return {slug:r.slug,title:r.title||'',description:r.description||'',gameKey:r.gameKey||r.game_key||'',platforms:Array.isArray(r.platforms)?r.platforms:[],review_meta:r.reviewMeta&&typeof r.reviewMeta==='object'?r.reviewMeta:(r.review_meta&&typeof r.review_meta==='object'?r.review_meta:{}),published_at:r.publishedAt||r.published_at||'',image_url:r.imageLocal||r.image_url||'',category:r.category||'',article_format:r.articleFormat||r.article_format||''};}
   async function loadReviews(){
-    const client=window.neuralCriticPublicSupabase;
-    if(!client) return [];
-    const {data,error}=await client.from('articles').select('slug,title,description,game_key,platforms,review_meta,published_at,image_url,category,article_format').eq('status','published').lte('published_at',new Date().toISOString()).order('published_at',{ascending:false});
-    if(error) return [];
-    return (data||[]).filter(r=>norm(r.category)==='review'||norm(r.article_format)==='review').map(mapRow).filter(r=>scoreOf(r)!=null);
+    const api=window.NeuralCriticContentAPI;
+    if(!api?.publishedIndex) return [];
+    try{
+      const data=await api.publishedIndex();
+      return (data||[]).map(mapRow).filter(r=>norm(r.category)==='review'||norm(r.article_format)==='review').filter(r=>scoreOf(r)!=null);
+    }catch(_){return []}
   }
   async function loadGames(){
-    const client=window.neuralCriticPublicSupabase;
-    if(!client) return [];
-    const {data,error}=await client.from('games').select('slug,title').order('title',{ascending:true});
-    if(error) return [];
-    return (data||[]).filter(g=>g?.slug&&g?.title);
+    const api=window.NeuralCriticContentAPI;
+    if(!api?.publishedGames) return [];
+    try{return (await api.publishedGames()).filter(g=>g?.slug&&g?.title)}catch(_){return []}
   }
   function gameFor(review){return gamesByTitle.get(norm(review?.gameKey))||null;}
   function fillFilters(){
