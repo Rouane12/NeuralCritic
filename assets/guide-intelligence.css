@@ -1,1 +1,43 @@
 .nc-guides-shell{width:min(1180px,calc(100% - 36px));margin:0 auto;padding:46px 0 90px}.nc-guides-hero{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:36px;align-items:end;padding:34px 0 42px;border-bottom:1px solid var(--line,#2b2d34)}.nc-guides-hero small,.nc-guide-section-head small{font-size:10px;font-weight:900;letter-spacing:.16em;color:var(--accent,#8c7cff)}.nc-guides-hero h1{font-size:clamp(48px,8vw,92px);line-height:.92;letter-spacing:-.06em;margin:10px 0 18px}.nc-guides-hero p{max-width:720px;font-size:17px;line-height:1.65;color:var(--muted,#a7aab3)}.nc-guides-hero-links{display:flex;gap:10px;flex-wrap:wrap;margin-top:18px}.nc-guides-hero-links a{display:inline-flex;align-items:center;min-height:38px;padding:0 12px;border:1px solid var(--line,#2b2d34);border-radius:9px;color:inherit;text-decoration:none;font-size:9px;font-weight:900;letter-spacing:.08em}.nc-guide-stats{display:grid;grid-template-columns:repeat(3,1fr);border:1px solid var(--line,#2b2d34);border-radius:14px;overflow:hidden}.nc-guide-stats div{padding:18px 20px;min-width:112px;border-left:1px solid var(--line,#2b2d34)}.nc-guide-stats div:first-child{border-left:0}.nc-guide-stats strong{display:block;font-size:30px;line-height:1}.nc-guide-stats span{display:block;margin-top:7px;font-size:8px;font-weight:850;letter-spacing:.11em;color:var(--muted,#a7aab3)}.nc-guide-toolbar{margin-top:38px;padding:18px;border:1px solid var(--line,#2b2d34);border-radius:14px;background:color-mix(in srgb,var(--surface,#15171d) 92%,transparent);display:grid;grid-template-columns:2fr 1fr 1fr;gap:12px}.nc-guide-toolbar label>span{display:block;font-size:8px;font-weight:850;letter-spacing:.11em;color:var(--muted,#a7aab3);margin:0 0 6px 3px}.nc-guide-toolbar input,.nc-guide-toolbar select{width:100%;box-sizing:border-box;border:1px solid var(--line,#2b2d34);border-radius:9px;background:var(--surface,#15171d);color:inherit;padding:11px 12px;font:inherit;font-size:12px}.nc-guide-library{padding-top:34px}.nc-guide-section-head{display:flex;align-items:end;justify-content:space-between;gap:20px;margin-bottom:18px}.nc-guide-section-head h2{font-size:28px;letter-spacing:-.04em;margin:5px 0 0}.nc-guide-section-head>span{font-size:9px;font-weight:850;letter-spacing:.11em;color:var(--muted,#a7aab3)}.nc-guide-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}.nc-guide-card{border:1px solid var(--line,#2b2d34);border-radius:13px;overflow:hidden;background:color-mix(in srgb,var(--surface,#15171d) 92%,transparent)}.nc-guide-card-media{display:block;aspect-ratio:16/9;overflow:hidden;background:linear-gradient(145deg,rgba(115,88,255,.14),rgba(33,220,171,.08));color:inherit}.nc-guide-card-media img{width:100%;height:100%;object-fit:cover}.nc-guide-card-media>div{height:100%;display:grid;place-items:center;font-size:11px;font-weight:900;letter-spacing:.12em}.nc-guide-card-copy{padding:16px}.nc-guide-card-copy>small{font-size:8px;font-weight:850;letter-spacing:.1em;color:var(--accent,#8c7cff)}.nc-guide-card-copy h3{font-size:19px;line-height:1.2;margin:8px 0}.nc-guide-card-copy h3 a{color:inherit;text-decoration:none}.nc-guide-card-copy p{font-size:12px;line-height:1.6;color:var(--muted,#a7aab3);display:-webkit-box;-webkit-line-clamp:4;-webkit-box-orient:vertical;overflow:hidden}.nc-guide-card-copy>div{display:flex;justify-content:space-between;gap:12px;margin-top:14px;padding-top:12px;border-top:1px solid var(--line,#2b2d34);font-size:9px;color:var(--muted,#a7aab3)}.nc-guide-card-copy>.nc-guide-card-actions{align-items:center;flex-wrap:wrap;gap:8px}.nc-guide-card-actions a{display:inline-flex;align-items:center;justify-content:center;min-height:34px;padding:0 10px;border-radius:8px;text-decoration:none;font-size:8px;font-weight:900;letter-spacing:.08em}.nc-guide-read-link{color:inherit;border:1px solid var(--line,#2b2d34)}.nc-guide-game-link{color:var(--accent,#8c7cff);border:1px solid color-mix(in srgb,var(--accent,#8c7cff) 45%,var(--line,#2b2d34));background:color-mix(in srgb,var(--accent,#8c7cff) 10%,transparent)}.nc-guide-empty{grid-column:1/-1;padding:30px;border:1px dashed var(--line,#2b2d34);border-radius:12px;color:var(--muted,#a7aab3)}.nc-guides-hero-links a:focus-visible,.nc-guide-card-actions a:focus-visible{outline:2px solid var(--accent,#8c7cff);outline-offset:2px}.nc-guides-hero-links a:hover,.nc-guide-card-actions a:hover{transform:translateY(-1px)}@media(prefers-reduced-motion:reduce){.nc-guides-hero-links a:hover,.nc-guide-card-actions a:hover{transform:none}}@media(max-width:900px){.nc-guides-hero{grid-template-columns:1fr}.nc-guide-stats{width:max-content;max-width:100%}.nc-guide-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}@media(max-width:620px){.nc-guides-shell{width:min(100% - 22px,1180px);padding-top:20px}.nc-guide-stats{grid-template-columns:1fr;width:100%}.nc-guide-stats div{border-left:0;border-top:1px solid var(--line,#2b2d34)}.nc-guide-stats div:first-child{border-top:0}.nc-guide-toolbar{grid-template-columns:1fr}.nc-guide-grid{grid-template-columns:1fr}.nc-guide-card-actions a{flex:1 1 auto}}
+
+/* Light mode: archive controls and cards own a light surface instead of inheriting dark fallbacks. */
+html[data-theme="light"] body.nc-guides-page .nc-guides-hero p,
+html[data-theme="light"] body.nc-guides-page .nc-guide-stats span,
+html[data-theme="light"] body.nc-guides-page .nc-guide-toolbar label>span,
+html[data-theme="light"] body.nc-guides-page .nc-guide-section-head>span,
+html[data-theme="light"] body.nc-guides-page .nc-guide-card-copy p,
+html[data-theme="light"] body.nc-guides-page .nc-guide-card-copy>div,
+html[data-theme="light"] body.nc-guides-page .nc-guide-empty{color:var(--nc-light-muted,#66717d)!important}
+html[data-theme="light"] body.nc-guides-page .nc-guide-toolbar,
+html[data-theme="light"] body.nc-guides-page .nc-guide-card{
+  background:linear-gradient(145deg,var(--nc-light-white,#fff),var(--nc-light-surface,#f8f8f5))!important;
+  color:var(--nc-light-text,#171b22)!important;
+  border-color:var(--nc-light-line,#cfd4d6)!important;
+  box-shadow:var(--nc-light-shadow-soft,0 10px 28px rgba(39,46,55,.055))!important;
+}
+html[data-theme="light"] body.nc-guides-page .nc-guide-toolbar input,
+html[data-theme="light"] body.nc-guides-page .nc-guide-toolbar select{
+  color-scheme:light;
+  background:var(--nc-light-white,#fff)!important;
+  color:var(--nc-light-text,#171b22)!important;
+  border-color:var(--nc-light-line,#cfd4d6)!important;
+  box-shadow:0 1px 0 rgba(255,255,255,.7) inset!important;
+}
+html[data-theme="light"] body.nc-guides-page .nc-guide-toolbar input::placeholder{color:var(--nc-light-faint,#87919c)!important}
+html[data-theme="light"] body.nc-guides-page .nc-guide-toolbar select option{background:#fff;color:#171b22}
+html[data-theme="light"] body.nc-guides-page .nc-guide-card-copy>div{border-top-color:var(--nc-light-line,#cfd4d6)!important}
+html[data-theme="light"] body.nc-guides-page .nc-guides-hero-links a,
+html[data-theme="light"] body.nc-guides-page .nc-guide-read-link{
+  background:rgba(255,255,255,.42)!important;
+  color:var(--nc-light-text,#171b22)!important;
+  border-color:var(--nc-light-line,#cfd4d6)!important;
+}
+html[data-theme="light"] body.nc-guides-page .nc-guide-game-link{
+  background:color-mix(in srgb,var(--accent,#8c7cff) 10%,#fff)!important;
+  color:var(--accent,#7566e8)!important;
+  border-color:color-mix(in srgb,var(--accent,#8c7cff) 45%,var(--nc-light-line,#cfd4d6))!important;
+}
+html[data-theme="light"] body.nc-guides-page .nc-guide-toolbar input:focus-visible,
+html[data-theme="light"] body.nc-guides-page .nc-guide-toolbar select:focus-visible,
+html[data-theme="light"] body.nc-guides-page .nc-guide-card-media:focus-visible,
+html[data-theme="light"] body.nc-guides-page .nc-guide-card-copy h3 a:focus-visible{outline:2px solid var(--accent,#8c7cff);outline-offset:2px}
