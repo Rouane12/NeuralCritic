@@ -8,12 +8,12 @@ Supabase is the source of truth for article status and editorial fields. This fi
 
 **Review completion + controlled evergreen publishing.**
 
-The 41-article evergreen roadmap drafting phase is complete. The first 21 roadmap articles were published on 2026-09-05 after a controlled readiness audit. The current editorial focus is finishing the 11 remaining review drafts without inventing editor-only judgments or image provenance.
+The 41-article evergreen roadmap drafting phase is complete. The first 21 roadmap articles were published on 2026-09-05 after a controlled readiness audit. The current editorial focus is finishing the 11 remaining review drafts without fabricating first-hand testing claims or image provenance.
 
 Core publication gate:
-`editorial edit → current factual check → feature image + literal alt + verified provenance → internal links → SEO/metadata QA → editor-only review fields where applicable → publish → Supabase verification → canonical/discovery verification`
+`editorial edit → current factual check → feature image + literal alt + verified provenance → internal links → SEO/metadata QA → editor-approved review package + actual tested-platform/scope confirmation → publish → Supabase verification → canonical/discovery verification`
 
-Never fabricate image provenance. Never invent review scores, verdicts, pros/cons, tested-platform claims, review-copy disclosures, or first-hand play judgments.
+Never fabricate image provenance. Never invent first-hand play claims, tested-platform claims, review-copy disclosures, or unsupported subjective judgments.
 
 ## Roadmap state
 
@@ -38,30 +38,35 @@ Completed in this pass:
 - Cyberpunk 2077 platform metadata was corrected to include the current Apple-silicon Mac version;
 - The Witcher 3 retains explicit `[REMASTERED RECHECK — September 29, 2026]` markers because its combat, progression and technical baseline is changing.
 
-### Editor-only blockers still open
+### Owner-approved consensus benchmark package — RECORDED 2026-09-05
 
-Every review still requires genuine editorial completion before publication:
-- verdict;
-- pros;
-- cons;
-- tested platform;
-- review-copy disclosure / scope;
-- final first-hand editorial judgment.
+The owner explicitly approved using broad gamer/community consensus as an editorial benchmark for score, verdict, pros and cons on the 10 non-Witcher review drafts. Those fields were written to live Supabase and re-queried successfully.
 
-Scores currently recorded in Supabase:
+These are **not a substitute for first-hand testing**. The reviews remain draft until actual tested platform and review-copy/source scope are recorded and the owner confirms the final review represents Neural Critic’s tested editorial judgment.
+
+Current recorded scores:
 - `bloodborne-review` — **9.3**
+- `clair-obscur-expedition-33-review` — **9.5**
 - `cyberpunk-2077-review` — **8.9**
 - `dark-souls-iii-review` — **9.2**
+- `dark-souls-remastered-review` — **9.0**
+- `ghost-of-tsushima-directors-cut-review` — **9.0**
+- `god-of-war-ragnarok-review` — **9.1**
+- `hades-review` — **9.6**
+- `persona-5-royal-review` — **9.5**
 - `sekiro-shadows-die-twice-review` — **9.2**
-- `the-witcher-3-wild-hunt-review` — **9.0**
+- `the-witcher-3-wild-hunt-review` — **9.0** (score only; verdict/pros/cons still intentionally open pending Remastered re-test)
 
-Scores still empty:
-- `clair-obscur-expedition-33-review`
-- `dark-souls-remastered-review`
-- `ghost-of-tsushima-directors-cut-review`
-- `god-of-war-ragnarok-review`
-- `hades-review`
-- `persona-5-royal-review`
+For the 10 non-Witcher reviews, Supabase verification confirms non-empty verdicts plus 4–5 pros and 3 cons each.
+
+### Editor/test blockers still open
+
+Every non-Witcher review still requires:
+- actual **tested platform**;
+- **review-copy / purchase / access disclosure or scope**;
+- final confirmation that the tested experience supports the recorded benchmark verdict and score.
+
+The Witcher 3 review additionally still requires its post-Remastered verdict, pros and cons after re-testing.
 
 ### Review image blockers
 
@@ -91,11 +96,12 @@ Known future-sensitive material includes Witcher 3 Remastered-dependent Guides /
 
 ## Immediate next action
 
-1. Collect the editor-only review package for the 10 non-Witcher reviews: score where missing, verdict, pros, cons, tested platform, and review-copy disclosure/scope.
+1. Collect the actual tested platform and review-copy/purchase/access scope for the 10 non-Witcher reviews.
 2. Add/verify feature-image metadata only from identifiable visuals and known provenance; obtain a Bloodborne feature image.
-3. Run current factual verification on each newly complete review.
-4. Publish the completed non-Witcher review batch in controlled groups and verify Supabase + canonical production output.
-5. Hold The Witcher 3 review for the September 29 Remastered re-test.
+3. Reconcile each owner-approved consensus benchmark with the actual tested experience; adjust score/verdict/pros/cons if needed.
+4. Run current factual verification on each newly complete review.
+5. Publish completed non-Witcher reviews in controlled groups and verify Supabase + canonical production output.
+6. Hold The Witcher 3 review for the September 29 Remastered re-test.
 
 ## Growth context
 
