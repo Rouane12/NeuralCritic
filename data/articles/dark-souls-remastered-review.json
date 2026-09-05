@@ -1,0 +1,109 @@
+{
+  "id": "4eab3a09-93c8-4f24-9ad4-e99c960b6ad3",
+  "slug": "dark-souls-remastered-review",
+  "title": "Dark Souls Remastered Review",
+  "description": "Dark Souls Remastered review covering Lordran’s interconnected world, deliberate combat, progression, multiplayer and where the remaster still feels dated.",
+  "body": "Dark Souls Remastered preserves one of FromSoftware’s most influential action-RPG structures: a world that teaches itself through shortcuts, locked doors, bonfires, enemy placement and the player’s growing memory of how Lordran fits together.\n\nThe remaster makes that 2011 design easier to access on modern-supported platforms without turning it into a new game. A final review should therefore judge two things separately: how well Dark Souls itself still works as an RPG and exploration game, and how much value the Remastered edition adds around that foundation.",
+  "category": "REVIEW",
+  "author": "Rouane Mounssif",
+  "tags": [
+    "Dark Souls Remastered",
+    "FromSoftware",
+    "Bandai Namco",
+    "Souls",
+    "Action RPG",
+    "Review"
+  ],
+  "imageAlt": "Official Dark Souls Remastered promotional artwork used as the review feature image.",
+  "imageCredit": "Official promotional image",
+  "articleFormat": "review",
+  "reviewMeta": {
+    "cons": [
+      "Later areas are less consistent than the opening half",
+      "Interface and movement can feel dated",
+      "The remaster itself is conservative rather than transformative"
+    ],
+    "pros": [
+      "Lordran’s interconnected world remains exceptional",
+      "Atmosphere and environmental storytelling endure",
+      "Deep build freedom and character progression",
+      "Exploration and shortcut discovery remain rewarding"
+    ],
+    "score": "9.0",
+    "verdict": "One of the most influential action RPGs remains compelling because of Lordran’s interconnected design, even though parts of the game and remaster show their age.",
+    "developer": "FromSoftware",
+    "publisher": "Bandai Namco Entertainment",
+    "reviewCopy": "Personally accessed through Steam.",
+    "releaseDate": "May 25, 2018",
+    "testedPlatform": "PC (Steam)"
+  },
+  "contentBlocks": [
+    {
+      "text": "Dark Souls’ most celebrated design idea is the way early and mid-game regions fold back into one another. Doors opened from the far side, elevators and hidden connections steadily transform a confusing world into a mental map.\n\nThat interconnectedness is strongest in the opening and middle stretches rather than evenly distributed across the entire campaign, which is important when judging Lordran as a whole.",
+      "heading": "Lordran Is the Core of the Review",
+      "headingStyle": "editorial"
+    },
+    {
+      "text": "Stamina, equipment load, animation commitment and defensive choices make Dark Souls slower and more methodical than later FromSoftware games. Character attributes and equipment upgrades create significant room for specialization.\n\nThe pace remains purposeful when spacing and commitment are clear, although interface friction and under-explained systems can create barriers beyond the intended challenge.",
+      "heading": "Combat Is Deliberate and Build-Driven",
+      "headingStyle": "editorial"
+    },
+    {
+      "text": "Bonfires establish checkpoints and recovery points, which means the distance between them shapes tension. Opening a shortcut can be as important as finding equipment because it permanently changes the cost of returning to a difficult area.\n\nThat relationship between geography and progression is one of Dark Souls’ defining systems and a major reason its world design still receives attention.",
+      "heading": "Bonfires Turn Distance Into Pressure",
+      "headingStyle": "editorial"
+    },
+    {
+      "text": "Dark Souls leaves many mechanics, quest steps and character-building consequences for the player to infer. That opacity supports mystery and community discovery, but it can also make important systems difficult to understand without outside help.\n\nThe result is a constant tension between rewarding ambiguity and information that is simply under-explained.",
+      "heading": "The Game Explains Less Than Modern RPGs Usually Do",
+      "headingStyle": "editorial"
+    },
+    {
+      "text": "Dark Souls Remastered brings the game to PlayStation 4, Xbox One, Nintendo Switch and PC with technical and online revisions while preserving the original structure, art direction and core mechanics.\n\nIt is best understood as a modern access point to the original design rather than a remake, so unchanged systems and pacing remain part of the package.",
+      "heading": "The Remaster Is an Access Layer, Not a Redesign",
+      "headingStyle": "editorial"
+    },
+    {
+      "text": "Messages, cooperative summons and invasions allow other players to influence a mostly solitary journey. The systems are optional in practice but strongly associated with the game’s identity and community history.\n\nCurrent online quality can vary by platform and population; this review refers to the PC version available through Steam.",
+      "heading": "Online Play Remains Unusually Integrated",
+      "headingStyle": "editorial"
+    },
+    {
+      "text": "As the campaign advances, several later regions become more self-contained and the world’s earlier web of shortcuts becomes less central. That structural shift changes the quality that makes the opening hours so distinctive.\n\nA balanced assessment has to account for the whole journey rather than allowing the strongest interconnected areas to stand in for every region.",
+      "heading": "The Later Structure Is Less Interconnected",
+      "headingStyle": "editorial"
+    },
+    {
+      "text": "Bandai Namco currently lists Dark Souls Remastered for PlayStation 4, Xbox One, Nintendo Switch and Steam. It remains the standard commercially available version of the first Dark Souls on those platforms.\n\nTechnical observations in this review refer to the PC version available through Steam.",
+      "heading": "Current Platform Context",
+      "headingStyle": "editorial"
+    }
+  ],
+  "quickRead": [
+    "Lordran’s interconnected geography remains the game’s defining strength.",
+    "Combat is deliberate, stamina-driven and deeply tied to build choices.",
+    "The remaster improves access and compatibility without redesigning the original structure.",
+    "Later regions are less interconnected and some interface and movement friction shows the game’s age."
+  ],
+  "conclusion": "Dark Souls Remastered preserves an influential design whose strongest ideas still come from the relationship between geography, checkpoints, shortcuts and player knowledge. Its slower combat and build systems support that structure, while opacity and the less cohesive later regions remain the clearest counterweights.\\n\\nReaders interested in the design legacy can continue with our feature on [why Dark Souls still defines interconnected world design](/stories/dark-souls-remastered-interconnected-world-design/) or compare the wider genre in [The 12 Best Soulslike Games](/stories/best-soulslike-games/).",
+  "conclusionHeading": "Review framework: the final judgment",
+  "conclusionHeadingStyle": "editorial",
+  "featured": false,
+  "homepageSlot": "regular",
+  "publishedAt": "2026-09-05T09:37:49.838295+00:00",
+  "updatedAt": "2026-09-05T09:37:49.838295+00:00",
+  "imageLocal": "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1788599226635-e237749d-fcfc-40d4-a434-2248ace8bde7-darek-souls.jpg",
+  "editorialSection": "reviews",
+  "platforms": [
+    "pc",
+    "playstation",
+    "xbox",
+    "nintendo"
+  ],
+  "collection": null,
+  "collectionYear": null,
+  "gameKey": "Dark Souls Remastered",
+  "series": "Dark Souls",
+  "franchise": "Dark Souls",
+  "newsMeta": {}
+}

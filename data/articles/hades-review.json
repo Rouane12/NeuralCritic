@@ -1,0 +1,109 @@
+{
+  "id": "f7cf6a30-5e34-4f96-a3a5-03c98df96281",
+  "slug": "hades-review",
+  "title": "Hades Review",
+  "description": "Hades review covering its roguelike run structure, build variety, permanent progression, character-driven storytelling, difficulty options and lasting appeal.",
+  "body": "Hades is built around repetition, but its design tries to make repetition itself the source of progress. Each escape attempt reshuffles combat choices while the return to the House of Hades advances relationships, dialogue and permanent systems.\n\nA final Neural Critic review should judge whether those layers remain in balance across dozens of runs: whether mechanical variety keeps attempts distinct, whether story progression gives failure meaning, and whether permanent upgrades support learning without flattening the challenge.",
+  "category": "REVIEW",
+  "author": "Rouane Mounssif",
+  "tags": [
+    "Hades",
+    "Supergiant Games",
+    "Roguelike",
+    "Action RPG",
+    "Review"
+  ],
+  "imageAlt": "Official Hades promotional artwork used as the review feature image.",
+  "imageCredit": "Official promotional image",
+  "articleFormat": "review",
+  "reviewMeta": {
+    "cons": [
+      "Repetition can eventually surface",
+      "Random upgrade offerings can produce weaker runs",
+      "Some relationship and story progression unfolds slowly"
+    ],
+    "pros": [
+      "Excellent combat responsiveness",
+      "Strong build and weapon variety",
+      "Character writing gives repeated runs meaning",
+      "Distinctive art and soundtrack",
+      "Permanent progression supports the run-based structure"
+    ],
+    "score": "9.6",
+    "verdict": "A benchmark roguelike that makes repeated runs meaningful through excellent combat, build variety, characters and unusually reactive storytelling.",
+    "developer": "Supergiant Games",
+    "publisher": "Supergiant Games",
+    "reviewCopy": "Personally accessed through Steam.",
+    "releaseDate": "September 17, 2020",
+    "testedPlatform": "PC (Steam)"
+  },
+  "contentBlocks": [
+    {
+      "text": "Hades gives the player a starting weapon and then builds each attempt through temporary blessings, upgrades and branching choices. Because many of those options are randomized, the player is repeatedly asked to adapt rather than recreate exactly the same setup.\n\nThat structure makes build construction part of the moment-to-moment run rather than something decided only before entering a level.",
+      "heading": "Every Run Is a Build-As-You-Go RPG",
+      "headingStyle": "editorial"
+    },
+    {
+      "text": "Returning to the House after an unsuccessful run opens new conversations, relationships and progression opportunities. Failure therefore becomes part of the authored narrative loop rather than a purely mechanical reset.\n\nThat connection between repetition and story is one of Hades’ defining ideas, giving even unsuccessful attempts a role in the broader campaign.",
+      "heading": "Failure Advances the Story Instead of Resetting It",
+      "headingStyle": "editorial"
+    },
+    {
+      "text": "The weapon roster gives runs different movement, range and tempo before temporary upgrades are added. Later aspects further modify how those core styles behave.\n\nThe result is a useful separation between permanent playstyle identity and the temporary build assembled during each run.",
+      "heading": "Weapons and Aspects Define the Baseline Playstyles",
+      "headingStyle": "editorial"
+    },
+    {
+      "text": "Resources collected across runs unlock lasting improvements, new systems and customization. That means player knowledge grows alongside measurable character progression.\n\nThe two forms of progress reinforce one another: repeated attempts improve both the player’s understanding and the range of permanent options available.",
+      "heading": "Permanent Progression Softens the Roguelike Reset",
+      "headingStyle": "editorial"
+    },
+    {
+      "text": "The House of Hades and the wider cast provide continuity between runs. Relationships develop through repeated conversations and gifts, while dialogue frequently acknowledges recent events or long-term progress.\n\nThat reactivity helps repeated spaces feel connected to an evolving story rather than detached attempts.",
+      "heading": "Characters Give the Structure Emotional Continuity",
+      "headingStyle": "editorial"
+    },
+    {
+      "text": "God Mode offers a more forgiving route for players who want to reduce repeated-run friction, while the Pact of Punishment later allows experienced players to add specific challenge conditions.\n\nTogether, the systems let players adjust pressure in opposite directions without replacing the core progression loop.",
+      "heading": "Difficulty Can Be Tuned Without One Single Easy Mode",
+      "headingStyle": "editorial"
+    },
+    {
+      "text": "Hades uses strong silhouettes, color coding, effects and music to make repeated spaces and fast encounters immediately recognizable. Presentation is therefore functional as well as stylistic.\n\nThe visual language helps separate enemies, attacks and interactable elements even when multiple effects share the screen.",
+      "heading": "Art, Music and Readability Work at High Speed",
+      "headingStyle": "editorial"
+    },
+    {
+      "text": "Hades version 1.0 launched on PC and Nintendo Switch on September 17, 2020, then arrived on PlayStation and Xbox on August 13, 2021. Supergiant also supports cross-saves between compatible PC/Mac storefronts and Nintendo Switch.\n\nPerformance and control observations in this review refer to the PC version available through Steam.",
+      "heading": "Current Platform Context",
+      "headingStyle": "editorial"
+    }
+  ],
+  "quickRead": [
+    "Each run combines a core weapon style with temporary boons and upgrades, making adaptation central to progression.",
+    "Failure advances relationships, story and permanent systems instead of acting as a pure reset.",
+    "Weapons and aspects create distinct baseline playstyles before randomized upgrades are added.",
+    "God Mode and the Pact of Punishment let players tune pressure in different directions without changing the core loop."
+  ],
+  "conclusion": "Hades is built around the idea that repetition does not have to mean stagnation. Runs reset, but relationships, systems, resources and player knowledge continue moving forward, giving the structure a sense of momentum that extends beyond a single successful attempt.\\n\\nIts combat, build variety and reactive character writing remain unusually cohesive, while repetition and random upgrade offerings provide the clearest limits. The 9.6 verdict reflects the PC version reviewed through Steam.\n\nFor current platform details and connected coverage, visit the [Hades game page](/games/hades/).",
+  "conclusionHeading": "Review framework: the final judgment",
+  "conclusionHeadingStyle": "editorial",
+  "featured": false,
+  "homepageSlot": "regular",
+  "publishedAt": "2026-09-05T09:38:05.569798+00:00",
+  "updatedAt": "2026-09-05T09:38:05.569798+00:00",
+  "imageLocal": "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1788575051931-b6eac18d-18be-4a03-89cc-bfed693749d6-hades-2-section.jpg",
+  "editorialSection": "reviews",
+  "platforms": [
+    "pc",
+    "playstation",
+    "xbox",
+    "nintendo"
+  ],
+  "collection": null,
+  "collectionYear": null,
+  "gameKey": "Hades",
+  "series": "Hades",
+  "franchise": "Hades",
+  "newsMeta": {}
+}

@@ -1,0 +1,108 @@
+{
+  "id": "af1235c8-6354-4f2d-9d53-ea99e96c8f60",
+  "slug": "sekiro-shadows-die-twice-review",
+  "title": "Sekiro: Shadows Die Twice Review",
+  "description": "Sekiro: Shadows Die Twice review covering posture-based combat, traversal, bosses, progression, Ashina’s world design and how FromSoftware’s focus pays off.",
+  "body": "Sekiro: Shadows Die Twice is FromSoftware’s most focused modern action game. Rather than asking players to build a character from a broad pool of classes and equipment, it centers the experience on a defined protagonist, a compact set of progression systems and a combat model built around pressure, timing and posture.\n\nThat narrower design gives the game a different identity from Dark Souls or Elden Ring. The final Neural Critic review should judge how well that focus serves the full campaign: whether the combat keeps teaching new lessons, whether traversal and stealth meaningfully change exploration, and whether the reduced build freedom feels purposeful rather than restrictive.",
+  "category": "REVIEW",
+  "author": "Rouane Mounssif",
+  "tags": [
+    "Sekiro: Shadows Die Twice",
+    "FromSoftware",
+    "Activision",
+    "Action Adventure",
+    "Review"
+  ],
+  "imageAlt": "Official Sekiro: Shadows Die Twice promotional artwork used as the review feature image.",
+  "imageCredit": "Official promotional image",
+  "articleFormat": "review",
+  "reviewMeta": {
+    "cons": [
+      "Steep learning curve",
+      "Much less build variety than FromSoftware’s RPGs",
+      "Difficulty spikes can feel unforgiving"
+    ],
+    "pros": [
+      "Precise posture-based combat",
+      "Excellent boss design",
+      "Vertical traversal improves exploration",
+      "Focused systems support tightly authored encounters",
+      "Ashina has a strong, distinctive atmosphere"
+    ],
+    "score": "9.2",
+    "verdict": "FromSoftware at its most focused: demanding, precise combat and excellent boss design traded against much less character-build freedom than its RPGs.",
+    "developer": "FromSoftware",
+    "publisher": "Activision",
+    "reviewCopy": "Personally accessed through Steam.",
+    "releaseDate": "March 22, 2019",
+    "testedPlatform": "PC (Steam)"
+  },
+  "contentBlocks": [
+    {
+      "text": "Sekiro’s central combat system asks the player to think about posture as much as conventional health. Deflecting, attacking and maintaining pressure can break an opponent’s stance and create an opening, while hesitation often lets that posture recover.\n\nThat structure makes encounters revolve around momentum rather than simple damage races. The timing model is consistent enough to connect ordinary enemies, mini-bosses and major encounters through the same underlying language.",
+      "heading": "Combat Is Built Around Posture, Not Just Health",
+      "headingStyle": "editorial"
+    },
+    {
+      "text": "Wolf is a fixed protagonist with a specific role in the story, which means Sekiro gives up much of the class-building freedom associated with FromSoftware’s Souls games. Progression instead comes through skill trees, health and attack improvements, Prosthetic Tool upgrades and the player’s growing command of the core systems.\n\nThat tradeoff gives encounters a more predictable mechanical baseline while narrowing the range of character-building approaches available across a full playthrough.",
+      "heading": "A Defined Protagonist Changes the RPG Formula",
+      "headingStyle": "editorial"
+    },
+    {
+      "text": "The grappling hook changes how FromSoftware spaces are read. Rooftops, cliffs and elevated routes become part of normal navigation rather than scenery, while many areas can be approached from more than one height or direction.\n\nVertical movement also supports scouting and disengagement, giving several regions a layered structure that differs from the more ground-bound exploration of Dark Souls.",
+      "heading": "Traversal Makes the World More Vertical",
+      "headingStyle": "editorial"
+    },
+    {
+      "text": "Sekiro allows many hostile spaces to be approached with observation and stealth before direct combat begins. That creates a quieter rhythm between major confrontations and can reduce the pressure of crowded areas without removing the need to understand the core combat system.\n\nStealth is most useful when level layouts provide alternate angles and routes; in simpler spaces it functions more as a way to shape the opening moments of an encounter.",
+      "heading": "Stealth Gives Encounters a Second Rhythm",
+      "headingStyle": "editorial"
+    },
+    {
+      "text": "Major encounters repeatedly test a specific part of Sekiro’s combat language: posture pressure, defensive timing, movement, resource management or the ability to read a change in tempo.\n\nBecause the player has fewer build-based ways to bypass a difficult encounter than in a traditional Souls RPG, boss design carries unusual weight. That makes Sekiro a useful companion to our broader feature on [what makes FromSoftware boss fights memorable](/stories/fromsoftware-boss-fights-memorable/).",
+      "heading": "Bosses Function as Mastery Checks",
+      "headingStyle": "editorial"
+    },
+    {
+      "text": "The resurrection system can return Wolf to an encounter after defeat under defined conditions, creating a small space between failure and a full restart. It is tied to both the story and the game’s encounter structure.\n\nMechanically, resurrection can preserve an attempt long enough to learn more about an enemy or complete a sequence that would otherwise end immediately, without removing the consequences of repeated failure.",
+      "heading": "Resurrection Changes the Cost of Failure",
+      "headingStyle": "editorial"
+    },
+    {
+      "text": "Sekiro’s world is smaller and more directed than Elden Ring’s, but locations are reused and recontextualized as the story advances. Routes open, familiar spaces change and the player’s relationship with Ashina develops through repetition as much as through constant novelty.\n\nIts scale matters less than the way the same geography supports different moods, enemy arrangements and story beats across the campaign.",
+      "heading": "Ashina Is Dense, Layered and Revisited",
+      "headingStyle": "editorial"
+    },
+    {
+      "text": "Sekiro launched on March 22, 2019 for PlayStation 4, Xbox One and PC, with FromSoftware as developer and Activision as publisher in major western markets. The game remains available through those platform families, with later hardware able to run the existing console versions through compatibility support where applicable.\n\nTechnical observations in this review refer to the PC version available through Steam rather than every platform version.",
+      "heading": "Current Version and Platform Context",
+      "headingStyle": "editorial"
+    }
+  ],
+  "quickRead": [
+    "Posture makes sustained pressure and precise defensive timing central to combat.",
+    "A fixed protagonist gives encounter design more focus but reduces traditional Souls-style build freedom.",
+    "Vertical traversal and stealth change how Ashina’s spaces are approached and revisited.",
+    "Bosses carry unusual weight because progression offers fewer build-based ways around difficulty spikes."
+  ],
+  "conclusion": "Sekiro stands apart within FromSoftware’s catalogue because focus replaces much of the usual build freedom. Its fixed protagonist, posture system, vertical traversal and tightly authored major encounters give the game a narrower but more specialized mechanical identity.\\n\\nThat precision also makes difficulty spikes and repetition harder to sidestep than they are in more build-driven Souls games. Readers comparing the studio’s broader catalogue can also see where Sekiro lands in our [FromSoftware difficulty ranking](/stories/fromsoftware-soulsborne-games-ranked-by-difficulty/) and [best Soulslike games](/stories/best-soulslike-games/).",
+  "conclusionHeading": "Review framework: the final judgment",
+  "conclusionHeadingStyle": "editorial",
+  "featured": false,
+  "homepageSlot": "regular",
+  "publishedAt": "2026-09-05T09:38:05.569798+00:00",
+  "updatedAt": "2026-09-05T09:38:05.569798+00:00",
+  "imageLocal": "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1788579286796-b00de9e9-dee6-4cc2-9e65-3d53a9687d66-sekiro-section.webp",
+  "editorialSection": "reviews",
+  "platforms": [
+    "pc",
+    "playstation",
+    "xbox"
+  ],
+  "collection": null,
+  "collectionYear": null,
+  "gameKey": "Sekiro: Shadows Die Twice",
+  "series": "Sekiro",
+  "franchise": "Sekiro",
+  "newsMeta": {}
+}

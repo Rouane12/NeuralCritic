@@ -1,0 +1,110 @@
+{
+  "id": "45b7a4ff-5a8c-4836-bf65-0a929ea6fe03",
+  "slug": "persona-5-royal-review",
+  "title": "Persona 5 Royal Review",
+  "description": "Persona 5 Royal review covering its calendar system, turn-based combat, Confidants, Palaces, Mementos, Royal additions, long runtime and uneven pacing.",
+  "body": "Persona 5 Royal combines a long-form school-year calendar with turn-based dungeon exploration, relationship systems and a heavily stylized presentation. Its unusual strength is structural: ordinary daily decisions and supernatural missions feed into the same progression loop, making time itself one of the game’s main resources.\n\nA final Neural Critic review should judge whether that structure remains compelling across a very long campaign, whether Royal’s additional story material improves the original arc, and how successfully combat, social progression and dungeon design support one another rather than competing for attention.",
+  "category": "REVIEW",
+  "author": "Rouane Mounssif",
+  "tags": [
+    "Persona 5 Royal",
+    "Atlus",
+    "Sega",
+    "JRPG",
+    "Turn-Based RPG",
+    "Review"
+  ],
+  "imageAlt": "Official Persona 5 Royal promotional artwork used as the review feature image.",
+  "imageCredit": "Official promotional image",
+  "articleFormat": "review",
+  "reviewMeta": {
+    "cons": [
+      "The campaign is extremely long",
+      "Story pacing is uneven across several arcs",
+      "Mementos can become repetitive"
+    ],
+    "pros": [
+      "Excellent turn-based combat flow",
+      "Confidants connect character stories to progression",
+      "Exceptional soundtrack and visual identity",
+      "Royal adds substantial worthwhile content",
+      "Deep calendar and progression systems"
+    ],
+    "score": "9.5",
+    "verdict": "A remarkably stylish and deep JRPG whose combat, social systems and characters justify most of its huge runtime, though pacing remains its clearest weakness.",
+    "developer": "Atlus",
+    "publisher": "Sega",
+    "reviewCopy": "Personally accessed through Steam.",
+    "releaseDate": "March 31, 2020",
+    "testedPlatform": "PC (Steam)"
+  },
+  "contentBlocks": [
+    {
+      "text": "Days are limited, and choices about study, relationships, activities and dungeon progress compete for the same calendar space. That turns time management into a role-playing system rather than simple scheduling between battles.\n\nThe structure makes prioritization meaningful throughout the campaign because social progress, character growth and dungeon planning all draw from the same limited resource: time.",
+      "heading": "The Calendar Is the Game’s Central Progression System",
+      "headingStyle": "editorial"
+    },
+    {
+      "text": "Persona 5 Royal uses elemental weaknesses, status effects, party switching and Baton Pass-style momentum to encourage efficient turns. Encounters are built around identifying opportunities and chaining actions rather than slowly trading damage.\n\nAs the roster and Persona library expand, the combat system becomes increasingly tied to how well the player prepares coverage for different enemy weaknesses.",
+      "heading": "Turn-Based Combat Is Built Around Momentum",
+      "headingStyle": "editorial"
+    },
+    {
+      "text": "Relationships with major characters unlock narrative scenes and mechanical benefits, which makes social progression directly relevant to dungeon play. The strongest Confidant arcs add context to the game’s themes while also reshaping how the player uses time or party systems.\n\nThat connection keeps the social and combat halves from operating as completely separate games.",
+      "heading": "Confidants Connect Character Stories to Progression",
+      "headingStyle": "editorial"
+    },
+    {
+      "text": "Persona 5 Royal adds characters, locations, systems and an additional late-game story arc beyond the original release. It also revises several existing mechanics and dungeon elements.\n\nThe added content is integrated throughout the campaign rather than confined to a single post-game chapter, so Royal is best treated as its own complete package.",
+      "heading": "Royal Reworks and Expands the Original Persona 5",
+      "headingStyle": "editorial"
+    },
+    {
+      "text": "Major dungeons are themed around the worldview of their central antagonists, allowing environment design to carry narrative meaning. Royal also adjusts individual layouts and traversal compared with the original game.\n\nThe handcrafted Palaces give major arcs distinct visual identities even when the campaign’s length makes repeated dungeon routines more noticeable over time.",
+      "heading": "Palaces Give Major Story Arcs a Visual Identity",
+      "headingStyle": "editorial"
+    },
+    {
+      "text": "Mementos acts as a large repeatable dungeon tied to side requests and broader progression. Its procedural structure deliberately contrasts with the handcrafted Palaces.\n\nThat flexibility gives the calendar a place for optional grinding and requests, but the repeated floor structure is also one of the game’s most obvious sources of repetition.",
+      "heading": "Mementos Provides a Different Kind of Repetition",
+      "headingStyle": "editorial"
+    },
+    {
+      "text": "Persona 5 Royal uses typography, menus, animation and music as a unified presentation language rather than decorative polish added on top of the RPG systems. Even routine actions are framed through a distinctive visual identity.\n\nThe interface is unusually expressive while still carrying a large amount of mechanical information, making presentation part of how the game communicates its pace and personality.",
+      "heading": "Style, Music and Interface Are Part of the Experience",
+      "headingStyle": "editorial"
+    },
+    {
+      "text": "Atlus currently sells Persona 5 Royal across PlayStation, Xbox, Nintendo Switch and PC. The 2022 multi-platform release brought Royal’s complete content to modern platform families while the earlier PS4 release remains part of the game’s history.\n\nTechnical observations about performance and loading refer to the PC version available through Steam.",
+      "heading": "Current Multi-Platform Context",
+      "headingStyle": "editorial"
+    }
+  ],
+  "quickRead": [
+    "The calendar turns time management into a central progression system across social and dungeon play.",
+    "Turn-based combat is built around exploiting weaknesses and chaining momentum efficiently.",
+    "Confidants connect character stories directly to mechanical progression and daily planning.",
+    "Royal adds major late-game content and revisions, making it the definitive modern package rather than a simple re-release."
+  ],
+  "conclusion": "Persona 5 Royal ties its calendar, relationships, turn-based combat and presentation into a single long-form RPG structure. Its greatest strength is how often social choices feed mechanical progression, while its unusually long campaign makes pacing and repetition more important than they would be in a shorter game.\\n\\nReaders comparing modern turn-based RPGs can also continue with [The 12 Best Turn-Based RPGs](/stories/best-turn-based-rpgs/) or the dedicated [Persona 5 Royal game page](/games/persona-5-royal/). The 9.5 verdict reflects the PC version reviewed through Steam.",
+  "conclusionHeading": "Review framework: the final judgment",
+  "conclusionHeadingStyle": "editorial",
+  "featured": false,
+  "homepageSlot": "regular",
+  "publishedAt": "2026-09-05T09:38:05.569798+00:00",
+  "updatedAt": "2026-09-05T09:38:05.569798+00:00",
+  "imageLocal": "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1788575037494-c6397eba-3e65-4a1f-b3e2-4f0a7e9ab230-persona-5.avif",
+  "editorialSection": "reviews",
+  "platforms": [
+    "pc",
+    "playstation",
+    "xbox",
+    "nintendo"
+  ],
+  "collection": null,
+  "collectionYear": null,
+  "gameKey": "Persona 5 Royal",
+  "series": "Persona",
+  "franchise": "Persona",
+  "newsMeta": {}
+}

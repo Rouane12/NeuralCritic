@@ -1,0 +1,107 @@
+{
+  "id": "6444ac8c-a58a-4797-90b7-4c556d9db5ea",
+  "slug": "clair-obscur-expedition-33-review",
+  "title": "Clair Obscur: Expedition 33 Review",
+  "description": "Clair Obscur: Expedition 33 review covering hybrid turn-based combat, party builds, exploration, story, presentation and its post-launch evolution today.",
+  "body": "Clair Obscur: Expedition 33 combines turn-based party decisions with real-time defensive inputs, placing timing and reaction inside a structure that still depends on builds, party roles and resource planning. Its visual identity and character-driven story give that combat system an unusually strong presentation layer.\n\nA final Neural Critic review should judge whether the hybrid battle design remains consistent across the campaign, whether party progression supports experimentation, and whether the story earns the emotional weight of its premise rather than relying on spectacle alone.",
+  "category": "REVIEW",
+  "author": "Rouane Mounssif",
+  "tags": [
+    "Clair Obscur: Expedition 33",
+    "Sandfall Interactive",
+    "Kepler Interactive",
+    "Turn-Based RPG",
+    "Review"
+  ],
+  "imageAlt": "Official Clair Obscur: Expedition 33 promotional artwork used as the review feature image.",
+  "imageCredit": "Official promotional image",
+  "articleFormat": "review",
+  "reviewMeta": {
+    "cons": [
+      "Timing mechanics can overshadow tactical planning for some players",
+      "Late-game balance can become excessive",
+      "Some narrative pacing choices are divisive"
+    ],
+    "pros": [
+      "Hybrid turn-based combat stays engaging",
+      "Excellent soundtrack and art direction",
+      "Strong character-driven story",
+      "Flexible party-building and progression"
+    ],
+    "score": "9.5",
+    "verdict": "An exceptional modern RPG that pairs turn-based strategy with active defense, striking presentation and an ambitious story.",
+    "developer": "Sandfall Interactive",
+    "publisher": "Kepler Interactive",
+    "reviewCopy": "Personally accessed through Steam.",
+    "releaseDate": "April 24, 2025",
+    "testedPlatform": "PC (Steam)"
+  },
+  "contentBlocks": [
+    {
+      "text": "Expedition 33 uses turn-based command selection but asks for timed defensive responses during enemy actions. Success therefore depends on both strategic preparation and moment-to-moment execution.\n\nThe hybrid structure keeps turns active even when the player is not selecting commands, while also making timing demands part of the difficulty curve rather than a purely optional layer.",
+      "heading": "Turn-Based Decisions and Real-Time Inputs Share the Same Combat Loop",
+      "headingStyle": "editorial"
+    },
+    {
+      "text": "Each expedition member uses a different set of resources and abilities, encouraging the player to understand how characters interact rather than treating the roster as interchangeable damage sources.\n\nThat differentiation gives party-building more texture and makes switching characters a mechanical decision rather than only a narrative preference.",
+      "heading": "Party Members Have Distinct Mechanical Identities",
+      "headingStyle": "editorial"
+    },
+    {
+      "text": "Equipment and Pictos can unlock passive effects that later become Luminas, allowing learned bonuses to be mixed into broader builds. The system rewards experimentation and long-term collection.\n\nIts flexibility creates many optimization paths, but it still works best when the player can read how those bonuses reinforce a character’s core role.",
+      "heading": "Progression Is Built Around Pictos and Luminas",
+      "headingStyle": "editorial"
+    },
+    {
+      "text": "Exploration moves between authored regions and a broader overworld that connects locations, optional encounters and secrets. The structure is neither a seamless open world nor a purely linear sequence of stages.\n\nThat gives optional exploration room to breathe without losing the sense of a directed campaign.",
+      "heading": "The World Mixes Directed Areas With an Overworld",
+      "headingStyle": "editorial"
+    },
+    {
+      "text": "The story begins from a world where an annual event removes people of a specific age, giving Expedition 33 an immediate sense of urgency and mortality. The main cast’s relationships develop inside that pressure.\n\nThe premise gives the campaign a clear thematic anchor while leaving room for character-focused detours and revelations as the expedition advances.",
+      "heading": "The Paintress Premise Creates a Strong Narrative Clock",
+      "headingStyle": "editorial"
+    },
+    {
+      "text": "Belle Époque-inspired environments, stylized fantasy imagery, orchestral and vocal music, and detailed character performances are central to how Expedition 33 distinguishes itself from other turn-based RPGs.\n\nThe presentation is not just decorative: color, animation and sound also help sell the timing and rhythm of combat encounters.",
+      "heading": "Presentation Carries Much of the Game’s Identity",
+      "headingStyle": "editorial"
+    },
+    {
+      "text": "Sandfall Interactive has continued supporting Expedition 33 after launch with additional content and localization work. That means a current review needs to distinguish the original April 2025 package from the version available now.\n\nThis review reflects the current PC version available through Steam, with post-launch additions treated as part of the present-day package.",
+      "heading": "Post-Launch Support Matters to a Current Review",
+      "headingStyle": "editorial"
+    },
+    {
+      "text": "Clair Obscur: Expedition 33 launched on April 24, 2025 for PlayStation 5, Xbox Series X|S and PC. Sandfall Interactive develops the game and Kepler Interactive publishes it.\n\nTesting was conducted on PC through Steam, so performance and control observations refer to that version.",
+      "heading": "Current Platform Context",
+      "headingStyle": "editorial"
+    }
+  ],
+  "quickRead": [
+    "Turn-based commands and timing-based defense make combat both strategic and execution-heavy.",
+    "Pictos and Luminas create flexible long-term build customization.",
+    "Its Belle Époque-inspired presentation and music are central to the game’s identity.",
+    "A current review needs to distinguish the launch game from later free post-launch additions."
+  ],
+  "conclusion": "Clair Obscur: Expedition 33 stands out by combining turn-based planning with timing-based defensive play, then layering that hybrid combat over distinctive party systems, flexible progression and an unusually stylized presentation. Its strongest long-term question is how well those systems stay readable and rewarding as builds become more complex.\\n\\nReaders comparing the wider genre can also see where it lands in [The 12 Best Turn-Based RPGs](/stories/best-turn-based-rpgs/) or continue to the dedicated [Clair Obscur: Expedition 33 game page](/games/clair-obscur-expedition-33/).",
+  "conclusionHeading": "Review framework: the final judgment",
+  "conclusionHeadingStyle": "editorial",
+  "featured": false,
+  "homepageSlot": "regular",
+  "publishedAt": "2026-09-05T09:37:49.838295+00:00",
+  "updatedAt": "2026-09-05T09:37:49.838295+00:00",
+  "imageLocal": "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1788575069418-f9b93e2f-8957-40b8-8413-4130c546be19-clair-section.jpg",
+  "editorialSection": "reviews",
+  "platforms": [
+    "pc",
+    "playstation",
+    "xbox"
+  ],
+  "collection": null,
+  "collectionYear": null,
+  "gameKey": "Clair Obscur: Expedition 33",
+  "series": "Clair Obscur",
+  "franchise": "Clair Obscur",
+  "newsMeta": {}
+}

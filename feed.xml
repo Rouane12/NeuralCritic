@@ -5,9 +5,97 @@
     <link>https://www.neuralcritic.net/</link>
     <description>Gaming news, reviews, guides, and features for players who want the signal—not the noise.</description>
     <language>en</language>
-    <lastBuildDate>Sat, 05 Sep 2026 08:36:59 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 05 Sep 2026 12:06:38 +0000</lastBuildDate>
     <generator>Neural Critic publication pipeline</generator>
     <atom:link href="https://www.neuralcritic.net/feed.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>The 12 Best Story-Driven Games</title>
+      <link>https://www.neuralcritic.net/stories/best-story-driven-games/</link>
+      <guid isPermaLink="true">https://www.neuralcritic.net/stories/best-story-driven-games/</guid>
+      <description>The 12 best story-driven games, ranked for characters, worldbuilding, narrative structure, player choice and how effectively their stories use interactivity.</description>
+      <category>FEATURE</category>
+      <pubDate>Sat, 05 Sep 2026 09:48:43 +0000</pubDate>
+    </item>
+    <item>
+      <title>God of War Ragnarök Review</title>
+      <link>https://www.neuralcritic.net/stories/god-of-war-ragnarok-review/</link>
+      <guid isPermaLink="true">https://www.neuralcritic.net/stories/god-of-war-ragnarok-review/</guid>
+      <description>God of War Ragnarök review covering Kratos and Atreus, expanded combat, companions, exploration, side stories, Valhalla and the current complete package.</description>
+      <category>REVIEW</category>
+      <pubDate>Sat, 05 Sep 2026 09:38:05 +0000</pubDate>
+    </item>
+    <item>
+      <title>Hades Review</title>
+      <link>https://www.neuralcritic.net/stories/hades-review/</link>
+      <guid isPermaLink="true">https://www.neuralcritic.net/stories/hades-review/</guid>
+      <description>Hades review covering its roguelike run structure, build variety, permanent progression, character-driven storytelling, difficulty options and lasting appeal.</description>
+      <category>REVIEW</category>
+      <pubDate>Sat, 05 Sep 2026 09:38:05 +0000</pubDate>
+    </item>
+    <item>
+      <title>Persona 5 Royal Review</title>
+      <link>https://www.neuralcritic.net/stories/persona-5-royal-review/</link>
+      <guid isPermaLink="true">https://www.neuralcritic.net/stories/persona-5-royal-review/</guid>
+      <description>Persona 5 Royal review covering its calendar system, turn-based combat, Confidants, Palaces, Mementos, Royal additions, long runtime and uneven pacing.</description>
+      <category>REVIEW</category>
+      <pubDate>Sat, 05 Sep 2026 09:38:05 +0000</pubDate>
+    </item>
+    <item>
+      <title>Ghost of Tsushima Director’s Cut Review</title>
+      <link>https://www.neuralcritic.net/stories/ghost-of-tsushima-directors-cut-review/</link>
+      <guid isPermaLink="true">https://www.neuralcritic.net/stories/ghost-of-tsushima-directors-cut-review/</guid>
+      <description>Ghost of Tsushima Director’s Cut review covering Jin’s story, stance-based combat, open-world exploration, Iki Island, Legends and the complete package.</description>
+      <category>REVIEW</category>
+      <pubDate>Sat, 05 Sep 2026 09:38:05 +0000</pubDate>
+    </item>
+    <item>
+      <title>Sekiro: Shadows Die Twice Review</title>
+      <link>https://www.neuralcritic.net/stories/sekiro-shadows-die-twice-review/</link>
+      <guid isPermaLink="true">https://www.neuralcritic.net/stories/sekiro-shadows-die-twice-review/</guid>
+      <description>Sekiro: Shadows Die Twice review covering posture-based combat, traversal, bosses, progression, Ashina’s world design and how FromSoftware’s focus pays off.</description>
+      <category>REVIEW</category>
+      <pubDate>Sat, 05 Sep 2026 09:38:05 +0000</pubDate>
+    </item>
+    <item>
+      <title>Clair Obscur: Expedition 33 Review</title>
+      <link>https://www.neuralcritic.net/stories/clair-obscur-expedition-33-review/</link>
+      <guid isPermaLink="true">https://www.neuralcritic.net/stories/clair-obscur-expedition-33-review/</guid>
+      <description>Clair Obscur: Expedition 33 review covering hybrid turn-based combat, party builds, exploration, story, presentation and its post-launch evolution today.</description>
+      <category>REVIEW</category>
+      <pubDate>Sat, 05 Sep 2026 09:37:49 +0000</pubDate>
+    </item>
+    <item>
+      <title>Cyberpunk 2077 Review</title>
+      <link>https://www.neuralcritic.net/stories/cyberpunk-2077-review/</link>
+      <guid isPermaLink="true">https://www.neuralcritic.net/stories/cyberpunk-2077-review/</guid>
+      <description>Cyberpunk 2077 review covering Night City, builds, combat, quests, Phantom Liberty and how the RPG holds up after years of major updates on modern platforms.</description>
+      <category>REVIEW</category>
+      <pubDate>Sat, 05 Sep 2026 09:37:49 +0000</pubDate>
+    </item>
+    <item>
+      <title>Dark Souls Remastered Review</title>
+      <link>https://www.neuralcritic.net/stories/dark-souls-remastered-review/</link>
+      <guid isPermaLink="true">https://www.neuralcritic.net/stories/dark-souls-remastered-review/</guid>
+      <description>Dark Souls Remastered review covering Lordran’s interconnected world, deliberate combat, progression, multiplayer and where the remaster still feels dated.</description>
+      <category>REVIEW</category>
+      <pubDate>Sat, 05 Sep 2026 09:37:49 +0000</pubDate>
+    </item>
+    <item>
+      <title>Bloodborne Review</title>
+      <link>https://www.neuralcritic.net/stories/bloodborne-review/</link>
+      <guid isPermaLink="true">https://www.neuralcritic.net/stories/bloodborne-review/</guid>
+      <description>Bloodborne review covering aggressive combat, Yharnam’s world design, memorable bosses, The Old Hunters and the PS4-era limits that still show in 2026.</description>
+      <category>REVIEW</category>
+      <pubDate>Sat, 05 Sep 2026 09:37:49 +0000</pubDate>
+    </item>
+    <item>
+      <title>Dark Souls III Review</title>
+      <link>https://www.neuralcritic.net/stories/dark-souls-iii-review/</link>
+      <guid isPermaLink="true">https://www.neuralcritic.net/stories/dark-souls-iii-review/</guid>
+      <description>Dark Souls III review covering faster combat, standout bosses, build variety, world design, multiplayer, DLC and how the trilogy finale holds up today.</description>
+      <category>REVIEW</category>
+      <pubDate>Sat, 05 Sep 2026 09:37:49 +0000</pubDate>
+    </item>
     <item>
       <title>Red Dead Redemption 2 Beginner’s Guide: What to Do First</title>
       <link>https://www.neuralcritic.net/stories/red-dead-redemption-2-beginners-guide/</link>
@@ -25,18 +113,10 @@
       <pubDate>Sat, 05 Sep 2026 03:55:31 +0000</pubDate>
     </item>
     <item>
-      <title>The 12 Best 3D Platformers</title>
-      <link>https://www.neuralcritic.net/stories/best-3d-platformers/</link>
-      <guid isPermaLink="true">https://www.neuralcritic.net/stories/best-3d-platformers/</guid>
-      <description>The best 3D platformers, ranked for movement, level design, exploration and inventive traversal — from Mario Galaxy and Odyssey to Astro Bot and Psychonauts 2.</description>
-      <category>FEATURE</category>
-      <pubDate>Sat, 05 Sep 2026 03:55:26 +0000</pubDate>
-    </item>
-    <item>
-      <title>Tears of the Kingdom Best Early Armor and Upgrades</title>
-      <link>https://www.neuralcritic.net/stories/tears-of-the-kingdom-best-early-armor-upgrades/</link>
-      <guid isPermaLink="true">https://www.neuralcritic.net/stories/tears-of-the-kingdom-best-early-armor-upgrades/</guid>
-      <description>The best early Tears of the Kingdom armor to prioritize, plus how Great Fairy upgrades work and which pieces are worth improving first.</description>
+      <title>Breath of the Wild Best Early Armor and Essential Upgrades</title>
+      <link>https://www.neuralcritic.net/stories/breath-of-the-wild-best-early-armor-upgrades/</link>
+      <guid isPermaLink="true">https://www.neuralcritic.net/stories/breath-of-the-wild-best-early-armor-upgrades/</guid>
+      <description>The best early Breath of the Wild armor to prioritize, including practical defense, cold resistance, stealth and the Great Fairy upgrades that make early gear last longer.</description>
       <category>GUIDE</category>
       <pubDate>Sat, 05 Sep 2026 03:55:26 +0000</pubDate>
     </item>
@@ -49,19 +129,11 @@
       <pubDate>Sat, 05 Sep 2026 03:55:26 +0000</pubDate>
     </item>
     <item>
-      <title>Super Mario Odyssey Power Moons Explained: How Many You Need and What They Unlock</title>
-      <link>https://www.neuralcritic.net/stories/super-mario-odyssey-power-moons-explained/</link>
-      <guid isPermaLink="true">https://www.neuralcritic.net/stories/super-mario-odyssey-power-moons-explained/</guid>
-      <description>A clear Super Mario Odyssey Power Moon guide explaining how moons power the Odyssey, how many are needed for the story, and what 250, 500, 880 and 999 moons unlock.</description>
-      <category>GUIDE</category>
-      <pubDate>Sat, 05 Sep 2026 03:55:26 +0000</pubDate>
-    </item>
-    <item>
-      <title>Mario Kart 8 Deluxe 200cc Guide: Braking, Drifting and Kart Setup</title>
-      <link>https://www.neuralcritic.net/stories/mario-kart-8-deluxe-200cc-guide/</link>
-      <guid isPermaLink="true">https://www.neuralcritic.net/stories/mario-kart-8-deluxe-200cc-guide/</guid>
-      <description>A practical Mario Kart 8 Deluxe 200cc guide covering braking, brake drifting, earlier turn-in, kart setup and the habits that make the fastest engine class manageable.</description>
-      <category>GUIDE</category>
+      <title>The 12 Best 3D Platformers</title>
+      <link>https://www.neuralcritic.net/stories/best-3d-platformers/</link>
+      <guid isPermaLink="true">https://www.neuralcritic.net/stories/best-3d-platformers/</guid>
+      <description>The best 3D platformers, ranked for movement, level design, exploration and inventive traversal — from Mario Galaxy and Odyssey to Astro Bot and Psychonauts 2.</description>
+      <category>FEATURE</category>
       <pubDate>Sat, 05 Sep 2026 03:55:26 +0000</pubDate>
     </item>
     <item>
@@ -73,10 +145,26 @@
       <pubDate>Sat, 05 Sep 2026 03:55:26 +0000</pubDate>
     </item>
     <item>
-      <title>Breath of the Wild Best Early Armor and Essential Upgrades</title>
-      <link>https://www.neuralcritic.net/stories/breath-of-the-wild-best-early-armor-upgrades/</link>
-      <guid isPermaLink="true">https://www.neuralcritic.net/stories/breath-of-the-wild-best-early-armor-upgrades/</guid>
-      <description>The best early Breath of the Wild armor to prioritize, including practical defense, cold resistance, stealth and the Great Fairy upgrades that make early gear last longer.</description>
+      <title>Mario Kart 8 Deluxe 200cc Guide: Braking, Drifting and Kart Setup</title>
+      <link>https://www.neuralcritic.net/stories/mario-kart-8-deluxe-200cc-guide/</link>
+      <guid isPermaLink="true">https://www.neuralcritic.net/stories/mario-kart-8-deluxe-200cc-guide/</guid>
+      <description>A practical Mario Kart 8 Deluxe 200cc guide covering braking, brake drifting, earlier turn-in, kart setup and the habits that make the fastest engine class manageable.</description>
+      <category>GUIDE</category>
+      <pubDate>Sat, 05 Sep 2026 03:55:26 +0000</pubDate>
+    </item>
+    <item>
+      <title>Super Mario Odyssey Power Moons Explained: How Many You Need and What They Unlock</title>
+      <link>https://www.neuralcritic.net/stories/super-mario-odyssey-power-moons-explained/</link>
+      <guid isPermaLink="true">https://www.neuralcritic.net/stories/super-mario-odyssey-power-moons-explained/</guid>
+      <description>A clear Super Mario Odyssey Power Moon guide explaining how moons power the Odyssey, how many are needed for the story, and what 250, 500, 880 and 999 moons unlock.</description>
+      <category>GUIDE</category>
+      <pubDate>Sat, 05 Sep 2026 03:55:26 +0000</pubDate>
+    </item>
+    <item>
+      <title>Tears of the Kingdom Best Early Armor and Upgrades</title>
+      <link>https://www.neuralcritic.net/stories/tears-of-the-kingdom-best-early-armor-upgrades/</link>
+      <guid isPermaLink="true">https://www.neuralcritic.net/stories/tears-of-the-kingdom-best-early-armor-upgrades/</guid>
+      <description>The best early Tears of the Kingdom armor to prioritize, plus how Great Fairy upgrades work and which pieces are worth improving first.</description>
       <category>GUIDE</category>
       <pubDate>Sat, 05 Sep 2026 03:55:26 +0000</pubDate>
     </item>
@@ -97,19 +185,27 @@
       <pubDate>Sat, 05 Sep 2026 03:55:18 +0000</pubDate>
     </item>
     <item>
-      <title>Why Baldur’s Gate 3’s Companions Make Player Choice Feel Personal</title>
-      <link>https://www.neuralcritic.net/stories/baldurs-gate-3-companions-player-choice/</link>
-      <guid isPermaLink="true">https://www.neuralcritic.net/stories/baldurs-gate-3-companions-player-choice/</guid>
-      <description>An analysis of how Baldur’s Gate 3 uses companion relationships, approval, conflict and reactivity to make player decisions feel personal.</description>
-      <category>FEATURE</category>
-      <pubDate>Sat, 05 Sep 2026 03:55:18 +0000</pubDate>
-    </item>
-    <item>
       <title>Baldur’s Gate 3 Best Classes for Beginners: Which Class Should You Pick?</title>
       <link>https://www.neuralcritic.net/stories/baldurs-gate-3-best-classes-beginners/</link>
       <guid isPermaLink="true">https://www.neuralcritic.net/stories/baldurs-gate-3-best-classes-beginners/</guid>
       <description>The best Baldur’s Gate 3 classes for beginners, with approachable picks for melee combat, spellcasting, dialogue and exploration in the current Patch 8 version.</description>
       <category>GUIDE</category>
+      <pubDate>Sat, 05 Sep 2026 03:55:18 +0000</pubDate>
+    </item>
+    <item>
+      <title>Baldur’s Gate 3 Companions Guide: Who to Recruit and What They Do</title>
+      <link>https://www.neuralcritic.net/stories/baldurs-gate-3-companions-guide/</link>
+      <guid isPermaLink="true">https://www.neuralcritic.net/stories/baldurs-gate-3-companions-guide/</guid>
+      <description>A spoiler-light Baldur’s Gate 3 companions guide covering all 10 recruitable companions, their default classes, party roles and what each brings to a beginner party.</description>
+      <category>GUIDE</category>
+      <pubDate>Sat, 05 Sep 2026 03:55:18 +0000</pubDate>
+    </item>
+    <item>
+      <title>Why Baldur’s Gate 3’s Companions Make Player Choice Feel Personal</title>
+      <link>https://www.neuralcritic.net/stories/baldurs-gate-3-companions-player-choice/</link>
+      <guid isPermaLink="true">https://www.neuralcritic.net/stories/baldurs-gate-3-companions-player-choice/</guid>
+      <description>An analysis of how Baldur’s Gate 3 uses companion relationships, approval, conflict and reactivity to make player decisions feel personal.</description>
+      <category>FEATURE</category>
       <pubDate>Sat, 05 Sep 2026 03:55:18 +0000</pubDate>
     </item>
     <item>
@@ -121,12 +217,12 @@
       <pubDate>Sat, 05 Sep 2026 03:55:18 +0000</pubDate>
     </item>
     <item>
-      <title>Baldur’s Gate 3 Companions Guide: Who to Recruit and What They Do</title>
-      <link>https://www.neuralcritic.net/stories/baldurs-gate-3-companions-guide/</link>
-      <guid isPermaLink="true">https://www.neuralcritic.net/stories/baldurs-gate-3-companions-guide/</guid>
-      <description>A spoiler-light Baldur’s Gate 3 companions guide covering all 10 recruitable companions, their default classes, party roles and what each brings to a beginner party.</description>
-      <category>GUIDE</category>
-      <pubDate>Sat, 05 Sep 2026 03:55:18 +0000</pubDate>
+      <title>The 10 Best Games Like Elden Ring</title>
+      <link>https://www.neuralcritic.net/stories/best-games-like-elden-ring/</link>
+      <guid isPermaLink="true">https://www.neuralcritic.net/stories/best-games-like-elden-ring/</guid>
+      <description>The 10 best games like Elden Ring, from FromSoftware action RPGs and modern Soulslikes to open worlds that recreate its freedom, discovery and build experimentation.</description>
+      <category>FEATURE</category>
+      <pubDate>Sat, 05 Sep 2026 03:55:11 +0000</pubDate>
     </item>
     <item>
       <title>The 12 Best Soulslike Games</title>
@@ -145,108 +241,12 @@
       <pubDate>Sat, 05 Sep 2026 03:55:11 +0000</pubDate>
     </item>
     <item>
-      <title>Elden Ring Stats and Soft Caps Explained: Vigor, Mind, Endurance and More</title>
-      <link>https://www.neuralcritic.net/stories/elden-ring-stats-soft-caps-explained/</link>
-      <guid isPermaLink="true">https://www.neuralcritic.net/stories/elden-ring-stats-soft-caps-explained/</guid>
-      <description>A clear Elden Ring stat guide explaining what Vigor, Mind, Endurance, Strength, Dexterity, Intelligence, Faith and Arcane do, plus the soft caps that matter most.</description>
-      <category>GUIDE</category>
-      <pubDate>Sat, 05 Sep 2026 03:55:11 +0000</pubDate>
-    </item>
-    <item>
-      <title>The 10 Best Games Like Elden Ring</title>
-      <link>https://www.neuralcritic.net/stories/best-games-like-elden-ring/</link>
-      <guid isPermaLink="true">https://www.neuralcritic.net/stories/best-games-like-elden-ring/</guid>
-      <description>The 10 best games like Elden Ring, from FromSoftware action RPGs and modern Soulslikes to open worlds that recreate its freedom, discovery and build experimentation.</description>
-      <category>FEATURE</category>
-      <pubDate>Sat, 05 Sep 2026 03:55:11 +0000</pubDate>
-    </item>
-    <item>
       <title>What Makes FromSoftware Boss Fights So Memorable?</title>
       <link>https://www.neuralcritic.net/stories/fromsoftware-boss-fights-memorable/</link>
       <guid isPermaLink="true">https://www.neuralcritic.net/stories/fromsoftware-boss-fights-memorable/</guid>
       <description>An analysis of how FromSoftware combines combat, presentation, learning, pacing and encounter design to create memorable boss fights.</description>
       <category>FEATURE</category>
       <pubDate>Sat, 05 Sep 2026 03:55:11 +0000</pubDate>
-    </item>
-    <item>
-      <title>Elden Ring Best Starting Class for Beginners: All 12 Classes Explained</title>
-      <link>https://www.neuralcritic.net/stories/elden-ring-best-starting-classes-beginners/</link>
-      <guid isPermaLink="true">https://www.neuralcritic.net/stories/elden-ring-best-starting-classes-beginners/</guid>
-      <description>The best Elden Ring starting classes for beginners, including Vagabond, Samurai, Astrologer and the new Heavy Knight and Idus Knight options added in 2026.</description>
-      <category>GUIDE</category>
-      <pubDate>Sat, 05 Sep 2026 03:55:11 +0000</pubDate>
-    </item>
-    <item>
-      <title>GTA 6 DualSense Controller Preorders: Price, Release Date and Where to Buy</title>
-      <link>https://www.neuralcritic.net/stories/gta-6-dualsense-controller-preorders-price-release-date/</link>
-      <guid isPermaLink="true">https://www.neuralcritic.net/stories/gta-6-dualsense-controller-preorders-price-release-date/</guid>
-      <description>GTA 6 DualSense preorders open September 10. Here are the black and white controller prices, release date, retailer availability and buying details.</description>
-      <category>NEWS</category>
-      <pubDate>Fri, 04 Sep 2026 05:20:54 +0000</pubDate>
-    </item>
-    <item>
-      <title>PS5 State of Play September 2026: GTA 6, FF7 Revelation and Every Announcement</title>
-      <link>https://www.neuralcritic.net/stories/playstation-state-of-play-september-2026-every-announcement/</link>
-      <guid isPermaLink="true">https://www.neuralcritic.net/stories/playstation-state-of-play-september-2026-every-announcement/</guid>
-      <description>Every major announcement from PlayStation’s September 2026 State of Play, including GTA 6 controllers, FF7 Revelation, Until Dawn 2, Metro 2039 and more.</description>
-      <category>NEWS</category>
-      <pubDate>Fri, 04 Sep 2026 05:20:54 +0000</pubDate>
-    </item>
-    <item>
-      <title>Final Fantasy VII Revelation Release Date, Platforms, Editions and Early Access</title>
-      <link>https://www.neuralcritic.net/stories/final-fantasy-vii-revelation-release-date-platforms-editions/</link>
-      <guid isPermaLink="true">https://www.neuralcritic.net/stories/final-fantasy-vii-revelation-release-date-platforms-editions/</guid>
-      <description>Final Fantasy VII Revelation launches April 8, 2027. Here are the confirmed platforms, editions, preorder bonuses and 24-hour early-access details.</description>
-      <category>NEWS</category>
-      <pubDate>Fri, 04 Sep 2026 05:20:54 +0000</pubDate>
-    </item>
-    <item>
-      <title>Metro 2039 Release Date Confirmed, PS5 and Xbox 60fps Ray Tracing Detailed</title>
-      <link>https://www.neuralcritic.net/stories/metro-2039-release-date-ps5-pro-60fps/</link>
-      <guid isPermaLink="true">https://www.neuralcritic.net/stories/metro-2039-release-date-ps5-pro-60fps/</guid>
-      <description>Metro 2039 launches February 4, 2027. Here are the confirmed platforms, PS5 Pro details and 60fps ray-traced performance options on console.</description>
-      <category>NEWS</category>
-      <pubDate>Fri, 04 Sep 2026 05:20:54 +0000</pubDate>
-    </item>
-    <item>
-      <title>LEGO PlayStation Price, Release Date and 1,911-Piece Set Details</title>
-      <link>https://www.neuralcritic.net/stories/lego-playstation-price-release-date-set-details/</link>
-      <guid isPermaLink="true">https://www.neuralcritic.net/stories/lego-playstation-price-release-date-set-details/</guid>
-      <description>The 1,911-piece LEGO PlayStation recreates Sony’s original console and controller. Here are the price, October release dates and availability details.</description>
-      <category>NEWS</category>
-      <pubDate>Fri, 04 Sep 2026 05:20:54 +0000</pubDate>
-    </item>
-    <item>
-      <title>Until Dawn 2 Release Date, Preorders and Digital Deluxe Edition Explained</title>
-      <link>https://www.neuralcritic.net/stories/until-dawn-2-release-date-preorders-editions/</link>
-      <guid isPermaLink="true">https://www.neuralcritic.net/stories/until-dawn-2-release-date-preorders-editions/</guid>
-      <description>Until Dawn 2 launches January 28, 2027 on PS5. Here are the preorder date, Digital Deluxe Edition details and key State of Play reveals.</description>
-      <category>NEWS</category>
-      <pubDate>Fri, 04 Sep 2026 05:20:54 +0000</pubDate>
-    </item>
-    <item>
-      <title>Intergalactic: The Heretic Prophet Wraps ‘Very Ambitious’ Cinematic Shoot</title>
-      <link>https://www.neuralcritic.net/stories/intergalactic-heretic-prophet-wraps-cinematic-shoot/</link>
-      <guid isPermaLink="true">https://www.neuralcritic.net/stories/intergalactic-heretic-prophet-wraps-cinematic-shoot/</guid>
-      <description>Naughty Dog has wrapped Intergalactic’s cinematic shoot, marking a major PS5 development milestone. A September 3 State of Play is confirmed, but the game is not.</description>
-      <category>NEWS</category>
-      <pubDate>Tue, 01 Sep 2026 08:24:39 +0000</pubDate>
-    </item>
-    <item>
-      <title>EXODUS Gameplay Deep Dive Reveals Salt, Combat and a Time-Dilated Sci-Fi RPG</title>
-      <link>https://www.neuralcritic.net/stories/exodus-gameplay-story-deep-dive-game-informer-2026/</link>
-      <guid isPermaLink="true">https://www.neuralcritic.net/stories/exodus-gameplay-story-deep-dive-game-informer-2026/</guid>
-      <description>Game Informer’s new EXODUS deep dive follows a four-hour hands-on session at Archetype Entertainment, revealing more about Salt, combat, the Awakened and the RPG’s time-dilation story.</description>
-      <category>NEWS</category>
-      <pubDate>Sun, 30 Aug 2026 21:32:41 +0000</pubDate>
-    </item>
-    <item>
-      <title>Tomb Raider: Legacy of Atlantis Gameplay Reimagines Peru, Puzzles and the T-Rex</title>
-      <link>https://www.neuralcritic.net/stories/tomb-raider-legacy-of-atlantis-gamescom-2026-gameplay/</link>
-      <guid isPermaLink="true">https://www.neuralcritic.net/stories/tomb-raider-legacy-of-atlantis-gamescom-2026-gameplay/</guid>
-      <description>An extended gamescom 2026 gameplay presentation for Tomb Raider: Legacy of Atlantis shows Lara exploring Peru, solving rebuilt puzzles and facing raptors and a reimagined T-Rex.</description>
-      <category>NEWS</category>
-      <pubDate>Sun, 30 Aug 2026 21:28:17 +0000</pubDate>
     </item>
   </channel>
 </rss>

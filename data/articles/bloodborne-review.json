@@ -1,0 +1,106 @@
+{
+  "id": "adbcd6f5-0fbb-4679-83bb-58f4edc57265",
+  "slug": "bloodborne-review",
+  "title": "Bloodborne Review",
+  "description": "Bloodborne review covering aggressive combat, Yharnam’s world design, memorable bosses, The Old Hunters and the PS4-era limits that still show in 2026.",
+  "body": "Bloodborne is one of FromSoftware’s most distinctive action RPGs because almost every part of its design pushes in the same direction. Combat rewards pressure rather than passive defense, Yharnam folds back on itself through shortcuts and hidden routes, and the story gradually transforms from gothic horror into something much stranger.\\n\\nMore than a decade after release, that identity remains unusually clear. The game has never received a native PS5 edition, so the modern experience is still defined by the original PS4 version running through backward compatibility. That technical context matters, but it does not erase how confidently Bloodborne separates itself from the Dark Souls games around it.",
+  "category": "REVIEW",
+  "author": "Rouane Mounssif",
+  "tags": [
+    "Bloodborne",
+    "FromSoftware",
+    "PlayStation",
+    "Action RPG",
+    "Review"
+  ],
+  "imageAlt": "Official Bloodborne promotional artwork used as the review feature image.",
+  "imageCredit": "Official promotional image",
+  "articleFormat": "review",
+  "reviewMeta": {
+    "cons": [
+      "PS4-era technical presentation shows its age",
+      "Chalice Dungeons can become repetitive",
+      "Some larger encounters expose camera problems"
+    ],
+    "pros": [
+      "Yharnam’s interconnected world design",
+      "Distinctive aggressive combat",
+      "Exceptional atmosphere and art direction",
+      "Memorable boss encounters",
+      "The Old Hunters strengthens the complete package"
+    ],
+    "score": "9.3",
+    "verdict": "A singular FromSoftware classic whose aggressive combat, world design and atmosphere remain exceptional despite increasingly obvious technical age.",
+    "developer": "FromSoftware",
+    "publisher": "Sony Computer Entertainment",
+    "reviewCopy": "Personally accessed through PlayStation.",
+    "releaseDate": "March 24, 2015",
+    "testedPlatform": "PlayStation (PS4 version)"
+  },
+  "contentBlocks": [
+    {
+      "text": "Bloodborne’s biggest mechanical change is not simply that it moves faster. The combat system encourages players to answer pressure with pressure. The rally mechanic can restore recently lost health when the player responds quickly, while the absence of a traditional defensive rhythm makes positioning and timing feel more immediate.\n\nThat creates a different tempo from Dark Souls. Mistakes still matter, but recovery is tied to action rather than hesitation, giving the combat a distinct identity within FromSoftware’s catalogue.",
+      "heading": "Aggression Changes the Rhythm of Every Encounter",
+      "headingStyle": "editorial"
+    },
+    {
+      "text": "Central Yharnam establishes the game’s world design immediately. Streets, courtyards, rooftops and interior routes wrap around one another until long journeys become compact loops. Gates and elevators that initially seem meaningless later become shortcuts, turning navigation into a form of progression.\n\nThe strongest areas build familiarity without relying on a conventional map. Players learn where they are by recognizing architecture, elevation and landmarks. Later regions are less uniformly dense, but the overall world still feels deliberately constructed rather than assembled as disconnected stages.",
+      "heading": "Yharnam Is Still One of FromSoftware’s Strongest Worlds",
+      "headingStyle": "editorial"
+    },
+    {
+      "text": "Bloodborne initially presents itself as a gothic nightmare of diseased streets, hostile crowds and decaying institutions. That premise becomes stranger as the game gradually reveals that Yharnam’s crisis is connected to forces far beyond what is visible at street level.\n\nThe shift toward cosmic horror is delivered through environments, item descriptions, character encounters and visual changes rather than constant exposition. Important ideas often arrive as implications before they are explained directly, making discovery central to the game’s narrative structure.",
+      "heading": "The Horror Grows Stranger the Deeper the Story Goes",
+      "headingStyle": "editorial"
+    },
+    {
+      "text": "Bloodborne offers a narrower equipment pool than many Souls games, but the tradeoff is stronger mechanical identity. Transforming equipment can change reach, tempo and moveset behavior, allowing a single choice to support more than one combat rhythm.\n\nVariety comes from how individual options behave rather than from sheer quantity. Attributes, upgrades and supporting systems still matter, but the equipment pool rarely feels padded with minor variations of the same idea.",
+      "heading": "A Smaller Equipment Pool Gives Individual Options More Character",
+      "headingStyle": "editorial"
+    },
+    {
+      "text": "Bloodborne’s major encounters combine combat speed, animation reading and atmosphere more directly than almost any other part of the game. The strongest bosses create clear rhythms without becoming predictable, forcing the player to understand movement and pressure rather than simply wait for long openings.\n\nThe quality is not perfectly consistent. Large enemies can expose camera limitations, and some encounters are more memorable for presentation than mechanical depth. Even so, the major fights are central to Bloodborne’s lasting reputation and connect naturally to Neural Critic’s broader look at [what makes FromSoftware boss fights memorable](/stories/fromsoftware-boss-fights-memorable/).",
+      "heading": "Bosses Give the Campaign Its Biggest Peaks",
+      "headingStyle": "editorial"
+    },
+    {
+      "text": "Chalice Dungeons provide a parallel progression path built around repeatable underground spaces, additional encounters and rewards. They give Bloodborne a longer tail beyond the authored campaign and contain material that players who focus only on the main route may never see.\n\nThey also highlight the difference between Bloodborne’s handcrafted world and its more modular content. Repeated rooms and visual patterns make these areas less distinctive than Yharnam itself, adding breadth without matching the personality of the main campaign.",
+      "heading": "Chalice Dungeons Are the Most Uneven Part of the Package",
+      "headingStyle": "editorial"
+    },
+    {
+      "text": "The Old Hunters expansion adds major new areas, encounters and equipment while developing ideas closely connected to Bloodborne’s history and central themes. It feels less like a detached side story and more like an extension of material the base game deliberately leaves unresolved.\n\nFor readers approaching Bloodborne as a complete package, the expansion is an important part of the modern experience. The Old Hunters is discussed as part of the broader modern Bloodborne package.",
+      "heading": "The Old Hunters Strengthens the Complete Experience",
+      "headingStyle": "editorial"
+    },
+    {
+      "text": "Bloodborne remains a PlayStation 4 game. The current PlayStation Store listing confirms that it is playable on PS5 through backward compatibility, but there is still no native PS5 version attached to the product. That makes the game’s technical age much more visible than its artistic age.\n\nYharnam’s visual direction and atmosphere still give the game a strong identity, but modern expectations around image clarity, frame pacing and responsiveness make the underlying PS4-era presentation an important part of a current review. Technical observations in this review refer to the PlayStation PS4 version.",
+      "heading": "The PS4-Era Technical Presentation Is Now Impossible to Ignore",
+      "headingStyle": "editorial"
+    }
+  ],
+  "quickRead": [
+    "Aggressive combat rewards pressure and quick recovery rather than passive defense.",
+    "Yharnam’s interconnected level design remains one of FromSoftware’s strongest worlds.",
+    "The Old Hunters materially strengthens the complete package, while Chalice Dungeons are more uneven.",
+    "The PS4-era technical presentation is increasingly dated even though the art direction remains distinctive."
+  ],
+  "conclusion": "Bloodborne endures because its core systems reinforce one another: aggressive combat rewards commitment, Yharnam turns navigation into discovery, and the shift from gothic to cosmic horror gives the campaign an identity FromSoftware has never simply repeated. Its narrower equipment pool also supports a more focused overall design.\\n\\nIts weaknesses are easier to see with time. Chalice Dungeons lack the personality of the main world, some large encounters expose camera problems, and the unchanged PS4-era technical package increasingly stands apart from the strength of the art direction. For readers exploring the wider genre, our [best Soulslike games](/stories/best-soulslike-games/) and [FromSoftware difficulty ranking](/stories/fromsoftware-soulsborne-games-ranked-by-difficulty/) provide useful context around where Bloodborne fits.",
+  "conclusionHeading": "A singular game in an increasingly dated technical package",
+  "conclusionHeadingStyle": "editorial",
+  "featured": false,
+  "homepageSlot": "regular",
+  "publishedAt": "2026-09-05T09:37:49.838295+00:00",
+  "updatedAt": "2026-09-05T09:37:49.838295+00:00",
+  "imageLocal": "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1788598624445-5736da9c-a6fc-4271-b122-45a55e419634-bloodborne-main.jpg",
+  "editorialSection": "reviews",
+  "platforms": [
+    "playstation"
+  ],
+  "collection": null,
+  "collectionYear": null,
+  "gameKey": "Bloodborne",
+  "series": "Bloodborne",
+  "franchise": "Bloodborne",
+  "newsMeta": {}
+}

@@ -1,5 +1,1277 @@
 [
   {
+    "id": "f43bc850-81ae-4596-9ac7-9e52c99ab5ca",
+    "slug": "best-story-driven-games",
+    "title": "The 12 Best Story-Driven Games",
+    "description": "The 12 best story-driven games, ranked for characters, worldbuilding, narrative structure, player choice and how effectively their stories use interactivity.",
+    "body": "A story-driven game does not need the most dialogue or the longest cutscenes. The important question is whether narrative shapes why the player keeps moving forward. That can come from authored drama, player choice, environmental discovery, or characters whose relationships give mechanics additional meaning.\\\\n\\\\nNeural Critic’s ranking favors games where story is central to the experience rather than something that could be removed without changing what the game is trying to achieve.\\\\n\\\\nFor more on several games in this ranking, read our [Baldur’s Gate 3 review](/stories/baldurs-gate-3-review/), [Red Dead Redemption 2 review](/stories/red-dead-redemption-2-review/), [Cyberpunk 2077 review](/stories/cyberpunk-2077-review/) and [God of War Ragnarök review](/stories/god-of-war-ragnarok-review/).",
+    "category": "FEATURE",
+    "author": "Rouane Mounssif",
+    "tags": [
+      "Story Games",
+      "Narrative Games",
+      "Best Games",
+      "Single Player",
+      "What to Play"
+    ],
+    "imageAlt": "The main Baldur’s Gate 3 companions stand together beneath a stormy fantasy sky; Baldur’s Gate 3 ranks first in Neural Critic’s story-driven games list.",
+    "imageCredit": "Larian Studios / Baldur’s Gate 3 official promotional artwork.",
+    "articleFormat": "ranked-list",
+    "reviewMeta": {},
+    "contentBlocks": [
+      {
+        "rank": "12",
+        "text": "Firewatch keeps its scope deliberately narrow: one wilderness, one summer, and a relationship built largely through radio conversations. That restraint gives small decisions and changes in tone unusual weight. The mystery is important, but the real story is about what two people reveal, avoid, and misunderstand while separated by miles of forest.",
+        "caption": "Firewatch ranks No. 12 for the way radio conversations and a tightly contained wilderness mystery turn place and dialogue into the story.",
+        "heading": "Firewatch",
+        "imageAlt": "Promotional image for Firewatch accompanying the No. 12 entry in Neural Critic’s best story-driven games ranking.",
+        "subtitle": "A small mystery carried by conversation and place",
+        "developer": "Campo Santo",
+        "imageLocal": "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1788576225564-5aed5de4-28ec-4e5c-b08d-d16187a342f1-firewatch-section.jpg",
+        "releaseYear": "2016",
+        "headingStyle": "editorial"
+      },
+      {
+        "rank": "11",
+        "text": "What Remains of Edith Finch turns each remembered family story into a different interactive form. The result is brief but structurally adventurous, using controls and perspective to make individual memories feel distinct. It is one of the clearest examples of a game using interactivity to shape storytelling rather than merely placing a player between scenes.",
+        "caption": "What Remains of Edith Finch ranks No. 11 for using changing forms of play to make each family memory feel distinct.",
+        "heading": "What Remains of Edith Finch",
+        "imageAlt": "Promotional image for What Remains of Edith Finch accompanying the No. 11 entry in Neural Critic’s best story-driven games ranking.",
+        "subtitle": "A family history told through constantly changing forms of play",
+        "developer": "Giant Sparrow",
+        "imageLocal": "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1788576247502-0d2bc3f5-4d67-47b4-89f9-9ad63514f910-remain-section.avif",
+        "releaseYear": "2017",
+        "headingStyle": "editorial"
+      },
+      {
+        "rank": "10",
+        "text": "Life is Strange builds its appeal around relationships, small-town atmosphere, and the ability to reconsider decisions through time manipulation. Some dialogue is unmistakably of its era, but the game understands that narrative choices become memorable when the player cares about the people affected by them. Its strongest moments come from that tension between curiosity and consequence.",
+        "caption": "Life is Strange ranks No. 10 because its character relationships make time manipulation and player choice feel personal.",
+        "heading": "Life is Strange",
+        "imageAlt": "Promotional image for Life is Strange accompanying the No. 10 entry in Neural Critic’s best story-driven games ranking.",
+        "subtitle": "Character relationships make ordinary choices feel consequential",
+        "developer": "Dontnod Entertainment",
+        "imageLocal": "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1788576291526-826e9391-ae01-4100-b679-a483f6905f69-life-is-strange-section.jpg",
+        "releaseYear": "2015",
+        "headingStyle": "editorial"
+      },
+      {
+        "rank": "9",
+        "text": "Outer Wilds tells its story through exploration and understanding. Progress is not primarily a stronger character or better equipment; it is the player learning how places, histories, and systems connect. Because discovery itself is the progression system, almost every major revelation changes how the world is read. That makes its narrative inseparable from the act of playing.",
+        "caption": "Outer Wilds ranks No. 9 for making discovery itself the progression system, so every revelation changes how its world is understood.",
+        "heading": "Outer Wilds",
+        "imageAlt": "Promotional image for Outer Wilds accompanying the No. 9 entry in Neural Critic’s best story-driven games ranking.",
+        "subtitle": "A story discovered through knowledge rather than quest markers",
+        "developer": "Mobius Digital",
+        "imageLocal": "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1788576310971-8c906f9c-2b21-4b5c-a504-a4bbe61ba078-outer-wild-section.jpg",
+        "releaseYear": "2019",
+        "headingStyle": "editorial"
+      },
+      {
+        "rank": "8",
+        "text": "God of War Ragnarök surrounds its combat with a story about responsibility, trust, and the difficulty of changing patterns learned over a lifetime. The scale becomes enormous, but the strongest scenes remain personal. Companion conversations during travel also help the story continue between major set pieces instead of disappearing whenever control returns to the player.",
+        "caption": "God of War Ragnarök ranks No. 8 for grounding mythic scale in the evolving relationship between Kratos and Atreus.",
+        "heading": "God of War Ragnarök",
+        "imageAlt": "Promotional image for God of War Ragnarök accompanying the No. 8 entry in Neural Critic’s best story-driven games ranking.",
+        "subtitle": "A large action game grounded by family and consequence",
+        "developer": "Santa Monica Studio",
+        "imageLocal": "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1788576352452-b3cdda29-d434-412d-b1b0-a4d16d37b77c-ragnarok-section.jpg",
+        "releaseYear": "2022",
+        "headingStyle": "editorial"
+      },
+      {
+        "rank": "7",
+        "text": "Cyberpunk 2077 is most compelling when it narrows its enormous city down to individual relationships. Major quest lines repeatedly ask what characters want from power, survival, identity, and one another, while the first-person perspective keeps conversations unusually immediate. The open world is impressive, but its best writing is often found in quieter spaces inside it.",
+        "caption": "Cyberpunk 2077 ranks No. 7 because Night City is at its strongest when its biggest ideas narrow into intimate character stories.",
+        "heading": "Cyberpunk 2077",
+        "imageAlt": "Promotional image for Cyberpunk 2077 accompanying the No. 7 entry in Neural Critic’s best story-driven games ranking.",
+        "subtitle": "Night City works best when its quests become character stories",
+        "developer": "CD PROJEKT RED",
+        "imageLocal": "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1788576360641-098afdde-b8a2-4953-a37d-ce5219aa8e9b-cyberpoonk-section.jpg",
+        "releaseYear": "2020",
+        "headingStyle": "editorial"
+      },
+      {
+        "rank": "6",
+        "text": "The Witcher 3 remains a reference point for quest writing because even small assignments can develop into moral problems, character studies, or local tragedies. Geralt is an established protagonist rather than a blank slate, so role-playing comes from interpreting how he responds. That tension gives the game a strong authored identity without removing meaningful player choice.",
+        "caption": "The Witcher 3 ranks No. 6 for quest writing that turns even smaller assignments into moral problems, character studies and local tragedies.",
+        "heading": "The Witcher 3: Wild Hunt",
+        "imageAlt": "Promotional image for The Witcher 3: Wild Hunt accompanying the No. 6 entry in Neural Critic’s best story-driven games ranking.",
+        "subtitle": "Side quests that often carry the weight of main stories",
+        "developer": "CD PROJEKT RED",
+        "imageLocal": "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1788576367480-9d1d54bb-61cd-40e2-a994-2b1eeded460b-witcher-section.gif",
+        "releaseYear": "2015",
+        "headingStyle": "editorial"
+      },
+      {
+        "rank": "5",
+        "text": "Clair Obscur combines an imaginative world with a party whose relationships keep the larger premise emotionally grounded. Its narrative is direct without being simple, and the turn-based journey gives characters enough quiet space between major events to feel like more than combat roles. The result is a story that benefits from the structure of a long RPG without losing urgency.",
+        "caption": "Clair Obscur: Expedition 33 ranks No. 5 for pairing a high-concept fantasy premise with a party whose relationships keep the journey emotionally grounded.",
+        "heading": "Clair Obscur: Expedition 33",
+        "imageAlt": "Promotional image for Clair Obscur: Expedition 33 accompanying the No. 5 entry in Neural Critic’s best story-driven games ranking.",
+        "subtitle": "A focused party story with unusual emotional directness",
+        "developer": "Sandfall Interactive",
+        "imageLocal": "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1788576372856-5b7abe79-61cf-492b-9601-af1f9e54bc43-clair-expedition-section.png",
+        "releaseYear": "2025",
+        "headingStyle": "editorial"
+      },
+      {
+        "rank": "4",
+        "text": "Mass Effect’s greatest narrative strength is accumulation. Choices, friendships, rivalries, and loyalties carry across three games, making the crew feel increasingly personal as the scale expands. Not every branch resolves equally, but few game series have made players feel this responsible for a continuing group of characters across such a large science-fiction story.",
+        "caption": "Mass Effect Legendary Edition ranks No. 4 because choices and relationships accumulate across an entire trilogy.",
+        "heading": "Mass Effect Legendary Edition",
+        "imageAlt": "Promotional image for Mass Effect Legendary Edition accompanying the No. 4 entry in Neural Critic’s best story-driven games ranking.",
+        "subtitle": "A trilogy where relationships accumulate across an entire journey",
+        "developer": "BioWare",
+        "imageLocal": "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1788576399593-44ad000b-1188-49c4-9cdc-8f62285a5c09-mass-efect-section.jpg",
+        "releaseYear": "2021",
+        "headingStyle": "editorial"
+      },
+      {
+        "rank": "3",
+        "text": "Red Dead Redemption 2 is patient enough to let character relationships develop through camp conversations, long rides, small routines, and missions that reveal shifting loyalties over time. Its world is technically remarkable, but the story works because that detail continually returns attention to the people living inside it. The slow pace becomes part of the characterization.",
+        "caption": "Red Dead Redemption 2 ranks No. 3 for letting character relationships develop through camp life, long journeys and a deliberately patient pace.",
+        "heading": "Red Dead Redemption 2",
+        "imageAlt": "Promotional image for Red Dead Redemption 2 accompanying the No. 3 entry in Neural Critic’s best story-driven games ranking.",
+        "subtitle": "Character detail gives an enormous world its emotional center",
+        "developer": "Rockstar Games",
+        "imageLocal": "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1788576411270-5c503c35-ae92-46c9-aaa7-989b2e629e2f-red-dead-section.jpg",
+        "releaseYear": "2018",
+        "headingStyle": "editorial"
+      },
+      {
+        "rank": "2",
+        "text": "Disco Elysium turns dialogue, memory, ideology, self-perception, and failure into role-playing systems. Internal skills argue with one another, the protagonist can be shaped through conversation rather than combat, and even mistakes often produce meaningful scenes. It demonstrates how interactive narrative can become mechanically rich without relying on traditional action.",
+        "caption": "Disco Elysium ranks No. 2 for turning dialogue, ideology, memory and failure into role-playing systems.",
+        "heading": "Disco Elysium",
+        "imageAlt": "Promotional image for Disco Elysium accompanying the No. 2 entry in Neural Critic’s best story-driven games ranking.",
+        "subtitle": "A role-playing game where language is the primary system",
+        "developer": "ZA/UM",
+        "imageLocal": "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1788576431221-dd9d3696-37d4-4540-bb62-bd5d09155916-disco-elisium-section.webp",
+        "releaseYear": "2019",
+        "headingStyle": "editorial"
+      },
+      {
+        "rank": "1",
+        "text": "Baldur’s Gate 3 ranks first because its story is not only delivered to the player; it is repeatedly reshaped around what the player tries. Dialogue, companions, class identity, exploration, failed rolls, combat choices, and improvised solutions can all alter how scenes develop. The game cannot account for everything, but it creates a rare sense that narrative and play are participating in the same conversation.",
+        "caption": "Baldur’s Gate 3 ranks No. 1 because its narrative reacts to dialogue, companions, class choices, exploration, failed rolls and improvised solutions.",
+        "heading": "Baldur’s Gate 3",
+        "imageAlt": "Promotional image for Baldur’s Gate 3 accompanying the No. 1 entry in Neural Critic’s best story-driven games ranking.",
+        "subtitle": "A story that feels unusually willing to react to the player",
+        "developer": "Larian Studios",
+        "imageLocal": "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1788576448869-90f9033b-4d0f-429b-829d-7bb8a9019d6f-baldur-sectipon.jpg",
+        "releaseYear": "2023",
+        "headingStyle": "editorial"
+      }
+    ],
+    "quickRead": [
+      "A small mystery carried by conversation and place",
+      "A family history told through constantly changing forms of play",
+      "Character relationships make ordinary choices feel consequential"
+    ],
+    "conclusion": "Story-driven games are most memorable when narrative is not something the player waits through. The best examples use dialogue, exploration, mechanics, relationships, or player choice to make the story feel different because it is being played.\\n\\nThat is why Baldur’s Gate 3 leads this ranking: its reactivity makes narrative feel systemic. But the range beneath it matters just as much, from Disco Elysium’s language-driven role-playing to Outer Wilds turning knowledge itself into progress.",
+    "conclusionHeading": "The best game stories are shaped by interaction",
+    "conclusionHeadingStyle": "editorial",
+    "featured": false,
+    "homepageSlot": "regular",
+    "publishedAt": "2026-09-05T09:48:43.389161+00:00",
+    "updatedAt": "2026-09-05T09:48:43.389161+00:00",
+    "imageLocal": "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1788576460170-2a21ec56-ab68-42de-93b0-f99563b0bf2b-firewatch-section.jpg",
+    "editorialSection": "what-to-play",
+    "platforms": [
+      "pc",
+      "playstation",
+      "xbox",
+      "nintendo"
+    ],
+    "collection": "best-games",
+    "collectionYear": 2026,
+    "gameKey": "",
+    "series": "",
+    "franchise": "",
+    "newsMeta": {}
+  },
+  {
+    "id": "f7cf6a30-5e34-4f96-a3a5-03c98df96281",
+    "slug": "hades-review",
+    "title": "Hades Review",
+    "description": "Hades review covering its roguelike run structure, build variety, permanent progression, character-driven storytelling, difficulty options and lasting appeal.",
+    "body": "Hades is built around repetition, but its design tries to make repetition itself the source of progress. Each escape attempt reshuffles combat choices while the return to the House of Hades advances relationships, dialogue and permanent systems.\n\nA final Neural Critic review should judge whether those layers remain in balance across dozens of runs: whether mechanical variety keeps attempts distinct, whether story progression gives failure meaning, and whether permanent upgrades support learning without flattening the challenge.",
+    "category": "REVIEW",
+    "author": "Rouane Mounssif",
+    "tags": [
+      "Hades",
+      "Supergiant Games",
+      "Roguelike",
+      "Action RPG",
+      "Review"
+    ],
+    "imageAlt": "Official Hades promotional artwork used as the review feature image.",
+    "imageCredit": "Official promotional image",
+    "articleFormat": "review",
+    "reviewMeta": {
+      "cons": [
+        "Repetition can eventually surface",
+        "Random upgrade offerings can produce weaker runs",
+        "Some relationship and story progression unfolds slowly"
+      ],
+      "pros": [
+        "Excellent combat responsiveness",
+        "Strong build and weapon variety",
+        "Character writing gives repeated runs meaning",
+        "Distinctive art and soundtrack",
+        "Permanent progression supports the run-based structure"
+      ],
+      "score": "9.6",
+      "verdict": "A benchmark roguelike that makes repeated runs meaningful through excellent combat, build variety, characters and unusually reactive storytelling.",
+      "developer": "Supergiant Games",
+      "publisher": "Supergiant Games",
+      "reviewCopy": "Personally accessed through Steam.",
+      "releaseDate": "September 17, 2020",
+      "testedPlatform": "PC (Steam)"
+    },
+    "contentBlocks": [
+      {
+        "text": "Hades gives the player a starting weapon and then builds each attempt through temporary blessings, upgrades and branching choices. Because many of those options are randomized, the player is repeatedly asked to adapt rather than recreate exactly the same setup.\n\nThat structure makes build construction part of the moment-to-moment run rather than something decided only before entering a level.",
+        "heading": "Every Run Is a Build-As-You-Go RPG",
+        "headingStyle": "editorial"
+      },
+      {
+        "text": "Returning to the House after an unsuccessful run opens new conversations, relationships and progression opportunities. Failure therefore becomes part of the authored narrative loop rather than a purely mechanical reset.\n\nThat connection between repetition and story is one of Hades’ defining ideas, giving even unsuccessful attempts a role in the broader campaign.",
+        "heading": "Failure Advances the Story Instead of Resetting It",
+        "headingStyle": "editorial"
+      },
+      {
+        "text": "The weapon roster gives runs different movement, range and tempo before temporary upgrades are added. Later aspects further modify how those core styles behave.\n\nThe result is a useful separation between permanent playstyle identity and the temporary build assembled during each run.",
+        "heading": "Weapons and Aspects Define the Baseline Playstyles",
+        "headingStyle": "editorial"
+      },
+      {
+        "text": "Resources collected across runs unlock lasting improvements, new systems and customization. That means player knowledge grows alongside measurable character progression.\n\nThe two forms of progress reinforce one another: repeated attempts improve both the player’s understanding and the range of permanent options available.",
+        "heading": "Permanent Progression Softens the Roguelike Reset",
+        "headingStyle": "editorial"
+      },
+      {
+        "text": "The House of Hades and the wider cast provide continuity between runs. Relationships develop through repeated conversations and gifts, while dialogue frequently acknowledges recent events or long-term progress.\n\nThat reactivity helps repeated spaces feel connected to an evolving story rather than detached attempts.",
+        "heading": "Characters Give the Structure Emotional Continuity",
+        "headingStyle": "editorial"
+      },
+      {
+        "text": "God Mode offers a more forgiving route for players who want to reduce repeated-run friction, while the Pact of Punishment later allows experienced players to add specific challenge conditions.\n\nTogether, the systems let players adjust pressure in opposite directions without replacing the core progression loop.",
+        "heading": "Difficulty Can Be Tuned Without One Single Easy Mode",
+        "headingStyle": "editorial"
+      },
+      {
+        "text": "Hades uses strong silhouettes, color coding, effects and music to make repeated spaces and fast encounters immediately recognizable. Presentation is therefore functional as well as stylistic.\n\nThe visual language helps separate enemies, attacks and interactable elements even when multiple effects share the screen.",
+        "heading": "Art, Music and Readability Work at High Speed",
+        "headingStyle": "editorial"
+      },
+      {
+        "text": "Hades version 1.0 launched on PC and Nintendo Switch on September 17, 2020, then arrived on PlayStation and Xbox on August 13, 2021. Supergiant also supports cross-saves between compatible PC/Mac storefronts and Nintendo Switch.\n\nPerformance and control observations in this review refer to the PC version available through Steam.",
+        "heading": "Current Platform Context",
+        "headingStyle": "editorial"
+      }
+    ],
+    "quickRead": [
+      "Each run combines a core weapon style with temporary boons and upgrades, making adaptation central to progression.",
+      "Failure advances relationships, story and permanent systems instead of acting as a pure reset.",
+      "Weapons and aspects create distinct baseline playstyles before randomized upgrades are added.",
+      "God Mode and the Pact of Punishment let players tune pressure in different directions without changing the core loop."
+    ],
+    "conclusion": "Hades is built around the idea that repetition does not have to mean stagnation. Runs reset, but relationships, systems, resources and player knowledge continue moving forward, giving the structure a sense of momentum that extends beyond a single successful attempt.\\n\\nIts combat, build variety and reactive character writing remain unusually cohesive, while repetition and random upgrade offerings provide the clearest limits. The 9.6 verdict reflects the PC version reviewed through Steam.\n\nFor current platform details and connected coverage, visit the [Hades game page](/games/hades/).",
+    "conclusionHeading": "Review framework: the final judgment",
+    "conclusionHeadingStyle": "editorial",
+    "featured": false,
+    "homepageSlot": "regular",
+    "publishedAt": "2026-09-05T09:38:05.569798+00:00",
+    "updatedAt": "2026-09-05T09:38:05.569798+00:00",
+    "imageLocal": "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1788575051931-b6eac18d-18be-4a03-89cc-bfed693749d6-hades-2-section.jpg",
+    "editorialSection": "reviews",
+    "platforms": [
+      "pc",
+      "playstation",
+      "xbox",
+      "nintendo"
+    ],
+    "collection": null,
+    "collectionYear": null,
+    "gameKey": "Hades",
+    "series": "Hades",
+    "franchise": "Hades",
+    "newsMeta": {}
+  },
+  {
+    "id": "ef2d6ea7-0e49-4e13-9bba-eee2c637b05f",
+    "slug": "god-of-war-ragnarok-review",
+    "title": "God of War Ragnarök Review",
+    "description": "God of War Ragnarök review covering Kratos and Atreus, expanded combat, companions, exploration, side stories, Valhalla and the current complete package.",
+    "body": "God of War Ragnarök is both a sequel and a conclusion to the Norse arc begun by God of War (2018). It expands the number of playable spaces, companions and combat options while carrying forward the close character focus that redefined the series in the previous game.\n\nA final Neural Critic review should judge whether that greater scale strengthens the story or crowds it, whether combat meaningfully evolves across the campaign, and how exploration balances authored spectacle with optional discovery. The current review scope also needs to account for the Valhalla expansion and the later PC version without confusing those additions with the original 2022 launch package.",
+    "category": "REVIEW",
+    "author": "Rouane Mounssif",
+    "tags": [
+      "God of War Ragnarök",
+      "Santa Monica Studio",
+      "PlayStation",
+      "Action Adventure",
+      "Review"
+    ],
+    "imageAlt": "Official God of War Ragnarök promotional artwork used as the review feature image.",
+    "imageCredit": "Official promotional image",
+    "articleFormat": "review",
+    "reviewMeta": {
+      "cons": [
+        "Pacing is uneven in several stretches",
+        "Some playable sections divide players",
+        "The final escalation can feel rushed relative to the buildup"
+      ],
+      "pros": [
+        "Expanded combat variety",
+        "Excellent performances and character writing",
+        "Strong optional side stories",
+        "High production values and presentation"
+      ],
+      "score": "9.1",
+      "verdict": "An ambitious sequel with richer combat, superb performances and excellent character work that sometimes struggles under the weight of its own scope.",
+      "developer": "Santa Monica Studio",
+      "publisher": "Sony Interactive Entertainment",
+      "reviewCopy": "Personally accessed through Steam.",
+      "releaseDate": "November 9, 2022",
+      "testedPlatform": "PC (Steam)"
+    },
+    "contentBlocks": [
+      {
+        "text": "Ragnarök expands from a family story into a conflict involving more realms, factions and mythological figures. Kratos and Atreus remain the emotional center, but the narrative regularly shifts attention toward a larger ensemble.\n\nThat broader scope gives the sequel more perspectives and relationships to develop while creating a constant tension between intimate character work and large-scale mythic stakes.",
+        "heading": "The Story Balances Intimacy With a Much Larger Conflict",
+        "headingStyle": "editorial"
+      },
+      {
+        "text": "The combat system retains the close over-the-shoulder structure of God of War (2018) while expanding abilities, equipment choices and encounter variety. Different tools and companion actions create more tactical decisions across a longer campaign.\n\nThe added complexity gives players more ways to shape encounters, although the interface and progression systems also have more information to communicate than before.",
+        "heading": "Combat Adds Options Without Replacing the 2018 Foundation",
+        "headingStyle": "editorial"
+      },
+      {
+        "text": "Ragnarök gives companion characters a larger mechanical and narrative role. Their presence affects conversations, puzzle interactions and combat support, while the story repeatedly changes who is traveling with the player.\n\nThat rotation makes the journey more dynamic and lets relationships develop through ordinary exploration as well as major story scenes.",
+        "heading": "Companions Change the Rhythm of Encounters and Exploration",
+        "headingStyle": "editorial"
+      },
+      {
+        "text": "The game presents interconnected regions with optional paths, side stories and revisitable spaces rather than one seamless open map. Some realms are tightly directed while others open into larger hubs.\n\nThe structure supports exploration without abandoning the authored pacing of the main story, though the urgency of the narrative can sometimes sit awkwardly beside long optional detours.",
+        "heading": "The Nine Realms Are Broader, but Not a Conventional Open World",
+        "headingStyle": "editorial"
+      },
+      {
+        "text": "Optional quests frequently focus on companions, local history and consequences of earlier events rather than functioning only as reward delivery. That gives side content an unusually large role in expanding relationships and world context.\n\nSeveral of the game’s most useful character moments live outside the direct critical path, which makes exploration part of the narrative experience rather than a separate checklist layer.",
+        "heading": "Side Stories Are Important to the Character Work",
+        "headingStyle": "editorial"
+      },
+      {
+        "text": "The no-cut camera approach continues from God of War (2018), keeping conversations, exploration and major story moments within a continuous visual grammar. That creates immediacy and keeps transitions closely tied to the player’s perspective.\n\nThe technique is more demanding in a larger sequel because it has to carry more locations, characters and pacing changes without relying on conventional cinematic cuts.",
+        "heading": "Presentation Still Depends on the Continuous-Camera Style",
+        "headingStyle": "editorial"
+      },
+      {
+        "text": "God of War Ragnarök: Valhalla is a free post-launch expansion that continues character work after the main story through a repeatable structure. It is included with the PC version alongside other post-launch updates.\n\nValhalla is discussed as part of the current complete God of War Ragnarök package.",
+        "heading": "Valhalla Extends the Character Arc After the Main Game",
+        "headingStyle": "editorial"
+      },
+      {
+        "text": "God of War Ragnarök launched on PlayStation 4 and PlayStation 5 in November 2022 and arrived on PC on September 19, 2024. The PC release includes Valhalla and post-launch updates, while technical options differ across versions.\n\nPerformance, image quality, input features and loading observations refer to the PC version available through Steam.",
+        "heading": "Current Platform Context",
+        "headingStyle": "editorial"
+      }
+    ],
+    "quickRead": [
+      "The sequel expands the 2018 foundation with more realms, characters and combat options.",
+      "Kratos and Atreus remain the emotional center even as the story broadens to a larger ensemble.",
+      "Optional quests carry important character work and make exploration more meaningful than simple map completion.",
+      "Valhalla changes the modern package, so the final review scope should state whether it is included in the score."
+    ],
+    "conclusion": "God of War Ragnarök expands nearly every part of the 2018 foundation: more realms, more characters, broader side stories and more combat options. Its central strength remains the relationship-driven story around Kratos and Atreus, while the larger scale creates a constant tradeoff between intimacy and momentum.\\n\\nValhalla strengthens the current package with a focused post-game character arc. The 9.1 verdict reflects the PC version reviewed through Steam.\n\nFor current platform details and connected coverage, visit the [God of War Ragnarök game page](/games/god-of-war-ragnarok/).",
+    "conclusionHeading": "Review framework: the final judgment",
+    "conclusionHeadingStyle": "editorial",
+    "featured": false,
+    "homepageSlot": "regular",
+    "publishedAt": "2026-09-05T09:38:05.569798+00:00",
+    "updatedAt": "2026-09-05T09:38:05.569798+00:00",
+    "imageLocal": "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1788575025833-a6e98c41-8419-4add-8bb6-e5a2c79285b7-ragnarok-section.jpg",
+    "editorialSection": "reviews",
+    "platforms": [
+      "pc",
+      "playstation"
+    ],
+    "collection": null,
+    "collectionYear": null,
+    "gameKey": "God of War Ragnarök",
+    "series": "God of War",
+    "franchise": "God of War",
+    "newsMeta": {}
+  },
+  {
+    "id": "af1235c8-6354-4f2d-9d53-ea99e96c8f60",
+    "slug": "sekiro-shadows-die-twice-review",
+    "title": "Sekiro: Shadows Die Twice Review",
+    "description": "Sekiro: Shadows Die Twice review covering posture-based combat, traversal, bosses, progression, Ashina’s world design and how FromSoftware’s focus pays off.",
+    "body": "Sekiro: Shadows Die Twice is FromSoftware’s most focused modern action game. Rather than asking players to build a character from a broad pool of classes and equipment, it centers the experience on a defined protagonist, a compact set of progression systems and a combat model built around pressure, timing and posture.\n\nThat narrower design gives the game a different identity from Dark Souls or Elden Ring. The final Neural Critic review should judge how well that focus serves the full campaign: whether the combat keeps teaching new lessons, whether traversal and stealth meaningfully change exploration, and whether the reduced build freedom feels purposeful rather than restrictive.",
+    "category": "REVIEW",
+    "author": "Rouane Mounssif",
+    "tags": [
+      "Sekiro: Shadows Die Twice",
+      "FromSoftware",
+      "Activision",
+      "Action Adventure",
+      "Review"
+    ],
+    "imageAlt": "Official Sekiro: Shadows Die Twice promotional artwork used as the review feature image.",
+    "imageCredit": "Official promotional image",
+    "articleFormat": "review",
+    "reviewMeta": {
+      "cons": [
+        "Steep learning curve",
+        "Much less build variety than FromSoftware’s RPGs",
+        "Difficulty spikes can feel unforgiving"
+      ],
+      "pros": [
+        "Precise posture-based combat",
+        "Excellent boss design",
+        "Vertical traversal improves exploration",
+        "Focused systems support tightly authored encounters",
+        "Ashina has a strong, distinctive atmosphere"
+      ],
+      "score": "9.2",
+      "verdict": "FromSoftware at its most focused: demanding, precise combat and excellent boss design traded against much less character-build freedom than its RPGs.",
+      "developer": "FromSoftware",
+      "publisher": "Activision",
+      "reviewCopy": "Personally accessed through Steam.",
+      "releaseDate": "March 22, 2019",
+      "testedPlatform": "PC (Steam)"
+    },
+    "contentBlocks": [
+      {
+        "text": "Sekiro’s central combat system asks the player to think about posture as much as conventional health. Deflecting, attacking and maintaining pressure can break an opponent’s stance and create an opening, while hesitation often lets that posture recover.\n\nThat structure makes encounters revolve around momentum rather than simple damage races. The timing model is consistent enough to connect ordinary enemies, mini-bosses and major encounters through the same underlying language.",
+        "heading": "Combat Is Built Around Posture, Not Just Health",
+        "headingStyle": "editorial"
+      },
+      {
+        "text": "Wolf is a fixed protagonist with a specific role in the story, which means Sekiro gives up much of the class-building freedom associated with FromSoftware’s Souls games. Progression instead comes through skill trees, health and attack improvements, Prosthetic Tool upgrades and the player’s growing command of the core systems.\n\nThat tradeoff gives encounters a more predictable mechanical baseline while narrowing the range of character-building approaches available across a full playthrough.",
+        "heading": "A Defined Protagonist Changes the RPG Formula",
+        "headingStyle": "editorial"
+      },
+      {
+        "text": "The grappling hook changes how FromSoftware spaces are read. Rooftops, cliffs and elevated routes become part of normal navigation rather than scenery, while many areas can be approached from more than one height or direction.\n\nVertical movement also supports scouting and disengagement, giving several regions a layered structure that differs from the more ground-bound exploration of Dark Souls.",
+        "heading": "Traversal Makes the World More Vertical",
+        "headingStyle": "editorial"
+      },
+      {
+        "text": "Sekiro allows many hostile spaces to be approached with observation and stealth before direct combat begins. That creates a quieter rhythm between major confrontations and can reduce the pressure of crowded areas without removing the need to understand the core combat system.\n\nStealth is most useful when level layouts provide alternate angles and routes; in simpler spaces it functions more as a way to shape the opening moments of an encounter.",
+        "heading": "Stealth Gives Encounters a Second Rhythm",
+        "headingStyle": "editorial"
+      },
+      {
+        "text": "Major encounters repeatedly test a specific part of Sekiro’s combat language: posture pressure, defensive timing, movement, resource management or the ability to read a change in tempo.\n\nBecause the player has fewer build-based ways to bypass a difficult encounter than in a traditional Souls RPG, boss design carries unusual weight. That makes Sekiro a useful companion to our broader feature on [what makes FromSoftware boss fights memorable](/stories/fromsoftware-boss-fights-memorable/).",
+        "heading": "Bosses Function as Mastery Checks",
+        "headingStyle": "editorial"
+      },
+      {
+        "text": "The resurrection system can return Wolf to an encounter after defeat under defined conditions, creating a small space between failure and a full restart. It is tied to both the story and the game’s encounter structure.\n\nMechanically, resurrection can preserve an attempt long enough to learn more about an enemy or complete a sequence that would otherwise end immediately, without removing the consequences of repeated failure.",
+        "heading": "Resurrection Changes the Cost of Failure",
+        "headingStyle": "editorial"
+      },
+      {
+        "text": "Sekiro’s world is smaller and more directed than Elden Ring’s, but locations are reused and recontextualized as the story advances. Routes open, familiar spaces change and the player’s relationship with Ashina develops through repetition as much as through constant novelty.\n\nIts scale matters less than the way the same geography supports different moods, enemy arrangements and story beats across the campaign.",
+        "heading": "Ashina Is Dense, Layered and Revisited",
+        "headingStyle": "editorial"
+      },
+      {
+        "text": "Sekiro launched on March 22, 2019 for PlayStation 4, Xbox One and PC, with FromSoftware as developer and Activision as publisher in major western markets. The game remains available through those platform families, with later hardware able to run the existing console versions through compatibility support where applicable.\n\nTechnical observations in this review refer to the PC version available through Steam rather than every platform version.",
+        "heading": "Current Version and Platform Context",
+        "headingStyle": "editorial"
+      }
+    ],
+    "quickRead": [
+      "Posture makes sustained pressure and precise defensive timing central to combat.",
+      "A fixed protagonist gives encounter design more focus but reduces traditional Souls-style build freedom.",
+      "Vertical traversal and stealth change how Ashina’s spaces are approached and revisited.",
+      "Bosses carry unusual weight because progression offers fewer build-based ways around difficulty spikes."
+    ],
+    "conclusion": "Sekiro stands apart within FromSoftware’s catalogue because focus replaces much of the usual build freedom. Its fixed protagonist, posture system, vertical traversal and tightly authored major encounters give the game a narrower but more specialized mechanical identity.\\n\\nThat precision also makes difficulty spikes and repetition harder to sidestep than they are in more build-driven Souls games. Readers comparing the studio’s broader catalogue can also see where Sekiro lands in our [FromSoftware difficulty ranking](/stories/fromsoftware-soulsborne-games-ranked-by-difficulty/) and [best Soulslike games](/stories/best-soulslike-games/).",
+    "conclusionHeading": "Review framework: the final judgment",
+    "conclusionHeadingStyle": "editorial",
+    "featured": false,
+    "homepageSlot": "regular",
+    "publishedAt": "2026-09-05T09:38:05.569798+00:00",
+    "updatedAt": "2026-09-05T09:38:05.569798+00:00",
+    "imageLocal": "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1788579286796-b00de9e9-dee6-4cc2-9e65-3d53a9687d66-sekiro-section.webp",
+    "editorialSection": "reviews",
+    "platforms": [
+      "pc",
+      "playstation",
+      "xbox"
+    ],
+    "collection": null,
+    "collectionYear": null,
+    "gameKey": "Sekiro: Shadows Die Twice",
+    "series": "Sekiro",
+    "franchise": "Sekiro",
+    "newsMeta": {}
+  },
+  {
+    "id": "45b7a4ff-5a8c-4836-bf65-0a929ea6fe03",
+    "slug": "persona-5-royal-review",
+    "title": "Persona 5 Royal Review",
+    "description": "Persona 5 Royal review covering its calendar system, turn-based combat, Confidants, Palaces, Mementos, Royal additions, long runtime and uneven pacing.",
+    "body": "Persona 5 Royal combines a long-form school-year calendar with turn-based dungeon exploration, relationship systems and a heavily stylized presentation. Its unusual strength is structural: ordinary daily decisions and supernatural missions feed into the same progression loop, making time itself one of the game’s main resources.\n\nA final Neural Critic review should judge whether that structure remains compelling across a very long campaign, whether Royal’s additional story material improves the original arc, and how successfully combat, social progression and dungeon design support one another rather than competing for attention.",
+    "category": "REVIEW",
+    "author": "Rouane Mounssif",
+    "tags": [
+      "Persona 5 Royal",
+      "Atlus",
+      "Sega",
+      "JRPG",
+      "Turn-Based RPG",
+      "Review"
+    ],
+    "imageAlt": "Official Persona 5 Royal promotional artwork used as the review feature image.",
+    "imageCredit": "Official promotional image",
+    "articleFormat": "review",
+    "reviewMeta": {
+      "cons": [
+        "The campaign is extremely long",
+        "Story pacing is uneven across several arcs",
+        "Mementos can become repetitive"
+      ],
+      "pros": [
+        "Excellent turn-based combat flow",
+        "Confidants connect character stories to progression",
+        "Exceptional soundtrack and visual identity",
+        "Royal adds substantial worthwhile content",
+        "Deep calendar and progression systems"
+      ],
+      "score": "9.5",
+      "verdict": "A remarkably stylish and deep JRPG whose combat, social systems and characters justify most of its huge runtime, though pacing remains its clearest weakness.",
+      "developer": "Atlus",
+      "publisher": "Sega",
+      "reviewCopy": "Personally accessed through Steam.",
+      "releaseDate": "March 31, 2020",
+      "testedPlatform": "PC (Steam)"
+    },
+    "contentBlocks": [
+      {
+        "text": "Days are limited, and choices about study, relationships, activities and dungeon progress compete for the same calendar space. That turns time management into a role-playing system rather than simple scheduling between battles.\n\nThe structure makes prioritization meaningful throughout the campaign because social progress, character growth and dungeon planning all draw from the same limited resource: time.",
+        "heading": "The Calendar Is the Game’s Central Progression System",
+        "headingStyle": "editorial"
+      },
+      {
+        "text": "Persona 5 Royal uses elemental weaknesses, status effects, party switching and Baton Pass-style momentum to encourage efficient turns. Encounters are built around identifying opportunities and chaining actions rather than slowly trading damage.\n\nAs the roster and Persona library expand, the combat system becomes increasingly tied to how well the player prepares coverage for different enemy weaknesses.",
+        "heading": "Turn-Based Combat Is Built Around Momentum",
+        "headingStyle": "editorial"
+      },
+      {
+        "text": "Relationships with major characters unlock narrative scenes and mechanical benefits, which makes social progression directly relevant to dungeon play. The strongest Confidant arcs add context to the game’s themes while also reshaping how the player uses time or party systems.\n\nThat connection keeps the social and combat halves from operating as completely separate games.",
+        "heading": "Confidants Connect Character Stories to Progression",
+        "headingStyle": "editorial"
+      },
+      {
+        "text": "Persona 5 Royal adds characters, locations, systems and an additional late-game story arc beyond the original release. It also revises several existing mechanics and dungeon elements.\n\nThe added content is integrated throughout the campaign rather than confined to a single post-game chapter, so Royal is best treated as its own complete package.",
+        "heading": "Royal Reworks and Expands the Original Persona 5",
+        "headingStyle": "editorial"
+      },
+      {
+        "text": "Major dungeons are themed around the worldview of their central antagonists, allowing environment design to carry narrative meaning. Royal also adjusts individual layouts and traversal compared with the original game.\n\nThe handcrafted Palaces give major arcs distinct visual identities even when the campaign’s length makes repeated dungeon routines more noticeable over time.",
+        "heading": "Palaces Give Major Story Arcs a Visual Identity",
+        "headingStyle": "editorial"
+      },
+      {
+        "text": "Mementos acts as a large repeatable dungeon tied to side requests and broader progression. Its procedural structure deliberately contrasts with the handcrafted Palaces.\n\nThat flexibility gives the calendar a place for optional grinding and requests, but the repeated floor structure is also one of the game’s most obvious sources of repetition.",
+        "heading": "Mementos Provides a Different Kind of Repetition",
+        "headingStyle": "editorial"
+      },
+      {
+        "text": "Persona 5 Royal uses typography, menus, animation and music as a unified presentation language rather than decorative polish added on top of the RPG systems. Even routine actions are framed through a distinctive visual identity.\n\nThe interface is unusually expressive while still carrying a large amount of mechanical information, making presentation part of how the game communicates its pace and personality.",
+        "heading": "Style, Music and Interface Are Part of the Experience",
+        "headingStyle": "editorial"
+      },
+      {
+        "text": "Atlus currently sells Persona 5 Royal across PlayStation, Xbox, Nintendo Switch and PC. The 2022 multi-platform release brought Royal’s complete content to modern platform families while the earlier PS4 release remains part of the game’s history.\n\nTechnical observations about performance and loading refer to the PC version available through Steam.",
+        "heading": "Current Multi-Platform Context",
+        "headingStyle": "editorial"
+      }
+    ],
+    "quickRead": [
+      "The calendar turns time management into a central progression system across social and dungeon play.",
+      "Turn-based combat is built around exploiting weaknesses and chaining momentum efficiently.",
+      "Confidants connect character stories directly to mechanical progression and daily planning.",
+      "Royal adds major late-game content and revisions, making it the definitive modern package rather than a simple re-release."
+    ],
+    "conclusion": "Persona 5 Royal ties its calendar, relationships, turn-based combat and presentation into a single long-form RPG structure. Its greatest strength is how often social choices feed mechanical progression, while its unusually long campaign makes pacing and repetition more important than they would be in a shorter game.\\n\\nReaders comparing modern turn-based RPGs can also continue with [The 12 Best Turn-Based RPGs](/stories/best-turn-based-rpgs/) or the dedicated [Persona 5 Royal game page](/games/persona-5-royal/). The 9.5 verdict reflects the PC version reviewed through Steam.",
+    "conclusionHeading": "Review framework: the final judgment",
+    "conclusionHeadingStyle": "editorial",
+    "featured": false,
+    "homepageSlot": "regular",
+    "publishedAt": "2026-09-05T09:38:05.569798+00:00",
+    "updatedAt": "2026-09-05T09:38:05.569798+00:00",
+    "imageLocal": "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1788575037494-c6397eba-3e65-4a1f-b3e2-4f0a7e9ab230-persona-5.avif",
+    "editorialSection": "reviews",
+    "platforms": [
+      "pc",
+      "playstation",
+      "xbox",
+      "nintendo"
+    ],
+    "collection": null,
+    "collectionYear": null,
+    "gameKey": "Persona 5 Royal",
+    "series": "Persona",
+    "franchise": "Persona",
+    "newsMeta": {}
+  },
+  {
+    "id": "453c50f6-9467-4150-99d5-f6e855f911cb",
+    "slug": "ghost-of-tsushima-directors-cut-review",
+    "title": "Ghost of Tsushima Director’s Cut Review",
+    "description": "Ghost of Tsushima Director’s Cut review covering Jin’s story, stance-based combat, open-world exploration, Iki Island, Legends and the complete package.",
+    "body": "Ghost of Tsushima Director’s Cut packages Sucker Punch’s open-world samurai drama with the Iki Island expansion and Legends multiplayer, while the PS5 and later PC versions broaden the technical context beyond the original PS4 release.\n\nA final Neural Critic review should judge the game’s central tension between cinematic presentation and familiar open-world structure: whether its navigation, side stories and combat create a strong sense of place, and whether Director’s Cut meaningfully improves the complete experience rather than simply adding more content.",
+    "category": "REVIEW",
+    "author": "Rouane Mounssif",
+    "tags": [
+      "Ghost of Tsushima Director’s Cut",
+      "Sucker Punch Productions",
+      "PlayStation",
+      "Open World",
+      "Action Adventure",
+      "Review"
+    ],
+    "imageAlt": "Official Ghost of Tsushima Director’s Cut promotional artwork used as the review feature image.",
+    "imageCredit": "Official promotional image",
+    "articleFormat": "review",
+    "reviewMeta": {
+      "cons": [
+        "Open-world activities become repetitive",
+        "Mission structures can feel familiar over time",
+        "Completionist play can produce open-world fatigue"
+      ],
+      "pros": [
+        "Satisfying stance-based combat",
+        "Exceptional visual direction",
+        "Jin’s central character arc is compelling",
+        "Exploration presentation keeps the landscape readable",
+        "Iki Island adds meaningful extra context"
+      ],
+      "score": "9.0",
+      "verdict": "A beautiful and highly polished open-world adventure elevated by satisfying combat and strong presentation, but held back by repetition across its larger map.",
+      "developer": "Sucker Punch Productions",
+      "publisher": "Sony Interactive Entertainment",
+      "reviewCopy": "Personally accessed through Steam.",
+      "releaseDate": "August 20, 2021",
+      "testedPlatform": "PC (Steam)"
+    },
+    "contentBlocks": [
+      {
+        "text": "Wind, animals and environmental movement are used as navigation language so objectives can be followed without relying entirely on a conventional mini-map. The result keeps attention on the landscape itself more often than many open-world games.\n\nThe system does not remove familiar objective-driven structure, but it changes how that structure is communicated and gives exploration a stronger visual identity.",
+        "heading": "The Open World Tries to Hide Its Interface",
+        "headingStyle": "editorial"
+      },
+      {
+        "text": "Ghost of Tsushima organizes melee encounters around stance choices, defensive timing and controlled spacing, with additional tools supporting stealth and crowd management. The system is deliberately readable rather than simulation-focused.\n\nIts clarity makes common enemy roles easy to understand, though that same familiarity can make repeated encounters less surprising once the core patterns are established.",
+        "heading": "Combat Is Built Around Readable Stances and Timing",
+        "headingStyle": "editorial"
+      },
+      {
+        "text": "The narrative frames Jin Sakai between inherited samurai expectations and methods he adopts as the Ghost. That conflict is carried through relationships, major story moments and the way other characters respond to his changing role.\n\nThe tension between personal loyalty, tradition and necessity gives the campaign its central thematic through-line.",
+        "heading": "Jin’s Story Is About Conflict Between Roles",
+        "headingStyle": "editorial"
+      },
+      {
+        "text": "Character-focused quest lines give major allies room outside the central invasion story, while shorter tales use local conflicts to expand the island’s atmosphere.\n\nThat structure gives the supporting cast meaningful space, although repeated mission formats and travel can make some optional content feel more routine than the strongest character arcs.",
+        "heading": "Side Stories Carry Much of the Supporting Cast",
+        "headingStyle": "editorial"
+      },
+      {
+        "text": "Color, weather, grass, particles and composition are used to make navigation and combat spaces visually legible while maintaining a highly cinematic look. Kurosawa Mode and Japanese voice options further shape presentation choices.\n\nVisual style is closely tied to readability and navigation rather than functioning only as decoration, which helps explain why Tsushima remains the game’s most immediately recognizable quality.",
+        "heading": "Presentation Is One of the Game’s Strongest Design Commitments",
+        "headingStyle": "editorial"
+      },
+      {
+        "text": "Director’s Cut includes the Iki Island expansion, which adds a new region, story and additional activities. The expansion places more emphasis on Jin’s personal history and reframes parts of his past through a smaller, more focused setting.\n\nIki Island is discussed as part of the Director’s Cut package reviewed here.",
+        "heading": "Iki Island Adds a More Personal Expansion",
+        "headingStyle": "editorial"
+      },
+      {
+        "text": "Ghost of Tsushima: Legends is an online cooperative mode included with Director’s Cut. Its class-based missions and multiplayer progression are distinct from the single-player campaign.\n\nBecause it operates as a separate mode with its own progression and network conditions, Legends is discussed separately from the single-player campaign.",
+        "heading": "Legends Adds a Separate Cooperative Mode",
+        "headingStyle": "editorial"
+      },
+      {
+        "text": "Ghost of Tsushima Director’s Cut released on PS4 and PS5 on August 20, 2021, and arrived on PC on May 16, 2024. The PC version includes the full game, Iki Island and Legends.\n\nTechnical observations about performance, controls and loading refer to the PC version available through Steam.",
+        "heading": "Director’s Cut Now Spans PlayStation and PC",
+        "headingStyle": "editorial"
+      }
+    ],
+    "quickRead": [
+      "Environmental navigation keeps attention on Tsushima rather than a constant mini-map.",
+      "Stance-based combat is readable and flexible, though repeated enemy roles can reduce variety over time.",
+      "Character-focused side stories carry much of the supporting cast and world context.",
+      "Director’s Cut adds Iki Island and Legends, so the final score needs a clearly stated package scope."
+    ],
+    "conclusion": "Ghost of Tsushima Director’s Cut is defined by a strong sense of place, readable combat and a deliberate cinematic identity. Its environmental navigation, character-focused side stories and visual direction give the open world personality, while repeated activities and familiar encounter structures provide the clearest counterweight.\\n\\nIki Island and Legends broaden the Director’s Cut package without changing the core strengths and weaknesses of Jin’s main campaign. The 9.0 verdict reflects the current PC version reviewed through Steam.\n\nFor current platform details and connected coverage, visit the [Ghost of Tsushima Director’s Cut game page](/games/ghost-of-tsushima-directors-cut/).",
+    "conclusionHeading": "Review framework: the final judgment",
+    "conclusionHeadingStyle": "editorial",
+    "featured": false,
+    "homepageSlot": "regular",
+    "publishedAt": "2026-09-05T09:38:05.569798+00:00",
+    "updatedAt": "2026-09-05T09:38:05.569798+00:00",
+    "imageLocal": "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1788575081447-1d681e0c-608a-49e1-9999-3f1dd2e7fd03-ghost-section.webp",
+    "editorialSection": "reviews",
+    "platforms": [
+      "pc",
+      "playstation"
+    ],
+    "collection": null,
+    "collectionYear": null,
+    "gameKey": "Ghost of Tsushima Director’s Cut",
+    "series": "Ghost of Tsushima",
+    "franchise": "Ghost of Tsushima",
+    "newsMeta": {}
+  },
+  {
+    "id": "e4ded201-5387-4596-ace1-3baeb8d57564",
+    "slug": "cyberpunk-2077-review",
+    "title": "Cyberpunk 2077 Review",
+    "description": "Cyberpunk 2077 review covering Night City, builds, combat, quests, Phantom Liberty and how the RPG holds up after years of major updates on modern platforms.",
+    "body": "A fair review of Cyberpunk 2077 in 2026 has to judge the game that exists now rather than simply replay the story of its 2020 launch. CD PROJEKT RED rebuilt major systems through Update 2.0, expanded the game with Phantom Liberty, brought the Ultimate Edition to Nintendo Switch 2 and Mac, and continued platform-specific work into 2026.\n\nThat makes the current review question more useful than whether the launch controversy has been redeemed. The real question is what kind of RPG Cyberpunk 2077 has become, where its strongest ideas now sit, and which limitations still matter after years of substantial revision.",
+    "category": "REVIEW",
+    "author": "Rouane Mounssif",
+    "tags": [
+      "Cyberpunk 2077",
+      "CD Projekt Red",
+      "Night City",
+      "Action RPG",
+      "Review"
+    ],
+    "imageAlt": "Official Cyberpunk 2077 promotional artwork used as the review feature image.",
+    "imageCredit": "Official promotional image",
+    "articleFormat": "review",
+    "reviewMeta": {
+      "cons": [
+        "World reactivity can fall short of the presentation",
+        "Some role-playing consequences are narrower than expected",
+        "Technical experience still varies by platform"
+      ],
+      "pros": [
+        "Night City remains a striking setting",
+        "Major characters and quest lines are memorable",
+        "Build variety is much stronger after the 2.0 overhaul",
+        "Phantom Liberty strengthens the complete package"
+      ],
+      "score": "8.9",
+      "verdict": "Years of revision have turned Cyberpunk 2077 into a strong character-driven RPG whose greatest strengths remain Night City, quests and build freedom.",
+      "developer": "CD PROJEKT RED",
+      "publisher": "CD PROJEKT RED",
+      "reviewCopy": "Personally accessed through Steam.",
+      "releaseDate": "December 10, 2020",
+      "testedPlatform": "PC (Steam)"
+    },
+    "contentBlocks": [
+      {
+        "text": "Update 2.0 overhauled several core systems, including perk progression, cyberware, the police system, enemy scaling, loot, crafting and parts of the game economy. Those changes affect the base game, so a current assessment has to treat them as the foundation rather than optional expansion features.\n\nLater updates added more quality-of-life and platform support, making the modern version meaningfully different from the game that launched in 2020.",
+        "heading": "Cyberpunk 2077 in 2026 Is a Materially Different Game",
+        "headingStyle": "editorial"
+      },
+      {
+        "text": "Night City is more than a backdrop: districts, side jobs, environmental storytelling and the density of authored encounters give the city its identity. The strongest exploration comes when a location, character or mission changes how a neighborhood is understood.\n\nThe city is also a useful reminder that visual density and systemic reactivity are different strengths. Cyberpunk 2077 is often most convincing when its authored stories make the setting feel specific rather than when the open world is expected to simulate every possibility.",
+        "heading": "Night City Is the Center of the Experience",
+        "headingStyle": "editorial"
+      },
+      {
+        "text": "Update 2.0 replaced the original perk structure with a more focused system and made cyberware a central part of character development. Distinct attribute paths now support clearer approaches to stealth, hacking, mobility and direct combat.\n\nThe result is a progression model that emphasizes recognizable playstyle identities instead of simply accumulating incremental bonuses. Our [Cyberpunk 2077 beginner’s guide](/stories/cyberpunk-2077-beginners-guide/) provides a broader introduction to those systems for new players.",
+        "heading": "Progression Was Rebuilt Around Clearer Character Identities",
+        "headingStyle": "editorial"
+      },
+      {
+        "text": "Cyberpunk 2077 builds much of its role-playing identity around V, relationships, major story choices, side jobs and smaller encounters across Night City. Dialogue and mission outcomes can meaningfully reshape individual storylines, even when the wider city is less reactive than those authored quests suggest.\n\nThe distinction matters: the game’s strongest role-playing often lives inside specific character arcs and mission chains rather than broad simulation.",
+        "heading": "Quest Design Carries the Role-Playing Side",
+        "headingStyle": "editorial"
+      },
+      {
+        "text": "The modern game supports several broad approaches to encounters, including direct combat, stealth, hacking-focused builds and combinations of those styles. The rebuilt progression systems make those approaches more mechanically distinct than they were at launch.\n\nEncounter variety depends heavily on how well a build’s abilities, cyberware and movement options reinforce one another across a long campaign.",
+        "heading": "Combat and Stealth Depend on Build Synergy",
+        "headingStyle": "editorial"
+      },
+      {
+        "text": "Phantom Liberty adds a major story set in Dogtown and is included with the base game in Cyberpunk 2077: Ultimate Edition. Because it was designed alongside the modernized systems, it is also a useful comparison point for mission structure, pacing and environmental density.\n\nPhantom Liberty is discussed as part of the modern Cyberpunk 2077 package and current-version context.",
+        "heading": "Phantom Liberty Changes the Context of the Complete Package",
+        "headingStyle": "editorial"
+      },
+      {
+        "text": "Cyberpunk 2077’s modern supported versions span PC, PlayStation 5, Xbox Series X|S, Nintendo Switch 2 and Apple-silicon Mac, while the older PlayStation 4 and Xbox One editions do not represent the same current feature set.\n\nPerformance, image quality, controls, loading and remaining bugs can vary by platform; technical observations here refer to the PC version available through Steam.",
+        "heading": "The Technical Review Needs a Named Platform",
+        "headingStyle": "editorial"
+      },
+      {
+        "text": "Cyberpunk 2077’s revision history matters because it explains why current systems differ so much from the original release, but improvement itself is not a substitute for quality. The relevant question is how coherent and compelling the game is now.\n\nThat makes the modern experience the focus, while the launch history remains context rather than the verdict.",
+        "heading": "The Present Game Matters More Than Its Launch Reputation",
+        "headingStyle": "editorial"
+      }
+    ],
+    "quickRead": [
+      "The modern 2.x-era game is materially different from the version released in 2020.",
+      "Night City remains the central strength, but atmosphere and world reactivity are not the same thing.",
+      "The rebuilt perk and cyberware systems give character progression clearer identities.",
+      "Phantom Liberty improves the complete package, but the review scope should state whether it is included in the score."
+    ],
+    "conclusion": "Cyberpunk 2077 is best judged in the present tense. The modern RPG is defined by Night City, character-driven quest lines, clearer build identities and a long revision history that materially changed the underlying systems. Phantom Liberty further strengthens the complete package, but its inclusion in the final score needs to be explicit.\\n\\nFor readers entering Night City now, the [Cyberpunk 2077 beginner’s guide](/stories/cyberpunk-2077-beginners-guide/) and the dedicated [Cyberpunk 2077 game page](/games/cyberpunk-2077/) provide the clearest next steps while the verdict above reflects the current PC version reviewed through Steam.",
+    "conclusionHeading": "Review framework: the final judgment",
+    "conclusionHeadingStyle": "editorial",
+    "featured": false,
+    "homepageSlot": "regular",
+    "publishedAt": "2026-09-05T09:37:49.838295+00:00",
+    "updatedAt": "2026-09-05T09:37:49.838295+00:00",
+    "imageLocal": "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1788578785156-a8a9a666-e84f-4760-990c-fe1649ae7840-cyberpunk-section.jpg",
+    "editorialSection": "reviews",
+    "platforms": [
+      "pc",
+      "playstation",
+      "xbox",
+      "nintendo",
+      "mac"
+    ],
+    "collection": null,
+    "collectionYear": null,
+    "gameKey": "Cyberpunk 2077",
+    "series": "Cyberpunk",
+    "franchise": "Cyberpunk",
+    "newsMeta": {}
+  },
+  {
+    "id": "adbcd6f5-0fbb-4679-83bb-58f4edc57265",
+    "slug": "bloodborne-review",
+    "title": "Bloodborne Review",
+    "description": "Bloodborne review covering aggressive combat, Yharnam’s world design, memorable bosses, The Old Hunters and the PS4-era limits that still show in 2026.",
+    "body": "Bloodborne is one of FromSoftware’s most distinctive action RPGs because almost every part of its design pushes in the same direction. Combat rewards pressure rather than passive defense, Yharnam folds back on itself through shortcuts and hidden routes, and the story gradually transforms from gothic horror into something much stranger.\\n\\nMore than a decade after release, that identity remains unusually clear. The game has never received a native PS5 edition, so the modern experience is still defined by the original PS4 version running through backward compatibility. That technical context matters, but it does not erase how confidently Bloodborne separates itself from the Dark Souls games around it.",
+    "category": "REVIEW",
+    "author": "Rouane Mounssif",
+    "tags": [
+      "Bloodborne",
+      "FromSoftware",
+      "PlayStation",
+      "Action RPG",
+      "Review"
+    ],
+    "imageAlt": "Official Bloodborne promotional artwork used as the review feature image.",
+    "imageCredit": "Official promotional image",
+    "articleFormat": "review",
+    "reviewMeta": {
+      "cons": [
+        "PS4-era technical presentation shows its age",
+        "Chalice Dungeons can become repetitive",
+        "Some larger encounters expose camera problems"
+      ],
+      "pros": [
+        "Yharnam’s interconnected world design",
+        "Distinctive aggressive combat",
+        "Exceptional atmosphere and art direction",
+        "Memorable boss encounters",
+        "The Old Hunters strengthens the complete package"
+      ],
+      "score": "9.3",
+      "verdict": "A singular FromSoftware classic whose aggressive combat, world design and atmosphere remain exceptional despite increasingly obvious technical age.",
+      "developer": "FromSoftware",
+      "publisher": "Sony Computer Entertainment",
+      "reviewCopy": "Personally accessed through PlayStation.",
+      "releaseDate": "March 24, 2015",
+      "testedPlatform": "PlayStation (PS4 version)"
+    },
+    "contentBlocks": [
+      {
+        "text": "Bloodborne’s biggest mechanical change is not simply that it moves faster. The combat system encourages players to answer pressure with pressure. The rally mechanic can restore recently lost health when the player responds quickly, while the absence of a traditional defensive rhythm makes positioning and timing feel more immediate.\n\nThat creates a different tempo from Dark Souls. Mistakes still matter, but recovery is tied to action rather than hesitation, giving the combat a distinct identity within FromSoftware’s catalogue.",
+        "heading": "Aggression Changes the Rhythm of Every Encounter",
+        "headingStyle": "editorial"
+      },
+      {
+        "text": "Central Yharnam establishes the game’s world design immediately. Streets, courtyards, rooftops and interior routes wrap around one another until long journeys become compact loops. Gates and elevators that initially seem meaningless later become shortcuts, turning navigation into a form of progression.\n\nThe strongest areas build familiarity without relying on a conventional map. Players learn where they are by recognizing architecture, elevation and landmarks. Later regions are less uniformly dense, but the overall world still feels deliberately constructed rather than assembled as disconnected stages.",
+        "heading": "Yharnam Is Still One of FromSoftware’s Strongest Worlds",
+        "headingStyle": "editorial"
+      },
+      {
+        "text": "Bloodborne initially presents itself as a gothic nightmare of diseased streets, hostile crowds and decaying institutions. That premise becomes stranger as the game gradually reveals that Yharnam’s crisis is connected to forces far beyond what is visible at street level.\n\nThe shift toward cosmic horror is delivered through environments, item descriptions, character encounters and visual changes rather than constant exposition. Important ideas often arrive as implications before they are explained directly, making discovery central to the game’s narrative structure.",
+        "heading": "The Horror Grows Stranger the Deeper the Story Goes",
+        "headingStyle": "editorial"
+      },
+      {
+        "text": "Bloodborne offers a narrower equipment pool than many Souls games, but the tradeoff is stronger mechanical identity. Transforming equipment can change reach, tempo and moveset behavior, allowing a single choice to support more than one combat rhythm.\n\nVariety comes from how individual options behave rather than from sheer quantity. Attributes, upgrades and supporting systems still matter, but the equipment pool rarely feels padded with minor variations of the same idea.",
+        "heading": "A Smaller Equipment Pool Gives Individual Options More Character",
+        "headingStyle": "editorial"
+      },
+      {
+        "text": "Bloodborne’s major encounters combine combat speed, animation reading and atmosphere more directly than almost any other part of the game. The strongest bosses create clear rhythms without becoming predictable, forcing the player to understand movement and pressure rather than simply wait for long openings.\n\nThe quality is not perfectly consistent. Large enemies can expose camera limitations, and some encounters are more memorable for presentation than mechanical depth. Even so, the major fights are central to Bloodborne’s lasting reputation and connect naturally to Neural Critic’s broader look at [what makes FromSoftware boss fights memorable](/stories/fromsoftware-boss-fights-memorable/).",
+        "heading": "Bosses Give the Campaign Its Biggest Peaks",
+        "headingStyle": "editorial"
+      },
+      {
+        "text": "Chalice Dungeons provide a parallel progression path built around repeatable underground spaces, additional encounters and rewards. They give Bloodborne a longer tail beyond the authored campaign and contain material that players who focus only on the main route may never see.\n\nThey also highlight the difference between Bloodborne’s handcrafted world and its more modular content. Repeated rooms and visual patterns make these areas less distinctive than Yharnam itself, adding breadth without matching the personality of the main campaign.",
+        "heading": "Chalice Dungeons Are the Most Uneven Part of the Package",
+        "headingStyle": "editorial"
+      },
+      {
+        "text": "The Old Hunters expansion adds major new areas, encounters and equipment while developing ideas closely connected to Bloodborne’s history and central themes. It feels less like a detached side story and more like an extension of material the base game deliberately leaves unresolved.\n\nFor readers approaching Bloodborne as a complete package, the expansion is an important part of the modern experience. The Old Hunters is discussed as part of the broader modern Bloodborne package.",
+        "heading": "The Old Hunters Strengthens the Complete Experience",
+        "headingStyle": "editorial"
+      },
+      {
+        "text": "Bloodborne remains a PlayStation 4 game. The current PlayStation Store listing confirms that it is playable on PS5 through backward compatibility, but there is still no native PS5 version attached to the product. That makes the game’s technical age much more visible than its artistic age.\n\nYharnam’s visual direction and atmosphere still give the game a strong identity, but modern expectations around image clarity, frame pacing and responsiveness make the underlying PS4-era presentation an important part of a current review. Technical observations in this review refer to the PlayStation PS4 version.",
+        "heading": "The PS4-Era Technical Presentation Is Now Impossible to Ignore",
+        "headingStyle": "editorial"
+      }
+    ],
+    "quickRead": [
+      "Aggressive combat rewards pressure and quick recovery rather than passive defense.",
+      "Yharnam’s interconnected level design remains one of FromSoftware’s strongest worlds.",
+      "The Old Hunters materially strengthens the complete package, while Chalice Dungeons are more uneven.",
+      "The PS4-era technical presentation is increasingly dated even though the art direction remains distinctive."
+    ],
+    "conclusion": "Bloodborne endures because its core systems reinforce one another: aggressive combat rewards commitment, Yharnam turns navigation into discovery, and the shift from gothic to cosmic horror gives the campaign an identity FromSoftware has never simply repeated. Its narrower equipment pool also supports a more focused overall design.\\n\\nIts weaknesses are easier to see with time. Chalice Dungeons lack the personality of the main world, some large encounters expose camera problems, and the unchanged PS4-era technical package increasingly stands apart from the strength of the art direction. For readers exploring the wider genre, our [best Soulslike games](/stories/best-soulslike-games/) and [FromSoftware difficulty ranking](/stories/fromsoftware-soulsborne-games-ranked-by-difficulty/) provide useful context around where Bloodborne fits.",
+    "conclusionHeading": "A singular game in an increasingly dated technical package",
+    "conclusionHeadingStyle": "editorial",
+    "featured": false,
+    "homepageSlot": "regular",
+    "publishedAt": "2026-09-05T09:37:49.838295+00:00",
+    "updatedAt": "2026-09-05T09:37:49.838295+00:00",
+    "imageLocal": "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1788598624445-5736da9c-a6fc-4271-b122-45a55e419634-bloodborne-main.jpg",
+    "editorialSection": "reviews",
+    "platforms": [
+      "playstation"
+    ],
+    "collection": null,
+    "collectionYear": null,
+    "gameKey": "Bloodborne",
+    "series": "Bloodborne",
+    "franchise": "Bloodborne",
+    "newsMeta": {}
+  },
+  {
+    "id": "6444ac8c-a58a-4797-90b7-4c556d9db5ea",
+    "slug": "clair-obscur-expedition-33-review",
+    "title": "Clair Obscur: Expedition 33 Review",
+    "description": "Clair Obscur: Expedition 33 review covering hybrid turn-based combat, party builds, exploration, story, presentation and its post-launch evolution today.",
+    "body": "Clair Obscur: Expedition 33 combines turn-based party decisions with real-time defensive inputs, placing timing and reaction inside a structure that still depends on builds, party roles and resource planning. Its visual identity and character-driven story give that combat system an unusually strong presentation layer.\n\nA final Neural Critic review should judge whether the hybrid battle design remains consistent across the campaign, whether party progression supports experimentation, and whether the story earns the emotional weight of its premise rather than relying on spectacle alone.",
+    "category": "REVIEW",
+    "author": "Rouane Mounssif",
+    "tags": [
+      "Clair Obscur: Expedition 33",
+      "Sandfall Interactive",
+      "Kepler Interactive",
+      "Turn-Based RPG",
+      "Review"
+    ],
+    "imageAlt": "Official Clair Obscur: Expedition 33 promotional artwork used as the review feature image.",
+    "imageCredit": "Official promotional image",
+    "articleFormat": "review",
+    "reviewMeta": {
+      "cons": [
+        "Timing mechanics can overshadow tactical planning for some players",
+        "Late-game balance can become excessive",
+        "Some narrative pacing choices are divisive"
+      ],
+      "pros": [
+        "Hybrid turn-based combat stays engaging",
+        "Excellent soundtrack and art direction",
+        "Strong character-driven story",
+        "Flexible party-building and progression"
+      ],
+      "score": "9.5",
+      "verdict": "An exceptional modern RPG that pairs turn-based strategy with active defense, striking presentation and an ambitious story.",
+      "developer": "Sandfall Interactive",
+      "publisher": "Kepler Interactive",
+      "reviewCopy": "Personally accessed through Steam.",
+      "releaseDate": "April 24, 2025",
+      "testedPlatform": "PC (Steam)"
+    },
+    "contentBlocks": [
+      {
+        "text": "Expedition 33 uses turn-based command selection but asks for timed defensive responses during enemy actions. Success therefore depends on both strategic preparation and moment-to-moment execution.\n\nThe hybrid structure keeps turns active even when the player is not selecting commands, while also making timing demands part of the difficulty curve rather than a purely optional layer.",
+        "heading": "Turn-Based Decisions and Real-Time Inputs Share the Same Combat Loop",
+        "headingStyle": "editorial"
+      },
+      {
+        "text": "Each expedition member uses a different set of resources and abilities, encouraging the player to understand how characters interact rather than treating the roster as interchangeable damage sources.\n\nThat differentiation gives party-building more texture and makes switching characters a mechanical decision rather than only a narrative preference.",
+        "heading": "Party Members Have Distinct Mechanical Identities",
+        "headingStyle": "editorial"
+      },
+      {
+        "text": "Equipment and Pictos can unlock passive effects that later become Luminas, allowing learned bonuses to be mixed into broader builds. The system rewards experimentation and long-term collection.\n\nIts flexibility creates many optimization paths, but it still works best when the player can read how those bonuses reinforce a character’s core role.",
+        "heading": "Progression Is Built Around Pictos and Luminas",
+        "headingStyle": "editorial"
+      },
+      {
+        "text": "Exploration moves between authored regions and a broader overworld that connects locations, optional encounters and secrets. The structure is neither a seamless open world nor a purely linear sequence of stages.\n\nThat gives optional exploration room to breathe without losing the sense of a directed campaign.",
+        "heading": "The World Mixes Directed Areas With an Overworld",
+        "headingStyle": "editorial"
+      },
+      {
+        "text": "The story begins from a world where an annual event removes people of a specific age, giving Expedition 33 an immediate sense of urgency and mortality. The main cast’s relationships develop inside that pressure.\n\nThe premise gives the campaign a clear thematic anchor while leaving room for character-focused detours and revelations as the expedition advances.",
+        "heading": "The Paintress Premise Creates a Strong Narrative Clock",
+        "headingStyle": "editorial"
+      },
+      {
+        "text": "Belle Époque-inspired environments, stylized fantasy imagery, orchestral and vocal music, and detailed character performances are central to how Expedition 33 distinguishes itself from other turn-based RPGs.\n\nThe presentation is not just decorative: color, animation and sound also help sell the timing and rhythm of combat encounters.",
+        "heading": "Presentation Carries Much of the Game’s Identity",
+        "headingStyle": "editorial"
+      },
+      {
+        "text": "Sandfall Interactive has continued supporting Expedition 33 after launch with additional content and localization work. That means a current review needs to distinguish the original April 2025 package from the version available now.\n\nThis review reflects the current PC version available through Steam, with post-launch additions treated as part of the present-day package.",
+        "heading": "Post-Launch Support Matters to a Current Review",
+        "headingStyle": "editorial"
+      },
+      {
+        "text": "Clair Obscur: Expedition 33 launched on April 24, 2025 for PlayStation 5, Xbox Series X|S and PC. Sandfall Interactive develops the game and Kepler Interactive publishes it.\n\nTesting was conducted on PC through Steam, so performance and control observations refer to that version.",
+        "heading": "Current Platform Context",
+        "headingStyle": "editorial"
+      }
+    ],
+    "quickRead": [
+      "Turn-based commands and timing-based defense make combat both strategic and execution-heavy.",
+      "Pictos and Luminas create flexible long-term build customization.",
+      "Its Belle Époque-inspired presentation and music are central to the game’s identity.",
+      "A current review needs to distinguish the launch game from later free post-launch additions."
+    ],
+    "conclusion": "Clair Obscur: Expedition 33 stands out by combining turn-based planning with timing-based defensive play, then layering that hybrid combat over distinctive party systems, flexible progression and an unusually stylized presentation. Its strongest long-term question is how well those systems stay readable and rewarding as builds become more complex.\\n\\nReaders comparing the wider genre can also see where it lands in [The 12 Best Turn-Based RPGs](/stories/best-turn-based-rpgs/) or continue to the dedicated [Clair Obscur: Expedition 33 game page](/games/clair-obscur-expedition-33/).",
+    "conclusionHeading": "Review framework: the final judgment",
+    "conclusionHeadingStyle": "editorial",
+    "featured": false,
+    "homepageSlot": "regular",
+    "publishedAt": "2026-09-05T09:37:49.838295+00:00",
+    "updatedAt": "2026-09-05T09:37:49.838295+00:00",
+    "imageLocal": "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1788575069418-f9b93e2f-8957-40b8-8413-4130c546be19-clair-section.jpg",
+    "editorialSection": "reviews",
+    "platforms": [
+      "pc",
+      "playstation",
+      "xbox"
+    ],
+    "collection": null,
+    "collectionYear": null,
+    "gameKey": "Clair Obscur: Expedition 33",
+    "series": "Clair Obscur",
+    "franchise": "Clair Obscur",
+    "newsMeta": {}
+  },
+  {
+    "id": "4eab3a09-93c8-4f24-9ad4-e99c960b6ad3",
+    "slug": "dark-souls-remastered-review",
+    "title": "Dark Souls Remastered Review",
+    "description": "Dark Souls Remastered review covering Lordran’s interconnected world, deliberate combat, progression, multiplayer and where the remaster still feels dated.",
+    "body": "Dark Souls Remastered preserves one of FromSoftware’s most influential action-RPG structures: a world that teaches itself through shortcuts, locked doors, bonfires, enemy placement and the player’s growing memory of how Lordran fits together.\n\nThe remaster makes that 2011 design easier to access on modern-supported platforms without turning it into a new game. A final review should therefore judge two things separately: how well Dark Souls itself still works as an RPG and exploration game, and how much value the Remastered edition adds around that foundation.",
+    "category": "REVIEW",
+    "author": "Rouane Mounssif",
+    "tags": [
+      "Dark Souls Remastered",
+      "FromSoftware",
+      "Bandai Namco",
+      "Souls",
+      "Action RPG",
+      "Review"
+    ],
+    "imageAlt": "Official Dark Souls Remastered promotional artwork used as the review feature image.",
+    "imageCredit": "Official promotional image",
+    "articleFormat": "review",
+    "reviewMeta": {
+      "cons": [
+        "Later areas are less consistent than the opening half",
+        "Interface and movement can feel dated",
+        "The remaster itself is conservative rather than transformative"
+      ],
+      "pros": [
+        "Lordran’s interconnected world remains exceptional",
+        "Atmosphere and environmental storytelling endure",
+        "Deep build freedom and character progression",
+        "Exploration and shortcut discovery remain rewarding"
+      ],
+      "score": "9.0",
+      "verdict": "One of the most influential action RPGs remains compelling because of Lordran’s interconnected design, even though parts of the game and remaster show their age.",
+      "developer": "FromSoftware",
+      "publisher": "Bandai Namco Entertainment",
+      "reviewCopy": "Personally accessed through Steam.",
+      "releaseDate": "May 25, 2018",
+      "testedPlatform": "PC (Steam)"
+    },
+    "contentBlocks": [
+      {
+        "text": "Dark Souls’ most celebrated design idea is the way early and mid-game regions fold back into one another. Doors opened from the far side, elevators and hidden connections steadily transform a confusing world into a mental map.\n\nThat interconnectedness is strongest in the opening and middle stretches rather than evenly distributed across the entire campaign, which is important when judging Lordran as a whole.",
+        "heading": "Lordran Is the Core of the Review",
+        "headingStyle": "editorial"
+      },
+      {
+        "text": "Stamina, equipment load, animation commitment and defensive choices make Dark Souls slower and more methodical than later FromSoftware games. Character attributes and equipment upgrades create significant room for specialization.\n\nThe pace remains purposeful when spacing and commitment are clear, although interface friction and under-explained systems can create barriers beyond the intended challenge.",
+        "heading": "Combat Is Deliberate and Build-Driven",
+        "headingStyle": "editorial"
+      },
+      {
+        "text": "Bonfires establish checkpoints and recovery points, which means the distance between them shapes tension. Opening a shortcut can be as important as finding equipment because it permanently changes the cost of returning to a difficult area.\n\nThat relationship between geography and progression is one of Dark Souls’ defining systems and a major reason its world design still receives attention.",
+        "heading": "Bonfires Turn Distance Into Pressure",
+        "headingStyle": "editorial"
+      },
+      {
+        "text": "Dark Souls leaves many mechanics, quest steps and character-building consequences for the player to infer. That opacity supports mystery and community discovery, but it can also make important systems difficult to understand without outside help.\n\nThe result is a constant tension between rewarding ambiguity and information that is simply under-explained.",
+        "heading": "The Game Explains Less Than Modern RPGs Usually Do",
+        "headingStyle": "editorial"
+      },
+      {
+        "text": "Dark Souls Remastered brings the game to PlayStation 4, Xbox One, Nintendo Switch and PC with technical and online revisions while preserving the original structure, art direction and core mechanics.\n\nIt is best understood as a modern access point to the original design rather than a remake, so unchanged systems and pacing remain part of the package.",
+        "heading": "The Remaster Is an Access Layer, Not a Redesign",
+        "headingStyle": "editorial"
+      },
+      {
+        "text": "Messages, cooperative summons and invasions allow other players to influence a mostly solitary journey. The systems are optional in practice but strongly associated with the game’s identity and community history.\n\nCurrent online quality can vary by platform and population; this review refers to the PC version available through Steam.",
+        "heading": "Online Play Remains Unusually Integrated",
+        "headingStyle": "editorial"
+      },
+      {
+        "text": "As the campaign advances, several later regions become more self-contained and the world’s earlier web of shortcuts becomes less central. That structural shift changes the quality that makes the opening hours so distinctive.\n\nA balanced assessment has to account for the whole journey rather than allowing the strongest interconnected areas to stand in for every region.",
+        "heading": "The Later Structure Is Less Interconnected",
+        "headingStyle": "editorial"
+      },
+      {
+        "text": "Bandai Namco currently lists Dark Souls Remastered for PlayStation 4, Xbox One, Nintendo Switch and Steam. It remains the standard commercially available version of the first Dark Souls on those platforms.\n\nTechnical observations in this review refer to the PC version available through Steam.",
+        "heading": "Current Platform Context",
+        "headingStyle": "editorial"
+      }
+    ],
+    "quickRead": [
+      "Lordran’s interconnected geography remains the game’s defining strength.",
+      "Combat is deliberate, stamina-driven and deeply tied to build choices.",
+      "The remaster improves access and compatibility without redesigning the original structure.",
+      "Later regions are less interconnected and some interface and movement friction shows the game’s age."
+    ],
+    "conclusion": "Dark Souls Remastered preserves an influential design whose strongest ideas still come from the relationship between geography, checkpoints, shortcuts and player knowledge. Its slower combat and build systems support that structure, while opacity and the less cohesive later regions remain the clearest counterweights.\\n\\nReaders interested in the design legacy can continue with our feature on [why Dark Souls still defines interconnected world design](/stories/dark-souls-remastered-interconnected-world-design/) or compare the wider genre in [The 12 Best Soulslike Games](/stories/best-soulslike-games/).",
+    "conclusionHeading": "Review framework: the final judgment",
+    "conclusionHeadingStyle": "editorial",
+    "featured": false,
+    "homepageSlot": "regular",
+    "publishedAt": "2026-09-05T09:37:49.838295+00:00",
+    "updatedAt": "2026-09-05T09:37:49.838295+00:00",
+    "imageLocal": "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1788599226635-e237749d-fcfc-40d4-a434-2248ace8bde7-darek-souls.jpg",
+    "editorialSection": "reviews",
+    "platforms": [
+      "pc",
+      "playstation",
+      "xbox",
+      "nintendo"
+    ],
+    "collection": null,
+    "collectionYear": null,
+    "gameKey": "Dark Souls Remastered",
+    "series": "Dark Souls",
+    "franchise": "Dark Souls",
+    "newsMeta": {}
+  },
+  {
+    "id": "3d895c71-8d60-4968-864f-0c5637add1f0",
+    "slug": "dark-souls-iii-review",
+    "title": "Dark Souls III Review",
+    "description": "Dark Souls III review covering faster combat, standout bosses, build variety, world design, multiplayer, DLC and how the trilogy finale holds up today.",
+    "body": "Dark Souls III is structured as a culmination. It carries forward the series’ bonfire-and-shortcut progression, character builds, cryptic storytelling and online systems, while moving with a faster combat rhythm and repeatedly echoing people, places and ideas from earlier games.\n\nA final review should judge whether that act of consolidation produces the most refined version of the formula or makes the game feel too dependent on what came before. Boss consistency, world structure, build variety and the relationship between nostalgia and new ideas should sit at the center of the evaluation.",
+    "category": "REVIEW",
+    "author": "Rouane Mounssif",
+    "tags": [
+      "Dark Souls III",
+      "FromSoftware",
+      "Bandai Namco",
+      "Souls",
+      "Action RPG",
+      "Review"
+    ],
+    "imageAlt": "Official Dark Souls III promotional artwork used as the review feature image.",
+    "imageCredit": "Official promotional image",
+    "articleFormat": "review",
+    "reviewMeta": {
+      "cons": [
+        "World progression is more linear than the original Dark Souls",
+        "Heavy reliance on callbacks to earlier games",
+        "A handful of areas and encounters are less consistent"
+      ],
+      "pros": [
+        "Outstanding boss lineup",
+        "Responsive, refined combat",
+        "Strong build and equipment variety",
+        "The Ringed City gives the series a powerful late-game endpoint"
+      ],
+      "score": "9.2",
+      "verdict": "A polished, fast-moving conclusion to Dark Souls built around outstanding bosses and combat, even if its world is less interconnected than the original.",
+      "developer": "FromSoftware",
+      "publisher": "Bandai Namco Entertainment",
+      "reviewCopy": "Personally accessed through Steam.",
+      "releaseDate": "April 12, 2016",
+      "testedPlatform": "PC (Steam)"
+    },
+    "contentBlocks": [
+      {
+        "text": "Dark Souls III moves more quickly than the original Dark Souls while retaining stamina, equipment load, animation commitment and build-based character growth. Encounters often demand quicker reactions, but the underlying system still rewards patience, spacing and understanding what a character can safely do.\n\nThe faster pace makes the game feel closer to FromSoftware’s later work without fully abandoning the deliberate structure that defined the earlier trilogy.",
+        "heading": "Combat Is Faster Without Abandoning Souls Fundamentals",
+        "headingStyle": "editorial"
+      },
+      {
+        "text": "Weapon Arts give equipment an additional active function, creating more differentiation between tools without replacing the core attribute and upgrade systems.\n\nSome Weapon Arts are situational, while others meaningfully change pressure, spacing or utility. Combined with the wider equipment pool, they give character builds more ways to express a playstyle than raw stat allocation alone.",
+        "heading": "Weapon Arts Add Another Layer to Builds",
+        "headingStyle": "editorial"
+      },
+      {
+        "text": "Dark Souls III is closely associated with multi-phase major encounters that combine visual escalation with demanding timing and positioning. Several fights deliberately change pace or behavior after the player has learned an opening pattern.\n\nThat approach gives the campaign many of its strongest peaks, although not every encounter is equally mechanically deep. Neural Critic’s broader feature on [what makes FromSoftware boss fights memorable](/stories/fromsoftware-boss-fights-memorable/) provides useful context for the studio-wide design patterns behind these battles.",
+        "heading": "Bosses Are the Clearest Expression of the Game’s Strengths",
+        "headingStyle": "editorial"
+      },
+      {
+        "text": "Individual regions contain shortcuts, branching interiors and strong visual identities, but the overall journey is more linear than Lordran’s famously interlocked structure. Progress tends to move forward through a sequence of major areas rather than repeatedly folding the entire world back onto itself.\n\nThat direction improves pacing and makes progression easier to read, but it also reduces the larger-scale spatial surprise that defined the original game.",
+        "heading": "The World Is More Directed Than the Original Dark Souls",
+        "headingStyle": "editorial"
+      },
+      {
+        "text": "Locations, characters, equipment and themes repeatedly call back to Dark Souls and Dark Souls II. Those references reinforce the feeling of a world reaching the end of a long cycle, but they also make Dark Souls III unusually dependent on series memory.\n\nAt its strongest, the continuity gives familiar imagery new thematic weight; at its weakest, recognition can do more work than the new material itself.",
+        "heading": "It Constantly Talks to the Earlier Games",
+        "headingStyle": "editorial"
+      },
+      {
+        "text": "Messages, cooperative play and invasions continue the series’ unusual mixture of solitary exploration and indirect multiplayer. These systems can alter how areas and bosses are experienced without turning Dark Souls III into a conventional always-online game.\n\nCurrent online quality and population can vary by platform; this review refers to the PC version available through Steam.",
+        "heading": "Online Systems Remain Part of the Souls Identity",
+        "headingStyle": "editorial"
+      },
+      {
+        "text": "Ashes of Ariandel and The Ringed City expand the game with additional regions and major encounters. The Ringed City in particular is positioned as a late-series endpoint, making DLC scope relevant to any retrospective review of the complete package.\n\nAshes of Ariandel and The Ringed City are discussed as part of the current complete Dark Souls III package.",
+        "heading": "The DLC Extends the Ending Rather Than Replacing It",
+        "headingStyle": "editorial"
+      },
+      {
+        "text": "Bandai Namco currently lists Dark Souls III on PlayStation 4, Xbox One and PC. Modern consoles can access the existing console versions through their respective compatibility ecosystems where supported, but that does not make them native current-generation editions.\n\nTechnical observations in this review refer to the PC version available through Steam.",
+        "heading": "Current Platform Context",
+        "headingStyle": "editorial"
+      }
+    ],
+    "quickRead": [
+      "Combat is faster than earlier Dark Souls games while retaining stamina, equipment load and committed actions.",
+      "Boss design is a major strength, especially when multi-phase encounters remain readable and mechanically distinct.",
+      "The world is more linear than Lordran even though individual regions still contain shortcuts and branching routes.",
+      "Weapon Arts and a broad equipment pool support build variety, while the DLC extends the series’ final thematic arc."
+    ],
+    "conclusion": "Dark Souls III refines the Souls formula around faster combat, ambitious major encounters and a broad build system, while its more directed world trades some of Lordran’s interconnected surprise for clearer pacing. Its constant dialogue with earlier games also makes it feel as much like an ending as a standalone sequel.\\n\\nFor readers comparing the trilogy and FromSoftware’s wider catalogue, our [Dark Souls world-design feature](/stories/dark-souls-remastered-interconnected-world-design/), [FromSoftware difficulty ranking](/stories/fromsoftware-soulsborne-games-ranked-by-difficulty/) and [best Soulslike games](/stories/best-soulslike-games/) provide useful next steps.",
+    "conclusionHeading": "Review framework: the final judgment",
+    "conclusionHeadingStyle": "editorial",
+    "featured": false,
+    "homepageSlot": "regular",
+    "publishedAt": "2026-09-05T09:37:49.838295+00:00",
+    "updatedAt": "2026-09-05T09:37:49.838295+00:00",
+    "imageLocal": "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1788578915561-92245e0d-5c1d-4903-86e1-41bb9bec5a3f-dark-souls-3-main.jpg",
+    "editorialSection": "reviews",
+    "platforms": [
+      "pc",
+      "playstation",
+      "xbox"
+    ],
+    "collection": null,
+    "collectionYear": null,
+    "gameKey": "Dark Souls III",
+    "series": "Dark Souls",
+    "franchise": "Dark Souls",
+    "newsMeta": {}
+  },
+  {
     "id": "a08d6dca-0e6d-48f5-bc70-c840afdf1b5b",
     "slug": "red-dead-redemption-2-beginners-guide",
     "title": "Red Dead Redemption 2 Beginner’s Guide: What to Do First",
