@@ -8,10 +8,10 @@ Supabase is the source of truth for article status and editorial fields. This fi
 
 **Evergreen publishing + remaining blocker cleanup.**
 
-The 41-article evergreen roadmap drafting phase is complete. The initial 21 roadmap articles were published on 2026-09-05, followed by a controlled publication of 10 completed non-Witcher review drafts on the same day.
+The 41-article evergreen roadmap drafting phase is complete. The initial 21 roadmap articles were published on 2026-09-05, followed by a controlled publication of 10 completed non-Witcher review drafts and `best-story-driven-games` on the same day.
 
 Core publication gate:
-`editorial edit → current factual check → feature image + alt + verified provenance → internal links → SEO/metadata QA → editor-approved review package + actual tested-platform/scope confirmation → publish → Supabase verification → canonical/discovery verification`
+`editorial edit → current factual check → feature image + alt + verified provenance → inline image alt/caption audit → internal links → SEO/metadata QA → publish → Supabase verification → canonical/discovery verification`
 
 Never fabricate image provenance. Never invent first-hand play claims, tested-platform claims, review-copy disclosures, or unsupported subjective judgments.
 
@@ -19,10 +19,10 @@ Never fabricate image provenance. Never invent first-hand play claims, tested-pl
 
 - Evergreen roadmap: **41 articles**.
 - Fully drafted: **41/41 — COMPLETE**.
-- Published from roadmap: **31/41**.
-- Remaining roadmap drafts: **10**.
+- Published from roadmap: **32/41**.
+- Remaining roadmap drafts: **9**.
 - Separate non-roadmap CMS draft: `2026-video-game-release-calendar`.
-- Live article census immediately after the review publication batch: **90 published / 11 drafts**.
+- Live article census after `best-story-driven-games` publication: **91 published / 10 drafts**.
 
 ## Review lane — 10 published, 1 held
 
@@ -62,25 +62,42 @@ Feature-image alt text is intentionally conservative because the exact stored im
 
 `the-witcher-3-wild-hunt-review` remains **draft** and intentionally held until after **The Witcher 3: Wild Hunt — Remastered** launches on **September 29, 2026**. Its version-sensitive combat, progression and technical sections must be re-tested and reverified before verdict/pros/cons are finalized.
 
+## What to Play milestone — `best-story-driven-games`
+
+Published on 2026-09-05 after a fresh live audit.
+
+Completed before publication:
+- all **12 ranked entries** retain their drafted images;
+- all **12 inline images** now have non-empty `imageAlt` and `caption` fields;
+- feature image, feature alt and recorded credit were already complete and preserved;
+- meta description tightened to **157 characters**;
+- body now contains **4 internal story links**, including newly published Cyberpunk 2077 and God of War Ragnarök reviews;
+- no Remastered hold language remains;
+- the Witcher 3 entry was rechecked against CD PROJEKT RED’s August 25 Remastered announcement. The entry is about stable quest writing/narrative structure, while the announced September 29 Remastered changes concern visuals, performance, gameplay and platform support, so this narrative-focused list no longer needs the post-Remastered hold.
+
+The inline image alts are conservative game-specific descriptions because the exact stored pixels were not available for direct visual inspection. Captions add ranking/editorial context rather than repeating the alt text.
+
+Supabase verification returned `status='published'`, non-null `published_at`, and **0 missing inline alts / 0 missing inline captions**.
+
 ## Other remaining drafts
 
-Live CMS still contains non-review drafts in addition to the held Witcher review. Re-query Supabase before acting because imagery/metadata may be edited manually between sessions.
+Live CMS still contains 10 drafts, including the held Witcher review and the separate release-calendar draft. Re-query Supabase before acting because imagery/metadata may be edited manually between sessions.
 
-Known future-sensitive material includes Witcher 3 Remastered-dependent guides/features/What to Play entries. Reverify after September 29 rather than carrying pre-Remastered assumptions forward.
+Witcher 3 Remastered-dependent guides/features remain held where their claims depend on gameplay, progression or technical changes. Narrative-only material can be cleared earlier only after a fresh factual review shows the September 29 changes do not affect the article’s argument.
 
 ## Publication-discovery verification
 
-Supabase publication is verified for all 10 newly published reviews.
+Supabase publication is verified for the 10 reviews and `best-story-driven-games`.
 
 The repository’s `Refresh publication discovery files` workflow runs on a scheduled cadence and rebuilds runtime fallback data, sitemap/RSS, canonical story shells, game/topic/author pages and publication audits from published CMS state.
 
-**Do not call canonical/discovery verification complete until a post-publication refresh has created the generated review pages/sitemap entries and the resulting Pages / Publication Health runs are verified successful.**
+**Do not call canonical/discovery verification complete for a new publication until a post-publication refresh has created the generated story page/sitemap entry and the resulting Pages / Publication Health runs are verified successful.**
 
 ## Immediate next action
 
-1. Verify the post-publication canonical refresh and Pages/Publication Health for the 10 new reviews.
-2. Re-query the remaining 11 drafts and prioritize the non-Witcher evergreen pieces that are genuinely publication-ready.
-3. Keep the Witcher 3 Remastered-dependent material held for the September 29 factual/re-test pass.
+1. Verify the next post-publication canonical refresh includes the 10 new reviews and `best-story-driven-games`.
+2. Re-query the remaining 10 drafts and prioritize the next genuinely publication-ready non-Witcher evergreen piece.
+3. Keep version-sensitive Witcher 3 Remastered material held for the September 29 factual/re-test pass.
 4. Continue the growth plan of roughly **3 evergreen pieces per week**, emphasizing cluster-deepening Guides, Reviews and high-intent What to Play coverage.
 
 ## Growth context
