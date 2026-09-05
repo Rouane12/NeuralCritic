@@ -1,0 +1,95 @@
+{
+  "id": "20944779-c358-49ed-a563-29269b651584",
+  "slug": "elden-ring-stats-soft-caps-explained",
+  "title": "Elden Ring Stats and Soft Caps Explained: Vigor, Mind, Endurance and More",
+  "description": "A clear Elden Ring stat guide explaining what Vigor, Mind, Endurance, Strength, Dexterity, Intelligence, Faith and Arcane do, plus the soft caps that matter most.",
+  "body": "Elden Ring's attribute screen looks simple until you start asking the questions that actually matter: how much Vigor is enough, when does Endurance stop being efficient, and what does a \"soft cap\" really mean?\n\nA soft cap is not a point where a stat suddenly stops working. It is a threshold where each additional level begins giving less value than it did before. Elden Ring uses several different scaling curves, so there is rarely one universal number that applies to every effect tied to an attribute.\n\nFor beginners, the most important principle is straightforward: **meet the requirements for the build you are actually using, invest in survivability, and only then push a damage-focused attribute toward its later breakpoints.** That approach is more useful than treating every soft-cap chart like a mandatory checklist.",
+  "category": "GUIDE",
+  "author": "Rouane Mounssif",
+  "tags": [
+    "Elden Ring",
+    "FromSoftware",
+    "Stats",
+    "Soft Caps",
+    "Attributes",
+    "Build Guide"
+  ],
+  "imageAlt": "A Tarnished stands beneath the glowing Erdtree in Elden Ring, with ruined stone structures and the Lands Between below.",
+  "imageCredit": "Neural Critic / Elden Ring gameplay screenshot.",
+  "articleFormat": "game-guide",
+  "reviewMeta": {},
+  "contentBlocks": [
+    {
+      "text": "A **soft cap** is the point where an attribute continues to improve your character, but each new level becomes less efficient than it was before.\n\nThat distinction matters. A soft cap is not the same as a hard cap, and it does not mean you should never level a stat beyond it. It simply tells you when the return per level changes enough that another attribute may be a better use of your next few levels.\n\nElden Ring also gives some attributes more than one important breakpoint. Vigor is the clearest example: HP growth is extremely strong before 40, still useful from 40 to 60, and much weaker after 60.\n\nIf you are still deciding how to begin, our [Elden Ring starting-class guide](/stories/elden-ring-best-starting-classes-beginners/) explains the 12 current opening classes.",
+      "heading": "What is a soft cap in Elden Ring?",
+      "headingStyle": "editorial"
+    },
+    {
+      "text": "Vigor determines maximum HP and also contributes to several defensive values. For most players, it is the easiest attribute to understand because the benefit is immediate: more health gives you more room to survive mistakes.\n\nThe important HP breakpoints are **40 Vigor** and **60 Vigor**. Returns are very strong on the way to 40, remain meaningful between 40 and 60, and fall sharply after 60.\n\nFor a first playthrough, that makes Vigor one of the safest early investments. You do not need to rush straight to 60, but reaching a comfortable health pool usually matters more than squeezing a small amount of extra damage out of an unfinished build.",
+      "heading": "Vigor: 40 and 60 are the big HP breakpoints",
+      "headingStyle": "editorial"
+    },
+    {
+      "text": "Mind increases FP, the resource used by spells, skills and several support systems. Unlike Vigor, there is no single beginner target that makes sense for every character because some builds spend very little FP while others depend on it constantly.\n\nFP gains remain useful for a long stretch of investment, with diminishing returns becoming more noticeable toward the higher ranges. A common practical stopping area sits well below the maximum because the goal is usually to have enough FP for your normal combat rhythm rather than to chase the largest possible blue bar.\n\nIf you rarely run out of FP, adding more Mind is probably less useful than strengthening another part of the character.",
+      "heading": "Mind: useful, but more build-dependent",
+      "headingStyle": "editorial"
+    },
+    {
+      "text": "Endurance affects both **Stamina** and **Equip Load**, and those two benefits do not follow exactly the same curve.\n\nStamina gains slow significantly as Endurance rises, with a major practical breakpoint around **50 Endurance**. Equip Load continues gaining meaningful value further, reaching another important breakpoint around **60**.\n\nMost ordinary builds do not need to approach either number. Endurance is usually best treated as a comfort stat: add enough to keep your stamina management comfortable and your chosen equipment within the load category you want.",
+      "heading": "Endurance: stamina and equip load do not cap at the same point",
+      "headingStyle": "editorial"
+    },
+    {
+      "text": "Strength and Dexterity both affect physical damage scaling, but the exact curve depends on how a particular build converts those attributes into damage.\n\nFor many standard scaling curves, the **mid-50s** are an important efficiency breakpoint and **80** is the major late-game soft cap. That does not mean every build should automatically stop at 55 or push to 80. Hybrid characters, lower-level characters and builds with other priorities may be better served by stopping earlier.\n\nThe practical rule is to avoid sacrificing Vigor, Endurance or another essential attribute simply to force a damage stat toward a later cap.",
+      "heading": "Strength and Dexterity: think in ranges, not one magic number",
+      "headingStyle": "editorial"
+    },
+    {
+      "text": "Intelligence and Faith govern access to their respective spell families and contribute to spell scaling, but their efficiency depends heavily on the casting setup being used.\n\nFor high-investment casting builds, **60** and **80** are the two numbers that appear most often as important late-game breakpoints. Some setups favor the lower end of that range while others continue scaling efficiently toward 80.\n\nBeginners should treat those numbers as planning references, not immediate goals. First meet the requirements for the spells and systems you actually want to use, then raise the relevant attribute as the rest of the build becomes more stable.",
+      "heading": "Intelligence and Faith: casting breakpoints depend on your setup",
+      "headingStyle": "editorial"
+    },
+    {
+      "text": "Arcane is one of Elden Ring's more complicated attributes because it contributes to several different systems, including item discovery and certain forms of status buildup and damage scaling.\n\nBecause those effects use different curves, Arcane does not have one universal soft cap. **45** is an important breakpoint for some status-related scaling, while higher Arcane investment can remain useful for other effects into the 50–60 range and beyond.\n\nThat makes Arcane especially dependent on the purpose of the build. If you are not deliberately using systems that scale from Arcane, putting levels into it simply because the number is low is usually inefficient.",
+      "heading": "Arcane: several systems share one attribute",
+      "headingStyle": "editorial"
+    },
+    {
+      "text": "A useful leveling order for a new player is:\n\n1. **Meet the minimum requirements** for the spells, equipment and systems you actually plan to use.  \n2. **Raise Vigor** until mistakes stop feeling instantly fatal.  \n3. Add **Endurance or Mind** if stamina, equip load or FP is regularly limiting you.  \n4. Invest in the main offensive attribute that supports your chosen playstyle.  \n5. Use soft caps as a signal to reassess the build rather than as a number you must reach.\n\nThis approach keeps the character functional at every stage instead of creating a high-damage stat sheet with obvious weaknesses elsewhere.\n\nFor a practical order of operations rather than a stat-by-stat reference, use our [Elden Ring early-game progression guide](/stories/elden-ring-early-progression-what-to-upgrade-first/).",
+      "heading": "A simple way to level without overthinking soft caps",
+      "headingStyle": "editorial"
+    },
+    {
+      "text": "These are the most useful general breakpoints to remember:\n\n**Vigor:** 40 / 60 for HP  \n**Mind:** gradual diminishing returns; build-dependent  \n**Endurance:** around 50 for Stamina, around 60 for Equip Load  \n**Strength:** commonly mid-50s / 80 for major damage-scaling breakpoints  \n**Dexterity:** commonly mid-50s / 80 for major damage-scaling breakpoints  \n**Intelligence:** commonly 60 / 80 for high-investment casting  \n**Faith:** commonly 60 / 80 for high-investment casting  \n**Arcane:** commonly around 45 for some status scaling, with other effects continuing higher\n\nThe exact point where a level becomes inefficient can vary because one attribute may affect several different derived stats. Treat the table as a planning map, not an absolute rule.\n\nNew to the wider game as well? Start with our [Elden Ring beginner’s guide](/stories/elden-ring-beginners-guide/) for exploration, checkpoints and other first-hours systems.",
+      "heading": "Soft-cap reference table",
+      "headingStyle": "editorial"
+    }
+  ],
+  "quickRead": [
+    "Vigor has especially important practical breakpoints around 40 and 60 for most builds.",
+    "Strength and Dexterity commonly continue scaling meaningfully into the mid-50s and again toward 80, depending on the equipment and affinity used.",
+    "Intelligence and Faith often have major casting breakpoints around 60 and 80, while Arcane varies more by status and scaling setup.",
+    "Soft caps are diminishing-return points, not hard limits, so the right stopping point still depends on the build."
+  ],
+  "conclusion": "Soft caps are most useful when they stop you from wasting levels, not when they turn character building into a spreadsheet exercise.\n\nFor most players, the numbers worth remembering first are **40 and 60 Vigor**. After that, Mind and Endurance should solve actual resource problems, while offensive attributes should be pushed only as far as the build needs before their diminishing returns make another stat more valuable.\n\nElden Ring gives you enough freedom that there is rarely one perfect stat line. Use the soft caps to understand the tradeoffs, then build around the way you actually play.",
+  "conclusionHeading": "The bottom line",
+  "conclusionHeadingStyle": "editorial",
+  "featured": false,
+  "homepageSlot": "regular",
+  "publishedAt": "2026-09-05T03:55:11.766632+00:00",
+  "updatedAt": "2026-09-05T03:55:11.766632+00:00",
+  "imageLocal": "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1788580077163-5686ef05-5f51-4283-b4c1-f91e601ffcdd-elden-stats.webp",
+  "editorialSection": "guides",
+  "platforms": [
+    "pc",
+    "playstation",
+    "xbox",
+    "nintendo"
+  ],
+  "collection": null,
+  "collectionYear": null,
+  "gameKey": "Elden Ring",
+  "series": "Elden Ring",
+  "franchise": "Elden Ring",
+  "newsMeta": {}
+}

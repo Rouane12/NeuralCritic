@@ -1,0 +1,87 @@
+{
+  "id": "02d90232-87b9-42da-a7a6-64af9c4b89a7",
+  "slug": "baldurs-gate-3-companions-player-choice",
+  "title": "Why Baldur’s Gate 3’s Companions Make Player Choice Feel Personal",
+  "description": "An analysis of how Baldur’s Gate 3 uses companion relationships, approval, conflict and reactivity to make player decisions feel personal.",
+  "body": "Baldur’s Gate 3 makes companion relationships feel personal because party members are not treated as passive quest dispensers. They watch what the player does, respond to values and decisions, argue with one another, reveal information at different times and can push back when the player’s choices conflict with their own priorities.\n\nThe result is not perfect simulation, but it is convincing reactivity. Choice matters because it changes how the people travelling with you understand the character you are choosing to become.\n\nFor more on the RPG around those relationships, read our [Baldur’s Gate 3 review](/stories/baldurs-gate-3-review/) and [Baldur’s Gate 3 beginner’s guide](/stories/baldurs-gate-3-beginners-guide/).",
+  "category": "FEATURE",
+  "author": "Rouane Mounssif",
+  "tags": [
+    "Baldur’s Gate 3",
+    "Companions",
+    "Player Choice",
+    "RPG Design",
+    "Feature"
+  ],
+  "imageAlt": "The main Baldur’s Gate 3 companions stand together beneath a stormy fantasy sky in official promotional artwork.",
+  "imageCredit": "Larian Studios / Baldur’s Gate 3 official promotional artwork.",
+  "articleFormat": "standard",
+  "reviewMeta": {},
+  "contentBlocks": [
+    {
+      "text": "A dialogue option can be mechanically small and still feel important when a companion reacts to it. Baldur’s Gate 3 repeatedly places party members close enough to the player’s decisions that moral, practical and impulsive choices acquire a social audience. That turns “what outcome do I want?” into a second question: “what does this tell the people travelling with me?”",
+      "heading": "Companions Turn Abstract Choices Into Social Consequences",
+      "headingStyle": "editorial"
+    },
+    {
+      "text": "The approval system gives the game a way to track accumulated impressions, but the strongest moments are usually more specific. A companion may challenge an action, remember a decision, open a new conversation or change how warmly they respond later. Larian has continued fixing these contextual reactions across patches, which shows how much the illusion depends on the right response appearing at the right time.",
+      "heading": "Approval Is Useful, but It Is Not the Whole Relationship",
+      "headingStyle": "editorial"
+    },
+    {
+      "text": "A party where everyone supports every decision would make choice easier but less meaningful. Baldur’s Gate 3 allows companions to have incompatible values, histories and priorities. Helping one person can frustrate another. A compassionate response may impress one companion and irritate someone more pragmatic. Those tensions create the sense that the party exists independently of the player’s need for validation.",
+      "heading": "Disagreement Makes Companions Feel Like People",
+      "headingStyle": "editorial"
+    },
+    {
+      "text": "Camp is where many immediate decisions gain a second life. A choice made during exploration can return later as a conversation, confession, argument or change in tone. Because these scenes are separated from the original event, the game creates the feeling that companions have been thinking about what happened rather than simply firing a scripted response and forgetting it.",
+      "heading": "Camp Gives Reactions Time to Become Relationships",
+      "headingStyle": "editorial"
+    },
+    {
+      "text": "Companions often arrive with an obvious surface identity: the guarded cleric, the proud warrior, the charming rogue, the heroic warlock. Their personal stories gradually complicate those first impressions. Player choice feels more personal because later decisions are made with knowledge that did not exist at the beginning, forcing the player to reconsider assumptions as relationships deepen.",
+      "heading": "Personal Quests Reframe Earlier Impressions",
+      "headingStyle": "editorial"
+    },
+    {
+      "text": "Only a limited number of companions travel with the player at once. That practical party limit also becomes a narrative filter. Different combinations produce different comments, banter, skill coverage and reactions, so two players can pass through the same location while receiving a different social texture. The party is therefore part of how the game edits its own story around the player.",
+      "heading": "Party Composition Changes the Story You Notice",
+      "headingStyle": "editorial"
+    },
+    {
+      "text": "Baldur’s Gate 3 cannot react uniquely to every possible action. Its strength is choosing enough high-value moments to maintain the impression that the world is listening. When a companion recalls an earlier decision or responds to a specific piece of information, that precision can make the surrounding, more conventional RPG structure feel more reactive than it technically is.",
+      "heading": "Reactivity Works Because It Is Selective",
+      "headingStyle": "editorial"
+    },
+    {
+      "text": "The game’s largest branching decisions matter, but companion design gives smaller decisions emotional weight. A choice can affect who trusts the player, who challenges them, what conversation appears at camp or how a relationship develops. The consequence is not always a new quest branch. Sometimes it is simply a person looking at the player differently, which can be more immediate.",
+      "heading": "Choice Feels Personal When Someone Else Cares",
+      "headingStyle": "editorial"
+    }
+  ],
+  "quickRead": [
+    "Baldur’s Gate 3 makes companion reactions part of the consequence system rather than treating party members as passive followers.",
+    "Approval matters because relationships develop through repeated decisions, disagreements and personal quest choices.",
+    "Camp conversations give major decisions room to echo after the immediate quest is over."
+  ],
+  "conclusion": "Baldur’s Gate 3 makes player choice memorable by attaching it to characters with their own opinions. Approval provides structure, but disagreement, camp conversations, personal quests and contextual reactions are what make that structure feel human.\n\nThat is why the companion system strengthens the game’s larger promise of RPG freedom. The player is not only choosing what happens next. They are choosing what kind of person their party believes they are — and discovering which relationships can survive that version of the story.",
+  "conclusionHeading": "Reactivity becomes meaningful when it has a face",
+  "conclusionHeadingStyle": "editorial",
+  "featured": false,
+  "homepageSlot": "regular",
+  "publishedAt": "2026-09-05T03:55:18.78946+00:00",
+  "updatedAt": "2026-09-05T03:55:18.78946+00:00",
+  "imageLocal": "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1788578143727-54f39934-146e-4110-96ca-3b8ec3181c0b-baldu-companions.webp",
+  "editorialSection": "features",
+  "platforms": [
+    "pc",
+    "playstation",
+    "xbox"
+  ],
+  "collection": null,
+  "collectionYear": null,
+  "gameKey": "Baldur’s Gate 3",
+  "series": "Baldur’s Gate",
+  "franchise": "Baldur’s Gate",
+  "newsMeta": {}
+}

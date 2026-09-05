@@ -1,0 +1,168 @@
+{
+  "id": "1537e39a-1212-4311-954f-b368c8ce9ef4",
+  "slug": "best-3d-platformers",
+  "title": "The 12 Best 3D Platformers",
+  "description": "The best 3D platformers, ranked for movement, level design, exploration and inventive traversal — from Mario Galaxy and Odyssey to Astro Bot and Psychonauts 2.",
+  "body": "The best 3D platformers make movement enjoyable before collectibles, upgrades, or spectacle enter the picture. A jump, dive, spin, roll, or wall-run should feel expressive enough that simply crossing a space becomes part of the reward.\\n\\nNeural Critic’s ranking favors games with precise movement, inventive level design, strong use of three-dimensional space, and enough mechanical variety to keep traversal interesting from the opening stage to the final challenge.\n\nFor more on the top of the list, read our [Super Mario Galaxy 2 review](/stories/super-mario-galaxy-2-review-platforming-ideas-at-full-speed/), [Super Mario Galaxy review](/stories/super-mario-galaxy-review-platforming-masterpiece-among-the-stars/) and [Super Mario Odyssey review](/stories/super-mario-odyssey-review/).",
+  "category": "FEATURE",
+  "author": "Rouane Mounssif",
+  "tags": [
+    "3D Platformers",
+    "Platformers",
+    "Best Games",
+    "Nintendo",
+    "What to Play"
+  ],
+  "imageAlt": "Mario rides Yoshi through a colorful cosmic scene in Super Mario Galaxy 2 promotional artwork.",
+  "imageCredit": "Nintendo / official game imagery",
+  "articleFormat": "ranked-list",
+  "reviewMeta": {},
+  "contentBlocks": [
+    {
+      "rank": "12",
+      "text": "A Hat in Time embraces the playful structure of older collectathon platformers without feeling trapped by nostalgia. Hats create light ability changes, levels shift between exploration and more directed challenges, and the movement is flexible enough to make revisiting spaces enjoyable. It is uneven in places, but its personality and mechanical confidence earn it a place here.",
+      "heading": "A Hat in Time",
+      "subtitle": "A cheerful collectathon with movement that invites experimentation",
+      "developer": "Gears for Breakfast",
+      "imageLocal": "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1788576617107-8a29700c-29f8-450f-9a0b-97ecf5b5e03d-hat-in-time-section.avif",
+      "releaseYear": "2017",
+      "headingStyle": "editorial"
+    },
+    {
+      "rank": "11",
+      "text": "Crash Bandicoot 4 is far more linear than most games on this list, but that focus lets it build unusually dense platforming challenges. Perspective, timing, masks, wall-running, rails, and moving hazards are layered aggressively. Completionist demands can become excessive, yet the core stages show how strong a tightly authored 3D obstacle course can be.",
+      "heading": "Crash Bandicoot 4: It’s About Time",
+      "subtitle": "Precise 3D platforming built around demanding obstacle courses",
+      "developer": "Toys for Bob",
+      "imageLocal": "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1788576630968-8e289e91-1ba8-4382-ba57-e545aea6cbf1-bandicoot-section.jpg",
+      "releaseYear": "2020",
+      "headingStyle": "editorial"
+    },
+    {
+      "rank": "10",
+      "text": "Sonic X Shadow Generations combines remastered Sonic Generations material with a Shadow campaign that gives high-speed 3D movement more room to evolve. Boosting, rails, homing attacks, alternate routes, and spectacle constantly compete for attention, but at its best the game makes speed feel like something the player earns through route knowledge rather than something happening automatically.",
+      "heading": "Sonic X Shadow Generations",
+      "subtitle": "Speed-focused 3D platforming with two distinct rhythms",
+      "developer": "Sonic Team",
+      "imageLocal": "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1788576645462-f898a8ab-7e3e-461b-8510-eea3bce9977f-sonic-x-section.webp",
+      "releaseYear": "2024",
+      "headingStyle": "editorial"
+    },
+    {
+      "rank": "9",
+      "text": "The Spyro trilogy remains appealing because its spaces are easy to understand and satisfying to clear. Gliding, charging, collecting, and searching for hidden routes create a relaxed rhythm that contrasts with more demanding platformers. The Reignited presentation modernizes the trilogy without changing the simple movement-and-exploration foundation that made it enduring.",
+      "heading": "Spyro Reignited Trilogy",
+      "subtitle": "Exploration-first platforming built around readable spaces",
+      "developer": "Toys for Bob",
+      "imageLocal": "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1788576666881-92957f01-ee1a-4d01-b0f9-14290894c0d2-spyro-section.jpg",
+      "releaseYear": "2018",
+      "headingStyle": "editorial"
+    },
+    {
+      "rank": "8",
+      "text": "It Takes Two is broader than a pure platformer, but movement and spatial problem-solving remain central throughout its constantly changing co-op adventure. Each area introduces tools that alter how two players navigate and cooperate, then moves on before the idea becomes repetitive. Its greatest strength is mechanical generosity: almost every chapter wants to teach the pair a new way to move together.",
+      "heading": "It Takes Two",
+      "subtitle": "Co-op platforming that keeps replacing its own mechanics",
+      "developer": "Hazelight Studios",
+      "imageLocal": "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1788576690615-7b79bb94-d44d-4f14-8717-771274d4d73d-takes-two-section.jpg",
+      "releaseYear": "2021",
+      "headingStyle": "editorial"
+    },
+    {
+      "rank": "7",
+      "text": "Rift Apart blends shooting with platforming, but its dimensional transitions, rails, wall movement, aerial traversal, and tightly directed environments give movement a major role. The game is more guided than Mario or Psychonauts, yet its technical spectacle is strongest when it changes how the player crosses a level rather than simply decorating it.",
+      "heading": "Ratchet & Clank: Rift Apart",
+      "subtitle": "Platforming and action connected by unusually fast spatial transitions",
+      "developer": "Insomniac Games",
+      "imageLocal": "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1788576719671-fc2ad766-031d-4f81-b527-85f723c61eb6-ratchet-section.avif",
+      "releaseYear": "2021",
+      "headingStyle": "editorial"
+    },
+    {
+      "rank": "6",
+      "text": "Psychonauts 2 uses psychic worlds to make level design reflect the personalities and problems of the characters Raz encounters. Platforming, powers, visual metaphors, and storytelling continually reinforce one another. The movement is not the most demanding on this list, but few 3D platformers use the genre’s freedom to make environments this conceptually inventive.",
+      "heading": "Psychonauts 2",
+      "subtitle": "Imaginative worlds turn platforming into character design",
+      "developer": "Double Fine",
+      "imageLocal": "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1788576738500-5e76641e-2de0-4b37-8337-bcc3b3e9021a-psychonauts-section.jpg",
+      "releaseYear": "2021",
+      "headingStyle": "editorial"
+    },
+    {
+      "rank": "5",
+      "text": "Kirby and the Forgotten Land succeeds by making 3D movement approachable without making levels empty. Copy abilities, Mouthful Mode, hidden objectives, and compact stages give every area several layers of interaction. It is easier than many platformers here, but the clarity of its design makes exploration consistently rewarding rather than merely simple.",
+      "heading": "Kirby and the Forgotten Land",
+      "subtitle": "Nintendo’s pink hero adapts naturally to full 3D spaces",
+      "developer": "HAL Laboratory",
+      "imageLocal": "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1788576758082-d2e2b9fa-ab15-4dd2-8e0a-5bd03cca7961-kirby-section.jpg",
+      "releaseYear": "2022",
+      "headingStyle": "editorial"
+    },
+    {
+      "rank": "4",
+      "text": "Astro Bot understands that a platforming level does not need to preserve every idea for later. New mechanics arrive constantly, often supporting one stage or sequence before the game happily replaces them with something else. That confidence creates exceptional pacing, while responsive movement and playful use of hardware make even straightforward jumps feel satisfying.",
+      "heading": "Astro Bot",
+      "subtitle": "A modern showcase for tactile, idea-dense platforming",
+      "developer": "Team Asobi",
+      "imageLocal": "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1788576808513-14f1452c-acb8-4da6-8129-ef6bcc0a54f5-astrobot-section.jpg",
+      "releaseYear": "2024",
+      "headingStyle": "editorial"
+    },
+    {
+      "rank": "3",
+      "text": "Super Mario Galaxy changed the shape of a platforming level by letting gravity point in almost any direction. Small planets, curved surfaces, launch stars, and shifting perspectives repeatedly challenge the player’s sense of orientation without sacrificing readable controls. Its best ideas still feel elegant because gravity is not a gimmick added to Mario’s movement; it changes the spaces that movement can inhabit.",
+      "heading": "Super Mario Galaxy",
+      "subtitle": "Gravity turns three-dimensional space into a toy",
+      "developer": "Nintendo EAD Tokyo",
+      "imageLocal": "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1788576817979-6e39e892-2459-46ae-b26d-019d5666b2ad-galaxy-1-section.avif",
+      "releaseYear": "2007",
+      "headingStyle": "editorial"
+    },
+    {
+      "rank": "2",
+      "text": "Super Mario Odyssey gives the player an enormous vocabulary of movement and then builds kingdoms open enough to reward mastering it. Cappy extends jumps, creates improvised routes, and turns enemies into temporary movement systems through captures. The sheer number of Power Moons means quality varies, but the freedom of traversal makes simply moving through a kingdom unusually satisfying.",
+      "heading": "Super Mario Odyssey",
+      "subtitle": "Mario’s most expressive movement sandbox",
+      "developer": "Nintendo EPD",
+      "imageLocal": "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1788576835519-4a9c4966-6b9f-4b92-8557-b1b0b822f3c7-mario-odyssey.jpg",
+      "releaseYear": "2017",
+      "headingStyle": "editorial"
+    },
+    {
+      "rank": "1",
+      "text": "Super Mario Galaxy 2 takes the gravity-driven foundation of the first game and pushes it toward denser, more focused level design. Yoshi abilities, shifting gravity, disappearing platforms, drills, clouds, and countless one-off ideas are introduced with remarkable efficiency. It has less narrative atmosphere than Galaxy, but as a pure sequence of three-dimensional platforming challenges, it remains Neural Critic’s benchmark.",
+      "heading": "Super Mario Galaxy 2",
+      "subtitle": "Platforming ideas refined into an almost relentless sequence",
+      "developer": "Nintendo EAD Tokyo",
+      "imageLocal": "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1788576847219-3be04334-c493-4f9b-9ef4-a7d15abac150-galaxy-2-main.avif",
+      "releaseYear": "2010",
+      "headingStyle": "editorial"
+    }
+  ],
+  "quickRead": [
+    "A cheerful collectathon with movement that invites experimentation",
+    "Precise 3D platforming built around demanding obstacle courses",
+    "Speed-focused 3D platforming with two distinct rhythms"
+  ],
+  "conclusion": "Great 3D platformers make space itself interesting. The player should want to move because movement feels good, then discover that the level is constantly finding new ways to test or reward that movement.\\n\\nGalaxy 2 remains Neural Critic’s top pick because almost every stage introduces a strong idea and develops it without overstaying its welcome. Odyssey offers more freedom, Astro Bot more modern spectacle, and Psychonauts 2 more conceptual storytelling, which shows how many directions the genre can still take.",
+  "conclusionHeading": "Movement is the real reward",
+  "conclusionHeadingStyle": "editorial",
+  "featured": false,
+  "homepageSlot": "regular",
+  "publishedAt": "2026-09-05T03:55:26.333356+00:00",
+  "updatedAt": "2026-09-05T03:55:26.333356+00:00",
+  "imageLocal": "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1788576862214-45c077c0-9ff4-455d-aa59-757c0ccecb57-psychonauts-section.jpg",
+  "editorialSection": "what-to-play",
+  "platforms": [
+    "pc",
+    "playstation",
+    "xbox",
+    "nintendo"
+  ],
+  "collection": "best-games",
+  "collectionYear": 2026,
+  "gameKey": "",
+  "series": "",
+  "franchise": "",
+  "newsMeta": {}
+}

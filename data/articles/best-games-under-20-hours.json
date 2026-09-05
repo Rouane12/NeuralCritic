@@ -1,0 +1,148 @@
+{
+  "id": "6aaebb22-111d-4ddd-a94b-6ec37848ba82",
+  "slug": "best-games-under-20-hours",
+  "title": "The 10 Best Games You Can Finish in Under 20 Hours",
+  "description": "The best games you can finish in under 20 hours, using typical main-story time rather than completionist play — from Portal 2 and Astro Bot to Stray and Firewatch.",
+  "body": "Not every great game needs to become a month-long project. This list is for players who want a complete single-player experience that can usually be finished in under 20 hours when following the main story rather than pursuing every collectible, optional challenge, or alternate ending.\\n\\nRuntime varies by player, difficulty, and exploration style, so the threshold here is intentionally practical rather than absolute. Neural Critic favors games whose shorter length feels purposeful instead of incomplete.\n\nFor a closer look at one of the list’s larger adventures that still fits the main-story threshold, read our [Super Mario Odyssey review](/stories/super-mario-odyssey-review/).",
+  "category": "FEATURE",
+  "author": "Rouane Mounssif",
+  "tags": [
+    "Short Games",
+    "Games Under 20 Hours",
+    "Best Games",
+    "Single Player",
+    "What to Play"
+  ],
+  "imageAlt": "Mario poses beside Cappy against a red world-map background in Super Mario Odyssey promotional artwork, one of the games included in Neural Critic’s under-20-hours list.",
+  "imageCredit": "Nintendo / Super Mario Odyssey official promotional artwork.",
+  "articleFormat": "ranked-list",
+  "reviewMeta": {},
+  "contentBlocks": [
+    {
+      "rank": "10",
+      "text": "A Short Hike can be finished very quickly, but rushing misses much of what makes it special. Climbing, gliding, fishing, talking to other hikers, and finding small detours give the island a relaxed density. It proves that an open-ended structure does not require an enormous map or a huge time commitment to feel generous.",
+      "heading": "A Short Hike",
+      "subtitle": "A tiny open world where wandering is the point",
+      "developer": "Adam Robinson-Yu",
+      "imageLocal": "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1788576898967-3c97c73d-f4c7-4655-a63b-47e0a39e309e-hike-section.jpg",
+      "releaseYear": "2019",
+      "headingStyle": "editorial"
+    },
+    {
+      "rank": "9",
+      "text": "What Remains of Edith Finch is short enough to finish in one or two sittings, yet each family story introduces a new visual or mechanical idea. That compression gives the experience unusual momentum. There is no filler between major moments, and the changing forms of interaction make its small runtime feel deliberate rather than limited.",
+      "heading": "What Remains of Edith Finch",
+      "subtitle": "A brief narrative experiment with almost no wasted motion",
+      "developer": "Giant Sparrow",
+      "imageLocal": "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1788576913708-9e150ce1-7d2f-4b64-9637-c0ee567c20a3-remain-section.avif",
+      "releaseYear": "2017",
+      "headingStyle": "editorial"
+    },
+    {
+      "rank": "8",
+      "text": "Firewatch builds an entire game around one wilderness assignment and the relationship formed over a radio. Exploration is simple, but the setting, performances, and evolving conversations give ordinary walks narrative purpose. Its compact length fits the story: the game leaves before its central dynamic has time to become routine.",
+      "heading": "Firewatch",
+      "subtitle": "A focused mystery carried by atmosphere and conversation",
+      "developer": "Campo Santo",
+      "imageLocal": "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1788576919054-81294103-4683-4f1d-932a-e2587735dfad-firewatch-section.jpg",
+      "releaseYear": "2016",
+      "headingStyle": "editorial"
+    },
+    {
+      "rank": "7",
+      "text": "Inside wastes almost no time explaining itself. Movement, environmental puzzles, sound, and unsettling visual details carry the player through a short sequence of increasingly strange spaces. Because the game rarely stops to provide exposition, its pacing remains exceptionally tight and the experience can be completed without turning into a long-term commitment.",
+      "heading": "Inside",
+      "subtitle": "A tightly controlled journey built on visual storytelling",
+      "developer": "Playdead",
+      "imageLocal": "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1788576943773-14dea76b-2893-4eca-bbe6-4b967d936095-inside-section.jpg",
+      "releaseYear": "2016",
+      "headingStyle": "editorial"
+    },
+    {
+      "rank": "6",
+      "text": "Stray uses its short runtime to keep the focus on movement through a distinctive robot city. Exploration, light puzzles, environmental storytelling, and the simple pleasure of navigating spaces as a cat give the game personality without requiring a sprawling structure. Optional discoveries can extend the journey, but the central path remains refreshingly manageable.",
+      "heading": "Stray",
+      "subtitle": "A compact adventure with a strong sense of place",
+      "developer": "BlueTwelve Studio",
+      "imageLocal": "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1788576960320-7977ca8a-70b8-4a79-9f43-58cedca63ff2-stray-section.webp",
+      "releaseYear": "2022",
+      "headingStyle": "editorial"
+    },
+    {
+      "rank": "5",
+      "text": "Rift Apart delivers the scale and visual polish of a major action game while keeping its main campaign relatively focused. Weapons evolve quickly, planets introduce new traversal ideas, and dimensional transitions keep the pace moving. It is a useful reminder that a technically ambitious game does not need an oversized campaign to justify itself.",
+      "heading": "Ratchet & Clank: Rift Apart",
+      "subtitle": "A polished blockbuster that does not overstay its welcome",
+      "developer": "Insomniac Games",
+      "imageLocal": "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1788576977131-770818ca-f8b1-475a-9d00-d037f4750050-rift-apart-section.jpg",
+      "releaseYear": "2021",
+      "headingStyle": "editorial"
+    },
+    {
+      "rank": "4",
+      "text": "Super Mario Odyssey contains far more than a short game’s worth of Power Moons, but reaching the main ending is a focused journey that fits comfortably below the enormous runtimes associated with modern open worlds. Players who want more can keep exploring for dozens of additional challenges; players who want closure can reach it without treating the game like a checklist.",
+      "heading": "Super Mario Odyssey",
+      "subtitle": "A main story that stays compact even when the world invites much more",
+      "developer": "Nintendo EPD",
+      "imageLocal": "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1788576991718-890191dd-35ba-4c74-88d8-ded85f17d33f-odyssey-section.webp",
+      "releaseYear": "2017",
+      "headingStyle": "editorial"
+    },
+    {
+      "rank": "3",
+      "text": "Hi-Fi Rush synchronizes combat, animation, platforming, and environmental movement to music, giving the campaign an energy that rarely dips. Its chapters are substantial enough to develop new mechanics without becoming repetitive, and the main story stays focused. Optional challenges provide extra depth for players who want to keep mastering the rhythm after the credits.",
+      "heading": "Hi-Fi Rush",
+      "subtitle": "Rhythm gives an action campaign exceptional pacing",
+      "developer": "Tango Gameworks",
+      "imageLocal": "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1788577015055-7bcd553e-edbc-4512-b8ab-7131882af48e-hi-fi-section.webp",
+      "releaseYear": "2023",
+      "headingStyle": "editorial"
+    },
+    {
+      "rank": "2",
+      "text": "Astro Bot offers a complete platforming campaign without asking for an enormous time investment. Levels constantly introduce fresh mechanics, transformations, and playful hardware ideas, which makes the game feel larger than its runtime suggests. Completionists can spend longer finding every Bot and secret, but the core journey remains tightly paced.",
+      "heading": "Astro Bot",
+      "subtitle": "A dense platformer where almost every level introduces a new idea",
+      "developer": "Team Asobi",
+      "imageLocal": "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1788577019181-d3b3df90-f613-4737-9d47-c6446de8d1d9-astrobot-section.jpg",
+      "releaseYear": "2024",
+      "headingStyle": "editorial"
+    },
+    {
+      "rank": "1",
+      "text": "Portal 2 takes the top spot because its length and structure are almost perfectly matched. Each puzzle concept develops far enough to become interesting before the game moves to the next layer, while dialogue and environmental storytelling give the spaces personality between tests. It feels complete, inventive, and memorable without needing dozens of hours to prove its ideas.",
+      "heading": "Portal 2",
+      "subtitle": "A near-perfect example of a game ending exactly when it should",
+      "developer": "Valve",
+      "imageLocal": "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1788577023103-ee4874c2-ab4d-4f70-95bf-de68cc795213-portal-in-list.avif",
+      "releaseYear": "2011",
+      "headingStyle": "editorial"
+    }
+  ],
+  "quickRead": [
+    "A tiny open world where wandering is the point",
+    "A brief narrative experiment with almost no wasted motion",
+    "A focused mystery carried by atmosphere and conversation"
+  ],
+  "conclusion": "Shorter games are not valuable because they demand less attention. They are valuable when their length gives ideas enough room to develop without forcing them to repeat. Portal 2 remains an exceptional example of that discipline, while Astro Bot and Hi-Fi Rush show that modern games can still deliver spectacle without becoming enormous commitments.\\n\\nFor this list, finishing the main story is the standard. Optional content can push several of these games well beyond 20 hours, which is a benefit rather than a contradiction: the player gets to decide whether the credits are the ending or the beginning of a longer completionist run.",
+  "conclusionHeading": "A complete game does not need to be a long game",
+  "conclusionHeadingStyle": "editorial",
+  "featured": false,
+  "homepageSlot": "regular",
+  "publishedAt": "2026-09-05T03:55:26.333356+00:00",
+  "updatedAt": "2026-09-05T03:55:26.333356+00:00",
+  "imageLocal": "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1788577030291-1d3be7b5-4fe0-4d20-8bd7-c3a486b269e5-inside-section.jpg",
+  "editorialSection": "what-to-play",
+  "platforms": [
+    "pc",
+    "playstation",
+    "xbox",
+    "nintendo"
+  ],
+  "collection": "best-games",
+  "collectionYear": 2026,
+  "gameKey": "",
+  "series": "",
+  "franchise": "",
+  "newsMeta": {}
+}
