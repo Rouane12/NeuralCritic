@@ -1,0 +1,65 @@
+/* Scoped light-mode repair for Game Hub surfaces. Dark mode is intentionally untouched. */
+html[data-theme="light"] body.nc-game-page{
+  --surface:var(--nc-light-white,#fff);
+  --line:var(--nc-light-line,#cfd4d6);
+  --muted:var(--nc-light-muted,#66717d);
+  color:var(--nc-light-text,#171b22);
+}
+html[data-theme="light"] body.nc-game-page .nc-game-panel{
+  background:linear-gradient(145deg,var(--nc-light-white,#fff),var(--nc-light-surface,#f8f8f5));
+  color:var(--nc-light-text,#171b22);
+  border-color:var(--nc-light-line,#cfd4d6);
+  box-shadow:var(--nc-light-shadow-soft,0 10px 28px rgba(39,46,55,.055));
+}
+html[data-theme="light"] body.nc-game-page .nc-game-facts{
+  background:var(--nc-light-line,#cfd4d6);
+  border-color:var(--nc-light-line,#cfd4d6);
+}
+html[data-theme="light"] body.nc-game-page .nc-game-facts div,
+html[data-theme="light"] body.nc-game-page .nc-game-stories>a,
+html[data-theme="light"] body.nc-game-page #game-relations>a,
+html[data-theme="light"] body.nc-game-page #game-links>a{
+  background:var(--nc-light-white,#fff);
+  color:var(--nc-light-text,#171b22);
+  border-color:var(--nc-light-line,#cfd4d6);
+}
+html[data-theme="light"] body.nc-game-page .nc-game-intro>p,
+html[data-theme="light"] body.nc-game-page .nc-game-facts small,
+html[data-theme="light"] body.nc-game-page .nc-game-releases small,
+html[data-theme="light"] body.nc-game-page .nc-game-stories p,
+html[data-theme="light"] body.nc-game-page .nc-game-review-copy p,
+html[data-theme="light"] body.nc-game-page .nc-game-review-meta,
+html[data-theme="light"] body.nc-game-page .nc-game-empty,
+html[data-theme="light"] body.nc-game-page .nc-game-empty-state p,
+html[data-theme="light"] body.nc-game-page .nc-game-commerce-disclosure{
+  color:var(--nc-light-muted,#66717d);
+}
+html[data-theme="light"] body.nc-game-page .nc-game-releases>div{
+  border-color:var(--nc-light-line,#cfd4d6);
+}
+html[data-theme="light"] body.nc-game-page .nc-game-coverage-nav{
+  background:var(--nc-light-surface-cool,#eef2f4);
+  border-color:var(--nc-light-line,#cfd4d6);
+  color:var(--nc-light-text,#171b22);
+}
+html[data-theme="light"] body.nc-game-page .nc-game-coverage-nav button{
+  color:var(--nc-light-text,#171b22);
+}
+html[data-theme="light"] body.nc-game-page .nc-game-coverage-nav button.active,
+html[data-theme="light"] body.nc-game-page .nc-game-coverage-nav button[aria-pressed="true"]{
+  background:color-mix(in srgb,var(--accent,#8c7cff) 14%,#fff);
+  color:var(--accent,#8c7cff);
+}
+html[data-theme="light"] body.nc-game-page .nc-game-review-card{
+  color:var(--nc-light-text,#171b22);
+  border-color:color-mix(in srgb,var(--accent,#8c7cff) 42%,var(--nc-light-line,#cfd4d6));
+  background:linear-gradient(135deg,color-mix(in srgb,var(--accent,#8c7cff) 9%,#fff),var(--nc-light-white,#fff));
+}
+html[data-theme="light"] body.nc-game-page .nc-game-stories>a:hover,
+html[data-theme="light"] body.nc-game-page #game-relations>a:hover,
+html[data-theme="light"] body.nc-game-page #game-links>a:hover,
+html[data-theme="light"] body.nc-game-page .nc-game-stories>a:focus-visible,
+html[data-theme="light"] body.nc-game-page #game-relations>a:focus-visible,
+html[data-theme="light"] body.nc-game-page #game-links>a:focus-visible{
+  border-color:var(--accent,#8c7cff);
+}
