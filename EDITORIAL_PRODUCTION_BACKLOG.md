@@ -6,12 +6,12 @@ Supabase is the source of truth for article status and editorial fields. This fi
 
 ## Current phase
 
-**Review completion + controlled evergreen publishing.**
+**Evergreen publishing + remaining blocker cleanup.**
 
-The 41-article evergreen roadmap drafting phase is complete. The first 21 roadmap articles were published on 2026-09-05 after a controlled readiness audit. The current editorial focus is finishing the 11 remaining review drafts without fabricating first-hand testing claims or image provenance.
+The 41-article evergreen roadmap drafting phase is complete. The initial 21 roadmap articles were published on 2026-09-05, followed by a controlled publication of 10 completed non-Witcher review drafts on the same day.
 
 Core publication gate:
-`editorial edit → current factual check → feature image + literal alt + verified provenance → internal links → SEO/metadata QA → editor-approved review package + actual tested-platform/scope confirmation → publish → Supabase verification → canonical/discovery verification`
+`editorial edit → current factual check → feature image + alt + verified provenance → internal links → SEO/metadata QA → editor-approved review package + actual tested-platform/scope confirmation → publish → Supabase verification → canonical/discovery verification`
 
 Never fabricate image provenance. Never invent first-hand play claims, tested-platform claims, review-copy disclosures, or unsupported subjective judgments.
 
@@ -19,90 +19,75 @@ Never fabricate image provenance. Never invent first-hand play claims, tested-pl
 
 - Evergreen roadmap: **41 articles**.
 - Fully drafted: **41/41 — COMPLETE**.
-- Published from roadmap: **21/41**.
-- Remaining roadmap drafts: **20**.
+- Published from roadmap: **31/41**.
+- Remaining roadmap drafts: **10**.
 - Separate non-roadmap CMS draft: `2026-video-game-release-calendar`.
+- Live article census immediately after the review publication batch: **90 published / 11 drafts**.
 
-## Current review lane — 11 drafts
+## Review lane — 10 published, 1 held
 
-### Structural copy cleanup — COMPLETE 2026-09-05
+### Published 2026-09-05
 
-All 11 review drafts were re-audited in live Supabase.
+The following 10 reviews passed the final CMS readiness audit and were published in two controlled batches. Supabase was re-queried after each batch and returned `status='published'`, non-null `published_at`, feature-image metadata, tested-platform/access scope, score, verdict, pros and cons.
 
-Completed in this pass:
-- all 11 now have **8 substantive content sections**;
-- all 11 now have **4 quick-read points**;
-- all 11 have finished descriptions and conclusions;
-- neutral scaffold language such as “the final review should assess…” was removed from the 10 non-Witcher reviews;
-- useful internal links were added where strong published cluster destinations already exist;
-- Cyberpunk 2077 platform metadata was corrected to include the current Apple-silicon Mac version;
-- The Witcher 3 retains explicit `[REMASTERED RECHECK — September 29, 2026]` markers because its combat, progression and technical baseline is changing.
+- `bloodborne-review` — **9.3** — PlayStation (PS4 version)
+- `clair-obscur-expedition-33-review` — **9.5** — PC (Steam)
+- `cyberpunk-2077-review` — **8.9** — PC (Steam)
+- `dark-souls-iii-review` — **9.2** — PC (Steam)
+- `dark-souls-remastered-review` — **9.0** — PC (Steam)
+- `ghost-of-tsushima-directors-cut-review` — **9.0** — PC (Steam)
+- `god-of-war-ragnarok-review` — **9.1** — PC (Steam)
+- `hades-review` — **9.6** — PC (Steam)
+- `persona-5-royal-review` — **9.5** — PC (Steam)
+- `sekiro-shadows-die-twice-review` — **9.2** — PC (Steam)
 
-### Owner-approved consensus benchmark package — RECORDED 2026-09-05
+Owner confirmed the games were personally accessed through Steam / appropriate console platforms and that the review feature images are official imagery. `reviewCopy` records the access route rather than claiming publisher-provided review code.
 
-The owner explicitly approved using broad gamer/community consensus as an editorial benchmark for score, verdict, pros and cons on the 10 non-Witcher review drafts. Those fields were written to live Supabase and re-queried successfully.
+### Final review QA completed before publication
 
-These are **not a substitute for first-hand testing**. The reviews remain draft until actual tested platform and review-copy/source scope are recorded and the owner confirms the final review represents Neural Critic’s tested editorial judgment.
+- all 10 have searchable review titles;
+- meta descriptions are **151–158 characters**;
+- all 10 have **4 Quick Read points** and **8 substantive content sections**;
+- all 10 have non-empty conclusions;
+- all 10 have author/category/review-format/tags/platform/game mapping;
+- all 10 have feature images, non-empty alt text and recorded official-image credit;
+- all 10 have score, verdict, pros, cons, tested platform and access scope;
+- stale framework/future wording such as “the published review will…” was removed;
+- Ghost of Tsushima Director’s Cut, God of War Ragnarök and Hades received game-page recirculation links so every review has an internal destination;
+- the final factual pass used current primary sources for platform/release/package context.
 
-Current recorded scores:
-- `bloodborne-review` — **9.3**
-- `clair-obscur-expedition-33-review` — **9.5**
-- `cyberpunk-2077-review` — **8.9**
-- `dark-souls-iii-review` — **9.2**
-- `dark-souls-remastered-review` — **9.0**
-- `ghost-of-tsushima-directors-cut-review` — **9.0**
-- `god-of-war-ragnarok-review` — **9.1**
-- `hades-review` — **9.6**
-- `persona-5-royal-review` — **9.5**
-- `sekiro-shadows-die-twice-review` — **9.2**
-- `the-witcher-3-wild-hunt-review` — **9.0** (score only; verdict/pros/cons still intentionally open pending Remastered re-test)
-
-For the 10 non-Witcher reviews, Supabase verification confirms non-empty verdicts plus 4–5 pros and 3 cons each.
-
-### Editor/test blockers still open
-
-Every non-Witcher review still requires:
-- actual **tested platform**;
-- **review-copy / purchase / access disclosure or scope**;
-- final confirmation that the tested experience supports the recorded benchmark verdict and score.
-
-The Witcher 3 review additionally still requires its post-Remastered verdict, pros and cons after re-testing.
-
-### Review image blockers
-
-- `bloodborne-review` still has **no feature image**.
-- The other 10 review drafts have feature-image URLs but currently lack **literal feature-image alt text** and **verified image credit** in Supabase.
-- Do not infer credits from filenames, game names, developers or publishers.
+Feature-image alt text is intentionally conservative because the exact stored image pixels were not available to the publication connector for visual inspection. It identifies the official game imagery without inventing scene-specific details. Improve these alts later if exact visual inspection becomes available.
 
 ### Witcher hold
 
-`the-witcher-3-wild-hunt-review` remains held until after **The Witcher 3: Wild Hunt — Remastered** launches on **September 29, 2026** and its version-sensitive sections are re-tested and reverified.
-
-## Published roadmap batch — 21
-
-Published and previously verified:
-- Elden Ring / FromSoftware: 6
-- Baldur’s Gate 3: 6
-- Nintendo / Zelda / Mario: 7
-- Red Dead Redemption 2: 2
-
-The post-publication canonical discovery refresh, sitemap generation and GitHub Pages deployment were subsequently verified successful.
+`the-witcher-3-wild-hunt-review` remains **draft** and intentionally held until after **The Witcher 3: Wild Hunt — Remastered** launches on **September 29, 2026**. Its version-sensitive combat, progression and technical sections must be re-tested and reverified before verdict/pros/cons are finalized.
 
 ## Other remaining drafts
 
-Live CMS still contains non-review drafts in addition to the review lane. Before working on those, re-query Supabase because the owner is currently prioritizing Reviews and has been manually editing imagery/metadata.
+Live CMS still contains non-review drafts in addition to the held Witcher review. Re-query Supabase before acting because imagery/metadata may be edited manually between sessions.
 
-Known future-sensitive material includes Witcher 3 Remastered-dependent Guides / Features / What to Play entries. Reverify after September 29 rather than carrying pre-Remastered assumptions forward.
+Known future-sensitive material includes Witcher 3 Remastered-dependent guides/features/What to Play entries. Reverify after September 29 rather than carrying pre-Remastered assumptions forward.
+
+## Publication-discovery verification
+
+Supabase publication is verified for all 10 newly published reviews.
+
+The repository’s `Refresh publication discovery files` workflow runs on a scheduled cadence and rebuilds runtime fallback data, sitemap/RSS, canonical story shells, game/topic/author pages and publication audits from published CMS state.
+
+**Do not call canonical/discovery verification complete until a post-publication refresh has created the generated review pages/sitemap entries and the resulting Pages / Publication Health runs are verified successful.**
 
 ## Immediate next action
 
-1. Collect the actual tested platform and review-copy/purchase/access scope for the 10 non-Witcher reviews.
-2. Add/verify feature-image metadata only from identifiable visuals and known provenance; obtain a Bloodborne feature image.
-3. Reconcile each owner-approved consensus benchmark with the actual tested experience; adjust score/verdict/pros/cons if needed.
-4. Run current factual verification on each newly complete review.
-5. Publish completed non-Witcher reviews in controlled groups and verify Supabase + canonical production output.
-6. Hold The Witcher 3 review for the September 29 Remastered re-test.
+1. Verify the post-publication canonical refresh and Pages/Publication Health for the 10 new reviews.
+2. Re-query the remaining 11 drafts and prioritize the non-Witcher evergreen pieces that are genuinely publication-ready.
+3. Keep the Witcher 3 Remastered-dependent material held for the September 29 factual/re-test pass.
+4. Continue the growth plan of roughly **3 evergreen pieces per week**, emphasizing cluster-deepening Guides, Reviews and high-intent What to Play coverage.
 
 ## Growth context
 
-The current growth roadmap targets roughly **3 evergreen pieces per week**, with Guides as the strongest search-led category and Reviews / What to Play as the main depth opportunities. New work should deepen existing clusters before broad expansion and should always include deliberate internal recirculation.
+Current growth targets:
+- roughly **55–65 evergreen articles within 3 months**;
+- around **100 evergreen articles within 6 months**;
+- six-month category target: **40–50 Guides, 25–30 Reviews, 20–25 What to Play, 10–12 Features**.
+
+New evergreen work should deepen established clusters before broad expansion and should include deliberate internal recirculation.
