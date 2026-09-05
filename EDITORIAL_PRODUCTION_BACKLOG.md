@@ -1,6 +1,6 @@
 # Neural Critic Editorial Production Backlog
 
-Last updated: 2026-09-04
+Last updated: 2026-09-05
 
 Supabase is the source of truth for article records and status. This file is the compact durable production queue for the current growth phase.
 
@@ -22,9 +22,8 @@ Supabase is the source of truth for article records and status. This file is the
 - Roadmap draft records created: **41 of 41 — COMPLETE**.
 - Total CMS drafts: **42**, including the separate `2026-video-game-release-calendar` draft.
 - Fully drafted roadmap pieces: **27 of 41**.
-- Remaining roadmap pieces needing full editorial completion: **14**.
-- Current roadmap mix: 16 Guides, 11 Reviews, 8 What to Play pages and 6 Features.
-- First publication-readiness cluster: **3 Elden Ring guides complete and verified as drafts**.
+- Remaining roadmap pieces needing full editorial completion: **14**, all gated by review judgment or Witcher 3 Remastered verification.
+- Pre-publication-ready roadmap pieces: **6** — three Elden Ring guides + three Baldur’s Gate 3 guides.
 
 ## Fully drafted roadmap work — 27
 
@@ -68,27 +67,41 @@ Editorial notes:
 
 ## Publish-readiness batch 1 — Elden Ring COMPLETE
 
-The following three drafts completed the pre-publication pass on 2026-09-04:
-
+Pre-publication ready:
 1. `elden-ring-best-starting-classes-beginners`
 2. `elden-ring-stats-soft-caps-explained`
 3. `elden-ring-early-progression-what-to-upgrade-first`
 
 Verified work:
-- current factual pass completed against the current 2026 base-game state;
-- feature images assigned only from assets with provenance already recorded in Neural Critic’s CMS;
-- literal image alt text and existing verified credits preserved/assigned;
-- canonical `/stories/<slug>/` internal links added across the Elden Ring cluster and to relevant already-published Elden Ring coverage;
-- metadata reviewed;
-- all three re-queried in Supabase after writes;
-- all three remain `status='draft'` with `published_at=NULL`.
+- current 2026 factual pass;
+- provenance-safe feature images and literal alt text;
+- verified existing image credits;
+- canonical `/stories/<slug>/` internal links across the cluster and to published Elden Ring coverage;
+- metadata review and Supabase re-query;
+- all remain `draft` with `published_at=NULL`.
 
-Internal-link verification after the write:
-- starting-class guide: 4 story links;
-- stats/soft-caps guide: 3 story links;
-- early-progression guide: 3 story links.
+Internal-link counts: 4 / 3 / 3 respectively.
 
-No publication was performed. These three are now the first roadmap pieces at **pre-publication ready** status, pending the final publish/production-verification step.
+## Publish-readiness batch 2 — Baldur’s Gate 3 COMPLETE
+
+Pre-publication ready:
+1. `baldurs-gate-3-best-classes-beginners`
+2. `baldurs-gate-3-companions-guide`
+3. `baldurs-gate-3-difficulty-modes-explained`
+
+Verified work on 2026-09-05:
+- current-state check against Larian’s Patch 8 / Hotfix 36 game state;
+- Patch 8 remains the final major content patch; later work is small hotfix/bug-fix maintenance;
+- feature images assigned only from Larian assets whose provenance was already recorded in Neural Critic’s CMS;
+- literal alt text and existing verified credits assigned;
+- canonical `/stories/<slug>/` links added across the three new guides plus the already-published BG3 beginner guide and review;
+- companion wording tightened to distinguish the six recruitable Origin companions from four later recruitable companions;
+- all three re-queried after the write;
+- all remain `draft` with `published_at=NULL`.
+
+Internal-link verification: **4 story links on each guide**.
+
+No publication has been performed for either readiness batch.
 
 ## Remaining 14 roadmap pieces — editorial gates
 
@@ -116,15 +129,14 @@ Do not invent first-hand impressions, tested-platform claims, scores, verdicts, 
 
 ## Next production phase
 
-Next default batch: **Baldur’s Gate 3 publish-readiness**.
+Next default batch: **Cyberpunk 2077 publish-readiness**.
 
-1. `baldurs-gate-3-best-classes-beginners`
-2. `baldurs-gate-3-companions-guide`
-3. `baldurs-gate-3-difficulty-modes-explained`
+1. `cyberpunk-2077-life-paths-explained`
+2. `cyberpunk-2077-best-attributes-perks-beginners`
 
-For each: provenance-safe image package → canonical internal-link pass → metadata/factual/SEO QA → Supabase re-query. Keep them as drafts unless the user explicitly decides to publish.
+For each: current factual pass → provenance-safe image package → canonical internal-link pass → metadata/SEO QA → Supabase re-query. Keep them as drafts unless the user explicitly decides to publish.
 
-After BG3, continue with Cyberpunk and the strongest adjacent discovery pages. Keep real news running in parallel when it has genuine reader/search value. Keep review shells gated until real tested-platform editorial judgment is available. Revisit Witcher 3 after Remastered verification.
+After Cyberpunk, move through the strongest What to Play and Feature drafts by cluster/search opportunity, then publish in controlled batches with production verification. Keep real news running in parallel. Keep review shells gated until real tested-platform editorial judgment is available. Revisit Witcher 3 after Remastered verification.
 
 ## Game Hub expansion already created
 
