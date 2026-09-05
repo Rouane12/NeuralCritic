@@ -4,112 +4,54 @@ Last updated: 2026-09-05
 
 Supabase is the source of truth for article records and status. This file is the compact durable production queue for the current growth phase.
 
+## Core workflow
+
+The roadmap uses two deliberately separate phases:
+
+1. **Drafting phase — finish 41/41 first.** Every roadmap article should exist as a complete, editable draft in Supabase before publication-readiness work becomes the main priority.
+2. **Publication-readiness phase — work through completed drafts in batches.** For each batch: editorial edit → factual/current-state verification → imagery/provenance → internal links → SEO/metadata QA → publish → production verification.
+
+Do not confuse “fully drafted” with “publish-ready.” Draft completion is the current primary milestone.
+
 ## Operating rules
 
 - Prioritize cluster depth before broad category expansion.
 - Keep timely news as a parallel lane.
-- Verify current facts and search intent immediately before publication.
-- Finalize review verdicts, scores, pros/cons, tested-platform notes and opinion-led headlines only after the editorial review is actually completed.
-- Recommendation/list pages are maintained assets and need recurring freshness reviews.
-- Prefer durable recommendation titles over unnecessary “Right Now” wording.
+- Verify current facts immediately before publication.
+- Never fabricate image provenance.
+- Reviews may be fully drafted as neutral editorial frameworks, but do not invent first-hand impressions, tested-platform claims, scores, verdicts, pros/cons or review-copy details. Leave those subjective fields for real editorial input.
+- Witcher 3 pieces may be fully drafted now, but any Remastered-sensitive material must be clearly flagged for re-verification after the September 29, 2026 release.
 - Do not publish merely to hit a numeric target.
-- Never fabricate image provenance. Leave an image unset when the available asset cannot be credited confidently.
 
-## Current milestone state
+## Current roadmap state
 
 - Published library: **59 stories**.
-- First library milestone: about **100 strong published stories**.
 - Evergreen roadmap: **41 additional stories**.
-- Roadmap draft records created: **41 of 41 — COMPLETE**.
+- Roadmap records created: **41/41 — COMPLETE**.
+- Fully drafted roadmap pieces: **27/41**.
+- Remaining pieces to draft: **14**.
 - Total CMS drafts: **42**, including the separate `2026-video-game-release-calendar` draft.
-- Fully drafted roadmap pieces: **27 of 41**.
-- Remaining roadmap pieces needing full editorial completion: **14**, all gated by review judgment or Witcher 3 Remastered verification.
-- Fully pre-publication-ready roadmap pieces: **21**.
-- Readiness-complete except for future Witcher 3 re-verification: **2**.
-- Asset/network blockers after editorial readiness work: **4**.
 - No roadmap draft has been published during this production phase.
 
-## Readiness census — 27 fully drafted pieces
+## Drafted roadmap pieces — 27
 
-### Fully pre-publication ready — 21
-
-These have completed the current factual/metadata pass, provenance-safe feature imagery, canonical internal-link pass and Supabase re-query, and remain `status='draft'` with `published_at=NULL`.
-
-#### Elden Ring / FromSoftware
+### Guides — 14
 - `elden-ring-best-starting-classes-beginners`
 - `elden-ring-stats-soft-caps-explained`
 - `elden-ring-early-progression-what-to-upgrade-first`
-- `best-soulslike-games`
-- `best-games-like-elden-ring`
-- `fromsoftware-boss-fights-memorable`
-
-#### Baldur’s Gate 3
+- `dark-souls-remastered-beginners-guide`
 - `baldurs-gate-3-best-classes-beginners`
 - `baldurs-gate-3-companions-guide`
 - `baldurs-gate-3-difficulty-modes-explained`
-- `best-games-like-baldurs-gate-3`
-- `best-turn-based-rpgs`
-- `baldurs-gate-3-companions-player-choice`
-
-#### Nintendo / Zelda / Mario
-- `tears-of-the-kingdom-best-early-armor-upgrades`
-- `breath-of-the-wild-best-early-armor-upgrades`
-- `super-mario-odyssey-power-moons-explained`
-- `mario-kart-8-deluxe-200cc-guide`
-- `best-3d-platformers`
-- `best-games-under-20-hours`
-- `super-mario-galaxy-gravity-mechanics`
-
-#### Red Dead Redemption 2
-- `red-dead-redemption-2-beginners-guide`
-- `red-dead-redemption-2-world-feels-alive`
-
-### Future factual recheck required — 2
-
-The image/link/metadata readiness work is complete, but these pages include The Witcher 3 and must be re-verified after **The Witcher 3: Wild Hunt — Remastered** launches on September 29, 2026:
-
-- `best-action-rpgs`
-- `best-story-driven-games`
-
-Do not publish these before that recheck.
-
-### Asset / recirculation blockers — 4
-
-Editorial copy, metadata and current factual work are complete, but the following are not yet fully pre-publication ready because Neural Critic does not currently have a safely reusable, verified-credit feature asset in the CMS for the page:
-
 - `cyberpunk-2077-life-paths-explained`
 - `cyberpunk-2077-best-attributes-perks-beginners`
-- `dark-souls-remastered-beginners-guide`
-- `hades-failure-feels-like-progress`
-
-Additional notes:
-- Cyberpunk 2077’s existing published beginner-guide image has no recorded credit, so it was deliberately not propagated. The two new Cyberpunk guides did receive their current-state factual pass, Mac platform metadata correction and canonical story links.
-- Dark Souls Remastered has an existing local editorial image without recorded credit. Do not infer provenance from the game title or file name.
-- Hades currently lacks a verified-credit CMS image and also lacks a safe published Hades story target for a manual internal link. Game Graph recirculation may cover this later, but do not rely on a generated Game Hub publicly until its canonical production page is verified.
-
-## Readiness work completed on 2026-09-05
-
-### Cyberpunk 2077
-- Verified Patch 2.31 remains the latest general game patch; the April 2026 PlayStation 5 Pro update is platform-specific.
-- Confirmed Update 2.0’s modern perk/attribute structure still underpins the guides.
-- Corrected platform metadata to include Mac alongside PC, PlayStation, Xbox and Nintendo.
-- Added canonical links between the two new guides and the already-published Cyberpunk beginner guide.
-- Left feature imagery unset because no verified-credit reusable Cyberpunk asset exists in the CMS.
-
-### Remaining Guides
-Completed image/link/metadata readiness work for:
 - `red-dead-redemption-2-beginners-guide`
 - `tears-of-the-kingdom-best-early-armor-upgrades`
 - `breath-of-the-wild-best-early-armor-upgrades`
 - `super-mario-odyssey-power-moons-explained`
 - `mario-kart-8-deluxe-200cc-guide`
 
-Current Nintendo checks confirm the Breath of the Wild and Tears of the Kingdom Nintendo Switch 2 Editions are live, while Super Mario Odyssey remains supported on Switch 2 with behavior consistent with Switch.
-
-Dark Souls Remastered received its canonical internal-link pass but remains asset-blocked for provenance.
-
-### What to Play
-All eight roadmap What to Play drafts now have representative feature imagery with recorded provenance and canonical internal links:
+### What to Play — 8
 - `best-soulslike-games`
 - `best-games-like-elden-ring`
 - `best-games-like-baldurs-gate-3`
@@ -119,59 +61,60 @@ All eight roadmap What to Play drafts now have representative feature imagery wi
 - `best-3d-platformers`
 - `best-games-under-20-hours`
 
-`best-action-rpgs` and `best-story-driven-games` remain held only for the September 29 Witcher 3 Remastered recheck.
-
-### Features
-Completed image/link/metadata readiness work for:
+### Features — 5
 - `fromsoftware-boss-fights-memorable`
 - `baldurs-gate-3-companions-player-choice`
 - `red-dead-redemption-2-world-feels-alive`
 - `super-mario-galaxy-gravity-mechanics`
+- `hades-failure-feels-like-progress`
 
-`hades-failure-feels-like-progress` remains content-complete but asset/recirculation-blocked as described above.
+## Remaining drafting queue — 14
 
-## Remaining 14 roadmap pieces — editorial gates
+### Reviews — draft as complete neutral editorial frameworks
+1. `cyberpunk-2077-review` — existing current-state scaffold; expand to full editable review draft without inventing subjective fields.
+2. `sekiro-shadows-die-twice-review`
+3. `bloodborne-review`
+4. `dark-souls-iii-review`
+5. `dark-souls-remastered-review`
+6. `god-of-war-ragnarok-review`
+7. `persona-5-royal-review`
+8. `ghost-of-tsushima-directors-cut-review`
+9. `hades-review`
+10. `clair-obscur-expedition-33-review`
 
-### Witcher 3 — HOLD until Remastered verification
-- `the-witcher-3-beginners-guide`
-- `the-witcher-3-best-skills-abilities`
-- `witcher-3-side-quests-standard`
-- `the-witcher-3-wild-hunt-review`
+For every review draft: complete factual/contextual sections and editorial structure, but leave score, verdict, pros/cons, tested platform and first-hand judgment for the editor.
 
-The Witcher 3: Wild Hunt — Remastered is scheduled for September 29, 2026. Re-verify mechanics, progression, platforms, visuals and the reviewed version before finalizing these pieces.
+### Witcher 3 — draft now, re-verify later
+11. `the-witcher-3-wild-hunt-review`
+12. `the-witcher-3-beginners-guide`
+13. `the-witcher-3-best-skills-abilities`
+14. `witcher-3-side-quests-standard`
 
-### Reviews — tested-platform/editorial judgment required
-- `cyberpunk-2077-review` — current-state research scaffold exists; no score or verdict.
-- `sekiro-shadows-die-twice-review`
-- `bloodborne-review`
-- `dark-souls-iii-review`
-- `dark-souls-remastered-review`
-- `god-of-war-ragnarok-review`
-- `persona-5-royal-review`
-- `ghost-of-tsushima-directors-cut-review`
-- `hades-review`
-- `clair-obscur-expedition-33-review`
+The Witcher 3: Wild Hunt — Remastered is scheduled for September 29, 2026. Draft these now using currently verified information, but clearly mark Remastered-sensitive mechanics, progression, platforms, visuals and version-specific review material for later verification.
 
-Do not invent first-hand impressions, tested-platform claims, scores, verdicts, pros/cons or review-copy details.
+## Current drafting priority
 
-## Next production phase
+Finish the remaining 14 before returning to publication-readiness as the main workstream.
 
-The mass-drafting and broad readiness phases are now effectively complete for everything that can be responsibly completed from current verified material.
+Recommended next drafting batch:
+1. `sekiro-shadows-die-twice-review`
+2. `bloodborne-review`
+3. `dark-souls-iii-review`
+4. `dark-souls-remastered-review`
 
-Next default work:
-1. Resolve the four asset/network blockers when verified, reusable imagery or a safe published recirculation target becomes available.
-2. If the user explicitly decides to publish, publish in controlled cluster batches rather than dumping all 21 ready pieces at once.
-3. Start with the Elden Ring / FromSoftware cluster, then Baldur’s Gate 3, then Nintendo/Zelda/Mario and Red Dead Redemption 2, re-querying Supabase after each publication batch.
-4. For every publication batch, verify production canonical `/stories/<slug>/` URLs, sitemap/discovery presence, metadata/social presentation and Game Hub recirculation where relevant.
-5. Keep real news running in parallel when it has genuine reader/search value.
-6. Keep review shells gated until real tested-platform editorial judgment is available.
-7. Revisit all Witcher 3-held work after September 29, 2026.
+Then continue through the remaining reviews, followed by the four Witcher 3 pieces.
 
-## Game Hub expansion already created
+## Publication-readiness work already completed
 
-Roadmap Game Hubs added in Supabase: `sekiro-shadows-die-twice`, `bloodborne`, `dark-souls-iii`, `god-of-war-ragnarok`, `persona-5-royal`, `ghost-of-tsushima-directors-cut`, `hades`, `clair-obscur-expedition-33`.
+Some of the 27 drafted pieces have already received images, internal links and QA work. Preserve that work, but do not let readiness status interrupt the 41/41 drafting milestone.
 
-Verify canonical generated pages during normal publication/deployment work before relying on them publicly.
+Known readiness notes:
+- Elden Ring and Baldur’s Gate 3 guide clusters already received substantial pre-publication passes.
+- Most Nintendo/Zelda/Mario, RDR2, What to Play and feature drafts have image/link readiness work completed.
+- Cyberpunk guides, Dark Souls Remastered guide and Hades feature still have provenance/recirculation gaps.
+- `best-action-rpgs` and `best-story-driven-games` require a post-Remastered Witcher 3 factual recheck before publication.
+
+Once **41/41 are fully drafted**, resume publication-readiness in controlled batches and verify every live publication in Supabase and production.
 
 ## News lane
 
