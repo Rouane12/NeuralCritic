@@ -58,9 +58,24 @@ Owner confirmed the games were personally accessed through Steam / appropriate c
 
 Feature-image alt text is intentionally conservative because the exact stored image pixels were not available to the publication connector for visual inspection. It identifies the official game imagery without inventing scene-specific details. Improve these alts later if exact visual inspection becomes available.
 
-### Witcher hold
+### Witcher 3 Remastered review hold — OWNER DECISION
 
-`the-witcher-3-wild-hunt-review` remains **draft** and intentionally held until after **The Witcher 3: Wild Hunt — Remastered** launches on **September 29, 2026**. Its version-sensitive combat, progression and technical sections must be re-tested and reverified before verdict/pros/cons are finalized.
+`the-witcher-3-wild-hunt-review` remains **draft** and is intentionally being treated as the **September 29, 2026 Remastered review**, not as a separate classic-only review.
+
+Owner confirmed on 2026-09-05 that the current draft should stay in this Remastered-review lane rather than being finished and published early as a review of the pre-Remastered version.
+
+Until Remastered launches, keep the stable story/quest/worldbuilding material but do **not** finalize or publish the review. After September 29:
+- re-test combat feel and animations;
+- re-test movement and mount handling;
+- verify the revamped skill/progression systems;
+- verify visuals, performance and platform-specific behavior;
+- record the exact tested platform/build;
+- finalize verdict, pros and cons from the released Remastered product;
+- remove all `[REMASTERED RECHECK]` markers;
+- run full image/SEO/internal-link/publication QA;
+- publish only after the released Remastered build is actually assessed.
+
+Do not reinterpret this draft later as a classic-only review unless the owner explicitly changes this decision.
 
 ## What to Play milestone — `best-story-driven-games`
 
@@ -81,7 +96,7 @@ Supabase verification returned `status='published'`, non-null `published_at`, an
 
 ## Other remaining drafts
 
-Live CMS still contains 10 drafts, including the held Witcher review and the separate release-calendar draft. Re-query Supabase before acting because imagery/metadata may be edited manually between sessions.
+Live CMS still contains 10 drafts, including the held Witcher Remastered review and the separate release-calendar draft. Re-query Supabase before acting because imagery/metadata may be edited manually between sessions.
 
 Witcher 3 Remastered-dependent guides/features remain held where their claims depend on gameplay, progression or technical changes. Narrative-only material can be cleared earlier only after a fresh factual review shows the September 29 changes do not affect the article’s argument.
 
@@ -96,9 +111,10 @@ The repository’s `Refresh publication discovery files` workflow runs on a sche
 ## Immediate next action
 
 1. Verify the next post-publication canonical refresh includes the 10 new reviews and `best-story-driven-games`.
-2. Re-query the remaining 10 drafts and prioritize the next genuinely publication-ready non-Witcher evergreen piece.
-3. Keep version-sensitive Witcher 3 Remastered material held for the September 29 factual/re-test pass.
-4. Continue the growth plan of roughly **3 evergreen pieces per week**, emphasizing cluster-deepening Guides, Reviews and high-intent What to Play coverage.
+2. Re-query the remaining 10 drafts and prioritize the next genuinely publication-ready **non-Witcher** evergreen piece.
+3. Leave `the-witcher-3-wild-hunt-review` untouched as the September 29 Remastered review until the released build can be re-tested.
+4. Keep other version-sensitive Witcher 3 Remastered material held for the September 29 factual/re-test pass.
+5. Continue the growth plan of roughly **3 evergreen pieces per week**, emphasizing cluster-deepening Guides, Reviews and high-intent What to Play coverage.
 
 ## Growth context
 
