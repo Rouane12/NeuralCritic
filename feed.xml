@@ -5,9 +5,17 @@
     <link>https://www.neuralcritic.net/</link>
     <description>Gaming news, reviews, guides, and features for players who want the signal—not the noise.</description>
     <language>en</language>
-    <lastBuildDate>Sat, 05 Sep 2026 04:31:26 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 05 Sep 2026 05:11:13 +0000</lastBuildDate>
     <generator>Neural Critic publication pipeline</generator>
     <atom:link href="https://www.neuralcritic.net/feed.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Red Dead Redemption 2 Beginner’s Guide: What to Do First</title>
+      <link>https://www.neuralcritic.net/stories/red-dead-redemption-2-beginners-guide/</link>
+      <guid isPermaLink="true">https://www.neuralcritic.net/stories/red-dead-redemption-2-beginners-guide/</guid>
+      <description>A spoiler-light Red Dead Redemption 2 beginner’s guide covering early progression, cores, camp, horses, exploration and the systems worth understanding first.</description>
+      <category>GUIDE</category>
+      <pubDate>Sat, 05 Sep 2026 03:55:31 +0000</pubDate>
+    </item>
     <item>
       <title>Why Red Dead Redemption 2’s World Still Feels Alive</title>
       <link>https://www.neuralcritic.net/stories/red-dead-redemption-2-world-feels-alive/</link>
@@ -17,12 +25,12 @@
       <pubDate>Sat, 05 Sep 2026 03:55:31 +0000</pubDate>
     </item>
     <item>
-      <title>Red Dead Redemption 2 Beginner’s Guide: What to Do First</title>
-      <link>https://www.neuralcritic.net/stories/red-dead-redemption-2-beginners-guide/</link>
-      <guid isPermaLink="true">https://www.neuralcritic.net/stories/red-dead-redemption-2-beginners-guide/</guid>
-      <description>A spoiler-light Red Dead Redemption 2 beginner’s guide covering early progression, cores, camp, horses, exploration and the systems worth understanding first.</description>
-      <category>GUIDE</category>
-      <pubDate>Sat, 05 Sep 2026 03:55:31 +0000</pubDate>
+      <title>The 12 Best 3D Platformers</title>
+      <link>https://www.neuralcritic.net/stories/best-3d-platformers/</link>
+      <guid isPermaLink="true">https://www.neuralcritic.net/stories/best-3d-platformers/</guid>
+      <description>The best 3D platformers, ranked for movement, level design, exploration and inventive traversal — from Mario Galaxy and Odyssey to Astro Bot and Psychonauts 2.</description>
+      <category>FEATURE</category>
+      <pubDate>Sat, 05 Sep 2026 03:55:26 +0000</pubDate>
     </item>
     <item>
       <title>Tears of the Kingdom Best Early Armor and Upgrades</title>
@@ -33,10 +41,10 @@
       <pubDate>Sat, 05 Sep 2026 03:55:26 +0000</pubDate>
     </item>
     <item>
-      <title>The 10 Best Games You Can Finish in Under 20 Hours</title>
-      <link>https://www.neuralcritic.net/stories/best-games-under-20-hours/</link>
-      <guid isPermaLink="true">https://www.neuralcritic.net/stories/best-games-under-20-hours/</guid>
-      <description>The best games you can finish in under 20 hours, using typical main-story time rather than completionist play — from Portal 2 and Astro Bot to Stray and Firewatch.</description>
+      <title>Why Super Mario Galaxy’s Gravity Mechanics Still Feel Brilliant</title>
+      <link>https://www.neuralcritic.net/stories/super-mario-galaxy-gravity-mechanics/</link>
+      <guid isPermaLink="true">https://www.neuralcritic.net/stories/super-mario-galaxy-gravity-mechanics/</guid>
+      <description>An analysis of how Super Mario Galaxy turns gravity, planetoids and camera perspective into memorable platforming ideas.</description>
       <category>FEATURE</category>
       <pubDate>Sat, 05 Sep 2026 03:55:26 +0000</pubDate>
     </item>
@@ -57,27 +65,19 @@
       <pubDate>Sat, 05 Sep 2026 03:55:26 +0000</pubDate>
     </item>
     <item>
+      <title>The 10 Best Games You Can Finish in Under 20 Hours</title>
+      <link>https://www.neuralcritic.net/stories/best-games-under-20-hours/</link>
+      <guid isPermaLink="true">https://www.neuralcritic.net/stories/best-games-under-20-hours/</guid>
+      <description>The best games you can finish in under 20 hours, using typical main-story time rather than completionist play — from Portal 2 and Astro Bot to Stray and Firewatch.</description>
+      <category>FEATURE</category>
+      <pubDate>Sat, 05 Sep 2026 03:55:26 +0000</pubDate>
+    </item>
+    <item>
       <title>Breath of the Wild Best Early Armor and Essential Upgrades</title>
       <link>https://www.neuralcritic.net/stories/breath-of-the-wild-best-early-armor-upgrades/</link>
       <guid isPermaLink="true">https://www.neuralcritic.net/stories/breath-of-the-wild-best-early-armor-upgrades/</guid>
       <description>The best early Breath of the Wild armor to prioritize, including practical defense, cold resistance, stealth and the Great Fairy upgrades that make early gear last longer.</description>
       <category>GUIDE</category>
-      <pubDate>Sat, 05 Sep 2026 03:55:26 +0000</pubDate>
-    </item>
-    <item>
-      <title>Why Super Mario Galaxy’s Gravity Mechanics Still Feel Brilliant</title>
-      <link>https://www.neuralcritic.net/stories/super-mario-galaxy-gravity-mechanics/</link>
-      <guid isPermaLink="true">https://www.neuralcritic.net/stories/super-mario-galaxy-gravity-mechanics/</guid>
-      <description>An analysis of how Super Mario Galaxy turns gravity, planetoids and camera perspective into memorable platforming ideas.</description>
-      <category>FEATURE</category>
-      <pubDate>Sat, 05 Sep 2026 03:55:26 +0000</pubDate>
-    </item>
-    <item>
-      <title>The 12 Best 3D Platformers</title>
-      <link>https://www.neuralcritic.net/stories/best-3d-platformers/</link>
-      <guid isPermaLink="true">https://www.neuralcritic.net/stories/best-3d-platformers/</guid>
-      <description>The best 3D platformers, ranked for movement, level design, exploration and inventive traversal — from Mario Galaxy and Odyssey to Astro Bot and Psychonauts 2.</description>
-      <category>FEATURE</category>
       <pubDate>Sat, 05 Sep 2026 03:55:26 +0000</pubDate>
     </item>
     <item>
@@ -89,18 +89,18 @@
       <pubDate>Sat, 05 Sep 2026 03:55:18 +0000</pubDate>
     </item>
     <item>
-      <title>Why Baldur’s Gate 3’s Companions Make Player Choice Feel Personal</title>
-      <link>https://www.neuralcritic.net/stories/baldurs-gate-3-companions-player-choice/</link>
-      <guid isPermaLink="true">https://www.neuralcritic.net/stories/baldurs-gate-3-companions-player-choice/</guid>
-      <description>An analysis of how Baldur’s Gate 3 uses companion relationships, approval, conflict and reactivity to make player decisions feel personal.</description>
-      <category>FEATURE</category>
-      <pubDate>Sat, 05 Sep 2026 03:55:18 +0000</pubDate>
-    </item>
-    <item>
       <title>The 10 Best Games Like Baldur’s Gate 3</title>
       <link>https://www.neuralcritic.net/stories/best-games-like-baldurs-gate-3/</link>
       <guid isPermaLink="true">https://www.neuralcritic.net/stories/best-games-like-baldurs-gate-3/</guid>
       <description>The 10 best games like Baldur’s Gate 3, from reactive CRPGs and party-based tactical adventures to RPGs built around companions, choices and unusual solutions.</description>
+      <category>FEATURE</category>
+      <pubDate>Sat, 05 Sep 2026 03:55:18 +0000</pubDate>
+    </item>
+    <item>
+      <title>Why Baldur’s Gate 3’s Companions Make Player Choice Feel Personal</title>
+      <link>https://www.neuralcritic.net/stories/baldurs-gate-3-companions-player-choice/</link>
+      <guid isPermaLink="true">https://www.neuralcritic.net/stories/baldurs-gate-3-companions-player-choice/</guid>
+      <description>An analysis of how Baldur’s Gate 3 uses companion relationships, approval, conflict and reactivity to make player decisions feel personal.</description>
       <category>FEATURE</category>
       <pubDate>Sat, 05 Sep 2026 03:55:18 +0000</pubDate>
     </item>

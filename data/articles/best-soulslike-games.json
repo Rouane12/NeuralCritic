@@ -21,7 +21,9 @@
     {
       "rank": "12",
       "text": "Aggro Crab turns the genre’s familiar structure into something lighter without removing the need to learn. Its underwater world is playful, shells function as temporary defenses with different abilities, and the combat still rewards patience, positioning, and understanding enemy patterns. It is especially valuable as an entry point because its personality makes failure feel less intimidating without reducing the satisfaction of overcoming a difficult encounter.",
+      "caption": "Another Crab’s Treasure ranks No. 12: A welcoming Soulslike that proves accessibility and challenge can coexist.",
       "heading": "Another Crab’s Treasure",
+      "imageAlt": "Another Crab’s Treasure artwork or gameplay imagery illustrating the game’s visual style.",
       "subtitle": "A welcoming Soulslike that proves accessibility and challenge can coexist",
       "developer": "Aggro Crab",
       "imageLocal": "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1788576150504-a198a45d-ce55-4a5b-8ec8-b91453d7179b-crab-section-1.webp",
@@ -31,7 +33,9 @@
     {
       "rank": "11",
       "text": "Remnant II changes the genre’s usual rhythm by making firearms and ranged positioning central to the combat loop, but its structure remains recognizably Soulslike: dangerous spaces, checkpoint resets, build experimentation, difficult bosses, and repeated runs that become easier as the player understands them. Procedural elements make its worlds less tightly authored than FromSoftware’s best areas, but co-op and class-style Archetypes give it a distinct identity.",
+      "caption": "Remnant II ranks No. 11: Soulslike pressure rebuilt around ranged combat and co-op.",
       "heading": "Remnant II",
+      "imageAlt": "Remnant II artwork or gameplay imagery illustrating the game’s visual style.",
       "subtitle": "Soulslike pressure rebuilt around ranged combat and co-op",
       "developer": "Gunfire Games",
       "imageLocal": "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1788576146085-d0cfe386-cdd3-4aec-8454-715b19ea9058-remnant-section.jpg",
@@ -41,7 +45,9 @@
     {
       "rank": "10",
       "text": "Blasphemous 2 translates Soulslike tension into a 2D action-platformer without simply copying Dark Souls from the side. Its interconnected world, deliberate combat, strange religious imagery, bosses, and weapon-based traversal create a strong sense of place. It is more approachable than some 3D entries because the rules are visually clear, but precision still matters and careless play is punished quickly.",
+      "caption": "Blasphemous 2 ranks No. 10: A 2D Soulslike where movement and religious horror carry equal weight.",
       "heading": "Blasphemous 2",
+      "imageAlt": "Blasphemous 2 artwork or gameplay imagery illustrating the game’s visual style.",
       "subtitle": "A 2D Soulslike where movement and religious horror carry equal weight",
       "developer": "The Game Kitchen",
       "imageLocal": "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1788576141990-3b263ad6-b120-458e-a22d-426b1847cc68-blasphemous-section.jpg",
@@ -51,7 +57,9 @@
     {
       "rank": "9",
       "text": "Lords of the Fallen is at its best when its Umbral mechanic changes how exploration works. Moving between the living world and its darker counterpart can reveal routes, alter encounters, and turn death into another layer of navigation. Combat and enemy density are less consistently refined than the games above it, but the world design is ambitious and the game understands that discovery is as important to the genre as difficult bosses.",
+      "caption": "Lords of the Fallen ranks No. 9: A large dark-fantasy Soulslike built around two overlapping worlds.",
       "heading": "Lords of the Fallen",
+      "imageAlt": "Lords of the Fallen artwork or gameplay imagery illustrating the game’s visual style.",
       "subtitle": "A large dark-fantasy Soulslike built around two overlapping worlds",
       "developer": "Hexworks",
       "imageLocal": "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1788576137303-4d4de1ae-6478-4795-9ff6-4866df147e6b-lord-of-the-fallen-section.jpg",
@@ -61,7 +69,9 @@
     {
       "rank": "8",
       "text": "Nioh 2 is less interested in imitating Dark Souls’ world structure than in pushing action-RPG systems much further. Multiple weapon types, stances, Yokai abilities, equipment, statistics, and skill trees create enormous build depth, while Ki management gives every fight a distinctive rhythm. The mission structure is more segmented than a FromSoftware world, but few Soulslikes reward mechanical mastery and character experimentation this strongly.",
+      "caption": "Nioh 2 ranks No. 8: The deepest combat and build sandbox in the genre.",
       "heading": "Nioh 2",
+      "imageAlt": "Nioh 2 artwork or gameplay imagery illustrating the game’s visual style.",
       "subtitle": "The deepest combat and build sandbox in the genre",
       "developer": "Team Ninja",
       "imageLocal": "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1788576133136-f5b1cccb-d8be-4147-9eab-5aeee2287633-nioh-2-section.jpg",
@@ -71,7 +81,9 @@
     {
       "rank": "7",
       "text": "Demon’s Souls is where many of the genre’s defining ideas first came together: dangerous levels, limited knowledge, recoverable currency, opaque systems, shortcuts, and bosses that often test understanding more than raw character power. The remake makes Boletaria visually spectacular, but the underlying structure remains intentionally old-fashioned. Some encounters reveal the series’ age; the atmosphere and level identity still feel singular.",
+      "caption": "Demon’s Souls ranks No. 7: The foundation still feels strange, severe, and remarkably influential.",
       "heading": "Demon’s Souls",
+      "imageAlt": "Demon’s Souls artwork or gameplay imagery illustrating the game’s visual style.",
       "subtitle": "The foundation still feels strange, severe, and remarkably influential",
       "developer": "Bluepoint Games",
       "imageLocal": "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1788576128543-2944df84-8894-47dd-9492-4153f25bc9a4-demon-souls-section.webp",
@@ -81,7 +93,9 @@
     {
       "rank": "6",
       "text": "Lies of P succeeds because it does more than borrow bonfires and difficult bosses. Its weapon assembly system encourages experimentation, guarding and perfect timing create an aggressive defensive rhythm, and Krat has a strong visual identity of its own. The level structure is more directed than Dark Souls or Elden Ring, but that focus lets the game maintain a remarkably consistent difficulty curve and sense of forward momentum.",
+      "caption": "Lies of P ranks No. 6: The most convincing non-FromSoftware refinement of the formula.",
       "heading": "Lies of P",
+      "imageAlt": "Lies of P artwork or gameplay imagery illustrating the game’s visual style.",
       "subtitle": "The most convincing non-FromSoftware refinement of the formula",
       "developer": "Round8 Studio",
       "imageLocal": "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1788576124832-352ce7e2-1f04-4dfa-bc0f-656c48042b3e-lies-of-p-section.avif",
@@ -91,7 +105,9 @@
     {
       "rank": "5",
       "text": "Dark Souls remains essential because Lordran is not just a sequence of difficult rooms. Shortcuts fold distant areas together, elevators recontextualize spaces you thought you understood, and exploration constantly changes the mental map in your head. Combat is slower and less flexible than later FromSoftware games, but the world’s structure gives every step unusual weight. Few games have made geography itself such an important part of progression.",
+      "caption": "Dark Souls Remastered ranks No. 5: The interconnected world that turned a design philosophy into a genre.",
       "heading": "Dark Souls Remastered",
+      "imageAlt": "Dark Souls Remastered artwork or gameplay imagery illustrating the game’s visual style.",
       "subtitle": "The interconnected world that turned a design philosophy into a genre",
       "developer": "FromSoftware",
       "imageLocal": "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1788576039730-26da1ecd-b9c1-4978-bb4b-08a12c2855c5-dark-souls-main.jpg",
@@ -101,7 +117,9 @@
     {
       "rank": "4",
       "text": "Dark Souls III trades much of the first game’s maze-like world for faster combat, clearer forward momentum, and an exceptional sequence of bosses. Weapons and builds remain varied, but the game feels most confident when it asks the player to read movement, control spacing, and adapt to increasingly elaborate attack patterns. It is one of the easiest FromSoftware games to recommend after Elden Ring because the combat language feels immediately familiar.",
+      "caption": "Dark Souls III ranks No. 4: A focused collection of some of FromSoftware’s best boss fights.",
       "heading": "Dark Souls III",
+      "imageAlt": "Dark Souls III artwork or gameplay imagery illustrating the game’s visual style.",
       "subtitle": "A focused collection of some of FromSoftware’s best boss fights",
       "developer": "FromSoftware",
       "imageLocal": "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1788576116662-7f37f93c-9089-4113-82c5-e8a5773e5cde-dark-souls-3-section.jpg",
@@ -111,7 +129,9 @@
     {
       "rank": "3",
       "text": "Sekiro strips away much of the genre’s build flexibility and replaces it with a sharper question: can you learn the fight? Deflection, posture, aggression, and movement make combat feel closer to a duel than a traditional action RPG. That narrower design means there are fewer ways to overpower a difficult encounter, but it also produces some of FromSoftware’s clearest lessons and most satisfying victories.",
+      "caption": "Sekiro: Shadows Die Twice ranks No. 3: FromSoftware’s most demanding and precise combat system.",
       "heading": "Sekiro: Shadows Die Twice",
+      "imageAlt": "Sekiro: Shadows Die Twice artwork or gameplay imagery illustrating the game’s visual style.",
       "subtitle": "FromSoftware’s most demanding and precise combat system",
       "developer": "FromSoftware",
       "imageLocal": "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1788576111918-ed8bb54c-2b4b-4a02-bf25-50725a7bd782-sekiro-section.webp",
@@ -121,7 +141,9 @@
     {
       "rank": "2",
       "text": "Bloodborne changes player behavior through a few decisive ideas. Shields largely disappear, the regain system rewards immediate retaliation, transforming weapons encourage flexible attacks, and Yharnam’s dense streets create a constant sense of danger. The result is faster than Dark Souls without becoming careless. Its Gothic and cosmic-horror identity also remains one of the strongest worlds FromSoftware has created.",
+      "caption": "Bloodborne ranks No. 2: Aggression transforms the Souls formula into something faster and stranger.",
       "heading": "Bloodborne",
+      "imageAlt": "Bloodborne artwork or gameplay imagery illustrating the game’s visual style.",
       "subtitle": "Aggression transforms the Souls formula into something faster and stranger",
       "developer": "FromSoftware",
       "imageLocal": "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1788576107679-742c47df-85ea-4133-8551-41a74d97326a-bloodborn-section.webp",
@@ -131,7 +153,9 @@
     {
       "rank": "1",
       "text": "Elden Ring earns the top position because its open world changes the relationship between difficulty and progression. A boss can block one road without blocking the entire adventure. Exploration can produce levels, weapons, spells, summons, upgrade materials, or simply a better understanding of the world before you return. That freedom sits on top of FromSoftware’s deepest build variety and some of its most memorable legacy dungeons and bosses. It is both the genre’s broadest invitation and its most complete expression.",
+      "caption": "Elden Ring ranks No. 1: The fullest expression of Souls combat, exploration, and player freedom.",
       "heading": "Elden Ring",
+      "imageAlt": "Elden Ring artwork or gameplay imagery illustrating the game’s visual style.",
       "subtitle": "The fullest expression of Souls combat, exploration, and player freedom",
       "developer": "FromSoftware",
       "imageLocal": "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1788576165467-0c206289-d0fa-47cd-9f03-0c65b96a8ff7-elden-main-image.jpg",
@@ -150,7 +174,7 @@
   "featured": false,
   "homepageSlot": "regular",
   "publishedAt": "2026-09-05T03:55:11.766632+00:00",
-  "updatedAt": "2026-09-05T03:55:11.766632+00:00",
+  "updatedAt": "2026-09-05T04:50:05.17336+00:00",
   "imageLocal": "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1788025565917-72a0d1a0-a227-4ed8-8654-7336912c4915-main-elden-rang.jpg",
   "editorialSection": "what-to-play",
   "platforms": [

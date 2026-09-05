@@ -21,7 +21,9 @@
     {
       "rank": "12",
       "text": "Chained Echoes borrows the visual language of classic 16-bit RPGs without copying their pacing. Its Overdrive system asks the party to balance aggression with control, while character progression avoids some of the grinding associated with older genre traditions. It is a strong choice for players who want a traditional-feeling adventure with modern structural discipline.",
+      "caption": "Chained Echoes ranks No. 12: A compact throwback that keeps its systems moving.",
       "heading": "Chained Echoes",
+      "imageAlt": "Chained Echoes artwork or gameplay imagery illustrating the game’s visual style.",
       "subtitle": "A compact throwback that keeps its systems moving",
       "developer": "Matthias Linda",
       "imageLocal": "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1788576494982-dc563f8d-da49-409f-92c2-4987a0f08194-chained-section-1.avif",
@@ -31,7 +33,9 @@
     {
       "rank": "11",
       "text": "Sea of Stars makes turn-based combat easy to understand without making every encounter automatic. Timed inputs, combo attacks, and enemy spell locks keep the player engaged between commands, while its bright world and straightforward party structure make it one of the easiest games here to recommend to someone returning to the genre.",
+      "caption": "Sea of Stars ranks No. 11: Accessible turn-based combat wrapped in a polished adventure.",
       "heading": "Sea of Stars",
+      "imageAlt": "Sea of Stars artwork or gameplay imagery illustrating the game’s visual style.",
       "subtitle": "Accessible turn-based combat wrapped in a polished adventure",
       "developer": "Sabotage Studio",
       "imageLocal": "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1788576500928-504e8cea-f7c7-4356-aab6-838121b9406e-sea-section-2.webp",
@@ -41,7 +45,9 @@
     {
       "rank": "10",
       "text": "Rogue Trader is demanding, but its density is the point. Positioning, action economy, character archetypes, and an unusually reactive role-playing structure give the campaign real strategic weight. It is less welcoming than the games above it, but players who enjoy learning a complicated ruleset are rewarded with a party RPG where mechanical and narrative choices regularly intersect.",
+      "caption": "Warhammer 40,000: Rogue Trader ranks No. 10: Dense CRPG tactics for players who want consequences and systems.",
       "heading": "Warhammer 40,000: Rogue Trader",
+      "imageAlt": "Warhammer 40,000: Rogue Trader artwork or gameplay imagery illustrating the game’s visual style.",
       "subtitle": "Dense CRPG tactics for players who want consequences and systems",
       "developer": "Owlcat Games",
       "imageLocal": "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1788576507099-84e59ceb-e119-41ae-ab70-436e6ebd2ca1-warhammer-section-3.jpg",
@@ -51,7 +57,9 @@
     {
       "rank": "9",
       "text": "Three Houses works because its tactical maps are inseparable from the characters the player develops between battles. Teaching, relationships, class progression, and recruitment make the roster feel personal, while the campaign structure encourages replay from different perspectives. The strategy is approachable, but the long-term decisions give it staying power.",
+      "caption": "Fire Emblem: Three Houses ranks No. 9: Tactical battles made stronger by the people fighting them.",
       "heading": "Fire Emblem: Three Houses",
+      "imageAlt": "Fire Emblem: Three Houses artwork or gameplay imagery illustrating the game’s visual style.",
       "subtitle": "Tactical battles made stronger by the people fighting them",
       "developer": "Intelligent Systems / Koei Tecmo",
       "imageLocal": "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1788576514079-1052dbbf-e388-4e55-bff0-c1a42b3588be-fire-emblem-section-3.avif",
@@ -61,7 +69,9 @@
     {
       "rank": "8",
       "text": "Octopath Traveler II combines separate character stories with a battle system built around breaking enemy defenses and banking boost points for decisive turns. The structure can feel segmented compared with a fully unified party narrative, but the combat is consistently readable and expressive. It is particularly good at making small tactical decisions matter without burying the player in rules.",
+      "caption": "Octopath Traveler II ranks No. 8: Eight journeys supported by one of the genre’s sharpest battle systems.",
       "heading": "Octopath Traveler II",
+      "imageAlt": "Octopath Traveler II artwork or gameplay imagery illustrating the game’s visual style.",
       "subtitle": "Eight journeys supported by one of the genre’s sharpest battle systems",
       "developer": "Square Enix / Acquire",
       "imageLocal": "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1788576517874-3bcee3ce-f379-498e-a739-feaf3f043518-octppath-section-5.jpg",
@@ -71,7 +81,9 @@
     {
       "rank": "7",
       "text": "Dragon Quest XI S does not try to reinvent the foundations of the genre. Instead, it demonstrates how effective those foundations can be when the pacing, party roles, exploration, and progression are carefully tuned. Its combat remains approachable for newcomers while still giving experienced players enough control over party composition and difficulty to stay engaged.",
+      "caption": "Dragon Quest XI S: Echoes of an Elusive Age ranks No. 7: Traditional turn-based design polished to an exceptional standard.",
       "heading": "Dragon Quest XI S: Echoes of an Elusive Age",
+      "imageAlt": "Dragon Quest XI S: Echoes of an Elusive Age artwork or gameplay imagery illustrating the game’s visual style.",
       "subtitle": "Traditional turn-based design polished to an exceptional standard",
       "developer": "Square Enix",
       "imageLocal": "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1788576524132-04424c8c-7187-4a28-83c9-d499910006c4-dragon-quest-section-6.jpg",
@@ -81,7 +93,9 @@
     {
       "rank": "6",
       "text": "Infinite Wealth makes positioning part of a command-based battle system. Characters move around the battlefield, attacks can bounce enemies into allies or environmental objects, and job systems create room for experimentation. The result feels distinctly physical for a turn-based RPG, while the cast and side stories give the enormous campaign its personality.",
+      "caption": "Like a Dragon: Infinite Wealth ranks No. 6: Turn-based combat with the energy of a street fight.",
       "heading": "Like a Dragon: Infinite Wealth",
+      "imageAlt": "Like a Dragon: Infinite Wealth artwork or gameplay imagery illustrating the game’s visual style.",
       "subtitle": "Turn-based combat with the energy of a street fight",
       "developer": "Ryu Ga Gotoku Studio",
       "imageLocal": "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1788576531209-5449db9d-f0bc-4d2f-837e-dee89c518396-dragon-section-7.jpg",
@@ -91,7 +105,9 @@
     {
       "rank": "5",
       "text": "Before Baldur’s Gate 3, Divinity: Original Sin 2 established many of the ideas that would define Larian’s modern identity. Surfaces, status effects, vertical spaces, teleportation, and environmental interactions turn battles into small systemic puzzles. Its armor rules can be restrictive, but few turn-based RPGs give the player this much freedom to improvise.",
+      "caption": "Divinity: Original Sin 2 ranks No. 5: Larian’s elemental sandbox still rewards experimentation.",
       "heading": "Divinity: Original Sin 2",
+      "imageAlt": "Divinity: Original Sin 2 artwork or gameplay imagery illustrating the game’s visual style.",
       "subtitle": "Larian’s elemental sandbox still rewards experimentation",
       "developer": "Larian Studios",
       "imageLocal": "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1788576536317-e618949d-afbc-4252-8cb5-1de72ca67286-divnity-section-8.jpg",
@@ -101,7 +117,9 @@
     {
       "rank": "4",
       "text": "Metaphor adapts Atlus’s press-turn philosophy to an Archetype system that encourages the party to change roles as new challenges appear. Exploiting weaknesses creates extra opportunities, but careless choices can hand momentum back to the enemy. That tension combines with calendar management and strong party relationships to make progression feel strategic inside and outside combat.",
+      "caption": "Metaphor: ReFantazio ranks No. 4: A class-driven JRPG where every turn has purpose.",
       "heading": "Metaphor: ReFantazio",
+      "imageAlt": "Metaphor: ReFantazio artwork or gameplay imagery illustrating the game’s visual style.",
       "subtitle": "A class-driven JRPG where every turn has purpose",
       "developer": "Studio Zero",
       "imageLocal": "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1788576541724-f584dd84-45ee-4cc6-8f89-2f81f1bce60e-metaphor-section.jpg",
@@ -111,7 +129,9 @@
     {
       "rank": "3",
       "text": "Persona 5 Royal remains one of the clearest examples of combat and character progression reinforcing each other. Exploiting weaknesses keeps battles fast, while relationships developed during the calendar feed new abilities back into dungeon exploration. Its campaign is extremely long, but the systems give everyday choices enough meaning to justify the commitment.",
+      "caption": "Persona 5 Royal ranks No. 3: Turn-based combat, social life, and time management working together.",
       "heading": "Persona 5 Royal",
+      "imageAlt": "Persona 5 Royal artwork or gameplay imagery illustrating the game’s visual style.",
       "subtitle": "Turn-based combat, social life, and time management working together",
       "developer": "Atlus",
       "imageLocal": "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1788576547209-3a4eb1da-7a4e-4a06-bfb3-415b60e60389-persona-5.avif",
@@ -121,7 +141,9 @@
     {
       "rank": "2",
       "text": "Clair Obscur adds real-time dodges and parries to a turn-based framework without letting reflexes replace planning. Party builds, status effects, turn order, and skill choices still matter, but the player remains physically engaged when enemies attack. It is a convincing example of how the genre can modernize its rhythm without abandoning strategic decision-making.",
+      "caption": "Clair Obscur: Expedition 33 ranks No. 2: Turn-based planning with active defense and dramatic momentum.",
       "heading": "Clair Obscur: Expedition 33",
+      "imageAlt": "Clair Obscur: Expedition 33 artwork or gameplay imagery illustrating the game’s visual style.",
       "subtitle": "Turn-based planning with active defense and dramatic momentum",
       "developer": "Sandfall Interactive",
       "imageLocal": "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1788575357549-97002916-91cf-4305-b176-5574b353049a-clair-section.jpg",
@@ -131,7 +153,9 @@
     {
       "rank": "1",
       "text": "Baldur’s Gate 3 takes the top spot because its turn-based combat is only one part of a larger system of player choice. Positioning, spells, environmental interactions, party composition, dialogue, and exploration continually overlap. A good plan can involve damage, deception, gravity, terrain, or avoiding the fight entirely. Few RPGs make tactical decisions feel this connected to role-playing.",
+      "caption": "Baldur’s Gate 3 ranks No. 1: The most reactive modern turn-based RPG.",
       "heading": "Baldur’s Gate 3",
+      "imageAlt": "Baldur’s Gate 3 artwork or gameplay imagery illustrating the game’s visual style.",
       "subtitle": "The most reactive modern turn-based RPG",
       "developer": "Larian Studios",
       "imageLocal": "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1788576554491-50859902-3f4d-4c1c-8adb-25f74f132257-baldur-section.jpg",
@@ -150,7 +174,7 @@
   "featured": false,
   "homepageSlot": "regular",
   "publishedAt": "2026-09-05T03:55:18.78946+00:00",
-  "updatedAt": "2026-09-05T03:55:18.78946+00:00",
+  "updatedAt": "2026-09-05T04:50:05.17336+00:00",
   "imageLocal": "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1788576568382-9b9f3e69-b277-49ad-a258-28b1b476920a-chained-section-1.avif",
   "editorialSection": "what-to-play",
   "platforms": [

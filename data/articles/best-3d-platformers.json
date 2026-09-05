@@ -21,7 +21,9 @@
     {
       "rank": "12",
       "text": "A Hat in Time embraces the playful structure of older collectathon platformers without feeling trapped by nostalgia. Hats create light ability changes, levels shift between exploration and more directed challenges, and the movement is flexible enough to make revisiting spaces enjoyable. It is uneven in places, but its personality and mechanical confidence earn it a place here.",
+      "caption": "A Hat in Time ranks No. 12: A cheerful collectathon with movement that invites experimentation.",
       "heading": "A Hat in Time",
+      "imageAlt": "A Hat in Time artwork or gameplay imagery illustrating the game’s visual style.",
       "subtitle": "A cheerful collectathon with movement that invites experimentation",
       "developer": "Gears for Breakfast",
       "imageLocal": "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1788576617107-8a29700c-29f8-450f-9a0b-97ecf5b5e03d-hat-in-time-section.avif",
@@ -31,7 +33,9 @@
     {
       "rank": "11",
       "text": "Crash Bandicoot 4 is far more linear than most games on this list, but that focus lets it build unusually dense platforming challenges. Perspective, timing, masks, wall-running, rails, and moving hazards are layered aggressively. Completionist demands can become excessive, yet the core stages show how strong a tightly authored 3D obstacle course can be.",
+      "caption": "Crash Bandicoot 4: It’s About Time ranks No. 11: Precise 3D platforming built around demanding obstacle courses.",
       "heading": "Crash Bandicoot 4: It’s About Time",
+      "imageAlt": "Crash Bandicoot 4: It’s About Time artwork or gameplay imagery illustrating the game’s visual style.",
       "subtitle": "Precise 3D platforming built around demanding obstacle courses",
       "developer": "Toys for Bob",
       "imageLocal": "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1788576630968-8e289e91-1ba8-4382-ba57-e545aea6cbf1-bandicoot-section.jpg",
@@ -41,7 +45,9 @@
     {
       "rank": "10",
       "text": "Sonic X Shadow Generations combines remastered Sonic Generations material with a Shadow campaign that gives high-speed 3D movement more room to evolve. Boosting, rails, homing attacks, alternate routes, and spectacle constantly compete for attention, but at its best the game makes speed feel like something the player earns through route knowledge rather than something happening automatically.",
+      "caption": "Sonic X Shadow Generations ranks No. 10: Speed-focused 3D platforming with two distinct rhythms.",
       "heading": "Sonic X Shadow Generations",
+      "imageAlt": "Sonic X Shadow Generations artwork or gameplay imagery illustrating the game’s visual style.",
       "subtitle": "Speed-focused 3D platforming with two distinct rhythms",
       "developer": "Sonic Team",
       "imageLocal": "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1788576645462-f898a8ab-7e3e-461b-8510-eea3bce9977f-sonic-x-section.webp",
@@ -51,7 +57,9 @@
     {
       "rank": "9",
       "text": "The Spyro trilogy remains appealing because its spaces are easy to understand and satisfying to clear. Gliding, charging, collecting, and searching for hidden routes create a relaxed rhythm that contrasts with more demanding platformers. The Reignited presentation modernizes the trilogy without changing the simple movement-and-exploration foundation that made it enduring.",
+      "caption": "Spyro Reignited Trilogy ranks No. 9: Exploration-first platforming built around readable spaces.",
       "heading": "Spyro Reignited Trilogy",
+      "imageAlt": "Spyro Reignited Trilogy artwork or gameplay imagery illustrating the game’s visual style.",
       "subtitle": "Exploration-first platforming built around readable spaces",
       "developer": "Toys for Bob",
       "imageLocal": "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1788576666881-92957f01-ee1a-4d01-b0f9-14290894c0d2-spyro-section.jpg",
@@ -61,7 +69,9 @@
     {
       "rank": "8",
       "text": "It Takes Two is broader than a pure platformer, but movement and spatial problem-solving remain central throughout its constantly changing co-op adventure. Each area introduces tools that alter how two players navigate and cooperate, then moves on before the idea becomes repetitive. Its greatest strength is mechanical generosity: almost every chapter wants to teach the pair a new way to move together.",
+      "caption": "It Takes Two ranks No. 8: Co-op platforming that keeps replacing its own mechanics.",
       "heading": "It Takes Two",
+      "imageAlt": "It Takes Two artwork or gameplay imagery illustrating the game’s visual style.",
       "subtitle": "Co-op platforming that keeps replacing its own mechanics",
       "developer": "Hazelight Studios",
       "imageLocal": "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1788576690615-7b79bb94-d44d-4f14-8717-771274d4d73d-takes-two-section.jpg",
@@ -71,7 +81,9 @@
     {
       "rank": "7",
       "text": "Rift Apart blends shooting with platforming, but its dimensional transitions, rails, wall movement, aerial traversal, and tightly directed environments give movement a major role. The game is more guided than Mario or Psychonauts, yet its technical spectacle is strongest when it changes how the player crosses a level rather than simply decorating it.",
+      "caption": "Ratchet & Clank: Rift Apart ranks No. 7: Platforming and action connected by unusually fast spatial transitions.",
       "heading": "Ratchet & Clank: Rift Apart",
+      "imageAlt": "Ratchet & Clank: Rift Apart artwork or gameplay imagery illustrating the game’s visual style.",
       "subtitle": "Platforming and action connected by unusually fast spatial transitions",
       "developer": "Insomniac Games",
       "imageLocal": "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1788576719671-fc2ad766-031d-4f81-b527-85f723c61eb6-ratchet-section.avif",
@@ -81,7 +93,9 @@
     {
       "rank": "6",
       "text": "Psychonauts 2 uses psychic worlds to make level design reflect the personalities and problems of the characters Raz encounters. Platforming, powers, visual metaphors, and storytelling continually reinforce one another. The movement is not the most demanding on this list, but few 3D platformers use the genre’s freedom to make environments this conceptually inventive.",
+      "caption": "Psychonauts 2 ranks No. 6: Imaginative worlds turn platforming into character design.",
       "heading": "Psychonauts 2",
+      "imageAlt": "Psychonauts 2 artwork or gameplay imagery illustrating the game’s visual style.",
       "subtitle": "Imaginative worlds turn platforming into character design",
       "developer": "Double Fine",
       "imageLocal": "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1788576738500-5e76641e-2de0-4b37-8337-bcc3b3e9021a-psychonauts-section.jpg",
@@ -91,7 +105,9 @@
     {
       "rank": "5",
       "text": "Kirby and the Forgotten Land succeeds by making 3D movement approachable without making levels empty. Copy abilities, Mouthful Mode, hidden objectives, and compact stages give every area several layers of interaction. It is easier than many platformers here, but the clarity of its design makes exploration consistently rewarding rather than merely simple.",
+      "caption": "Kirby and the Forgotten Land ranks No. 5: Nintendo’s pink hero adapts naturally to full 3D spaces.",
       "heading": "Kirby and the Forgotten Land",
+      "imageAlt": "Kirby and the Forgotten Land artwork or gameplay imagery illustrating the game’s visual style.",
       "subtitle": "Nintendo’s pink hero adapts naturally to full 3D spaces",
       "developer": "HAL Laboratory",
       "imageLocal": "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1788576758082-d2e2b9fa-ab15-4dd2-8e0a-5bd03cca7961-kirby-section.jpg",
@@ -101,7 +117,9 @@
     {
       "rank": "4",
       "text": "Astro Bot understands that a platforming level does not need to preserve every idea for later. New mechanics arrive constantly, often supporting one stage or sequence before the game happily replaces them with something else. That confidence creates exceptional pacing, while responsive movement and playful use of hardware make even straightforward jumps feel satisfying.",
+      "caption": "Astro Bot ranks No. 4: A modern showcase for tactile, idea-dense platforming.",
       "heading": "Astro Bot",
+      "imageAlt": "Astro Bot artwork or gameplay imagery illustrating the game’s visual style.",
       "subtitle": "A modern showcase for tactile, idea-dense platforming",
       "developer": "Team Asobi",
       "imageLocal": "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1788576808513-14f1452c-acb8-4da6-8129-ef6bcc0a54f5-astrobot-section.jpg",
@@ -111,7 +129,9 @@
     {
       "rank": "3",
       "text": "Super Mario Galaxy changed the shape of a platforming level by letting gravity point in almost any direction. Small planets, curved surfaces, launch stars, and shifting perspectives repeatedly challenge the player’s sense of orientation without sacrificing readable controls. Its best ideas still feel elegant because gravity is not a gimmick added to Mario’s movement; it changes the spaces that movement can inhabit.",
+      "caption": "Super Mario Galaxy ranks No. 3: Gravity turns three-dimensional space into a toy.",
       "heading": "Super Mario Galaxy",
+      "imageAlt": "Super Mario Galaxy artwork or gameplay imagery illustrating the game’s visual style.",
       "subtitle": "Gravity turns three-dimensional space into a toy",
       "developer": "Nintendo EAD Tokyo",
       "imageLocal": "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1788576817979-6e39e892-2459-46ae-b26d-019d5666b2ad-galaxy-1-section.avif",
@@ -121,7 +141,9 @@
     {
       "rank": "2",
       "text": "Super Mario Odyssey gives the player an enormous vocabulary of movement and then builds kingdoms open enough to reward mastering it. Cappy extends jumps, creates improvised routes, and turns enemies into temporary movement systems through captures. The sheer number of Power Moons means quality varies, but the freedom of traversal makes simply moving through a kingdom unusually satisfying.",
+      "caption": "Super Mario Odyssey ranks No. 2: Mario’s most expressive movement sandbox.",
       "heading": "Super Mario Odyssey",
+      "imageAlt": "Super Mario Odyssey artwork or gameplay imagery illustrating the game’s visual style.",
       "subtitle": "Mario’s most expressive movement sandbox",
       "developer": "Nintendo EPD",
       "imageLocal": "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1788576835519-4a9c4966-6b9f-4b92-8557-b1b0b822f3c7-mario-odyssey.jpg",
@@ -131,7 +153,9 @@
     {
       "rank": "1",
       "text": "Super Mario Galaxy 2 takes the gravity-driven foundation of the first game and pushes it toward denser, more focused level design. Yoshi abilities, shifting gravity, disappearing platforms, drills, clouds, and countless one-off ideas are introduced with remarkable efficiency. It has less narrative atmosphere than Galaxy, but as a pure sequence of three-dimensional platforming challenges, it remains Neural Critic’s benchmark.",
+      "caption": "Super Mario Galaxy 2 ranks No. 1: Platforming ideas refined into an almost relentless sequence.",
       "heading": "Super Mario Galaxy 2",
+      "imageAlt": "Super Mario Galaxy 2 artwork or gameplay imagery illustrating the game’s visual style.",
       "subtitle": "Platforming ideas refined into an almost relentless sequence",
       "developer": "Nintendo EAD Tokyo",
       "imageLocal": "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1788576847219-3be04334-c493-4f9b-9ef4-a7d15abac150-galaxy-2-main.avif",
@@ -150,7 +174,7 @@
   "featured": false,
   "homepageSlot": "regular",
   "publishedAt": "2026-09-05T03:55:26.333356+00:00",
-  "updatedAt": "2026-09-05T03:55:26.333356+00:00",
+  "updatedAt": "2026-09-05T04:50:05.17336+00:00",
   "imageLocal": "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1788576862214-45c077c0-9ff4-455d-aa59-757c0ccecb57-psychonauts-section.jpg",
   "editorialSection": "what-to-play",
   "platforms": [
