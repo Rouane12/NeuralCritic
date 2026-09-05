@@ -15,10 +15,8 @@
     return `<span class="${cls}"><strong>${Number(g.neural_critic_score).toFixed(1)}</strong><span>NC</span></span>`;
   }
   function gameCard(g){
-    const hasCover=Boolean(String(g.cover_image_url||'').trim());
-    const media=hasCover?`<div class="nc-game-card-media"><img src="${esc(g.cover_image_url)}" alt="${esc(g.cover_image_alt||`${g.title} cover art`)}" loading="lazy" decoding="async">${scoreBadge(g)}</div>`:'';
     const status=String(g.release_status||'game').replaceAll('_',' ').toUpperCase();
-    return `<a class="nc-game-library-card ${hasCover?'has-cover':'is-text-only'}" href="${gameUrl(g.slug)}" data-game-card="${esc(g.slug)}">${media}<div class="nc-game-card-copy"><div class="nc-game-card-heading"><small>${esc(status)}</small>${hasCover?'':scoreBadge(g,true)}</div><h3>${esc(g.title)}</h3><p>${esc([g.developer,g.primary_release_date?fmtDate(g.primary_release_date):''].filter(Boolean).join(' · '))}</p><div class="nc-game-card-platforms">${(g.platforms||[]).slice(0,3).map(p=>`<span>${esc(p)}</span>`).join('')}</div></div></a>`;
+    return `<a class="nc-game-library-card is-text-only" href="${gameUrl(g.slug)}" data-game-card="${esc(g.slug)}"><div class="nc-game-card-copy"><div class="nc-game-card-heading"><small>${esc(status)}</small>${scoreBadge(g,true)}</div><h3>${esc(g.title)}</h3><p>${esc([g.developer,g.primary_release_date?fmtDate(g.primary_release_date):''].filter(Boolean).join(' · '))}</p><div class="nc-game-card-platforms">${(g.platforms||[]).slice(0,3).map(p=>`<span>${esc(p)}</span>`).join('')}</div></div></a>`;
   }
   function releaseCard(r){
     const g=games.find(x=>x.id===r.game_id); if(!g)return '';
