@@ -1,125 +1,328 @@
-# Neural Critic Growth Improvement Roadmap
+# Neural Critic Organic Growth & Editorial SEO Roadmap
 
-This file is a durable owner-approved growth roadmap for Neural Critic. It should remain available across future chats and work sessions and be used alongside the editorial backlog, live Supabase state, GitHub, Search Console, GA4, and production verification.
+This file is the durable owner-approved growth strategy for Neural Critic. Use it alongside the editorial backlog, live Supabase state, GitHub, Search Console, Analytics, reader-behavior data, and production verification.
 
-## Operating rules
+## Standing rule
 
-- Treat this as a rolling roadmap, not proof that every item is currently unimplemented.
-- Before starting an item, verify the current live state in GitHub, Supabase, production, analytics, and relevant project sources so completed or partially completed work is not repeated.
-- Extend established Neural Critic architecture and workflows rather than replacing them without a strong reason.
-- Search-led editorial growth remains the default priority; infrastructure work should serve a verified editorial, retention, reliability, measurement, or revenue need.
-- Keep mobile performance and publication QA as guardrails on every change rather than postponing them to a later cleanup phase.
-- Mark progress only after the relevant code, editorial, analytics, commerce, publishing, or production state has been verified.
-- Keep this roadmap durable. Update statuses and notes as work advances; do not silently remove owner priorities.
+> **Follow the evidence, but don't chase the data.**
 
-## Live editorial baseline — 2026-09-05
+Neural Critic should grow through deliberate editorial quality and evidence-based topic expansion, not through publishing large volumes of disconnected articles.
 
-Supabase census at this checkpoint:
+Search data should inform editorial decisions without dictating the entire publication. Neural Critic remains a broad, professional gaming publication covering News, Reviews, Guides, Features, What to Play, Games, and high-interest gaming coverage.
 
-- Published: 9 Reviews, 17 Guides, 18 What to Play, 8 Features, plus 28 News articles.
-- Draft: 11 Reviews, 5 Guides, 3 What to Play, 2 Features.
-- If the current 21 non-news drafts are completed and published, the publication reaches 20 Reviews, 22 Guides, 21 What to Play, and 10 Features — meeting or exceeding the owner’s current near-term format-balance targets.
+## Core growth principle
 
-Do not treat these counts as permanently current; re-query Supabase before making future scheduling decisions.
+**Do not optimize for article quantity. Optimize for useful coverage, topical authority, search relevance, reader value, and editorial distinctiveness.**
 
-## Evergreen growth targets
+Publishing 100 unrelated articles is less valuable than developing several strong topic clusters where:
 
-Owner planning assumptions and targets:
+- readers demonstrate interest;
+- Google begins testing Neural Critic;
+- Neural Critic already earns impressions or clicks;
+- the publication has something useful or distinctive to contribute.
 
-- Roughly 30 current articles are considered evergreen-worthy.
-- Guides are the strongest evergreen category so far.
-- Reviews and What to Play lists need more depth, quality, and useful volume.
-- Target roughly 55–65 evergreen articles within the next 3 months.
-- Target roughly 100 evergreen articles within 6 months.
+Quality takes priority over arbitrary publishing frequency.
 
-Six-month target balance:
+Earlier planning targets such as roughly 3 evergreen pieces per week, 55–65 evergreen articles within 3 months, and around 100 within 6 months remain **directional capacity references only**. They are not quotas and must never override article quality, evidence, differentiation, testing requirements, or editorial judgment.
 
-- Guides: 40–50
-- Reviews: 25–30
-- What to Play: 20–25
-- Features: 10–12
+## Current SEO phase
 
-Treat these as directional portfolio targets rather than quotas that override quality. Reviews still require genuine editorial testing and judgment; do not manufacture review volume merely to hit a number.
+Neural Critic should currently be treated as being in:
 
-### Evergreen content priority order
+**Discovery → Validation → Early Topical Authority**
 
-1. **Cluster-deepening Guides** — highest priority because Guides are currently the strongest category and can compound search traffic. Favor beginner guides, systems explainers, progression help, classes/build fundamentals, and durable mechanics questions.
-2. **Reviews with long-tail value** — prioritize major evergreen games already inside strong Neural Critic clusters. Reviews should answer whether the game is still worth playing, who it is for, its enduring strengths/limitations, platform/version context, and related guide pathways while preserving real first-hand editorial judgment.
-3. **What to Play lists with clear search intent** — build fewer but stronger lists around specific reader decisions such as games like a major title, best games in a subgenre, best short games, or platform/genre combinations. Refresh rankings and availability periodically rather than treating lists as one-time posts.
-4. **Cluster-supporting Features** — publish selectively when a feature gives a cluster authority or a strong internal-link destination, rather than using Features primarily for volume.
-5. **New cluster expansion** — only after existing Elden Ring / FromSoftware, Baldur’s Gate 3, The Witcher, Cyberpunk 2077, Nintendo/Zelda/Mario, and other proven clusters have enough depth and search evidence.
+The current dataset is still small. The immediate objective is to identify which early signals persist as impressions, clicks, rankings, reader behavior, and recirculation data become more reliable.
 
-### Practical weekly evergreen mix
+Do not overreact to tiny samples or isolated daily fluctuations.
 
-Default target: **3 evergreen pieces per week**, with timely News continuing as a separate lane.
+## Strategic priorities
 
-Recommended recurring mix:
+### 1. Publish genuinely strong articles
 
-- **1 Guide every week** — non-negotiable anchor slot.
-- **1 Review every week when real testing supports it**; otherwise target at least 3 Reviews per month and use the freed slot for another Guide.
-- **1 flexible evergreen slot** rotating between a second Guide, a What to Play list, and an occasional Feature.
+Every major article should have a clear reason to exist.
 
-A practical four-week cycle:
+Before publishing, ask:
 
-- Week 1: Guide + Review + Guide
-- Week 2: Guide + Review + What to Play
-- Week 3: Guide + Review + Guide
-- Week 4: Guide + Review + What to Play or Feature
+- What question, interest, or reader need does this satisfy?
+- Does it provide enough substance to deserve ranking?
+- Is the information accurate and current?
+- Does the article have strong structure and presentation?
+- Does it provide something beyond a rewritten summary of existing coverage?
+- Would a reader reasonably choose Neural Critic over another result?
 
-That produces about 12 evergreen pieces per month while naturally weighting the portfolio toward Guides and Reviews. If review testing cannot support four reviews in a month, substitute a Guide rather than lowering review quality.
+The full publication gate remains:
 
-Every evergreen publication should also strengthen the cluster around it: link to the relevant game page, at least 2–4 useful related stories where available, and add reciprocal links from older relevant pieces when appropriate.
+`editorial justification → substantive edit → current factual check → feature image + literal alt + verified provenance → inline image alt/caption audit → internal links → SEO/metadata QA → publish → Supabase verification → canonical/discovery verification`
 
-## Priority order
+Reviews additionally require genuine editorial testing and judgment. Never manufacture review conclusions, tested-platform claims, or review-copy disclosures to satisfy growth targets.
 
-### Phase 1 — Editorial throughput + search readiness — CURRENT HIGHEST PRIORITY
+### 2. Double down carefully on topics Google is already testing
 
-1. Establish and maintain a 3–5 article-per-week publishing cadence, with roughly 3 evergreen pieces as the default weekly growth engine and timely News as a parallel lane.
-2. Make every title specific, searchable, and editorially strong.
-3. Give every article a strong meta description, generally targeting roughly 150–160 characters where that fits naturally.
-4. Add useful internal links between related stories, reviews, guides, game pages, and topic/franchise coverage.
-5. Finish the current draft inventory through the full readiness loop: editorial edit → factual verification → imagery/provenance → alt/caption QA → internal links → SEO metadata → publish → production verification.
-6. Deepen high-value clusters before expanding broadly, especially Elden Ring / FromSoftware, Baldur’s Gate 3, The Witcher, Cyberpunk 2077, and other clusters that show reader/search opportunity.
-7. Build evergreen Guides first, then Reviews, then highly intentional What to Play lists, with Features used selectively to strengthen authority and recirculation.
-8. Work toward roughly 55–65 evergreen articles in 3 months and around 100 in 6 months without sacrificing QA.
-9. Work toward the six-month portfolio balance of 40–50 Guides, 25–30 Reviews, 20–25 What to Play, and 10–12 Features.
+Search Console should regularly be used to identify:
 
-### Phase 2 — Measurement + feedback loop — START EARLY, THEN RUN CONTINUOUSLY
+- pages receiving growing impressions;
+- emerging query clusters;
+- pages beginning to receive organic clicks;
+- topics where Google repeatedly associates Neural Critic with relevant searches;
+- unexpected subjects gaining traction.
 
-10. Verify Google Analytics and Search Console tracking and establish a current baseline for impressions, clicks, CTR, landing pages, engagement, recirculation, and newsletter conversions.
-11. Use search and audience evidence to decide which clusters, titles, descriptions, and internal-link patterns to improve next.
-12. Review performance weekly enough to guide editorial decisions without reacting to insignificant day-to-day noise.
+When a meaningful signal appears, investigate whether the subject deserves additional coverage.
 
-### Phase 3 — Retention and reader trust
+Do **not** automatically create derivative articles because one page receives impressions. Expand only when useful adjacent reader questions genuinely exist.
 
-13. Promote the existing newsletter more aggressively only after outbound delivery is verified live end to end.
-14. Make the scoreboard / highest-rated experience more useful for returning readers, using existing Review Intelligence rather than creating a competing ratings system.
-15. Keep the site fast on mobile and protect performance during every editorial, commerce, and UI change.
-16. Soften the analytics/cookie popup so consent remains clear without unnecessarily interrupting reading.
-17. Audit and strengthen the existing About page and author information rather than rebuilding pages that already exist.
+#### Early example: gaming awards / records
 
-### Phase 4 — Monetization readiness and first live commerce
+The article covering games with the most Game of the Year awards became one of Neural Critic's strongest early search pages.
 
-18. Add or activate a clean Where to Buy experience on reviews and buyer-intent articles, consistent with Neural Critic’s dark and light themes and the existing Commerce Price Intelligence architecture.
-19. Begin with legitimate normal retailer/store links such as Amazon, Fanatical, Steam, or other appropriate stores, with no fake prices or unsupported offers.
-20. Always include a short, clear commerce/affiliate disclosure near the buying module.
-21. Join Amazon Associates when eligible and replace qualifying Amazon links with compliant affiliate links only after approval and required disclosure/terms checks.
-22. Later expand to additional approved affiliate programs and dedicated buyer guides when traffic and editorial demand justify the added operational overhead.
+Google began associating the article with queries around:
 
-### Phase 5 — Distribution system
+- most GOTY awards;
+- most Game of the Year awards;
+- most awarded game of all time;
+- games with most awards;
+- which game has won the most Game of the Year awards.
 
-23. Post regularly on Reddit with a value-first approach; contribute useful context and only link when it genuinely fits the community and subreddit rules.
-24. Share new and evergreen articles consistently on X/Twitter and Bluesky.
-25. Turn proven high-performing articles into short clips for TikTok, YouTube Shorts, and Reels rather than producing video for every story by default.
+This is an emerging opportunity around gaming awards, records, gaming history, reference content, and related evergreen questions.
+
+Treat this as a signal worth monitoring and potentially developing — **not** as proof that Neural Critic should pivot the entire publication toward gaming awards.
+
+### 3. Build internal topic clusters
+
+When Neural Critic develops traction around a subject, strengthen it with useful related coverage.
+
+A topic cluster can contain:
+
+`primary / authoritative article → supporting explainers → historical/reference pieces → rankings/comparisons → relevant news → reviews/features → contextual internal links`
+
+A gaming-awards cluster, for example, might eventually include:
+
+- games with the most GOTY awards;
+- Game of the Year winners by year;
+- most awarded games of a particular decade;
+- franchises with the most major awards;
+- studios with the strongest awards history;
+- analysis of major gaming award organizations;
+- records broken by particular games.
+
+Every article must still justify its own existence.
+
+Internal linking should:
+
+- help readers naturally discover related coverage;
+- establish relationships between articles;
+- avoid repetitive or forced anchor text;
+- prioritize genuinely relevant links;
+- connect new supporting content back to authoritative pages;
+- connect authoritative pages outward to useful supporting coverage.
+
+### 4. Improve search presentation only when enough evidence exists
+
+Titles, descriptions, headings, structured data, and search-result presentation should be monitored and improved over time.
+
+Do not repeatedly rewrite pages based on tiny samples.
+
+#### Ranking problem
+
+A page receives impressions but usually appears too low in results.
+
+Possible responses:
+
+- strengthen the article;
+- improve topical depth;
+- improve internal linking;
+- build supporting coverage;
+- improve authority;
+- answer search intent more completely;
+- allow more time for ranking development.
+
+#### CTR problem
+
+A page ranks competitively but receives fewer clicks than expected.
+
+Possible responses:
+
+- improve the title;
+- improve the meta description;
+- clarify the value proposition;
+- align wording more closely with reader intent;
+- improve rich-result eligibility;
+- make freshness/year information clearer where appropriate.
+
+**Never assume zero clicks automatically means a bad title.**
+
+Average position and query-level data should be examined first.
+
+### 5. Track ranking progression
+
+A major SEO indicator should be whether promising pages gradually move through ranking tiers such as:
+
+**Position 30 → 20 → 15 → 10 → 5 → Top 3**
+
+Search Console performance reviews should consider:
+
+- query;
+- landing page;
+- impressions;
+- clicks;
+- CTR;
+- average position;
+- country;
+- device;
+- search appearance;
+- time-period trend.
+
+Growth should be evaluated by **direction and consistency**, not isolated daily changes.
+
+Promising pages should be identified before they become major traffic sources.
+
+### 6. Produce content competitors cannot easily replicate
+
+Long-term growth cannot depend entirely on generic informational articles.
+
+Neural Critic should increasingly build editorial advantages through:
+
+- original analysis;
+- firsthand gameplay observations;
+- original screenshots where appropriate;
+- testing;
+- comparisons;
+- historical research;
+- useful datasets;
+- rankings with transparent reasoning;
+- editorial judgment;
+- distinctive criticism;
+- expert explanations;
+- long-term retrospectives;
+- unique article structures;
+- original interviews or reporting when feasible.
+
+AI may assist the editorial workflow, but published content should not feel interchangeable with generic AI-generated gaming pages.
+
+The publication needs a recognizable editorial perspective.
+
+## Editorial decision framework
+
+When considering additional coverage, evaluate:
+
+### Reader value
+
+Would someone genuinely benefit from this article?
+
+### Search evidence
+
+Is there evidence of interest through Search Console, trends, reader behavior, current events, or broader gaming interest?
+
+### Topical relationship
+
+Does it strengthen an existing Neural Critic subject or publication vertical?
+
+### Differentiation
+
+Can Neural Critic add something useful or distinctive?
+
+### Internal ecosystem
+
+Can the article naturally connect with existing or planned coverage?
+
+### Longevity
+
+Is it breaking news, short-lived coverage, evergreen reference material, or capable of serving both?
+
+Not every article must satisfy every category, but there must be a clear editorial justification.
+
+## What Neural Critic should avoid
+
+Avoid:
+
+- mass-producing articles solely to increase page count;
+- blindly copying competitor keyword strategies;
+- creating near-duplicate pages for keyword variations;
+- chasing every query that receives a few impressions;
+- constantly changing titles after tiny amounts of data;
+- keyword stuffing;
+- forced internal links;
+- publishing shallow articles solely for SEO;
+- allowing search strategy to replace editorial judgment.
+
+SEO should amplify a good publication — not determine everything the publication becomes.
+
+## Evidence and measurement loop
+
+The recurring growth loop is:
+
+**Content Quality → Search Opportunities → Topic Clusters → Internal Linking → Ranking Progression → CTR Optimization → Originality → Reader Engagement → Refresh Opportunities → Performance Review**
+
+Use Search Console, Analytics, reader behavior, and editorial data together rather than relying on one metric in isolation.
+
+### Weekly / recurring review
+
+At a useful recurring cadence:
+
+1. identify pages with persistent or growing impressions/clicks;
+2. inspect query-level position and CTR before diagnosing performance;
+3. identify coherent topic/query clusters rather than isolated keywords;
+4. check reader engagement and recirculation where available;
+5. decide whether the best action is to strengthen an existing page, build one useful adjacent article, improve internal linking, wait for more data, or do nothing;
+6. record only meaningful strategic changes in the durable roadmap/backlog.
+
+## Editorial category guidance
+
+Category balance remains useful, but category quotas do not control publication.
+
+### Guides
+
+Guides remain a strong search-led format when they answer durable player needs clearly and accurately. Favor beginner help, systems explainers, progression, mechanics, classes/build fundamentals, and version-aware questions with genuine search or reader value.
+
+### Reviews
+
+Reviews should provide durable editorial value around games readers continue to care about. They require actual testing and a real Neural Critic judgment. Do not increase review volume by weakening this standard.
+
+### What to Play
+
+Publish fewer, stronger recommendation lists around clear reader decisions. Rankings should use transparent editorial reasoning and be refreshed when availability, versions, or the recommendation landscape materially changes.
+
+### Features / reference coverage
+
+Use Features for distinctive analysis, gaming history, records, data, explainers, retrospectives, and cluster-supporting authority pieces — especially where Neural Critic can add something competitors cannot easily duplicate.
+
+### News
+
+News remains a parallel publication lane. Search strategy should not prevent Neural Critic from covering genuinely important or interesting gaming developments.
+
+## Cluster development
+
+Existing established clusters such as Elden Ring / FromSoftware, Baldur’s Gate 3, Cyberpunk 2077, The Witcher, Zelda/Mario/Nintendo, and other demonstrated subjects should be extended when evidence and reader value justify it.
+
+Do not mechanically deepen every existing cluster. Let Search Console, Analytics, reader behavior, current events, editorial opportunity, and distinctiveness determine which one deserves the next investment.
+
+The gaming-awards / gaming-records opportunity should be monitored as an emerging cluster because early Search Console data has already shown coherent query association.
+
+## Retention, performance, and monetization
+
+Search growth is only one part of publication health.
+
+Continue to improve:
+
+- internal recirculation;
+- returning-reader value;
+- newsletter acquisition and verified delivery;
+- useful game/review discovery;
+- mobile performance;
+- trustworthy author/About information;
+- commerce only when it serves genuine reader intent and uses legitimate retailer information and disclosures.
+
+Do not sacrifice reader experience for SEO or monetization.
 
 ## Recommended execution sequence
 
-The practical order is:
+The practical operating sequence is now:
 
-`verify measurement → finish and schedule existing drafts → maintain ~3 evergreen pieces/week → title/meta/internal-link QA → deepen winning clusters → grow reviews without compromising testing → refresh What to Play lists → verify newsletter delivery and improve retention → activate commerce surfaces → systematize social distribution → scale only what measurement proves useful`
+`verify measurement → inspect persistent search/reader signals → choose the highest-value editorial opportunity → strengthen an existing cluster or page → publish only when the article is genuinely strong → verify publication/discovery → measure ranking and reader progression → improve only when enough evidence exists → repeat`
 
-Distribution should begin alongside publishing once the cadence is stable, but video production should wait for articles that have already demonstrated strong reader/search interest.
+This replaces quantity-first cadence as the primary growth engine.
 
 ## Strategic note
 
-The publication platform is substantially built. The goal of this roadmap is not another large infrastructure phase. It is to turn the existing CMS, discovery, Game Graph, reviews, newsletter, analytics, and commerce foundations into consistent readership, search growth, returning-reader behavior, and eventually revenue.
+The publication platform is substantially built. The next phase is not another large infrastructure program or a race to a page-count target.
+
+The goal is to turn Neural Critic's CMS, discovery architecture, Game Graph, reviews, analytics, newsletter, and commerce foundations into **recognizable editorial authority and durable readership** by making increasingly strong decisions from real evidence.
