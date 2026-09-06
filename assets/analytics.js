@@ -82,16 +82,17 @@
   }
 
   window.dataLayer = window.dataLayer || [];
-  // Keep direct event calls from newer feature modules behind the same consent gate.
-  // Consent/config commands may queue before the Google tag loads; event commands may not.
+  // Consent/config commands may queue before the Google tag loads. Event calls
+  // are allowed once the tag is initialised, including cookieless events while
+  // analytics_storage remains denied (Advanced Consent Mode).
   window.gtag = function gtag(){
     if (arguments[0] === 'event' && !tagLoaded) return;
     window.dataLayer.push(arguments);
   };
 
-  // Default to denied. Ad-related storage/signals remain denied even when
-  // analytics is accepted because Neural Critic measures editorial use,
-  // not advertising profiles.
+  // Default to denied before the Google tag is initialised. This lets the tag
+  // load in Advanced Consent Mode without reading/writing Analytics cookies.
+  // Ad-related storage/signals remain denied even when analytics is accepted.
   window.gtag('consent', 'default', {
     analytics_storage: 'denied',
     ad_storage: 'denied',
@@ -124,6 +125,15 @@
   function storedConsent() {
     try { return localStorage.getItem(CONSENT_KEY) || 'unset'; }
     catch (_) { return 'unset'; }
+  }
+
+  function updateAnalyticsConsent(granted) {
+    window.gtag('consent', 'update', {
+      analytics_storage: granted ? 'granted' : 'denied',
+      ad_storage: 'denied',
+      ad_user_data: 'denied',
+      ad_personalization: 'denied'
+    });
   }
 
   window.NeuralCriticAnalytics = {
@@ -194,12 +204,6 @@
     if (tagLoaded || !validId || PRIVATE_PAGES.has(pageName)) return;
     tagLoaded = true;
 
-    window.gtag('consent', 'update', {
-      analytics_storage: 'granted',
-      ad_storage: 'denied',
-      ad_user_data: 'denied',
-      ad_personalization: 'denied'
-    });
     window.gtag('js', new Date());
     window.gtag('config', measurementId, {
       send_page_view: false,
@@ -389,12 +393,13 @@
     document.body.appendChild(banner);
     banner.querySelector('[data-essential]')?.addEventListener('click', () => {
       try { localStorage.setItem(CONSENT_KEY, 'denied'); } catch (_) {}
+      updateAnalyticsConsent(false);
       banner.remove();
     });
     banner.querySelector('[data-accept]')?.addEventListener('click', () => {
       try { localStorage.setItem(CONSENT_KEY, 'granted'); } catch (_) {}
+      updateAnalyticsConsent(true);
       banner.remove();
-      loadTag();
     });
   }
 
@@ -406,8 +411,13 @@
   let consent = storedConsent();
   if (navigator.doNotTrack === '1') consent = 'denied';
 
-  if (consent === 'granted') loadTag();
-  else if (consent === 'unset') {
+  // Advanced Consent Mode: initialise the Google tag for every public page.
+  // With analytics_storage denied, Google receives cookieless, non-identifying
+  // measurement pings and does not read or write Analytics cookies.
+  if (consent === 'granted') updateAnalyticsConsent(true);
+  loadTag();
+
+  if (consent === 'unset') {
     if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', showConsent, { once: true });
     else showConsent();
   }
