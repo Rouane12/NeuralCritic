@@ -1,19 +1,29 @@
 # Neural Critic Editorial Production Backlog
 
-Last updated: 2026-09-05
+Last updated: 2026-09-06
 
 Supabase is the source of truth for article status and editorial fields. This file is the compact durable production queue for the current growth phase.
 
 ## Current phase
 
-**Evergreen publishing + remaining blocker cleanup.**
+**Evidence-led evergreen publishing + remaining blocker cleanup.**
 
 The 41-article evergreen roadmap drafting phase is complete. The initial 21 roadmap articles were published on 2026-09-05, followed by a controlled publication of 10 completed non-Witcher review drafts and `best-story-driven-games` on the same day.
 
 Core publication gate:
-`editorial edit → current factual check → feature image + alt + verified provenance → inline image alt/caption audit → internal links → SEO/metadata QA → publish → Supabase verification → canonical/discovery verification`
+`editorial justification → editorial edit → current factual check → feature image + alt + verified provenance → inline image alt/caption audit → internal links → SEO/metadata QA → publish → Supabase verification → canonical/discovery verification`
 
 Never fabricate image provenance. Never invent first-hand play claims, tested-platform claims, review-copy disclosures, or unsupported subjective judgments.
+
+### Growth operating rule — OWNER DECISION 2026-09-06
+
+> **Follow the evidence, but don't chase the data.**
+
+The durable growth strategy is now defined in `GROWTH_IMPROVEMENT_CHECKLIST.md`.
+
+The publication should **not** optimize for article quantity. Earlier cadence and portfolio numbers remain directional capacity references only. Editorial priority should come from a combination of reader value, Search Console / Analytics evidence, topical relationship, differentiation, internal-ecosystem value, longevity and current editorial relevance.
+
+Do not publish a weak article merely to maintain a weekly quota. Do not mechanically deepen a cluster simply because it exists. Use persistent search/reader signals and editorial judgment to decide what deserves the next investment.
 
 ## Roadmap state
 
@@ -22,7 +32,9 @@ Never fabricate image provenance. Never invent first-hand play claims, tested-pl
 - Published from roadmap: **32/41**.
 - Remaining roadmap drafts: **9**.
 - Separate non-roadmap CMS draft: `2026-video-game-release-calendar`.
-- Live article census after `best-story-driven-games` publication: **91 published / 10 drafts**.
+- Last verified live article census after `best-story-driven-games` publication: **91 published / 10 drafts**.
+
+Re-query Supabase before acting because article state may have changed since this checkpoint.
 
 ## Review lane — 10 published, 1 held
 
@@ -94,9 +106,28 @@ The inline image alts are conservative game-specific descriptions because the ex
 
 Supabase verification returned `status='published'`, non-null `published_at`, and **0 missing inline alts / 0 missing inline captions**.
 
+## Search / growth evidence to monitor
+
+The earliest Search Console signal around **games with the most Game of the Year awards** is now explicitly treated as an emerging opportunity rather than a mandate.
+
+Monitor whether coherent query interest persists around:
+- most GOTY awards;
+- most Game of the Year awards;
+- most awarded game of all time;
+- games with most awards;
+- related gaming-history / gaming-records queries.
+
+If the signal strengthens, consider one genuinely useful adjacent article at a time, with deliberate reciprocal linking. Do not mass-produce award pages or near-duplicate keyword variants.
+
+For all promising pages, distinguish:
+- **ranking problem** — impressions exist but average position is weak;
+- **CTR problem** — position is competitive but click-through is weak.
+
+Do not rewrite titles merely because clicks are currently low. Inspect query-level position and sample size first.
+
 ## Other remaining drafts
 
-Live CMS still contains 10 drafts, including the held Witcher Remastered review and the separate release-calendar draft. Re-query Supabase before acting because imagery/metadata may be edited manually between sessions.
+Live CMS last showed 10 drafts, including the held Witcher Remastered review and the separate release-calendar draft. Re-query Supabase before acting because imagery/metadata may be edited manually between sessions.
 
 Witcher 3 Remastered-dependent guides/features remain held where their claims depend on gameplay, progression or technical changes. Narrative-only material can be cleared earlier only after a fresh factual review shows the September 29 changes do not affect the article’s argument.
 
@@ -111,16 +142,17 @@ The repository’s `Refresh publication discovery files` workflow runs on a sche
 ## Immediate next action
 
 1. Verify the next post-publication canonical refresh includes the 10 new reviews and `best-story-driven-games`.
-2. Re-query the remaining 10 drafts and prioritize the next genuinely publication-ready **non-Witcher** evergreen piece.
-3. Leave `the-witcher-3-wild-hunt-review` untouched as the September 29 Remastered review until the released build can be re-tested.
-4. Keep other version-sensitive Witcher 3 Remastered material held for the September 29 factual/re-test pass.
-5. Continue the growth plan of roughly **3 evergreen pieces per week**, emphasizing cluster-deepening Guides, Reviews and high-intent What to Play coverage.
+2. Re-query Search Console / Analytics / reader data where available before choosing the next growth investment.
+3. Re-query the remaining drafts and select the next article based on **reader value + evidence + topical relationship + differentiation + internal ecosystem + longevity**, not simply because it is next in a queue.
+4. Leave `the-witcher-3-wild-hunt-review` untouched as the September 29 Remastered review until the released build can be re-tested.
+5. Keep other version-sensitive Witcher 3 Remastered material held for the September 29 factual/re-test pass.
 
 ## Growth context
 
-Current growth targets:
-- roughly **55–65 evergreen articles within 3 months**;
-- around **100 evergreen articles within 6 months**;
-- six-month category target: **40–50 Guides, 25–30 Reviews, 20–25 What to Play, 10–12 Features**.
+Earlier planning targets such as roughly **3 evergreen pieces per week**, **55–65 evergreen articles within 3 months**, **~100 within 6 months**, and portfolio category ranges remain available as directional planning references only.
 
-New evergreen work should deepen established clusters before broad expansion and should include deliberate internal recirculation.
+They are **not publication quotas**. The governing strategy is the evidence-led framework in `GROWTH_IMPROVEMENT_CHECKLIST.md`.
+
+The recurring growth loop is:
+
+**Content Quality → Search Opportunities → Topic Clusters → Internal Linking → Ranking Progression → CTR Optimization → Originality → Reader Engagement → Refresh Opportunities → Performance Review**
