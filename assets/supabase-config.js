@@ -374,13 +374,13 @@ window.NEURAL_CRITIC_SUPABASE = {
 
   if (document.querySelector('script[data-nc-analytics-config]')) return;
   const config = document.createElement('script');
-  config.src = 'assets/analytics-config.js?v=20260822-analytics1';
+  config.src = 'assets/analytics-config.js?v=20260906-analytics3';
   config.async = true;
   config.dataset.ncAnalyticsConfig = '1';
   config.addEventListener('load', () => {
     if (document.querySelector('script[data-nc-analytics]')) return;
     const analytics = document.createElement('script');
-    analytics.src = 'assets/analytics.js?v=20260822-analytics2';
+    analytics.src = 'assets/analytics.js?v=20260906-analytics4';
     analytics.async = true;
     analytics.dataset.ncAnalytics = '1';
     analytics.addEventListener('load', () => {
