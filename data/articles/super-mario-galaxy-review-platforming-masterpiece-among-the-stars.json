@@ -44,7 +44,7 @@
       "caption": "Galaxy pairs its cosmic scale with a warm, playful sense of place from the very beginning.",
       "heading": "Gravity Turns Platforming Into a Playground",
       "imageAlt": "Mario stands beside a glowing Luma in a flower-filled area of Super Mario Galaxy.",
-      "imageLocal": "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1787447641078-d804f352-73f8-4815-ba7b-54e80161d33d-galaxy-1-section.avif",
+      "imageLocal": "/images/editorial/1787447641078-d804f352-73f8-4815-ba7b-54e80161d33d-galaxy-1-section.avif",
       "headingStyle": "editorial"
     },
     {
@@ -52,7 +52,7 @@
       "caption": "New mechanics and transformations constantly give each galaxy its own rhythm and identity.",
       "heading": "Every Galaxy Feels Like a New Idea",
       "imageAlt": "Bee Mario moves through a colorful flower-filled planetoid with coins and small platforms in Super Mario Galaxy.",
-      "imageLocal": "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1787447652925-3806b12c-a328-4ae6-915b-9e0614817fa7-galaxy-2-section.jpg",
+      "imageLocal": "/images/editorial/1787447652925-3806b12c-a328-4ae6-915b-9e0614817fa7-galaxy-2-section.jpg",
       "headingStyle": "editorial"
     },
     {
@@ -60,7 +60,7 @@
       "caption": "Precise movement keeps unusual gravity and shifting perspectives readable even when the world bends around Mario.",
       "heading": "Movement Stays Precise When the World Turns Upside Down",
       "imageAlt": "Mario balances on a wooden platform beside a large windmill structure suspended above space in Super Mario Galaxy.",
-      "imageLocal": "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1787447660480-a5fdd3d8-2274-40e4-8edf-02adc39ba221-galaxy-3-section.jpg",
+      "imageLocal": "/images/editorial/1787447660480-a5fdd3d8-2274-40e4-8edf-02adc39ba221-galaxy-3-section.jpg",
       "headingStyle": "editorial"
     },
     {
@@ -68,7 +68,7 @@
       "caption": "Strong visual composition and memorable set pieces make even compact challenges feel theatrical.",
       "heading": "Music and Presentation Make Space Feel Magical",
       "imageAlt": "Mario stands in a bright circular grass arena surrounded by Piranha Plants in Super Mario Galaxy.",
-      "imageLocal": "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1787447666311-613713cc-4c0b-44aa-bac7-cc543d70b457-galaxy-4-section.jpg",
+      "imageLocal": "/images/editorial/1787447666311-613713cc-4c0b-44aa-bac7-cc543d70b457-galaxy-4-section.jpg",
       "headingStyle": "editorial"
     },
     {
@@ -76,7 +76,7 @@
       "caption": "A few aging control quirks remain, but the fundamental joy of moving through Galaxy still shines through.",
       "heading": "A Few Old Frictions Cannot Dim the Adventure",
       "imageAlt": "Mario performs a spin attack as colorful Star Bits scatter across a grassy planetoid in Super Mario Galaxy.",
-      "imageLocal": "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1787447688437-3c5acdd8-ea82-4856-a772-26a435b1a7eb-galaxy-5-section.webp",
+      "imageLocal": "/images/editorial/1787447688437-3c5acdd8-ea82-4856-a772-26a435b1a7eb-galaxy-5-section.webp",
       "headingStyle": "editorial"
     }
   ],
@@ -88,7 +88,7 @@
   "homepageSlot": "regular",
   "publishedAt": "2026-08-23T00:40:27.345882+00:00",
   "updatedAt": "2026-08-24T17:42:04.270898+00:00",
-  "imageLocal": "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1787448093392-b2e638d4-3c88-49e1-ab49-c81c29849026-mario-galaxy-in-list.avif",
+  "imageLocal": "/images/editorial/1787448093392-b2e638d4-3c88-49e1-ab49-c81c29849026-mario-galaxy-in-list.avif",
   "editorialSection": "reviews",
   "platforms": [
     "nintendo"

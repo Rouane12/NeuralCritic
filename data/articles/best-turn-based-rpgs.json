@@ -26,7 +26,7 @@
       "imageAlt": "Chained Echoes artwork or gameplay imagery illustrating the game’s visual style.",
       "subtitle": "A compact throwback that keeps its systems moving",
       "developer": "Matthias Linda",
-      "imageLocal": "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1788576494982-dc563f8d-da49-409f-92c2-4987a0f08194-chained-section-1.avif",
+      "imageLocal": "/images/editorial/1788576494982-dc563f8d-da49-409f-92c2-4987a0f08194-chained-section-1.avif",
       "releaseYear": "2022",
       "headingStyle": "editorial"
     },
@@ -38,7 +38,7 @@
       "imageAlt": "Sea of Stars artwork or gameplay imagery illustrating the game’s visual style.",
       "subtitle": "Accessible turn-based combat wrapped in a polished adventure",
       "developer": "Sabotage Studio",
-      "imageLocal": "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1788576500928-504e8cea-f7c7-4356-aab6-838121b9406e-sea-section-2.webp",
+      "imageLocal": "/images/editorial/1788576500928-504e8cea-f7c7-4356-aab6-838121b9406e-sea-section-2.webp",
       "releaseYear": "2023",
       "headingStyle": "editorial"
     },
@@ -50,7 +50,7 @@
       "imageAlt": "Warhammer 40,000: Rogue Trader artwork or gameplay imagery illustrating the game’s visual style.",
       "subtitle": "Dense CRPG tactics for players who want consequences and systems",
       "developer": "Owlcat Games",
-      "imageLocal": "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1788576507099-84e59ceb-e119-41ae-ab70-436e6ebd2ca1-warhammer-section-3.jpg",
+      "imageLocal": "/images/editorial/1788576507099-84e59ceb-e119-41ae-ab70-436e6ebd2ca1-warhammer-section-3.jpg",
       "releaseYear": "2023",
       "headingStyle": "editorial"
     },
@@ -62,7 +62,7 @@
       "imageAlt": "Fire Emblem: Three Houses artwork or gameplay imagery illustrating the game’s visual style.",
       "subtitle": "Tactical battles made stronger by the people fighting them",
       "developer": "Intelligent Systems / Koei Tecmo",
-      "imageLocal": "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1788576514079-1052dbbf-e388-4e55-bff0-c1a42b3588be-fire-emblem-section-3.avif",
+      "imageLocal": "/images/editorial/1788576514079-1052dbbf-e388-4e55-bff0-c1a42b3588be-fire-emblem-section-3.avif",
       "releaseYear": "2019",
       "headingStyle": "editorial"
     },
@@ -74,7 +74,7 @@
       "imageAlt": "Octopath Traveler II artwork or gameplay imagery illustrating the game’s visual style.",
       "subtitle": "Eight journeys supported by one of the genre’s sharpest battle systems",
       "developer": "Square Enix / Acquire",
-      "imageLocal": "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1788576517874-3bcee3ce-f379-498e-a739-feaf3f043518-octppath-section-5.jpg",
+      "imageLocal": "/images/editorial/1788576517874-3bcee3ce-f379-498e-a739-feaf3f043518-octppath-section-5.jpg",
       "releaseYear": "2023",
       "headingStyle": "editorial"
     },
@@ -86,7 +86,7 @@
       "imageAlt": "Dragon Quest XI S: Echoes of an Elusive Age artwork or gameplay imagery illustrating the game’s visual style.",
       "subtitle": "Traditional turn-based design polished to an exceptional standard",
       "developer": "Square Enix",
-      "imageLocal": "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1788576524132-04424c8c-7187-4a28-83c9-d499910006c4-dragon-quest-section-6.jpg",
+      "imageLocal": "/images/editorial/1788576524132-04424c8c-7187-4a28-83c9-d499910006c4-dragon-quest-section-6.jpg",
       "releaseYear": "2019",
       "headingStyle": "editorial"
     },
@@ -98,7 +98,7 @@
       "imageAlt": "Like a Dragon: Infinite Wealth artwork or gameplay imagery illustrating the game’s visual style.",
       "subtitle": "Turn-based combat with the energy of a street fight",
       "developer": "Ryu Ga Gotoku Studio",
-      "imageLocal": "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1788576531209-5449db9d-f0bc-4d2f-837e-dee89c518396-dragon-section-7.jpg",
+      "imageLocal": "/images/editorial/1788576531209-5449db9d-f0bc-4d2f-837e-dee89c518396-dragon-section-7.jpg",
       "releaseYear": "2024",
       "headingStyle": "editorial"
     },
@@ -110,7 +110,7 @@
       "imageAlt": "Divinity: Original Sin 2 artwork or gameplay imagery illustrating the game’s visual style.",
       "subtitle": "Larian’s elemental sandbox still rewards experimentation",
       "developer": "Larian Studios",
-      "imageLocal": "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1788576536317-e618949d-afbc-4252-8cb5-1de72ca67286-divnity-section-8.jpg",
+      "imageLocal": "/images/editorial/1788576536317-e618949d-afbc-4252-8cb5-1de72ca67286-divnity-section-8.jpg",
       "releaseYear": "2017",
       "headingStyle": "editorial"
     },
@@ -122,7 +122,7 @@
       "imageAlt": "Metaphor: ReFantazio artwork or gameplay imagery illustrating the game’s visual style.",
       "subtitle": "A class-driven JRPG where every turn has purpose",
       "developer": "Studio Zero",
-      "imageLocal": "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1788576541724-f584dd84-45ee-4cc6-8f89-2f81f1bce60e-metaphor-section.jpg",
+      "imageLocal": "/images/editorial/1788576541724-f584dd84-45ee-4cc6-8f89-2f81f1bce60e-metaphor-section.jpg",
       "releaseYear": "2024",
       "headingStyle": "editorial"
     },
@@ -134,7 +134,7 @@
       "imageAlt": "Persona 5 Royal artwork or gameplay imagery illustrating the game’s visual style.",
       "subtitle": "Turn-based combat, social life, and time management working together",
       "developer": "Atlus",
-      "imageLocal": "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1788576547209-3a4eb1da-7a4e-4a06-bfb3-415b60e60389-persona-5.avif",
+      "imageLocal": "/images/editorial/1788576547209-3a4eb1da-7a4e-4a06-bfb3-415b60e60389-persona-5.avif",
       "releaseYear": "2019",
       "headingStyle": "editorial"
     },
@@ -146,7 +146,7 @@
       "imageAlt": "Clair Obscur: Expedition 33 artwork or gameplay imagery illustrating the game’s visual style.",
       "subtitle": "Turn-based planning with active defense and dramatic momentum",
       "developer": "Sandfall Interactive",
-      "imageLocal": "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1788575357549-97002916-91cf-4305-b176-5574b353049a-clair-section.jpg",
+      "imageLocal": "/images/editorial/1788575357549-97002916-91cf-4305-b176-5574b353049a-clair-section.jpg",
       "releaseYear": "2025",
       "headingStyle": "editorial"
     },
@@ -158,7 +158,7 @@
       "imageAlt": "Baldur’s Gate 3 artwork or gameplay imagery illustrating the game’s visual style.",
       "subtitle": "The most reactive modern turn-based RPG",
       "developer": "Larian Studios",
-      "imageLocal": "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1788576554491-50859902-3f4d-4c1c-8adb-25f74f132257-baldur-section.jpg",
+      "imageLocal": "/images/editorial/1788576554491-50859902-3f4d-4c1c-8adb-25f74f132257-baldur-section.jpg",
       "releaseYear": "2023",
       "headingStyle": "editorial"
     }
@@ -175,7 +175,7 @@
   "homepageSlot": "regular",
   "publishedAt": "2026-09-05T03:55:18.78946+00:00",
   "updatedAt": "2026-09-05T04:50:05.17336+00:00",
-  "imageLocal": "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1788576568382-9b9f3e69-b277-49ad-a258-28b1b476920a-chained-section-1.avif",
+  "imageLocal": "/images/editorial/1788576568382-9b9f3e69-b277-49ad-a258-28b1b476920a-chained-section-1.avif",
   "editorialSection": "what-to-play",
   "platforms": [
     "pc",

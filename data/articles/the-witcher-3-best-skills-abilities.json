@@ -1,0 +1,89 @@
+{
+  "id": "c1dfcd70-c6da-4a59-b505-a69342e39232",
+  "slug": "the-witcher-3-best-skills-abilities",
+  "title": "The Witcher 3 Best Skills and Abilities for New Players",
+  "description": "The best Witcher 3 skills for new players in version 4.04, including early combat priorities, Quen, Axii and smart build choices before Remastered.",
+  "body": "The Witcher 3’s current 4.04 skill system rewards focus more than collecting a little of everything. A new player usually gets more value from one early combat direction, one defensive Sign path and a small number of utility choices than from spreading points across every tree.\\n\\nCD PROJEKT RED launches The Witcher 3: Wild Hunt — Remastered on September 29, 2026 with a reimagined skill system. The recommendations below are therefore labeled for the current 4.04 build and will be rebuilt after launch instead of pretending the new tree is already known.",
+  "category": "GUIDE",
+  "author": "Rouane Mounssif",
+  "tags": [
+    "The Witcher 3: Wild Hunt",
+    "Skills",
+    "Abilities",
+    "Build Guide",
+    "CD Projekt Red",
+    "The Witcher"
+  ],
+  "imageAlt": "The Witcher 3 image accompanying Neural Critic’s guide to beginner skills and abilities.",
+  "imageCredit": "",
+  "articleFormat": "game-guide",
+  "reviewMeta": {},
+  "contentBlocks": [
+    {
+      "text": "For the current 4.04 build, the simplest first decision is whether your character leans more on fast attacks or strong attacks. Muscle Memory supports the fast-attack path, while Strength Training supports the strong-attack path. New players usually get clearer value by choosing one first instead of spending early points in both.\n\nThe goal is not to lock the entire build permanently. It is to make the first few ability points produce a noticeable direction.",
+      "heading": "1. Choose Muscle Memory or Strength Training First",
+      "headingStyle": "editorial"
+    },
+    {
+      "text": "Resolve supports the Adrenaline system by reducing the penalty from taking damage, which makes it a useful early combat skill for players who are still learning encounter timing. It works best as a supporting pick after you have chosen a main attack direction rather than as the whole build by itself.",
+      "heading": "2. Resolve Is a Strong Early Consistency Pick",
+      "headingStyle": "editorial"
+    },
+    {
+      "text": "Quen is one of the easiest Signs for a new player to understand because it creates a defensive buffer. Exploding Shield adds a crowd-control effect when the shield breaks, giving the player more space to recover or reposition.\n\nThat makes it a practical early Sign upgrade even for a character that is not otherwise investing heavily in Signs.",
+      "heading": "3. Exploding Shield Makes Quen More Useful Under Pressure",
+      "headingStyle": "editorial"
+    },
+    {
+      "text": "Delusion is valuable because it adds more Axii-based dialogue opportunities while also supporting the Sign in normal play. For beginners who care about quest conversations and want one utility skill that appears outside combat, it is one of the clearest early choices.",
+      "heading": "4. Delusion Adds Useful Axii Dialogue Options",
+      "headingStyle": "editorial"
+    },
+    {
+      "text": "Players who keep returning to Quen can consider Active Shield as a deeper defensive investment. It changes how the Sign functions and can add recovery utility, but it is not mandatory for every build.\n\nIf Quen is only an occasional safety tool, keep the investment smaller and spend the remaining points on the systems you actually use.",
+      "heading": "5. Active Shield Is Optional but Helpful for Quen-Focused Players",
+      "headingStyle": "editorial"
+    },
+    {
+      "text": "The General tree includes School Technique abilities tied to armor weight. These can be strong when the equipment you already wear supports the bonus, but they are poor value if you constantly switch into armor that does not match the chosen technique.\n\nTreat them as build-specific choices rather than automatic beginner purchases.",
+      "heading": "6. School Techniques Only Pay Off When Your Armor Matches",
+      "headingStyle": "editorial"
+    },
+    {
+      "text": "Alchemy becomes much stronger once potions, decoctions and preparation are part of your normal routine, but beginners do not need to force a deep alchemy build immediately. Convenience skills such as Gourmet can make early exploration easier for some players, yet they should not replace the core progression choices that define how the character plays.\n\nInvest deeper only when you understand which preparation systems you actually enjoy using.",
+      "heading": "7. Keep Alchemy and Convenience Skills in Perspective",
+      "headingStyle": "editorial"
+    },
+    {
+      "text": "These recommendations are for The Witcher 3 version 4.04, which CD PROJEKT RED still lists as the current build before Remastered. The Witcher 3: Wild Hunt — Remastered launches on September 29, 2026 with a reimagined skill system.\n\nNeural Critic will rebuild this guide around the released tree after launch, including the new ability names, unlock structure and early priorities. Until then, this page describes the current game rather than speculating about unreleased mechanics.",
+      "heading": "8. Remastered Will Replace This Exact Skill Priority",
+      "headingStyle": "editorial"
+    }
+  ],
+  "quickRead": [
+    "For the current 4.04 build, start with one main combat direction rather than splitting early points across every tree.",
+    "Resolve, Quen upgrades and Delusion are useful early choices because they support consistency, defense and dialogue utility.",
+    "Remastered launches September 29, 2026 with a reimagined skill system, so this page will receive a full post-launch refresh."
+  ],
+  "conclusion": "For the current 4.04 version of The Witcher 3, beginners get the clearest progression by choosing one main combat direction, adding a reliable defensive or utility Sign and avoiding a scattered skill tree. Muscle Memory or Strength Training establishes the first direction, while Resolve, Exploding Shield and Delusion are strong supporting choices for many new players.\\n\\nRemastered launches on September 29, 2026 with a reimagined skill system, so this is intentionally a current-version guide. Neural Critic will replace the exact priority list after testing the released Remastered tree.",
+  "conclusionHeading": "The best current skills are focused, not scattered",
+  "conclusionHeadingStyle": "editorial",
+  "featured": false,
+  "homepageSlot": "regular",
+  "publishedAt": "2026-09-07T19:29:39.039854+00:00",
+  "updatedAt": "2026-09-07T19:31:35.024931+00:00",
+  "imageLocal": "/images/editorial/1788808025163-018b18ab-4c85-43b6-b245-e268aeaf74b2-witcher-skills.webp",
+  "editorialSection": "guides",
+  "platforms": [
+    "pc",
+    "playstation",
+    "xbox",
+    "nintendo"
+  ],
+  "collection": null,
+  "collectionYear": null,
+  "gameKey": "The Witcher 3: Wild Hunt",
+  "series": "The Witcher",
+  "franchise": "The Witcher",
+  "newsMeta": {}
+}

@@ -79,20 +79,15 @@
       "headingStyle": "editorial"
     }
   ],
-  "quickRead": [
-    "Aggressive combat rewards pressure and quick recovery rather than passive defense.",
-    "Yharnam’s interconnected level design remains one of FromSoftware’s strongest worlds.",
-    "The Old Hunters materially strengthens the complete package, while Chalice Dungeons are more uneven.",
-    "The PS4-era technical presentation is increasingly dated even though the art direction remains distinctive."
-  ],
+  "quickRead": [],
   "conclusion": "Bloodborne endures because its core systems reinforce one another: aggressive combat rewards commitment, Yharnam turns navigation into discovery, and the shift from gothic to cosmic horror gives the campaign an identity FromSoftware has never simply repeated. Its narrower equipment pool also supports a more focused overall design.\\n\\nIts weaknesses are easier to see with time. Chalice Dungeons lack the personality of the main world, some large encounters expose camera problems, and the unchanged PS4-era technical package increasingly stands apart from the strength of the art direction. For readers exploring the wider genre, our [best Soulslike games](/stories/best-soulslike-games/) and [FromSoftware difficulty ranking](/stories/fromsoftware-soulsborne-games-ranked-by-difficulty/) provide useful context around where Bloodborne fits.",
   "conclusionHeading": "A singular game in an increasingly dated technical package",
   "conclusionHeadingStyle": "editorial",
   "featured": false,
   "homepageSlot": "regular",
   "publishedAt": "2026-09-05T09:37:49.838295+00:00",
-  "updatedAt": "2026-09-05T09:37:49.838295+00:00",
-  "imageLocal": "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1788598624445-5736da9c-a6fc-4271-b122-45a55e419634-bloodborne-main.jpg",
+  "updatedAt": "2026-09-07T19:46:08.089927+00:00",
+  "imageLocal": "/images/editorial/1788598624445-5736da9c-a6fc-4271-b122-45a55e419634-bloodborne-main.jpg",
   "editorialSection": "reviews",
   "platforms": [
     "playstation"

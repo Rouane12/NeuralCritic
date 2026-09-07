@@ -26,7 +26,7 @@
       "imageAlt": "A Short Hike artwork or gameplay imagery illustrating the game’s visual style.",
       "subtitle": "A tiny open world where wandering is the point",
       "developer": "Adam Robinson-Yu",
-      "imageLocal": "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1788576898967-3c97c73d-f4c7-4655-a63b-47e0a39e309e-hike-section.jpg",
+      "imageLocal": "/images/editorial/1788576898967-3c97c73d-f4c7-4655-a63b-47e0a39e309e-hike-section.jpg",
       "releaseYear": "2019",
       "headingStyle": "editorial"
     },
@@ -38,7 +38,7 @@
       "imageAlt": "What Remains of Edith Finch artwork or gameplay imagery illustrating the game’s visual style.",
       "subtitle": "A brief narrative experiment with almost no wasted motion",
       "developer": "Giant Sparrow",
-      "imageLocal": "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1788576913708-9e150ce1-7d2f-4b64-9637-c0ee567c20a3-remain-section.avif",
+      "imageLocal": "/images/editorial/1788576913708-9e150ce1-7d2f-4b64-9637-c0ee567c20a3-remain-section.avif",
       "releaseYear": "2017",
       "headingStyle": "editorial"
     },
@@ -50,7 +50,7 @@
       "imageAlt": "Firewatch artwork or gameplay imagery illustrating the game’s visual style.",
       "subtitle": "A focused mystery carried by atmosphere and conversation",
       "developer": "Campo Santo",
-      "imageLocal": "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1788576919054-81294103-4683-4f1d-932a-e2587735dfad-firewatch-section.jpg",
+      "imageLocal": "/images/editorial/1788576919054-81294103-4683-4f1d-932a-e2587735dfad-firewatch-section.jpg",
       "releaseYear": "2016",
       "headingStyle": "editorial"
     },
@@ -62,7 +62,7 @@
       "imageAlt": "Inside artwork or gameplay imagery illustrating the game’s visual style.",
       "subtitle": "A tightly controlled journey built on visual storytelling",
       "developer": "Playdead",
-      "imageLocal": "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1788576943773-14dea76b-2893-4eca-bbe6-4b967d936095-inside-section.jpg",
+      "imageLocal": "/images/editorial/1788576943773-14dea76b-2893-4eca-bbe6-4b967d936095-inside-section.jpg",
       "releaseYear": "2016",
       "headingStyle": "editorial"
     },
@@ -74,7 +74,7 @@
       "imageAlt": "Stray artwork or gameplay imagery illustrating the game’s visual style.",
       "subtitle": "A compact adventure with a strong sense of place",
       "developer": "BlueTwelve Studio",
-      "imageLocal": "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1788576960320-7977ca8a-70b8-4a79-9f43-58cedca63ff2-stray-section.webp",
+      "imageLocal": "/images/editorial/1788576960320-7977ca8a-70b8-4a79-9f43-58cedca63ff2-stray-section.webp",
       "releaseYear": "2022",
       "headingStyle": "editorial"
     },
@@ -86,7 +86,7 @@
       "imageAlt": "Ratchet & Clank: Rift Apart artwork or gameplay imagery illustrating the game’s visual style.",
       "subtitle": "A polished blockbuster that does not overstay its welcome",
       "developer": "Insomniac Games",
-      "imageLocal": "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1788576977131-770818ca-f8b1-475a-9d00-d037f4750050-rift-apart-section.jpg",
+      "imageLocal": "/images/editorial/1788576977131-770818ca-f8b1-475a-9d00-d037f4750050-rift-apart-section.jpg",
       "releaseYear": "2021",
       "headingStyle": "editorial"
     },
@@ -98,7 +98,7 @@
       "imageAlt": "Super Mario Odyssey artwork or gameplay imagery illustrating the game’s visual style.",
       "subtitle": "A main story that stays compact even when the world invites much more",
       "developer": "Nintendo EPD",
-      "imageLocal": "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1788576991718-890191dd-35ba-4c74-88d8-ded85f17d33f-odyssey-section.webp",
+      "imageLocal": "/images/editorial/1788576991718-890191dd-35ba-4c74-88d8-ded85f17d33f-odyssey-section.webp",
       "releaseYear": "2017",
       "headingStyle": "editorial"
     },
@@ -110,7 +110,7 @@
       "imageAlt": "Hi-Fi Rush artwork or gameplay imagery illustrating the game’s visual style.",
       "subtitle": "Rhythm gives an action campaign exceptional pacing",
       "developer": "Tango Gameworks",
-      "imageLocal": "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1788577015055-7bcd553e-edbc-4512-b8ab-7131882af48e-hi-fi-section.webp",
+      "imageLocal": "/images/editorial/1788577015055-7bcd553e-edbc-4512-b8ab-7131882af48e-hi-fi-section.webp",
       "releaseYear": "2023",
       "headingStyle": "editorial"
     },
@@ -122,7 +122,7 @@
       "imageAlt": "Astro Bot artwork or gameplay imagery illustrating the game’s visual style.",
       "subtitle": "A dense platformer where almost every level introduces a new idea",
       "developer": "Team Asobi",
-      "imageLocal": "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1788577019181-d3b3df90-f613-4737-9d47-c6446de8d1d9-astrobot-section.jpg",
+      "imageLocal": "/images/editorial/1788577019181-d3b3df90-f613-4737-9d47-c6446de8d1d9-astrobot-section.jpg",
       "releaseYear": "2024",
       "headingStyle": "editorial"
     },
@@ -134,7 +134,7 @@
       "imageAlt": "Portal 2 artwork or gameplay imagery illustrating the game’s visual style.",
       "subtitle": "A near-perfect example of a game ending exactly when it should",
       "developer": "Valve",
-      "imageLocal": "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1788577023103-ee4874c2-ab4d-4f70-95bf-de68cc795213-portal-in-list.avif",
+      "imageLocal": "/images/editorial/1788577023103-ee4874c2-ab4d-4f70-95bf-de68cc795213-portal-in-list.avif",
       "releaseYear": "2011",
       "headingStyle": "editorial"
     }
@@ -151,7 +151,7 @@
   "homepageSlot": "regular",
   "publishedAt": "2026-09-05T03:55:26.333356+00:00",
   "updatedAt": "2026-09-05T04:50:05.17336+00:00",
-  "imageLocal": "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1788577030291-1d3be7b5-4fe0-4d20-8bd7-c3a486b269e5-inside-section.jpg",
+  "imageLocal": "/images/editorial/1788577030291-1d3be7b5-4fe0-4d20-8bd7-c3a486b269e5-inside-section.jpg",
   "editorialSection": "what-to-play",
   "platforms": [
     "pc",

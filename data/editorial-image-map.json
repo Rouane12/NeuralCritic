@@ -1,0 +1,1950 @@
+{
+  "images": {
+    "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1787351828350-406d9122-1456-43fb-b917-0dab1033cbc3-dark-souls-main.jpg": {
+      "local": "/images/editorial/1787351828350-406d9122-1456-43fb-b917-0dab1033cbc3-dark-souls-main.jpg",
+      "local_bytes": 132568,
+      "source_bytes": 132568
+    },
+    "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1787352021084-ac781b5e-0b02-4fcf-a1cb-88a962146ee4-baldur-in-list.webp": {
+      "local": "/images/editorial/1787352021084-ac781b5e-0b02-4fcf-a1cb-88a962146ee4-baldur-in-list.webp",
+      "local_bytes": 173300,
+      "source_bytes": 173300
+    },
+    "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1787352025227-1eed5e9b-048c-4d8d-b023-8d06e7d68b2f-minecraft-in-list.avif": {
+      "local": "/images/editorial/1787352025227-1eed5e9b-048c-4d8d-b023-8d06e7d68b2f-minecraft-in-list.avif",
+      "local_bytes": 128480,
+      "source_bytes": 128480
+    },
+    "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1787352029482-b70443e6-72ba-4ea7-8b91-93e40df649c1-half-life-in-list.jpg": {
+      "local": "/images/editorial/1787352029482-b70443e6-72ba-4ea7-8b91-93e40df649c1-half-life-in-list.jpg",
+      "local_bytes": 230720,
+      "source_bytes": 1685774
+    },
+    "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1787352033532-25d69389-82a5-41ec-9e63-53b1b8ecd5d6-red-dead-in-ist.jpg": {
+      "local": "/images/editorial/1787352033532-25d69389-82a5-41ec-9e63-53b1b8ecd5d6-red-dead-in-ist.jpg",
+      "local_bytes": 78091,
+      "source_bytes": 78091
+    },
+    "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1787352039885-7e403868-2314-49c2-828f-416563d37c59-super-metroid-in-list.jpg": {
+      "local": "/images/editorial/1787352039885-7e403868-2314-49c2-828f-416563d37c59-super-metroid-in-list.jpg",
+      "local_bytes": 81513,
+      "source_bytes": 81513
+    },
+    "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1787352047400-d5bc19f3-be40-4d31-9339-8b7184c32a8e-portal-in-list.avif": {
+      "local": "/images/editorial/1787352047400-d5bc19f3-be40-4d31-9339-8b7184c32a8e-portal-in-list.avif",
+      "local_bytes": 58896,
+      "source_bytes": 58896
+    },
+    "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1787352059147-ea8e6b00-7a47-4638-bada-4d99faec5737-zelda-in-list.avif": {
+      "local": "/images/editorial/1787352059147-ea8e6b00-7a47-4638-bada-4d99faec5737-zelda-in-list.avif",
+      "local_bytes": 236934,
+      "source_bytes": 236934
+    },
+    "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1787352063227-afd85f25-a620-4fb4-b6bd-11ce292f24b1-mario-galaxy-in-list.avif": {
+      "local": "/images/editorial/1787352063227-afd85f25-a620-4fb4-b6bd-11ce292f24b1-mario-galaxy-in-list.avif",
+      "local_bytes": 170598,
+      "source_bytes": 170598
+    },
+    "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1787352101844-979ed434-1eec-4c56-bd98-c7ffb3faf091-elden-ring-in-list.webp": {
+      "local": "/images/editorial/1787352101844-979ed434-1eec-4c56-bd98-c7ffb3faf091-elden-ring-in-list.webp",
+      "local_bytes": 49640,
+      "source_bytes": 49640
+    },
+    "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1787352114306-5d1b5a9a-6a35-4c95-98cd-c2711ffaff25-best-games-10-main.webp": {
+      "local": "/images/editorial/1787352114306-5d1b5a9a-6a35-4c95-98cd-c2711ffaff25-best-games-10-main.webp",
+      "local_bytes": 510353,
+      "source_bytes": 510353
+    },
+    "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1787447641078-d804f352-73f8-4815-ba7b-54e80161d33d-galaxy-1-section.avif": {
+      "local": "/images/editorial/1787447641078-d804f352-73f8-4815-ba7b-54e80161d33d-galaxy-1-section.avif",
+      "local_bytes": 33625,
+      "source_bytes": 33625
+    },
+    "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1787447652925-3806b12c-a328-4ae6-915b-9e0614817fa7-galaxy-2-section.jpg": {
+      "local": "/images/editorial/1787447652925-3806b12c-a328-4ae6-915b-9e0614817fa7-galaxy-2-section.jpg",
+      "local_bytes": 59696,
+      "source_bytes": 59696
+    },
+    "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1787447660480-a5fdd3d8-2274-40e4-8edf-02adc39ba221-galaxy-3-section.jpg": {
+      "local": "/images/editorial/1787447660480-a5fdd3d8-2274-40e4-8edf-02adc39ba221-galaxy-3-section.jpg",
+      "local_bytes": 38763,
+      "source_bytes": 38763
+    },
+    "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1787447666311-613713cc-4c0b-44aa-bac7-cc543d70b457-galaxy-4-section.jpg": {
+      "local": "/images/editorial/1787447666311-613713cc-4c0b-44aa-bac7-cc543d70b457-galaxy-4-section.jpg",
+      "local_bytes": 46212,
+      "source_bytes": 46212
+    },
+    "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1787447688437-3c5acdd8-ea82-4856-a772-26a435b1a7eb-galaxy-5-section.webp": {
+      "local": "/images/editorial/1787447688437-3c5acdd8-ea82-4856-a772-26a435b1a7eb-galaxy-5-section.webp",
+      "local_bytes": 231220,
+      "source_bytes": 231220
+    },
+    "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1787448093392-b2e638d4-3c88-49e1-ab49-c81c29849026-mario-galaxy-in-list.avif": {
+      "local": "/images/editorial/1787448093392-b2e638d4-3c88-49e1-ab49-c81c29849026-mario-galaxy-in-list.avif",
+      "local_bytes": 170598,
+      "source_bytes": 170598
+    },
+    "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1787461257793-85e0d794-07de-4141-9087-ca9bdaa35299-galaxy-2-5-section.jpg": {
+      "local": "/images/editorial/1787461257793-85e0d794-07de-4141-9087-ca9bdaa35299-galaxy-2-5-section.jpg",
+      "local_bytes": 330564,
+      "source_bytes": 330564
+    },
+    "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1787461321327-6f6baab9-baa6-43d4-8e04-245388ad443a-galaxy-2-1-section.jpg": {
+      "local": "/images/editorial/1787461321327-6f6baab9-baa6-43d4-8e04-245388ad443a-galaxy-2-1-section.jpg",
+      "local_bytes": 42307,
+      "source_bytes": 42307
+    },
+    "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1787461451852-7a21ff46-830c-4996-9ff8-747972af946d-galaxy-2-4-section.avif": {
+      "local": "/images/editorial/1787461451852-7a21ff46-830c-4996-9ff8-747972af946d-galaxy-2-4-section.avif",
+      "local_bytes": 122183,
+      "source_bytes": 122183
+    },
+    "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1787461457759-da0edcf6-ae7a-4eb1-8340-5a22008c7b57-galaxy-2-2-section.jpg": {
+      "local": "/images/editorial/1787461457759-da0edcf6-ae7a-4eb1-8340-5a22008c7b57-galaxy-2-2-section.jpg",
+      "local_bytes": 87527,
+      "source_bytes": 368776
+    },
+    "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1787461458526-c605ea97-b66b-4e29-961b-869f687d17f4-galaxy-2-3-section.jpg": {
+      "local": "/images/editorial/1787461458526-c605ea97-b66b-4e29-961b-869f687d17f4-galaxy-2-3-section.jpg",
+      "local_bytes": 215219,
+      "source_bytes": 215219
+    },
+    "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1787461536223-58af3ff2-552c-4dd8-9da6-b6aa0736e782-galaxy-2-main.avif": {
+      "local": "/images/editorial/1787461536223-58af3ff2-552c-4dd8-9da6-b6aa0736e782-galaxy-2-main.avif",
+      "local_bytes": 77993,
+      "source_bytes": 77993
+    },
+    "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1787506616254-601a76cd-62a8-476a-b743-e0bc92a4888b-section-1-image.jpg": {
+      "local": "/images/editorial/1787506616254-601a76cd-62a8-476a-b743-e0bc92a4888b-section-1-image.jpg",
+      "local_bytes": 160484,
+      "source_bytes": 738889
+    },
+    "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1787506624145-1a26e335-5c8c-4f4a-bf54-12767ca270d7-section-2-image.jpg": {
+      "local": "/images/editorial/1787506624145-1a26e335-5c8c-4f4a-bf54-12767ca270d7-section-2-image.jpg",
+      "local_bytes": 23263,
+      "source_bytes": 23263
+    },
+    "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1787506638496-f928d3ea-15c3-4fd3-857b-5c2d2295b092-section-4-image.jpg": {
+      "local": "/images/editorial/1787506638496-f928d3ea-15c3-4fd3-857b-5c2d2295b092-section-4-image.jpg",
+      "local_bytes": 32647,
+      "source_bytes": 32647
+    },
+    "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1787506652339-6ece24c0-7e15-42d0-ae5d-704e4ee0dda0-section-5-image.jpg": {
+      "local": "/images/editorial/1787506652339-6ece24c0-7e15-42d0-ae5d-704e4ee0dda0-section-5-image.jpg",
+      "local_bytes": 285054,
+      "source_bytes": 599391
+    },
+    "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1787509341778-476aaa5e-158b-4936-8656-59fbb2284876-jason-and-lucia-robbery-with-logo-landscape.jpg": {
+      "local": "/images/editorial/1787509341778-476aaa5e-158b-4936-8656-59fbb2284876-jason-and-lucia-robbery-with-logo-landscape.jpg",
+      "local_bytes": 319984,
+      "source_bytes": 1087505
+    },
+    "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1787596025818-33e5a3d7-fc27-4e96-901f-a1c32243f37c-big-walk-section-1.png": {
+      "local": "/images/editorial/1787596025818-33e5a3d7-fc27-4e96-901f-a1c32243f37c-big-walk-section-1.png",
+      "local_bytes": 25092,
+      "source_bytes": 25092
+    },
+    "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1787596035458-7bd6c777-2a13-4a5b-9137-0e95a54572d4-forza-horizon-section-2.webp": {
+      "local": "/images/editorial/1787596035458-7bd6c777-2a13-4a5b-9137-0e95a54572d4-forza-horizon-section-2.webp",
+      "local_bytes": 185118,
+      "source_bytes": 185118
+    },
+    "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1787596130437-0164c0ce-fb21-4689-9e0a-2ccaee4e2dd9-requim-section-5.avif": {
+      "local": "/images/editorial/1787596130437-0164c0ce-fb21-4689-9e0a-2ccaee4e2dd9-requim-section-5.avif",
+      "local_bytes": 42552,
+      "source_bytes": 42552
+    },
+    "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1787596139656-0a7bb75f-d4e2-4b1e-93bf-1b69e54e4cfd-blue-prince-section-3.webp": {
+      "local": "/images/editorial/1787596139656-0a7bb75f-d4e2-4b1e-93bf-1b69e54e4cfd-blue-prince-section-3.webp",
+      "local_bytes": 266140,
+      "source_bytes": 490764
+    },
+    "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1787596175760-db27347e-e292-4339-bc3d-1f798a46e3fe-kingdom-deliverance-section-4.webp": {
+      "local": "/images/editorial/1787596175760-db27347e-e292-4339-bc3d-1f798a46e3fe-kingdom-deliverance-section-4.webp",
+      "local_bytes": 495402,
+      "source_bytes": 734808
+    },
+    "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1787596203023-42ff6337-4b23-45a4-b76c-6439cab75a4a-silksong-section-6.avif": {
+      "local": "/images/editorial/1787596203023-42ff6337-4b23-45a4-b76c-6439cab75a4a-silksong-section-6.avif",
+      "local_bytes": 117206,
+      "source_bytes": 117206
+    },
+    "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1787596251308-4440192d-d442-4be4-a4da-75919e94b202-hades-2-section.jpg": {
+      "local": "/images/editorial/1787596251308-4440192d-d442-4be4-a4da-75919e94b202-hades-2-section.jpg",
+      "local_bytes": 362020,
+      "source_bytes": 2875013
+    },
+    "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1787596280322-e6d21327-6f5d-405d-b448-b7811ee5ddd0-cyberpunk-section.jpg": {
+      "local": "/images/editorial/1787596280322-e6d21327-6f5d-405d-b448-b7811ee5ddd0-cyberpunk-section.jpg",
+      "local_bytes": 169740,
+      "source_bytes": 169740
+    },
+    "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1787596304612-85c236cf-5ddb-4f31-9db0-c0deb2d475db-clair-expedition-section.png": {
+      "local": "/images/editorial/1787596304612-85c236cf-5ddb-4f31-9db0-c0deb2d475db-clair-expedition-section.webp",
+      "local_bytes": 237896,
+      "source_bytes": 1564817
+    },
+    "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1787596333125-cc997faa-00fe-44e7-9f27-a4332ecab881-farm-section.jpg": {
+      "local": "/images/editorial/1787596333125-cc997faa-00fe-44e7-9f27-a4332ecab881-farm-section.jpg",
+      "local_bytes": 557725,
+      "source_bytes": 557725
+    },
+    "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1787596411702-d925d9fd-0a5e-4a13-a259-887527c2eb1e-elden-rang-section.jpg": {
+      "local": "/images/editorial/1787596411702-d925d9fd-0a5e-4a13-a259-887527c2eb1e-elden-rang-section.jpg",
+      "local_bytes": 349604,
+      "source_bytes": 349604
+    },
+    "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1787596473342-920cd271-96f8-464e-8d8c-23f40f5edee9-baldur-section.jpg": {
+      "local": "/images/editorial/1787596473342-920cd271-96f8-464e-8d8c-23f40f5edee9-baldur-section.jpg",
+      "local_bytes": 321235,
+      "source_bytes": 680635
+    },
+    "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1787596578639-fd49fa5a-8599-49bf-8663-4f9793e77ac3-main-section-pc-games.jpg": {
+      "local": "/images/editorial/1787596578639-fd49fa5a-8599-49bf-8663-4f9793e77ac3-main-section-pc-games.jpg",
+      "local_bytes": 287925,
+      "source_bytes": 287925
+    },
+    "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1787599523008-39931cab-62a7-48e8-814b-1d97fc19a86c-stellar-blade-section.jpg": {
+      "local": "/images/editorial/1787599523008-39931cab-62a7-48e8-814b-1d97fc19a86c-stellar-blade-section.jpg",
+      "local_bytes": 296470,
+      "source_bytes": 296470
+    },
+    "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1787599559005-ceaca47e-f349-4375-98b8-d7b4ca45c092-spider-man-2-section.webp": {
+      "local": "/images/editorial/1787599559005-ceaca47e-f349-4375-98b8-d7b4ca45c092-spider-man-2-section.webp",
+      "local_bytes": 66818,
+      "source_bytes": 715820
+    },
+    "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1787599603726-984ce64f-5ddf-4fee-a68d-4f0557b653e1-death-stranding-2-section.jpg": {
+      "local": "/images/editorial/1787599603726-984ce64f-5ddf-4fee-a68d-4f0557b653e1-death-stranding-2-section.jpg",
+      "local_bytes": 231742,
+      "source_bytes": 231742
+    },
+    "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1787599638738-b16e19b4-1c2d-486c-bb00-bb4273f2eff2-requiem-evil-section.jpg": {
+      "local": "/images/editorial/1787599638738-b16e19b4-1c2d-486c-bb00-bb4273f2eff2-requiem-evil-section.jpg",
+      "local_bytes": 341256,
+      "source_bytes": 341256
+    },
+    "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1787599683876-3577b993-d2e8-4cce-834b-cbfb1f3210f0-metaphor-section.jpg": {
+      "local": "/images/editorial/1787599683876-3577b993-d2e8-4cce-834b-cbfb1f3210f0-metaphor-section.jpg",
+      "local_bytes": 274159,
+      "source_bytes": 274159
+    },
+    "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1787599815489-161895e0-03f1-46ed-9095-1161928aefd5-ragnarok-section.jpg": {
+      "local": "/images/editorial/1787599815489-161895e0-03f1-46ed-9095-1161928aefd5-ragnarok-section.jpg",
+      "local_bytes": 215506,
+      "source_bytes": 215506
+    },
+    "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1787599949295-bb7e6704-331c-444c-a251-36517e716332-saros-section.webp": {
+      "local": "/images/editorial/1787599949295-bb7e6704-331c-444c-a251-36517e716332-saros-section.webp",
+      "local_bytes": 44624,
+      "source_bytes": 592556
+    },
+    "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1787599982474-c8602be4-7cad-4a36-b3ce-a0c81f6d947f-clair-section.jpg": {
+      "local": "/images/editorial/1787599982474-c8602be4-7cad-4a36-b3ce-a0c81f6d947f-clair-section.jpg",
+      "local_bytes": 210403,
+      "source_bytes": 210403
+    },
+    "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1787600025800-8d17afc6-2091-4776-8ddd-1081fcacb575-fanatasy-section.jpg": {
+      "local": "/images/editorial/1787600025800-8d17afc6-2091-4776-8ddd-1081fcacb575-fanatasy-section.jpg",
+      "local_bytes": 291252,
+      "source_bytes": 355403
+    },
+    "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1787600140805-5cce0e88-f66c-4b63-9ee0-76206c748852-ghost-section.webp": {
+      "local": "/images/editorial/1787600140805-5cce0e88-f66c-4b63-9ee0-76206c748852-ghost-section.webp",
+      "local_bytes": 304164,
+      "source_bytes": 427012
+    },
+    "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1787600251703-b258d98f-718c-4def-9d4a-b39a46013bea-elden-section.jpg": {
+      "local": "/images/editorial/1787600251703-b258d98f-718c-4def-9d4a-b39a46013bea-elden-section.jpg",
+      "local_bytes": 288718,
+      "source_bytes": 288718
+    },
+    "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1787600285062-1bb9a30a-db8a-4f03-8aff-d1d7295ff6d8-astrobot-section.jpg": {
+      "local": "/images/editorial/1787600285062-1bb9a30a-db8a-4f03-8aff-d1d7295ff6d8-astrobot-section.jpg",
+      "local_bytes": 170681,
+      "source_bytes": 170681
+    },
+    "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1787600901460-1d0277fa-3603-4cf7-a5a4-c7902e33e7d1-playstation-main.webp": {
+      "local": "/images/editorial/1787600901460-1d0277fa-3603-4cf7-a5a4-c7902e33e7d1-playstation-main.webp",
+      "local_bytes": 172636,
+      "source_bytes": 172636
+    },
+    "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1787609935363-18695217-4189-43fa-9a1f-d764567b2229-hi-fi-section.webp": {
+      "local": "/images/editorial/1787609935363-18695217-4189-43fa-9a1f-d764567b2229-hi-fi-section.webp",
+      "local_bytes": 115848,
+      "source_bytes": 115848
+    },
+    "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1787609946942-fdc13fbb-40a9-4902-9a5f-e0086c0f3aaa-avowed-section.webp": {
+      "local": "/images/editorial/1787609946942-fdc13fbb-40a9-4902-9a5f-e0086c0f3aaa-avowed-section.webp",
+      "local_bytes": 299672,
+      "source_bytes": 299672
+    },
+    "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1787609976533-e28476ff-68f6-47b2-80ee-d1e5e6c344ea-doom-ages-section.jpg": {
+      "local": "/images/editorial/1787609976533-e28476ff-68f6-47b2-80ee-d1e5e6c344ea-doom-ages-section.jpg",
+      "local_bytes": 442856,
+      "source_bytes": 478888
+    },
+    "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1787609997427-af820a4a-ad80-4059-aa88-784c57fe9a39-hades-2-2-section.jpg": {
+      "local": "/images/editorial/1787609997427-af820a4a-ad80-4059-aa88-784c57fe9a39-hades-2-2-section.jpg",
+      "local_bytes": 340916,
+      "source_bytes": 340916
+    },
+    "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1787610013580-e62b6807-1ad3-4c71-9e69-6f1613091f9e-clair-section.jpg": {
+      "local": "/images/editorial/1787610013580-e62b6807-1ad3-4c71-9e69-6f1613091f9e-clair-section.jpg",
+      "local_bytes": 210403,
+      "source_bytes": 210403
+    },
+    "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1787610035798-0d72ce9b-b4e4-4708-9e7f-5f893b593a01-halo-section.avif": {
+      "local": "/images/editorial/1787610035798-0d72ce9b-b4e4-4708-9e7f-5f893b593a01-halo-section.avif",
+      "local_bytes": 389078,
+      "source_bytes": 389078
+    },
+    "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1787610062463-3f8841b4-64ab-4dec-8f99-0be17010f9b1-baldur-in-list.webp": {
+      "local": "/images/editorial/1787610062463-3f8841b4-64ab-4dec-8f99-0be17010f9b1-baldur-in-list.webp",
+      "local_bytes": 173300,
+      "source_bytes": 173300
+    },
+    "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1787610107074-411123d9-7bc1-42e8-87a2-fd6032940b9a-cyberpoonk-section.jpg": {
+      "local": "/images/editorial/1787610107074-411123d9-7bc1-42e8-87a2-fd6032940b9a-cyberpoonk-section.jpg",
+      "local_bytes": 171071,
+      "source_bytes": 171071
+    },
+    "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1787610116935-3dd4adfe-5b14-47fd-a75f-944ebbc97d54-indiana-jones-section.webp": {
+      "local": "/images/editorial/1787610116935-3dd4adfe-5b14-47fd-a75f-944ebbc97d54-indiana-jones-section.webp",
+      "local_bytes": 87622,
+      "source_bytes": 87622
+    },
+    "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1787610121163-64df24e9-9f98-4f87-8809-0b169db2baf6-forza-section.webp": {
+      "local": "/images/editorial/1787610121163-64df24e9-9f98-4f87-8809-0b169db2baf6-forza-section.webp",
+      "local_bytes": 274996,
+      "source_bytes": 274996
+    },
+    "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1787610135723-a893c3b0-a87b-42aa-ad2c-d3a1da1050d6-elden-sectionn.jpg": {
+      "local": "/images/editorial/1787610135723-a893c3b0-a87b-42aa-ad2c-d3a1da1050d6-elden-sectionn.jpg",
+      "local_bytes": 142061,
+      "source_bytes": 142061
+    },
+    "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1787610150012-035a4d4a-9511-422f-8be1-40adf8c0d855-stalker-section.jpg": {
+      "local": "/images/editorial/1787610150012-035a4d4a-9511-422f-8be1-40adf8c0d855-stalker-section.jpg",
+      "local_bytes": 260151,
+      "source_bytes": 260151
+    },
+    "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1787610159312-ab79922f-5584-44ec-9697-4d4f39e6d96f-xbox-main.avif": {
+      "local": "/images/editorial/1787610159312-ab79922f-5584-44ec-9697-4d4f39e6d96f-xbox-main.avif",
+      "local_bytes": 104369,
+      "source_bytes": 104369
+    },
+    "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1787614370971-b4f8a0a4-9ef5-4fc3-a10f-0b63ea759ccb-star-fox-section.webp": {
+      "local": "/images/editorial/1787614370971-b4f8a0a4-9ef5-4fc3-a10f-0b63ea759ccb-star-fox-section.webp",
+      "local_bytes": 57162,
+      "source_bytes": 57162
+    },
+    "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1787614397167-c5f83eae-6358-447c-a500-bcb0f56e20a9-pokemon-section.webp": {
+      "local": "/images/editorial/1787614397167-c5f83eae-6358-447c-a500-bcb0f56e20a9-pokemon-section.webp",
+      "local_bytes": 212950,
+      "source_bytes": 212950
+    },
+    "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1787614406907-08ad13de-89c8-4cf0-a655-cd3fc1db0967-hades-2-2-section.jpg": {
+      "local": "/images/editorial/1787614406907-08ad13de-89c8-4cf0-a655-cd3fc1db0967-hades-2-2-section.jpg",
+      "local_bytes": 340916,
+      "source_bytes": 340916
+    },
+    "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1787614439086-e602c88f-f0fa-450e-bf87-ddd22cc082c6-fantasy-section-2.webp": {
+      "local": "/images/editorial/1787614439086-e602c88f-f0fa-450e-bf87-ddd22cc082c6-fantasy-section-2.webp",
+      "local_bytes": 318034,
+      "source_bytes": 318034
+    },
+    "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1787614473797-aabaee41-996f-4541-afe3-09b482e1e409-metroid-section.avif": {
+      "local": "/images/editorial/1787614473797-aabaee41-996f-4541-afe3-09b482e1e409-metroid-section.avif",
+      "local_bytes": 178701,
+      "source_bytes": 178701
+    },
+    "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1787614505218-541bbbbc-17d9-4ff5-8efd-85db87aca77d-elliot-section.jpg": {
+      "local": "/images/editorial/1787614505218-541bbbbc-17d9-4ff5-8efd-85db87aca77d-elliot-section.jpg",
+      "local_bytes": 575562,
+      "source_bytes": 643312
+    },
+    "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1787614530871-02d3dbc0-f841-4ad1-9d6a-4e5a275d07d1-zelda-setion-switch-2.avif": {
+      "local": "/images/editorial/1787614530871-02d3dbc0-f841-4ad1-9d6a-4e5a275d07d1-zelda-setion-switch-2.avif",
+      "local_bytes": 357893,
+      "source_bytes": 357893
+    },
+    "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1787614550981-90a41bca-d8e8-43ae-8067-83e49555f805-mario-kart-section.webp": {
+      "local": "/images/editorial/1787614550981-90a41bca-d8e8-43ae-8067-83e49555f805-mario-kart-section.webp",
+      "local_bytes": 196470,
+      "source_bytes": 196470
+    },
+    "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1787614583560-5ec1c108-fa12-495c-b74f-8bb4e94ebf77-tears-section.avif": {
+      "local": "/images/editorial/1787614583560-5ec1c108-fa12-495c-b74f-8bb4e94ebf77-tears-section.avif",
+      "local_bytes": 393581,
+      "source_bytes": 393581
+    },
+    "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1787614602809-d9833002-7e56-4729-9378-a67758a426e8-bananza-section.jpg": {
+      "local": "/images/editorial/1787614602809-d9833002-7e56-4729-9378-a67758a426e8-bananza-section.jpg",
+      "local_bytes": 154237,
+      "source_bytes": 154237
+    },
+    "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1787615281586-06c7e7c3-c21d-41bc-a4c1-34b23ae8828c-nitendo-main.jpg": {
+      "local": "/images/editorial/1787615281586-06c7e7c3-c21d-41bc-a4c1-34b23ae8828c-nitendo-main.jpg",
+      "local_bytes": 268911,
+      "source_bytes": 1547836
+    },
+    "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1787619000157-ee5ccb86-d5d5-4506-80f4-56480385fc04-death-stranding-2-section.jpg": {
+      "local": "/images/editorial/1787619000157-ee5ccb86-d5d5-4506-80f4-56480385fc04-death-stranding-2-section.jpg",
+      "local_bytes": 231742,
+      "source_bytes": 231742
+    },
+    "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1787619010418-f0624102-6411-4cb5-8e90-a1293c5884ba-ghost-section.webp": {
+      "local": "/images/editorial/1787619010418-f0624102-6411-4cb5-8e90-a1293c5884ba-ghost-section.webp",
+      "local_bytes": 304164,
+      "source_bytes": 427012
+    },
+    "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1787619043401-599cedd8-b6d1-44ef-b74d-61693ced2db9-witcher-section.gif": {
+      "local": "/images/editorial/1787619043401-599cedd8-b6d1-44ef-b74d-61693ced2db9-witcher-section.gif",
+      "local_bytes": 36233,
+      "source_bytes": 36233
+    },
+    "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1787619052308-b9a12928-b9f9-4227-bcd7-3dcf20580b45-forza-section.webp": {
+      "local": "/images/editorial/1787619052308-b9a12928-b9f9-4227-bcd7-3dcf20580b45-forza-section.webp",
+      "local_bytes": 274996,
+      "source_bytes": 274996
+    },
+    "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1787619058522-d68ab617-0e04-423b-ae29-3db01aee5546-cyberpoonk-section.jpg": {
+      "local": "/images/editorial/1787619058522-d68ab617-0e04-423b-ae29-3db01aee5546-cyberpoonk-section.jpg",
+      "local_bytes": 171071,
+      "source_bytes": 171071
+    },
+    "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1787619073489-54a23a2a-e990-4b88-b044-cfdbd528be96-kingdom-deliverance-section-4.webp": {
+      "local": "/images/editorial/1787619073489-54a23a2a-e990-4b88-b044-cfdbd528be96-kingdom-deliverance-section-4.webp",
+      "local_bytes": 495402,
+      "source_bytes": 734808
+    },
+    "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1787619079627-b5661b6a-8206-446e-8072-2f4756e2bbb1-tears-section.avif": {
+      "local": "/images/editorial/1787619079627-b5661b6a-8206-446e-8072-2f4756e2bbb1-tears-section.avif",
+      "local_bytes": 393581,
+      "source_bytes": 393581
+    },
+    "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1787619113799-60ea8134-19db-4005-9d7c-46518b33f67b-red-dead-section.jpg": {
+      "local": "/images/editorial/1787619113799-60ea8134-19db-4005-9d7c-46518b33f67b-red-dead-section.jpg",
+      "local_bytes": 189835,
+      "source_bytes": 189835
+    },
+    "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1787619117864-756d4d93-9d13-4a4a-ae7a-c783cba120c5-zelda-setion-switch-2.avif": {
+      "local": "/images/editorial/1787619117864-756d4d93-9d13-4a4a-ae7a-c783cba120c5-zelda-setion-switch-2.avif",
+      "local_bytes": 357893,
+      "source_bytes": 357893
+    },
+    "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1787619125356-15490022-c8ef-4f79-930a-63e544385518-elden-sectionn.jpg": {
+      "local": "/images/editorial/1787619125356-15490022-c8ef-4f79-930a-63e544385518-elden-sectionn.jpg",
+      "local_bytes": 142061,
+      "source_bytes": 142061
+    },
+    "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1787619210067-b4cdf28c-f0ef-45c9-b7d4-c2f7a2e29237-open-world-main.webp": {
+      "local": "/images/editorial/1787619210067-b4cdf28c-f0ef-45c9-b7d4-c2f7a2e29237-open-world-main.webp",
+      "local_bytes": 121030,
+      "source_bytes": 121030
+    },
+    "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1787633260344-aa789b7f-8e4c-46fc-91ee-aeb0201fbe8a-avowed-section.webp": {
+      "local": "/images/editorial/1787633260344-aa789b7f-8e4c-46fc-91ee-aeb0201fbe8a-avowed-section.webp",
+      "local_bytes": 299672,
+      "source_bytes": 299672
+    },
+    "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1787633287464-80025a62-f182-44d1-b2fa-b31a7c5a9861-nioh-section.jpg": {
+      "local": "/images/editorial/1787633287464-80025a62-f182-44d1-b2fa-b31a7c5a9861-nioh-section.jpg",
+      "local_bytes": 219269,
+      "source_bytes": 463664
+    },
+    "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1787633317129-15bb34e6-9d2f-4b80-b44c-cf4f1df763de-persona-5.avif": {
+      "local": "/images/editorial/1787633317129-15bb34e6-9d2f-4b80-b44c-cf4f1df763de-persona-5.avif",
+      "local_bytes": 188458,
+      "source_bytes": 188458
+    },
+    "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1787633330454-5fb48dc2-4bfd-41c0-a201-aaf5a16f9b51-kingdom-deliverance-section-4.webp": {
+      "local": "/images/editorial/1787633330454-5fb48dc2-4bfd-41c0-a201-aaf5a16f9b51-kingdom-deliverance-section-4.webp",
+      "local_bytes": 495402,
+      "source_bytes": 734808
+    },
+    "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1787633346741-fdc5bdf9-a1ae-4bac-8b6f-121051ba270f-cyberpunk-section.jpg": {
+      "local": "/images/editorial/1787633346741-fdc5bdf9-a1ae-4bac-8b6f-121051ba270f-cyberpunk-section.jpg",
+      "local_bytes": 169740,
+      "source_bytes": 169740
+    },
+    "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1787633366783-4f6f6152-2e11-4ea0-bee9-0220993c4af5-metaphor-section.jpg": {
+      "local": "/images/editorial/1787633366783-4f6f6152-2e11-4ea0-bee9-0220993c4af5-metaphor-section.jpg",
+      "local_bytes": 274159,
+      "source_bytes": 274159
+    },
+    "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1787633371611-4854261c-a54d-400c-92f9-8e652017d635-witcher-section.gif": {
+      "local": "/images/editorial/1787633371611-4854261c-a54d-400c-92f9-8e652017d635-witcher-section.gif",
+      "local_bytes": 36233,
+      "source_bytes": 36233
+    },
+    "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1787633384664-2964934c-3667-4c8b-a78e-bf621b945e11-clair-section.jpg": {
+      "local": "/images/editorial/1787633384664-2964934c-3667-4c8b-a78e-bf621b945e11-clair-section.jpg",
+      "local_bytes": 210403,
+      "source_bytes": 210403
+    },
+    "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1787633391222-cd46647c-4f47-48bb-9c6b-b7062a095868-elden-sectionn.jpg": {
+      "local": "/images/editorial/1787633391222-cd46647c-4f47-48bb-9c6b-b7062a095868-elden-sectionn.jpg",
+      "local_bytes": 142061,
+      "source_bytes": 142061
+    },
+    "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1787633405117-7a2cabdd-9f27-4016-bb4a-70c26aa4c30e-baldur-section.jpg": {
+      "local": "/images/editorial/1787633405117-7a2cabdd-9f27-4016-bb4a-70c26aa4c30e-baldur-section.jpg",
+      "local_bytes": 321235,
+      "source_bytes": 680635
+    },
+    "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1787695937045-967d3e09-a4e6-4a73-95da-658c7f6fe2af-rainbow-section.jpg": {
+      "local": "/images/editorial/1787695937045-967d3e09-a4e6-4a73-95da-658c7f6fe2af-rainbow-section.jpg",
+      "local_bytes": 47332,
+      "source_bytes": 47332
+    },
+    "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1787695976874-72a46d9b-353e-4b06-884e-d50384dc6210-gears-section.jpg": {
+      "local": "/images/editorial/1787695976874-72a46d9b-353e-4b06-884e-d50384dc6210-gears-section.jpg",
+      "local_bytes": 270509,
+      "source_bytes": 270509
+    },
+    "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1787695995279-765ef5ac-66ba-4fce-8d46-58e8a243b04f-nodus-section.jpg": {
+      "local": "/images/editorial/1787695995279-765ef5ac-66ba-4fce-8d46-58e8a243b04f-nodus-section.jpg",
+      "local_bytes": 57136,
+      "source_bytes": 57136
+    },
+    "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1787696025996-c86d3ce9-49db-468d-acfc-ffb8af134ed0-metro-setion.jpg": {
+      "local": "/images/editorial/1787696025996-c86d3ce9-49db-468d-acfc-ffb8af134ed0-metro-setion.jpg",
+      "local_bytes": 28553,
+      "source_bytes": 28553
+    },
+    "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1787696043406-2ed497a1-3136-47fe-bf60-2232276010d3-exodus-section.jpg": {
+      "local": "/images/editorial/1787696043406-2ed497a1-3136-47fe-bf60-2232276010d3-exodus-section.jpg",
+      "local_bytes": 201589,
+      "source_bytes": 201589
+    },
+    "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1787696069455-9cadd59e-6db0-4071-842b-b12dc5d8ecf1-ananta-section.png": {
+      "local": "/images/editorial/1787696069455-9cadd59e-6db0-4071-842b-b12dc5d8ecf1-ananta-section.webp",
+      "local_bytes": 132524,
+      "source_bytes": 1125696
+    },
+    "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1787696090629-a7a5c258-87e9-47ec-81e1-318d453aae73-songs-section.jpg": {
+      "local": "/images/editorial/1787696090629-a7a5c258-87e9-47ec-81e1-318d453aae73-songs-section.jpg",
+      "local_bytes": 134797,
+      "source_bytes": 134797
+    },
+    "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1787696116628-84b1ffeb-f606-4e1e-9a22-0eb88b895190-warlock-section.jpg": {
+      "local": "/images/editorial/1787696116628-84b1ffeb-f606-4e1e-9a22-0eb88b895190-warlock-section.jpg",
+      "local_bytes": 208520,
+      "source_bytes": 208520
+    },
+    "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1787696132484-c433e4ad-b5e9-4e76-bddc-20291ebaf587-path-section.jpg": {
+      "local": "/images/editorial/1787696132484-c433e4ad-b5e9-4e76-bddc-20291ebaf587-path-section.jpg",
+      "local_bytes": 383725,
+      "source_bytes": 7113923
+    },
+    "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1787696151171-5f538f22-c21c-479f-9108-6f35480ccf39-fantasy-section.webp": {
+      "local": "/images/editorial/1787696151171-5f538f22-c21c-479f-9108-6f35480ccf39-fantasy-section.webp",
+      "local_bytes": 185312,
+      "source_bytes": 185312
+    },
+    "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1787696166437-e84664fb-b4aa-4fde-a841-923abfd7fc2c-humankind-section.jpg": {
+      "local": "/images/editorial/1787696166437-e84664fb-b4aa-4fde-a841-923abfd7fc2c-humankind-section.jpg",
+      "local_bytes": 358004,
+      "source_bytes": 414243
+    },
+    "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1787700388020-f47feaf8-d4ff-4443-89f4-a28768f0c515-ragnarok-section.jpg": {
+      "local": "/images/editorial/1787700388020-f47feaf8-d4ff-4443-89f4-a28768f0c515-ragnarok-section.jpg",
+      "local_bytes": 215506,
+      "source_bytes": 215506
+    },
+    "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1787700396229-409015fb-7bae-499b-b6b3-5b9e151b5410-requiem-evil-section.jpg": {
+      "local": "/images/editorial/1787700396229-409015fb-7bae-499b-b6b3-5b9e151b5410-requiem-evil-section.jpg",
+      "local_bytes": 341256,
+      "source_bytes": 341256
+    },
+    "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1787700419570-97106f3d-8612-42df-9ed1-72ff2132ff6b-jones-section.jpg": {
+      "local": "/images/editorial/1787700419570-97106f3d-8612-42df-9ed1-72ff2132ff6b-jones-section.jpg",
+      "local_bytes": 456417,
+      "source_bytes": 2736349
+    },
+    "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1787700432597-ce1347dc-20ff-411d-8d3b-e981259aaa86-clair-section.jpg": {
+      "local": "/images/editorial/1787700432597-ce1347dc-20ff-411d-8d3b-e981259aaa86-clair-section.jpg",
+      "local_bytes": 210403,
+      "source_bytes": 210403
+    },
+    "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1787700438863-de394758-fa56-41a9-9c65-338e96a8b4f9-cyberpoonk-section.jpg": {
+      "local": "/images/editorial/1787700438863-de394758-fa56-41a9-9c65-338e96a8b4f9-cyberpoonk-section.jpg",
+      "local_bytes": 171071,
+      "source_bytes": 171071
+    },
+    "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1787700444159-c48fef2b-e172-4065-9298-4fb31321ac9a-astrobot-section.jpg": {
+      "local": "/images/editorial/1787700444159-c48fef2b-e172-4065-9298-4fb31321ac9a-astrobot-section.jpg",
+      "local_bytes": 170681,
+      "source_bytes": 170681
+    },
+    "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1787700496137-b6d0d183-9bb9-44cd-9d69-eee63182d437-single-player-section.jpg": {
+      "local": "/images/editorial/1787700496137-b6d0d183-9bb9-44cd-9d69-eee63182d437-single-player-section.jpg",
+      "local_bytes": 275823,
+      "source_bytes": 275823
+    },
+    "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1787701499143-521dc024-fb04-4669-b6cf-317700696e42-farm-section.jpg": {
+      "local": "/images/editorial/1787701499143-521dc024-fb04-4669-b6cf-317700696e42-farm-section.jpg",
+      "local_bytes": 557725,
+      "source_bytes": 557725
+    },
+    "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1787701550799-cd55b35e-47fb-4c41-91f3-cb18a34b29da-mincraft-section.jpg": {
+      "local": "/images/editorial/1787701550799-cd55b35e-47fb-4c41-91f3-cb18a34b29da-mincraft-section.jpg",
+      "local_bytes": 261048,
+      "source_bytes": 261048
+    },
+    "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1787701568812-b8a40a72-e3f5-488f-8a26-5e3464e30bd8-divers-section.webp": {
+      "local": "/images/editorial/1787701568812-b8a40a72-e3f5-488f-8a26-5e3464e30bd8-divers-section.webp",
+      "local_bytes": 130608,
+      "source_bytes": 130608
+    },
+    "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1787701608501-5f00bcd0-a09d-4103-a22e-b9d654b584d4-wilds-section.webp": {
+      "local": "/images/editorial/1787701608501-5f00bcd0-a09d-4103-a22e-b9d654b584d4-wilds-section.webp",
+      "local_bytes": 228340,
+      "source_bytes": 228340
+    },
+    "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1787701624879-ab5aa053-77f3-457b-bd67-145aa507676d-galactic-section.webp": {
+      "local": "/images/editorial/1787701624879-ab5aa053-77f3-457b-bd67-145aa507676d-galactic-section.webp",
+      "local_bytes": 186936,
+      "source_bytes": 1824712
+    },
+    "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1787701657565-a32dc107-32f8-4224-8617-084696a07d13-big-walk-section-1.png": {
+      "local": "/images/editorial/1787701657565-a32dc107-32f8-4224-8617-084696a07d13-big-walk-section-1.png",
+      "local_bytes": 25092,
+      "source_bytes": 25092
+    },
+    "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1787701683393-99439579-6b15-4304-a913-fe1c31ee41f2-takes-two-section.jpg": {
+      "local": "/images/editorial/1787701683393-99439579-6b15-4304-a913-fe1c31ee41f2-takes-two-section.jpg",
+      "local_bytes": 170640,
+      "source_bytes": 170640
+    },
+    "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1787701700803-7bcfb986-da2c-4659-8208-f366a3e1cfcf-split-fiction-section.jpg": {
+      "local": "/images/editorial/1787701700803-7bcfb986-da2c-4659-8208-f366a3e1cfcf-split-fiction-section.jpg",
+      "local_bytes": 42328,
+      "source_bytes": 42328
+    },
+    "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1787701784509-04805eab-9fe1-4a55-bdb8-0d4bd9e92441-spire-section.webp": {
+      "local": "/images/editorial/1787701784509-04805eab-9fe1-4a55-bdb8-0d4bd9e92441-spire-section.webp",
+      "local_bytes": 96926,
+      "source_bytes": 847458
+    },
+    "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1787743328905-3862882e-6328-46be-97ed-deee233fbf00-resonance-section.webp": {
+      "local": "/images/editorial/1787743328905-3862882e-6328-46be-97ed-deee233fbf00-resonance-section.webp",
+      "local_bytes": 89598,
+      "source_bytes": 89598
+    },
+    "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1787743355180-a0f7317a-97c5-4113-bdfe-f8d9e4d50291-star-wars-section.webp": {
+      "local": "/images/editorial/1787743355180-a0f7317a-97c5-4113-bdfe-f8d9e4d50291-star-wars-section.webp",
+      "local_bytes": 185280,
+      "source_bytes": 185280
+    },
+    "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1787743381691-e51b4948-01fc-4b72-8560-5142d1316e61-dawwalker-section.avif": {
+      "local": "/images/editorial/1787743381691-e51b4948-01fc-4b72-8560-5142d1316e61-dawwalker-section.avif",
+      "local_bytes": 609981,
+      "source_bytes": 609981
+    },
+    "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1787743401003-e3e9f38e-bf47-4424-a6fb-e614123e52ba-onimusha-section.avif": {
+      "local": "/images/editorial/1787743401003-e3e9f38e-bf47-4424-a6fb-e614123e52ba-onimusha-section.avif",
+      "local_bytes": 145416,
+      "source_bytes": 145416
+    },
+    "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1787743432344-2c6ca47f-7a23-4e20-86d7-fcc7febe100d-silent-hill-secton.webp": {
+      "local": "/images/editorial/1787743432344-2c6ca47f-7a23-4e20-86d7-fcc7febe100d-silent-hill-secton.webp",
+      "local_bytes": 24270,
+      "source_bytes": 24270
+    },
+    "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1787743449035-2dbd96e3-6e15-46fe-a502-c862ecaf310b-contol-rs-section.jpg": {
+      "local": "/images/editorial/1787743449035-2dbd96e3-6e15-46fe-a502-c862ecaf310b-contol-rs-section.jpg",
+      "local_bytes": 336140,
+      "source_bytes": 336140
+    },
+    "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1787743480267-20495195-8be5-482a-a1dd-43af218a0921-ace-combat-section.jpg": {
+      "local": "/images/editorial/1787743480267-20495195-8be5-482a-a1dd-43af218a0921-ace-combat-section.jpg",
+      "local_bytes": 195728,
+      "source_bytes": 195728
+    },
+    "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1787743518339-070bca8f-6f9b-41b6-ba47-85b82f475d37-mw-4-section.jpg": {
+      "local": "/images/editorial/1787743518339-070bca8f-6f9b-41b6-ba47-85b82f475d37-mw-4-section.jpg",
+      "local_bytes": 264868,
+      "source_bytes": 264868
+    },
+    "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1787743583055-6ad48a46-e152-4c9d-957a-bb3ea56a42db-castleva-section.jpg": {
+      "local": "/images/editorial/1787743583055-6ad48a46-e152-4c9d-957a-bb3ea56a42db-castleva-section.jpg",
+      "local_bytes": 201351,
+      "source_bytes": 358320
+    },
+    "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1787743602798-14c34973-92ff-4fd4-9af7-ed5eb20e9cce-wolverine-section.avif": {
+      "local": "/images/editorial/1787743602798-14c34973-92ff-4fd4-9af7-ed5eb20e9cce-wolverine-section.avif",
+      "local_bytes": 643772,
+      "source_bytes": 643772
+    },
+    "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1787743617341-7772cd3d-1510-4da2-81c3-5c36944fb930-gears-section.jpg": {
+      "local": "/images/editorial/1787743617341-7772cd3d-1510-4da2-81c3-5c36944fb930-gears-section.jpg",
+      "local_bytes": 270509,
+      "source_bytes": 270509
+    },
+    "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1787743751811-969e3f62-8e1c-434e-a495-426599a31236-jason-and-lucia-01-landscape.jpg": {
+      "local": "/images/editorial/1787743751811-969e3f62-8e1c-434e-a495-426599a31236-jason-and-lucia-01-landscape.jpg",
+      "local_bytes": 344244,
+      "source_bytes": 1891739
+    },
+    "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1787744018800-55b465e5-a487-470b-953e-6a7cb60870a8-jason-and-lucia-02-landscape.jpg": {
+      "local": "/images/editorial/1787744018800-55b465e5-a487-470b-953e-6a7cb60870a8-jason-and-lucia-02-landscape.jpg",
+      "local_bytes": 387591,
+      "source_bytes": 2237273
+    },
+    "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1787744278986-12d61329-7b9f-4282-b075-17501143c1dc-pokemon-pok-section.jpg": {
+      "local": "/images/editorial/1787744278986-12d61329-7b9f-4282-b075-17501143c1dc-pokemon-pok-section.jpg",
+      "local_bytes": 167436,
+      "source_bytes": 389868
+    },
+    "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1787744313543-4f7e51e3-8fc6-4206-a1bd-27a58addde76-cairn-section.png": {
+      "local": "/images/editorial/1787744313543-4f7e51e3-8fc6-4206-a1bd-27a58addde76-cairn-section.webp",
+      "local_bytes": 305600,
+      "source_bytes": 1903042
+    },
+    "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1787744369442-64b4969a-964e-481e-b108-a6ecfde31a18-sektori-section.avif": {
+      "local": "/images/editorial/1787744369442-64b4969a-964e-481e-b108-a6ecfde31a18-sektori-section.avif",
+      "local_bytes": 548961,
+      "source_bytes": 548961
+    },
+    "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1787744382563-84afa700-c2fb-4868-9feb-e72078c82df6-nioh-section.jpg": {
+      "local": "/images/editorial/1787744382563-84afa700-c2fb-4868-9feb-e72078c82df6-nioh-section.jpg",
+      "local_bytes": 219269,
+      "source_bytes": 463664
+    },
+    "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1787744400443-15e03ee9-0d79-43c9-85f6-b30fe396669b-pragmata-section.webp": {
+      "local": "/images/editorial/1787744400443-15e03ee9-0d79-43c9-85f6-b30fe396669b-pragmata-section.webp",
+      "local_bytes": 140530,
+      "source_bytes": 140530
+    },
+    "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1787744414844-c99756ca-fb80-4f9d-b583-8dcfc62e5c3c-saros-section.webp": {
+      "local": "/images/editorial/1787744414844-c99756ca-fb80-4f9d-b583-8dcfc62e5c3c-saros-section.webp",
+      "local_bytes": 44624,
+      "source_bytes": 592556
+    },
+    "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1787744436908-8f828eaa-eed9-4fdd-8fa4-520192caf80a-mina-section.png": {
+      "local": "/images/editorial/1787744436908-8f828eaa-eed9-4fdd-8fa4-520192caf80a-mina-section.webp",
+      "local_bytes": 211142,
+      "source_bytes": 1385711
+    },
+    "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1787744463395-f870e34e-e5b3-456a-8c34-10224a1ce1f3-forza-section.avif": {
+      "local": "/images/editorial/1787744463395-f870e34e-e5b3-456a-8c34-10224a1ce1f3-forza-section.avif",
+      "local_bytes": 43399,
+      "source_bytes": 43399
+    },
+    "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1787744480544-d1cf7a98-1eb7-451c-8236-1c83bac81195-big-walk-section.avif": {
+      "local": "/images/editorial/1787744480544-d1cf7a98-1eb7-451c-8236-1c83bac81195-big-walk-section.avif",
+      "local_bytes": 109170,
+      "source_bytes": 109170
+    },
+    "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1787744490354-056f761d-65af-4584-a84b-6fb43e9a5c53-requiem-evil-section.jpg": {
+      "local": "/images/editorial/1787744490354-056f761d-65af-4584-a84b-6fb43e9a5c53-requiem-evil-section.jpg",
+      "local_bytes": 341256,
+      "source_bytes": 341256
+    },
+    "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1787746609676-a25aab36-e3f6-480f-9618-866225d1b80e-goty-section-2026.webp": {
+      "local": "/images/editorial/1787746609676-a25aab36-e3f6-480f-9618-866225d1b80e-goty-section-2026.webp",
+      "local_bytes": 96368,
+      "source_bytes": 96368
+    },
+    "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1787768815703-54714d9a-fc52-4321-83c6-5ea0453cb030-lifepath.webp": {
+      "local": "/images/editorial/1787768815703-54714d9a-fc52-4321-83c6-5ea0453cb030-lifepath.webp",
+      "local_bytes": 119304,
+      "source_bytes": 1717686
+    },
+    "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1787768825476-810d030d-f7ed-4dce-9296-6b64d63c4e13-perks.jpg": {
+      "local": "/images/editorial/1787768825476-810d030d-f7ed-4dce-9296-6b64d63c4e13-perks.jpg",
+      "local_bytes": 21253,
+      "source_bytes": 21253
+    },
+    "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1787768845781-cc379c59-b633-4bcf-8d62-bed3d22e1086-cyberware.jpg": {
+      "local": "/images/editorial/1787768845781-cc379c59-b633-4bcf-8d62-bed3d22e1086-cyberware.jpg",
+      "local_bytes": 120435,
+      "source_bytes": 120435
+    },
+    "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1787768855123-0cec4636-7b8b-4362-b24a-282c592f6224-scaning.webp": {
+      "local": "/images/editorial/1787768855123-0cec4636-7b8b-4362-b24a-282c592f6224-scaning.webp",
+      "local_bytes": 134122,
+      "source_bytes": 1964748
+    },
+    "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1787768859838-0ebd187f-cc5d-4e19-850e-ecf15cb815f1-jounal.webp": {
+      "local": "/images/editorial/1787768859838-0ebd187f-cc5d-4e19-850e-ecf15cb815f1-jounal.webp",
+      "local_bytes": 123448,
+      "source_bytes": 123448
+    },
+    "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1787768867710-cf195adb-ace9-45c6-ac24-b53361f2f95f-inventory.png": {
+      "local": "/images/editorial/1787768867710-cf195adb-ace9-45c6-ac24-b53361f2f95f-inventory.webp",
+      "local_bytes": 146968,
+      "source_bytes": 5149777
+    },
+    "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1787768874341-32a88da5-75c7-463b-a9cb-84168c3b2e38-exploration.jpg": {
+      "local": "/images/editorial/1787768874341-32a88da5-75c7-463b-a9cb-84168c3b2e38-exploration.jpg",
+      "local_bytes": 150047,
+      "source_bytes": 4467724
+    },
+    "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1787768878577-e9c32dc2-2e9e-46ca-a234-e6213ab8fdcb-phantom-liberty.webp": {
+      "local": "/images/editorial/1787768878577-e9c32dc2-2e9e-46ca-a234-e6213ab8fdcb-phantom-liberty.webp",
+      "local_bytes": 172782,
+      "source_bytes": 5290634
+    },
+    "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1787768902410-3e54bcdf-b569-40ca-92a4-3cdc87798577-movement.jpg": {
+      "local": "/images/editorial/1787768902410-3e54bcdf-b569-40ca-92a4-3cdc87798577-movement.jpg",
+      "local_bytes": 157387,
+      "source_bytes": 992411
+    },
+    "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1787768919142-0ac7837e-d9a1-4064-8d49-6b6267e767da-cyberpoonk-section.jpg": {
+      "local": "/images/editorial/1787768919142-0ac7837e-d9a1-4064-8d49-6b6267e767da-cyberpoonk-section.jpg",
+      "local_bytes": 171071,
+      "source_bytes": 171071
+    },
+    "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1787771343973-ad27323d-a684-4b20-a465-e2fd4d9efaf4-zelda-review.jpg": {
+      "local": "/images/editorial/1787771343973-ad27323d-a684-4b20-a465-e2fd4d9efaf4-zelda-review.jpg",
+      "local_bytes": 501532,
+      "source_bytes": 984745
+    },
+    "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1787772815413-28bcdc88-3fe5-4392-beaa-30859383bcdf-mario-kart-review.avif": {
+      "local": "/images/editorial/1787772815413-28bcdc88-3fe5-4392-beaa-30859383bcdf-mario-kart-review.avif",
+      "local_bytes": 221074,
+      "source_bytes": 221074
+    },
+    "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1787773557337-0484fdf1-4eb0-4017-9edc-e6672047e49f-mario-odyssey.jpg": {
+      "local": "/images/editorial/1787773557337-0484fdf1-4eb0-4017-9edc-e6672047e49f-mario-odyssey.jpg",
+      "local_bytes": 507973,
+      "source_bytes": 1262531
+    },
+    "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1787774051453-1855d958-1d41-47c3-bea8-2429e4e58466-wallpaperflare-com-wallpaper.jpg": {
+      "local": "/images/editorial/1787774051453-1855d958-1d41-47c3-bea8-2429e4e58466-wallpaperflare-com-wallpaper.jpg",
+      "local_bytes": 359653,
+      "source_bytes": 1375050
+    },
+    "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1787774494647-a8c6dd0c-0314-4d9f-85b2-927b9158b304-wallpaperflare-com-wallpaper-1.jpg": {
+      "local": "/images/editorial/1787774494647-a8c6dd0c-0314-4d9f-85b2-927b9158b304-wallpaperflare-com-wallpaper-1.jpg",
+      "local_bytes": 417152,
+      "source_bytes": 966810
+    },
+    "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1787783795570-bfa2c7c4-26b7-49c9-a7e8-ea8bdabd262f-baldurs-gate-3-wallpaper-3440x1440-5120x1440-v0-a7eos4ir1jcb1.webp": {
+      "local": "/images/editorial/1787783795570-bfa2c7c4-26b7-49c9-a7e8-ea8bdabd262f-baldurs-gate-3-wallpaper-3440x1440-5120x1440-v0-a7eos4ir1jcb1.webp",
+      "local_bytes": 161308,
+      "source_bytes": 420468
+    },
+    "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1787788799447-c0236d3b-fd89-4a19-9711-d6fc95ce4b7e-persona-news.jpg": {
+      "local": "/images/editorial/1787788799447-c0236d3b-fd89-4a19-9711-d6fc95ce4b7e-persona-news.jpg",
+      "local_bytes": 74011,
+      "source_bytes": 74011
+    },
+    "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1787789164079-4b64b9a0-b353-4e03-9701-ab80a7a5ad54-future-games.jpg": {
+      "local": "/images/editorial/1787789164079-4b64b9a0-b353-4e03-9701-ab80a7a5ad54-future-games.jpg",
+      "local_bytes": 195809,
+      "source_bytes": 738177
+    },
+    "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1787789447003-d394929d-ae6b-45b6-b6e8-ea4a13d0ba28-taxi-tour.webp": {
+      "local": "/images/editorial/1787789447003-d394929d-ae6b-45b6-b6e8-ea4a13d0ba28-taxi-tour.webp",
+      "local_bytes": 89518,
+      "source_bytes": 89518
+    },
+    "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1787845680877-23801051-356c-45b5-a8b2-389e3c4969df-tarnished-edition.webp": {
+      "local": "/images/editorial/1787845680877-23801051-356c-45b5-a8b2-389e3c4969df-tarnished-edition.webp",
+      "local_bytes": 278530,
+      "source_bytes": 278530
+    },
+    "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1787859865454-1ebf6c05-6687-432b-bf72-807bab73f635-official-cover-art-landscape.jpg": {
+      "local": "/images/editorial/1787859865454-1ebf6c05-6687-432b-bf72-807bab73f635-official-cover-art-landscape.jpg",
+      "local_bytes": 501074,
+      "source_bytes": 2593726
+    },
+    "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1787940457554-6f74ed8c-33c1-44eb-8bd8-3752199f2f26-goty-winners.avif": {
+      "local": "/images/editorial/1787940457554-6f74ed8c-33c1-44eb-8bd8-3752199f2f26-goty-winners.avif",
+      "local_bytes": 68797,
+      "source_bytes": 68797
+    },
+    "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1787940501000-78502011-cad2-4b00-9490-02eed45a05ec-skyrim.jpg": {
+      "local": "/images/editorial/1787940501000-78502011-cad2-4b00-9490-02eed45a05ec-skyrim.jpg",
+      "local_bytes": 54802,
+      "source_bytes": 54802
+    },
+    "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1787940554179-9b7347f7-3d11-4692-84fb-480c2a215f2e-part-1-last-of.webp": {
+      "local": "/images/editorial/1787940554179-9b7347f7-3d11-4692-84fb-480c2a215f2e-part-1-last-of.webp",
+      "local_bytes": 97750,
+      "source_bytes": 97750
+    },
+    "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1787940597991-76332f0b-ae3c-4fff-8fc9-3dc38827d18b-god-of-war.jpg": {
+      "local": "/images/editorial/1787940597991-76332f0b-ae3c-4fff-8fc9-3dc38827d18b-god-of-war.jpg",
+      "local_bytes": 50653,
+      "source_bytes": 50653
+    },
+    "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1787940626935-7da41cac-f46e-42d4-9534-573b82c527f6-breath-wild.jpg": {
+      "local": "/images/editorial/1787940626935-7da41cac-f46e-42d4-9534-573b82c527f6-breath-wild.jpg",
+      "local_bytes": 157329,
+      "source_bytes": 157329
+    },
+    "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1787940637113-2d0e869c-1be1-4501-bfcd-571fcf2fc97a-witcher-section.gif": {
+      "local": "/images/editorial/1787940637113-2d0e869c-1be1-4501-bfcd-571fcf2fc97a-witcher-section.gif",
+      "local_bytes": 36233,
+      "source_bytes": 36233
+    },
+    "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1787940648044-ce7d1e10-506c-4315-9498-6ea031033d2e-baldurs-gate-3-wallpaper-3440x1440-5120x1440-v0-a7eos4ir1jcb1.webp": {
+      "local": "/images/editorial/1787940648044-ce7d1e10-506c-4315-9498-6ea031033d2e-baldurs-gate-3-wallpaper-3440x1440-5120x1440-v0-a7eos4ir1jcb1.webp",
+      "local_bytes": 161308,
+      "source_bytes": 420468
+    },
+    "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1787940698240-4b6651c5-3aef-4b86-9c43-059ac6975765-last-of-us-2.avif": {
+      "local": "/images/editorial/1787940698240-4b6651c5-3aef-4b86-9c43-059ac6975765-last-of-us-2.avif",
+      "local_bytes": 393372,
+      "source_bytes": 393372
+    },
+    "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1787940710329-b2faff53-1d88-40f3-80bd-4dddcd0cb3a1-elden-sectionn.jpg": {
+      "local": "/images/editorial/1787940710329-b2faff53-1d88-40f3-80bd-4dddcd0cb3a1-elden-sectionn.jpg",
+      "local_bytes": 142061,
+      "source_bytes": 142061
+    },
+    "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1787940721246-7e10dbc7-1551-44f3-8f60-251124e18288-clair-expedition-section.png": {
+      "local": "/images/editorial/1787940721246-7e10dbc7-1551-44f3-8f60-251124e18288-clair-expedition-section.webp",
+      "local_bytes": 237896,
+      "source_bytes": 1564817
+    },
+    "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1788025565917-72a0d1a0-a227-4ed8-8654-7336912c4915-main-elden-rang.jpg": {
+      "local": "/images/editorial/1788025565917-72a0d1a0-a227-4ed8-8654-7336912c4915-main-elden-rang.jpg",
+      "local_bytes": 450232,
+      "source_bytes": 555766
+    },
+    "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1788025585803-ea32d516-a23d-4ccb-8fd2-e9dbda4acc6f-starting-class.png": {
+      "local": "/images/editorial/1788025585803-ea32d516-a23d-4ccb-8fd2-e9dbda4acc6f-starting-class.webp",
+      "local_bytes": 132436,
+      "source_bytes": 2524771
+    },
+    "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1788025591373-baf40bc8-053c-4d21-b4d6-d3ccaf9bc283-cave-knowledge.jpeg": {
+      "local": "/images/editorial/1788025591373-baf40bc8-053c-4d21-b4d6-d3ccaf9bc283-cave-knowledge.jpg",
+      "local_bytes": 429140,
+      "source_bytes": 501223
+    },
+    "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1788025597445-d799cdc6-ea9d-4d81-9435-634acfa0b5ed-sites-of-grace.webp": {
+      "local": "/images/editorial/1788025597445-d799cdc6-ea9d-4d81-9435-634acfa0b5ed-sites-of-grace.webp",
+      "local_bytes": 536900,
+      "source_bytes": 604262
+    },
+    "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1788025603530-885ec2e6-ecd4-462c-a828-454daf00e311-leveling-up.jpg": {
+      "local": "/images/editorial/1788025603530-885ec2e6-ecd4-462c-a828-454daf00e311-leveling-up.jpg",
+      "local_bytes": 243161,
+      "source_bytes": 243161
+    },
+    "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1788025607913-696e2ddf-bf57-4b76-9623-6f862d43fb69-equip-load.jpg": {
+      "local": "/images/editorial/1788025607913-696e2ddf-bf57-4b76-9623-6f862d43fb69-equip-load.jpg",
+      "local_bytes": 278387,
+      "source_bytes": 278387
+    },
+    "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1788025613100-ea3b1429-9073-4e9c-8759-5e04d016db65-smithing.jpg": {
+      "local": "/images/editorial/1788025613100-ea3b1429-9073-4e9c-8759-5e04d016db65-smithing.jpg",
+      "local_bytes": 228415,
+      "source_bytes": 228415
+    },
+    "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1788025618036-5f936f73-172c-4a15-811e-49bf4191e139-markers.jpg": {
+      "local": "/images/editorial/1788025618036-5f936f73-172c-4a15-811e-49bf4191e139-markers.jpg",
+      "local_bytes": 587998,
+      "source_bytes": 723439
+    },
+    "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1788025624565-15f21e0f-8014-4b71-b83e-089186405643-rune-reteieval.jpg": {
+      "local": "/images/editorial/1788025624565-15f21e0f-8014-4b71-b83e-089186405643-rune-reteieval.jpg",
+      "local_bytes": 379908,
+      "source_bytes": 461468
+    },
+    "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1788025628776-74cbe876-3714-42c5-acb0-ff913a3ed9d3-spirit-ashes.jpg": {
+      "local": "/images/editorial/1788025628776-74cbe876-3714-42c5-acb0-ff913a3ed9d3-spirit-ashes.jpg",
+      "local_bytes": 443160,
+      "source_bytes": 443160
+    },
+    "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1788025632650-ffff63a9-fb77-4991-8f4f-7ea0f7040a95-weeping.jpg": {
+      "local": "/images/editorial/1788025632650-ffff63a9-fb77-4991-8f4f-7ea0f7040a95-weeping.jpg",
+      "local_bytes": 285500,
+      "source_bytes": 542878
+    },
+    "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1788031674988-02b5bc4d-59d6-4434-85c6-d839747398e2-sheikah-tower.avif": {
+      "local": "/images/editorial/1788031674988-02b5bc4d-59d6-4434-85c6-d839747398e2-sheikah-tower.avif",
+      "local_bytes": 86010,
+      "source_bytes": 86010
+    },
+    "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1788031743512-da9830f9-974b-4028-b758-75caff10486b-great-plateau.webp": {
+      "local": "/images/editorial/1788031743512-da9830f9-974b-4028-b758-75caff10486b-great-plateau.webp",
+      "local_bytes": 170110,
+      "source_bytes": 170110
+    },
+    "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1788031757844-3d6fd40e-b78f-4390-a025-81f95f6df2a5-shrine-exploration.avif": {
+      "local": "/images/editorial/1788031757844-3d6fd40e-b78f-4390-a025-81f95f6df2a5-shrine-exploration.avif",
+      "local_bytes": 120839,
+      "source_bytes": 120839
+    },
+    "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1788031762950-58530c52-9a60-44a5-ba11-d77c84dddf09-inventory-botw.jpeg": {
+      "local": "/images/editorial/1788031762950-58530c52-9a60-44a5-ba11-d77c84dddf09-inventory-botw.jpeg",
+      "local_bytes": 196987,
+      "source_bytes": 196987
+    },
+    "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1788031767388-12863c40-8ad6-4c72-9b81-03e8fc3b96f8-botw-cooking.jpeg": {
+      "local": "/images/editorial/1788031767388-12863c40-8ad6-4c72-9b81-03e8fc3b96f8-botw-cooking.jpeg",
+      "local_bytes": 148709,
+      "source_bytes": 148709
+    },
+    "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1788031772171-d5a86954-c3d0-4fdb-b24f-790ad1c5fcfa-stamina-botw.webp": {
+      "local": "/images/editorial/1788031772171-d5a86954-c3d0-4fdb-b24f-790ad1c5fcfa-stamina-botw.webp",
+      "local_bytes": 87070,
+      "source_bytes": 87070
+    },
+    "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1788031777403-e2ebb01d-76eb-4a80-a288-98a305e4530d-cold-weather-botw.jpg": {
+      "local": "/images/editorial/1788031777403-e2ebb01d-76eb-4a80-a288-98a305e4530d-cold-weather-botw.jpg",
+      "local_bytes": 190786,
+      "source_bytes": 190786
+    },
+    "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1788031795118-e4810960-7a2d-4440-bdbd-99faaafa8e84-horses-botw.avif": {
+      "local": "/images/editorial/1788031795118-e4810960-7a2d-4440-bdbd-99faaafa8e84-horses-botw.avif",
+      "local_bytes": 91962,
+      "source_bytes": 91962
+    },
+    "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1788031800595-6afb4ffe-edb2-4d92-8857-f2fd33b11e21-rupee-count.jpg": {
+      "local": "/images/editorial/1788031800595-6afb4ffe-edb2-4d92-8857-f2fd33b11e21-rupee-count.jpg",
+      "local_bytes": 77077,
+      "source_bytes": 77077
+    },
+    "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1788031805770-71ffc4be-ef9b-4fb1-bd3b-7c6bf7d6699c-goddess-statue-botw.avif": {
+      "local": "/images/editorial/1788031805770-71ffc4be-ef9b-4fb1-bd3b-7c6bf7d6699c-goddess-statue-botw.avif",
+      "local_bytes": 44117,
+      "source_bytes": 44117
+    },
+    "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1788031816689-e484f358-b2b8-46c9-883d-df8918e52829-glider-botw.jpg": {
+      "local": "/images/editorial/1788031816689-e484f358-b2b8-46c9-883d-df8918e52829-glider-botw.jpg",
+      "local_bytes": 28846,
+      "source_bytes": 28846
+    },
+    "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1788032048167-e8811b89-71af-4047-8fb7-64087a88745a-botw-art.webp": {
+      "local": "/images/editorial/1788032048167-e8811b89-71af-4047-8fb7-64087a88745a-botw-art.webp",
+      "local_bytes": 284746,
+      "source_bytes": 417078
+    },
+    "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1788034923682-9ec1237f-4bae-4563-bae1-f3d4f45b6887-first-section-totk.png": {
+      "local": "/images/editorial/1788034923682-9ec1237f-4bae-4563-bae1-f3d4f45b6887-first-section-totk.webp",
+      "local_bytes": 65492,
+      "source_bytes": 1674382
+    },
+    "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1788034946818-1f0ae195-ef2a-409f-bfdf-cb0a728cbbdf-third-section.avif": {
+      "local": "/images/editorial/1788034946818-1f0ae195-ef2a-409f-bfdf-cb0a728cbbdf-third-section.avif",
+      "local_bytes": 113778,
+      "source_bytes": 113778
+    },
+    "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1788034980055-0c71a9a3-8f63-4c40-a806-7320cc84b998-sixth-section.avif": {
+      "local": "/images/editorial/1788034980055-0c71a9a3-8f63-4c40-a806-7320cc84b998-sixth-section.avif",
+      "local_bytes": 49089,
+      "source_bytes": 49089
+    },
+    "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1788034986706-b1b9d756-743f-44b6-a92e-22a447499b51-seventh-section.webp": {
+      "local": "/images/editorial/1788034986706-b1b9d756-743f-44b6-a92e-22a447499b51-seventh-section.webp",
+      "local_bytes": 61680,
+      "source_bytes": 61680
+    },
+    "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1788034994921-8ab55609-0fff-4c01-9639-72dcc8a796a7-eight-section.avif": {
+      "local": "/images/editorial/1788034994921-8ab55609-0fff-4c01-9639-72dcc8a796a7-eight-section.avif",
+      "local_bytes": 70061,
+      "source_bytes": 70061
+    },
+    "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1788035003362-235c7f9d-7a5c-4c6a-bff4-2bea65255831-fifth-section.avif": {
+      "local": "/images/editorial/1788035003362-235c7f9d-7a5c-4c6a-bff4-2bea65255831-fifth-section.avif",
+      "local_bytes": 60921,
+      "source_bytes": 60921
+    },
+    "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1788035043258-efd2cea6-44bc-40c9-bc66-90050208f618-look-up-before.jpg": {
+      "local": "/images/editorial/1788035043258-efd2cea6-44bc-40c9-bc66-90050208f618-look-up-before.jpg",
+      "local_bytes": 118553,
+      "source_bytes": 118553
+    },
+    "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1788035059435-bc39610b-816f-49d7-86e7-c124a495f86b-ninth-section.png": {
+      "local": "/images/editorial/1788035059435-bc39610b-816f-49d7-86e7-c124a495f86b-ninth-section.webp",
+      "local_bytes": 140148,
+      "source_bytes": 377965
+    },
+    "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1788035105682-026ac600-23c0-469f-9750-76b32650996d-tenth-section.jpg": {
+      "local": "/images/editorial/1788035105682-026ac600-23c0-469f-9750-76b32650996d-tenth-section.jpg",
+      "local_bytes": 291055,
+      "source_bytes": 291055
+    },
+    "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1788035108631-9a2de97d-90ac-404b-b765-df10982c5eb7-eleventh-section.jpg": {
+      "local": "/images/editorial/1788035108631-9a2de97d-90ac-404b-b765-df10982c5eb7-eleventh-section.jpg",
+      "local_bytes": 37688,
+      "source_bytes": 37688
+    },
+    "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1788035378581-ffe13e7a-c868-4f80-a68c-8beafd81030b-fifth-section.avif": {
+      "local": "/images/editorial/1788035378581-ffe13e7a-c868-4f80-a68c-8beafd81030b-fifth-section.avif",
+      "local_bytes": 60921,
+      "source_bytes": 60921
+    },
+    "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1788035815554-52fc1189-ff1d-4268-9eb1-19b086466b99-tears-of-the-kingdom-main.jpg": {
+      "local": "/images/editorial/1788035815554-52fc1189-ff1d-4268-9eb1-19b086466b99-tears-of-the-kingdom-main.jpg",
+      "local_bytes": 423265,
+      "source_bytes": 2144272
+    },
+    "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1788055269829-bfaf6d87-4b50-424e-9a33-ee55d699511d-baldurs-gate-3-wallpaper-3440x1440-5120x1440-v0-a7eos4ir1jcb1.webp": {
+      "local": "/images/editorial/1788055269829-bfaf6d87-4b50-424e-9a33-ee55d699511d-baldurs-gate-3-wallpaper-3440x1440-5120x1440-v0-a7eos4ir1jcb1.webp",
+      "local_bytes": 161308,
+      "source_bytes": 420468
+    },
+    "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1788055313583-7ab21b92-4090-4d98-8e06-0afbbb9cba83-section-1-baldur.jpg": {
+      "local": "/images/editorial/1788055313583-7ab21b92-4090-4d98-8e06-0afbbb9cba83-section-1-baldur.jpg",
+      "local_bytes": 349083,
+      "source_bytes": 424573
+    },
+    "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1788055317089-3edb3b6f-e8b6-48ca-9e5d-acb03ead13f2-section-2-baldur.jpg": {
+      "local": "/images/editorial/1788055317089-3edb3b6f-e8b6-48ca-9e5d-acb03ead13f2-section-2-baldur.jpg",
+      "local_bytes": 529674,
+      "source_bytes": 663938
+    },
+    "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1788055321024-1015e6a8-40b2-448a-b9b0-0865f3d92009-section-3-baldur.jpg": {
+      "local": "/images/editorial/1788055321024-1015e6a8-40b2-448a-b9b0-0865f3d92009-section-3-baldur.jpg",
+      "local_bytes": 311152,
+      "source_bytes": 311152
+    },
+    "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1788055324776-d901633c-ae81-499b-909e-42523c3550d7-section-4-baldur.webp": {
+      "local": "/images/editorial/1788055324776-d901633c-ae81-499b-909e-42523c3550d7-section-4-baldur.webp",
+      "local_bytes": 265840,
+      "source_bytes": 265840
+    },
+    "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1788055327874-a80373f3-2b19-4429-a3e4-fac532673649-section-5-baldur.avif": {
+      "local": "/images/editorial/1788055327874-a80373f3-2b19-4429-a3e4-fac532673649-section-5-baldur.avif",
+      "local_bytes": 91379,
+      "source_bytes": 91379
+    },
+    "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1788055331395-54040a82-dfab-4991-8c93-e8c0b6e19977-section-6-baldur.webp": {
+      "local": "/images/editorial/1788055331395-54040a82-dfab-4991-8c93-e8c0b6e19977-section-6-baldur.webp",
+      "local_bytes": 336328,
+      "source_bytes": 1987666
+    },
+    "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1788055334475-f6f765e0-1f00-4307-a1ea-0a21471f76b9-section-7-baldur.jpg": {
+      "local": "/images/editorial/1788055334475-f6f765e0-1f00-4307-a1ea-0a21471f76b9-section-7-baldur.jpg",
+      "local_bytes": 66088,
+      "source_bytes": 66088
+    },
+    "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1788055338382-d1b58c24-79ec-46ae-b1e3-b115147369e1-section-8-baldur.jpg": {
+      "local": "/images/editorial/1788055338382-d1b58c24-79ec-46ae-b1e3-b115147369e1-section-8-baldur.jpg",
+      "local_bytes": 249761,
+      "source_bytes": 249761
+    },
+    "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1788055342365-f8d29021-b10d-4eac-a5de-0082e97f0124-section-9-baldur.avif": {
+      "local": "/images/editorial/1788055342365-f8d29021-b10d-4eac-a5de-0082e97f0124-section-9-baldur.avif",
+      "local_bytes": 163655,
+      "source_bytes": 163655
+    },
+    "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1788055348946-d78621fb-475c-47ef-ab34-d1f3305ff01d-section-10-baldur.webp": {
+      "local": "/images/editorial/1788055348946-d78621fb-475c-47ef-ab34-d1f3305ff01d-section-10-baldur.webp",
+      "local_bytes": 77216,
+      "source_bytes": 77216
+    },
+    "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1788055352262-e4037c63-d6c7-4dac-8feb-b04f10b08da2-section-11-baldur.jpg": {
+      "local": "/images/editorial/1788055352262-e4037c63-d6c7-4dac-8feb-b04f10b08da2-section-11-baldur.jpg",
+      "local_bytes": 664888,
+      "source_bytes": 838574
+    },
+    "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1788057210264-c730f8b1-13da-4d3e-b123-a25765f1e9ad-mario-kart-1.jpg": {
+      "local": "/images/editorial/1788057210264-c730f8b1-13da-4d3e-b123-a25765f1e9ad-mario-kart-1.jpg",
+      "local_bytes": 208115,
+      "source_bytes": 208115
+    },
+    "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1788057213895-0cac41c9-9ae6-464e-807a-00aa5b7632f5-mario-kart-2.avif": {
+      "local": "/images/editorial/1788057213895-0cac41c9-9ae6-464e-807a-00aa5b7632f5-mario-kart-2.avif",
+      "local_bytes": 71680,
+      "source_bytes": 71680
+    },
+    "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1788057219015-450525cc-d242-4c36-a482-1112386e753a-mario-kart-3.webp": {
+      "local": "/images/editorial/1788057219015-450525cc-d242-4c36-a482-1112386e753a-mario-kart-3.webp",
+      "local_bytes": 146282,
+      "source_bytes": 146282
+    },
+    "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1788057223117-4563169e-abf8-49cd-96aa-b6322e075dce-mario-kart-4.jpg": {
+      "local": "/images/editorial/1788057223117-4563169e-abf8-49cd-96aa-b6322e075dce-mario-kart-4.jpg",
+      "local_bytes": 44564,
+      "source_bytes": 44564
+    },
+    "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1788057225799-72ec9f29-080f-499e-8b53-d934c87da378-mario-kart-5.avif": {
+      "local": "/images/editorial/1788057225799-72ec9f29-080f-499e-8b53-d934c87da378-mario-kart-5.avif",
+      "local_bytes": 72287,
+      "source_bytes": 72287
+    },
+    "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1788057230311-603a6433-2f48-407d-9cbc-cb3690169079-mario-kart-6.avif": {
+      "local": "/images/editorial/1788057230311-603a6433-2f48-407d-9cbc-cb3690169079-mario-kart-6.avif",
+      "local_bytes": 92161,
+      "source_bytes": 92161
+    },
+    "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1788057234057-d02062ce-367e-455d-82cf-bb2bcb27be1d-mario-kart-7.png": {
+      "local": "/images/editorial/1788057234057-d02062ce-367e-455d-82cf-bb2bcb27be1d-mario-kart-7.webp",
+      "local_bytes": 192366,
+      "source_bytes": 1412573
+    },
+    "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1788057237013-9e13d363-cefa-4365-8263-57d6ccb2b69a-mario-kart-8.jpg": {
+      "local": "/images/editorial/1788057237013-9e13d363-cefa-4365-8263-57d6ccb2b69a-mario-kart-8.jpg",
+      "local_bytes": 537255,
+      "source_bytes": 862634
+    },
+    "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1788057240291-cbc4cdbb-ae7d-4f83-9141-8455b6979ac1-mario-kart-9.webp": {
+      "local": "/images/editorial/1788057240291-cbc4cdbb-ae7d-4f83-9141-8455b6979ac1-mario-kart-9.webp",
+      "local_bytes": 147042,
+      "source_bytes": 880640
+    },
+    "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1788057243449-a24e9973-915c-4e13-8186-8bb7439a3dae-mario-kart-10.jpg": {
+      "local": "/images/editorial/1788057243449-a24e9973-915c-4e13-8186-8bb7439a3dae-mario-kart-10.jpg",
+      "local_bytes": 133634,
+      "source_bytes": 133634
+    },
+    "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1788057246466-2c46ec29-3192-4d7e-88d0-2fd86e60b540-mario-kart-11.jpg": {
+      "local": "/images/editorial/1788057246466-2c46ec29-3192-4d7e-88d0-2fd86e60b540-mario-kart-11.jpg",
+      "local_bytes": 53677,
+      "source_bytes": 53677
+    },
+    "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1788057249933-de1fbc69-1d4b-483d-9a90-08976df30cca-mario-kart-12.webp": {
+      "local": "/images/editorial/1788057249933-de1fbc69-1d4b-483d-9a90-08976df30cca-mario-kart-12.webp",
+      "local_bytes": 145844,
+      "source_bytes": 145844
+    },
+    "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1788057253683-b5f4a05e-24db-44f5-90fd-6ef30fb5efd3-mario-kart-13.jpg": {
+      "local": "/images/editorial/1788057253683-b5f4a05e-24db-44f5-90fd-6ef30fb5efd3-mario-kart-13.jpg",
+      "local_bytes": 39976,
+      "source_bytes": 39976
+    },
+    "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1788057256368-a213cc23-a6c3-4203-be10-9c32c86e9df2-mario-kart-14.webp": {
+      "local": "/images/editorial/1788057256368-a213cc23-a6c3-4203-be10-9c32c86e9df2-mario-kart-14.webp",
+      "local_bytes": 111264,
+      "source_bytes": 111264
+    },
+    "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1788057294831-174b64cc-f9ad-4c0d-886a-466117a57b45-mario-kart-main.jpg": {
+      "local": "/images/editorial/1788057294831-174b64cc-f9ad-4c0d-886a-466117a57b45-mario-kart-main.jpg",
+      "local_bytes": 135106,
+      "source_bytes": 1546363
+    },
+    "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1788124521678-57a004b5-6153-449d-bb3b-19f557c54d3b-witcher-3-gamemplay.jpg": {
+      "local": "/images/editorial/1788124521678-57a004b5-6153-449d-bb3b-19f557c54d3b-witcher-3-gamemplay.jpg",
+      "local_bytes": 495589,
+      "source_bytes": 996158
+    },
+    "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1788124905537-f860a416-eed8-4c3a-bf95-7e3720bc3644-fable.jpg": {
+      "local": "/images/editorial/1788124905537-f860a416-eed8-4c3a-bf95-7e3720bc3644-fable.jpg",
+      "local_bytes": 216283,
+      "source_bytes": 941555
+    },
+    "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1788125241090-bafa9096-b2e4-4f4d-91ce-983cbcae5f26-tom-raid.png": {
+      "local": "/images/editorial/1788125241090-bafa9096-b2e4-4f4d-91ce-983cbcae5f26-tom-raid.png",
+      "local_bytes": 246110,
+      "source_bytes": 246110
+    },
+    "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1788125517410-f4fee1b7-6737-4801-927b-9dfd8da2ec54-exodues.jpg": {
+      "local": "/images/editorial/1788125517410-f4fee1b7-6737-4801-927b-9dfd8da2ec54-exodues.jpg",
+      "local_bytes": 294946,
+      "source_bytes": 5024775
+    },
+    "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1788251579376-760ade45-be4f-4669-a0ce-def697167c97-jordan-keyart-16x9-1.avif": {
+      "local": "/images/editorial/1788251579376-760ade45-be4f-4669-a0ce-def697167c97-jordan-keyart-16x9-1.avif",
+      "local_bytes": 73375,
+      "source_bytes": 73375
+    },
+    "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1788493992062-a4476ca4-cff7-4d22-b06d-2a8230128460-metro-draft-6.jpg": {
+      "local": "/images/editorial/1788493992062-a4476ca4-cff7-4d22-b06d-2a8230128460-metro-draft-6.jpg",
+      "local_bytes": 272037,
+      "source_bytes": 664588
+    },
+    "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1788494232299-d79c17b8-28c5-431d-b470-a2b5895c886f-dualsense-draft-2.webp": {
+      "local": "/images/editorial/1788494232299-d79c17b8-28c5-431d-b470-a2b5895c886f-dualsense-draft-2.webp",
+      "local_bytes": 268576,
+      "source_bytes": 268576
+    },
+    "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1788494246622-c0f661ef-5f93-4004-ae8e-acec5213968b-until-dawn-draft-5.webp": {
+      "local": "/images/editorial/1788494246622-c0f661ef-5f93-4004-ae8e-acec5213968b-until-dawn-draft-5.webp",
+      "local_bytes": 120052,
+      "source_bytes": 120052
+    },
+    "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1788494351515-8a2f254f-e8ec-4ecd-8999-9e017ed7fb3d-fianl-fantasy-draft-4.jpg": {
+      "local": "/images/editorial/1788494351515-8a2f254f-e8ec-4ecd-8999-9e017ed7fb3d-fianl-fantasy-draft-4.jpg",
+      "local_bytes": 216587,
+      "source_bytes": 216587
+    },
+    "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1788494360628-b7e7cc87-cdb1-41ee-b359-6d7a793805c6-lego-draft-3.jpg": {
+      "local": "/images/editorial/1788494360628-b7e7cc87-cdb1-41ee-b359-6d7a793805c6-lego-draft-3.jpg",
+      "local_bytes": 80588,
+      "source_bytes": 80588
+    },
+    "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1788498401771-8235e49a-6849-426d-8d73-fa83d929f15b-chatgpt-image-sep-4-2026-06-06-25-am.png": {
+      "local": "/images/editorial/1788498401771-8235e49a-6849-426d-8d73-fa83d929f15b-chatgpt-image-sep-4-2026-06-06-25-am.webp",
+      "local_bytes": 182806,
+      "source_bytes": 2154357
+    },
+    "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1788575025833-a6e98c41-8419-4add-8bb6-e5a2c79285b7-ragnarok-section.jpg": {
+      "local": "/images/editorial/1788575025833-a6e98c41-8419-4add-8bb6-e5a2c79285b7-ragnarok-section.jpg",
+      "local_bytes": 215506,
+      "source_bytes": 215506
+    },
+    "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1788575037494-c6397eba-3e65-4a1f-b3e2-4f0a7e9ab230-persona-5.avif": {
+      "local": "/images/editorial/1788575037494-c6397eba-3e65-4a1f-b3e2-4f0a7e9ab230-persona-5.avif",
+      "local_bytes": 188458,
+      "source_bytes": 188458
+    },
+    "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1788575051931-b6eac18d-18be-4a03-89cc-bfed693749d6-hades-2-section.jpg": {
+      "local": "/images/editorial/1788575051931-b6eac18d-18be-4a03-89cc-bfed693749d6-hades-2-section.jpg",
+      "local_bytes": 362020,
+      "source_bytes": 2875013
+    },
+    "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1788575069418-f9b93e2f-8957-40b8-8413-4130c546be19-clair-section.jpg": {
+      "local": "/images/editorial/1788575069418-f9b93e2f-8957-40b8-8413-4130c546be19-clair-section.jpg",
+      "local_bytes": 210403,
+      "source_bytes": 210403
+    },
+    "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1788575081447-1d681e0c-608a-49e1-9999-3f1dd2e7fd03-ghost-section.webp": {
+      "local": "/images/editorial/1788575081447-1d681e0c-608a-49e1-9999-3f1dd2e7fd03-ghost-section.webp",
+      "local_bytes": 304164,
+      "source_bytes": 427012
+    },
+    "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1788575357549-97002916-91cf-4305-b176-5574b353049a-clair-section.jpg": {
+      "local": "/images/editorial/1788575357549-97002916-91cf-4305-b176-5574b353049a-clair-section.jpg",
+      "local_bytes": 210403,
+      "source_bytes": 210403
+    },
+    "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1788576039730-26da1ecd-b9c1-4978-bb4b-08a12c2855c5-dark-souls-main.jpg": {
+      "local": "/images/editorial/1788576039730-26da1ecd-b9c1-4978-bb4b-08a12c2855c5-dark-souls-main.jpg",
+      "local_bytes": 132568,
+      "source_bytes": 132568
+    },
+    "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1788576107679-742c47df-85ea-4133-8551-41a74d97326a-bloodborn-section.webp": {
+      "local": "/images/editorial/1788576107679-742c47df-85ea-4133-8551-41a74d97326a-bloodborn-section.webp",
+      "local_bytes": 346264,
+      "source_bytes": 346264
+    },
+    "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1788576111918-ed8bb54c-2b4b-4a02-bf25-50725a7bd782-sekiro-section.webp": {
+      "local": "/images/editorial/1788576111918-ed8bb54c-2b4b-4a02-bf25-50725a7bd782-sekiro-section.webp",
+      "local_bytes": 221002,
+      "source_bytes": 221002
+    },
+    "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1788576116662-7f37f93c-9089-4113-82c5-e8a5773e5cde-dark-souls-3-section.jpg": {
+      "local": "/images/editorial/1788576116662-7f37f93c-9089-4113-82c5-e8a5773e5cde-dark-souls-3-section.jpg",
+      "local_bytes": 397096,
+      "source_bytes": 480812
+    },
+    "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1788576124832-352ce7e2-1f04-4dfa-bc0f-656c48042b3e-lies-of-p-section.avif": {
+      "local": "/images/editorial/1788576124832-352ce7e2-1f04-4dfa-bc0f-656c48042b3e-lies-of-p-section.avif",
+      "local_bytes": 131244,
+      "source_bytes": 131244
+    },
+    "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1788576128543-2944df84-8894-47dd-9492-4153f25bc9a4-demon-souls-section.webp": {
+      "local": "/images/editorial/1788576128543-2944df84-8894-47dd-9492-4153f25bc9a4-demon-souls-section.webp",
+      "local_bytes": 149064,
+      "source_bytes": 936592
+    },
+    "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1788576133136-f5b1cccb-d8be-4147-9eab-5aeee2287633-nioh-2-section.jpg": {
+      "local": "/images/editorial/1788576133136-f5b1cccb-d8be-4147-9eab-5aeee2287633-nioh-2-section.jpg",
+      "local_bytes": 365439,
+      "source_bytes": 365439
+    },
+    "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1788576137303-4d4de1ae-6478-4795-9ff6-4866df147e6b-lord-of-the-fallen-section.jpg": {
+      "local": "/images/editorial/1788576137303-4d4de1ae-6478-4795-9ff6-4866df147e6b-lord-of-the-fallen-section.jpg",
+      "local_bytes": 331669,
+      "source_bytes": 331669
+    },
+    "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1788576141990-3b263ad6-b120-458e-a22d-426b1847cc68-blasphemous-section.jpg": {
+      "local": "/images/editorial/1788576141990-3b263ad6-b120-458e-a22d-426b1847cc68-blasphemous-section.jpg",
+      "local_bytes": 352220,
+      "source_bytes": 1005820
+    },
+    "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1788576146085-d0cfe386-cdd3-4aec-8454-715b19ea9058-remnant-section.jpg": {
+      "local": "/images/editorial/1788576146085-d0cfe386-cdd3-4aec-8454-715b19ea9058-remnant-section.jpg",
+      "local_bytes": 415370,
+      "source_bytes": 665780
+    },
+    "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1788576150504-a198a45d-ce55-4a5b-8ec8-b91453d7179b-crab-section-1.webp": {
+      "local": "/images/editorial/1788576150504-a198a45d-ce55-4a5b-8ec8-b91453d7179b-crab-section-1.webp",
+      "local_bytes": 215712,
+      "source_bytes": 215712
+    },
+    "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1788576165467-0c206289-d0fa-47cd-9f03-0c65b96a8ff7-elden-main-image.jpg": {
+      "local": "/images/editorial/1788576165467-0c206289-d0fa-47cd-9f03-0c65b96a8ff7-elden-main-image.jpg",
+      "local_bytes": 218372,
+      "source_bytes": 218372
+    },
+    "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1788576225564-5aed5de4-28ec-4e5c-b08d-d16187a342f1-firewatch-section.jpg": {
+      "local": "/images/editorial/1788576225564-5aed5de4-28ec-4e5c-b08d-d16187a342f1-firewatch-section.jpg",
+      "local_bytes": 41777,
+      "source_bytes": 41777
+    },
+    "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1788576247502-0d2bc3f5-4d67-47b4-89f9-9ad63514f910-remain-section.avif": {
+      "local": "/images/editorial/1788576247502-0d2bc3f5-4d67-47b4-89f9-9ad63514f910-remain-section.avif",
+      "local_bytes": 148958,
+      "source_bytes": 148958
+    },
+    "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1788576291526-826e9391-ae01-4100-b679-a483f6905f69-life-is-strange-section.jpg": {
+      "local": "/images/editorial/1788576291526-826e9391-ae01-4100-b679-a483f6905f69-life-is-strange-section.jpg",
+      "local_bytes": 227250,
+      "source_bytes": 227250
+    },
+    "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1788576310971-8c906f9c-2b21-4b5c-a504-a4bbe61ba078-outer-wild-section.jpg": {
+      "local": "/images/editorial/1788576310971-8c906f9c-2b21-4b5c-a504-a4bbe61ba078-outer-wild-section.jpg",
+      "local_bytes": 179799,
+      "source_bytes": 179799
+    },
+    "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1788576352452-b3cdda29-d434-412d-b1b0-a4d16d37b77c-ragnarok-section.jpg": {
+      "local": "/images/editorial/1788576352452-b3cdda29-d434-412d-b1b0-a4d16d37b77c-ragnarok-section.jpg",
+      "local_bytes": 330744,
+      "source_bytes": 507829
+    },
+    "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1788576360641-098afdde-b8a2-4953-a37d-ce5219aa8e9b-cyberpoonk-section.jpg": {
+      "local": "/images/editorial/1788576360641-098afdde-b8a2-4953-a37d-ce5219aa8e9b-cyberpoonk-section.jpg",
+      "local_bytes": 171071,
+      "source_bytes": 171071
+    },
+    "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1788576367480-9d1d54bb-61cd-40e2-a994-2b1eeded460b-witcher-section.gif": {
+      "local": "/images/editorial/1788576367480-9d1d54bb-61cd-40e2-a994-2b1eeded460b-witcher-section.gif",
+      "local_bytes": 36233,
+      "source_bytes": 36233
+    },
+    "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1788576372856-5b7abe79-61cf-492b-9601-af1f9e54bc43-clair-expedition-section.png": {
+      "local": "/images/editorial/1788576372856-5b7abe79-61cf-492b-9601-af1f9e54bc43-clair-expedition-section.webp",
+      "local_bytes": 237896,
+      "source_bytes": 1564817
+    },
+    "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1788576399593-44ad000b-1188-49c4-9cdc-8f62285a5c09-mass-efect-section.jpg": {
+      "local": "/images/editorial/1788576399593-44ad000b-1188-49c4-9cdc-8f62285a5c09-mass-efect-section.jpg",
+      "local_bytes": 361986,
+      "source_bytes": 752959
+    },
+    "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1788576411270-5c503c35-ae92-46c9-aaa7-989b2e629e2f-red-dead-section.jpg": {
+      "local": "/images/editorial/1788576411270-5c503c35-ae92-46c9-aaa7-989b2e629e2f-red-dead-section.jpg",
+      "local_bytes": 189835,
+      "source_bytes": 189835
+    },
+    "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1788576431221-dd9d3696-37d4-4540-bb62-bd5d09155916-disco-elisium-section.webp": {
+      "local": "/images/editorial/1788576431221-dd9d3696-37d4-4540-bb62-bd5d09155916-disco-elisium-section.webp",
+      "local_bytes": 222030,
+      "source_bytes": 222030
+    },
+    "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1788576448869-90f9033b-4d0f-429b-829d-7bb8a9019d6f-baldur-sectipon.jpg": {
+      "local": "/images/editorial/1788576448869-90f9033b-4d0f-429b-829d-7bb8a9019d6f-baldur-sectipon.jpg",
+      "local_bytes": 542895,
+      "source_bytes": 988091
+    },
+    "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1788576460170-2a21ec56-ab68-42de-93b0-f99563b0bf2b-firewatch-section.jpg": {
+      "local": "/images/editorial/1788576460170-2a21ec56-ab68-42de-93b0-f99563b0bf2b-firewatch-section.jpg",
+      "local_bytes": 41777,
+      "source_bytes": 41777
+    },
+    "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1788576494982-dc563f8d-da49-409f-92c2-4987a0f08194-chained-section-1.avif": {
+      "local": "/images/editorial/1788576494982-dc563f8d-da49-409f-92c2-4987a0f08194-chained-section-1.avif",
+      "local_bytes": 1064346,
+      "source_bytes": 1064346
+    },
+    "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1788576500928-504e8cea-f7c7-4356-aab6-838121b9406e-sea-section-2.webp": {
+      "local": "/images/editorial/1788576500928-504e8cea-f7c7-4356-aab6-838121b9406e-sea-section-2.webp",
+      "local_bytes": 357686,
+      "source_bytes": 656548
+    },
+    "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1788576507099-84e59ceb-e119-41ae-ab70-436e6ebd2ca1-warhammer-section-3.jpg": {
+      "local": "/images/editorial/1788576507099-84e59ceb-e119-41ae-ab70-436e6ebd2ca1-warhammer-section-3.jpg",
+      "local_bytes": 54686,
+      "source_bytes": 54686
+    },
+    "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1788576514079-1052dbbf-e388-4e55-bff0-c1a42b3588be-fire-emblem-section-3.avif": {
+      "local": "/images/editorial/1788576514079-1052dbbf-e388-4e55-bff0-c1a42b3588be-fire-emblem-section-3.avif",
+      "local_bytes": 186226,
+      "source_bytes": 186226
+    },
+    "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1788576517874-3bcee3ce-f379-498e-a739-feaf3f043518-octppath-section-5.jpg": {
+      "local": "/images/editorial/1788576517874-3bcee3ce-f379-498e-a739-feaf3f043518-octppath-section-5.jpg",
+      "local_bytes": 347827,
+      "source_bytes": 347827
+    },
+    "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1788576524132-04424c8c-7187-4a28-83c9-d499910006c4-dragon-quest-section-6.jpg": {
+      "local": "/images/editorial/1788576524132-04424c8c-7187-4a28-83c9-d499910006c4-dragon-quest-section-6.jpg",
+      "local_bytes": 268257,
+      "source_bytes": 268257
+    },
+    "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1788576531209-5449db9d-f0bc-4d2f-837e-dee89c518396-dragon-section-7.jpg": {
+      "local": "/images/editorial/1788576531209-5449db9d-f0bc-4d2f-837e-dee89c518396-dragon-section-7.jpg",
+      "local_bytes": 31773,
+      "source_bytes": 31773
+    },
+    "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1788576536317-e618949d-afbc-4252-8cb5-1de72ca67286-divnity-section-8.jpg": {
+      "local": "/images/editorial/1788576536317-e618949d-afbc-4252-8cb5-1de72ca67286-divnity-section-8.jpg",
+      "local_bytes": 444779,
+      "source_bytes": 527326
+    },
+    "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1788576541724-f584dd84-45ee-4cc6-8f89-2f81f1bce60e-metaphor-section.jpg": {
+      "local": "/images/editorial/1788576541724-f584dd84-45ee-4cc6-8f89-2f81f1bce60e-metaphor-section.jpg",
+      "local_bytes": 274159,
+      "source_bytes": 274159
+    },
+    "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1788576547209-3a4eb1da-7a4e-4a06-bfb3-415b60e60389-persona-5.avif": {
+      "local": "/images/editorial/1788576547209-3a4eb1da-7a4e-4a06-bfb3-415b60e60389-persona-5.avif",
+      "local_bytes": 188458,
+      "source_bytes": 188458
+    },
+    "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1788576554491-50859902-3f4d-4c1c-8adb-25f74f132257-baldur-section.jpg": {
+      "local": "/images/editorial/1788576554491-50859902-3f4d-4c1c-8adb-25f74f132257-baldur-section.jpg",
+      "local_bytes": 321235,
+      "source_bytes": 680635
+    },
+    "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1788576568382-9b9f3e69-b277-49ad-a258-28b1b476920a-chained-section-1.avif": {
+      "local": "/images/editorial/1788576568382-9b9f3e69-b277-49ad-a258-28b1b476920a-chained-section-1.avif",
+      "local_bytes": 1064346,
+      "source_bytes": 1064346
+    },
+    "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1788576617107-8a29700c-29f8-450f-9a0b-97ecf5b5e03d-hat-in-time-section.avif": {
+      "local": "/images/editorial/1788576617107-8a29700c-29f8-450f-9a0b-97ecf5b5e03d-hat-in-time-section.avif",
+      "local_bytes": 228660,
+      "source_bytes": 228660
+    },
+    "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1788576630968-8e289e91-1ba8-4382-ba57-e545aea6cbf1-bandicoot-section.jpg": {
+      "local": "/images/editorial/1788576630968-8e289e91-1ba8-4382-ba57-e545aea6cbf1-bandicoot-section.jpg",
+      "local_bytes": 47675,
+      "source_bytes": 47675
+    },
+    "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1788576645462-f898a8ab-7e3e-461b-8510-eea3bce9977f-sonic-x-section.webp": {
+      "local": "/images/editorial/1788576645462-f898a8ab-7e3e-461b-8510-eea3bce9977f-sonic-x-section.webp",
+      "local_bytes": 291768,
+      "source_bytes": 291768
+    },
+    "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1788576666881-92957f01-ee1a-4d01-b0f9-14290894c0d2-spyro-section.jpg": {
+      "local": "/images/editorial/1788576666881-92957f01-ee1a-4d01-b0f9-14290894c0d2-spyro-section.jpg",
+      "local_bytes": 270205,
+      "source_bytes": 270205
+    },
+    "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1788576690615-7b79bb94-d44d-4f14-8717-771274d4d73d-takes-two-section.jpg": {
+      "local": "/images/editorial/1788576690615-7b79bb94-d44d-4f14-8717-771274d4d73d-takes-two-section.jpg",
+      "local_bytes": 170640,
+      "source_bytes": 170640
+    },
+    "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1788576719671-fc2ad766-031d-4f81-b527-85f723c61eb6-ratchet-section.avif": {
+      "local": "/images/editorial/1788576719671-fc2ad766-031d-4f81-b527-85f723c61eb6-ratchet-section.avif",
+      "local_bytes": 69898,
+      "source_bytes": 69898
+    },
+    "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1788576738500-5e76641e-2de0-4b37-8337-bcc3b3e9021a-psychonauts-section.jpg": {
+      "local": "/images/editorial/1788576738500-5e76641e-2de0-4b37-8337-bcc3b3e9021a-psychonauts-section.jpg",
+      "local_bytes": 168127,
+      "source_bytes": 168127
+    },
+    "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1788576758082-d2e2b9fa-ab15-4dd2-8e0a-5bd03cca7961-kirby-section.jpg": {
+      "local": "/images/editorial/1788576758082-d2e2b9fa-ab15-4dd2-8e0a-5bd03cca7961-kirby-section.jpg",
+      "local_bytes": 326143,
+      "source_bytes": 326143
+    },
+    "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1788576808513-14f1452c-acb8-4da6-8129-ef6bcc0a54f5-astrobot-section.jpg": {
+      "local": "/images/editorial/1788576808513-14f1452c-acb8-4da6-8129-ef6bcc0a54f5-astrobot-section.jpg",
+      "local_bytes": 170681,
+      "source_bytes": 170681
+    },
+    "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1788576817979-6e39e892-2459-46ae-b26d-019d5666b2ad-galaxy-1-section.avif": {
+      "local": "/images/editorial/1788576817979-6e39e892-2459-46ae-b26d-019d5666b2ad-galaxy-1-section.avif",
+      "local_bytes": 33625,
+      "source_bytes": 33625
+    },
+    "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1788576835519-4a9c4966-6b9f-4b92-8557-b1b0b822f3c7-mario-odyssey.jpg": {
+      "local": "/images/editorial/1788576835519-4a9c4966-6b9f-4b92-8557-b1b0b822f3c7-mario-odyssey.jpg",
+      "local_bytes": 507973,
+      "source_bytes": 1262531
+    },
+    "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1788576847219-3be04334-c493-4f9b-9ef4-a7d15abac150-galaxy-2-main.avif": {
+      "local": "/images/editorial/1788576847219-3be04334-c493-4f9b-9ef4-a7d15abac150-galaxy-2-main.avif",
+      "local_bytes": 77993,
+      "source_bytes": 77993
+    },
+    "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1788576862214-45c077c0-9ff4-455d-aa59-757c0ccecb57-psychonauts-section.jpg": {
+      "local": "/images/editorial/1788576862214-45c077c0-9ff4-455d-aa59-757c0ccecb57-psychonauts-section.jpg",
+      "local_bytes": 168127,
+      "source_bytes": 168127
+    },
+    "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1788576898967-3c97c73d-f4c7-4655-a63b-47e0a39e309e-hike-section.jpg": {
+      "local": "/images/editorial/1788576898967-3c97c73d-f4c7-4655-a63b-47e0a39e309e-hike-section.jpg",
+      "local_bytes": 291285,
+      "source_bytes": 471580
+    },
+    "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1788576913708-9e150ce1-7d2f-4b64-9637-c0ee567c20a3-remain-section.avif": {
+      "local": "/images/editorial/1788576913708-9e150ce1-7d2f-4b64-9637-c0ee567c20a3-remain-section.avif",
+      "local_bytes": 148958,
+      "source_bytes": 148958
+    },
+    "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1788576919054-81294103-4683-4f1d-932a-e2587735dfad-firewatch-section.jpg": {
+      "local": "/images/editorial/1788576919054-81294103-4683-4f1d-932a-e2587735dfad-firewatch-section.jpg",
+      "local_bytes": 41777,
+      "source_bytes": 41777
+    },
+    "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1788576943773-14dea76b-2893-4eca-bbe6-4b967d936095-inside-section.jpg": {
+      "local": "/images/editorial/1788576943773-14dea76b-2893-4eca-bbe6-4b967d936095-inside-section.jpg",
+      "local_bytes": 75524,
+      "source_bytes": 75524
+    },
+    "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1788576960320-7977ca8a-70b8-4a79-9f43-58cedca63ff2-stray-section.webp": {
+      "local": "/images/editorial/1788576960320-7977ca8a-70b8-4a79-9f43-58cedca63ff2-stray-section.webp",
+      "local_bytes": 306432,
+      "source_bytes": 371910
+    },
+    "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1788576977131-770818ca-f8b1-475a-9d00-d037f4750050-rift-apart-section.jpg": {
+      "local": "/images/editorial/1788576977131-770818ca-f8b1-475a-9d00-d037f4750050-rift-apart-section.jpg",
+      "local_bytes": 55076,
+      "source_bytes": 55076
+    },
+    "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1788576991718-890191dd-35ba-4c74-88d8-ded85f17d33f-odyssey-section.webp": {
+      "local": "/images/editorial/1788576991718-890191dd-35ba-4c74-88d8-ded85f17d33f-odyssey-section.webp",
+      "local_bytes": 169440,
+      "source_bytes": 169440
+    },
+    "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1788577015055-7bcd553e-edbc-4512-b8ab-7131882af48e-hi-fi-section.webp": {
+      "local": "/images/editorial/1788577015055-7bcd553e-edbc-4512-b8ab-7131882af48e-hi-fi-section.webp",
+      "local_bytes": 386642,
+      "source_bytes": 2203412
+    },
+    "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1788577019181-d3b3df90-f613-4737-9d47-c6446de8d1d9-astrobot-section.jpg": {
+      "local": "/images/editorial/1788577019181-d3b3df90-f613-4737-9d47-c6446de8d1d9-astrobot-section.jpg",
+      "local_bytes": 170681,
+      "source_bytes": 170681
+    },
+    "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1788577023103-ee4874c2-ab4d-4f70-95bf-de68cc795213-portal-in-list.avif": {
+      "local": "/images/editorial/1788577023103-ee4874c2-ab4d-4f70-95bf-de68cc795213-portal-in-list.avif",
+      "local_bytes": 58896,
+      "source_bytes": 58896
+    },
+    "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1788577030291-1d3be7b5-4fe0-4d20-8bd7-c3a486b269e5-inside-section.jpg": {
+      "local": "/images/editorial/1788577030291-1d3be7b5-4fe0-4d20-8bd7-c3a486b269e5-inside-section.jpg",
+      "local_bytes": 75524,
+      "source_bytes": 75524
+    },
+    "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1788577068331-8f413669-e5d8-4052-bcc8-6e5e2493d2e0-jedi-surviv-section.webp": {
+      "local": "/images/editorial/1788577068331-8f413669-e5d8-4052-bcc8-6e5e2493d2e0-jedi-surviv-section.webp",
+      "local_bytes": 145352,
+      "source_bytes": 145352
+    },
+    "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1788577078266-1d4e373b-4800-47e8-bd2b-ef7c56257d6b-remnant-section.jpg": {
+      "local": "/images/editorial/1788577078266-1d4e373b-4800-47e8-bd2b-ef7c56257d6b-remnant-section.jpg",
+      "local_bytes": 415370,
+      "source_bytes": 665780
+    },
+    "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1788577106601-67a05f1e-5e2a-4865-81ef-6187f8cc5d86-dragon-s-dogma-2-section.jpg": {
+      "local": "/images/editorial/1788577106601-67a05f1e-5e2a-4865-81ef-6187f8cc5d86-dragon-s-dogma-2-section.jpg",
+      "local_bytes": 546155,
+      "source_bytes": 1402252
+    },
+    "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1788577111629-8abec9a4-adfc-4934-a152-26ea9f12817e-nioh-2-section.jpg": {
+      "local": "/images/editorial/1788577111629-8abec9a4-adfc-4934-a152-26ea9f12817e-nioh-2-section.jpg",
+      "local_bytes": 365439,
+      "source_bytes": 365439
+    },
+    "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1788577137375-e6f3658a-e4d5-4404-a840-c0c07713d306-black-myth-wukong.avif": {
+      "local": "/images/editorial/1788577137375-e6f3658a-e4d5-4404-a840-c0c07713d306-black-myth-wukong.avif",
+      "local_bytes": 278405,
+      "source_bytes": 278405
+    },
+    "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1788577142199-91d5084d-f1b8-47ba-ae30-11008d7310fc-tears-of-the-kingdom-main.jpg": {
+      "local": "/images/editorial/1788577142199-91d5084d-f1b8-47ba-ae30-11008d7310fc-tears-of-the-kingdom-main.jpg",
+      "local_bytes": 423265,
+      "source_bytes": 2144272
+    },
+    "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1788577145871-67a9ab13-df26-4061-9597-4ac31a5bd0f7-bloodborn-section.webp": {
+      "local": "/images/editorial/1788577145871-67a9ab13-df26-4061-9597-4ac31a5bd0f7-bloodborn-section.webp",
+      "local_bytes": 346264,
+      "source_bytes": 346264
+    },
+    "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1788577150089-18710931-5e39-451d-98b4-9664964e5ec3-sekiro-section.webp": {
+      "local": "/images/editorial/1788577150089-18710931-5e39-451d-98b4-9664964e5ec3-sekiro-section.webp",
+      "local_bytes": 221002,
+      "source_bytes": 221002
+    },
+    "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1788577154281-8d789cd7-4b2f-4cf5-a1ae-ee989656bed7-lies-of-p-section.avif": {
+      "local": "/images/editorial/1788577154281-8d789cd7-4b2f-4cf5-a1ae-ee989656bed7-lies-of-p-section.avif",
+      "local_bytes": 131244,
+      "source_bytes": 131244
+    },
+    "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1788577159572-2f29a1d3-99a2-42cd-ab82-92aa2481b4ea-dark-souls-3-section.jpg": {
+      "local": "/images/editorial/1788577159572-2f29a1d3-99a2-42cd-ab82-92aa2481b4ea-dark-souls-3-section.jpg",
+      "local_bytes": 397096,
+      "source_bytes": 480812
+    },
+    "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1788577171884-d8644b3a-0d17-474c-a334-e8862a0a4087-black-myth-wukong.avif": {
+      "local": "/images/editorial/1788577171884-d8644b3a-0d17-474c-a334-e8862a0a4087-black-myth-wukong.avif",
+      "local_bytes": 278405,
+      "source_bytes": 278405
+    },
+    "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1788577208974-ee9f3091-079c-452b-9aba-22b7bb3a73ec-solasa-section.webp": {
+      "local": "/images/editorial/1788577208974-ee9f3091-079c-452b-9aba-22b7bb3a73ec-solasa-section.webp",
+      "local_bytes": 365384,
+      "source_bytes": 2439564
+    },
+    "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1788577223353-b20d2c3b-9ef5-46b9-8770-e90f7ada25a8-wasteland-section.webp": {
+      "local": "/images/editorial/1788577223353-b20d2c3b-9ef5-46b9-8770-e90f7ada25a8-wasteland-section.webp",
+      "local_bytes": 406882,
+      "source_bytes": 408170
+    },
+    "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1788577240858-308f314b-2d39-46b2-8a0f-8cd3e8a3f195-tyranny-section.jpg": {
+      "local": "/images/editorial/1788577240858-308f314b-2d39-46b2-8a0f-8cd3e8a3f195-tyranny-section.jpg",
+      "local_bytes": 35258,
+      "source_bytes": 35258
+    },
+    "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1788577258103-b54a08b8-e22d-456d-9229-a327b7f4faa6-disco-elisium-section.webp": {
+      "local": "/images/editorial/1788577258103-b54a08b8-e22d-456d-9229-a327b7f4faa6-disco-elisium-section.webp",
+      "local_bytes": 222030,
+      "source_bytes": 222030
+    },
+    "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1788577266843-647bf016-7196-4b4a-b3d5-7ffcebd4f11b-warhammer-section-3.jpg": {
+      "local": "/images/editorial/1788577266843-647bf016-7196-4b4a-b3d5-7ffcebd4f11b-warhammer-section-3.jpg",
+      "local_bytes": 54686,
+      "source_bytes": 54686
+    },
+    "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1788577281741-08ecc933-05c4-41cc-8fcd-6d67c19e4f56-pillar-of-eternity-section.jpg": {
+      "local": "/images/editorial/1788577281741-08ecc933-05c4-41cc-8fcd-6d67c19e4f56-pillar-of-eternity-section.jpg",
+      "local_bytes": 468522,
+      "source_bytes": 531326
+    },
+    "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1788577303300-377aedff-e987-492f-beca-303d7a1bfa89-pathfinder-section.jpg": {
+      "local": "/images/editorial/1788577303300-377aedff-e987-492f-beca-303d7a1bfa89-pathfinder-section.jpg",
+      "local_bytes": 139700,
+      "source_bytes": 139700
+    },
+    "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1788577329592-a2323e2e-734a-4c5b-a761-6b3615713d43-dragon-age-section.jpg": {
+      "local": "/images/editorial/1788577329592-a2323e2e-734a-4c5b-a761-6b3615713d43-dragon-age-section.jpg",
+      "local_bytes": 274077,
+      "source_bytes": 419646
+    },
+    "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1788577340044-93e1168c-fcae-4ef8-87e8-da18eeb83dd3-divnity-section-8.jpg": {
+      "local": "/images/editorial/1788577340044-93e1168c-fcae-4ef8-87e8-da18eeb83dd3-divnity-section-8.jpg",
+      "local_bytes": 444779,
+      "source_bytes": 527326
+    },
+    "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1788577366870-50a914f2-a9a6-4275-94d6-bec90eb8704f-sin-2-divinity-section.jpg": {
+      "local": "/images/editorial/1788577366870-50a914f2-a9a6-4275-94d6-bec90eb8704f-sin-2-divinity-section.jpg",
+      "local_bytes": 444779,
+      "source_bytes": 527326
+    },
+    "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1788577567121-7ce0467c-b679-4de2-b0e9-28d2e47a5a39-chatgpt-image-sep-5-2026-04-05-54-am.png": {
+      "local": "/images/editorial/1788577567121-7ce0467c-b679-4de2-b0e9-28d2e47a5a39-chatgpt-image-sep-5-2026-04-05-54-am.webp",
+      "local_bytes": 302732,
+      "source_bytes": 2745134
+    },
+    "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1788578098863-d4fb8bd1-c97b-4025-bf6a-dc239a53d5ff-red-dead-world.jpg": {
+      "local": "/images/editorial/1788578098863-d4fb8bd1-c97b-4025-bf6a-dc239a53d5ff-red-dead-world.jpg",
+      "local_bytes": 586212,
+      "source_bytes": 587575
+    },
+    "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1788578143727-54f39934-146e-4110-96ca-3b8ec3181c0b-baldu-companions.webp": {
+      "local": "/images/editorial/1788578143727-54f39934-146e-4110-96ca-3b8ec3181c0b-baldu-companions.webp",
+      "local_bytes": 219108,
+      "source_bytes": 219108
+    },
+    "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1788578251391-af47d6cd-800d-4e6b-a042-2e134b945068-malenia.jpg": {
+      "local": "/images/editorial/1788578251391-af47d6cd-800d-4e6b-a042-2e134b945068-malenia.jpg",
+      "local_bytes": 395107,
+      "source_bytes": 1127826
+    },
+    "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1788578293841-7489bd55-9900-4b18-842e-ef557eefb62f-hades-failure.jpg": {
+      "local": "/images/editorial/1788578293841-7489bd55-9900-4b18-842e-ef557eefb62f-hades-failure.jpg",
+      "local_bytes": 412625,
+      "source_bytes": 797280
+    },
+    "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1788578440588-4e94c012-404e-4e95-b68c-059d7c0e45b4-baldur-companon.avif": {
+      "local": "/images/editorial/1788578440588-4e94c012-404e-4e95-b68c-059d7c0e45b4-baldur-companon.avif",
+      "local_bytes": 97964,
+      "source_bytes": 97964
+    },
+    "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1788578474800-05980b37-239a-454d-9744-237c50bc4fae-baldur-difficulty.png": {
+      "local": "/images/editorial/1788578474800-05980b37-239a-454d-9744-237c50bc4fae-baldur-difficulty.webp",
+      "local_bytes": 130298,
+      "source_bytes": 3079165
+    },
+    "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1788578549875-18c21fd5-bf22-4f9a-b35e-8e79fa1cbbba-life-path-section.webp": {
+      "local": "/images/editorial/1788578549875-18c21fd5-bf22-4f9a-b35e-8e79fa1cbbba-life-path-section.webp",
+      "local_bytes": 119304,
+      "source_bytes": 1717686
+    },
+    "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1788578659291-f9e4bfbe-82c9-45a9-a242-df4f06aa32b2-cyberpunk-best-attributes.webp": {
+      "local": "/images/editorial/1788578659291-f9e4bfbe-82c9-45a9-a242-df4f06aa32b2-cyberpunk-best-attributes.webp",
+      "local_bytes": 193086,
+      "source_bytes": 193086
+    },
+    "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1788578716993-e3477912-7067-423b-8666-891e7af0f8ab-darek-souls.jpg": {
+      "local": "/images/editorial/1788578716993-e3477912-7067-423b-8666-891e7af0f8ab-darek-souls.jpg",
+      "local_bytes": 318998,
+      "source_bytes": 4184294
+    },
+    "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1788578769588-afd5fb63-4f1d-4199-be3b-f8574b058f57-baldur-s-gate-best-class.jpg": {
+      "local": "/images/editorial/1788578769588-afd5fb63-4f1d-4199-be3b-f8574b058f57-baldur-s-gate-best-class.jpg",
+      "local_bytes": 39812,
+      "source_bytes": 39812
+    },
+    "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1788578785156-a8a9a666-e84f-4760-990c-fe1649ae7840-cyberpunk-section.jpg": {
+      "local": "/images/editorial/1788578785156-a8a9a666-e84f-4760-990c-fe1649ae7840-cyberpunk-section.jpg",
+      "local_bytes": 169740,
+      "source_bytes": 169740
+    },
+    "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1788578915561-92245e0d-5c1d-4903-86e1-41bb9bec5a3f-dark-souls-3-main.jpg": {
+      "local": "/images/editorial/1788578915561-92245e0d-5c1d-4903-86e1-41bb9bec5a3f-dark-souls-3-main.jpg",
+      "local_bytes": 503420,
+      "source_bytes": 1230720
+    },
+    "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1788579286796-b00de9e9-dee6-4cc2-9e65-3d53a9687d66-sekiro-section.webp": {
+      "local": "/images/editorial/1788579286796-b00de9e9-dee6-4cc2-9e65-3d53a9687d66-sekiro-section.webp",
+      "local_bytes": 221002,
+      "source_bytes": 221002
+    },
+    "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1788579341504-447ba824-1267-499a-988c-c8e8adf911f1-elden-ring-classes.jpg": {
+      "local": "/images/editorial/1788579341504-447ba824-1267-499a-988c-c8e8adf911f1-elden-ring-classes.jpg",
+      "local_bytes": 194000,
+      "source_bytes": 194000
+    },
+    "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1788580077163-5686ef05-5f51-4283-b4c1-f91e601ffcdd-elden-stats.webp": {
+      "local": "/images/editorial/1788580077163-5686ef05-5f51-4283-b4c1-f91e601ffcdd-elden-stats.webp",
+      "local_bytes": 156092,
+      "source_bytes": 156092
+    },
+    "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1788598624445-5736da9c-a6fc-4271-b122-45a55e419634-bloodborne-main.jpg": {
+      "local": "/images/editorial/1788598624445-5736da9c-a6fc-4271-b122-45a55e419634-bloodborne-main.jpg",
+      "local_bytes": 60036,
+      "source_bytes": 60036
+    },
+    "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1788599226635-e237749d-fcfc-40d4-a434-2248ace8bde7-darek-souls.jpg": {
+      "local": "/images/editorial/1788599226635-e237749d-fcfc-40d4-a434-2248ace8bde7-darek-souls.jpg",
+      "local_bytes": 318998,
+      "source_bytes": 4184294
+    },
+    "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1788807642080-fd842a0b-1b60-4a09-8875-c923f5e6486b-clair-expedition-section.png": {
+      "local": "/images/editorial/1788807642080-fd842a0b-1b60-4a09-8875-c923f5e6486b-clair-expedition-section.webp",
+      "local_bytes": 237896,
+      "source_bytes": 1564817
+    },
+    "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1788807654277-bdac621f-6667-4403-a5ed-4cd27016916e-astrobot-section.jpg": {
+      "local": "/images/editorial/1788807654277-bdac621f-6667-4403-a5ed-4cd27016916e-astrobot-section.jpg",
+      "local_bytes": 170681,
+      "source_bytes": 170681
+    },
+    "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1788807666499-aa8a0551-7b8f-405b-bc3c-ee03e103ec76-baldurs-gate-3-wallpaper-3440x1440-5120x1440-v0-a7eos4ir1jcb1.webp": {
+      "local": "/images/editorial/1788807666499-aa8a0551-7b8f-405b-bc3c-ee03e103ec76-baldurs-gate-3-wallpaper-3440x1440-5120x1440-v0-a7eos4ir1jcb1.webp",
+      "local_bytes": 161308,
+      "source_bytes": 420468
+    },
+    "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1788807680366-b0c958b6-af10-49d2-84cb-c70515a1034e-elden-main-image.jpg": {
+      "local": "/images/editorial/1788807680366-b0c958b6-af10-49d2-84cb-c70515a1034e-elden-main-image.jpg",
+      "local_bytes": 218372,
+      "source_bytes": 218372
+    },
+    "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1788807686117-959a38cb-c016-4f56-9d12-e87aad25a547-takes-two-section.jpg": {
+      "local": "/images/editorial/1788807686117-959a38cb-c016-4f56-9d12-e87aad25a547-takes-two-section.jpg",
+      "local_bytes": 170640,
+      "source_bytes": 170640
+    },
+    "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1788807692936-b62f0169-4b77-4f24-ba91-01012218a7f0-last-of-us-2.avif": {
+      "local": "/images/editorial/1788807692936-b62f0169-4b77-4f24-ba91-01012218a7f0-last-of-us-2.avif",
+      "local_bytes": 393372,
+      "source_bytes": 393372
+    },
+    "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1788807697799-e4afa144-68d7-4c3d-a5f6-d948f857dd78-sekiro-section.webp": {
+      "local": "/images/editorial/1788807697799-e4afa144-68d7-4c3d-a5f6-d948f857dd78-sekiro-section.webp",
+      "local_bytes": 221002,
+      "source_bytes": 221002
+    },
+    "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1788807706567-34135818-e444-4bf9-b4b2-0cd2f0a8aabb-god-of-war.jpg": {
+      "local": "/images/editorial/1788807706567-34135818-e444-4bf9-b4b2-0cd2f0a8aabb-god-of-war.jpg",
+      "local_bytes": 50653,
+      "source_bytes": 50653
+    },
+    "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1788807713673-21990f5f-54c1-45f9-a042-36822c5749ad-breath-wild.jpg": {
+      "local": "/images/editorial/1788807713673-21990f5f-54c1-45f9-a042-36822c5749ad-breath-wild.jpg",
+      "local_bytes": 157329,
+      "source_bytes": 157329
+    },
+    "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1788807774306-fc7a0902-5fc1-42bc-a5a2-136c833a56cd-overwatch-section.avif": {
+      "local": "/images/editorial/1788807774306-fc7a0902-5fc1-42bc-a5a2-136c833a56cd-overwatch-section.avif",
+      "local_bytes": 239110,
+      "source_bytes": 239110
+    },
+    "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1788807785594-987c038a-e124-4228-9bf1-eb910f0f1ecb-witcher-section.gif": {
+      "local": "/images/editorial/1788807785594-987c038a-e124-4228-9bf1-eb910f0f1ecb-witcher-section.gif",
+      "local_bytes": 36233,
+      "source_bytes": 36233
+    },
+    "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1788807818015-ee344250-4fb3-4f8f-b2b7-c14246a08a5d-inquisition.jpg": {
+      "local": "/images/editorial/1788807818015-ee344250-4fb3-4f8f-b2b7-c14246a08a5d-inquisition.jpg",
+      "local_bytes": 406680,
+      "source_bytes": 1826561
+    },
+    "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1788807870687-94dd9edf-51a2-434f-ba7f-445a560c0b71-2014-awards.avif": {
+      "local": "/images/editorial/1788807870687-94dd9edf-51a2-434f-ba7f-445a560c0b71-2014-awards.avif",
+      "local_bytes": 40218,
+      "source_bytes": 40218
+    },
+    "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1788807961579-a2a18983-2489-4f10-8669-66379df72541-witcher-quests.jpg": {
+      "local": "/images/editorial/1788807961579-a2a18983-2489-4f10-8669-66379df72541-witcher-quests.jpg",
+      "local_bytes": 374472,
+      "source_bytes": 374472
+    },
+    "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1788808025163-018b18ab-4c85-43b6-b245-e268aeaf74b2-witcher-skills.webp": {
+      "local": "/images/editorial/1788808025163-018b18ab-4c85-43b6-b245-e268aeaf74b2-witcher-skills.webp",
+      "local_bytes": 253664,
+      "source_bytes": 253664
+    },
+    "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1788808107224-78640e42-1146-4b2a-9012-63bb66116602-diablo-4-section.jpg": {
+      "local": "/images/editorial/1788808107224-78640e42-1146-4b2a-9012-63bb66116602-diablo-4-section.jpg",
+      "local_bytes": 224924,
+      "source_bytes": 224924
+    },
+    "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1788808116318-66babba1-a7c4-4953-891e-e79aba9f8837-dragon-s-dogma-2-section.jpg": {
+      "local": "/images/editorial/1788808116318-66babba1-a7c4-4953-891e-e79aba9f8837-dragon-s-dogma-2-section.jpg",
+      "local_bytes": 546155,
+      "source_bytes": 1402252
+    },
+    "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1788808123214-d5324664-8848-4194-a7af-68472cfda9bb-black-myth-wukong.avif": {
+      "local": "/images/editorial/1788808123214-d5324664-8848-4194-a7af-68472cfda9bb-black-myth-wukong.avif",
+      "local_bytes": 278405,
+      "source_bytes": 278405
+    },
+    "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1788808127750-0c3c505e-521f-415b-a99b-3cbb226aa587-wilds-section.webp": {
+      "local": "/images/editorial/1788808127750-0c3c505e-521f-415b-a99b-3cbb226aa587-wilds-section.webp",
+      "local_bytes": 228340,
+      "source_bytes": 228340
+    },
+    "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1788808132702-27ec655d-e7d7-4b28-98da-cedc34264c05-nioh-3-section.jpg": {
+      "local": "/images/editorial/1788808132702-27ec655d-e7d7-4b28-98da-cedc34264c05-nioh-3-section.jpg",
+      "local_bytes": 55961,
+      "source_bytes": 55961
+    },
+    "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1788808141157-79a0fcc4-cd81-4476-b0eb-addee96c7cc4-dark-souls-3-main.jpg": {
+      "local": "/images/editorial/1788808141157-79a0fcc4-cd81-4476-b0eb-addee96c7cc4-dark-souls-3-main.jpg",
+      "local_bytes": 503420,
+      "source_bytes": 1230720
+    },
+    "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1788808145622-57073f4d-f054-41fa-8d12-6aeff6f5ac33-nier-automata-section.webp": {
+      "local": "/images/editorial/1788808145622-57073f4d-f054-41fa-8d12-6aeff6f5ac33-nier-automata-section.webp",
+      "local_bytes": 292518,
+      "source_bytes": 292518
+    },
+    "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1788808151433-ef91433f-8b2a-45f6-943e-07592cb29e14-hades-section.png": {
+      "local": "/images/editorial/1788808151433-ef91433f-8b2a-45f6-943e-07592cb29e14-hades-section.webp",
+      "local_bytes": 350136,
+      "source_bytes": 2989717
+    },
+    "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1788808158924-c7b9a1c6-6f9d-453b-9e47-ff62a7821a18-cyberpunk-section.jpg": {
+      "local": "/images/editorial/1788808158924-c7b9a1c6-6f9d-453b-9e47-ff62a7821a18-cyberpunk-section.jpg",
+      "local_bytes": 169740,
+      "source_bytes": 169740
+    },
+    "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1788808163887-c4860401-7e52-4d1b-a91c-a74f89386ff6-witcher-section.gif": {
+      "local": "/images/editorial/1788808163887-c4860401-7e52-4d1b-a91c-a74f89386ff6-witcher-section.gif",
+      "local_bytes": 36233,
+      "source_bytes": 36233
+    },
+    "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1788808170732-f69671d8-afc0-44ec-8c40-efbabec1195f-bloodborne-main.jpg": {
+      "local": "/images/editorial/1788808170732-f69671d8-afc0-44ec-8c40-efbabec1195f-bloodborne-main.jpg",
+      "local_bytes": 60036,
+      "source_bytes": 60036
+    },
+    "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1788808177792-1cbf6ab1-1ec2-43a5-84c4-86502773fd4f-elden-ring-in-list.webp": {
+      "local": "/images/editorial/1788808177792-1cbf6ab1-1ec2-43a5-84c4-86502773fd4f-elden-ring-in-list.webp",
+      "local_bytes": 49640,
+      "source_bytes": 49640
+    },
+    "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1788808557331-dd9e1c51-88f6-46bc-b0d2-a781b5d3f3ee-chatgpt-image-sep-7-2026-08-15-43-pm.png": {
+      "local": "/images/editorial/1788808557331-dd9e1c51-88f6-46bc-b0d2-a781b5d3f3ee-chatgpt-image-sep-7-2026-08-15-43-pm.webp",
+      "local_bytes": 277940,
+      "source_bytes": 2561997
+    },
+    "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1788808699218-20b831f7-0843-48f7-abe4-0b93ef52bf64-chatgpt-image-sep-7-2026-08-18-03-pm.png": {
+      "local": "/images/editorial/1788808699218-20b831f7-0843-48f7-abe4-0b93ef52bf64-chatgpt-image-sep-7-2026-08-18-03-pm.webp",
+      "local_bytes": 388904,
+      "source_bytes": 3080579
+    }
+  },
+  "version": 1
+}

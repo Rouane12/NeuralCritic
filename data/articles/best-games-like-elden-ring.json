@@ -26,7 +26,7 @@
       "imageAlt": "Star Wars Jedi: Survivor artwork or gameplay imagery illustrating the game’s visual style.",
       "subtitle": "For exploration, checkpoints, traversal, and readable melee combat",
       "developer": "Respawn Entertainment",
-      "imageLocal": "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1788577068331-8f413669-e5d8-4052-bcc8-6e5e2493d2e0-jedi-surviv-section.webp",
+      "imageLocal": "/images/editorial/1788577068331-8f413669-e5d8-4052-bcc8-6e5e2493d2e0-jedi-surviv-section.webp",
       "releaseYear": "2023",
       "headingStyle": "editorial"
     },
@@ -38,7 +38,7 @@
       "imageAlt": "Remnant II artwork or gameplay imagery illustrating the game’s visual style.",
       "subtitle": "For co-op players who want bosses, builds, and repeated discovery",
       "developer": "Gunfire Games",
-      "imageLocal": "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1788577078266-1d4e373b-4800-47e8-bd2b-ef7c56257d6b-remnant-section.jpg",
+      "imageLocal": "/images/editorial/1788577078266-1d4e373b-4800-47e8-bd2b-ef7c56257d6b-remnant-section.jpg",
       "releaseYear": "2023",
       "headingStyle": "editorial"
     },
@@ -50,7 +50,7 @@
       "imageAlt": "Dragon’s Dogma 2 artwork or gameplay imagery illustrating the game’s visual style.",
       "subtitle": "For the feeling that an open-world journey can go wrong in interesting ways",
       "developer": "Capcom",
-      "imageLocal": "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1788577106601-67a05f1e-5e2a-4865-81ef-6187f8cc5d86-dragon-s-dogma-2-section.jpg",
+      "imageLocal": "/images/editorial/1788577106601-67a05f1e-5e2a-4865-81ef-6187f8cc5d86-dragon-s-dogma-2-section.jpg",
       "releaseYear": "2024",
       "headingStyle": "editorial"
     },
@@ -62,7 +62,7 @@
       "imageAlt": "Nioh 2 artwork or gameplay imagery illustrating the game’s visual style.",
       "subtitle": "For players who want far more build depth and mechanical complexity",
       "developer": "Team Ninja",
-      "imageLocal": "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1788577111629-8abec9a4-adfc-4934-a152-26ea9f12817e-nioh-2-section.jpg",
+      "imageLocal": "/images/editorial/1788577111629-8abec9a4-adfc-4934-a152-26ea9f12817e-nioh-2-section.jpg",
       "releaseYear": "2020",
       "headingStyle": "editorial"
     },
@@ -74,7 +74,7 @@
       "imageAlt": "Black Myth: Wukong artwork or gameplay imagery illustrating the game’s visual style.",
       "subtitle": "For spectacular bosses and a more directed action-RPG journey",
       "developer": "Game Science",
-      "imageLocal": "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1788577137375-e6f3658a-e4d5-4404-a840-c0c07713d306-black-myth-wukong.avif",
+      "imageLocal": "/images/editorial/1788577137375-e6f3658a-e4d5-4404-a840-c0c07713d306-black-myth-wukong.avif",
       "releaseYear": "2024",
       "headingStyle": "editorial"
     },
@@ -86,7 +86,7 @@
       "imageAlt": "The Legend of Zelda: Tears of the Kingdom artwork or gameplay imagery illustrating the game’s visual style.",
       "subtitle": "For open-world curiosity and the freedom to invent a solution",
       "developer": "Nintendo",
-      "imageLocal": "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1788577142199-91d5084d-f1b8-47ba-ae30-11008d7310fc-tears-of-the-kingdom-main.jpg",
+      "imageLocal": "/images/editorial/1788577142199-91d5084d-f1b8-47ba-ae30-11008d7310fc-tears-of-the-kingdom-main.jpg",
       "releaseYear": "2023",
       "headingStyle": "editorial"
     },
@@ -98,7 +98,7 @@
       "imageAlt": "Bloodborne artwork or gameplay imagery illustrating the game’s visual style.",
       "subtitle": "For FromSoftware atmosphere and combat that rewards aggression",
       "developer": "FromSoftware",
-      "imageLocal": "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1788577145871-67a9ab13-df26-4061-9597-4ac31a5bd0f7-bloodborn-section.webp",
+      "imageLocal": "/images/editorial/1788577145871-67a9ab13-df26-4061-9597-4ac31a5bd0f7-bloodborn-section.webp",
       "releaseYear": "2015",
       "headingStyle": "editorial"
     },
@@ -110,7 +110,7 @@
       "imageAlt": "Sekiro: Shadows Die Twice artwork or gameplay imagery illustrating the game’s visual style.",
       "subtitle": "For players who want FromSoftware combat distilled into pure execution",
       "developer": "FromSoftware",
-      "imageLocal": "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1788577150089-18710931-5e39-451d-98b4-9664964e5ec3-sekiro-section.webp",
+      "imageLocal": "/images/editorial/1788577150089-18710931-5e39-451d-98b4-9664964e5ec3-sekiro-section.webp",
       "releaseYear": "2019",
       "headingStyle": "editorial"
     },
@@ -122,7 +122,7 @@
       "imageAlt": "Lies of P artwork or gameplay imagery illustrating the game’s visual style.",
       "subtitle": "The strongest modern Soulslike outside FromSoftware",
       "developer": "Round8 Studio",
-      "imageLocal": "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1788577154281-8d789cd7-4b2f-4cf5-a1ae-ee989656bed7-lies-of-p-section.avif",
+      "imageLocal": "/images/editorial/1788577154281-8d789cd7-4b2f-4cf5-a1ae-ee989656bed7-lies-of-p-section.avif",
       "releaseYear": "2023",
       "headingStyle": "editorial"
     },
@@ -134,7 +134,7 @@
       "imageAlt": "Dark Souls III artwork or gameplay imagery illustrating the game’s visual style.",
       "subtitle": "The closest compact version of Elden Ring’s combat and build philosophy",
       "developer": "FromSoftware",
-      "imageLocal": "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1788577159572-2f29a1d3-99a2-42cd-ab82-92aa2481b4ea-dark-souls-3-section.jpg",
+      "imageLocal": "/images/editorial/1788577159572-2f29a1d3-99a2-42cd-ab82-92aa2481b4ea-dark-souls-3-section.jpg",
       "releaseYear": "2016",
       "headingStyle": "editorial"
     }
@@ -151,7 +151,7 @@
   "homepageSlot": "regular",
   "publishedAt": "2026-09-05T03:55:11.766632+00:00",
   "updatedAt": "2026-09-05T04:50:05.17336+00:00",
-  "imageLocal": "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1788577171884-d8644b3a-0d17-474c-a334-e8862a0a4087-black-myth-wukong.avif",
+  "imageLocal": "/images/editorial/1788577171884-d8644b3a-0d17-474c-a334-e8862a0a4087-black-myth-wukong.avif",
   "editorialSection": "what-to-play",
   "platforms": [
     "pc",

@@ -21,7 +21,7 @@
       "caption": "Hyrule’s distinctive landmarks naturally encourage players to choose their own destinations.",
       "heading": "1. A world designed around curiosity",
       "imageAlt": "Link overlooks the expansive landscape of Hyrule from a high viewpoint, with mountains and landmarks visible in the distance.",
-      "imageLocal": "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1787506616254-601a76cd-62a8-476a-b743-e0bc92a4888b-section-1-image.jpg",
+      "imageLocal": "/images/editorial/1787506616254-601a76cd-62a8-476a-b743-e0bc92a4888b-section-1-image.jpg",
       "headingStyle": "editorial"
     },
     {
@@ -29,7 +29,7 @@
       "caption": "After leaving the Great Plateau, players are free to explore Hyrule and pursue its major objectives in almost any order.",
       "heading": "2. Freedom to approach the adventure in any order",
       "imageAlt": "Link observes several regions of Hyrule from an elevated location, illustrating the scale and openness of the world.",
-      "imageLocal": "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1787506624145-1a26e335-5c8c-4f4a-bf54-12767ca270d7-section-2-image.jpg",
+      "imageLocal": "/images/editorial/1787506624145-1a26e335-5c8c-4f4a-bf54-12767ca270d7-section-2-image.jpg",
       "headingStyle": "editorial"
     },
     {
@@ -37,7 +37,7 @@
       "caption": "The ability to climb almost any surface transforms mountains and ruins into possible routes rather than barriers.",
       "heading": "3. Climbing transformed the landscape",
       "imageAlt": "Link climbs the side of a steep mountain, tower, or ancient structure above the surrounding landscape.",
-      "imageLocal": "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1787506638496-f928d3ea-15c3-4fd3-857b-5c2d2295b092-section-4-image.jpg",
+      "imageLocal": "/images/editorial/1787506638496-f928d3ea-15c3-4fd3-857b-5c2d2295b092-section-4-image.jpg",
       "headingStyle": "editorial"
     },
     {
@@ -45,7 +45,7 @@
       "caption": "Interconnected systems allow players to combine tools, physics, weather, and environmental elements in unexpected ways.",
       "heading": "4. Systems that encourage experimentation",
       "imageAlt": "Link uses fire, wind, electricity, or a Sheikah Slate rune to interact with objects in the environment.",
-      "imageLocal": "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1787506652339-6ece24c0-7e15-42d0-ae5d-704e4ee0dda0-section-5-image.jpg",
+      "imageLocal": "/images/editorial/1787506652339-6ece24c0-7e15-42d0-ae5d-704e4ee0dda0-section-5-image.jpg",
       "headingStyle": "editorial"
     }
   ],
@@ -57,7 +57,7 @@
   "homepageSlot": "regular",
   "publishedAt": "2026-08-18T05:52:37.311+00:00",
   "updatedAt": "2026-08-23T21:55:57.548994+00:00",
-  "imageLocal": "images/editorial/9b833d08-7b0f-4be9-aa14-693dcb3714fb.jpg",
+  "imageLocal": "/images/editorial/9b833d08-7b0f-4be9-aa14-693dcb3714fb.jpg",
   "editorialSection": "features",
   "platforms": [
     "nintendo"

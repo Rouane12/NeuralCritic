@@ -43,7 +43,7 @@
       "caption": "Leyndell is one of many distant landmarks that gradually becomes a destination.",
       "heading": "The Lands Between Makes Exploration Feel Personal",
       "imageAlt": "A Tarnished rests near the outskirts of Leyndell in Elden Ring.",
-      "imageLocal": "images/editorial/8bbbacf0-38bb-47d6-af78-dc1783f53158.jpg",
+      "imageLocal": "/images/editorial/8bbbacf0-38bb-47d6-af78-dc1783f53158.jpg",
       "headingStyle": "accent"
     },
     {
@@ -51,7 +51,7 @@
       "caption": "Incantations and weapon skills give players many ways to control a battle.",
       "heading": "Combat Supports Remarkably Different Playstyles",
       "imageAlt": "A Tarnished summons a lightning incantation during combat in Elden Ring.",
-      "imageLocal": "images/editorial/4425dbf2-1b6c-4c74-a584-70a89dab4a5a.avif",
+      "imageLocal": "/images/editorial/4425dbf2-1b6c-4c74-a584-70a89dab4a5a.avif",
       "headingStyle": "accent"
     },
     {
@@ -59,7 +59,7 @@
       "caption": "Difficult encounters reward preparation, observation, and experimentation.",
       "heading": "Its Best Battles Turn Challenge Into Spectacle",
       "imageAlt": "A Tarnished uses a fire incantation during an Elden Ring battle.",
-      "imageLocal": "images/editorial/46e1948b-9294-4103-9ad0-5230470fd830.webp",
+      "imageLocal": "/images/editorial/46e1948b-9294-4103-9ad0-5230470fd830.webp",
       "headingStyle": "accent"
     }
   ],
@@ -71,7 +71,7 @@
   "homepageSlot": "secondary-bottom",
   "publishedAt": "2026-08-19T19:11:25.058+00:00",
   "updatedAt": "2026-08-24T17:42:04.270898+00:00",
-  "imageLocal": "images/editorial/a4f07700-afe9-4bbb-90a8-9f4205aafed7.jpg",
+  "imageLocal": "/images/editorial/a4f07700-afe9-4bbb-90a8-9f4205aafed7.jpg",
   "editorialSection": "reviews",
   "platforms": [
     "pc",

@@ -5,9 +5,65 @@
     <link>https://www.neuralcritic.net/</link>
     <description>Gaming news, reviews, guides, and features for players who want the signal—not the noise.</description>
     <language>en</language>
-    <lastBuildDate>Mon, 07 Sep 2026 17:55:38 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 07 Sep 2026 20:22:47 +0000</lastBuildDate>
     <generator>Neural Critic publication pipeline</generator>
     <atom:link href="https://www.neuralcritic.net/feed.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>The Witcher 3 Beginner’s Guide: Combat, Signs, Alchemy and Exploration</title>
+      <link>https://www.neuralcritic.net/stories/the-witcher-3-beginners-guide/</link>
+      <guid isPermaLink="true">https://www.neuralcritic.net/stories/the-witcher-3-beginners-guide/</guid>
+      <description>A practical Witcher 3 beginner’s guide for version 4.04, covering combat, Signs, alchemy, skills, quests and exploration before Remastered launches.</description>
+      <category>GUIDE</category>
+      <pubDate>Mon, 07 Sep 2026 19:29:39 +0000</pubDate>
+    </item>
+    <item>
+      <title>The Witcher 3 Best Skills and Abilities for New Players</title>
+      <link>https://www.neuralcritic.net/stories/the-witcher-3-best-skills-abilities/</link>
+      <guid isPermaLink="true">https://www.neuralcritic.net/stories/the-witcher-3-best-skills-abilities/</guid>
+      <description>The best Witcher 3 skills for new players in version 4.04, including early combat priorities, Quen, Axii and smart build choices before Remastered.</description>
+      <category>GUIDE</category>
+      <pubDate>Mon, 07 Sep 2026 19:29:39 +0000</pubDate>
+    </item>
+    <item>
+      <title>Every Game Awards Game of the Year Winner Since 2014</title>
+      <link>https://www.neuralcritic.net/stories/the-game-awards-game-of-the-year-winners/</link>
+      <guid isPermaLink="true">https://www.neuralcritic.net/stories/the-game-awards-game-of-the-year-winners/</guid>
+      <description>Every Game Awards Game of the Year winner from 2014 through 2025, from Dragon Age: Inquisition to Clair Obscur: Expedition 33, with year-by-year context.</description>
+      <category>FEATURE</category>
+      <pubDate>Mon, 07 Sep 2026 19:29:39 +0000</pubDate>
+    </item>
+    <item>
+      <title>The 12 Best Action RPGs</title>
+      <link>https://www.neuralcritic.net/stories/best-action-rpgs/</link>
+      <guid isPermaLink="true">https://www.neuralcritic.net/stories/best-action-rpgs/</guid>
+      <description>The 12 best action RPGs to play in 2026, ranked for combat, progression, build variety and exploration, from Elden Ring and Bloodborne to Cyberpunk 2077.</description>
+      <category>FEATURE</category>
+      <pubDate>Mon, 07 Sep 2026 19:29:39 +0000</pubDate>
+    </item>
+    <item>
+      <title>Why The Witcher 3’s Side Quests Still Set the Standard</title>
+      <link>https://www.neuralcritic.net/stories/witcher-3-side-quests-standard/</link>
+      <guid isPermaLink="true">https://www.neuralcritic.net/stories/witcher-3-side-quests-standard/</guid>
+      <description>Why The Witcher 3’s side quests still set the standard: local stakes, memorable characters, moral uncertainty, consequences and quest chains with real narrative weight.</description>
+      <category>FEATURE</category>
+      <pubDate>Mon, 07 Sep 2026 19:29:39 +0000</pubDate>
+    </item>
+    <item>
+      <title>Dark Souls Remastered Beginner’s Guide: What to Know Before Lordran</title>
+      <link>https://www.neuralcritic.net/stories/dark-souls-remastered-beginners-guide/</link>
+      <guid isPermaLink="true">https://www.neuralcritic.net/stories/dark-souls-remastered-beginners-guide/</guid>
+      <description>A practical Dark Souls Remastered beginner’s guide covering bonfires, Estus, leveling, equipment load, upgrades, exploration and the early lessons that make Lordran easier to understand.</description>
+      <category>GUIDE</category>
+      <pubDate>Mon, 07 Sep 2026 15:22:52 +0000</pubDate>
+    </item>
+    <item>
+      <title>Cyberpunk 2077 Life Paths Explained: Corpo, Nomad or Streetkid?</title>
+      <link>https://www.neuralcritic.net/stories/cyberpunk-2077-life-paths-explained/</link>
+      <guid isPermaLink="true">https://www.neuralcritic.net/stories/cyberpunk-2077-life-paths-explained/</guid>
+      <description>Cyberpunk 2077 life paths explained: what Corpo, Nomad and Streetkid change, what stays the same, and which origin makes the most sense for a first playthrough.</description>
+      <category>GUIDE</category>
+      <pubDate>Mon, 07 Sep 2026 15:22:52 +0000</pubDate>
+    </item>
     <item>
       <title>Cyberpunk 2077 Best Attributes and Perks for Beginners</title>
       <link>https://www.neuralcritic.net/stories/cyberpunk-2077-best-attributes-perks-beginners/</link>
@@ -25,30 +81,6 @@
       <pubDate>Mon, 07 Sep 2026 15:22:52 +0000</pubDate>
     </item>
     <item>
-      <title>Dark Souls Remastered Beginner’s Guide: What to Know Before Lordran</title>
-      <link>https://www.neuralcritic.net/stories/dark-souls-remastered-beginners-guide/</link>
-      <guid isPermaLink="true">https://www.neuralcritic.net/stories/dark-souls-remastered-beginners-guide/</guid>
-      <description>A practical Dark Souls Remastered beginner’s guide covering bonfires, Estus, leveling, equipment load, upgrades, exploration and the early lessons that make Lordran easier to understand.</description>
-      <category>GUIDE</category>
-      <pubDate>Mon, 07 Sep 2026 15:22:52 +0000</pubDate>
-    </item>
-    <item>
-      <title>The 12 Best Action RPGs</title>
-      <link>https://www.neuralcritic.net/stories/best-action-rpgs/</link>
-      <guid isPermaLink="true">https://www.neuralcritic.net/stories/best-action-rpgs/</guid>
-      <description>The best action RPGs, ranked for real-time combat, character progression, build variety and exploration — led by Elden Ring, Bloodborne and The Witcher 3.</description>
-      <category>FEATURE</category>
-      <pubDate>Mon, 07 Sep 2026 15:22:52 +0000</pubDate>
-    </item>
-    <item>
-      <title>Cyberpunk 2077 Life Paths Explained: Corpo, Nomad or Streetkid?</title>
-      <link>https://www.neuralcritic.net/stories/cyberpunk-2077-life-paths-explained/</link>
-      <guid isPermaLink="true">https://www.neuralcritic.net/stories/cyberpunk-2077-life-paths-explained/</guid>
-      <description>Cyberpunk 2077 life paths explained: what Corpo, Nomad and Streetkid change, what stays the same, and which origin makes the most sense for a first playthrough.</description>
-      <category>GUIDE</category>
-      <pubDate>Mon, 07 Sep 2026 15:22:52 +0000</pubDate>
-    </item>
-    <item>
       <title>The 12 Best Story-Driven Games</title>
       <link>https://www.neuralcritic.net/stories/best-story-driven-games/</link>
       <guid isPermaLink="true">https://www.neuralcritic.net/stories/best-story-driven-games/</guid>
@@ -57,26 +89,18 @@
       <pubDate>Sat, 05 Sep 2026 09:48:43 +0000</pubDate>
     </item>
     <item>
+      <title>Hades Review</title>
+      <link>https://www.neuralcritic.net/stories/hades-review/</link>
+      <guid isPermaLink="true">https://www.neuralcritic.net/stories/hades-review/</guid>
+      <description>Hades review covering its roguelike run structure, build variety, permanent progression, character-driven storytelling, difficulty options and lasting appeal.</description>
+      <category>REVIEW</category>
+      <pubDate>Sat, 05 Sep 2026 09:38:05 +0000</pubDate>
+    </item>
+    <item>
       <title>Ghost of Tsushima Director’s Cut Review</title>
       <link>https://www.neuralcritic.net/stories/ghost-of-tsushima-directors-cut-review/</link>
       <guid isPermaLink="true">https://www.neuralcritic.net/stories/ghost-of-tsushima-directors-cut-review/</guid>
       <description>Ghost of Tsushima Director’s Cut review covering Jin’s story, stance-based combat, open-world exploration, Iki Island, Legends and the complete package.</description>
-      <category>REVIEW</category>
-      <pubDate>Sat, 05 Sep 2026 09:38:05 +0000</pubDate>
-    </item>
-    <item>
-      <title>Sekiro: Shadows Die Twice Review</title>
-      <link>https://www.neuralcritic.net/stories/sekiro-shadows-die-twice-review/</link>
-      <guid isPermaLink="true">https://www.neuralcritic.net/stories/sekiro-shadows-die-twice-review/</guid>
-      <description>Sekiro: Shadows Die Twice review covering posture-based combat, traversal, bosses, progression, Ashina’s world design and how FromSoftware’s focus pays off.</description>
-      <category>REVIEW</category>
-      <pubDate>Sat, 05 Sep 2026 09:38:05 +0000</pubDate>
-    </item>
-    <item>
-      <title>Persona 5 Royal Review</title>
-      <link>https://www.neuralcritic.net/stories/persona-5-royal-review/</link>
-      <guid isPermaLink="true">https://www.neuralcritic.net/stories/persona-5-royal-review/</guid>
-      <description>Persona 5 Royal review covering its calendar system, turn-based combat, Confidants, Palaces, Mementos, Royal additions, long runtime and uneven pacing.</description>
       <category>REVIEW</category>
       <pubDate>Sat, 05 Sep 2026 09:38:05 +0000</pubDate>
     </item>
@@ -89,26 +113,34 @@
       <pubDate>Sat, 05 Sep 2026 09:38:05 +0000</pubDate>
     </item>
     <item>
-      <title>Hades Review</title>
-      <link>https://www.neuralcritic.net/stories/hades-review/</link>
-      <guid isPermaLink="true">https://www.neuralcritic.net/stories/hades-review/</guid>
-      <description>Hades review covering its roguelike run structure, build variety, permanent progression, character-driven storytelling, difficulty options and lasting appeal.</description>
+      <title>Persona 5 Royal Review</title>
+      <link>https://www.neuralcritic.net/stories/persona-5-royal-review/</link>
+      <guid isPermaLink="true">https://www.neuralcritic.net/stories/persona-5-royal-review/</guid>
+      <description>Persona 5 Royal review covering its calendar system, turn-based combat, Confidants, Palaces, Mementos, Royal additions, long runtime and uneven pacing.</description>
       <category>REVIEW</category>
       <pubDate>Sat, 05 Sep 2026 09:38:05 +0000</pubDate>
+    </item>
+    <item>
+      <title>Sekiro: Shadows Die Twice Review</title>
+      <link>https://www.neuralcritic.net/stories/sekiro-shadows-die-twice-review/</link>
+      <guid isPermaLink="true">https://www.neuralcritic.net/stories/sekiro-shadows-die-twice-review/</guid>
+      <description>Sekiro: Shadows Die Twice review covering posture-based combat, traversal, bosses, progression, Ashina’s world design and how FromSoftware’s focus pays off.</description>
+      <category>REVIEW</category>
+      <pubDate>Sat, 05 Sep 2026 09:38:05 +0000</pubDate>
+    </item>
+    <item>
+      <title>Dark Souls Remastered Review</title>
+      <link>https://www.neuralcritic.net/stories/dark-souls-remastered-review/</link>
+      <guid isPermaLink="true">https://www.neuralcritic.net/stories/dark-souls-remastered-review/</guid>
+      <description>Dark Souls Remastered review covering Lordran’s interconnected world, deliberate combat, progression, multiplayer and where the remaster still feels dated.</description>
+      <category>REVIEW</category>
+      <pubDate>Sat, 05 Sep 2026 09:37:49 +0000</pubDate>
     </item>
     <item>
       <title>Dark Souls III Review</title>
       <link>https://www.neuralcritic.net/stories/dark-souls-iii-review/</link>
       <guid isPermaLink="true">https://www.neuralcritic.net/stories/dark-souls-iii-review/</guid>
       <description>Dark Souls III review covering faster combat, standout bosses, build variety, world design, multiplayer, DLC and how the trilogy finale holds up today.</description>
-      <category>REVIEW</category>
-      <pubDate>Sat, 05 Sep 2026 09:37:49 +0000</pubDate>
-    </item>
-    <item>
-      <title>Clair Obscur: Expedition 33 Review</title>
-      <link>https://www.neuralcritic.net/stories/clair-obscur-expedition-33-review/</link>
-      <guid isPermaLink="true">https://www.neuralcritic.net/stories/clair-obscur-expedition-33-review/</guid>
-      <description>Clair Obscur: Expedition 33 review covering hybrid turn-based combat, party builds, exploration, story, presentation and its post-launch evolution today.</description>
       <category>REVIEW</category>
       <pubDate>Sat, 05 Sep 2026 09:37:49 +0000</pubDate>
     </item>
@@ -121,10 +153,10 @@
       <pubDate>Sat, 05 Sep 2026 09:37:49 +0000</pubDate>
     </item>
     <item>
-      <title>Dark Souls Remastered Review</title>
-      <link>https://www.neuralcritic.net/stories/dark-souls-remastered-review/</link>
-      <guid isPermaLink="true">https://www.neuralcritic.net/stories/dark-souls-remastered-review/</guid>
-      <description>Dark Souls Remastered review covering Lordran’s interconnected world, deliberate combat, progression, multiplayer and where the remaster still feels dated.</description>
+      <title>Clair Obscur: Expedition 33 Review</title>
+      <link>https://www.neuralcritic.net/stories/clair-obscur-expedition-33-review/</link>
+      <guid isPermaLink="true">https://www.neuralcritic.net/stories/clair-obscur-expedition-33-review/</guid>
+      <description>Clair Obscur: Expedition 33 review covering hybrid turn-based combat, party builds, exploration, story, presentation and its post-launch evolution today.</description>
       <category>REVIEW</category>
       <pubDate>Sat, 05 Sep 2026 09:37:49 +0000</pubDate>
     </item>
@@ -153,14 +185,6 @@
       <pubDate>Sat, 05 Sep 2026 03:55:31 +0000</pubDate>
     </item>
     <item>
-      <title>Mario Kart 8 Deluxe 200cc Guide: Braking, Drifting and Kart Setup</title>
-      <link>https://www.neuralcritic.net/stories/mario-kart-8-deluxe-200cc-guide/</link>
-      <guid isPermaLink="true">https://www.neuralcritic.net/stories/mario-kart-8-deluxe-200cc-guide/</guid>
-      <description>A practical Mario Kart 8 Deluxe 200cc guide covering braking, brake drifting, earlier turn-in, kart setup and the habits that make the fastest engine class manageable.</description>
-      <category>GUIDE</category>
-      <pubDate>Sat, 05 Sep 2026 03:55:26 +0000</pubDate>
-    </item>
-    <item>
       <title>Tears of the Kingdom Best Early Armor and Upgrades</title>
       <link>https://www.neuralcritic.net/stories/tears-of-the-kingdom-best-early-armor-upgrades/</link>
       <guid isPermaLink="true">https://www.neuralcritic.net/stories/tears-of-the-kingdom-best-early-armor-upgrades/</guid>
@@ -169,10 +193,18 @@
       <pubDate>Sat, 05 Sep 2026 03:55:26 +0000</pubDate>
     </item>
     <item>
-      <title>Breath of the Wild Best Early Armor and Essential Upgrades</title>
-      <link>https://www.neuralcritic.net/stories/breath-of-the-wild-best-early-armor-upgrades/</link>
-      <guid isPermaLink="true">https://www.neuralcritic.net/stories/breath-of-the-wild-best-early-armor-upgrades/</guid>
-      <description>The best early Breath of the Wild armor to prioritize, including practical defense, cold resistance, stealth and the Great Fairy upgrades that make early gear last longer.</description>
+      <title>Super Mario Odyssey Power Moons Explained: How Many You Need and What They Unlock</title>
+      <link>https://www.neuralcritic.net/stories/super-mario-odyssey-power-moons-explained/</link>
+      <guid isPermaLink="true">https://www.neuralcritic.net/stories/super-mario-odyssey-power-moons-explained/</guid>
+      <description>A clear Super Mario Odyssey Power Moon guide explaining how moons power the Odyssey, how many are needed for the story, and what 250, 500, 880 and 999 moons unlock.</description>
+      <category>GUIDE</category>
+      <pubDate>Sat, 05 Sep 2026 03:55:26 +0000</pubDate>
+    </item>
+    <item>
+      <title>Mario Kart 8 Deluxe 200cc Guide: Braking, Drifting and Kart Setup</title>
+      <link>https://www.neuralcritic.net/stories/mario-kart-8-deluxe-200cc-guide/</link>
+      <guid isPermaLink="true">https://www.neuralcritic.net/stories/mario-kart-8-deluxe-200cc-guide/</guid>
+      <description>A practical Mario Kart 8 Deluxe 200cc guide covering braking, brake drifting, earlier turn-in, kart setup and the habits that make the fastest engine class manageable.</description>
       <category>GUIDE</category>
       <pubDate>Sat, 05 Sep 2026 03:55:26 +0000</pubDate>
     </item>
@@ -185,10 +217,18 @@
       <pubDate>Sat, 05 Sep 2026 03:55:26 +0000</pubDate>
     </item>
     <item>
-      <title>Super Mario Odyssey Power Moons Explained: How Many You Need and What They Unlock</title>
-      <link>https://www.neuralcritic.net/stories/super-mario-odyssey-power-moons-explained/</link>
-      <guid isPermaLink="true">https://www.neuralcritic.net/stories/super-mario-odyssey-power-moons-explained/</guid>
-      <description>A clear Super Mario Odyssey Power Moon guide explaining how moons power the Odyssey, how many are needed for the story, and what 250, 500, 880 and 999 moons unlock.</description>
+      <title>The 10 Best Games You Can Finish in Under 20 Hours</title>
+      <link>https://www.neuralcritic.net/stories/best-games-under-20-hours/</link>
+      <guid isPermaLink="true">https://www.neuralcritic.net/stories/best-games-under-20-hours/</guid>
+      <description>The best games you can finish in under 20 hours, using typical main-story time rather than completionist play — from Portal 2 and Astro Bot to Stray and Firewatch.</description>
+      <category>FEATURE</category>
+      <pubDate>Sat, 05 Sep 2026 03:55:26 +0000</pubDate>
+    </item>
+    <item>
+      <title>Breath of the Wild Best Early Armor and Essential Upgrades</title>
+      <link>https://www.neuralcritic.net/stories/breath-of-the-wild-best-early-armor-upgrades/</link>
+      <guid isPermaLink="true">https://www.neuralcritic.net/stories/breath-of-the-wild-best-early-armor-upgrades/</guid>
+      <description>The best early Breath of the Wild armor to prioritize, including practical defense, cold resistance, stealth and the Great Fairy upgrades that make early gear last longer.</description>
       <category>GUIDE</category>
       <pubDate>Sat, 05 Sep 2026 03:55:26 +0000</pubDate>
     </item>
@@ -201,51 +241,11 @@
       <pubDate>Sat, 05 Sep 2026 03:55:26 +0000</pubDate>
     </item>
     <item>
-      <title>The 10 Best Games You Can Finish in Under 20 Hours</title>
-      <link>https://www.neuralcritic.net/stories/best-games-under-20-hours/</link>
-      <guid isPermaLink="true">https://www.neuralcritic.net/stories/best-games-under-20-hours/</guid>
-      <description>The best games you can finish in under 20 hours, using typical main-story time rather than completionist play — from Portal 2 and Astro Bot to Stray and Firewatch.</description>
+      <title>The 12 Best Turn-Based RPGs</title>
+      <link>https://www.neuralcritic.net/stories/best-turn-based-rpgs/</link>
+      <guid isPermaLink="true">https://www.neuralcritic.net/stories/best-turn-based-rpgs/</guid>
+      <description>The best turn-based RPGs, ranked for tactical combat, party building, progression and storytelling — from Baldur’s Gate 3 to Clair Obscur and Persona 5 Royal.</description>
       <category>FEATURE</category>
-      <pubDate>Sat, 05 Sep 2026 03:55:26 +0000</pubDate>
-    </item>
-    <item>
-      <title>Baldur’s Gate 3 Companions Guide: Who to Recruit and What They Do</title>
-      <link>https://www.neuralcritic.net/stories/baldurs-gate-3-companions-guide/</link>
-      <guid isPermaLink="true">https://www.neuralcritic.net/stories/baldurs-gate-3-companions-guide/</guid>
-      <description>A spoiler-light Baldur’s Gate 3 companions guide covering all 10 recruitable companions, their default classes, party roles and what each brings to a beginner party.</description>
-      <category>GUIDE</category>
-      <pubDate>Sat, 05 Sep 2026 03:55:18 +0000</pubDate>
-    </item>
-    <item>
-      <title>The 10 Best Games Like Baldur’s Gate 3</title>
-      <link>https://www.neuralcritic.net/stories/best-games-like-baldurs-gate-3/</link>
-      <guid isPermaLink="true">https://www.neuralcritic.net/stories/best-games-like-baldurs-gate-3/</guid>
-      <description>The 10 best games like Baldur’s Gate 3, from reactive CRPGs and party-based tactical adventures to RPGs built around companions, choices and unusual solutions.</description>
-      <category>FEATURE</category>
-      <pubDate>Sat, 05 Sep 2026 03:55:18 +0000</pubDate>
-    </item>
-    <item>
-      <title>Why Baldur’s Gate 3’s Companions Make Player Choice Feel Personal</title>
-      <link>https://www.neuralcritic.net/stories/baldurs-gate-3-companions-player-choice/</link>
-      <guid isPermaLink="true">https://www.neuralcritic.net/stories/baldurs-gate-3-companions-player-choice/</guid>
-      <description>An analysis of how Baldur’s Gate 3 uses companion relationships, approval, conflict and reactivity to make player decisions feel personal.</description>
-      <category>FEATURE</category>
-      <pubDate>Sat, 05 Sep 2026 03:55:18 +0000</pubDate>
-    </item>
-    <item>
-      <title>Baldur’s Gate 3 Best Classes for Beginners: Which Class Should You Pick?</title>
-      <link>https://www.neuralcritic.net/stories/baldurs-gate-3-best-classes-beginners/</link>
-      <guid isPermaLink="true">https://www.neuralcritic.net/stories/baldurs-gate-3-best-classes-beginners/</guid>
-      <description>The best Baldur’s Gate 3 classes for beginners, with approachable picks for melee combat, spellcasting, dialogue and exploration in the current Patch 8 version.</description>
-      <category>GUIDE</category>
-      <pubDate>Sat, 05 Sep 2026 03:55:18 +0000</pubDate>
-    </item>
-    <item>
-      <title>Baldur’s Gate 3 Difficulty Modes Explained: Which Should You Choose?</title>
-      <link>https://www.neuralcritic.net/stories/baldurs-gate-3-difficulty-modes-explained/</link>
-      <guid isPermaLink="true">https://www.neuralcritic.net/stories/baldurs-gate-3-difficulty-modes-explained/</guid>
-      <description>Baldur’s Gate 3 difficulty modes explained, including Explorer, Balanced, Tactician, Honour and Custom, plus which setting makes the most sense for a first playthrough.</description>
-      <category>GUIDE</category>
       <pubDate>Sat, 05 Sep 2026 03:55:18 +0000</pubDate>
     </item>
   </channel>

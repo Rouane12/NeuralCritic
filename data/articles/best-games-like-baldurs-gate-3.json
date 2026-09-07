@@ -26,7 +26,7 @@
       "imageAlt": "Solasta: Crown of the Magister artwork or gameplay imagery illustrating the game’s visual style.",
       "subtitle": "For players who want more D&D-style tactical combat",
       "developer": "Tactical Adventures",
-      "imageLocal": "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1788577208974-ee9f3091-079c-452b-9aba-22b7bb3a73ec-solasa-section.webp",
+      "imageLocal": "/images/editorial/1788577208974-ee9f3091-079c-452b-9aba-22b7bb3a73ec-solasa-section.webp",
       "releaseYear": "2021",
       "headingStyle": "editorial"
     },
@@ -38,7 +38,7 @@
       "imageAlt": "Wasteland 3 artwork or gameplay imagery illustrating the game’s visual style.",
       "subtitle": "Party tactics and consequential choices in a very different setting",
       "developer": "inXile Entertainment",
-      "imageLocal": "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1788577223353-b20d2c3b-9ef5-46b9-8770-e90f7ada25a8-wasteland-section.webp",
+      "imageLocal": "/images/editorial/1788577223353-b20d2c3b-9ef5-46b9-8770-e90f7ada25a8-wasteland-section.webp",
       "releaseYear": "2020",
       "headingStyle": "editorial"
     },
@@ -50,7 +50,7 @@
       "imageAlt": "Tyranny artwork or gameplay imagery illustrating the game’s visual style.",
       "subtitle": "A shorter CRPG built around consequences from the opening minutes",
       "developer": "Obsidian Entertainment",
-      "imageLocal": "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1788577240858-308f314b-2d39-46b2-8a0f-8cd3e8a3f195-tyranny-section.jpg",
+      "imageLocal": "/images/editorial/1788577240858-308f314b-2d39-46b2-8a0f-8cd3e8a3f195-tyranny-section.jpg",
       "releaseYear": "2016",
       "headingStyle": "editorial"
     },
@@ -62,7 +62,7 @@
       "imageAlt": "Disco Elysium artwork or gameplay imagery illustrating the game’s visual style.",
       "subtitle": "For players who want skill checks, dialogue, and failure to matter",
       "developer": "ZA/UM",
-      "imageLocal": "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1788577258103-b54a08b8-e22d-456d-9229-a327b7f4faa6-disco-elisium-section.webp",
+      "imageLocal": "/images/editorial/1788577258103-b54a08b8-e22d-456d-9229-a327b7f4faa6-disco-elisium-section.webp",
       "releaseYear": "2019",
       "headingStyle": "editorial"
     },
@@ -74,7 +74,7 @@
       "imageAlt": "Warhammer 40,000: Rogue Trader artwork or gameplay imagery illustrating the game’s visual style.",
       "subtitle": "A huge party-based CRPG with turn-based combat and moral pressure",
       "developer": "Owlcat Games",
-      "imageLocal": "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1788577266843-647bf016-7196-4b4a-b3d5-7ffcebd4f11b-warhammer-section-3.jpg",
+      "imageLocal": "/images/editorial/1788577266843-647bf016-7196-4b4a-b3d5-7ffcebd4f11b-warhammer-section-3.jpg",
       "releaseYear": "2023",
       "headingStyle": "editorial"
     },
@@ -86,7 +86,7 @@
       "imageAlt": "Pillars of Eternity II: Deadfire artwork or gameplay imagery illustrating the game’s visual style.",
       "subtitle": "For deep party building and a world that reacts to competing loyalties",
       "developer": "Obsidian Entertainment",
-      "imageLocal": "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1788577281741-08ecc933-05c4-41cc-8fcd-6d67c19e4f56-pillar-of-eternity-section.jpg",
+      "imageLocal": "/images/editorial/1788577281741-08ecc933-05c4-41cc-8fcd-6d67c19e4f56-pillar-of-eternity-section.jpg",
       "releaseYear": "2018",
       "headingStyle": "editorial"
     },
@@ -98,7 +98,7 @@
       "imageAlt": "Pathfinder: Wrath of the Righteous artwork or gameplay imagery illustrating the game’s visual style.",
       "subtitle": "For players who want far deeper character building and enormous campaign choices",
       "developer": "Owlcat Games",
-      "imageLocal": "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1788577303300-377aedff-e987-492f-beca-303d7a1bfa89-pathfinder-section.jpg",
+      "imageLocal": "/images/editorial/1788577303300-377aedff-e987-492f-beca-303d7a1bfa89-pathfinder-section.jpg",
       "releaseYear": "2021",
       "headingStyle": "editorial"
     },
@@ -110,7 +110,7 @@
       "imageAlt": "Dragon Age: Origins artwork or gameplay imagery illustrating the game’s visual style.",
       "subtitle": "The classic choice for companion-driven fantasy role-playing",
       "developer": "BioWare",
-      "imageLocal": "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1788577329592-a2323e2e-734a-4c5b-a761-6b3615713d43-dragon-age-section.jpg",
+      "imageLocal": "/images/editorial/1788577329592-a2323e2e-734a-4c5b-a761-6b3615713d43-dragon-age-section.jpg",
       "releaseYear": "2009",
       "headingStyle": "editorial"
     },
@@ -122,7 +122,7 @@
       "imageAlt": "Divinity: Original Sin artwork or gameplay imagery illustrating the game’s visual style.",
       "subtitle": "The earlier version of Larian’s systemic combat philosophy",
       "developer": "Larian Studios",
-      "imageLocal": "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1788577340044-93e1168c-fcae-4ef8-87e8-da18eeb83dd3-divnity-section-8.jpg",
+      "imageLocal": "/images/editorial/1788577340044-93e1168c-fcae-4ef8-87e8-da18eeb83dd3-divnity-section-8.jpg",
       "releaseYear": "2014",
       "headingStyle": "editorial"
     },
@@ -134,7 +134,7 @@
       "imageAlt": "Divinity: Original Sin 2 artwork or gameplay imagery illustrating the game’s visual style.",
       "subtitle": "The closest overall match for Larian-style freedom, tactics, and improvisation",
       "developer": "Larian Studios",
-      "imageLocal": "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1788577366870-50a914f2-a9a6-4275-94d6-bec90eb8704f-sin-2-divinity-section.jpg",
+      "imageLocal": "/images/editorial/1788577366870-50a914f2-a9a6-4275-94d6-bec90eb8704f-sin-2-divinity-section.jpg",
       "releaseYear": "2017",
       "headingStyle": "editorial"
     }
@@ -151,7 +151,7 @@
   "homepageSlot": "regular",
   "publishedAt": "2026-09-05T03:55:18.78946+00:00",
   "updatedAt": "2026-09-05T04:50:05.17336+00:00",
-  "imageLocal": "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1788577567121-7ce0467c-b679-4de2-b0e9-28d2e47a5a39-chatgpt-image-sep-5-2026-04-05-54-am.png",
+  "imageLocal": "/images/editorial/1788577567121-7ce0467c-b679-4de2-b0e9-28d2e47a5a39-chatgpt-image-sep-5-2026-04-05-54-am.webp",
   "editorialSection": "what-to-play",
   "platforms": [
     "pc",
