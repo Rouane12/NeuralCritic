@@ -72,10 +72,11 @@ def main() -> int:
 
     require(doc, "updates.neuralcritic.net", "delivery activation guide lost the dedicated sending-subdomain recommendation")
     require(doc, "unsubscribed", "delivery guide no longer documents unsubscribe handling")
-    require(doc, "outbound sending remains disabled", "delivery guide no longer states the provider activation boundary")
+    require(doc, "Activation verification — COMPLETE", "delivery guide no longer records completed provider activation verification")
+    require(doc, "Newsletter Delivery V1 is live for outbound delivery.", "delivery guide no longer states the verified live outbound boundary")
     require(doc, "Full access", "delivery guide no longer documents the provider permission required for Contacts and Segments")
 
-    print("Newsletter delivery audit passed: provider sync, admin auth/CORS, Edge auth config, and unsubscribe safeguards are present.")
+    print("Newsletter delivery audit passed: provider sync, admin auth/CORS, Edge auth config, activation state, and unsubscribe safeguards are present.")
     return 0
 
 
