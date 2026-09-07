@@ -1,13 +1,6 @@
 name: Localize editorial images
 
 on:
-  push:
-    branches: [main]
-    paths:
-      - scripts/localize_images.py
-      - .github/workflows/localize-images.yml
-      - data/articles.json
-      - data/articles/**
   workflow_dispatch:
 
 permissions:
@@ -16,22 +9,32 @@ permissions:
 jobs:
   localize:
     runs-on: ubuntu-latest
-    timeout-minutes: 10
+    timeout-minutes: 20
     steps:
       - name: Check out repository
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Synchronize checkout with current main
+        run: |
+          git fetch origin main
+          git checkout -B main origin/main
 
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
           python-version: '3.12'
 
-      - name: Download and relink editorial images
+      - name: Install image optimization dependency
+        run: python -m pip install --disable-pip-version-check Pillow
+
+      - name: Download, optimize, and relink editorial images
         run: python scripts/localize_images.py
 
       - name: Commit localized assets
         run: |
-          if git diff --quiet && [ -z "$(git status --porcelain images 2>/dev/null)" ]; then
+          if git diff --quiet -- data images && [ -z "$(git status --porcelain -- data images)" ]; then
             echo "No image migration changes to commit."
             exit 0
           fi
@@ -39,4 +42,5 @@ jobs:
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add data images
           git commit -m "Localize Neural Critic editorial images"
+          git pull --rebase origin main
           git push
