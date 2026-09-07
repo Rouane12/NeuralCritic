@@ -1,0 +1,156 @@
+{
+  "id": "0685c81e-2c95-4190-9be3-7075efb4aeea",
+  "slug": "best-action-rpgs",
+  "title": "The 12 Best Action RPGs",
+  "description": "The best action RPGs, ranked for real-time combat, character progression, build variety and exploration — led by Elden Ring, Bloodborne and The Witcher 3.",
+  "body": "Action RPG is a broad label, but the strongest games in the category share one idea: character growth matters because the player has to express that growth in real time. Better equipment, new abilities, and stronger builds only become interesting when movement, timing, positioning, and combat decisions make those systems visible.\\n\\nNeural Critic’s ranking favors action RPGs where combat and progression strengthen each other rather than games that simply attach a skill tree to an action adventure.\n\nFor deeper coverage of the top-ranked game, read our [Elden Ring review](/stories/elden-ring-review-monumental-open-world/) and [Elden Ring beginner’s guide](/stories/elden-ring-beginners-guide/).",
+  "category": "FEATURE",
+  "author": "Rouane Mounssif",
+  "tags": [
+    "Action RPG",
+    "Best RPGs",
+    "Best Games",
+    "RPG",
+    "What to Play"
+  ],
+  "imageAlt": "A Tarnished stands beneath the glowing Erdtree in Elden Ring, framed by golden branches, ruined stone structures and the Lands Between below.",
+  "imageCredit": "Neural Critic / Elden Ring gameplay screenshot.",
+  "articleFormat": "ranked-list",
+  "reviewMeta": {},
+  "contentBlocks": [
+    {
+      "rank": "12",
+      "text": "Diablo IV remains one of the clearest examples of the loot-driven action RPG. Skills, gear interactions, class identity, and increasingly specialized builds give combat a strong sense of forward motion. Its live structure will keep changing around the edges, but the core appeal is straightforward: every session gives the player another opportunity to make a character more efficient and expressive.",
+      "heading": "Diablo IV",
+      "subtitle": "Fast combat built around the pleasure of refining a build",
+      "developer": "Blizzard Entertainment",
+      "releaseYear": "2023",
+      "headingStyle": "editorial"
+    },
+    {
+      "rank": "11",
+      "text": "Dragon’s Dogma 2 is at its best when a journey goes wrong in an interesting way. Vocations create distinct combat roles, Pawns shape the party around the player, and large enemies turn terrain and positioning into part of the fight. Its friction is deliberate, sometimes excessively so, but few action RPGs make travel, combat, and character growth feel this physically connected.",
+      "heading": "Dragon’s Dogma 2",
+      "subtitle": "Party-based exploration where preparation matters as much as execution",
+      "developer": "Capcom",
+      "releaseYear": "2024",
+      "headingStyle": "editorial"
+    },
+    {
+      "rank": "10",
+      "text": "Black Myth: Wukong places much of its weight on direct combat, but its transformations, spells, equipment, and skill choices give the player enough room to shape how those fights unfold. The result sits closer to an action game than some entries here, yet progression remains substantial enough to make preparation and build decisions matter alongside execution.",
+      "heading": "Black Myth: Wukong",
+      "subtitle": "Boss-focused action supported by meaningful progression",
+      "developer": "Game Science",
+      "releaseYear": "2024",
+      "headingStyle": "editorial"
+    },
+    {
+      "rank": "9",
+      "text": "Monster Hunter Wilds treats weapon knowledge as a form of long-term progression. Gear matters, but so does learning a moveset deeply enough to recognize when to attack, reposition, or commit to a longer animation. Hunts create a satisfying loop of preparation, execution, and crafting that makes the next encounter feel easier because both the character and the player have improved.",
+      "heading": "Monster Hunter Wilds",
+      "subtitle": "An action RPG where mastering a weapon is character progression",
+      "developer": "Capcom",
+      "releaseYear": "2025",
+      "headingStyle": "editorial"
+    },
+    {
+      "rank": "8",
+      "text": "Nioh 3 extends Team Ninja’s action-RPG identity around weapon mastery, timing, and build construction. Its combat asks more from the player than most games on this list, but that density is exactly what makes experimentation rewarding. Players who enjoy learning systems rather than simply raising damage numbers will find one of the genre’s deepest modern combat sandboxes.",
+      "heading": "Nioh 3",
+      "subtitle": "A demanding combat system built for mechanical experimentation",
+      "developer": "Team Ninja",
+      "releaseYear": "2026",
+      "headingStyle": "editorial"
+    },
+    {
+      "rank": "7",
+      "text": "Dark Souls III compresses many of the series’ strengths into a faster and more directed adventure. Weapons and builds remain varied, but bosses are where the game’s identity becomes clearest: timing, spacing, stamina, and pattern recognition are constantly tested. It lacks Elden Ring’s freedom, but its concentration gives the campaign a distinctive momentum.",
+      "heading": "Dark Souls III",
+      "subtitle": "FromSoftware’s most focused Dark Souls combat",
+      "developer": "FromSoftware",
+      "releaseYear": "2016",
+      "headingStyle": "editorial"
+    },
+    {
+      "rank": "6",
+      "text": "NieR: Automata combines fluid combat with chips, weapons, levels, and customization, but its real strength is how willing it is to change perspective and structure around the player. The RPG systems are accessible rather than overwhelmingly deep, which lets the action support a much larger narrative experiment without getting in the way.",
+      "heading": "NieR: Automata",
+      "subtitle": "Action-RPG systems serving a game that keeps changing form",
+      "developer": "PlatinumGames",
+      "releaseYear": "2017",
+      "headingStyle": "editorial"
+    },
+    {
+      "rank": "5",
+      "text": "Hades turns repeated runs into both mechanical and narrative progression. Boons reshape a build from attempt to attempt, permanent upgrades gradually widen the player’s options, and conversations make returning to the hub feel like part of the reward. It is a roguelike first, but the way character growth and story accumulate gives it a strong place in the action-RPG conversation.",
+      "heading": "Hades",
+      "subtitle": "A run-based action RPG where failure still builds momentum",
+      "developer": "Supergiant Games",
+      "releaseYear": "2020",
+      "headingStyle": "editorial"
+    },
+    {
+      "rank": "4",
+      "text": "Cyberpunk 2077’s rebuilt progression model gives weapons, cyberware, attributes, and perks a clearer relationship than they had at launch. A stealth-focused netrunner and an aggressive close-range build can approach the same space very differently, while Night City gives those choices an unusually dense setting. Its strongest modern form finally lets build identity match the ambition of the world.",
+      "heading": "Cyberpunk 2077",
+      "subtitle": "A flexible first-person RPG with a much stronger modern progression system",
+      "developer": "CD PROJEKT RED",
+      "releaseYear": "2020",
+      "headingStyle": "editorial"
+    },
+    {
+      "rank": "3",
+      "text": "The Witcher 3 remains important because combat is only one part of its role-playing. Signs, alchemy, equipment, preparation, and character skills support a world where quests and consequences carry much of the emotional weight. Its fighting is less precise than the games above it, but the combination of progression, exploration, and authored storytelling remains difficult to match.",
+      "heading": "The Witcher 3: Wild Hunt",
+      "subtitle": "Quest writing and role-playing weight inside an action-RPG structure",
+      "developer": "CD PROJEKT RED",
+      "releaseYear": "2015",
+      "headingStyle": "editorial"
+    },
+    {
+      "rank": "2",
+      "text": "Bloodborne takes familiar FromSoftware ideas and changes their rhythm. Regain rewards immediate counter-pressure, firearms reshape defensive timing, and trick weapons give individual movesets enormous personality. Character builds still matter, but the game’s greatest achievement is making aggression feel like a strategic decision rather than simply a faster way to play.",
+      "heading": "Bloodborne",
+      "subtitle": "Aggressive combat transforms the Souls formula",
+      "developer": "FromSoftware",
+      "releaseYear": "2015",
+      "headingStyle": "editorial"
+    },
+    {
+      "rank": "1",
+      "text": "Elden Ring takes the top spot because its combat and progression are inseparable from exploration. A new weapon, spell, Spirit Ash, talisman, or route can completely change how a difficult encounter feels. The world gives players enough freedom to leave, experiment, rebuild, and return stronger, turning character progression into part of the act of discovery itself.",
+      "heading": "Elden Ring",
+      "subtitle": "The strongest combination of action, builds, and exploration",
+      "developer": "FromSoftware",
+      "releaseYear": "2022",
+      "headingStyle": "editorial"
+    }
+  ],
+  "quickRead": [
+    "Elden Ring ranks first for combining real-time combat, build freedom and open-ended exploration better than any other action RPG.",
+    "Bloodborne remains FromSoftware’s sharpest aggressive combat system, while The Witcher 3 excels through role-playing and quest design.",
+    "Cyberpunk 2077, Hades, Monster Hunter Wilds and Nioh 3 show how broad the action-RPG label has become."
+  ],
+  "conclusion": "The best action RPGs make progression visible in the player’s hands. A stronger build should change decisions, movement, timing, preparation, or the way a space is approached. Elden Ring does this across an enormous world, while Bloodborne proves how much identity can come from a tightly defined combat philosophy.\\n\\nBecause the category is so broad, Neural Critic’s ranking will continue to judge action RPGs by the relationship between systems and execution rather than by one narrow genre template.",
+  "conclusionHeading": "Progression matters most when it changes how you play",
+  "conclusionHeadingStyle": "editorial",
+  "featured": false,
+  "homepageSlot": "regular",
+  "publishedAt": "2026-09-07T15:22:52.860659+00:00",
+  "updatedAt": "2026-09-07T15:22:52.860659+00:00",
+  "imageLocal": "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1788025565917-72a0d1a0-a227-4ed8-8654-7336912c4915-main-elden-rang.jpg",
+  "editorialSection": "what-to-play",
+  "platforms": [
+    "pc",
+    "playstation",
+    "xbox",
+    "nintendo"
+  ],
+  "collection": "best-games",
+  "collectionYear": 2026,
+  "gameKey": "",
+  "series": "",
+  "franchise": "",
+  "newsMeta": {}
+}

@@ -1,0 +1,95 @@
+{
+  "id": "762aa65c-68b4-4580-9336-50c107b5b3fa",
+  "slug": "dark-souls-remastered-beginners-guide",
+  "title": "Dark Souls Remastered Beginner’s Guide: What to Know Before Lordran",
+  "description": "A practical Dark Souls Remastered beginner’s guide covering bonfires, Estus, leveling, equipment load, upgrades, exploration and the early lessons that make Lordran easier to understand.",
+  "body": "Dark Souls Remastered is difficult less because it demands perfect reflexes and more because it expects you to notice how its systems fit together. Bonfires, stamina, equipment load, healing, souls, upgrades and world shortcuts all matter, but the game explains many of them only briefly.\n\nThe best first-playthrough mindset is to slow down. Learn one route at a time, spend resources before taking unnecessary risks, and treat every difficult encounter as information rather than proof that your character is permanently underpowered. Lordran becomes much more manageable once you understand what the game is asking you to observe.\n\nFor a closer look at why Lordran is still so memorable to navigate, read [why Dark Souls Remastered still defines interconnected world design](/stories/dark-souls-remastered-interconnected-world-design/).",
+  "category": "GUIDE",
+  "author": "Rouane Mounssif",
+  "tags": [
+    "Dark Souls Remastered",
+    "FromSoftware",
+    "Dark Souls",
+    "Beginner Guide",
+    "Soulslike",
+    "RPG"
+  ],
+  "imageAlt": "Official Dark Souls Remastered promotional artwork used as the feature image for Neural Critic’s beginner guide.",
+  "imageCredit": "Official promotional image",
+  "articleFormat": "game-guide",
+  "reviewMeta": {},
+  "contentBlocks": [
+    {
+      "text": "Bonfires are the basic rhythm of Dark Souls. Resting restores health and Estus, lets you manage several progression systems, and creates a safe point to plan the next stretch of exploration.\n\nThe tradeoff is that resting also brings most ordinary enemies back. That means a bonfire is not simply a way to erase everything you just did; it is a reset point from which you learn a route more efficiently.\n\nWhen you reach a new bonfire, take a moment to spend souls, review equipment and think about what you learned on the previous path before moving on.",
+      "heading": "Bonfires Are More Than Checkpoints",
+      "headingStyle": "editorial"
+    },
+    {
+      "text": "Attacking, blocking, dodging and sprinting all depend on stamina. Emptying the bar because you wanted one extra action can leave you without enough room to respond when the situation changes.\n\nA strong beginner habit is to leave some stamina in reserve. You do not need to act every second. Create space, let the bar recover and commit only when you understand what the next action will cost.\n\nThat rhythm is one of the biggest differences between Dark Souls and faster action games: patience is part of the combat system.",
+      "heading": "Treat Stamina as a Resource, Not an Afterthought",
+      "headingStyle": "editorial"
+    },
+    {
+      "text": "Armor and equipment contribute to your overall load, which affects movement and dodging. Heavier equipment can offer more protection, but the tradeoff matters if the character becomes too slow for the way you prefer to play.\n\nDo not assume the item with the largest defensive number is automatically the best choice. Try different combinations and pay attention to how quickly you can reposition and recover.\n\nFor a beginner, comfort and consistency are more valuable than chasing a theoretical maximum from gear you do not enjoy using.",
+      "heading": "Equipment Load Changes How the Character Feels",
+      "headingStyle": "editorial"
+    },
+    {
+      "text": "Souls function as both experience and currency. When you die, the souls you were carrying remain at the place you fell, and you have a chance to recover them before another death removes that opportunity.\n\nThe simplest way to reduce frustration is to avoid carrying more than you are comfortable losing. If you are close to a level or an important purchase, handle that before walking into an unexplored area or a major encounter.\n\nLosing souls hurts, but it does not erase shortcuts, items, bonfires or what you learned about the route.",
+      "heading": "Spend Souls Before Exploring Somewhere Dangerous",
+      "headingStyle": "editorial"
+    },
+    {
+      "text": "Dark Souls offers many weapons, armor sets and character builds, but beginners often make progression harder by constantly switching before they understand any one setup.\n\nIf a piece of equipment feels reliable, upgrading it can produce a more noticeable improvement than waiting for a supposedly perfect replacement. The game is designed around many viable combinations rather than one mandatory answer.\n\nLearn the timing, reach and stamina cost of what you already use, then change when you have a clear reason rather than because another item looks rarer or more dramatic.",
+      "heading": "Upgrade Equipment You Already Understand",
+      "headingStyle": "editorial"
+    },
+    {
+      "text": "The character sheet contains enough attributes to make a new player feel as if everything needs improvement. It does not. Raise the stats that support survivability and the equipment or magic you actually intend to use.\n\nScattering levels across unrelated attributes makes it harder to feel the benefit of each investment and can leave your character without a clear strength.\n\nA focused first character is easier to understand. Once you know how scaling and requirements work, later playthroughs are the right time to experiment with stranger combinations.",
+      "heading": "Do Not Spread Levels Across Every Stat",
+      "headingStyle": "editorial"
+    },
+    {
+      "text": "Lordran is built around interconnection. A locked door, elevator or side passage can eventually turn a long dangerous route into a short trip from a bonfire.\n\nThat means exploration is part of progression. When a path feels exhausting, look for doors, ladders, lifts and alternate routes rather than assuming the solution is always another character level.\n\nNeural Critic’s existing feature on Dark Souls’ interconnected world design goes deeper into why this structure matters, but the beginner lesson is simple: a shortcut can be as valuable as a piece of equipment.",
+      "heading": "Explore for Shortcuts, Not Just the Next Boss",
+      "headingStyle": "editorial"
+    },
+    {
+      "text": "Estus is limited between rests, so healing works best when you create enough space to finish the animation safely. Trying to heal the instant you take damage can turn one mistake into several.\n\nWatch the situation first. Move to a safer position, wait for a clear opening and then recover. The goal is not to preserve every flask forever; it is to spend healing when it actually stabilizes the situation.\n\nAs you become more familiar with an area, you will naturally use less Estus because you know where the real risks are.",
+      "heading": "Use Estus Deliberately",
+      "headingStyle": "editorial"
+    },
+    {
+      "text": "Dark Souls gives you enough freedom that a new player can sometimes wander into an area that is much harsher than the most natural early path. The game rarely puts up a sign telling you to leave.\n\nIf ordinary enemies are taking far more effort than everything you were fighting before, consider exploring somewhere else. Difficulty can be information about the world rather than a command to keep forcing the same route.\n\nBacking away is not failure. It is part of learning how Lordran is organized.",
+      "heading": "If a Route Feels Wrong, Reconsider the Route",
+      "headingStyle": "editorial"
+    },
+    {
+      "text": "A death usually tells you something specific: an attack timing was unfamiliar, you ran out of stamina, you did not notice an enemy, or you entered an area without understanding its layout.\n\nTry to identify that lesson before immediately repeating the same approach. Dark Souls becomes less frustrating when every return trip has a purpose — recover souls, test a different route, manage stamina more carefully or simply observe one enemy before committing.\n\nThe game’s official description emphasizes learning, mastery and accomplishment, and that progression is as much about player knowledge as character statistics.",
+      "heading": "Death Is the Game’s Feedback Loop",
+      "headingStyle": "editorial"
+    }
+  ],
+  "quickRead": [],
+  "conclusion": "Dark Souls Remastered becomes far easier to read once you treat patience, observation and route knowledge as forms of progression. Use bonfires deliberately, protect your stamina, keep equipment load comfortable, spend souls before unnecessary risks and strengthen a setup you already understand.\n\nMost importantly, let the world teach you. A newly opened shortcut, a safer healing window or the realization that you chose the wrong route can matter more than another level. Lordran is difficult, but it is also remarkably consistent once you learn how to listen to what its systems are telling you.",
+  "conclusionHeading": "The bottom line",
+  "conclusionHeadingStyle": "editorial",
+  "featured": false,
+  "homepageSlot": "regular",
+  "publishedAt": "2026-09-07T15:22:52.860659+00:00",
+  "updatedAt": "2026-09-07T15:22:52.860659+00:00",
+  "imageLocal": "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1788578716993-e3477912-7067-423b-8666-891e7af0f8ab-darek-souls.jpg",
+  "editorialSection": "guides",
+  "platforms": [
+    "pc",
+    "playstation",
+    "xbox",
+    "nintendo"
+  ],
+  "collection": null,
+  "collectionYear": null,
+  "gameKey": "Dark Souls Remastered",
+  "series": "Dark Souls",
+  "franchise": "Dark Souls",
+  "newsMeta": {}
+}

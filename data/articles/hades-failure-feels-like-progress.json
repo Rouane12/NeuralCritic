@@ -1,0 +1,85 @@
+{
+  "id": "27d6a8bb-a5cc-4efd-97ec-dc4e971f9cc0",
+  "slug": "hades-failure-feels-like-progress",
+  "title": "Why Hades Makes Failure Feel Like Progress",
+  "description": "An analysis of how Hades connects repeated runs, character dialogue, permanent progression and narrative change so defeat still moves the experience forward.",
+  "body": "Hades makes failure feel like progress because defeat does not erase the experience that happened before it. A failed escape attempt still produces resources, new dialogue, character reactions, knowledge about encounters and changes back at the House of Hades.\n\nThat structure solves one of the hardest problems in run-based games: repetition can feel like lost time when only victory matters. Hades instead makes returning home part of the story. The loop is not attempt, failure, reset. It is attempt, consequence, conversation, improvement and another attempt.",
+  "category": "FEATURE",
+  "author": "Rouane Mounssif",
+  "tags": [
+    "Hades",
+    "Supergiant Games",
+    "Roguelike",
+    "Progression",
+    "Game Design",
+    "Feature"
+  ],
+  "imageAlt": "Hades promotional artwork used as the feature image for Neural Critic’s analysis of how repeated runs turn failure into progress.",
+  "imageCredit": "",
+  "articleFormat": "standard",
+  "reviewMeta": {},
+  "contentBlocks": [
+    {
+      "text": "In many games, defeat interrupts the narrative. In Hades, it returns Zagreus to one of the narrative’s most important locations. The House of Hades contains characters, relationships, upgrades and conversations that only become available because another escape attempt has ended. Failure therefore moves the player from one type of progress into another instead of stopping progress completely.",
+      "heading": "Death Is the Door Back Into the Story",
+      "headingStyle": "editorial"
+    },
+    {
+      "text": "Returning home is rarely identical. Characters may have new conversations, subplots can advance, rooms can change through the House Contractor and relationships develop over repeated meetings. Supergiant’s own update notes repeatedly describe thousands of new voice lines and contextual events added across development, reflecting how central repeated return visits are to the game’s narrative structure.",
+      "heading": "The House Changes Between Attempts",
+      "headingStyle": "editorial"
+    },
+    {
+      "text": "A run can end without reaching the surface and still leave the player stronger or more flexible. Darkness supports Mirror upgrades, keys expand options, resources unlock systems and repeated play opens more weapon and progression choices. That long-term layer means an unsuccessful attempt can still improve the next one without guaranteeing that the next run becomes trivial.",
+      "heading": "Permanent Progress Gives Failure Mechanical Value",
+      "headingStyle": "editorial"
+    },
+    {
+      "text": "The player also carries something the save file does not need to measure: understanding. Enemy patterns become familiar, room priorities become clearer, Boon combinations make more sense and risky decisions become easier to judge. Hades rewards that learning because repeated environments are stable enough to understand while individual run details vary enough to demand adaptation.",
+      "heading": "Knowledge Is Its Own Form of Progression",
+      "headingStyle": "editorial"
+    },
+    {
+      "text": "Each run reshuffles opportunities through Boons, chamber rewards and other choices. That randomness prevents the escape route from becoming a memorized script, but the player is still moving toward long-term goals. The strongest runs feel improvised rather than predetermined, while permanent systems ensure the broader experience continues to accumulate meaning.",
+      "heading": "Randomness Creates Variation Without Erasing Direction",
+      "headingStyle": "editorial"
+    },
+    {
+      "text": "Hades frequently gives characters contextual responses to what has happened. A recent encounter, a relationship milestone or another failed attempt can produce a new line or conversation. Supergiant describes the game as one where players can continue discovering story events across dozens or even hundreds of hours. That reactivity makes repetition feel noticed rather than ignored.",
+      "heading": "Characters Make Repetition Feel Acknowledged",
+      "headingStyle": "editorial"
+    },
+    {
+      "text": "The loop is not a compromise between gameplay and narrative. It is the premise. Zagreus repeatedly trying to leave the Underworld gives the structure a story reason to restart, while the repeated returns create time for family tensions and relationships to evolve. The narrative therefore benefits from the same repetition that powers the roguelike systems.",
+      "heading": "The Story Needs Repetition to Make Sense",
+      "headingStyle": "editorial"
+    },
+    {
+      "text": "Hades gradually changes what “success” means. A run can be worthwhile because a new region was reached, a resource was earned, a relationship advanced, a build idea worked or a difficult encounter became easier to read. By giving the player several overlapping definitions of progress, the game prevents one loss condition from deciding whether the last twenty minutes mattered.",
+      "heading": "Progress Is Measured in More Than Successful Escapes",
+      "headingStyle": "editorial"
+    }
+  ],
+  "quickRead": [],
+  "conclusion": "Hades makes repeated attempts satisfying by refusing to treat an unsuccessful run as wasted time. The player returns with resources, knowledge and new narrative possibilities, while the House responds with conversations and changes that make the loop feel continuous.\n\nThe result is a roguelike structure where failure is not the opposite of progress. It is one of the main ways progress happens. That design turns repetition from a punishment into the engine that connects combat, character development and story.",
+  "conclusionHeading": "Failure works because the game remembers it",
+  "conclusionHeadingStyle": "editorial",
+  "featured": false,
+  "homepageSlot": "regular",
+  "publishedAt": "2026-09-07T15:22:52.860659+00:00",
+  "updatedAt": "2026-09-07T15:22:52.860659+00:00",
+  "imageLocal": "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1788578293841-7489bd55-9900-4b18-842e-ef557eefb62f-hades-failure.jpg",
+  "editorialSection": "features",
+  "platforms": [
+    "pc",
+    "playstation",
+    "xbox",
+    "nintendo"
+  ],
+  "collection": null,
+  "collectionYear": null,
+  "gameKey": "Hades",
+  "series": "Hades",
+  "franchise": "Hades",
+  "newsMeta": {}
+}

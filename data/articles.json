@@ -1,5 +1,512 @@
 [
   {
+    "id": "be0f9ec2-19bf-4396-80a3-5ca45dbf3b2c",
+    "slug": "cyberpunk-2077-life-paths-explained",
+    "title": "Cyberpunk 2077 Life Paths Explained: Corpo, Nomad or Streetkid?",
+    "description": "Cyberpunk 2077 life paths explained: what Corpo, Nomad and Streetkid change, what stays the same, and which origin makes the most sense for a first playthrough.",
+    "body": "Cyberpunk 2077 asks you to choose between Corpo, Nomad and Streetkid before you have seen much of Night City. The choice looks like a class system, but it is better understood as V’s background. Your life path changes the opening, adds recurring dialogue options and gives some scenes a different perspective, but it does not lock you into a combat build or a separate main campaign.\n\nThat means there is no mechanically mandatory “best” life path. Pick the version of V whose relationship with Night City sounds most interesting to you: an insider from the corporate world, an outsider arriving from beyond the city, or someone who already knows its streets.\n\nIf you are still learning Night City’s broader systems, start with our [Cyberpunk 2077 beginner’s guide](/stories/cyberpunk-2077-beginners-guide/). Once you are ready to shape V mechanically, our [attributes and perks beginner guide](/stories/cyberpunk-2077-best-attributes-perks-beginners/) explains the modern progression system.",
+    "category": "GUIDE",
+    "author": "Rouane Mounssif",
+    "tags": [
+      "Cyberpunk 2077",
+      "CD Projekt Red",
+      "Life Paths",
+      "Corpo",
+      "Nomad",
+      "Streetkid",
+      "Guide"
+    ],
+    "imageAlt": "Cyberpunk 2077 promotional artwork used as the feature image for Neural Critic’s guide to the Corpo, Nomad and Streetkid life paths.",
+    "imageCredit": "",
+    "articleFormat": "game-guide",
+    "reviewMeta": {},
+    "contentBlocks": [
+      {
+        "text": "Each life path gives V a different prologue before the main storyline converges. After that, the paths share the same central campaign, but background-specific dialogue choices continue to appear in conversations.\n\nThose options can add context, let V recognize details that another background might miss, or change the tone of a response. They are best thought of as role-playing knowledge rather than a permanent gameplay bonus.\n\nYour life path does not decide whether V becomes a hacker, a close-range fighter, a stealth-focused character or something else. The attribute and perk systems remain separate from the origin you choose.",
+        "heading": "What Does a Life Path Actually Change?",
+        "headingStyle": "editorial"
+      },
+      {
+        "text": "Nomad begins outside Night City, making it the easiest background to recommend to players who want V’s knowledge to grow alongside their own. The opening frames the city as somewhere you are entering rather than somewhere your character already understands.\n\nThat makes unfamiliar districts, factions and customs feel natural from a role-playing perspective. Nomad-specific dialogue tends to reflect experience with life beyond the city and with the communities that exist outside its corporate center.\n\nChoose Nomad if you like the idea of arriving with fewer assumptions and discovering Night City as an outsider.",
+        "heading": "Nomad — The Outsider’s View of Night City",
+        "headingStyle": "editorial"
+      },
+      {
+        "text": "Streetkid starts from the opposite position. This V has a personal relationship with Night City and speaks like someone who understands its neighborhoods, reputations and informal rules.\n\nThe background fits players who want their protagonist to feel immediately embedded in the setting. Streetkid dialogue can make V sound more familiar with local people and situations without changing the fundamental shape of the campaign.\n\nChoose it if you want Night City to feel like V’s home rather than a new environment.",
+        "heading": "Streetkid — V Already Knows the City",
+        "headingStyle": "editorial"
+      },
+      {
+        "text": "Corpo begins inside the powerful corporate structure that shapes much of Cyberpunk 2077’s world. This version of V understands the language, pressure and internal politics of that environment from personal experience.\n\nCorpo-specific dialogue can therefore give conversations a sharper insider perspective when corporations, contracts or professional power games are involved.\n\nIt is a strong choice if you want the story to carry an additional contrast between where V starts and the much less controlled life that follows.",
+        "heading": "Corpo — The Corporate Insider",
+        "headingStyle": "editorial"
+      },
+      {
+        "text": "No. Your life path and your character build are separate decisions. Corpo does not force an Intelligence-focused character, Nomad does not force a physical build, and Streetkid does not commit you to stealth or any particular combat style.\n\nCyberpunk 2077’s modern progression system is built around five attributes and their perk trees, while cyberware has become another major part of build identity since Update 2.0. You can develop any of those systems regardless of your origin.\n\nThis is the main reason beginners should not choose a life path based on a build guide.",
+        "heading": "Does Life Path Change Your Build?",
+        "headingStyle": "editorial"
+      },
+      {
+        "text": "They create different beginnings and recurring moments of flavor rather than three separate campaigns. Once the prologue has done its job, the major story structure comes together.\n\nThat does not make the choice meaningless. Background dialogue can change how V reads a situation and can make the same scene feel different across playthroughs. But you should not expect three entirely different questlines from choosing three origins.\n\nThink of life path as the lens through which V enters the same larger story.",
+        "heading": "Do Life Paths Create Different Main Stories?",
+        "headingStyle": "editorial"
+      },
+      {
+        "text": "Nomad has a small role-playing advantage for newcomers because both player and character are approaching Night City from the outside. Streetkid is best if you want V to feel at home in the city immediately, while Corpo is the strongest contrast if you are interested in the setting’s corporate power structures.\n\nNone is objectively stronger in the progression system. The best first choice is simply the one whose starting identity makes you most curious about the character you are going to play.\n\nIf you return for another run, changing life path is a useful way to give familiar conversations a slightly different perspective without rebuilding the entire game.",
+        "heading": "Which Life Path Is Best for a First Playthrough?",
+        "headingStyle": "editorial"
+      }
+    ],
+    "quickRead": [],
+    "conclusion": "Choose Nomad, Streetkid or Corpo for the version of V you want to inhabit, not for a hidden statistical advantage. Life paths shape the opening and add background-specific dialogue, but the modern Cyberpunk 2077 build system remains open regardless of origin.\n\nFor a newcomer, Nomad offers the most natural discovery arc, Streetkid provides immediate familiarity with Night City, and Corpo gives you an insider’s view of its corporate machinery. All three lead into the same larger campaign, so there is no wrong first choice.",
+    "conclusionHeading": "The bottom line",
+    "conclusionHeadingStyle": "editorial",
+    "featured": false,
+    "homepageSlot": "regular",
+    "publishedAt": "2026-09-07T15:22:52.860659+00:00",
+    "updatedAt": "2026-09-07T15:22:52.860659+00:00",
+    "imageLocal": "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1788578549875-18c21fd5-bf22-4f9a-b35e-8e79fa1cbbba-life-path-section.webp",
+    "editorialSection": "guides",
+    "platforms": [
+      "pc",
+      "playstation",
+      "xbox",
+      "nintendo"
+    ],
+    "collection": null,
+    "collectionYear": null,
+    "gameKey": "Cyberpunk 2077",
+    "series": "Cyberpunk",
+    "franchise": "Cyberpunk",
+    "newsMeta": {}
+  },
+  {
+    "id": "88848f62-5994-4b02-be28-61d52a341787",
+    "slug": "cyberpunk-2077-best-attributes-perks-beginners",
+    "title": "Cyberpunk 2077 Best Attributes and Perks for Beginners",
+    "description": "Cyberpunk 2077 beginner attributes and perks explained, including Body, Reflexes, Technical Ability, Intelligence and Cool, plus a flexible early-game progression plan for Update 2.0 and later.",
+    "body": "Cyberpunk 2077’s current progression system is much easier to understand once you stop trying to raise every attribute at the same time. Update 2.0 rebuilt the perk trees around fewer, more meaningful abilities, and the best beginner approach is to choose a small number of attributes that support how you actually play.\n\nFor most new players, Body and Technical Ability are the safest flexible foundations because they support survivability and cyberware investment. After that, choose one primary direction — mobility, hacking, stealth or another playstyle — instead of spreading points evenly across all five attributes.\n\nFor the broader first-playthrough basics, see our [Cyberpunk 2077 beginner’s guide](/stories/cyberpunk-2077-beginners-guide/). If you are still deciding what kind of V you want to role-play before building the character, our [life paths guide](/stories/cyberpunk-2077-life-paths-explained/) explains Corpo, Nomad and Streetkid.",
+    "category": "GUIDE",
+    "author": "Rouane Mounssif",
+    "tags": [
+      "Cyberpunk 2077",
+      "CD Projekt Red",
+      "Attributes",
+      "Perks",
+      "Builds",
+      "Beginner Guide"
+    ],
+    "imageAlt": "Cyberpunk 2077 promotional artwork used as the feature image for Neural Critic’s beginner attributes and perks guide.",
+    "imageCredit": "",
+    "articleFormat": "game-guide",
+    "reviewMeta": {},
+    "contentBlocks": [
+      {
+        "text": "Cyberpunk 2077 has five core attributes: Body, Reflexes, Technical Ability, Intelligence and Cool. Each attribute opens access to its own perk tree as you invest more points, and those perks are now designed around meaningful abilities rather than tiny percentage increases.\n\nCD Projekt Red’s Update 2.0 also made perks much easier to experiment with. Individual perk points can be refunded for free outside combat, while attributes are a more permanent commitment because the game gives you only a one-time full attribute reset.\n\nThat distinction is the most important beginner rule: experiment freely with perks, but spend attribute points with a plan.",
+        "heading": "How Attributes and Perks Work After Update 2.0",
+        "headingStyle": "editorial"
+      },
+      {
+        "text": "Body is the easiest attribute to recommend when you are still learning the game because it supports survivability and physical resilience. The tree includes abilities built around staying active under pressure and improving durability.\n\nA few early Body points give you more room to make mistakes while you learn enemy behavior, cyberware and movement. That value is useful even if Body does not become your main endgame identity.\n\nBeginners do not need to maximize it immediately. Think of Body as a foundation you can invest in until your character stops feeling fragile, then redirect points toward the playstyle you enjoy most.",
+        "heading": "Body — The Safest Beginner Investment",
+        "headingStyle": "editorial"
+      },
+      {
+        "text": "Technical Ability became much more central after Update 2.0 because cyberware is now a core part of character progression. CD Projekt Red moved most armor away from clothing and made cyberware capacity an important limit on how much technology V can install.\n\nThe Technical Ability tree supports that system and can improve how much value you get from cyberware-focused progression. That makes it one of the most broadly useful attributes even for players who are not building around a single narrow combat style.\n\nFor a flexible first character, pairing some Technical Ability with enough Body to stay comfortable gives you a strong base before specializing.",
+        "heading": "Technical Ability — Cyberware Makes This More Valuable Than It Looks",
+        "headingStyle": "editorial"
+      },
+      {
+        "text": "Reflexes is built around mobility and fast repositioning. Its perk tree can unlock movement abilities that make navigating fights and the open world feel dramatically more fluid.\n\nCD Projekt Red’s own post-2.0 build guidance highlights Dash as an important early Reflexes unlock, which shows how strongly the attribute changes the way V moves rather than simply adding passive numbers.\n\nChoose Reflexes as a major investment if movement, quick repositioning and an active combat rhythm are what you enjoy most. If you prefer hacking or slower stealth, it can remain a secondary attribute instead.",
+        "heading": "Reflexes — Best If Movement Is Central to Your Playstyle",
+        "headingStyle": "editorial"
+      },
+      {
+        "text": "Intelligence is the main progression path for players who want hacking to define their character. Update 2.0 rebuilt netrunning around new perk interactions, including Overclock and more deliberate quickhack management.\n\nThis is the attribute to prioritize when you want digital tools and remote control to solve a large share of encounters. If that is not your preferred style, you do not need to invest heavily in Intelligence just because Cyberpunk is a technology-heavy setting.\n\nA beginner who is curious about netrunning should commit enough points to actually unlock its stronger mechanics rather than splitting Intelligence evenly with four unrelated trees.",
+        "heading": "Intelligence — The Core Attribute for Netrunning",
+        "headingStyle": "editorial"
+      },
+      {
+        "text": "Cool supports stealth-oriented play and other deliberate, precision-focused approaches. It is most useful when you enjoy avoiding direct pressure, controlling when an encounter begins and getting more value from careful positioning.\n\nThis can be very effective, but it is slightly less forgiving as a first investment if you are still learning how detection, movement and enemy awareness work. A few survivability or cyberware-focused investments can make the early game more comfortable before Cool becomes your main focus.\n\nChoose it because you enjoy that style, not because you think every character needs points in every attribute.",
+        "heading": "Cool — Stealth, Composure and Precision",
+        "headingStyle": "editorial"
+      },
+      {
+        "text": "A simple first-character plan is to invest enough in Body to feel durable, put meaningful points into Technical Ability for cyberware progression, and then choose one primary identity from Reflexes, Intelligence or Cool.\n\nThat produces a character with a stable baseline and one clear specialty instead of five half-developed trees. It also makes perk choices easier because the game presents fewer relevant branches at once.\n\nAs you play, let your actual habits guide the next points. If you constantly wish you moved faster, Reflexes is telling you something. If hacking becomes your favorite tool, Intelligence should rise. If you are always trying to avoid detection, Cool deserves more attention.",
+        "heading": "A Flexible Beginner Attribute Plan",
+        "headingStyle": "editorial"
+      },
+      {
+        "text": "Endgame build planners are useful once you understand what the perks mean, but they can make a first playthrough harder to read. A level-by-level template may ask you to invest toward an ability whose purpose will not make sense until much later.\n\nInstead, unlock perks whose benefits you can immediately explain. Movement feels better, cyberware capacity becomes more useful, survivability improves, or a hacking interaction becomes available. That feedback teaches you the system faster than copying a finished build backward.\n\nBecause perk points are refundable individually, your early perk choices are experiments rather than permanent mistakes.",
+        "heading": "Do Not Copy an Endgame Build Too Early",
+        "headingStyle": "editorial"
+      },
+      {
+        "text": "Update 2.0 gives existing and new characters a one-time opportunity to fully redistribute attributes. That is much more limited than the perk system, where individual points can be refunded freely outside combat.\n\nDo not use the attribute reset just because one level-up felt inefficient. Save it for a genuine change of direction — for example, when you understand the game well enough to know that the character you built is not the one you want to keep playing.\n\nThe best protection against needing it early is simple: concentrate your attribute spending instead of scattering points everywhere.",
+        "heading": "Save the One-Time Attribute Reset Until You Really Need It",
+        "headingStyle": "editorial"
+      }
+    ],
+    "quickRead": [],
+    "conclusion": "For a first Cyberpunk 2077 character, Body and Technical Ability are the most forgiving foundations, while Reflexes, Intelligence and Cool are better treated as choices about how you want the character to play. Pick one of those identities and develop it with purpose instead of trying to unlock everything at once.\n\nThe modern perk system is designed for experimentation, so refund and rearrange individual perks whenever a choice is not working. Be more deliberate with attribute points, keep the one-time reset in reserve, and let the build grow around the systems you actually enjoy using.",
+    "conclusionHeading": "The bottom line",
+    "conclusionHeadingStyle": "editorial",
+    "featured": false,
+    "homepageSlot": "regular",
+    "publishedAt": "2026-09-07T15:22:52.860659+00:00",
+    "updatedAt": "2026-09-07T15:22:52.860659+00:00",
+    "imageLocal": "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1788578659291-f9e4bfbe-82c9-45a9-a242-df4f06aa32b2-cyberpunk-best-attributes.webp",
+    "editorialSection": "guides",
+    "platforms": [
+      "pc",
+      "playstation",
+      "xbox",
+      "nintendo"
+    ],
+    "collection": null,
+    "collectionYear": null,
+    "gameKey": "Cyberpunk 2077",
+    "series": "Cyberpunk",
+    "franchise": "Cyberpunk",
+    "newsMeta": {}
+  },
+  {
+    "id": "762aa65c-68b4-4580-9336-50c107b5b3fa",
+    "slug": "dark-souls-remastered-beginners-guide",
+    "title": "Dark Souls Remastered Beginner’s Guide: What to Know Before Lordran",
+    "description": "A practical Dark Souls Remastered beginner’s guide covering bonfires, Estus, leveling, equipment load, upgrades, exploration and the early lessons that make Lordran easier to understand.",
+    "body": "Dark Souls Remastered is difficult less because it demands perfect reflexes and more because it expects you to notice how its systems fit together. Bonfires, stamina, equipment load, healing, souls, upgrades and world shortcuts all matter, but the game explains many of them only briefly.\n\nThe best first-playthrough mindset is to slow down. Learn one route at a time, spend resources before taking unnecessary risks, and treat every difficult encounter as information rather than proof that your character is permanently underpowered. Lordran becomes much more manageable once you understand what the game is asking you to observe.\n\nFor a closer look at why Lordran is still so memorable to navigate, read [why Dark Souls Remastered still defines interconnected world design](/stories/dark-souls-remastered-interconnected-world-design/).",
+    "category": "GUIDE",
+    "author": "Rouane Mounssif",
+    "tags": [
+      "Dark Souls Remastered",
+      "FromSoftware",
+      "Dark Souls",
+      "Beginner Guide",
+      "Soulslike",
+      "RPG"
+    ],
+    "imageAlt": "Official Dark Souls Remastered promotional artwork used as the feature image for Neural Critic’s beginner guide.",
+    "imageCredit": "Official promotional image",
+    "articleFormat": "game-guide",
+    "reviewMeta": {},
+    "contentBlocks": [
+      {
+        "text": "Bonfires are the basic rhythm of Dark Souls. Resting restores health and Estus, lets you manage several progression systems, and creates a safe point to plan the next stretch of exploration.\n\nThe tradeoff is that resting also brings most ordinary enemies back. That means a bonfire is not simply a way to erase everything you just did; it is a reset point from which you learn a route more efficiently.\n\nWhen you reach a new bonfire, take a moment to spend souls, review equipment and think about what you learned on the previous path before moving on.",
+        "heading": "Bonfires Are More Than Checkpoints",
+        "headingStyle": "editorial"
+      },
+      {
+        "text": "Attacking, blocking, dodging and sprinting all depend on stamina. Emptying the bar because you wanted one extra action can leave you without enough room to respond when the situation changes.\n\nA strong beginner habit is to leave some stamina in reserve. You do not need to act every second. Create space, let the bar recover and commit only when you understand what the next action will cost.\n\nThat rhythm is one of the biggest differences between Dark Souls and faster action games: patience is part of the combat system.",
+        "heading": "Treat Stamina as a Resource, Not an Afterthought",
+        "headingStyle": "editorial"
+      },
+      {
+        "text": "Armor and equipment contribute to your overall load, which affects movement and dodging. Heavier equipment can offer more protection, but the tradeoff matters if the character becomes too slow for the way you prefer to play.\n\nDo not assume the item with the largest defensive number is automatically the best choice. Try different combinations and pay attention to how quickly you can reposition and recover.\n\nFor a beginner, comfort and consistency are more valuable than chasing a theoretical maximum from gear you do not enjoy using.",
+        "heading": "Equipment Load Changes How the Character Feels",
+        "headingStyle": "editorial"
+      },
+      {
+        "text": "Souls function as both experience and currency. When you die, the souls you were carrying remain at the place you fell, and you have a chance to recover them before another death removes that opportunity.\n\nThe simplest way to reduce frustration is to avoid carrying more than you are comfortable losing. If you are close to a level or an important purchase, handle that before walking into an unexplored area or a major encounter.\n\nLosing souls hurts, but it does not erase shortcuts, items, bonfires or what you learned about the route.",
+        "heading": "Spend Souls Before Exploring Somewhere Dangerous",
+        "headingStyle": "editorial"
+      },
+      {
+        "text": "Dark Souls offers many weapons, armor sets and character builds, but beginners often make progression harder by constantly switching before they understand any one setup.\n\nIf a piece of equipment feels reliable, upgrading it can produce a more noticeable improvement than waiting for a supposedly perfect replacement. The game is designed around many viable combinations rather than one mandatory answer.\n\nLearn the timing, reach and stamina cost of what you already use, then change when you have a clear reason rather than because another item looks rarer or more dramatic.",
+        "heading": "Upgrade Equipment You Already Understand",
+        "headingStyle": "editorial"
+      },
+      {
+        "text": "The character sheet contains enough attributes to make a new player feel as if everything needs improvement. It does not. Raise the stats that support survivability and the equipment or magic you actually intend to use.\n\nScattering levels across unrelated attributes makes it harder to feel the benefit of each investment and can leave your character without a clear strength.\n\nA focused first character is easier to understand. Once you know how scaling and requirements work, later playthroughs are the right time to experiment with stranger combinations.",
+        "heading": "Do Not Spread Levels Across Every Stat",
+        "headingStyle": "editorial"
+      },
+      {
+        "text": "Lordran is built around interconnection. A locked door, elevator or side passage can eventually turn a long dangerous route into a short trip from a bonfire.\n\nThat means exploration is part of progression. When a path feels exhausting, look for doors, ladders, lifts and alternate routes rather than assuming the solution is always another character level.\n\nNeural Critic’s existing feature on Dark Souls’ interconnected world design goes deeper into why this structure matters, but the beginner lesson is simple: a shortcut can be as valuable as a piece of equipment.",
+        "heading": "Explore for Shortcuts, Not Just the Next Boss",
+        "headingStyle": "editorial"
+      },
+      {
+        "text": "Estus is limited between rests, so healing works best when you create enough space to finish the animation safely. Trying to heal the instant you take damage can turn one mistake into several.\n\nWatch the situation first. Move to a safer position, wait for a clear opening and then recover. The goal is not to preserve every flask forever; it is to spend healing when it actually stabilizes the situation.\n\nAs you become more familiar with an area, you will naturally use less Estus because you know where the real risks are.",
+        "heading": "Use Estus Deliberately",
+        "headingStyle": "editorial"
+      },
+      {
+        "text": "Dark Souls gives you enough freedom that a new player can sometimes wander into an area that is much harsher than the most natural early path. The game rarely puts up a sign telling you to leave.\n\nIf ordinary enemies are taking far more effort than everything you were fighting before, consider exploring somewhere else. Difficulty can be information about the world rather than a command to keep forcing the same route.\n\nBacking away is not failure. It is part of learning how Lordran is organized.",
+        "heading": "If a Route Feels Wrong, Reconsider the Route",
+        "headingStyle": "editorial"
+      },
+      {
+        "text": "A death usually tells you something specific: an attack timing was unfamiliar, you ran out of stamina, you did not notice an enemy, or you entered an area without understanding its layout.\n\nTry to identify that lesson before immediately repeating the same approach. Dark Souls becomes less frustrating when every return trip has a purpose — recover souls, test a different route, manage stamina more carefully or simply observe one enemy before committing.\n\nThe game’s official description emphasizes learning, mastery and accomplishment, and that progression is as much about player knowledge as character statistics.",
+        "heading": "Death Is the Game’s Feedback Loop",
+        "headingStyle": "editorial"
+      }
+    ],
+    "quickRead": [],
+    "conclusion": "Dark Souls Remastered becomes far easier to read once you treat patience, observation and route knowledge as forms of progression. Use bonfires deliberately, protect your stamina, keep equipment load comfortable, spend souls before unnecessary risks and strengthen a setup you already understand.\n\nMost importantly, let the world teach you. A newly opened shortcut, a safer healing window or the realization that you chose the wrong route can matter more than another level. Lordran is difficult, but it is also remarkably consistent once you learn how to listen to what its systems are telling you.",
+    "conclusionHeading": "The bottom line",
+    "conclusionHeadingStyle": "editorial",
+    "featured": false,
+    "homepageSlot": "regular",
+    "publishedAt": "2026-09-07T15:22:52.860659+00:00",
+    "updatedAt": "2026-09-07T15:22:52.860659+00:00",
+    "imageLocal": "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1788578716993-e3477912-7067-423b-8666-891e7af0f8ab-darek-souls.jpg",
+    "editorialSection": "guides",
+    "platforms": [
+      "pc",
+      "playstation",
+      "xbox",
+      "nintendo"
+    ],
+    "collection": null,
+    "collectionYear": null,
+    "gameKey": "Dark Souls Remastered",
+    "series": "Dark Souls",
+    "franchise": "Dark Souls",
+    "newsMeta": {}
+  },
+  {
+    "id": "27d6a8bb-a5cc-4efd-97ec-dc4e971f9cc0",
+    "slug": "hades-failure-feels-like-progress",
+    "title": "Why Hades Makes Failure Feel Like Progress",
+    "description": "An analysis of how Hades connects repeated runs, character dialogue, permanent progression and narrative change so defeat still moves the experience forward.",
+    "body": "Hades makes failure feel like progress because defeat does not erase the experience that happened before it. A failed escape attempt still produces resources, new dialogue, character reactions, knowledge about encounters and changes back at the House of Hades.\n\nThat structure solves one of the hardest problems in run-based games: repetition can feel like lost time when only victory matters. Hades instead makes returning home part of the story. The loop is not attempt, failure, reset. It is attempt, consequence, conversation, improvement and another attempt.",
+    "category": "FEATURE",
+    "author": "Rouane Mounssif",
+    "tags": [
+      "Hades",
+      "Supergiant Games",
+      "Roguelike",
+      "Progression",
+      "Game Design",
+      "Feature"
+    ],
+    "imageAlt": "Hades promotional artwork used as the feature image for Neural Critic’s analysis of how repeated runs turn failure into progress.",
+    "imageCredit": "",
+    "articleFormat": "standard",
+    "reviewMeta": {},
+    "contentBlocks": [
+      {
+        "text": "In many games, defeat interrupts the narrative. In Hades, it returns Zagreus to one of the narrative’s most important locations. The House of Hades contains characters, relationships, upgrades and conversations that only become available because another escape attempt has ended. Failure therefore moves the player from one type of progress into another instead of stopping progress completely.",
+        "heading": "Death Is the Door Back Into the Story",
+        "headingStyle": "editorial"
+      },
+      {
+        "text": "Returning home is rarely identical. Characters may have new conversations, subplots can advance, rooms can change through the House Contractor and relationships develop over repeated meetings. Supergiant’s own update notes repeatedly describe thousands of new voice lines and contextual events added across development, reflecting how central repeated return visits are to the game’s narrative structure.",
+        "heading": "The House Changes Between Attempts",
+        "headingStyle": "editorial"
+      },
+      {
+        "text": "A run can end without reaching the surface and still leave the player stronger or more flexible. Darkness supports Mirror upgrades, keys expand options, resources unlock systems and repeated play opens more weapon and progression choices. That long-term layer means an unsuccessful attempt can still improve the next one without guaranteeing that the next run becomes trivial.",
+        "heading": "Permanent Progress Gives Failure Mechanical Value",
+        "headingStyle": "editorial"
+      },
+      {
+        "text": "The player also carries something the save file does not need to measure: understanding. Enemy patterns become familiar, room priorities become clearer, Boon combinations make more sense and risky decisions become easier to judge. Hades rewards that learning because repeated environments are stable enough to understand while individual run details vary enough to demand adaptation.",
+        "heading": "Knowledge Is Its Own Form of Progression",
+        "headingStyle": "editorial"
+      },
+      {
+        "text": "Each run reshuffles opportunities through Boons, chamber rewards and other choices. That randomness prevents the escape route from becoming a memorized script, but the player is still moving toward long-term goals. The strongest runs feel improvised rather than predetermined, while permanent systems ensure the broader experience continues to accumulate meaning.",
+        "heading": "Randomness Creates Variation Without Erasing Direction",
+        "headingStyle": "editorial"
+      },
+      {
+        "text": "Hades frequently gives characters contextual responses to what has happened. A recent encounter, a relationship milestone or another failed attempt can produce a new line or conversation. Supergiant describes the game as one where players can continue discovering story events across dozens or even hundreds of hours. That reactivity makes repetition feel noticed rather than ignored.",
+        "heading": "Characters Make Repetition Feel Acknowledged",
+        "headingStyle": "editorial"
+      },
+      {
+        "text": "The loop is not a compromise between gameplay and narrative. It is the premise. Zagreus repeatedly trying to leave the Underworld gives the structure a story reason to restart, while the repeated returns create time for family tensions and relationships to evolve. The narrative therefore benefits from the same repetition that powers the roguelike systems.",
+        "heading": "The Story Needs Repetition to Make Sense",
+        "headingStyle": "editorial"
+      },
+      {
+        "text": "Hades gradually changes what “success” means. A run can be worthwhile because a new region was reached, a resource was earned, a relationship advanced, a build idea worked or a difficult encounter became easier to read. By giving the player several overlapping definitions of progress, the game prevents one loss condition from deciding whether the last twenty minutes mattered.",
+        "heading": "Progress Is Measured in More Than Successful Escapes",
+        "headingStyle": "editorial"
+      }
+    ],
+    "quickRead": [],
+    "conclusion": "Hades makes repeated attempts satisfying by refusing to treat an unsuccessful run as wasted time. The player returns with resources, knowledge and new narrative possibilities, while the House responds with conversations and changes that make the loop feel continuous.\n\nThe result is a roguelike structure where failure is not the opposite of progress. It is one of the main ways progress happens. That design turns repetition from a punishment into the engine that connects combat, character development and story.",
+    "conclusionHeading": "Failure works because the game remembers it",
+    "conclusionHeadingStyle": "editorial",
+    "featured": false,
+    "homepageSlot": "regular",
+    "publishedAt": "2026-09-07T15:22:52.860659+00:00",
+    "updatedAt": "2026-09-07T15:22:52.860659+00:00",
+    "imageLocal": "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1788578293841-7489bd55-9900-4b18-842e-ef557eefb62f-hades-failure.jpg",
+    "editorialSection": "features",
+    "platforms": [
+      "pc",
+      "playstation",
+      "xbox",
+      "nintendo"
+    ],
+    "collection": null,
+    "collectionYear": null,
+    "gameKey": "Hades",
+    "series": "Hades",
+    "franchise": "Hades",
+    "newsMeta": {}
+  },
+  {
+    "id": "0685c81e-2c95-4190-9be3-7075efb4aeea",
+    "slug": "best-action-rpgs",
+    "title": "The 12 Best Action RPGs",
+    "description": "The best action RPGs, ranked for real-time combat, character progression, build variety and exploration — led by Elden Ring, Bloodborne and The Witcher 3.",
+    "body": "Action RPG is a broad label, but the strongest games in the category share one idea: character growth matters because the player has to express that growth in real time. Better equipment, new abilities, and stronger builds only become interesting when movement, timing, positioning, and combat decisions make those systems visible.\\n\\nNeural Critic’s ranking favors action RPGs where combat and progression strengthen each other rather than games that simply attach a skill tree to an action adventure.\n\nFor deeper coverage of the top-ranked game, read our [Elden Ring review](/stories/elden-ring-review-monumental-open-world/) and [Elden Ring beginner’s guide](/stories/elden-ring-beginners-guide/).",
+    "category": "FEATURE",
+    "author": "Rouane Mounssif",
+    "tags": [
+      "Action RPG",
+      "Best RPGs",
+      "Best Games",
+      "RPG",
+      "What to Play"
+    ],
+    "imageAlt": "A Tarnished stands beneath the glowing Erdtree in Elden Ring, framed by golden branches, ruined stone structures and the Lands Between below.",
+    "imageCredit": "Neural Critic / Elden Ring gameplay screenshot.",
+    "articleFormat": "ranked-list",
+    "reviewMeta": {},
+    "contentBlocks": [
+      {
+        "rank": "12",
+        "text": "Diablo IV remains one of the clearest examples of the loot-driven action RPG. Skills, gear interactions, class identity, and increasingly specialized builds give combat a strong sense of forward motion. Its live structure will keep changing around the edges, but the core appeal is straightforward: every session gives the player another opportunity to make a character more efficient and expressive.",
+        "heading": "Diablo IV",
+        "subtitle": "Fast combat built around the pleasure of refining a build",
+        "developer": "Blizzard Entertainment",
+        "releaseYear": "2023",
+        "headingStyle": "editorial"
+      },
+      {
+        "rank": "11",
+        "text": "Dragon’s Dogma 2 is at its best when a journey goes wrong in an interesting way. Vocations create distinct combat roles, Pawns shape the party around the player, and large enemies turn terrain and positioning into part of the fight. Its friction is deliberate, sometimes excessively so, but few action RPGs make travel, combat, and character growth feel this physically connected.",
+        "heading": "Dragon’s Dogma 2",
+        "subtitle": "Party-based exploration where preparation matters as much as execution",
+        "developer": "Capcom",
+        "releaseYear": "2024",
+        "headingStyle": "editorial"
+      },
+      {
+        "rank": "10",
+        "text": "Black Myth: Wukong places much of its weight on direct combat, but its transformations, spells, equipment, and skill choices give the player enough room to shape how those fights unfold. The result sits closer to an action game than some entries here, yet progression remains substantial enough to make preparation and build decisions matter alongside execution.",
+        "heading": "Black Myth: Wukong",
+        "subtitle": "Boss-focused action supported by meaningful progression",
+        "developer": "Game Science",
+        "releaseYear": "2024",
+        "headingStyle": "editorial"
+      },
+      {
+        "rank": "9",
+        "text": "Monster Hunter Wilds treats weapon knowledge as a form of long-term progression. Gear matters, but so does learning a moveset deeply enough to recognize when to attack, reposition, or commit to a longer animation. Hunts create a satisfying loop of preparation, execution, and crafting that makes the next encounter feel easier because both the character and the player have improved.",
+        "heading": "Monster Hunter Wilds",
+        "subtitle": "An action RPG where mastering a weapon is character progression",
+        "developer": "Capcom",
+        "releaseYear": "2025",
+        "headingStyle": "editorial"
+      },
+      {
+        "rank": "8",
+        "text": "Nioh 3 extends Team Ninja’s action-RPG identity around weapon mastery, timing, and build construction. Its combat asks more from the player than most games on this list, but that density is exactly what makes experimentation rewarding. Players who enjoy learning systems rather than simply raising damage numbers will find one of the genre’s deepest modern combat sandboxes.",
+        "heading": "Nioh 3",
+        "subtitle": "A demanding combat system built for mechanical experimentation",
+        "developer": "Team Ninja",
+        "releaseYear": "2026",
+        "headingStyle": "editorial"
+      },
+      {
+        "rank": "7",
+        "text": "Dark Souls III compresses many of the series’ strengths into a faster and more directed adventure. Weapons and builds remain varied, but bosses are where the game’s identity becomes clearest: timing, spacing, stamina, and pattern recognition are constantly tested. It lacks Elden Ring’s freedom, but its concentration gives the campaign a distinctive momentum.",
+        "heading": "Dark Souls III",
+        "subtitle": "FromSoftware’s most focused Dark Souls combat",
+        "developer": "FromSoftware",
+        "releaseYear": "2016",
+        "headingStyle": "editorial"
+      },
+      {
+        "rank": "6",
+        "text": "NieR: Automata combines fluid combat with chips, weapons, levels, and customization, but its real strength is how willing it is to change perspective and structure around the player. The RPG systems are accessible rather than overwhelmingly deep, which lets the action support a much larger narrative experiment without getting in the way.",
+        "heading": "NieR: Automata",
+        "subtitle": "Action-RPG systems serving a game that keeps changing form",
+        "developer": "PlatinumGames",
+        "releaseYear": "2017",
+        "headingStyle": "editorial"
+      },
+      {
+        "rank": "5",
+        "text": "Hades turns repeated runs into both mechanical and narrative progression. Boons reshape a build from attempt to attempt, permanent upgrades gradually widen the player’s options, and conversations make returning to the hub feel like part of the reward. It is a roguelike first, but the way character growth and story accumulate gives it a strong place in the action-RPG conversation.",
+        "heading": "Hades",
+        "subtitle": "A run-based action RPG where failure still builds momentum",
+        "developer": "Supergiant Games",
+        "releaseYear": "2020",
+        "headingStyle": "editorial"
+      },
+      {
+        "rank": "4",
+        "text": "Cyberpunk 2077’s rebuilt progression model gives weapons, cyberware, attributes, and perks a clearer relationship than they had at launch. A stealth-focused netrunner and an aggressive close-range build can approach the same space very differently, while Night City gives those choices an unusually dense setting. Its strongest modern form finally lets build identity match the ambition of the world.",
+        "heading": "Cyberpunk 2077",
+        "subtitle": "A flexible first-person RPG with a much stronger modern progression system",
+        "developer": "CD PROJEKT RED",
+        "releaseYear": "2020",
+        "headingStyle": "editorial"
+      },
+      {
+        "rank": "3",
+        "text": "The Witcher 3 remains important because combat is only one part of its role-playing. Signs, alchemy, equipment, preparation, and character skills support a world where quests and consequences carry much of the emotional weight. Its fighting is less precise than the games above it, but the combination of progression, exploration, and authored storytelling remains difficult to match.",
+        "heading": "The Witcher 3: Wild Hunt",
+        "subtitle": "Quest writing and role-playing weight inside an action-RPG structure",
+        "developer": "CD PROJEKT RED",
+        "releaseYear": "2015",
+        "headingStyle": "editorial"
+      },
+      {
+        "rank": "2",
+        "text": "Bloodborne takes familiar FromSoftware ideas and changes their rhythm. Regain rewards immediate counter-pressure, firearms reshape defensive timing, and trick weapons give individual movesets enormous personality. Character builds still matter, but the game’s greatest achievement is making aggression feel like a strategic decision rather than simply a faster way to play.",
+        "heading": "Bloodborne",
+        "subtitle": "Aggressive combat transforms the Souls formula",
+        "developer": "FromSoftware",
+        "releaseYear": "2015",
+        "headingStyle": "editorial"
+      },
+      {
+        "rank": "1",
+        "text": "Elden Ring takes the top spot because its combat and progression are inseparable from exploration. A new weapon, spell, Spirit Ash, talisman, or route can completely change how a difficult encounter feels. The world gives players enough freedom to leave, experiment, rebuild, and return stronger, turning character progression into part of the act of discovery itself.",
+        "heading": "Elden Ring",
+        "subtitle": "The strongest combination of action, builds, and exploration",
+        "developer": "FromSoftware",
+        "releaseYear": "2022",
+        "headingStyle": "editorial"
+      }
+    ],
+    "quickRead": [
+      "Elden Ring ranks first for combining real-time combat, build freedom and open-ended exploration better than any other action RPG.",
+      "Bloodborne remains FromSoftware’s sharpest aggressive combat system, while The Witcher 3 excels through role-playing and quest design.",
+      "Cyberpunk 2077, Hades, Monster Hunter Wilds and Nioh 3 show how broad the action-RPG label has become."
+    ],
+    "conclusion": "The best action RPGs make progression visible in the player’s hands. A stronger build should change decisions, movement, timing, preparation, or the way a space is approached. Elden Ring does this across an enormous world, while Bloodborne proves how much identity can come from a tightly defined combat philosophy.\\n\\nBecause the category is so broad, Neural Critic’s ranking will continue to judge action RPGs by the relationship between systems and execution rather than by one narrow genre template.",
+    "conclusionHeading": "Progression matters most when it changes how you play",
+    "conclusionHeadingStyle": "editorial",
+    "featured": false,
+    "homepageSlot": "regular",
+    "publishedAt": "2026-09-07T15:22:52.860659+00:00",
+    "updatedAt": "2026-09-07T15:22:52.860659+00:00",
+    "imageLocal": "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1788025565917-72a0d1a0-a227-4ed8-8654-7336912c4915-main-elden-rang.jpg",
+    "editorialSection": "what-to-play",
+    "platforms": [
+      "pc",
+      "playstation",
+      "xbox",
+      "nintendo"
+    ],
+    "collection": "best-games",
+    "collectionYear": 2026,
+    "gameKey": "",
+    "series": "",
+    "franchise": "",
+    "newsMeta": {}
+  },
+  {
     "id": "f43bc850-81ae-4596-9ac7-9e52c99ab5ca",
     "slug": "best-story-driven-games",
     "title": "The 12 Best Story-Driven Games",
