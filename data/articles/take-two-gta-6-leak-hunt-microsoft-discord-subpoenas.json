@@ -1,9 +1,9 @@
 {
   "id": "eec08ba4-a1af-4487-9f54-357a952dc41b",
   "slug": "take-two-gta-6-leak-hunt-microsoft-discord-subpoenas",
-  "title": "Take-Two’s GTA 6 Leak Hunt Expands Across Microsoft, Discord, X and YouTube",
-  "description": "Take-Two’s effort to identify people linked to unauthorized GTA VI material now spans four DMCA subpoena proceedings involving Microsoft, Discord, X and Google/YouTube, as the CyberLeek campaign continues and key questions about attribution remain unresolved.",
-  "body": "Take-Two Interactive’s response to the Grand Theft Auto VI leak campaign has grown from takedown efforts into a multi-platform attempt to identify people connected to the unauthorized distribution of Rockstar Games material. Public court-record reporting now shows four separate DMCA subpoena proceedings involving Microsoft, Discord, X Corp. and Google/YouTube.\n\nThe filings do not establish who CyberLeek is, how the material was obtained, or whether every account named or swept into a records request participated in the original leak. They are identification tools under the DMCA, not findings of liability. The procedural status also matters: a court order directing a clerk to issue a subpoena is not the same thing as a platform being served, producing records, or Take-Two successfully identifying a person.\n\nThe investigation has continued alongside the leak campaign itself. Rockstar publicly described the unauthorized releases as heartbreaking before its August 27 Extended Look, while CyberLeek subsequently escalated into reported story material and cashed out substantial proceeds connected to the $CYBERLEEK token. None of those developments has yet produced a verified public identification of the person or group behind the campaign.",
+  "title": "Take-Two’s GTA 6 Leak Hunt Narrows Toward Discord as CyberLeek Goes Quiet",
+  "description": "Take-Two’s GTA VI leak investigation has narrowed toward a second, sealed Discord subpoena, but the September 4 production deadline passed without any verified public identification of CyberLeek. The leak campaign itself has also gone quiet, so Neural Critic is closing this as a live developing story while the legal investigation continues.",
+  "body": "Take-Two Interactive’s response to the Grand Theft Auto VI leak campaign has moved from broad multi-platform demands toward a more targeted legal investigation. After its first DMCA subpoena requests involving Microsoft, Discord, X and Google/YouTube, Take-Two returned to court with a second, narrower Discord request and asked for the identifying details to remain under seal.\n\nThe public record still does not establish who CyberLeek is, how the material was obtained, or whether provider records have identified a person behind the campaign. The original September 4 production deadline has now passed without any verified public announcement from Take-Two, Microsoft or Discord naming CyberLeek.\n\nThe leak campaign itself has also gone quiet. No new CyberLeek footage has been reported since the late-August run of releases, and Take-Two withdrew its Google/YouTube subpoena request after saying the information was no longer needed. Neural Critic is therefore closing this as a live developing story as of September 7, while keeping the investigation open for a future update if a new court filing, provider disclosure or verified identification materially changes the picture.",
   "category": "NEWS",
   "author": "Rouane Mounssif",
   "tags": [
@@ -21,8 +21,8 @@
   "reviewMeta": {},
   "contentBlocks": [
     {
-      "text": "Take-Two’s legal effort is broader than the Microsoft and Discord requests that first brought the investigation into public view. Court-record reporting shows **four separate Section 512(h) DMCA proceedings**, directed at **Microsoft, Discord, X Corp. and Google/YouTube**.\n\nThe Microsoft-related request seeks records connected to accounts and services that Take-Two believes may help trace the distribution chain. The Discord request is unusually broad, seeking identifying and device-related information associated with users in specified servers during the relevant period. Separate filings involving X and Google/YouTube target accounts or uploads that Take-Two believes may be connected to the unauthorized material.\n\nThe important distinction is that these proceedings are designed to obtain identifying information. They are **not lawsuits against the platforms**, and the existence of a request does not prove that every account or community referenced in it participated in the original leak.",
-      "heading": "The leak hunt now spans four major platforms",
+      "text": "Take-Two initially opened four separate Section 512(h) DMCA proceedings involving **Microsoft, Discord, X Corp. and Google/YouTube**. The requests sought identifying records tied to accounts, services or uploads that the publisher believed could help trace the unauthorized GTA VI material.\\n\\nThe investigation has since changed direction. Take-Two withdrew its Google/YouTube request after saying the specific information was no longer needed, while returning to court for a **second, more targeted Discord subpoena**. That shift matters: the investigation is no longer best described as a simple four-platform expansion, but as a narrower identification effort built around leads Take-Two says it has developed.",
+      "heading": "The leak hunt expanded across four platforms — then narrowed",
       "headingStyle": "editorial"
     },
     {
@@ -51,8 +51,13 @@
       "headingStyle": "editorial"
     },
     {
-      "text": "The next meaningful development will be procedural or evidentiary rather than another rumor: confirmation that one of the providers has been formally served, confirmation that records have been produced, a new court filing, an official Take-Two or Rockstar statement, or reliable evidence identifying the source.\n\nThe reported **September 4** production date associated with the early requests remains an important point to watch. Any provider response around that window could materially change the investigation.\n\nRockstar’s August 27 Extended Look is now a separate official-news story. This article will remain focused on the leak investigation, the legal process and verified changes in the effort to identify those responsible.",
-      "heading": "What happens next",
+      "text": "The initial Microsoft and Discord requests set **September 4** as the requested production date. That date has now passed. As of September 7, no public statement from Take-Two, Microsoft or Discord says that provider records have identified CyberLeek.\\n\\nThat absence of a public announcement should not be treated as proof that no records were produced. Responses to subpoenas can remain nonpublic, and Take-Two’s newer Discord request is itself partly sealed. The accurate public conclusion is narrower: **CyberLeek has not been publicly identified through the legal process**.\\n\\nThe next meaningful development would be a new court filing, an on-the-record provider statement, a Take-Two or Rockstar announcement, or independently verifiable evidence identifying the source. Until then, the investigation remains unresolved rather than actively developing in public.",
+      "heading": "The September 4 deadline passed without a public identification",
+      "headingStyle": "editorial"
+    },
+    {
+      "text": "The original September 4 production deadline tied to Take-Two’s Microsoft and Discord demands has now passed. As of September 7, there is still **no verified public identification of CyberLeek** and no public announcement from Take-Two, Microsoft or Discord saying that provider records have unmasked the source.\n\nThe legal investigation has nevertheless become more focused. Take-Two’s second Discord request seeks more targeted information after the company said it had identified one additional Discord user, obtained further identifying information for a previously identified user and gathered more information about the community servers named earlier. Reporting on the docket says that newer request was granted with key identifying details kept under seal. Take-Two also withdrew its Google/YouTube request after saying the specific information was no longer needed.\n\nThe leak campaign itself has been quiet since the late-August releases. With no new verified leaks, no public identification and no new public provider disclosure after the September 4 deadline, Neural Critic is closing the **developing** label on this article. The investigation remains unresolved, and a material new filing or verified identification would warrant a fresh update.",
+      "heading": "September 7 checkpoint: the public trail has gone quiet",
       "headingStyle": "editorial"
     }
   ],
@@ -63,7 +68,7 @@
   "featured": false,
   "homepageSlot": "regular",
   "publishedAt": "2026-08-23T19:12:26.423+00:00",
-  "updatedAt": "2026-09-04T05:51:19.118558+00:00",
+  "updatedAt": "2026-09-07T21:11:01.562369+00:00",
   "imageLocal": "/images/editorial/1787509341778-476aaa5e-158b-4936-8656-59fbb2284876-jason-and-lucia-robbery-with-logo-landscape.jpg",
   "editorialSection": "news",
   "platforms": [],
@@ -80,6 +85,12 @@
         "note": "Take-Two says its GTA VI leak investigation is \"rapidly evolving.\" In new August 31 court filings, the company sought a second, more targeted Discord subpoena and asked to keep the identifying details under seal to avoid tipping off the people being investigated. Take-Two also withdrew its Google/YouTube subpoena request after determining that the requested information was no longer needed. There is still no verified public identification of CyberLeek or confirmed public disclosure that provider records have unmasked the source.",
         "sourceUrl": "https://torrentfreak.com/take-two-says-gta-6-leak-probe-is-rapidly-evolving-wants-new-discord-demands-under-seal/",
         "sourceName": "Court-record reporting / TorrentFreak"
+      },
+      {
+        "at": "2026-09-07T20:40:00Z",
+        "note": "Final developing-story checkpoint: the September 4 production deadline has passed without a verified public identification of CyberLeek. Take-Two’s investigation has narrowed toward a second, sealed Discord subpoena, its Google/YouTube request was withdrawn, and no new CyberLeek leak activity has been verified since late August. Neural Critic is closing the developing label while keeping the legal investigation open for future material updates.",
+        "sourceUrl": "https://www.pcgamer.com/games/grand-theft-auto/with-gta-6-leaker-hunt-rapidly-evolving-take-two-asks-court-to-keep-latest-subpoena-request-sealed-to-avoid-tipping-off-leakers/",
+        "sourceName": "PC Gamer / TorrentFreak / court-record reporting"
       }
     ],
     "documents": [
@@ -96,7 +107,7 @@
       }
     ],
     "sourceUrl": "https://www.theverge.com/games/983323/grand-theft-auto-vi-gta-leaks-microsoft-discord-subpoenaed",
-    "developing": true,
+    "developing": false,
     "sourceName": "The Verge / Take-Two court filings",
     "verification": "confirmed",
     "documentSectionTitle": "Read the court filing",
