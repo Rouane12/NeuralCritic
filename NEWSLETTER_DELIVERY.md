@@ -2,7 +2,7 @@
 
 ## Scope
 
-Newsletter Acquisition V1 keeps Supabase as Neural Critic's subscriber capture record. Outbound delivery uses **Resend** only after a sending domain, API key, and dedicated Weekly Drop segment are verified.
+Newsletter Acquisition V1 keeps Supabase as Neural Critic's subscriber capture record. Outbound delivery uses **Resend** with a verified newsletter sending domain, production API key, and dedicated Weekly Drop segment.
 
 This layer does not replace `newsletter_subscribers`, Studio authentication, or the Subscriber Desk.
 
@@ -13,12 +13,12 @@ This layer does not replace `newsletter_subscribers`, Studio authentication, or 
 - Resend Broadcasts handle queueing, scheduling, unsubscribe suppression, and unsubscribe links/headers.
 - Neural Critic does not need to build a second email editor or delivery queue.
 
-## Required provider configuration
+## Production configuration
 
-Recommended sending identity:
+Sending identity:
 
 - sending subdomain: `updates.neuralcritic.net`
-- sender example: `Neural Critic <weekly@updates.neuralcritic.net>`
+- sender: `Neural Critic <weekly@updates.neuralcritic.net>`
 - Resend segment: `Neural Critic Weekly Drop`
 
 Required Supabase Edge Function secrets:
@@ -38,7 +38,7 @@ Never expose either value to public JavaScript or commit either value to GitHub.
 
 1. Validate/rate-limit the signup.
 2. Save/reactivate the subscriber in Supabase.
-3. If Resend is configured, create/reactivate the Resend Contact and attach it to the Weekly Drop segment.
+3. Create/reactivate the Resend Contact and attach it to the Weekly Drop segment when provider configuration is available.
 4. A provider failure must not lose the Supabase signup. The next admin sync repairs delivery membership.
 
 ### Subscriber Desk
@@ -69,20 +69,22 @@ Before each Weekly Drop:
 
 Do not send a Broadcast while provider readiness is blocked or before the sending domain is verified.
 
-## Activation checklist
+## Activation verification — COMPLETE 2026-09-07
 
-1. Create the Resend account.
-2. Add `updates.neuralcritic.net` (or another newsletter-only subdomain).
-3. Add the required SPF/DKIM DNS records and wait for Resend verification.
-4. Add DMARC where appropriate for the sending domain.
-5. Create the `Neural Critic Weekly Drop` segment.
-6. Create a **Full access** Resend API key for the production bridge; domain scoping is only available for sending-only keys and does not cover Contacts/Segments operations.
-7. Store `RESEND_API_KEY` and `RESEND_NEWSLETTER_SEGMENT_ID` as Supabase Edge Function secrets.
-8. Deploy tracked `public-actions` and `newsletter-admin` functions with the repository's `supabase/config.toml` auth settings.
-9. Update the public Privacy Policy to name Resend as the active newsletter delivery processor.
-10. Open Subscriber Desk and run the first sync. Existing Supabase subscribers must appear in the Weekly Drop segment.
-11. Send a real test email to the editor and verify From, SPF/DKIM, links, mobile rendering, and unsubscribe behavior.
-12. Only after that verification is the Weekly Drop considered live for outbound delivery.
+The production delivery path has been activated and verified:
+
+- `updates.neuralcritic.net` is verified in Resend and sending is enabled.
+- `Neural Critic Weekly Drop` exists as the dedicated production segment.
+- the production Resend API key is present and the deployed Supabase bridge is successfully calling the provider.
+- all three then-current active Supabase subscribers were present in the production Weekly Drop segment.
+- `public-actions` successfully synced a new homepage signup into Resend on 2026-09-06.
+- the public Privacy Policy was updated on 2026-09-07 to name Resend and explain delivery-list / unsubscribe processing.
+- a dedicated `Neural Critic Weekly Drop — Editor Test` segment was created so QA could run without sending to the full subscriber list.
+- controlled broadcast `Weekly Drop Delivery Test — Sep 7, 2026` was sent from `Neural Critic <weekly@updates.neuralcritic.net>` to the editor test address.
+- Resend recorded the broadcast as `sent` at `2026-09-07 04:11:17.505447+00`.
+- the editor supplied visual confirmation that the message reached Gmail inbox, rendered correctly, showed the expected sender identity, displayed the Neural Critic link, and rendered an unsubscribe link.
+
+This verifies the core outbound Weekly Drop delivery path end to end. A future QA pass may deliberately test the unsubscribe round-trip using a disposable/test contact before a larger production send; do not unsubscribe a real reader solely for testing.
 
 ## Compliance / trust rules
 
@@ -95,4 +97,4 @@ Do not send a Broadcast while provider readiness is blocked or before the sendin
 
 ## Current boundary
 
-The repository can provide the bridge and admin controls before provider credentials exist, but **outbound sending remains disabled until the external Resend account/domain/API setup is actually verified**.
+**Newsletter Delivery V1 is live for outbound delivery.** The production domain, sender identity, audience bridge, Privacy disclosure, and controlled editor delivery test are verified. Continue to use the Subscriber Desk → sync → editor test → Resend Broadcast workflow for each Weekly Drop.
