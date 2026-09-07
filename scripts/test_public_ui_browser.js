@@ -179,7 +179,7 @@ async function inspectPage(page, routeName, routePath, viewportName, theme) {
   try {
     for (const [viewportName, viewport] of viewports) {
       for (const theme of themes) {
-        const context = await browser.newContext({ viewport });
+        const context = await browser.newContext({ viewport, reducedMotion: 'reduce' });
         for (const [routeName, routePath] of routes) {
           const page = await context.newPage();
           try {
