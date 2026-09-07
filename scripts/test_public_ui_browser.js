@@ -44,6 +44,7 @@ const ignoredConsole = [
   /Failed to load resource.*fonts\.googleapis/i,
 ];
 const blockedExternal = /fonts\.(googleapis|gstatic)\.com|googletagmanager\.com|google-analytics\.com/i;
+const localCorsStub = /pchrrwfdcfbytggekuzs\.supabase\.co\/functions\/v1\/public-actions/i;
 
 const wait = ms => new Promise(resolve => setTimeout(resolve, ms));
 
@@ -60,7 +61,35 @@ async function inspectPage(page, routeName, routePath, viewportName, theme) {
   const baseOrigin = new URL(BASE).origin;
 
   await page.route('**/*', route => {
-    if (blockedExternal.test(route.request().url())) return route.abort();
+    const request = route.request();
+    const url = request.url();
+
+    // Keep browser QA deterministic without creating console noise from resources
+    // the sweep intentionally does not load. Empty Google CSS/JS is sufficient for
+    // layout and accessibility checks and avoids treating route.abort() as a site error.
+    if (blockedExternal.test(url)) {
+      if (/fonts\.googleapis\.com/i.test(url)) {
+        return route.fulfill({ status: 200, contentType: 'text/css; charset=utf-8', body: '' });
+      }
+      if (/googletagmanager\.com|google-analytics\.com/i.test(url)) {
+        return route.fulfill({ status: 200, contentType: 'application/javascript; charset=utf-8', body: '' });
+      }
+      return route.fulfill({ status: 204, body: '' });
+    }
+
+    // public-actions intentionally rejects localhost origins in production. Stub
+    // that external Edge endpoint in the local sweep rather than weakening CORS.
+    if (localCorsStub.test(url)) {
+      const headers = { 'access-control-allow-origin': baseOrigin };
+      if (request.method() === 'OPTIONS') return route.fulfill({ status: 204, headers, body: '' });
+      return route.fulfill({
+        status: 200,
+        contentType: 'application/json; charset=utf-8',
+        headers,
+        body: JSON.stringify({ ok: true }),
+      });
+    }
+
     return route.continue();
   });
 
