@@ -64,6 +64,7 @@ def audit_client_safety() -> None:
     commerce_js = text("assets/commerce.js")
     home_js = text("assets/home-commerce.js")
     article_js = text("assets/article-commerce.js")
+    article_css = text("assets/article-commerce.css")
     importer = text("scripts/import_commerce_feed.py")
 
     for name, source in (("commerce.js", commerce_js), ("home-commerce.js", home_js), ("article-commerce.js", article_js)):
@@ -72,6 +73,29 @@ def audit_client_safety() -> None:
     require('rel=\\"sponsored noopener noreferrer\\"' in commerce_js or 'rel="sponsored noopener noreferrer"' in commerce_js, "Deals links are not sponsor-hardened")
     require("SUPABASE_SERVICE_ROLE_KEY" in importer, "server-side importer is not requiring the service-role secret")
     require("--dry-run" in importer, "commerce importer must keep a no-write validation mode")
+
+    for table in ("commerce_article_products", "commerce_products", "commerce_offers", "commerce_retailers"):
+        require(table in article_js, f"article live-offer path no longer references {table}")
+
+    require("renderReviewStorefrontFallback" in article_js, "review storefront fallback is missing")
+    require("metadata?.storefronts" in article_js, "review storefront fallback is not backed by canonical game metadata")
+    require("article_format" in article_js and "game_key" in article_js, "review storefront fallback is not scoped to review/game identity")
+    require(".work-article-sidebar" in article_js and "review-where-to-buy" in article_js, "review storefront module is not integrated with the article sidebar")
+    require("commerce_storefront_rendered" in article_js and "commerce_storefront_click" in article_js, "review storefront analytics are incomplete")
+
+    start = article_js.find("async function renderReviewStorefrontFallback")
+    end = article_js.find("async function init()", start)
+    require(start >= 0 and end > start, "could not isolate review storefront fallback for safety audit")
+    fallback = article_js[start:end]
+    require('rel="noopener noreferrer"' in fallback, "non-affiliate storefront links are not hardened")
+    require("currently receives no commission" in fallback, "non-affiliate disclosure is missing")
+    require("sponsored" not in fallback, "non-affiliate storefront fallback must not mark links sponsored")
+    require("data-affiliate" not in fallback, "non-affiliate storefront fallback must not masquerade as affiliate traffic")
+    require("money(" not in fallback and "offer.price" not in fallback, "storefront fallback must not invent or display unverified prices")
+    require("affiliate: false" in fallback, "storefront analytics must explicitly mark fallback links non-affiliate")
+
+    for token in ("nc-where-to-buy--sidebar", "nc-storefront-select", "nc-storefront-action", ":focus-visible"):
+        require(token in article_css, f"review storefront presentation is missing {token}")
 
 
 def audit_importer_dry_run() -> None:
