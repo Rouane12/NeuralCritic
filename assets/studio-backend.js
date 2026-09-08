@@ -6,6 +6,15 @@
   const $ = (s, root=document) => root.querySelector(s);
   const LOCAL_KEY = 'neural-critic-studio-stories-v1';
 
+  function loadCommerceEditor(){
+    if(document.querySelector('script[data-studio-commerce-editor]'))return;
+    const script=document.createElement('script');
+    script.src='assets/studio-commerce-editor.js?v=20260908-editor1';
+    script.dataset.studioCommerceEditor='1';
+    document.head.appendChild(script);
+  }
+  loadCommerceEditor();
+
   function setStatus(message, cls=''){
     const el=$('#studio-auth-status'); if(!el)return;
     el.textContent=message; el.className=`studio-auth-status ${cls}`.trim();
@@ -25,17 +34,20 @@
     const sections=[...document.querySelectorAll('.section-card')].map(card=>{
       const obj={}; card.querySelectorAll('[data-field]').forEach(input=>{if(input.value.trim())obj[input.dataset.field]=input.value.trim()}); return obj;
     });
+    const articleFormat=document.querySelector('.format-card.active')?.dataset.format||'standard';
     const article={
       slug:q('#slug'), title:q('#title'), description:q('#description'), body:q('#body'), category:q('#category')||'FEATURE',
       author:q('#author')||'Rouane Mounssif', tags:q('#tags').split(',').map(x=>x.trim()).filter(Boolean),
-      articleFormat:document.querySelector('.format-card.active')?.dataset.format||'standard',
+      articleFormat,
       imageLocal:q('#featured-image'), imageAlt:q('#featured-alt'), imageCredit:q('#featured-credit'),
       homepageSlot:q('#homepage-slot')||'regular', contentBlocks:sections, status,
       scheduleAt:q('#schedule-date')||null,
       editorialSection:q('#editorial-section')||null,
       platforms:selectedPlatforms(),
       collection:q('#article-collection')||null,
-      collectionYear:q('#collection-year')||null
+      collectionYear:q('#collection-year')||null,
+      gameKey:q('#game-key')||null,
+      commercialMeta:articleFormat==='review' ? {where_to_buy_enabled:$('#where-to-buy-enabled')?.checked !== false} : {}
     };
     if(article.articleFormat==='review') article.reviewMeta={score:q('#review-score'),testedPlatform:q('#review-platform'),developer:q('#review-developer'),publisher:q('#review-publisher'),releaseDate:q('#review-release'),verdict:q('#review-verdict'),pros:lines(q('#review-pros')),cons:lines(q('#review-cons')),reviewCopy:q('#review-copy')};
     else article.reviewMeta={};
@@ -50,7 +62,8 @@
       tags:a.tags||[],article_format:a.articleFormat||'standard',image_url:a.imageLocal||null,image_alt:a.imageAlt||null,image_credit:a.imageCredit||null,
       homepage_slot:a.homepageSlot||'regular',content_blocks:a.contentBlocks||[],review_meta:a.reviewMeta||{},quick_read:a.quickRead||[],conclusion:a.conclusion||'',
       status:a.status,scheduled_at:a.status==='scheduled'&&a.scheduleAt?new Date(a.scheduleAt).toISOString():null,published_at:publishedAt,created_by:a.createdBy||userId,updated_by:userId,
-      editorial_section:a.editorialSection||null,platforms:Array.isArray(a.platforms)?a.platforms:[],collection:a.collection||null,collection_year:a.collectionYear?Number(a.collectionYear):null
+      editorial_section:a.editorialSection||null,platforms:Array.isArray(a.platforms)?a.platforms:[],collection:a.collection||null,collection_year:a.collectionYear?Number(a.collectionYear):null,
+      game_key:a.gameKey||null,commercial_meta:a.commercialMeta||{}
     };
   }
 
@@ -60,6 +73,7 @@
     contentBlocks:r.content_blocks||[],reviewMeta:r.review_meta||{},quickRead:r.quick_read||[],conclusion:r.conclusion||'',status:r.status,
     scheduleAt:r.scheduled_at||null,publishedAt:r.published_at||null,editorialSection:r.editorial_section||null,
     platforms:Array.isArray(r.platforms)?r.platforms:[],collection:r.collection||null,collectionYear:r.collection_year||null,
+    gameKey:r.game_key||null,commercialMeta:r.commercial_meta||{},
     createdBy:r.created_by||null,local:true,backend:true
   };}
 
@@ -93,13 +107,23 @@
     const name=nav.querySelector(':scope > span:not(.studio-user-tools)'); if(name&&profile?.display_name) name.textContent=profile.display_name;
   }
 
+  async function resolveReviewGame(gameKey){
+    const key=String(gameKey||'').trim();
+    if(!key)return null;
+    let response=await client.from('games').select('id,slug,title').eq('title',key).maybeSingle();
+    if(!response.error&&response.data)return response.data;
+    response=await client.from('games').select('id,slug,title').eq('slug',key).maybeSingle();
+    if(response.error)throw response.error;
+    return response.data||null;
+  }
+
   async function saveBackend(status){
     const {data:{user}}=await client.auth.getUser(); if(!user) throw new Error('Sign in first.');
     const article=collectArticle(status); if(!article.title||!article.slug) throw new Error('Headline and URL slug are required.');
     if(status==='scheduled'&&!article.scheduleAt) throw new Error('Choose a schedule date first.');
 
     const {data:existing,error:existingError}=await client.from('articles')
-      .select('published_at,conclusion,created_by,editorial_section,platforms,collection,collection_year')
+      .select('published_at,conclusion,created_by,editorial_section,platforms,collection,collection_year,game_key,commercial_meta')
       .eq('slug',article.slug).maybeSingle();
     if(existingError) throw existingError;
 
@@ -111,6 +135,18 @@
       if(!document.querySelector('.publication-platform-options')) article.platforms=Array.isArray(existing.platforms)?existing.platforms:[];
       if(!$('#article-collection')) article.collection=existing.collection||null;
       if(!$('#collection-year')) article.collectionYear=existing.collection_year||null;
+      if(!$('#game-key')) article.gameKey=existing.game_key||null;
+      article.commercialMeta={...(existing.commercial_meta||{}),...(article.commercialMeta||{})};
+    }
+
+    if(article.articleFormat==='review'){
+      const whereToBuyEnabled=article.commercialMeta?.where_to_buy_enabled !== false;
+      if(whereToBuyEnabled&&!article.gameKey) throw new Error('Link this review to a canonical game or turn off Where to Buy.');
+      if(article.gameKey){
+        const game=await resolveReviewGame(article.gameKey);
+        if(!game) throw new Error('The linked game is not in the canonical Games database. Choose a title from the Studio game list.');
+        article.gameKey=game.title;
+      }
     }
 
     const row=toRow(article,user.id);
