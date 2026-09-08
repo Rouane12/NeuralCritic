@@ -28,6 +28,7 @@
     if(format==='review') $('#category').value='REVIEW';
     else if(format==='game-guide') $('#category').value='GUIDE';
     else if($('#category').value==='REVIEW' || $('#category').value==='GUIDE') $('#category').value='FEATURE';
+    document.dispatchEvent(new CustomEvent('nc:studio-format-changed',{detail:{format}}));
   }
 
   function sectionTemplate(data={}){
@@ -70,6 +71,8 @@
     const title=$('#title').value.trim();
     const slug=$('#slug').value.trim() || slugify(title);
     const publishedAt = editingSource?.publishedAt || (status==='published' ? new Date().toISOString() : null);
+    const commercialMeta={...(editingSource?.commercialMeta||{})};
+    if(activeFormat==='review') commercialMeta.where_to_buy_enabled=$('#where-to-buy-enabled')?.checked !== false;
     const obj={
       id: editingSource?.id || Date.now(), slug, title,
       description:$('#description').value.trim(), body:$('#body').value.trim(),
@@ -81,7 +84,9 @@
       publishedAt,
       imageLocal:$('#featured-image').value.trim(),
       status, scheduleAt:$('#schedule-date').value || null,
-      imageCredit:$('#featured-credit').value.trim()
+      imageCredit:$('#featured-credit').value.trim(),
+      gameKey:$('#game-key')?.value?.trim?.()||null,
+      commercialMeta
     };
     if(activeFormat==='review') obj.reviewMeta={
       score:$('#review-score').value.trim(), verdict:$('#review-verdict').value.trim(),
@@ -102,6 +107,7 @@
     if(!article.slug) return 'A URL slug is required.';
     if(status==='scheduled' && !article.scheduleAt) return 'Choose a schedule date first.';
     if(article.articleFormat==='review' && !article.reviewMeta?.score) return 'Game reviews need a score.';
+    if(article.articleFormat==='review' && article.commercialMeta?.where_to_buy_enabled !== false && !article.gameKey) return 'Link the review to a canonical game or turn off Where to Buy.';
     if(article.articleFormat==='ranked-list' && !article.contentBlocks.length) return 'Ranked lists need at least one ranked entry.';
     return '';
   }
@@ -119,6 +125,8 @@
 
   function resetForm(){
     $('#article-form').reset(); $('#author').value='Rouane Mounssif'; $('#category').value='FEATURE'; $('#homepage-slot').value='regular';
+    if($('#game-key')) $('#game-key').value='';
+    if($('#where-to-buy-enabled')) $('#where-to-buy-enabled').checked=true;
     clearSections(); setFormat('standard'); editingSource=null; $('#title').focus();
   }
 
@@ -129,13 +137,17 @@
     $('#description').value=article.description||''; $('#body').value=article.body||''; $('#author').value=article.author||'Rouane Mounssif';
     $('#tags').value=(article.tags||[]).join(', '); $('#featured-image').value=article.imageLocal||''; $('#featured-alt').value=article.imageAlt||'';
     $('#featured-credit').value=article.imageCredit||''; $('#homepage-slot').value=article.homepageSlot||'regular'; $('#schedule-date').value=article.scheduleAt||'';
+    if($('#game-key')) $('#game-key').value=article.gameKey||'';
+    if($('#where-to-buy-enabled')) $('#where-to-buy-enabled').checked=article.commercialMeta?.where_to_buy_enabled !== false;
     if(article.reviewMeta){
       $('#review-score').value=article.reviewMeta.score||''; $('#review-verdict').value=article.reviewMeta.verdict||'';
       $('#review-pros').value=(article.reviewMeta.pros||[]).join('\n'); $('#review-cons').value=(article.reviewMeta.cons||[]).join('\n');
       $('#review-platform').value=article.reviewMeta.testedPlatform||''; $('#review-developer').value=article.reviewMeta.developer||'';
       $('#review-publisher').value=article.reviewMeta.publisher||''; $('#review-release').value=article.reviewMeta.releaseDate||''; $('#review-copy').value=article.reviewMeta.reviewCopy||'';
     }
-    clearSections(); (article.contentBlocks||[]).forEach(sectionTemplate); window.scrollTo({top:0,behavior:'smooth'}); toast(`Loaded “${article.title}” into the editor.`);
+    clearSections(); (article.contentBlocks||[]).forEach(sectionTemplate);
+    document.dispatchEvent(new CustomEvent('nc:studio-article-loaded',{detail:{article:{...article}}}));
+    window.scrollTo({top:0,behavior:'smooth'}); toast(`Loaded “${article.title}” into the editor.`);
   }
 
   async function editStory(slug, local){

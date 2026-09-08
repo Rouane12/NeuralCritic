@@ -59,15 +59,26 @@ def audit_schema() -> None:
     require("insert into public.commerce_products" not in sql, "commerce migrations must not seed fake products")
     require("insert into public.commerce_offers" not in sql, "commerce migrations must not seed fake offers")
 
+    editor_migrations = sorted(migration_dir.glob("*update_game_storefront_metadata.sql"))
+    require(editor_migrations, "game storefront editor permission migration is missing")
+    editor_sql = "\n".join(path.read_text(encoding="utf-8") for path in editor_migrations).lower()
+    require("grant update (metadata) on public.games to authenticated" in editor_sql, "Studio must receive metadata-only game update privilege")
+    require('create policy "editors can update game metadata"' in editor_sql, "game metadata update policy is missing")
+    require("editor_profiles" in editor_sql and "'editor'" in editor_sql and "'admin'" in editor_sql, "game metadata writes are not restricted to approved editors")
+
 
 def audit_client_safety() -> None:
     commerce_js = text("assets/commerce.js")
     home_js = text("assets/home-commerce.js")
     article_js = text("assets/article-commerce.js")
     article_css = text("assets/article-commerce.css")
+    studio_js = text("assets/studio.js")
+    studio_backend = text("assets/studio-backend.js")
+    studio_commerce = text("assets/studio-commerce-editor.js")
+    studio_commerce_css = text("assets/studio-commerce.css")
     importer = text("scripts/import_commerce_feed.py")
 
-    for name, source in (("commerce.js", commerce_js), ("home-commerce.js", home_js), ("article-commerce.js", article_js)):
+    for name, source in (("commerce.js", commerce_js), ("home-commerce.js", home_js), ("article-commerce.js", article_js), ("studio-commerce-editor.js", studio_commerce)):
         require("SUPABASE_SERVICE_ROLE_KEY" not in source, f"{name} must never reference the service-role secret")
 
     require('rel=\\"sponsored noopener noreferrer\\"' in commerce_js or 'rel="sponsored noopener noreferrer"' in commerce_js, "Deals links are not sponsor-hardened")
@@ -80,6 +91,7 @@ def audit_client_safety() -> None:
     require("renderReviewStorefrontFallback" in article_js, "review storefront fallback is missing")
     require("metadata?.storefronts" in article_js, "review storefront fallback is not backed by canonical game metadata")
     require("article_format" in article_js and "game_key" in article_js, "review storefront fallback is not scoped to review/game identity")
+    require("commercial_meta" in article_js and "where_to_buy_enabled === false" in article_js, "article commerce runtime does not honor the editorial Where to Buy opt-out")
     require(".work-article-sidebar" in article_js and "review-where-to-buy" in article_js, "review storefront module is not integrated with the article sidebar")
     require("commerce_storefront_rendered" in article_js and "commerce_storefront_click" in article_js, "review storefront analytics are incomplete")
 
@@ -96,6 +108,21 @@ def audit_client_safety() -> None:
 
     for token in ("nc-where-to-buy--sidebar", "nc-storefront-select", "nc-storefront-action", ":focus-visible"):
         require(token in article_css, f"review storefront presentation is missing {token}")
+
+    require("studio-commerce-editor.js" in studio_backend, "Studio backend does not load the storefront editor")
+    require("game_key:a.gameKey" in studio_backend and "commercial_meta:a.commercialMeta" in studio_backend, "Studio backend does not persist linked-game and commercial metadata")
+    require("where_to_buy_enabled" in studio_js and "gameKey" in studio_js, "Studio local draft model does not preserve review commerce controls")
+    require("Link the review to a canonical game" in studio_js, "Studio does not validate the review/game relationship when Where to Buy is enabled")
+
+    for token in ("where-to-buy-enabled", "game-key", "studio-storefront-add", "studio-storefront-save", "metadata", "storefronts", "verifiedAt", "affiliate: false"):
+        require(token in studio_commerce, f"Studio storefront editor is missing {token}")
+    require("url.protocol === 'https:'" in studio_commerce, "Studio storefront editor does not enforce HTTPS destinations")
+    require(".update({ metadata })" in studio_commerce, "Studio storefront editor does not persist canonical game metadata")
+    require("...(current.metadata || {})" in studio_commerce, "Studio storefront save does not preserve unrelated game metadata")
+    require("entry?.affiliate === true" in studio_commerce and "providerManaged" in studio_commerce, "Studio storefront editor does not preserve provider-managed affiliate entries")
+    for prohibited in ("list_price", "availability", "discount", "scarcity"):
+        require(f'data-storefront-field="{prohibited}"' not in studio_commerce.lower(), f"Studio direct-storefront editor must not expose a {prohibited} field")
+    require("studio-commerce-editor" in studio_commerce_css and ":focus-visible" in studio_commerce_css, "Studio storefront presentation/accessibility styles are incomplete")
 
 
 def audit_importer_dry_run() -> None:
