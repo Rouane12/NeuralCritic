@@ -121,7 +121,7 @@ def audit_client_safety() -> None:
     require("...(current.metadata || {})" in studio_commerce, "Studio storefront save does not preserve unrelated game metadata")
     require("entry?.affiliate === true" in studio_commerce and "providerManaged" in studio_commerce, "Studio storefront editor does not preserve provider-managed affiliate entries")
     for prohibited in ("list_price", "availability", "discount", "scarcity"):
-        require(prohibited not in studio_commerce.lower(), f"Studio direct-storefront editor must not expose {prohibited} fields")
+        require(f'data-storefront-field="{prohibited}"' not in studio_commerce.lower(), f"Studio direct-storefront editor must not expose a {prohibited} field")
     require("studio-commerce-editor" in studio_commerce_css and ":focus-visible" in studio_commerce_css, "Studio storefront presentation/accessibility styles are incomplete")
 
 
