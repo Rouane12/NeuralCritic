@@ -11,22 +11,24 @@
 }
 
 #article.work-article-page .work-react-rail.standard-react-rail{
-  width:108px!important;
-  min-width:108px!important;
+  width:124px!important;
+  min-width:124px!important;
   justify-self:start!important;
   align-items:stretch!important;
   margin:0!important;
 }
 
 #article.work-article-page .work-react-rail.standard-react-rail button{
-  width:108px!important;
+  width:124px!important;
   padding:0!important;
-  grid-template-columns:minmax(0,1fr) 42px!important;
+  grid-template-columns:42px minmax(0,1fr)!important;
   column-gap:10px!important;
 }
 
 #article.work-article-page .work-react-rail.standard-react-rail button small{
-  padding:0 2px 0 0!important;
+  padding:0!important;
+  justify-content:flex-start!important;
+  text-align:left!important;
   white-space:nowrap!important;
   overflow:visible!important;
 }
@@ -86,12 +88,12 @@
     gap:26px!important;
   }
   #article.work-article-page .work-react-rail.standard-react-rail{
-    width:100px!important;
-    min-width:100px!important;
+    width:116px!important;
+    min-width:116px!important;
   }
   #article.work-article-page .work-react-rail.standard-react-rail button{
-    width:100px!important;
-    grid-template-columns:minmax(0,1fr) 40px!important;
+    width:116px!important;
+    grid-template-columns:40px minmax(0,1fr)!important;
     column-gap:8px!important;
   }
   #article.work-article-page .work-react-rail.standard-react-rail button b{
@@ -131,6 +133,7 @@
   }
   #article.work-article-page .work-react-rail.standard-react-rail button small{
     padding:0!important;
+    justify-content:center!important;
     text-align:center!important;
     font-size:9px!important;
   }
