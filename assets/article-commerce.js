@@ -390,7 +390,7 @@
     if (!ready) return;
 
     const articleRes = await supa.from('articles')
-      .select('id,slug,status,published_at,category,article_format,game_key')
+      .select('id,slug,status,published_at,category,article_format,game_key,commercial_meta')
       .eq('slug', storySlug)
       .eq('status', 'published')
       .lte('published_at', new Date().toISOString())
@@ -398,6 +398,8 @@
     if (articleRes.error || !articleRes.data) return;
 
     const article = articleRes.data;
+    if (article.commercial_meta?.where_to_buy_enabled === false) return;
+
     const linksRes = await supa.from('commerce_article_products')
       .select('product_id,placement,sort_order')
       .eq('article_id', article.id)
