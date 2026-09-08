@@ -1944,6 +1944,21 @@
       "local": "/images/editorial/1788808699218-20b831f7-0843-48f7-abe4-0b93ef52bf64-chatgpt-image-sep-7-2026-08-18-03-pm.webp",
       "local_bytes": 388904,
       "source_bytes": 3080579
+    },
+    "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1788878123441-312834fe-457d-4dff-96d2-2983809be4f1-zelda-movie.png": {
+      "local": "/images/editorial/1788878123441-312834fe-457d-4dff-96d2-2983809be4f1-zelda-movie.png",
+      "local_bytes": 174577,
+      "source_bytes": 174577
+    },
+    "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1788878243910-262b4cd7-0d02-4a0e-b2dc-c5a8f2d6a3eb-lego-set.webp": {
+      "local": "/images/editorial/1788878243910-262b4cd7-0d02-4a0e-b2dc-c5a8f2d6a3eb-lego-set.webp",
+      "local_bytes": 26346,
+      "source_bytes": 26346
+    },
+    "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1788879901541-337abe1e-8bcc-4aed-b221-11374f799a6e-coarina-of-time.webp": {
+      "local": "/images/editorial/1788879901541-337abe1e-8bcc-4aed-b221-11374f799a6e-coarina-of-time.webp",
+      "local_bytes": 223168,
+      "source_bytes": 223168
     }
   },
   "version": 1

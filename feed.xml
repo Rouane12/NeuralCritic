@@ -5,9 +5,33 @@
     <link>https://www.neuralcritic.net/</link>
     <description>Gaming news, reviews, guides, and features for players who want the signal—not the noise.</description>
     <language>en</language>
-    <lastBuildDate>Tue, 08 Sep 2026 11:37:17 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 08 Sep 2026 15:15:36 +0000</lastBuildDate>
     <generator>Neural Critic publication pipeline</generator>
     <atom:link href="https://www.neuralcritic.net/feed.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>The Legend of Zelda: Ocarina of Time Remake Launches November 5 — New Gameplay Reveals Jumping, Free Camera and More</title>
+      <link>https://www.neuralcritic.net/stories/zelda-ocarina-of-time-remake-release-date-gameplay-details/</link>
+      <guid isPermaLink="true">https://www.neuralcritic.net/stories/zelda-ocarina-of-time-remake-release-date-gameplay-details/</guid>
+      <description>Nintendo has given The Legend of Zelda: Ocarina of Time its biggest remake showcase yet, confirming a November 5, 2026 release date and detailing major gameplay and quality-of-life changes for Switch 2.</description>
+      <category>NEWS</category>
+      <pubDate>Tue, 08 Sep 2026 15:03:50 +0000</pubDate>
+    </item>
+    <item>
+      <title>Nintendo Reveals New Zelda LEGO Set Featuring Link and Epona for the Series’ 40th Anniversary</title>
+      <link>https://www.neuralcritic.net/stories/zelda-link-epona-lego-set-announced-40th-anniversary/</link>
+      <guid isPermaLink="true">https://www.neuralcritic.net/stories/zelda-link-epona-lego-set-announced-40th-anniversary/</guid>
+      <description>Nintendo has revealed a new The Legend of Zelda LEGO set featuring Link and Epona, alongside a playable Ocarina, during Zelda’s 40th Anniversary Direct.</description>
+      <category>NEWS</category>
+      <pubDate>Tue, 08 Sep 2026 14:55:23 +0000</pubDate>
+    </item>
+    <item>
+      <title>The Legend of Zelda Movie Reveals Its Official Logo — and Nintendo Confirms There’s No Subtitle</title>
+      <link>https://www.neuralcritic.net/stories/zelda-movie-official-logo-no-subtitle/</link>
+      <guid isPermaLink="true">https://www.neuralcritic.net/stories/zelda-movie-official-logo-no-subtitle/</guid>
+      <description>Nintendo has revealed the official logo for its live-action The Legend of Zelda movie and confirmed that the April 2027 film will simply be titled The Legend of Zelda.</description>
+      <category>NEWS</category>
+      <pubDate>Tue, 08 Sep 2026 14:36:13 +0000</pubDate>
+    </item>
     <item>
       <title>The Witcher 3 Beginner’s Guide: Combat, Signs, Alchemy and Exploration</title>
       <link>https://www.neuralcritic.net/stories/the-witcher-3-beginners-guide/</link>
@@ -223,30 +247,6 @@
       <description>The best games you can finish in under 20 hours, using typical main-story time rather than completionist play — from Portal 2 and Astro Bot to Stray and Firewatch.</description>
       <category>FEATURE</category>
       <pubDate>Sat, 05 Sep 2026 03:55:26 +0000</pubDate>
-    </item>
-    <item>
-      <title>Breath of the Wild Best Early Armor and Essential Upgrades</title>
-      <link>https://www.neuralcritic.net/stories/breath-of-the-wild-best-early-armor-upgrades/</link>
-      <guid isPermaLink="true">https://www.neuralcritic.net/stories/breath-of-the-wild-best-early-armor-upgrades/</guid>
-      <description>The best early Breath of the Wild armor to prioritize, including practical defense, cold resistance, stealth and the Great Fairy upgrades that make early gear last longer.</description>
-      <category>GUIDE</category>
-      <pubDate>Sat, 05 Sep 2026 03:55:26 +0000</pubDate>
-    </item>
-    <item>
-      <title>Why Super Mario Galaxy’s Gravity Mechanics Still Feel Brilliant</title>
-      <link>https://www.neuralcritic.net/stories/super-mario-galaxy-gravity-mechanics/</link>
-      <guid isPermaLink="true">https://www.neuralcritic.net/stories/super-mario-galaxy-gravity-mechanics/</guid>
-      <description>An analysis of how Super Mario Galaxy turns gravity, planetoids and camera perspective into memorable platforming ideas.</description>
-      <category>FEATURE</category>
-      <pubDate>Sat, 05 Sep 2026 03:55:26 +0000</pubDate>
-    </item>
-    <item>
-      <title>The 12 Best Turn-Based RPGs</title>
-      <link>https://www.neuralcritic.net/stories/best-turn-based-rpgs/</link>
-      <guid isPermaLink="true">https://www.neuralcritic.net/stories/best-turn-based-rpgs/</guid>
-      <description>The best turn-based RPGs, ranked for tactical combat, party building, progression and storytelling — from Baldur’s Gate 3 to Clair Obscur and Persona 5 Royal.</description>
-      <category>FEATURE</category>
-      <pubDate>Sat, 05 Sep 2026 03:55:18 +0000</pubDate>
     </item>
   </channel>
 </rss>
