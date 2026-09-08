@@ -55,6 +55,7 @@ SELECT_FIELDS = ",".join(
         "series",
         "franchise",
         "news_meta",
+        "commercial_meta",
     ]
 )
 
@@ -105,6 +106,7 @@ def runtime_row(row: dict[str, Any]) -> dict[str, Any]:
         "series": row.get("series") or "",
         "franchise": row.get("franchise") or "",
         "newsMeta": row.get("news_meta") if isinstance(row.get("news_meta"), dict) else {},
+        "commercialMeta": row.get("commercial_meta") if isinstance(row.get("commercial_meta"), dict) else {},
     }
 
 
