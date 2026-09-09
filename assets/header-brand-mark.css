@@ -1,92 +1,148 @@
-/* Neural Critic brand mark — explicit element inside the existing home link. */
+/* Neural Critic header brand — the complete logo lockup is the Home link. */
 header .brand{
-  grid-template-columns:auto auto 30px!important;
+  display:inline-flex!important;
   align-items:center!important;
-  column-gap:7px!important;
-  min-width:226px!important;
+  justify-content:flex-start!important;
+  min-width:178px!important;
+  width:auto!important;
+  overflow:visible!important;
+  line-height:1!important;
+  text-decoration:none!important;
+}
+
+/* Remove every legacy decorative/pseudo-logo path. */
+header .brand::before,
+header .brand::after{content:none!important;display:none!important}
+
+header .brand .nc-brand-lockup{
+  display:inline-flex!important;
+  align-items:center!important;
+  gap:8px!important;
+  width:auto!important;
+  height:48px!important;
+  line-height:1!important;
+  white-space:nowrap;
+  transform-origin:left center;
+  transition:transform .18s ease,filter .18s ease;
+}
+
+header .brand .nc-brand-symbol{
+  display:inline-flex!important;
+  align-items:center!important;
+  justify-content:center!important;
+  flex:0 0 48px!important;
+  width:48px!important;
+  height:48px!important;
+  min-width:48px!important;
+  min-height:48px!important;
+  max-width:48px!important;
+  max-height:48px!important;
+  line-height:0!important;
+  filter:drop-shadow(0 3px 8px rgba(22,215,232,.12));
+}
+
+header .brand .nc-brand-symbol svg{
+  display:block!important;
+  width:48px!important;
+  height:48px!important;
+  min-width:48px!important;
+  min-height:48px!important;
+  max-width:48px!important;
+  max-height:48px!important;
   overflow:visible!important;
 }
 
-/* Retire the earlier pseudo-element implementation. */
-header .brand::after{content:none!important;display:none!important}
-
-header .brand .nc-home-mark{
-  grid-column:3;
-  grid-row:1;
-  display:inline-flex!important;
-  align-items:center;
-  justify-content:center;
-  width:30px!important;
-  height:30px!important;
-  margin-left:3px;
-  line-height:0;
-  opacity:1!important;
-  visibility:visible!important;
-  filter:drop-shadow(0 4px 10px rgba(22,215,232,.12));
-  transform:translateZ(0);
-  transform-origin:center;
-  transition:transform .18s ease,filter .18s ease,opacity .18s ease;
-  pointer-events:none;
+header .brand .nc-brand-type{
+  display:flex!important;
+  flex-direction:column!important;
+  align-items:flex-start!important;
+  justify-content:center!important;
+  gap:0!important;
+  line-height:.78!important;
+  transform:translateY(1px);
 }
 
-header .brand .nc-home-mark svg{display:block;width:100%;height:100%;overflow:visible}
+header .brand .nc-brand-neural,
+header .brand .nc-brand-critic{
+  display:block!important;
+  margin:0!important;
+  padding:0!important;
+  font-family:Inter,system-ui,-apple-system,"Segoe UI",sans-serif!important;
+  font-size:24px!important;
+  font-style:normal!important;
+  font-weight:900!important;
+  letter-spacing:-1.6px!important;
+  line-height:.83!important;
+  text-transform:none!important;
+}
 
-header .brand:hover .nc-home-mark{
-  transform:translateY(-1px) scale(1.045);
-  filter:drop-shadow(0 5px 12px rgba(22,215,232,.22));
+header .brand .nc-brand-neural{color:#f7f9fc!important}
+header .brand .nc-brand-critic{color:#18c6df!important}
+
+header .brand:hover .nc-brand-lockup{
+  transform:translateY(-1px) scale(1.018);
+  filter:drop-shadow(0 5px 12px rgba(22,215,232,.12));
 }
 
 header .brand:focus-visible{
-  outline:2px solid var(--nc-header-cyan,#55e7ff);
-  outline-offset:6px;
-  border-radius:7px;
+  outline:2px solid var(--nc-header-cyan,#55e7ff)!important;
+  outline-offset:6px!important;
+  border-radius:9px!important;
 }
 
-html[data-theme="light"] header .brand .nc-home-mark{
-  filter:drop-shadow(0 1px 1px rgba(18,31,45,.24));
-}
-html[data-theme="light"] header .brand:hover .nc-home-mark{
-  filter:drop-shadow(0 3px 7px rgba(16,147,173,.20));
-}
+html[data-theme="light"] header .brand .nc-brand-neural{color:#202a35!important}
+html[data-theme="light"] header .brand .nc-brand-symbol{filter:drop-shadow(0 1px 1px rgba(18,31,45,.20))}
 
 @media (min-width:861px) and (max-width:1279px){
-  header .brand{
-    grid-template-columns:auto auto 27px!important;
-    min-width:213px!important;
-    column-gap:6px!important;
+  header .brand{min-width:164px!important}
+  header .brand .nc-brand-lockup{height:44px!important;gap:7px!important}
+  header .brand .nc-brand-symbol,
+  header .brand .nc-brand-symbol svg{
+    flex-basis:44px!important;
+    width:44px!important;
+    height:44px!important;
+    min-width:44px!important;
+    min-height:44px!important;
+    max-width:44px!important;
+    max-height:44px!important;
   }
-  header .brand .nc-home-mark{
-    width:27px!important;
-    height:27px!important;
-    margin-left:2px;
-  }
+  header .brand .nc-brand-neural,
+  header .brand .nc-brand-critic{font-size:22px!important;letter-spacing:-1.45px!important}
 }
 
 @media (max-width:860px){
-  header .brand{
-    grid-template-columns:auto auto 26px!important;
-    min-width:auto!important;
-    column-gap:5px!important;
+  header .brand{min-width:auto!important}
+  header .brand .nc-brand-lockup{height:40px!important;gap:6px!important}
+  header .brand .nc-brand-symbol,
+  header .brand .nc-brand-symbol svg{
+    flex-basis:40px!important;
+    width:40px!important;
+    height:40px!important;
+    min-width:40px!important;
+    min-height:40px!important;
+    max-width:40px!important;
+    max-height:40px!important;
   }
-  header .brand .nc-home-mark{
-    width:26px!important;
-    height:26px!important;
-    margin-left:1px;
-  }
+  header .brand .nc-brand-neural,
+  header .brand .nc-brand-critic{font-size:20px!important;letter-spacing:-1.25px!important}
 }
 
 @media (max-width:420px){
-  header .brand{
-    grid-template-columns:auto auto 23px!important;
-    column-gap:4px!important;
+  header .brand .nc-brand-lockup{height:36px!important;gap:5px!important}
+  header .brand .nc-brand-symbol,
+  header .brand .nc-brand-symbol svg{
+    flex-basis:36px!important;
+    width:36px!important;
+    height:36px!important;
+    min-width:36px!important;
+    min-height:36px!important;
+    max-width:36px!important;
+    max-height:36px!important;
   }
-  header .brand .nc-home-mark{
-    width:23px!important;
-    height:23px!important;
-    margin-left:0;
-  }
+  header .brand .nc-brand-neural,
+  header .brand .nc-brand-critic{font-size:18px!important;letter-spacing:-1.1px!important}
 }
 
 @media (prefers-reduced-motion:reduce){
-  header .brand .nc-home-mark{transition:none}
+  header .brand .nc-brand-lockup{transition:none!important}
 }
