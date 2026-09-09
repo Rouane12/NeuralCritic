@@ -1,4 +1,14 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" role="img" aria-labelledby="title">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" role="img" aria-labelledby="title desc">
   <title id="title">Neural Critic home mark</title>
-  <image width="256" height="256" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAQAAAAEACAYAAABccqhmAACgM0lEQVR42uy9ebRld13n+1pr7TnnnOfcJQcCAQISQgIJJDAJCUZjEKMgbRzHHJyqjJ0qWqW4o9ZJV2VsdXGsq1qVqsa1sVpbR2vVZl5rVdxrR8fUuE7jTQY7TRxDEiAEEmAYQ4CQQOgQEiAQSHLnPDnnnFNr7z/6Rjvn3HNO7p17zt17zt3n9Xw+9+8nOc+5z3ne8z3PeZ7n8/k8AUAIgQABQoAAAUCAACFAgAAhQIAA4P8/0XxURuJxQQAAAABJRU5ErkJggg=="/>
+  <desc id="desc">NC gaming controller and critique mark</desc>
+  <g stroke-linejoin="round" stroke-linecap="round">
+    <path d="M24 60 Q24 48 38 48 H91 L128 94 V205 L94 164 V210 L68 232 V194 H38 Q24 194 24 180 Z" fill="#ffffff" stroke="#d8dee7" stroke-width="2"/>
+    <path d="M128 54 H202 Q230 54 230 82 V98 H166 Q146 98 146 118 V138 Q146 158 166 158 H230 V174 Q230 202 202 202 H128 Z" fill="#19bfd8"/>
+    <path d="M53 111 H69 V95 H85 V111 H101 V127 H85 V143 H69 V127 H53 Z" fill="#171b22"/>
+    <circle cx="183" cy="118" r="10" fill="#171b22"/>
+    <circle cx="205" cy="132" r="10" fill="#171b22"/>
+    <circle cx="183" cy="146" r="10" fill="#171b22"/>
+    <circle cx="161" cy="132" r="10" fill="#171b22"/>
+    <path d="M128 20 V43 M98 31 L113 48 M158 31 L143 48" fill="none" stroke="#19bfd8" stroke-width="10"/>
+  </g>
 </svg>
