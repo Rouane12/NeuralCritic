@@ -1,0 +1,82 @@
+/* Neural Critic brand mark — compact home affordance beside the wordmark. */
+header .brand{
+  grid-template-columns:auto auto 30px!important;
+  align-items:center!important;
+  column-gap:7px!important;
+  min-width:226px!important;
+}
+
+header .brand::after{
+  content:"";
+  grid-column:3;
+  grid-row:1;
+  display:block;
+  width:30px;
+  height:30px;
+  margin-left:3px;
+  background:url("../images/brand/neural-critic-home-mark.svg?v=20260909-brand1") center/contain no-repeat;
+  filter:drop-shadow(0 4px 10px rgba(22,215,232,.12));
+  transform:translateZ(0);
+  transform-origin:center;
+  transition:transform .18s ease,filter .18s ease,opacity .18s ease;
+}
+
+header .brand:hover::after{
+  transform:translateY(-1px) scale(1.045);
+  filter:drop-shadow(0 5px 12px rgba(22,215,232,.22));
+}
+
+header .brand:focus-visible{
+  outline:2px solid var(--nc-header-cyan,#55e7ff);
+  outline-offset:6px;
+  border-radius:7px;
+}
+
+html[data-theme="light"] header .brand::after{
+  filter:drop-shadow(0 1px 1px rgba(18,31,45,.24));
+}
+html[data-theme="light"] header .brand:hover::after{
+  filter:drop-shadow(0 3px 7px rgba(16,147,173,.20));
+}
+
+@media (min-width:861px) and (max-width:1279px){
+  header .brand{
+    grid-template-columns:auto auto 27px!important;
+    min-width:213px!important;
+    column-gap:6px!important;
+  }
+  header .brand::after{
+    width:27px;
+    height:27px;
+    margin-left:2px;
+  }
+}
+
+@media (max-width:860px){
+  header .brand{
+    grid-template-columns:auto auto 26px!important;
+    min-width:auto!important;
+    column-gap:5px!important;
+  }
+  header .brand::after{
+    width:26px;
+    height:26px;
+    margin-left:1px;
+  }
+}
+
+@media (max-width:420px){
+  header .brand{
+    grid-template-columns:auto auto 23px!important;
+    column-gap:4px!important;
+  }
+  header .brand::after{
+    width:23px;
+    height:23px;
+    margin-left:0;
+  }
+}
+
+@media (prefers-reduced-motion:reduce){
+  header .brand::after{transition:none}
+}
