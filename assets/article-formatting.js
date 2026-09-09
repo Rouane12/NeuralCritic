@@ -68,6 +68,44 @@
     });
   }
 
+  /* CMS/import data should contain real line breaks, but older or externally
+     supplied stories can arrive with literal "\\n" escape sequences. Repair
+     those at the reader boundary so raw serialization markers can never leak
+     into published prose. Paragraph-sized breaks stay semantic <p> elements. */
+  function decodeEscapedBreaks(value=''){
+    return String(value)
+      .replaceAll('\\\\r\\\\n','\n')
+      .replaceAll('\\r\\n','\n')
+      .replaceAll('\\\\n','\n')
+      .replaceAll('\\n','\n');
+  }
+
+  function normalizeEscapedBreaks(root){
+    if(!root)return;
+    $$('p,li,blockquote',root).forEach(node=>{
+      const html=node.innerHTML||'';
+      if(!html.includes('\\n')&&!html.includes('\\r'))return;
+      const decoded=decodeEscapedBreaks(html);
+      if(decoded===html)return;
+
+      if(node.tagName==='P'){
+        const parts=decoded.split(/\n{2,}/).map(part=>part.trim()).filter(Boolean);
+        if(parts.length>1){
+          const fragment=document.createDocumentFragment();
+          parts.forEach(part=>{
+            const paragraph=node.cloneNode(false);
+            paragraph.innerHTML=part.replace(/\n/g,'<br>');
+            fragment.appendChild(paragraph);
+          });
+          node.replaceWith(fragment);
+          return;
+        }
+      }
+
+      node.innerHTML=decoded.replace(/\n{2,}/g,'<br><br>').replace(/\n/g,'<br>');
+    });
+  }
+
   /* app.js safely escapes prose before inserting the only supported inline
      tags (<strong>/<em>). Process highlight/accent tokens at the element HTML
      level so combinations such as ==**important**== remain nested correctly
@@ -88,6 +126,7 @@
   async function init(){
     const [article,body]=await Promise.all([loadArticle(),waitForBody()]);
     if(!article||!body)return;
+    normalizeEscapedBreaks(body.closest('#article')||body);
     applyPublicationSystem(body);
     applyHeadingStyles(article,body);
     applyInlineFormatting(body);
