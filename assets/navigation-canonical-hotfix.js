@@ -21,33 +21,35 @@
     return `${desk}/${platform ? `?platform=${encodeURIComponent(platform)}` : ''}`;
   };
 
-  const homeMarkSvg = `
-    <svg viewBox="0 0 256 256" width="30" height="30" aria-hidden="true" focusable="false" style="display:block;width:30px;height:30px;max-width:30px;max-height:30px;overflow:visible">
-      <g stroke-linejoin="round" stroke-linecap="round">
-        <path d="M24 60 Q24 48 38 48 H91 L128 94 V205 L94 164 V210 L68 232 V194 H38 Q24 194 24 180 Z" fill="#ffffff" stroke="#7f8996" stroke-width="3"/>
-        <path d="M128 54 H202 Q230 54 230 82 V98 H166 Q146 98 146 118 V138 Q146 158 166 158 H230 V174 Q230 202 202 202 H128 Z" fill="#19bfd8"/>
-        <path d="M53 111 H69 V95 H85 V111 H101 V127 H85 V143 H69 V127 H53 Z" fill="#171b22"/>
-        <circle cx="183" cy="118" r="10" fill="#171b22"/>
-        <circle cx="205" cy="132" r="10" fill="#171b22"/>
-        <circle cx="183" cy="146" r="10" fill="#171b22"/>
-        <circle cx="161" cy="132" r="10" fill="#171b22"/>
-        <path d="M128 20 V43 M98 31 L113 48 M158 31 L143 48" fill="none" stroke="#19bfd8" stroke-width="10"/>
-      </g>
-    </svg>`;
+  const brandLockup = `
+    <span class="nc-brand-lockup" aria-hidden="true">
+      <span class="nc-brand-symbol">
+        <svg viewBox="0 0 256 256" width="48" height="48" focusable="false" style="display:block;width:48px;height:48px;max-width:48px;max-height:48px;overflow:visible">
+          <g stroke-linejoin="round" stroke-linecap="round">
+            <path d="M24 60 Q24 48 38 48 H91 L128 94 V205 L94 164 V210 L68 232 V194 H38 Q24 194 24 180 Z" fill="#ffffff" stroke="#7f8996" stroke-width="3"/>
+            <path d="M128 54 H202 Q230 54 230 82 V98 H166 Q146 98 146 118 V138 Q146 158 166 158 H230 V174 Q230 202 202 202 H128 Z" fill="#19bfd8"/>
+            <path d="M53 111 H69 V95 H85 V111 H101 V127 H85 V143 H69 V127 H53 Z" fill="#171b22"/>
+            <circle cx="183" cy="118" r="10" fill="#171b22"/>
+            <circle cx="205" cy="132" r="10" fill="#171b22"/>
+            <circle cx="183" cy="146" r="10" fill="#171b22"/>
+            <circle cx="161" cy="132" r="10" fill="#171b22"/>
+            <path d="M128 20 V43 M98 31 L113 48 M158 31 L143 48" fill="none" stroke="#19bfd8" stroke-width="10"/>
+          </g>
+        </svg>
+      </span>
+      <span class="nc-brand-type">
+        <span class="nc-brand-neural">Neural</span>
+        <strong class="nc-brand-critic">Critic</strong>
+      </span>
+    </span>`;
 
-  const installHomeMark = root => {
+  const installBrandLockup = root => {
     const brand = root.querySelector?.('header .brand') || (root.matches?.('header .brand') ? root : null);
-    if (!brand || brand.querySelector('.nc-home-mark')) return;
+    if (!brand || brand.dataset.ncBrandLockup === '1') return;
 
-    const mark = document.createElement('span');
-    mark.className = 'nc-home-mark';
-    mark.setAttribute('aria-hidden', 'true');
-    mark.style.cssText = 'display:inline-flex;width:30px;height:30px;min-width:30px;min-height:30px;max-width:30px;max-height:30px;align-items:center;justify-content:center;overflow:visible;line-height:0;flex:0 0 30px;';
-    mark.innerHTML = homeMarkSvg;
-
-    const tagline = brand.querySelector('em');
-    if (tagline) brand.insertBefore(mark, tagline);
-    else brand.appendChild(mark);
+    brand.dataset.ncBrandLockup = '1';
+    brand.setAttribute('aria-label', 'Neural Critic home');
+    brand.innerHTML = brandLockup;
   };
 
   const repair = root => {
@@ -55,7 +57,7 @@
       const next = canonicalDeskHref(anchor);
       if (next) anchor.setAttribute('href', next);
     });
-    installHomeMark(root);
+    installBrandLockup(root);
   };
 
   const run = () => repair(document);
