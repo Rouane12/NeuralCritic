@@ -1959,6 +1959,21 @@
       "local": "/images/editorial/1788879901541-337abe1e-8bcc-4aed-b221-11374f799a6e-coarina-of-time.webp",
       "local_bytes": 223168,
       "source_bytes": 223168
+    },
+    "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1788966745984-9059cbf0-4335-4e8e-a29d-2dcf4c016c98-metroid-ravenous-1.webp": {
+      "local": "/images/editorial/1788966745984-9059cbf0-4335-4e8e-a29d-2dcf4c016c98-metroid-ravenous-1.webp",
+      "local_bytes": 172248,
+      "source_bytes": 172248
+    },
+    "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1788966749986-23dbbb96-2653-49cc-94e4-66f728f048c8-metroid-ravenous-2.webp": {
+      "local": "/images/editorial/1788966749986-23dbbb96-2653-49cc-94e4-66f728f048c8-metroid-ravenous-2.webp",
+      "local_bytes": 153988,
+      "source_bytes": 153988
+    },
+    "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1788966756864-6d20f350-3aad-4d88-bca7-a24250ca7dc2-metroid-ravenous.webp": {
+      "local": "/images/editorial/1788966756864-6d20f350-3aad-4d88-bca7-a24250ca7dc2-metroid-ravenous.webp",
+      "local_bytes": 58034,
+      "source_bytes": 58034
     }
   },
   "version": 1

@@ -5,9 +5,17 @@
     <link>https://www.neuralcritic.net/</link>
     <description>Gaming news, reviews, guides, and features for players who want the signal—not the noise.</description>
     <language>en</language>
-    <lastBuildDate>Wed, 09 Sep 2026 11:56:28 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 09 Sep 2026 15:17:49 +0000</lastBuildDate>
     <generator>Neural Critic publication pipeline</generator>
     <atom:link href="https://www.neuralcritic.net/feed.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Metroid Ravenous Revealed for Switch 2 — Samus Embraces Her Metroid Powers in a Darker Follow-Up to Dread</title>
+      <link>https://www.neuralcritic.net/stories/metroid-ravenous-reveal-release-date-gameplay-details/</link>
+      <guid isPermaLink="true">https://www.neuralcritic.net/stories/metroid-ravenous-reveal-release-date-gameplay-details/</guid>
+      <description>Nintendo has revealed Metroid Ravenous for Nintendo Switch 2, launching January 28, 2027. We break down Samus’ new energy-absorbing abilities, combat, enemies, story clues and everything shown in the first trailer.</description>
+      <category>NEWS</category>
+      <pubDate>Wed, 09 Sep 2026 15:06:33 +0000</pubDate>
+    </item>
     <item>
       <title>The Legend of Zelda: Ocarina of Time Remake Launches November 5 — New Gameplay Reveals Jumping, Free Camera and More</title>
       <link>https://www.neuralcritic.net/stories/zelda-ocarina-of-time-remake-release-date-gameplay-details/</link>
@@ -237,14 +245,6 @@
       <link>https://www.neuralcritic.net/stories/best-3d-platformers/</link>
       <guid isPermaLink="true">https://www.neuralcritic.net/stories/best-3d-platformers/</guid>
       <description>The best 3D platformers, ranked for movement, level design, exploration and inventive traversal — from Mario Galaxy and Odyssey to Astro Bot and Psychonauts 2.</description>
-      <category>FEATURE</category>
-      <pubDate>Sat, 05 Sep 2026 03:55:26 +0000</pubDate>
-    </item>
-    <item>
-      <title>The 10 Best Games You Can Finish in Under 20 Hours</title>
-      <link>https://www.neuralcritic.net/stories/best-games-under-20-hours/</link>
-      <guid isPermaLink="true">https://www.neuralcritic.net/stories/best-games-under-20-hours/</guid>
-      <description>The best games you can finish in under 20 hours, using typical main-story time rather than completionist play — from Portal 2 and Astro Bot to Stray and Firewatch.</description>
       <category>FEATURE</category>
       <pubDate>Sat, 05 Sep 2026 03:55:26 +0000</pubDate>
     </item>
