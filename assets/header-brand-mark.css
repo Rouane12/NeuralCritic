@@ -10,11 +10,16 @@ header .brand::after{
   content:"";
   grid-column:3;
   grid-row:1;
-  display:block;
-  width:30px;
-  height:30px;
+  display:block!important;
+  width:30px!important;
+  height:30px!important;
   margin-left:3px;
-  background:url("../images/brand/neural-critic-home-mark.svg?v=20260909-brand1") center/contain no-repeat;
+  background-image:url("/images/brand/neural-critic-home-mark.svg?v=20260909-brand2")!important;
+  background-position:center!important;
+  background-size:contain!important;
+  background-repeat:no-repeat!important;
+  opacity:1!important;
+  visibility:visible!important;
   filter:drop-shadow(0 4px 10px rgba(22,215,232,.12));
   transform:translateZ(0);
   transform-origin:center;
@@ -46,8 +51,8 @@ html[data-theme="light"] header .brand:hover::after{
     column-gap:6px!important;
   }
   header .brand::after{
-    width:27px;
-    height:27px;
+    width:27px!important;
+    height:27px!important;
     margin-left:2px;
   }
 }
@@ -59,8 +64,8 @@ html[data-theme="light"] header .brand:hover::after{
     column-gap:5px!important;
   }
   header .brand::after{
-    width:26px;
-    height:26px;
+    width:26px!important;
+    height:26px!important;
     margin-left:1px;
   }
 }
@@ -71,8 +76,8 @@ html[data-theme="light"] header .brand:hover::after{
     column-gap:4px!important;
   }
   header .brand::after{
-    width:23px;
-    height:23px;
+    width:23px!important;
+    height:23px!important;
     margin-left:0;
   }
 }
