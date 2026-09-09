@@ -22,7 +22,7 @@
   };
 
   const homeMarkSvg = `
-    <svg viewBox="0 0 256 256" width="100%" height="100%" aria-hidden="true" focusable="false">
+    <svg viewBox="0 0 256 256" width="30" height="30" aria-hidden="true" focusable="false" style="display:block;width:30px;height:30px;max-width:30px;max-height:30px;overflow:visible">
       <g stroke-linejoin="round" stroke-linecap="round">
         <path d="M24 60 Q24 48 38 48 H91 L128 94 V205 L94 164 V210 L68 232 V194 H38 Q24 194 24 180 Z" fill="#ffffff" stroke="#7f8996" stroke-width="3"/>
         <path d="M128 54 H202 Q230 54 230 82 V98 H166 Q146 98 146 118 V138 Q146 158 166 158 H230 V174 Q230 202 202 202 H128 Z" fill="#19bfd8"/>
@@ -42,6 +42,7 @@
     const mark = document.createElement('span');
     mark.className = 'nc-home-mark';
     mark.setAttribute('aria-hidden', 'true');
+    mark.style.cssText = 'display:inline-flex;width:30px;height:30px;min-width:30px;min-height:30px;max-width:30px;max-height:30px;align-items:center;justify-content:center;overflow:visible;line-height:0;flex:0 0 30px;';
     mark.innerHTML = homeMarkSvg;
 
     const tagline = brand.querySelector('em');
