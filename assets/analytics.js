@@ -52,7 +52,46 @@
     return '';
   }
 
+  function canonicalArticleUrl() {
+    if (routeType() !== 'article') return null;
+    const slug = articleSlug();
+    if (!slug) return null;
+
+    const canonical = document.head.querySelector('link[rel="canonical"][href]');
+    if (canonical) {
+      try {
+        const url = new URL(canonical.href, document.baseURI);
+        const match = url.pathname.match(/\/stories\/([^/]+)\/?$/i);
+        if (url.origin === location.origin && match?.[1] && decodeURIComponent(match[1]) === slug) {
+          url.search = '';
+          url.hash = '';
+          return url;
+        }
+      } catch (_) {}
+    }
+
+    try {
+      const routed = window.NeuralCriticStoryRouter?.storyUrl?.(slug);
+      if (routed) {
+        const url = new URL(routed, document.baseURI);
+        url.search = '';
+        url.hash = '';
+        return url;
+      }
+    } catch (_) {}
+
+    if (window.NEURAL_CRITIC_STATIC_SLUG) {
+      try {
+        const root = new URL('./', document.baseURI);
+        return new URL(`stories/${encodeURIComponent(slug)}/`, root);
+      } catch (_) {}
+    }
+    return null;
+  }
+
   function safePageUrl() {
+    const canonicalArticle = canonicalArticleUrl();
+    if (canonicalArticle) return canonicalArticle;
     const url = new URL(location.href);
     if (routeType() === 'search') url.search = '';
     if (routeType() === 'article' && canonicalStoryMatch) {
@@ -75,7 +114,7 @@
     const output = {};
     Object.entries(input).forEach(([key, value]) => {
       if (value === undefined || value === null || value === '') return;
-      if (typeof value === 'string') output[key] = value.slice(0, 120);
+      if (typeof value === 'string') output[key] = value.slice(0, key === 'page_location' ? 1000 : 120);
       else if (typeof value === 'number' || typeof value === 'boolean') output[key] = value;
     });
     return output;
@@ -112,9 +151,14 @@
 
   function track(eventName, params = {}) {
     if (!tagLoaded || !eventName) return;
+    const canonicalArticle = canonicalArticleUrl();
     const payload = safeParams({
       page_type: pageType(),
       article_slug: articleSlug(),
+      ...(canonicalArticle ? {
+        page_location: canonicalArticle.href,
+        page_path: `${canonicalArticle.pathname}${canonicalArticle.search}`
+      } : {}),
       ...articleDimensions(),
       ...params
     });
