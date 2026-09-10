@@ -1,39 +1,103 @@
 {
+  "id": "9df828f0-0d45-4a6c-a1d1-ef5f3fa5f4fc",
   "slug": "persona-4-revival-switch-2-release-date-may-20-2027",
   "title": "Persona 4 Revival Comes to Switch 2 on May 20, 2027 — Three Months After Other Platforms",
-  "description": "Persona 4 Revival launches on Nintendo Switch 2 on May 20, 2027, following the February 18 release on PS5, Xbox Series X|S, Windows and Steam.",
+  "description": "Persona 4 Revival launches on Nintendo Switch 2 on May 20, 2027, while the PS5, Xbox Series X|S and PC versions arrive February 18.",
+  "body": "**Persona 4 Revival is coming to Nintendo Switch 2 on May 20, 2027.** Atlus and SEGA used Nintendo Direct 9.9.2026 to lock in the Nintendo release date, which arrives roughly three months after the February 18 launch on PlayStation 5, Xbox Series X|S and PC.\n\nThe Switch 2 version is not a stripped-down side release. SEGA lists it alongside the main platforms, and physical copies are planned for both PlayStation 5 and Nintendo Switch 2.\n\nThe remake itself reimagines Persona 4 Golden with upgraded graphics, UI, combat and cutscenes, while preserving the investigation, Social Links and TV World structure at the heart of the original.",
   "category": "NEWS",
-  "author_name": "Rouane Mounssif",
-  "article_format": "standard",
-  "editorial_section": "news",
-  "homepage_slot": "regular",
-  "image_url": "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1789083846016-96cb6fd6-4521-44e6-8f78-0c9f298b102f-perosn-4-date.jpg",
-  "image_alt": "Persona 4 Revival release-date artwork showing the May 20, 2027 Nintendo Switch 2 launch date.",
-  "image_credit": "ATLUS / SEGA",
-  "tags": ["Persona 4 Revival","Persona 4","Persona","ATLUS","SEGA","Nintendo Switch 2","Nintendo Direct","JRPG"],
-  "platforms": ["pc","playstation","xbox","nintendo"],
-  "game_key": "persona-4-revival",
-  "series": "Persona",
-  "franchise": "Persona",
-  "quick_read": [
+  "author": "Rouane Mounssif",
+  "tags": [
+    "Persona 4 Revival",
+    "Persona 4",
+    "Persona",
+    "ATLUS",
+    "SEGA",
+    "Nintendo Switch 2",
+    "Nintendo Direct",
+    "JRPG"
+  ],
+  "imageAlt": "Persona 4 Revival release-date artwork showing the May 20, 2027 Nintendo Switch 2 launch date.",
+  "imageCredit": "ATLUS / SEGA",
+  "articleFormat": "standard",
+  "reviewMeta": {},
+  "contentBlocks": [
+    {
+      "text": "Nintendo has confirmed **May 20, 2027** as the release date for Persona 4 Revival on Switch 2. That date comes after the February 18 launch already set for PlayStation 5, Xbox Series X|S, Windows and Steam, making Nintendo's version a later arrival rather than part of the initial February release.",
+      "heading": "May 20: Inaba finally comes to Switch 2",
+      "headingStyle": "statement"
+    },
+    {
+      "text": "SEGA's official product information places Nintendo Switch 2 alongside the game's main platform lineup and confirms that physical copies are available for both PlayStation 5 and Switch 2. Nothing announced so far suggests a separate or reduced content package for Nintendo players.",
+      "heading": "A later release, not a lesser one",
+      "headingStyle": "accent"
+    },
+    {
+      "text": "SEGA describes Persona 4 Revival as a modern reimagining of Persona 4 Golden with enhanced graphics, UI, combat and cutscenes, plus quality-of-life improvements and additional content. The goal is broader than a visual remaster: Inaba, the investigation and the TV World are all being rebuilt through a modern presentation.",
+      "heading": "What Persona 4 Revival is actually rebuilding",
+      "headingStyle": "editorial"
+    },
+    {
+      "text": "The remake adds new combat interactions, including guarding that can stun attacking Shadows and a mechanic that can send status-affected enemies flying into one another. Familiar Persona fundamentals such as exploiting weaknesses, All-Out Attacks and Persona fusion remain central.",
+      "heading": "Combat gets more than a coat of paint",
+      "headingStyle": "statement"
+    },
+    {
+      "text": "The story once again follows a student arriving in rural Inaba as a series of murders and rumors surrounding the Midnight Channel pull the Investigation Team into a strange world inside televisions. SEGA is preserving that core premise while rebuilding the presentation around it.",
+      "heading": "The Midnight Channel still anchors the mystery",
+      "headingStyle": "accent"
+    },
+    {
+      "text": "School life is still a major half of the Persona 4 structure. Players can form Social Links, study, join activities and take part-time jobs, with relationships feeding back into Persona growth and combat progression.",
+      "heading": "Social Links remain part of the rhythm",
+      "headingStyle": "editorial"
+    },
+    {
+      "text": "SEGA specifically lists physical editions for PlayStation 5 and Nintendo Switch 2. That makes the Nintendo version notable not only as a later release, but as one of the platforms receiving a boxed edition.",
+      "heading": "Switch 2 gives Persona 4 Revival a physical home",
+      "headingStyle": "statement"
+    },
+    {
+      "text": "With May 20 locked in, the remaining Switch 2 questions are practical ones: performance, resolution, load times and whether Nintendo-specific features are supported. SEGA has not yet detailed those technical differences.",
+      "heading": "The date is settled — now the wait shifts to the port itself",
+      "headingStyle": "accent"
+    }
+  ],
+  "quickRead": [
     "Persona 4 Revival launches on Nintendo Switch 2 on May 20, 2027.",
     "The PS5, Xbox Series X|S, Windows and Steam versions launch earlier on February 18, 2027.",
     "The remake features enhanced graphics, UI, combat and cutscenes, plus quality-of-life improvements and added content.",
     "SEGA lists physical editions for both PlayStation 5 and Nintendo Switch 2."
   ],
-  "content_blocks": [
-    {"heading":"May 20: Inaba finally comes to Switch 2","headingStyle":"statement"},
-    {"heading":"A later release, not a lesser one","headingStyle":"accent"},
-    {"heading":"What Persona 4 Revival is actually rebuilding","headingStyle":"editorial"},
-    {"heading":"Combat gets more than a coat of paint","headingStyle":"statement"},
-    {"heading":"The Midnight Channel still anchors the mystery","headingStyle":"accent"},
-    {"heading":"Social Links remain part of the rhythm","headingStyle":"editorial"},
-    {"heading":"Switch 2 gives Persona 4 Revival a physical home","headingStyle":"statement"},
-    {"heading":"The date is settled — now the wait shifts to the port itself","headingStyle":"accent"}
-  ],
   "conclusion": "",
-  "conclusion_heading": null,
-  "status": "published",
-  "published_at": "2026-09-10T23:45:24.541791+00:00",
-  "news_meta": {"kind":"update","sourceUrl":"https://asia.sega.com/p4r/en/","sourceName":"SEGA / Persona 4 Revival official site","verification":"confirmed","developing":false}
+  "conclusionHeading": "",
+  "conclusionHeadingStyle": "editorial",
+  "featured": false,
+  "homepageSlot": "regular",
+  "publishedAt": "2026-09-10T23:45:24.541791+00:00",
+  "updatedAt": "2026-09-10T23:45:24.541791+00:00",
+  "imageLocal": "/images/editorial/1789083846016-96cb6fd6-4521-44e6-8f78-0c9f298b102f-perosn-4-date.jpg",
+  "editorialSection": "news",
+  "platforms": [
+    "pc",
+    "playstation",
+    "xbox",
+    "nintendo"
+  ],
+  "collection": null,
+  "collectionYear": null,
+  "gameKey": "persona-4-revival",
+  "series": "Persona",
+  "franchise": "Persona",
+  "newsMeta": {
+    "kind": "update",
+    "updates": [],
+    "documents": [],
+    "sourceUrl": "https://asia.sega.com/p4r/en/",
+    "developing": false,
+    "sourceName": "SEGA / Persona 4 Revival official site",
+    "verification": "confirmed",
+    "documentSectionTitle": "",
+    "documentSectionDescription": "",
+    "documentPlacementAfterHeading": ""
+  }
 }

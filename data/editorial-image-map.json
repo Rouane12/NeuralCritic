@@ -2024,6 +2024,21 @@
       "local": "/images/editorial/1789081231155-8b39cf07-7b6e-40eb-9e99-8f072db03f52-chatgpt-image-sep-10-2026-01-15-17-am.webp",
       "local_bytes": 149414,
       "source_bytes": 2077806
+    },
+    "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1789083831806-4efe7216-a705-4255-b118-d07905d60c07-romancing.jpg": {
+      "local": "/images/editorial/1789083831806-4efe7216-a705-4255-b118-d07905d60c07-romancing.jpg",
+      "local_bytes": 385078,
+      "source_bytes": 505111
+    },
+    "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1789083846016-96cb6fd6-4521-44e6-8f78-0c9f298b102f-perosn-4-date.jpg": {
+      "local": "/images/editorial/1789083846016-96cb6fd6-4521-44e6-8f78-0c9f298b102f-perosn-4-date.jpg",
+      "local_bytes": 258729,
+      "source_bytes": 258729
+    },
+    "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1789083856361-672c219c-2299-48e1-9bc6-34f644f69132-yo-kai.webp": {
+      "local": "/images/editorial/1789083856361-672c219c-2299-48e1-9bc6-34f644f69132-yo-kai.webp",
+      "local_bytes": 239564,
+      "source_bytes": 239564
     }
   },
   "version": 1

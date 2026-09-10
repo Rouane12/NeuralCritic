@@ -5,9 +5,33 @@
     <link>https://www.neuralcritic.net/</link>
     <description>Gaming news, reviews, guides, and features for players who want the signal—not the noise.</description>
     <language>en</language>
-    <lastBuildDate>Thu, 10 Sep 2026 23:04:15 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 10 Sep 2026 23:46:34 +0000</lastBuildDate>
     <generator>Neural Critic publication pipeline</generator>
     <atom:link href="https://www.neuralcritic.net/feed.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Romancing SaGa 3: Destinies United Is a Full 3D Remake Launching February 16, 2027</title>
+      <link>https://www.neuralcritic.net/stories/romancing-saga-3-destinies-united-full-3d-remake-release-date/</link>
+      <guid isPermaLink="true">https://www.neuralcritic.net/stories/romancing-saga-3-destinies-united-full-3d-remake-release-date/</guid>
+      <description>Romancing SaGa 3: Destinies United launches February 16, 2027 as a full 3D remake with eight protagonists, a new timeline battle system and United Attacks.</description>
+      <category>NEWS</category>
+      <pubDate>Thu, 10 Sep 2026 23:45:24 +0000</pubDate>
+    </item>
+    <item>
+      <title>Persona 4 Revival Comes to Switch 2 on May 20, 2027 — Three Months After Other Platforms</title>
+      <link>https://www.neuralcritic.net/stories/persona-4-revival-switch-2-release-date-may-20-2027/</link>
+      <guid isPermaLink="true">https://www.neuralcritic.net/stories/persona-4-revival-switch-2-release-date-may-20-2027/</guid>
+      <description>Persona 4 Revival launches on Nintendo Switch 2 on May 20, 2027, while the PS5, Xbox Series X|S and PC versions arrive February 18.</description>
+      <category>NEWS</category>
+      <pubDate>Thu, 10 Sep 2026 23:45:24 +0000</pubDate>
+    </item>
+    <item>
+      <title>Yo-kai Watch 2: Haunted Domain Revives the 3DS Adventure on Switch 2 With Enhanced Graphics and New Content</title>
+      <link>https://www.neuralcritic.net/stories/yo-kai-watch-2-haunted-domain-switch-2-enhanced-remake/</link>
+      <guid isPermaLink="true">https://www.neuralcritic.net/stories/yo-kai-watch-2-haunted-domain-switch-2-enhanced-remake/</guid>
+      <description>Level-5 is bringing Yo-kai Watch 2 back on Nintendo Switch 2 with enhanced graphics, new story content and additional Yo-kai, though no release date has been announced.</description>
+      <category>NEWS</category>
+      <pubDate>Thu, 10 Sep 2026 23:45:24 +0000</pubDate>
+    </item>
     <item>
       <title>Monster Hunter Wilds Comes to Switch 2 on December 4 — All Title Updates Included, Ascendance Follows in 2027</title>
       <link>https://www.neuralcritic.net/stories/monster-hunter-wilds-switch-2-release-date-december-4-2026/</link>
@@ -223,30 +247,6 @@
       <description>Clair Obscur: Expedition 33 review covering hybrid turn-based combat, party builds, exploration, story, presentation and its post-launch evolution today.</description>
       <category>REVIEW</category>
       <pubDate>Sat, 05 Sep 2026 09:37:49 +0000</pubDate>
-    </item>
-    <item>
-      <title>Cyberpunk 2077 Review</title>
-      <link>https://www.neuralcritic.net/stories/cyberpunk-2077-review/</link>
-      <guid isPermaLink="true">https://www.neuralcritic.net/stories/cyberpunk-2077-review/</guid>
-      <description>Cyberpunk 2077 review covering Night City, builds, combat, quests, Phantom Liberty and how the RPG holds up after years of major updates on modern platforms.</description>
-      <category>REVIEW</category>
-      <pubDate>Sat, 05 Sep 2026 09:37:49 +0000</pubDate>
-    </item>
-    <item>
-      <title>Red Dead Redemption 2 Beginner’s Guide: What to Do First</title>
-      <link>https://www.neuralcritic.net/stories/red-dead-redemption-2-beginners-guide/</link>
-      <guid isPermaLink="true">https://www.neuralcritic.net/stories/red-dead-redemption-2-beginners-guide/</guid>
-      <description>A spoiler-light Red Dead Redemption 2 beginner’s guide covering early progression, cores, camp, horses, exploration and the systems worth understanding first.</description>
-      <category>GUIDE</category>
-      <pubDate>Sat, 05 Sep 2026 03:55:31 +0000</pubDate>
-    </item>
-    <item>
-      <title>Why Red Dead Redemption 2’s World Still Feels Alive</title>
-      <link>https://www.neuralcritic.net/stories/red-dead-redemption-2-world-feels-alive/</link>
-      <guid isPermaLink="true">https://www.neuralcritic.net/stories/red-dead-redemption-2-world-feels-alive/</guid>
-      <description>An analysis of the systems, encounters, routines and environmental detail that make Red Dead Redemption 2’s world feel unusually reactive.</description>
-      <category>FEATURE</category>
-      <pubDate>Sat, 05 Sep 2026 03:55:31 +0000</pubDate>
     </item>
   </channel>
 </rss>
