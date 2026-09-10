@@ -1974,6 +1974,21 @@
       "local": "/images/editorial/1788966756864-6d20f350-3aad-4d88-bca7-a24250ca7dc2-metroid-ravenous.webp",
       "local_bytes": 58034,
       "source_bytes": 58034
+    },
+    "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1788999836831-b3c25eaa-e0cb-4f2d-ae46-138f8ce255fb-persona-6.avif": {
+      "local": "/images/editorial/1788999836831-b3c25eaa-e0cb-4f2d-ae46-138f8ce255fb-persona-6.avif",
+      "local_bytes": 61102,
+      "source_bytes": 61102
+    },
+    "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1788999843890-44c551b0-93ae-444b-b6cb-d322738c04dc-persona-6-2.jpg": {
+      "local": "/images/editorial/1788999843890-44c551b0-93ae-444b-b6cb-d322738c04dc-persona-6-2.jpg",
+      "local_bytes": 171734,
+      "source_bytes": 171734
+    },
+    "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1788999870606-0d53474b-81be-447b-97bc-9f5263c6132b-persona-6-1.png": {
+      "local": "/images/editorial/1788999870606-0d53474b-81be-447b-97bc-9f5263c6132b-persona-6-1.webp",
+      "local_bytes": 296784,
+      "source_bytes": 9674122
     }
   },
   "version": 1

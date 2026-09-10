@@ -6,7 +6,15 @@
   "body": "**Persona 6 is officially coming to Nintendo Switch 2.** ATLUS confirmed the new version during Nintendo Direct 9.9.2026, expanding the game beyond the PlayStation 5, Xbox Series X|S and PC versions announced earlier this year.\n\nThe distinction matters: Persona 6 itself was first unveiled during the Xbox Games Showcase in June. Nintendo’s September Direct did not reveal the game for the first time — it confirmed that **Nintendo Switch 2 is now part of the game’s official platform lineup**.\n\nATLUS is still keeping most of Persona 6 under wraps. There is no release date yet, but the studio has confirmed an all-new standalone story in a never-before-seen locale, with P-Studio producing the next mainline entry.",
   "category": "NEWS",
   "author": "Rouane Mounssif",
-  "tags": ["Persona 6", "Persona", "ATLUS", "SEGA", "Nintendo Switch 2", "Nintendo Direct", "JRPG"],
+  "tags": [
+    "Persona 6",
+    "Persona",
+    "ATLUS",
+    "SEGA",
+    "Nintendo Switch 2",
+    "Nintendo Direct",
+    "JRPG"
+  ],
   "imageAlt": "Masked character shown in Persona 6 promotional imagery against the game’s green visual backdrop.",
   "imageCredit": "ATLUS / SEGA",
   "articleFormat": "standard",
@@ -14,11 +22,11 @@
   "contentBlocks": [
     {
       "text": "The biggest new piece of Persona 6 news from Nintendo Direct 9.9.2026 is straightforward but significant: **ATLUS has added Nintendo Switch 2 to the game’s confirmed platforms**. Persona 6 had previously been announced for PlayStation 5, Xbox Series X|S and PC. The Switch 2 confirmation closes the most obvious gap in the platform lineup and means Nintendo players are included alongside the previously announced versions.",
-      "heading": "Persona 6 is officially coming to Nintendo Switch 2",
-      "imageLocal": "/images/editorial/1788999836831-b3c25eaa-e0cb-4f2d-ae46-138f8ce255fb-persona-6.avif",
       "caption": "Persona 6 imagery reflects the green visual identity ATLUS introduced with the next mainline entry.",
+      "heading": "Persona 6 is officially coming to Nintendo Switch 2",
       "imageAlt": "Masked character shown against a green backdrop in Persona 6 promotional imagery.",
       "subtitle": "ATLUS / SEGA",
+      "imageLocal": "/images/editorial/1788999836831-b3c25eaa-e0cb-4f2d-ae46-138f8ce255fb-persona-6.avif",
       "headingStyle": "editorial"
     },
     {
@@ -43,20 +51,20 @@
     },
     {
       "text": "For Nintendo players, the timing is important. Persona 6 is being positioned for Switch 2 while the game is still unreleased, rather than arriving years later as happened with some earlier Persona releases on Nintendo hardware. With Persona 4 Revival also headed to Switch 2, ATLUS is giving Nintendo’s new console a much stronger place in the series’ future.",
-      "heading": "The Switch 2 version is a bigger deal than a routine late port",
-      "imageLocal": "/images/editorial/1788999870606-0d53474b-81be-447b-97bc-9f5263c6132b-persona-6-1.png",
       "caption": "Persona 4 remains part of ATLUS’ renewed push on Nintendo hardware, with Persona 4 Revival also coming to Switch 2.",
+      "heading": "The Switch 2 version is a bigger deal than a routine late port",
       "imageAlt": "Persona 4 character artwork used to illustrate the series’ broader presence on Nintendo Switch 2.",
       "subtitle": "ATLUS / SEGA",
+      "imageLocal": "/images/editorial/1788999870606-0d53474b-81be-447b-97bc-9f5263c6132b-persona-6-1.webp",
       "headingStyle": "editorial"
     },
     {
       "text": "The original Persona 6 teaser immediately stood apart visually, with **green** becoming the dominant color associated with the project. Modern Persona entries have long used distinctive color identities — blue around Persona 3, yellow around Persona 4 and red around Persona 5 — which makes the new direction notable even before ATLUS explains what it means thematically.",
-      "heading": "Persona 6’s green aesthetic is still one of its biggest mysteries",
-      "imageLocal": "/images/editorial/1788999843890-44c551b0-93ae-444b-b6cb-d322738c04dc-persona-6-2.jpg",
       "caption": "Artwork bringing together characters from across modern Persona games highlights how strongly each entry is associated with its own visual identity.",
+      "heading": "Persona 6’s green aesthetic is still one of its biggest mysteries",
       "imageAlt": "Characters from multiple Persona games shown together in series artwork.",
       "subtitle": "ATLUS / SEGA",
+      "imageLocal": "/images/editorial/1788999843890-44c551b0-93ae-444b-b6cb-d322738c04dc-persona-6-2.jpg",
       "headingStyle": "editorial"
     },
     {
@@ -80,7 +88,12 @@
   "updatedAt": "2026-09-10T00:27:13.298862+00:00",
   "imageLocal": "/images/editorial/1788999836831-b3c25eaa-e0cb-4f2d-ae46-138f8ce255fb-persona-6.avif",
   "editorialSection": "news",
-  "platforms": ["pc", "playstation", "xbox", "nintendo"],
+  "platforms": [
+    "pc",
+    "playstation",
+    "xbox",
+    "nintendo"
+  ],
   "collection": null,
   "collectionYear": null,
   "gameKey": "persona-6",
