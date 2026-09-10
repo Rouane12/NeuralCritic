@@ -6,7 +6,7 @@ from collections import Counter
 from datetime import datetime,timezone
 from pathlib import Path
 
-ROOT=Path(__file__).resolve().parents[1]; CONFIG=ROOT/'assets'/'supabase-config.js'; SITEMAP=ROOT/'sitemap.xml'; STORIES=ROOT/'stories'; GAMES=ROOT/'games'
+ROOT=Path(__file__).resolve().parents[1]; CONFIG=ROOT/'assets'/'supabase-config.js'; ANALYTICS=ROOT/'assets'/'analytics.js'; SITEMAP=ROOT/'sitemap.xml'; STORIES=ROOT/'stories'; GAMES=ROOT/'games'
 ERRORS=[]; WARNINGS=[]
 def fail(m): ERRORS.append(m)
 def warn(m): WARNINGS.append(m)
@@ -30,6 +30,18 @@ def sitemap_urls():
     try:t=ET.parse(SITEMAP)
     except ET.ParseError as e: fail(f'sitemap.xml is malformed: {e}'); return set()
     ns='{http://www.sitemaps.org/schemas/sitemap/0.9}'; return {(n.text or '').strip() for n in t.findall(f'.//{ns}loc') if (n.text or '').strip()}
+def validate_analytics():
+    if not ANALYTICS.exists(): fail('assets/analytics.js is missing'); return
+    t=ANALYTICS.read_text(encoding='utf-8',errors='ignore')
+    required=(
+        'function canonicalArticleUrl()',
+        'const canonicalArticle = canonicalArticleUrl();',
+        'page_location: canonicalArticle.href',
+        'page_path: `${canonicalArticle.pathname}${canonicalArticle.search}`',
+        "key === 'page_location' ? 1000 : 120",
+    )
+    for marker in required:
+        if marker not in t: fail(f'analytics canonical-story attribution guard is missing: {marker}')
 def validate_articles(rows,game_titles,game_slugs,urls):
     for s,c in Counter(str(r.get('slug') or '').strip() for r in rows).items():
         if s and c>1: fail(f'duplicate published article slug: {s}')
@@ -82,7 +94,7 @@ def main():
         m=r.get('review_meta') if isinstance(r.get('review_meta'),dict) else {}
         try:scores[str(r.get('slug') or '')]=float(m['score'])
         except (KeyError,TypeError,ValueError):pass
-    validate_articles(articles,titles,slugs,urls); validate_games(games,scores,urls)
+    validate_analytics(); validate_articles(articles,titles,slugs,urls); validate_games(games,scores,urls)
     print(f'Reliability audit inspected {len(articles)} published stories and {len(games)} game records.')
     for m in WARNINGS: print('WARNING:',m)
     for m in ERRORS: print('ERROR:',m)
