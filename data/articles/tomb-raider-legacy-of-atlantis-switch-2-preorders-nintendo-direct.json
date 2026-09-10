@@ -6,20 +6,69 @@
   "body": "**Tomb Raider: Legacy of Atlantis is now available to preorder on Nintendo Switch 2.** Nintendo used its September 9 Direct to spotlight Lara Croft’s reimagined first adventure again, this time with a concrete update for Nintendo players: Switch 2 preorders are open ahead of the game’s **February 12, 2027** launch.\n\nThe new Nintendo listing also makes the edition split much clearer. Standard Edition preorders include an early unlock for the Survivor Outfit, while the Deluxe Edition adds **48-hour early access**, a DLC Story Pack and an early unlock for the Parisian Fugitive Outfit.\n\nThe game itself remains a ground-up reimagining of Lara Croft’s 1996 debut, rebuilt in Unreal Engine 5 by Crystal Dynamics and Flying Wild Hog with larger environments, redesigned puzzles and modernized combat.",
   "category": "NEWS",
   "author": "Rouane Mounssif",
-  "tags": ["Tomb Raider: Legacy of Atlantis","Tomb Raider","Lara Croft","Nintendo Switch 2","Nintendo Direct","Crystal Dynamics","Flying Wild Hog","Amazon Games"],
+  "tags": [
+    "Tomb Raider: Legacy of Atlantis",
+    "Tomb Raider",
+    "Lara Croft",
+    "Nintendo Switch 2",
+    "Nintendo Direct",
+    "Crystal Dynamics",
+    "Flying Wild Hog",
+    "Amazon Games"
+  ],
   "imageAlt": "Lara Croft stands with dual pistols against a tropical landscape in Tomb Raider: Legacy of Atlantis.",
   "imageCredit": "Crystal Dynamics / Flying Wild Hog / Amazon Games",
   "articleFormat": "standard",
   "reviewMeta": {},
   "contentBlocks": [
-    {"text":"Nintendo’s September 9 Direct delivered a practical update for anyone planning to play **Tomb Raider: Legacy of Atlantis on Switch 2**: preorders are now open on the Nintendo eShop. That changes the situation from the game’s earlier June announcement, when the official Tomb Raider site said Switch 2 preorders would arrive at a later date. The Direct therefore gives Nintendo players something genuinely new rather than simply repeating the game’s existence.","heading":"Switch 2 preorders are now live after Nintendo Direct","headingStyle":"editorial"},
-    {"text":"The standard release date remains **February 12, 2027** for Nintendo Switch 2. Legacy of Atlantis is also coming to PlayStation 5, Xbox Series X|S and PC. Nintendo’s Direct presentation reinforces that Switch 2 is part of the main release plan rather than a later port, putting Lara’s new adventure on Nintendo hardware at the same point in the game’s launch cycle.","heading":"Tomb Raider: Legacy of Atlantis launches February 12, 2027","headingStyle":"editorial"},
-    {"text":"Nintendo says Deluxe Edition preorders include **48-hour early launch access**, effectively moving the start of the adventure forward for those buyers. The Deluxe package also includes a **DLC Story Pack** and an early unlock for the **Lara Croft Parisian Fugitive Outfit**. Nintendo’s store listing places the Deluxe Edition release on February 10, two days before the standard February 12 launch.","heading":"The Deluxe Edition includes 48-hour early access","headingStyle":"editorial"},
-    {"text":"Players do not need the Deluxe Edition to receive a preorder bonus. Nintendo lists the **Lara Croft Survivor Outfit** as an early unlock with Standard Edition preorders as well. The distinction is that Deluxe adds the extra outfit, story DLC and early access rather than locking the basic preorder cosmetic behind the more expensive tier.","heading":"Standard Edition preorders include the Survivor Outfit","headingStyle":"editorial"},
-    {"text":"Despite the familiar story foundation, Crystal Dynamics does not describe Legacy of Atlantis as a scene-for-scene remake. It is a **reimagining of the original 1996 Tomb Raider**, sending Lara after the scattered pieces of the Scion across Peru, Greece, Egypt and a mysterious Mediterranean island while rebuilding the adventure around modern level design and presentation.","heading":"Legacy of Atlantis is rebuilding Lara Croft’s 1996 debut","imageLocal":"/images/editorial/1789045158374-fb398543-1146-4852-b5fa-1bcb38499ade-tomb-raider-1.jpg","caption":"Lara Croft faces a pair of raptors in a combat sequence from Tomb Raider: Legacy of Atlantis.","imageAlt":"Lara Croft aims her dual pistols at two raptors in a jungle environment in Tomb Raider: Legacy of Atlantis.","subtitle":"Crystal Dynamics / Flying Wild Hog / Amazon Games","headingStyle":"editorial"},
-    {"text":"Crystal Dynamics and Flying Wild Hog have already shown how far that reimagining goes. Areas such as Peru’s Lost Valley are larger and more interconnected, while classic puzzles have been redesigned to fit the expanded spaces. The developers are preserving recognizable locations and ideas without treating the original game’s room-by-room structure as something that must remain untouched.","heading":"The environments and puzzles are being redesigned, not simply remastered","imageLocal":"/images/editorial/1789045167150-77e4bc8c-8764-40a3-93e4-2e30b1109070-tomb-raider-2.jpg","caption":"Lara uses her grappling tool to manipulate an elaborate mechanism inside ancient ruins.","imageAlt":"Lara Croft pulls on a large gear mechanism with a grappling line inside ancient ruins in Tomb Raider: Legacy of Atlantis.","subtitle":"Crystal Dynamics / Flying Wild Hog / Amazon Games","headingStyle":"editorial"},
-    {"text":"Legacy of Atlantis is being built in **Unreal Engine 5** by Crystal Dynamics and Flying Wild Hog, with Amazon Games publishing. The technology is being used for a substantially more cinematic presentation, but the developers continue to emphasize exploration, traversal, puzzles and Lara’s acrobatic combat as the pillars of the experience rather than turning the game into a completely different kind of action title.","heading":"Unreal Engine 5 powers the new version of Lara’s first adventure","headingStyle":"editorial"},
-    {"text":"The official Tomb Raider site describes the Switch 2 release as delivering the same cinematic scale and fluid gameplay while supporting the console’s portable and home-play flexibility. Nintendo’s own listing confirms handheld, tabletop and TV modes. Performance details have not been outlined in the Direct recap, so the bigger takeaway for now is simple: Switch 2 players are being included in the main Legacy of Atlantis launch rather than receiving a reduced side release.","heading":"Nintendo Switch 2 is getting the full reimagining, not a separate version","headingStyle":"editorial"}
+    {
+      "text": "Nintendo’s September 9 Direct delivered a practical update for anyone planning to play **Tomb Raider: Legacy of Atlantis on Switch 2**: preorders are now open on the Nintendo eShop. That changes the situation from the game’s earlier June announcement, when the official Tomb Raider site said Switch 2 preorders would arrive at a later date. The Direct therefore gives Nintendo players something genuinely new rather than simply repeating the game’s existence.",
+      "heading": "Switch 2 preorders are now live after Nintendo Direct",
+      "headingStyle": "editorial"
+    },
+    {
+      "text": "The standard release date remains **February 12, 2027** for Nintendo Switch 2. Legacy of Atlantis is also coming to PlayStation 5, Xbox Series X|S and PC. Nintendo’s Direct presentation reinforces that Switch 2 is part of the main release plan rather than a later port, putting Lara’s new adventure on Nintendo hardware at the same point in the game’s launch cycle.",
+      "heading": "Tomb Raider: Legacy of Atlantis launches February 12, 2027",
+      "headingStyle": "editorial"
+    },
+    {
+      "text": "Nintendo says Deluxe Edition preorders include **48-hour early launch access**, effectively moving the start of the adventure forward for those buyers. The Deluxe package also includes a **DLC Story Pack** and an early unlock for the **Lara Croft Parisian Fugitive Outfit**. Nintendo’s store listing places the Deluxe Edition release on February 10, two days before the standard February 12 launch.",
+      "heading": "The Deluxe Edition includes 48-hour early access",
+      "headingStyle": "editorial"
+    },
+    {
+      "text": "Players do not need the Deluxe Edition to receive a preorder bonus. Nintendo lists the **Lara Croft Survivor Outfit** as an early unlock with Standard Edition preorders as well. The distinction is that Deluxe adds the extra outfit, story DLC and early access rather than locking the basic preorder cosmetic behind the more expensive tier.",
+      "heading": "Standard Edition preorders include the Survivor Outfit",
+      "headingStyle": "editorial"
+    },
+    {
+      "text": "Despite the familiar story foundation, Crystal Dynamics does not describe Legacy of Atlantis as a scene-for-scene remake. It is a **reimagining of the original 1996 Tomb Raider**, sending Lara after the scattered pieces of the Scion across Peru, Greece, Egypt and a mysterious Mediterranean island while rebuilding the adventure around modern level design and presentation.",
+      "caption": "Lara Croft faces a pair of raptors in a combat sequence from Tomb Raider: Legacy of Atlantis.",
+      "heading": "Legacy of Atlantis is rebuilding Lara Croft’s 1996 debut",
+      "imageAlt": "Lara Croft aims her dual pistols at two raptors in a jungle environment in Tomb Raider: Legacy of Atlantis.",
+      "subtitle": "Crystal Dynamics / Flying Wild Hog / Amazon Games",
+      "imageLocal": "/images/editorial/1789045158374-fb398543-1146-4852-b5fa-1bcb38499ade-tomb-raider-1.jpg",
+      "headingStyle": "editorial"
+    },
+    {
+      "text": "Crystal Dynamics and Flying Wild Hog have already shown how far that reimagining goes. Areas such as Peru’s Lost Valley are larger and more interconnected, while classic puzzles have been redesigned to fit the expanded spaces. The developers are preserving recognizable locations and ideas without treating the original game’s room-by-room structure as something that must remain untouched.",
+      "caption": "Lara uses her grappling tool to manipulate an elaborate mechanism inside ancient ruins.",
+      "heading": "The environments and puzzles are being redesigned, not simply remastered",
+      "imageAlt": "Lara Croft pulls on a large gear mechanism with a grappling line inside ancient ruins in Tomb Raider: Legacy of Atlantis.",
+      "subtitle": "Crystal Dynamics / Flying Wild Hog / Amazon Games",
+      "imageLocal": "/images/editorial/1789045167150-77e4bc8c-8764-40a3-93e4-2e30b1109070-tomb-raider-2.jpg",
+      "headingStyle": "editorial"
+    },
+    {
+      "text": "Legacy of Atlantis is being built in **Unreal Engine 5** by Crystal Dynamics and Flying Wild Hog, with Amazon Games publishing. The technology is being used for a substantially more cinematic presentation, but the developers continue to emphasize exploration, traversal, puzzles and Lara’s acrobatic combat as the pillars of the experience rather than turning the game into a completely different kind of action title.",
+      "heading": "Unreal Engine 5 powers the new version of Lara’s first adventure",
+      "headingStyle": "editorial"
+    },
+    {
+      "text": "The official Tomb Raider site describes the Switch 2 release as delivering the same cinematic scale and fluid gameplay while supporting the console’s portable and home-play flexibility. Nintendo’s own listing confirms handheld, tabletop and TV modes. Performance details have not been outlined in the Direct recap, so the bigger takeaway for now is simple: Switch 2 players are being included in the main Legacy of Atlantis launch rather than receiving a reduced side release.",
+      "heading": "Nintendo Switch 2 is getting the full reimagining, not a separate version",
+      "headingStyle": "editorial"
+    }
   ],
   "quickRead": [
     "Tomb Raider: Legacy of Atlantis launches February 12, 2027 on Nintendo Switch 2.",
@@ -36,7 +85,9 @@
   "updatedAt": "2026-09-10T21:16:26.31361+00:00",
   "imageLocal": "/images/editorial/1789045170812-aa6fdf83-a2c0-405e-93e4-6adb264b7932-tomb-raider-main.webp",
   "editorialSection": "news",
-  "platforms": ["nintendo"],
+  "platforms": [
+    "nintendo"
+  ],
   "collection": null,
   "collectionYear": null,
   "gameKey": "tomb-raider-legacy-of-atlantis",
@@ -44,7 +95,15 @@
   "franchise": "Tomb Raider",
   "newsMeta": {
     "kind": "update",
-    "updates": [{"at":"2026-06-02T00:00:00Z","id":"","note":"Crystal Dynamics announced the February 12, 2027 release date and said Nintendo Switch 2 preorders would open later.","sourceUrl":"https://www.tombraider.com/news/video-games/pre-orders-are-open-for-tomb-raider-legacy-of-atlantis","sourceName":"Tomb Raider / Crystal Dynamics"}],
+    "updates": [
+      {
+        "at": "2026-06-02T00:00:00Z",
+        "id": "",
+        "note": "Crystal Dynamics announced the February 12, 2027 release date and said Nintendo Switch 2 preorders would open later.",
+        "sourceUrl": "https://www.tombraider.com/news/video-games/pre-orders-are-open-for-tomb-raider-legacy-of-atlantis",
+        "sourceName": "Tomb Raider / Crystal Dynamics"
+      }
+    ],
     "documents": [],
     "sourceUrl": "https://www.nintendo.com/us/whatsnew/nintendo-direct-reveals-metroid-ravenous-kirby-and-the-world-beyond-and-more-games-for-nintendo-switch-2-and-nintendo-switch/",
     "developing": false,

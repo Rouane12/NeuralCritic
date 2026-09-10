@@ -2004,6 +2004,21 @@
       "local": "/images/editorial/1789043974151-83b0cb4e-c503-44dc-8de9-4c67dc3508f3-kirby-beyond-1.avif",
       "local_bytes": 136132,
       "source_bytes": 136132
+    },
+    "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1789045158374-fb398543-1146-4852-b5fa-1bcb38499ade-tomb-raider-1.jpg": {
+      "local": "/images/editorial/1789045158374-fb398543-1146-4852-b5fa-1bcb38499ade-tomb-raider-1.jpg",
+      "local_bytes": 530658,
+      "source_bytes": 1014649
+    },
+    "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1789045167150-77e4bc8c-8764-40a3-93e4-2e30b1109070-tomb-raider-2.jpg": {
+      "local": "/images/editorial/1789045167150-77e4bc8c-8764-40a3-93e4-2e30b1109070-tomb-raider-2.jpg",
+      "local_bytes": 494220,
+      "source_bytes": 783149
+    },
+    "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1789045170812-aa6fdf83-a2c0-405e-93e4-6adb264b7932-tomb-raider-main.webp": {
+      "local": "/images/editorial/1789045170812-aa6fdf83-a2c0-405e-93e4-6adb264b7932-tomb-raider-main.webp",
+      "local_bytes": 199608,
+      "source_bytes": 199608
     }
   },
   "version": 1
