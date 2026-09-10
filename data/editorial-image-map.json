@@ -2019,6 +2019,11 @@
       "local": "/images/editorial/1789045170812-aa6fdf83-a2c0-405e-93e4-6adb264b7932-tomb-raider-main.webp",
       "local_bytes": 199608,
       "source_bytes": 199608
+    },
+    "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1789081231155-8b39cf07-7b6e-40eb-9e99-8f072db03f52-chatgpt-image-sep-10-2026-01-15-17-am.png": {
+      "local": "/images/editorial/1789081231155-8b39cf07-7b6e-40eb-9e99-8f072db03f52-chatgpt-image-sep-10-2026-01-15-17-am.webp",
+      "local_bytes": 149414,
+      "source_bytes": 2077806
     }
   },
   "version": 1

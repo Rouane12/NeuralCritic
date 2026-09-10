@@ -5,9 +5,17 @@
     <link>https://www.neuralcritic.net/</link>
     <description>Gaming news, reviews, guides, and features for players who want the signal—not the noise.</description>
     <language>en</language>
-    <lastBuildDate>Thu, 10 Sep 2026 21:56:39 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 10 Sep 2026 23:04:15 +0000</lastBuildDate>
     <generator>Neural Critic publication pipeline</generator>
     <atom:link href="https://www.neuralcritic.net/feed.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Monster Hunter Wilds Comes to Switch 2 on December 4 — All Title Updates Included, Ascendance Follows in 2027</title>
+      <link>https://www.neuralcritic.net/stories/monster-hunter-wilds-switch-2-release-date-december-4-2026/</link>
+      <guid isPermaLink="true">https://www.neuralcritic.net/stories/monster-hunter-wilds-switch-2-release-date-december-4-2026/</guid>
+      <description>Monster Hunter Wilds launches on Nintendo Switch 2 on December 4, 2026 with all Title Update content included, full cross-platform multiplayer support and the Ascendance expansion coming in 2027.</description>
+      <category>NEWS</category>
+      <pubDate>Thu, 10 Sep 2026 23:03:23 +0000</pubDate>
+    </item>
     <item>
       <title>Tomb Raider: Legacy of Atlantis Switch 2 Preorders Are Live — Deluxe Edition Includes 48-Hour Early Access</title>
       <link>https://www.neuralcritic.net/stories/tomb-raider-legacy-of-atlantis-switch-2-preorders-nintendo-direct/</link>
@@ -239,14 +247,6 @@
       <description>An analysis of the systems, encounters, routines and environmental detail that make Red Dead Redemption 2’s world feel unusually reactive.</description>
       <category>FEATURE</category>
       <pubDate>Sat, 05 Sep 2026 03:55:31 +0000</pubDate>
-    </item>
-    <item>
-      <title>Tears of the Kingdom Best Early Armor and Upgrades</title>
-      <link>https://www.neuralcritic.net/stories/tears-of-the-kingdom-best-early-armor-upgrades/</link>
-      <guid isPermaLink="true">https://www.neuralcritic.net/stories/tears-of-the-kingdom-best-early-armor-upgrades/</guid>
-      <description>The best early Tears of the Kingdom armor to prioritize, plus how Great Fairy upgrades work and which pieces are worth improving first.</description>
-      <category>GUIDE</category>
-      <pubDate>Sat, 05 Sep 2026 03:55:26 +0000</pubDate>
     </item>
   </channel>
 </rss>
