@@ -1989,6 +1989,21 @@
       "local": "/images/editorial/1788999870606-0d53474b-81be-447b-97bc-9f5263c6132b-persona-6-1.webp",
       "local_bytes": 296784,
       "source_bytes": 9674122
+    },
+    "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1789043959813-f1d98353-37ea-406e-9587-f27e481c20f3-kirby-beyond-2.webp": {
+      "local": "/images/editorial/1789043959813-f1d98353-37ea-406e-9587-f27e481c20f3-kirby-beyond-2.webp",
+      "local_bytes": 80862,
+      "source_bytes": 80862
+    },
+    "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1789043967665-8e13a897-5c60-4ab4-9ad3-c54e72deb9e5-kirby-beyond-3.webp": {
+      "local": "/images/editorial/1789043967665-8e13a897-5c60-4ab4-9ad3-c54e72deb9e5-kirby-beyond-3.webp",
+      "local_bytes": 78856,
+      "source_bytes": 78856
+    },
+    "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1789043974151-83b0cb4e-c503-44dc-8de9-4c67dc3508f3-kirby-beyond-1.avif": {
+      "local": "/images/editorial/1789043974151-83b0cb4e-c503-44dc-8de9-4c67dc3508f3-kirby-beyond-1.avif",
+      "local_bytes": 136132,
+      "source_bytes": 136132
     }
   },
   "version": 1

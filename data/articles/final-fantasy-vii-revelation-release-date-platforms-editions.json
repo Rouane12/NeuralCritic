@@ -3,7 +3,7 @@
   "slug": "final-fantasy-vii-revelation-release-date-platforms-editions",
   "title": "Final Fantasy VII Revelation Release Date, Platforms, Editions and Early Access",
   "description": "Final Fantasy VII Revelation launches April 8, 2027. Here are the confirmed platforms, editions, preorder bonuses and 24-hour early-access details.",
-  "body": "Final Fantasy VII Revelation now has a firm release date. Square Enix says the conclusion to the Final Fantasy VII Remake trilogy launches **April 8, 2027** across PlayStation 5, Nintendo Switch 2, Xbox Series X|S and PC.\n\nThe announcement also turns Revelation into a much clearer buying decision. Physical and digital preorders are opening across platforms, Square Enix has outlined multiple editions, and its premium digital packages include a Story Expansion Pass plus 24-hour early access.\n\nThat makes this State of Play update more useful as a release-and-editions reference than as another trailer recap.",
+  "body": "Final Fantasy VII Revelation now has a firm release date, and Nintendo used its September 9 Direct to put the **Nintendo Switch 2 version** directly in front of a wider audience. Square Enix says the conclusion to the Final Fantasy VII Remake trilogy launches **April 8, 2027** across PlayStation 5, Nintendo Switch 2, Xbox Series X|S and PC.\n\nThe Nintendo Direct appearance did not introduce the release date for the first time — Square Enix had already announced it on September 3 — but it reinforced that Switch 2 is part of the same multi-platform launch. Nintendo’s presentation highlighted Cloud and his companions taking to the skies aboard the **Highwind**, exploring a vast world and racing to stop Meteor as Sephiroth moves closer to his endgame.\n\nThat makes this article the useful place to track the release date, platforms, editions, early access and the latest Switch 2 confirmation rather than creating a second story that repeats the same announcement.",
   "category": "NEWS",
   "author": "Rouane Mounssif",
   "tags": [
@@ -15,13 +15,18 @@
     "Square Enix"
   ],
   "imageAlt": "Cloud Strife kneels among yellow flowers with party members standing behind him in a luminous ruined environment.",
-  "imageCredit": "",
+  "imageCredit": "Square Enix",
   "articleFormat": "standard",
   "reviewMeta": {},
   "contentBlocks": [
     {
       "text": "**Final Fantasy VII Revelation launches April 8, 2027** on **PlayStation 5, Nintendo Switch 2, Xbox Series X|S and PC**. On PC, Square Enix lists Steam, Epic Games Store and Xbox on PC. Square Enix describes this as the conclusion to the three-part remake project and says the game will release across those platforms on the same date.",
       "heading": "Final Fantasy VII Revelation release date and platforms",
+      "headingStyle": "editorial"
+    },
+    {
+      "text": "Nintendo’s September 9 Direct gave **Final Fantasy VII Revelation** another major spotlight on Nintendo Switch 2. Nintendo reiterated the April 8, 2027 launch and framed the finale around Cloud and his companions taking to the skies aboard the **Highwind** as Sephiroth moves closer to achieving his goal and Meteor threatens the planet. The Direct did not establish a new release date — Square Enix announced that on September 3 — but it confirmed that Switch 2 remains part of the same launch window as the other announced platforms.",
+      "heading": "Nintendo Direct puts the Switch 2 version back in the spotlight",
       "headingStyle": "editorial"
     },
     {
@@ -45,14 +50,19 @@
       "headingStyle": "editorial"
     }
   ],
-  "quickRead": [],
+  "quickRead": [
+    "Final Fantasy VII Revelation launches April 8, 2027 on Nintendo Switch 2, PS5, Xbox Series X|S and PC.",
+    "Nintendo’s September 9 Direct reiterated the Switch 2 version and highlighted the Highwind, the vast world and the race to stop Meteor.",
+    "Square Enix has confirmed multiple editions, including digital packages with 24-hour early access and a Story Expansion Pass.",
+    "Revelation is the third and final entry in the Final Fantasy VII Remake trilogy."
+  ],
   "conclusion": "The most important change is that Revelation is no longer just a spring-2027 release. It now has one worldwide date across its announced platforms, and Square Enix has put enough edition information on the table for players to compare what they actually receive before preordering.",
   "conclusionHeading": "The final word",
   "conclusionHeadingStyle": "editorial",
   "featured": false,
   "homepageSlot": "regular",
   "publishedAt": "2026-09-04T05:20:54.898853+00:00",
-  "updatedAt": "2026-09-04T05:20:54.898853+00:00",
+  "updatedAt": "2026-09-10T12:26:32.243193+00:00",
   "imageLocal": "/images/editorial/1788494351515-8a2f254f-e8ec-4ecd-8999-9e017ed7fb3d-fianl-fantasy-draft-4.jpg",
   "editorialSection": "news",
   "platforms": [],
@@ -63,7 +73,14 @@
   "franchise": "Final Fantasy",
   "newsMeta": {
     "kind": "update",
-    "updates": [],
+    "updates": [
+      {
+        "at": "2026-09-09T00:00:00Z",
+        "note": "Nintendo Direct 9.9.2026 reiterated the April 8, 2027 Nintendo Switch 2 launch and highlighted the Highwind, the game’s vast world and the final race against Sephiroth and Meteor.",
+        "sourceUrl": "https://www.nintendo.com/us/whatsnew/nintendo-direct-reveals-metroid-ravenous-kirby-and-the-world-beyond-and-more-games-for-nintendo-switch-2-and-nintendo-switch/",
+        "sourceName": "Nintendo / Nintendo Direct 9.9.2026"
+      }
+    ],
     "documents": [],
     "sourceUrl": "https://na.finalfantasy.com/news/2840",
     "developing": false,

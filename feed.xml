@@ -5,9 +5,17 @@
     <link>https://www.neuralcritic.net/</link>
     <description>Gaming news, reviews, guides, and features for players who want the signal—not the noise.</description>
     <language>en</language>
-    <lastBuildDate>Thu, 10 Sep 2026 08:25:20 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 10 Sep 2026 12:41:53 +0000</lastBuildDate>
     <generator>Neural Critic publication pipeline</generator>
     <atom:link href="https://www.neuralcritic.net/feed.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Kirby and the World Beyond Revealed for Switch 2 — New 3D Adventure Launches Spring 2027</title>
+      <link>https://www.neuralcritic.net/stories/kirby-and-the-world-beyond-reveal-switch-2-spring-2027/</link>
+      <guid isPermaLink="true">https://www.neuralcritic.net/stories/kirby-and-the-world-beyond-reveal-switch-2-spring-2027/</guid>
+      <description>Nintendo has revealed Kirby and the World Beyond, a new 3D Kirby adventure for Nintendo Switch 2 launching in spring 2027 with expansive exploration and powered-up Copy Abilities.</description>
+      <category>NEWS</category>
+      <pubDate>Thu, 10 Sep 2026 12:40:47 +0000</pubDate>
+    </item>
     <item>
       <title>Persona 6 Is Coming to Nintendo Switch 2 — Atlus Confirms the Long-Awaited RPG for Nintendo’s New Console</title>
       <link>https://www.neuralcritic.net/stories/persona-6-switch-2-confirmed-nintendo-direct/</link>
@@ -237,14 +245,6 @@
       <link>https://www.neuralcritic.net/stories/super-mario-odyssey-power-moons-explained/</link>
       <guid isPermaLink="true">https://www.neuralcritic.net/stories/super-mario-odyssey-power-moons-explained/</guid>
       <description>A clear Super Mario Odyssey Power Moon guide explaining how moons power the Odyssey, how many are needed for the story, and what 250, 500, 880 and 999 moons unlock.</description>
-      <category>GUIDE</category>
-      <pubDate>Sat, 05 Sep 2026 03:55:26 +0000</pubDate>
-    </item>
-    <item>
-      <title>Mario Kart 8 Deluxe 200cc Guide: Braking, Drifting and Kart Setup</title>
-      <link>https://www.neuralcritic.net/stories/mario-kart-8-deluxe-200cc-guide/</link>
-      <guid isPermaLink="true">https://www.neuralcritic.net/stories/mario-kart-8-deluxe-200cc-guide/</guid>
-      <description>A practical Mario Kart 8 Deluxe 200cc guide covering braking, brake drifting, earlier turn-in, kart setup and the habits that make the fastest engine class manageable.</description>
       <category>GUIDE</category>
       <pubDate>Sat, 05 Sep 2026 03:55:26 +0000</pubDate>
     </item>

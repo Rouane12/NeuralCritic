@@ -6,7 +6,15 @@
   "body": "Nintendo has officially revealed **Kirby and the World Beyond**, a brand-new 3D Kirby adventure coming to **Nintendo Switch 2 in spring 2027**.\n\nRather than presenting another tightly segmented platforming journey, Nintendo is emphasizing a broader sense of freedom. Kirby can move through expansive 3D environments and use familiar Copy Abilities not only in combat, but as tools for traversal and exploration.\n\nThe reveal also introduces a mysterious girl with unusual powers, a huge wall blocking Kirby’s path and a familiar antagonist in King Dedede — all of which suggest the new adventure is building a larger mystery around whatever lies beyond the world Kirby currently knows.",
   "category": "NEWS",
   "author": "Rouane Mounssif",
-  "tags": ["Kirby and the World Beyond", "Kirby", "Nintendo", "Nintendo Switch 2", "Nintendo Direct", "HAL Laboratory"],
+  "tags": [
+    "Kirby and the World Beyond",
+    "Kirby",
+    "Nintendo",
+    "Nintendo Switch 2",
+    "Nintendo Direct",
+    "HAL Laboratory",
+    "3D Platformer"
+  ],
   "imageAlt": "Kirby stands in a colorful landscape beneath the Kirby and the World Beyond logo.",
   "imageCredit": "Nintendo",
   "articleFormat": "standard",
@@ -14,11 +22,11 @@
   "contentBlocks": [
     {
       "text": "Nintendo confirmed that **Kirby and the World Beyond is coming to Nintendo Switch 2 in spring 2027**. The timing is notable because 2027 marks the Kirby series’ 35th anniversary, giving Nintendo a major new entry to anchor the celebration rather than relying only on remasters or anniversary content.",
-      "heading": "Kirby and the World Beyond launches in spring 2027",
-      "imageLocal": "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1789043959813-f1d98353-37ea-406e-9587-f27e481c20f3-kirby-beyond-2.webp",
       "caption": "Kirby explores a bright 3D environment filled with enemies and open paths in Kirby and the World Beyond.",
+      "heading": "Kirby and the World Beyond launches in spring 2027",
       "imageAlt": "Kirby moves through a grassy 3D area with enemies and a city skyline in the distance.",
       "subtitle": "Nintendo",
+      "imageLocal": "/images/editorial/1789043959813-f1d98353-37ea-406e-9587-f27e481c20f3-kirby-beyond-2.webp",
       "headingStyle": "editorial"
     },
     {
@@ -33,11 +41,11 @@
     },
     {
       "text": "Nintendo specifically describes Kirby’s powers as **powered-up Copy Abilities**, and the reveal footage shows abilities taking on much more dramatic forms. The exact progression system has not been explained yet, so it is unclear whether these transformations are permanent upgrades, temporary states or something tied to the game’s story. What is clear is that World Beyond wants Copy Abilities to feel more transformative than simple combat swaps.",
-      "heading": "Powered-up abilities could be the game’s defining new system",
-      "imageLocal": "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1789043967665-8e13a897-5c60-4ab4-9ad3-c54e72deb9e5-kirby-beyond-3.webp",
       "caption": "A powered-up Kirby ability sends him streaking forward in one of the reveal trailer’s most dramatic sequences.",
+      "heading": "Powered-up abilities could be the game’s defining new system",
       "imageAlt": "Kirby uses a glowing powered-up ability while moving at high speed through a dark environment.",
       "subtitle": "Nintendo",
+      "imageLocal": "/images/editorial/1789043967665-8e13a897-5c60-4ab4-9ad3-c54e72deb9e5-kirby-beyond-3.webp",
       "headingStyle": "editorial"
     },
     {
@@ -74,9 +82,11 @@
   "homepageSlot": "regular",
   "publishedAt": "2026-09-10T12:40:47.61774+00:00",
   "updatedAt": "2026-09-10T12:40:47.61774+00:00",
-  "imageLocal": "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1789043974151-83b0cb4e-c503-44dc-8de9-4c67dc3508f3-kirby-beyond-1.avif",
+  "imageLocal": "/images/editorial/1789043974151-83b0cb4e-c503-44dc-8de9-4c67dc3508f3-kirby-beyond-1.avif",
   "editorialSection": "news",
-  "platforms": ["nintendo"],
+  "platforms": [
+    "nintendo"
+  ],
   "collection": null,
   "collectionYear": null,
   "gameKey": "kirby-and-the-world-beyond",
