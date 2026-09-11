@@ -162,13 +162,17 @@
       if (restored) return;
       restored = true;
       const target = new URL(storyUrl(STATIC_SLUG));
-      target.searchParams.set('slug', STATIC_SLUG);
       target.hash = location.hash;
-      history.replaceState(null, '', `${target.pathname}${target.search}${target.hash}`);
+      history.replaceState(null, '', `${target.pathname}${target.hash}`);
       enforceCanonical();
     };
 
     window.addEventListener('neuralcritic:analytics-script-loaded', restore, { once:true });
+    if (document.readyState === 'complete') {
+      setTimeout(restore, 0);
+    } else {
+      window.addEventListener('load', restore, { once:true });
+    }
     setTimeout(restore, 8000);
   }
 
