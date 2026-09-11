@@ -5,9 +5,17 @@
     <link>https://www.neuralcritic.net/</link>
     <description>Gaming news, reviews, guides, and features for players who want the signal—not the noise.</description>
     <language>en</language>
-    <lastBuildDate>Fri, 11 Sep 2026 19:34:52 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 11 Sep 2026 19:46:09 +0000</lastBuildDate>
     <generator>Neural Critic publication pipeline</generator>
     <atom:link href="https://www.neuralcritic.net/feed.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>GTA VI’s Six-Hour Netflix Preview Reportedly Drove More Than 100,000 U.S. Sign-Ups</title>
+      <link>https://www.neuralcritic.net/stories/gta-vi-netflix-preview-100000-signups/</link>
+      <guid isPermaLink="true">https://www.neuralcritic.net/stories/gta-vi-netflix-preview-100000-signups/</guid>
+      <description>GTA VI’s six-hour Netflix-exclusive Extended Look reportedly drove more than 100,000 U.S. sign-ups, making it one of Netflix’s biggest subscriber events of 2026.</description>
+      <category>NEWS</category>
+      <pubDate>Fri, 11 Sep 2026 19:37:04 +0000</pubDate>
+    </item>
     <item>
       <title>Romancing SaGa 3: Destinies United Is a Full 3D Remake Launching February 16, 2027</title>
       <link>https://www.neuralcritic.net/stories/romancing-saga-3-destinies-united-full-3d-remake-release-date/</link>
@@ -237,14 +245,6 @@
       <link>https://www.neuralcritic.net/stories/bloodborne-review/</link>
       <guid isPermaLink="true">https://www.neuralcritic.net/stories/bloodborne-review/</guid>
       <description>Bloodborne review covering aggressive combat, Yharnam’s world design, memorable bosses, The Old Hunters and the PS4-era limits that still show in 2026.</description>
-      <category>REVIEW</category>
-      <pubDate>Sat, 05 Sep 2026 09:37:49 +0000</pubDate>
-    </item>
-    <item>
-      <title>Clair Obscur: Expedition 33 Review</title>
-      <link>https://www.neuralcritic.net/stories/clair-obscur-expedition-33-review/</link>
-      <guid isPermaLink="true">https://www.neuralcritic.net/stories/clair-obscur-expedition-33-review/</guid>
-      <description>Clair Obscur: Expedition 33 review covering hybrid turn-based combat, party builds, exploration, story, presentation and its post-launch evolution today.</description>
       <category>REVIEW</category>
       <pubDate>Sat, 05 Sep 2026 09:37:49 +0000</pubDate>
     </item>
