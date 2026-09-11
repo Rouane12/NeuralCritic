@@ -32,3 +32,5 @@ def public_url(relative: str = "") -> str:
 
 def public_path(relative: str = "") -> str:
     return urllib.parse.urljoin(BASE_PATH, relative)
+
+# Publication refresh trigger; no runtime behavior change.
