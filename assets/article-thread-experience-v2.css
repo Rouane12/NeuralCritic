@@ -3,7 +3,7 @@
 
    The community backend, posting/reply/edit/report actions and comment cards
    remain owned by the existing community runtime. This layer only improves
-   the article-ending discussion journey and reacts to the runtime state class. */
+   the article-ending discussion journey. */
 
 html body #article.work-article-page > .work-bottom-grid{
   width:min(980px,calc(100% - 72px))!important;
@@ -40,10 +40,7 @@ html body #article.work-article-page > .work-bottom-grid{
   font-size:20px!important;
 }
 
-#reader-thread .standard-thread-account{
-  font-size:9px!important;
-}
-
+#reader-thread .standard-thread-account,
 #reader-thread .standard-thread-account strong{
   font-size:9px!important;
 }
@@ -58,9 +55,7 @@ html body #article.work-article-page > .work-bottom-grid{
   font:500 11.5px/1.5 Inter,system-ui,sans-serif!important;
 }
 
-/* Composer remains immediately usable, but no longer dominates an empty
-   discussion. A typed comment still expands through the existing has-value
-   state and all submission behavior is unchanged. */
+/* Composer stays immediately usable, but stops dominating an empty thread. */
 #reader-thread form[data-thread-form]{
   grid-template-columns:36px minmax(0,1fr)!important;
   gap:10px!important;
@@ -86,6 +81,10 @@ html body #article.work-article-page > .work-bottom-grid{
   font:650 12px/20px Inter,system-ui,sans-serif!important;
 }
 
+#reader-thread form[data-thread-form]:focus-within{
+  border-color:rgba(85,231,255,.45)!important;
+}
+
 #reader-thread form[data-thread-form].has-value{
   min-height:106px!important;
 }
@@ -96,80 +95,89 @@ html body #article.work-article-page > .work-bottom-grid{
   min-height:66px!important;
 }
 
-/* Sorting is useful only when there is something to sort. The runtime places
-   an explicit state class on the thread so we do not infer comment state from
-   text or hide controls while the thread is loading. */
-#reader-thread.thread-is-empty .standard-sort-row{
+/* Sort controls are useful only once real comments exist. Default hidden also
+   prevents the brief "Sort by Popular" flash during thread hydration. */
+#reader-thread .standard-sort-row{
   display:none!important;
 }
 
-#reader-thread.thread-has-comments .standard-sort-row{
+#reader-thread:has(.community-comment[data-comment-id]) .standard-sort-row{
   display:flex!important;
   justify-content:flex-end!important;
   margin:2px 0 14px!important;
   font:700 9.5px/1 Inter,system-ui,sans-serif!important;
 }
 
-#reader-thread.thread-has-comments .standard-sort-row select{
+#reader-thread:has(.community-comment[data-comment-id]) .standard-sort-row select{
   min-width:108px!important;
   height:30px!important;
   font-size:9.5px!important;
 }
 
 /* Empty threads should invite the first comment, not create half a viewport of
-   dead space. */
-#reader-thread.thread-is-empty form[data-thread-form]{
-  margin-bottom:10px!important;
+   dead space. The recovery renderer always gives a true zero-comment state a
+   numeric <b>, which distinguishes it from loading/error messages. */
+#reader-thread:has([data-thread-list] .community-empty b) form[data-thread-form]{
+  margin-bottom:9px!important;
 }
 
-#reader-thread.thread-is-empty .thread-list{
+#reader-thread:has([data-thread-list] .community-empty b) .thread-list{
   display:block!important;
 }
 
-#reader-thread.thread-is-empty .community-empty{
+#reader-thread .community-empty:has(b){
   display:grid!important;
   grid-template-columns:38px minmax(0,1fr)!important;
   grid-template-rows:auto auto!important;
   column-gap:12px!important;
   row-gap:2px!important;
   align-items:center!important;
-  min-height:52px!important;
+  min-height:50px!important;
   margin:0!important;
   padding:7px 4px 1px!important;
   text-align:left!important;
 }
 
-#reader-thread.thread-is-empty .community-empty b{
+#reader-thread .community-empty:has(b) b{
   grid-row:1 / 3!important;
   align-self:center!important;
   margin:0!important;
   font:800 25px/1 Inter,system-ui,sans-serif!important;
 }
 
-#reader-thread.thread-is-empty .community-empty strong{
+#reader-thread .community-empty:has(b) strong{
   align-self:end!important;
   margin:0!important;
   font:750 12px/1.2 Inter,system-ui,sans-serif!important;
 }
 
-#reader-thread.thread-is-empty .community-empty small{
+#reader-thread .community-empty:has(b) small{
   align-self:start!important;
   margin:2px 0 0!important;
   font:500 8.5px/1.35 Inter,system-ui,sans-serif!important;
 }
 
-/* Once the conversation exists, give the comments room without returning to
-   the oversized empty-state canvas. */
-#reader-thread.thread-has-comments .thread-list{
+/* Loading or service-unavailable messages stay compact too, but do not mimic
+   the intentional zero-comment invitation. */
+#reader-thread .community-loading,
+#reader-thread .community-empty:not(:has(b)){
+  min-height:0!important;
+  padding:11px 4px 2px!important;
+  text-align:left!important;
+  font:500 9px/1.45 Inter,system-ui,sans-serif!important;
+}
+
+/* Once the conversation exists, give comments room without restoring the
+   oversized empty-state canvas. */
+#reader-thread:has(.community-comment[data-comment-id]) .thread-list{
   gap:11px!important;
 }
 
-#reader-thread.thread-has-comments .community-comment{
+#reader-thread:has(.community-comment[data-comment-id]) .community-comment{
   padding:16px 17px 15px!important;
 }
 
-/* Light-theme article threads should read as a crisp editorial surface rather
-   than a grey box floating in the white page. */
+/* Light mode: crisp editorial surface rather than a grey card in white space. */
 html[data-theme="light"] #reader-thread.article-thread.standard-thread{
   border-color:#d5dde5!important;
   background:linear-gradient(180deg,#ffffff 0%,#fbfcfd 100%)!important;
@@ -213,6 +221,11 @@ html[data-theme="light"] #reader-thread form[data-thread-form]{
   box-shadow:none!important;
 }
 
+html[data-theme="light"] #reader-thread form[data-thread-form]:focus-within{
+  border-color:#86cbd8!important;
+  box-shadow:0 0 0 3px rgba(85,231,255,.08)!important;
+}
+
 html[data-theme="light"] #reader-thread .standard-composer-avatar{
   border-color:#cbd7df!important;
   background:#fff!important;
@@ -241,11 +254,13 @@ html[data-theme="light"] #reader-thread .standard-sort-row select{
   color:#253345!important;
 }
 
-html[data-theme="light"] #reader-thread.thread-is-empty .community-empty strong{
+html[data-theme="light"] #reader-thread .community-empty:has(b) strong{
   color:#223044!important;
 }
 
-html[data-theme="light"] #reader-thread.thread-is-empty .community-empty small{
+html[data-theme="light"] #reader-thread .community-empty:has(b) small,
+html[data-theme="light"] #reader-thread .community-empty:not(:has(b)),
+html[data-theme="light"] #reader-thread .community-loading{
   color:#788698!important;
 }
 
@@ -302,12 +317,12 @@ html[data-theme="light"] #reader-thread.thread-is-empty .community-empty small{
     min-width:30px!important;
   }
 
-  #reader-thread.thread-is-empty .community-empty{
+  #reader-thread .community-empty:has(b){
     grid-template-columns:32px minmax(0,1fr)!important;
     column-gap:10px!important;
   }
 
-  #reader-thread.thread-is-empty .community-empty b{
+  #reader-thread .community-empty:has(b) b{
     font-size:21px!important;
   }
 }
