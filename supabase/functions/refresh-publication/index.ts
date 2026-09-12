@@ -4,7 +4,8 @@ import { createClient } from "npm:@supabase/supabase-js@2";
 const SUPABASE_URL = Deno.env.get("SUPABASE_URL") || "";
 const SERVICE_ROLE_KEY = Deno.env.get("SUPABASE_SERVICE_ROLE_KEY") || "";
 const GITHUB_TOKEN = Deno.env.get("GITHUB_DISPATCH_TOKEN") || "";
-const GITHUB_DISPATCH_URL = "https://api.github.com/repos/Rouane12/NeuralCritic/actions/workflows/build-publication.yml/dispatches";
+const GITHUB_WORKFLOW = "fast-publish-story.yml";
+const GITHUB_DISPATCH_URL = `https://api.github.com/repos/Rouane12/NeuralCritic/actions/workflows/${GITHUB_WORKFLOW}/dispatches`;
 const ALLOWED_ORIGINS = new Set([
   "https://www.neuralcritic.net",
   "https://neuralcritic.net",
@@ -111,7 +112,7 @@ Deno.serve(async (req: Request) => {
       "Content-Type": "application/json",
       "User-Agent": "Neural-Critic-Publication-Refresh",
     },
-    body: JSON.stringify({ ref: "main" }),
+    body: JSON.stringify({ ref: "main", inputs: { slug } }),
   });
 
   if (!githubResponse.ok) {
@@ -127,7 +128,7 @@ Deno.serve(async (req: Request) => {
   return json(req, {
     ok: true,
     slug,
-    workflow: "build-publication.yml",
+    workflow: GITHUB_WORKFLOW,
     ref: "main",
     canonical_url: `https://www.neuralcritic.net/stories/${encodeURIComponent(slug)}/`,
   }, 202);
