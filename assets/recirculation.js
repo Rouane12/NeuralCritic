@@ -52,19 +52,19 @@
   }
 
   function fallbackRelation(item) {
-    const label = String(item?.reason || 'MORE COVERAGE').trim() || 'MORE COVERAGE';
+    const label = String(item?.reason || 'NEXT READ').trim() || 'NEXT READ';
     return { key:'related', type:'', value:'', label };
   }
 
-  function relationLabel(item) {
+  function relationshipLabel(item, slot) {
     const relation = item?.relation || fallbackRelation(item);
-    if (relation.key === 'same_game' && relation.value) return `More ${displayTag(relation.value)}`;
-    if (relation.key === 'same_series' && relation.value) return `More ${displayTag(relation.value)}`;
-    if (relation.key === 'same_franchise' && relation.value) return `More ${displayTag(relation.value)}`;
-    if (relation.key === 'shared_topic' && relation.value) return `More ${displayTag(relation.value)}`;
-    if (relation.key === 'same_collection' && relation.value) return `More ${displayTag(relation.value)}`;
-    if (relation.key === 'same_desk') return `More ${String(item?.article?.category || 'stories').toLowerCase()}`;
-    return 'Related coverage';
+    if (relation.key === 'same_game') return 'SAME GAME';
+    if (relation.key === 'same_series') return 'SAME SERIES';
+    if (relation.key === 'same_franchise') return 'SAME FRANCHISE';
+    if (relation.key === 'shared_topic') return relation.value ? `SHARED TOPIC · ${displayTag(relation.value).toUpperCase()}` : 'SHARED TOPIC';
+    if (relation.key === 'same_collection') return 'SAME COLLECTION';
+    if (relation.key === 'same_desk') return 'FROM THE DESK';
+    return slot === 2 ? 'NEXT READ' : String(relation.label || 'RELATED').toUpperCase();
   }
 
   async function loadPublished() {
@@ -119,14 +119,43 @@
     });
   }
 
+  function selectJourney(current, index, engine) {
+    const ranked = engine.related(current, index, Math.min(12, Math.max(3, index.length - 1)));
+    if (!ranked.length) return [];
+
+    const selected = [];
+    const seen = new Set([current.slug]);
+    const take = predicate => {
+      const item = ranked.find(candidate => !seen.has(candidate?.article?.slug) && predicate(candidate));
+      if (!item?.article?.slug) return false;
+      seen.add(item.article.slug);
+      selected.push(item);
+      return true;
+    };
+
+    /* The first two slots establish a clear editorial journey: stay with the
+       game when possible, then broaden into its series/franchise. The third
+       slot deliberately reaches beyond that core relationship when the shared
+       Discovery Intelligence scorer has a useful option. */
+    take(item => item?.relation?.key === 'same_game');
+    take(item => ['same_series','same_franchise'].includes(item?.relation?.key));
+    take(item => !['same_game','same_series','same_franchise'].includes(item?.relation?.key));
+
+    ranked.forEach(item => {
+      if (selected.length >= 3 || !item?.article?.slug || seen.has(item.article.slug)) return;
+      seen.add(item.article.slug);
+      selected.push(item);
+    });
+    return selected.slice(0, 3);
+  }
+
   function cardMarkup(item, position) {
     const article = item.article;
     const image = imageUrl(article.imageLocal || article.image || article.heroImage || '');
     const minutes = readTime(article);
     const category = String(article.category || 'STORY').toUpperCase();
-    const reason = item.relation || fallbackRelation(item);
-    const classes = position === 0 ? 'nc-recirc-card nc-recirc-lead' : 'nc-recirc-card nc-recirc-secondary';
-    return `<a class="${classes}" href="${storyUrl(article.slug)}" data-recirc-target="${esc(article.slug)}" data-recirc-reason="${esc(reason.key)}"><div class="nc-recirc-media">${image ? `<img src="${esc(image)}" alt="${esc(article.imageAlt || article.title || '')}" loading="lazy" decoding="async">` : '<span>NEURAL<br>CRITIC</span>'}<i>${position === 0 ? 'NEXT READ' : esc(relationLabel(item).toUpperCase())}</i></div><div class="nc-recirc-copy"><div class="nc-recirc-meta"><span>${esc(category)}</span>${minutes ? `<b>${minutes} MIN READ</b>` : ''}</div><h3>${esc(article.title || '')}</h3>${position === 0 ? `<p>${esc(article.description || '')}</p>` : ''}<strong>${position === 0 ? 'KEEP READING' : 'READ STORY'} <span aria-hidden="true">→</span></strong></div></a>`;
+    const relation = item.relation || fallbackRelation(item);
+    return `<a class="nc-recirc-card" href="${storyUrl(article.slug)}" data-recirc-target="${esc(article.slug)}" data-recirc-reason="${esc(relation.key)}" data-recirc-slot="${position + 1}"><div class="nc-recirc-media">${image ? `<img src="${esc(image)}" alt="${esc(article.imageAlt || article.title || '')}" loading="lazy" decoding="async">` : '<span class="nc-recirc-fallback"><b>NEURAL</b><strong>CRITIC</strong></span>'}<i>${esc(relationshipLabel(item, position))}</i></div><div class="nc-recirc-copy"><div class="nc-recirc-meta"><span>${esc(category)}</span>${minutes ? `<b>${minutes} MIN READ</b>` : ''}</div><h3>${esc(article.title || '')}</h3>${article.description ? `<p>${esc(article.description)}</p>` : ''}<strong>READ STORY <span aria-hidden="true">→</span></strong></div></a>`;
   }
 
   function waitForInsertionPoint(timeout = 7000) {
@@ -157,14 +186,17 @@
       if (link) {
         window.NeuralCriticAnalytics?.track?.('recirculation_click', {
           placement:'after_thread',
+          surface:'continue_exploring',
           target_slug:link.dataset.recircTarget || '',
-          recommendation_reason:link.dataset.recircReason || ''
+          recommendation_reason:link.dataset.recircReason || '',
+          recommendation_slot:Number(link.dataset.recircSlot || 0) || null
         });
       }
       const hub = event.target.closest('[data-recirc-hub]');
       if (hub) {
         window.NeuralCriticAnalytics?.track?.('recirculation_hub_click', {
           placement:'after_thread',
+          surface:'continue_exploring',
           hub_type:hub.dataset.recircHub || '',
           hub_value:hub.dataset.recircHubValue || '',
           destination:hub.dataset.recircHubDestination || 'topic_hub'
@@ -178,8 +210,10 @@
       observer.disconnect();
       window.NeuralCriticAnalytics?.track?.('recirculation_view', {
         placement:'after_thread',
+        surface:'continue_exploring',
         recommendation_count:module.querySelectorAll('[data-recirc-target]').length,
-        primary_reason:module.dataset.primaryReason || ''
+        primary_reason:module.dataset.primaryReason || '',
+        relationship_mix:module.dataset.relationships || ''
       });
     }, { threshold:0.25 });
     observer.observe(module);
@@ -227,12 +261,11 @@
     const current = await loadCurrent(slug, index);
     if (!current) return;
 
-    const selected = engine.related(current, index, 3);
+    const selected = selectJourney(current, index, engine);
     if (!selected.length) return;
 
     const gameContext = current.gameKey ? await waitForArticleGameContext() : null;
     const identity = gameContext?.title || primaryIdentity(current, selected[0]);
-    const eyebrow = identity ? `CONTINUE WITH ${displayTag(identity).toUpperCase()}` : 'KEEP READING';
     const hub = bestHub(current, selected[0], gameContext);
     const fallbackSection = current.editorialSection || (String(current.category || '').toLowerCase() === 'review' ? 'reviews' : String(current.category || 'features').toLowerCase());
     const exploreHref = hub.href || new URL(`category.html?section=${encodeURIComponent(fallbackSection)}`, SITE_ROOT).href;
@@ -242,14 +275,15 @@
 
     const module = document.createElement('section');
     module.id = 'nc-recirculation';
-    module.className = 'nc-recirculation';
+    module.className = 'nc-recirculation nc-continue-exploring';
     module.setAttribute('aria-labelledby', 'nc-recirculation-title');
-    module.innerHTML = `<header class="nc-recirc-head"><div><span>${esc(eyebrow)}</span><h2 id="nc-recirculation-title">Your next story is already here.</h2></div><a href="${esc(exploreHref)}"${hub.href ? ` data-recirc-hub="${esc(hub.type)}" data-recirc-hub-value="${esc(hub.value)}" data-recirc-hub-destination="${esc(hub.destination || 'topic_hub')}"` : ''}>${esc(exploreLabel)}</a></header><div class="nc-recirc-grid">${selected.map(cardMarkup).join('')}</div>`;
+    module.innerHTML = `<header class="nc-recirc-head"><div><span>KEEP READING</span><h2 id="nc-recirculation-title">Continue exploring</h2><p>More from this game, its world, and what matters next.</p></div><a href="${esc(exploreHref)}"${hub.href ? ` data-recirc-hub="${esc(hub.type)}" data-recirc-hub-value="${esc(hub.value)}" data-recirc-hub-destination="${esc(hub.destination || 'topic_hub')}"` : ''}>${esc(exploreLabel)}</a></header><div class="nc-recirc-grid">${selected.map(cardMarkup).join('')}</div>`;
     insertionPoint.insertAdjacentElement('afterend', module);
 
     module.dataset.placement = 'after-reader-thread';
     module.dataset.primaryReason = selected[0]?.relation?.key || 'related';
     module.dataset.primaryScore = String(selected[0]?.score || 0);
+    module.dataset.relationships = selected.map(item => item?.relation?.key || 'related').join(',');
     if (gameContext?.slug) module.dataset.gameHubSlug = gameContext.slug;
     trackClicks(module);
 
@@ -260,6 +294,7 @@
         primaryReason:selected[0]?.relation?.key || 'related',
         primaryScore:selected[0]?.score || 0,
         recommendationKinds:selected.map(item => item.kind || '').filter(Boolean),
+        recommendationRelationships:selected.map(item => item?.relation?.key || 'related'),
         gameHubSlug:gameContext?.slug || ''
       }
     }));
