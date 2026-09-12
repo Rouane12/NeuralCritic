@@ -1,0 +1,34 @@
+name: Article Reading Experience health
+
+on:
+  pull_request:
+    paths:
+      - article.html
+      - assets/article-reading-experience-v2.css
+      - assets/article-news-layout-v5.css
+      - assets/article-rail-spacing.css
+      - assets/article-formatting.css
+      - scripts/test_article_reading_phase1.js
+      - .github/workflows/article-reading-experience-health.yml
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: neural-critic-article-reading-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  reading-experience:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Parse-check regression script
+        run: node --check scripts/test_article_reading_phase1.js
+
+      - name: Verify Article Reading Experience Phase 1 contracts
+        run: node scripts/test_article_reading_phase1.js
