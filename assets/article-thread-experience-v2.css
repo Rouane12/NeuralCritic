@@ -1,0 +1,328 @@
+/* Article Reading Experience 2.0 — Phase 2
+   Compact, state-aware Reader Thread presentation.
+
+   The community backend, posting/reply/edit/report actions and comment cards
+   remain owned by the existing community runtime. This layer only improves
+   the article-ending discussion journey. */
+
+html body #article.work-article-page > .work-bottom-grid{
+  width:min(980px,calc(100% - 72px))!important;
+  margin:42px auto 0!important;
+}
+
+#reader-thread.article-thread.standard-thread{
+  border-radius:17px!important;
+  box-shadow:0 18px 48px rgba(13,23,38,.09)!important;
+}
+
+#reader-thread .standard-thread-shell{
+  padding:22px 24px 23px!important;
+}
+
+#reader-thread .thread-head{
+  min-height:35px!important;
+  gap:16px!important;
+  padding-bottom:12px!important;
+}
+
+#reader-thread .thread-head::after{
+  width:104px!important;
+}
+
+#reader-thread .standard-thread-title strong{
+  font-size:19px!important;
+}
+
+#reader-thread .standard-thread-title .thread-bubbles,
+#reader-thread .standard-thread-title .thread-bubbles .material-symbols-rounded{
+  width:20px!important;
+  height:20px!important;
+  font-size:20px!important;
+}
+
+#reader-thread .standard-thread-account,
+#reader-thread .standard-thread-account strong{
+  font-size:9px!important;
+}
+
+#reader-thread .standard-thread-account .account-dot{
+  width:28px!important;
+  height:28px!important;
+}
+
+#reader-thread .standard-thread-intro{
+  margin:12px 0 12px!important;
+  font:500 11.5px/1.5 Inter,system-ui,sans-serif!important;
+}
+
+/* Composer stays immediately usable, but stops dominating an empty thread. */
+#reader-thread form[data-thread-form]{
+  grid-template-columns:36px minmax(0,1fr)!important;
+  gap:10px!important;
+  min-height:58px!important;
+  margin:0 0 16px!important;
+  padding:9px 11px!important;
+  border-radius:12px!important;
+}
+
+#reader-thread .standard-composer-avatar{
+  width:34px!important;
+  height:34px!important;
+  min-width:34px!important;
+}
+
+#reader-thread form[data-thread-form] textarea,
+#reader-thread form[data-thread-form]:focus-within textarea{
+  height:40px!important;
+  min-height:40px!important;
+  max-height:40px!important;
+  padding:9px 13px!important;
+  border-radius:10px!important;
+  font:650 12px/20px Inter,system-ui,sans-serif!important;
+}
+
+#reader-thread form[data-thread-form]:focus-within{
+  border-color:rgba(85,231,255,.45)!important;
+}
+
+#reader-thread form[data-thread-form].has-value{
+  min-height:106px!important;
+}
+
+#reader-thread form[data-thread-form].has-value textarea,
+#reader-thread form[data-thread-form].has-value:focus-within textarea{
+  height:66px!important;
+  min-height:66px!important;
+}
+
+/* Sort controls are useful only once real comments exist. Default hidden also
+   prevents the brief "Sort by Popular" flash during thread hydration. */
+#reader-thread .standard-sort-row{
+  display:none!important;
+}
+
+#reader-thread:has(.community-comment[data-comment-id]) .standard-sort-row{
+  display:flex!important;
+  justify-content:flex-end!important;
+  margin:2px 0 14px!important;
+  font:700 9.5px/1 Inter,system-ui,sans-serif!important;
+}
+
+#reader-thread:has(.community-comment[data-comment-id]) .standard-sort-row select{
+  min-width:108px!important;
+  height:30px!important;
+  font-size:9.5px!important;
+}
+
+/* Empty threads should invite the first comment, not create half a viewport of
+   dead space. The recovery renderer always gives a true zero-comment state a
+   numeric <b>, which distinguishes it from loading/error messages. */
+#reader-thread:has([data-thread-list] .community-empty b) form[data-thread-form]{
+  margin-bottom:9px!important;
+}
+
+#reader-thread:has([data-thread-list] .community-empty b) .thread-list{
+  display:block!important;
+}
+
+#reader-thread .community-empty:has(b){
+  display:grid!important;
+  grid-template-columns:38px minmax(0,1fr)!important;
+  grid-template-rows:auto auto!important;
+  column-gap:12px!important;
+  row-gap:2px!important;
+  align-items:center!important;
+  min-height:50px!important;
+  margin:0!important;
+  padding:7px 4px 1px!important;
+  text-align:left!important;
+}
+
+#reader-thread .community-empty:has(b) b{
+  grid-row:1 / 3!important;
+  align-self:center!important;
+  margin:0!important;
+  font:800 25px/1 Inter,system-ui,sans-serif!important;
+}
+
+#reader-thread .community-empty:has(b) strong{
+  align-self:end!important;
+  margin:0!important;
+  font:750 12px/1.2 Inter,system-ui,sans-serif!important;
+}
+
+#reader-thread .community-empty:has(b) small{
+  align-self:start!important;
+  margin:2px 0 0!important;
+  font:500 8.5px/1.35 Inter,system-ui,sans-serif!important;
+}
+
+/* Loading or service-unavailable messages stay compact too, but do not mimic
+   the intentional zero-comment invitation. */
+#reader-thread .community-loading,
+#reader-thread .community-empty:not(:has(b)){
+  min-height:0!important;
+  padding:11px 4px 2px!important;
+  text-align:left!important;
+  font:500 9px/1.45 Inter,system-ui,sans-serif!important;
+}
+
+/* Once the conversation exists, give comments room without restoring the
+   oversized empty-state canvas. */
+#reader-thread:has(.community-comment[data-comment-id]) .thread-list{
+  gap:11px!important;
+}
+
+#reader-thread:has(.community-comment[data-comment-id]) .community-comment{
+  padding:16px 17px 15px!important;
+}
+
+/* Light mode: crisp editorial surface rather than a grey card in white space. */
+html[data-theme="light"] #reader-thread.article-thread.standard-thread{
+  border-color:#d5dde5!important;
+  background:linear-gradient(180deg,#ffffff 0%,#fbfcfd 100%)!important;
+  box-shadow:0 18px 48px rgba(37,53,72,.075)!important;
+}
+
+html[data-theme="light"] #reader-thread .thread-head{
+  border-bottom-color:#dce3e9!important;
+}
+
+html[data-theme="light"] #reader-thread .standard-thread-title strong{
+  color:#182332!important;
+}
+
+html[data-theme="light"] #reader-thread .standard-thread-title b{
+  border-color:#d7dfe6!important;
+  background:#f5f7f9!important;
+  color:#344253!important;
+}
+
+html[data-theme="light"] #reader-thread .standard-thread-account{
+  color:#7b8898!important;
+}
+
+html[data-theme="light"] #reader-thread .standard-thread-account .account-dot{
+  border-color:#d4dde4!important;
+  background:#fff!important;
+}
+
+html[data-theme="light"] #reader-thread .standard-thread-account .account-dot .material-symbols-rounded{
+  color:#344253!important;
+}
+
+html[data-theme="light"] #reader-thread .standard-thread-intro{
+  color:#68778a!important;
+}
+
+html[data-theme="light"] #reader-thread form[data-thread-form]{
+  border-color:#dbe3e9!important;
+  background:#f7f9fb!important;
+  box-shadow:none!important;
+}
+
+html[data-theme="light"] #reader-thread form[data-thread-form]:focus-within{
+  border-color:#86cbd8!important;
+  box-shadow:0 0 0 3px rgba(85,231,255,.08)!important;
+}
+
+html[data-theme="light"] #reader-thread .standard-composer-avatar{
+  border-color:#cbd7df!important;
+  background:#fff!important;
+  color:#3a495b!important;
+}
+
+html[data-theme="light"] #reader-thread form[data-thread-form] textarea,
+html[data-theme="light"] #reader-thread form[data-thread-form]:focus-within textarea{
+  border-color:#cbd7df!important;
+  background:#fff!important;
+  color:#1c2938!important;
+}
+
+html[data-theme="light"] #reader-thread form[data-thread-form] textarea::placeholder{
+  color:#7b899b!important;
+  opacity:1!important;
+}
+
+html[data-theme="light"] #reader-thread .standard-sort-row{
+  color:#59687a!important;
+}
+
+html[data-theme="light"] #reader-thread .standard-sort-row select{
+  border-color:#ccd6de!important;
+  background:#fff!important;
+  color:#253345!important;
+}
+
+html[data-theme="light"] #reader-thread .community-empty:has(b) strong{
+  color:#223044!important;
+}
+
+html[data-theme="light"] #reader-thread .community-empty:has(b) small,
+html[data-theme="light"] #reader-thread .community-empty:not(:has(b)),
+html[data-theme="light"] #reader-thread .community-loading{
+  color:#788698!important;
+}
+
+@media(max-width:900px){
+  html body #article.work-article-page > .work-bottom-grid{
+    width:min(100% - 40px,980px)!important;
+    margin-top:34px!important;
+  }
+
+  #reader-thread .standard-thread-shell{
+    padding:20px!important;
+  }
+}
+
+@media(max-width:620px){
+  html body #article.work-article-page > .work-bottom-grid{
+    width:min(100% - 24px,980px)!important;
+    margin-top:28px!important;
+  }
+
+  #reader-thread .standard-thread-shell{
+    padding:17px 15px 18px!important;
+  }
+
+  #reader-thread .thread-head{
+    align-items:flex-start!important;
+    gap:10px!important;
+  }
+
+  #reader-thread .standard-thread-account{
+    max-width:48%!important;
+    white-space:normal!important;
+    text-align:right!important;
+  }
+
+  #reader-thread .standard-thread-account > span:first-child{
+    display:none!important;
+  }
+
+  #reader-thread .standard-thread-intro{
+    margin-top:10px!important;
+    font-size:10.5px!important;
+  }
+
+  #reader-thread form[data-thread-form]{
+    grid-template-columns:32px minmax(0,1fr)!important;
+    gap:8px!important;
+    padding:8px!important;
+  }
+
+  #reader-thread .standard-composer-avatar{
+    width:30px!important;
+    height:30px!important;
+    min-width:30px!important;
+  }
+
+  #reader-thread .community-empty:has(b){
+    grid-template-columns:32px minmax(0,1fr)!important;
+    column-gap:10px!important;
+  }
+
+  #reader-thread .community-empty:has(b) b{
+    font-size:21px!important;
+  }
+}
