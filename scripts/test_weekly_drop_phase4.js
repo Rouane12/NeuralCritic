@@ -17,9 +17,9 @@ const check = (name, condition, detail = '') => checks.push({ name, ok:Boolean(c
 
 check(
   'article bootstrap loads the Phase 4 runtime after the legacy article extras owner',
-  article.includes('assets/article-weekly-drop-v2.js?v=20260912-weeklydrop1') &&
-    article.indexOf('assets/article-extras.js?v=20260824-runtime1') < article.indexOf('assets/article-weekly-drop-v2.js?v=20260912-weeklydrop1'),
-  'Phase 4 must enhance the existing article ending instead of racing its markup owner'
+  article.includes('assets/article-weekly-drop-v2.js?v=') &&
+    article.indexOf('assets/article-extras.js?v=20260824-runtime1') < article.indexOf('assets/article-weekly-drop-v2.js?v='),
+  'Phase 4 must enhance the existing article ending after article extras, regardless of the content-hash version pin'
 );
 
 check(
