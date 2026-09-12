@@ -11,6 +11,7 @@ on:
       - data/**
       - scripts/publication_config.py
       - scripts/build_runtime_fallback.py
+      - scripts/fast_publish_runtime.py
       - scripts/localize_images.py
       - scripts/build_robots.py
       - scripts/build_sitemap.py
@@ -40,7 +41,7 @@ permissions:
   contents: write
 
 concurrency:
-  group: neural-critic-publication-discovery-refresh
+  group: neural-critic-publication-write
   cancel-in-progress: false
 
 jobs:
