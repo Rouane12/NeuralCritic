@@ -1,0 +1,49 @@
+name: Topic Hub health
+
+on:
+  pull_request:
+    paths:
+      - topic.html
+      - topics/**
+      - assets/topic-hub.js
+      - assets/topic-hub.css
+      - assets/topic-hub-phase3.js
+      - assets/topic-hub-phase3.css
+      - assets/content-api.js
+      - scripts/build_topic_pages.py
+      - scripts/test_topic_hub_phase3.js
+      - .github/workflows/topic-hub-health.yml
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: neural-critic-topic-hub-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  topic-hub:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Regenerate canonical topic hubs
+        env:
+          NEURAL_CRITIC_SITE_URL: https://www.neuralcritic.net/
+        run: python scripts/build_topic_pages.py
+
+      - name: Parse-check Phase 3 topic runtime
+        run: |
+          node --check assets/topic-hub-phase3.js
+          node --check scripts/test_topic_hub_phase3.js
+
+      - name: Verify Topic Hub Phase 3 contracts
+        run: node scripts/test_topic_hub_phase3.js
