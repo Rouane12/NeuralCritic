@@ -1,0 +1,107 @@
+/* Article Reading Experience 2.0 — Phase 1
+   Reading canvas + vertical rhythm only.
+
+   The current desktop prose column is 780px (the previous ~120% expansion).
+   Phase 1 returns it to the requested ~110% reading width: 715px, based on the
+   original ~650px editorial column. Typography stays unchanged; this pass is
+   about line length, spacing and the relationship between prose and utilities. */
+
+@media (min-width:1240px){
+  #article.work-article-page > .work-reading-grid{
+    width:min(1167px,100%)!important;
+    grid-template-columns:124px minmax(0,715px) 276px!important;
+    column-gap:26px!important;
+    justify-content:center!important;
+  }
+
+  /* Keep the reaction rail in its own true-width column and reduce the dead
+     gutter beside the prose without changing the rail's visual design. */
+  #article.work-article-page .work-react-rail.standard-react-rail{
+    width:124px!important;
+    min-width:124px!important;
+    justify-self:end!important;
+  }
+}
+
+/* The old full-desktop geometry restarted at 1181px. Keep the intermediate
+   desktop band fluid until there is genuinely enough room for the 110% canvas. */
+@media (min-width:1181px) and (max-width:1239px){
+  #article.work-article-page > .work-reading-grid{
+    width:100%!important;
+    grid-template-columns:116px minmax(0,1fr) 250px!important;
+    column-gap:26px!important;
+  }
+
+  #article.work-article-page .work-react-rail.standard-react-rail{
+    width:116px!important;
+    min-width:116px!important;
+  }
+
+  #article.work-article-page .work-react-rail.standard-react-rail button{
+    width:116px!important;
+  }
+}
+
+/* Reading rhythm: retain the established type sizes and hierarchy, but remove
+   the extra vertical air introduced by the wider long-form treatment. */
+#article.work-article-page.nc-type-system .work-reading-grid > .article-body > p,
+#article.work-article-page.nc-type-system .work-reading-grid > .article-body > section:not(.review-box):not(.review-details):not(.article-conclusion) > p{
+  margin-bottom:22px!important;
+}
+
+#article.work-article-page.nc-type-system .work-reading-grid > .article-body > section:not(.review-box):not(.review-details):not(.article-conclusion){
+  margin-bottom:44px!important;
+}
+
+#article.work-article-page.nc-type-system .work-reading-grid > .article-body > section:not(.review-box):not(.review-details):not(.article-conclusion) > h2,
+#article.work-article-page.nc-type-system .nc-heading-editorial > .nc-editorial-heading{
+  margin-top:42px!important;
+  margin-bottom:18px!important;
+}
+
+#article.work-article-page.nc-type-system .quick-read.work-quick-read{
+  margin-bottom:32px!important;
+}
+
+#article.work-article-page.nc-type-system .work-inline-figure{
+  margin-top:26px!important;
+  margin-bottom:40px!important;
+}
+
+#article.work-article-page.nc-type-system .work-reading-grid > .article-body > blockquote,
+#article.work-article-page.nc-type-system .work-reading-grid > .article-body > section:not(.review-box):not(.review-details):not(.article-conclusion) > blockquote{
+  margin-top:28px!important;
+  margin-bottom:28px!important;
+}
+
+/* Preserve the intentional zero-gap transition from Quick Read into the first
+   editorial section after tightening the generic H2 rhythm. */
+#article.work-article-page.nc-type-system .quick-read.work-quick-read + section > h2{
+  margin-top:0!important;
+}
+
+/* Mobile already uses a single-column reading system. Do not force desktop
+   density changes onto it; only keep paragraph rhythm slightly more compact. */
+@media (max-width:720px){
+  #article.work-article-page.nc-type-system .work-reading-grid > .article-body > p,
+  #article.work-article-page.nc-type-system .work-reading-grid > .article-body > section:not(.review-box):not(.review-details):not(.article-conclusion) > p{
+    margin-bottom:20px!important;
+  }
+
+  #article.work-article-page.nc-type-system .work-reading-grid > .article-body > section:not(.review-box):not(.review-details):not(.article-conclusion){
+    margin-bottom:38px!important;
+  }
+
+  #article.work-article-page.nc-type-system .work-reading-grid > .article-body > section:not(.review-box):not(.review-details):not(.article-conclusion) > h2,
+  #article.work-article-page.nc-type-system .nc-heading-editorial > .nc-editorial-heading{
+    margin-top:36px!important;
+    margin-bottom:16px!important;
+  }
+}
+
+@media (prefers-reduced-motion:reduce){
+  #article.work-article-page .work-reading-grid,
+  #article.work-article-page .work-react-rail.standard-react-rail{
+    scroll-behavior:auto!important;
+  }
+}
