@@ -1,5 +1,10 @@
 {
   "images": {
+    "https://blog.playstation.com/uploads/2023/05/42ad89dfc0425057b54cb6ca4be128feab99a248.jpg": {
+      "local": "/images/editorial/42ad89dfc0425057b54cb6ca4be128feab99a248.jpg",
+      "local_bytes": 184200,
+      "source_bytes": 1332906
+    },
     "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1787351828350-406d9122-1456-43fb-b917-0dab1033cbc3-dark-souls-main.jpg": {
       "local": "/images/editorial/1787351828350-406d9122-1456-43fb-b917-0dab1033cbc3-dark-souls-main.jpg",
       "local_bytes": 132568,

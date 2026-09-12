@@ -5,9 +5,17 @@
     <link>https://www.neuralcritic.net/</link>
     <description>Gaming news, reviews, guides, and features for players who want the signal—not the noise.</description>
     <language>en</language>
-    <lastBuildDate>Sat, 12 Sep 2026 12:43:17 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 12 Sep 2026 14:46:19 +0000</lastBuildDate>
     <generator>Neural Critic publication pipeline</generator>
     <atom:link href="https://www.neuralcritic.net/feed.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>PlayStation’s Fairgames Appears to Have Resurfaced as ‘Project Espresso’ in a New PS5 and PC Playtest</title>
+      <link>https://www.neuralcritic.net/stories/fairgames-project-espresso-ps5-pc-playtest/</link>
+      <guid isPermaLink="true">https://www.neuralcritic.net/stories/fairgames-project-espresso-ps5-pc-playtest/</guid>
+      <description>A closed PS5 and PC playtest for an unannounced PvPvE heist shooter codenamed Project Espresso closely matches Haven Studios’ Fairgames, while Insider Gaming reports the projects are the same.</description>
+      <category>NEWS</category>
+      <pubDate>Sat, 12 Sep 2026 14:28:48 +0000</pubDate>
+    </item>
     <item>
       <title>GTA VI’s Six-Hour Netflix Preview Reportedly Drove More Than 100,000 U.S. Sign-Ups</title>
       <link>https://www.neuralcritic.net/stories/gta-vi-netflix-preview-100000-signups/</link>
@@ -237,14 +245,6 @@
       <link>https://www.neuralcritic.net/stories/dark-souls-iii-review/</link>
       <guid isPermaLink="true">https://www.neuralcritic.net/stories/dark-souls-iii-review/</guid>
       <description>Dark Souls III review covering faster combat, standout bosses, build variety, world design, multiplayer, DLC and how the trilogy finale holds up today.</description>
-      <category>REVIEW</category>
-      <pubDate>Sat, 05 Sep 2026 09:37:49 +0000</pubDate>
-    </item>
-    <item>
-      <title>Bloodborne Review</title>
-      <link>https://www.neuralcritic.net/stories/bloodborne-review/</link>
-      <guid isPermaLink="true">https://www.neuralcritic.net/stories/bloodborne-review/</guid>
-      <description>Bloodborne review covering aggressive combat, Yharnam’s world design, memorable bosses, The Old Hunters and the PS4-era limits that still show in 2026.</description>
       <category>REVIEW</category>
       <pubDate>Sat, 05 Sep 2026 09:37:49 +0000</pubDate>
     </item>

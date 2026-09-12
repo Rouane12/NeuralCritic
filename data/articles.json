@@ -1,5 +1,115 @@
 [
   {
+    "id": "5fdb189a-a492-4581-908d-4d4a016ff233",
+    "slug": "fairgames-project-espresso-ps5-pc-playtest",
+    "title": "PlayStation’s Fairgames Appears to Have Resurfaced as ‘Project Espresso’ in a New PS5 and PC Playtest",
+    "description": "A closed PS5 and PC playtest for an unannounced PvPvE heist shooter codenamed Project Espresso closely matches Haven Studios’ Fairgames, while Insider Gaming reports the projects are the same.",
+    "body": "A new closed playtest for an unannounced AAA third-person PvPvE heist shooter codenamed Project Espresso appears to point back to Haven Studios’ Fairgames, although Sony has not publicly confirmed the connection or a new title.",
+    "category": "NEWS",
+    "author": "Rouane Mounssif",
+    "tags": [
+      "Fairgames",
+      "Project Espresso",
+      "Haven Studios",
+      "PlayStation",
+      "Sony Interactive Entertainment",
+      "PS5",
+      "PC"
+    ],
+    "imageAlt": "Official Fairgames artwork showing masked operatives emerging through purple smoke.",
+    "imageCredit": "Haven Studios / PlayStation",
+    "articleFormat": "standard",
+    "reviewMeta": {},
+    "contentBlocks": [
+      {
+        "text": "Player.gg has opened access to a closed test for an unannounced AAA project codenamed **Project Espresso**. The listing describes a **third-person PvPvE competitive action game** in which teams infiltrate high-security locations, steal valuable cargo and escape before rival crews. That premise is strikingly close to the heist-focused multiplayer game Haven Studios originally announced as **Fairgames**.",
+        "heading": "A secret playtest is drawing immediate Fairgames comparisons",
+        "headingStyle": "statement"
+      },
+      {
+        "text": "Insider Gaming reports that **Project Espresso is the internal project name for Haven Studios’ Fairgames** and says new playtests are underway. The outlet also reports that gameplay footage connected to the test has appeared online. Sony and Haven Studios have not publicly confirmed Project Espresso as a new public-facing name, so the safest reading is that the codename identifies the project rather than proving a final rebrand.",
+        "heading": "Insider Gaming says Project Espresso is Fairgames",
+        "headingStyle": "accent"
+      },
+      {
+        "text": "When Fairgames was unveiled in 2023, Haven described it as a competitive heist experience built around crews entering restricted locations, stealing from wealthy targets and escaping with loot. The new Project Espresso description again centers on competing teams breaking into secured locations, taking valuable cargo and getting out before rivals do.",
+        "heading": "The new description lines up with Haven’s original pitch",
+        "headingStyle": "editorial"
+      },
+      {
+        "text": "The current playtest is being associated with **PS5 and PC**, the same two platforms Sony originally announced for Fairgames. PlayStation’s 2023 reveal did not give the game a release date, and Sony has still not announced one publicly.",
+        "heading": "PS5 and PC remain the apparent targets",
+        "headingStyle": "statement"
+      },
+      {
+        "text": "Earlier reporting connected Sony’s **Break In** trademark to the Haven project, raising speculation that Fairgames could eventually launch under a different title. That possibility remains unconfirmed. Project Espresso may simply be a development codename, while Break In could be a future title, a separate trademark, or something else entirely.",
+        "heading": "‘Break In’ is still only a reported possibility",
+        "headingStyle": "accent"
+      },
+      {
+        "text": "Whatever name eventually appears on the box, the more important development is that Haven’s multiplayer project appears to be **actively testing with players**. Fairgames has spent years largely out of public view, so a fresh external playtest is one of the clearest signs in some time that Sony still intends to move the project forward.",
+        "heading": "The bigger signal is that the project is still moving",
+        "headingStyle": "editorial"
+      },
+      {
+        "text": "For now there is no official PlayStation announcement confirming Project Espresso, a Fairgames rebrand or a release window. Until Sony or Haven says otherwise, the connection should be treated as **reported rather than formally confirmed**.",
+        "heading": "Sony has not announced a new reveal yet",
+        "headingStyle": "statement"
+      }
+    ],
+    "quickRead": [
+      "A closed test for an unannounced third-person PvPvE heist shooter is running under the codename Project Espresso.",
+      "Insider Gaming reports Project Espresso is Haven Studios’ Fairgames project.",
+      "The playtest description closely matches Fairgames’ original competitive-heist concept.",
+      "Sony has not publicly confirmed a rebrand, final title or release date."
+    ],
+    "conclusion": "",
+    "conclusionHeading": "",
+    "conclusionHeadingStyle": "editorial",
+    "featured": false,
+    "homepageSlot": "regular",
+    "publishedAt": "2026-09-12T14:28:48.432873+00:00",
+    "updatedAt": "2026-09-12T14:28:48.432873+00:00",
+    "imageLocal": "/images/editorial/42ad89dfc0425057b54cb6ca4be128feab99a248.jpg",
+    "editorialSection": "news",
+    "platforms": [
+      "playstation",
+      "pc"
+    ],
+    "collection": null,
+    "collectionYear": null,
+    "gameKey": "",
+    "series": "",
+    "franchise": "",
+    "newsMeta": {
+      "kind": "report",
+      "updates": [
+        {
+          "at": "2026-09-10T00:00:00Z",
+          "id": "",
+          "note": "Insider Gaming reported that Project Espresso is Haven Studios’ Fairgames project and that new playtests are underway.",
+          "sourceUrl": "https://insider-gaming.com/fairgames-gameplay-trailer-new/",
+          "sourceName": "Insider Gaming"
+        },
+        {
+          "at": "2023-05-24T00:00:00Z",
+          "id": "",
+          "note": "PlayStation announced Fairgames as a competitive heist experience coming to PS5 and PC.",
+          "sourceUrl": "https://blog.playstation.com/2023/05/24/introducing-fairgame-a-competitive-heist-experience-coming-to-ps5-and-pc/",
+          "sourceName": "PlayStation Blog"
+        }
+      ],
+      "documents": [],
+      "sourceUrl": "https://insider-gaming.com/fairgames-gameplay-trailer-new/",
+      "developing": true,
+      "sourceName": "Insider Gaming",
+      "verification": "reported",
+      "documentSectionTitle": "",
+      "documentSectionDescription": "",
+      "documentPlacementAfterHeading": ""
+    }
+  },
+  {
     "id": "d7e194cc-b751-4dea-bcc0-75fb42dbb84f",
     "slug": "gta-vi-netflix-preview-100000-signups",
     "title": "GTA VI’s Six-Hour Netflix Preview Reportedly Drove More Than 100,000 U.S. Sign-Ups",
