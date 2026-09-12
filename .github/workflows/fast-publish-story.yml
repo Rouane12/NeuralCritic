@@ -65,7 +65,9 @@ jobs:
       - name: Build requested canonical story shell
         run: |
           python3 - <<'PY'
+          import hashlib
           import os
+          import re
           import sys
           import urllib.parse
           from pathlib import Path
@@ -99,12 +101,27 @@ jobs:
           builder.stable_image = fast_stable_image
 
           template = builder.ARTICLE_TEMPLATE.read_text(encoding="utf-8")
+          output = builder.render_story(template, article)
+
+          # The canonical shell must never pin an old browser runtime after a hotfix.
+          # Tie the app.js URL to the actual app.js content so browsers/CDNs fetch the
+          # renderer version that was present when this shell was generated.
+          app_hash = hashlib.sha256((root / "assets" / "app.js").read_bytes()).hexdigest()[:12]
+          output, replacements = re.subn(
+              r'assets/app\.js(?:\?v=[^"\']*)?',
+              f'assets/app.js?v={app_hash}',
+              output,
+              count=1,
+          )
+          if replacements != 1:
+              raise SystemExit("Could not pin the current app.js runtime in canonical story shell")
+
           directory = builder.STORIES_DIR / slug
           directory.mkdir(parents=True, exist_ok=True)
           target = directory / "index.html"
-          target.write_text(builder.render_story(template, article), encoding="utf-8")
+          target.write_text(output, encoding="utf-8")
           builder.stable_image = original_stable_image
-          print(f"Fast-built {target} from {source} metadata")
+          print(f"Fast-built {target} from {source} metadata with app runtime {app_hash}")
           PY
 
       - name: Commit requested story only when changed
