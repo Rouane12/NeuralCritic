@@ -15,12 +15,15 @@ on:
       - scripts/build_robots.py
       - scripts/build_sitemap.py
       - scripts/build_story_pages.py
+      - scripts/harden_story_shells.py
       - scripts/build_topic_pages.py
       - scripts/build_game_pages.py
       - scripts/build_author_pages.py
       - scripts/enrich_story_metadata.py
       - scripts/audit_publication_reliability.py
       - scripts/audit_runtime_consistency.py
+      - assets/app.js
+      - assets/story-router.js
       - assets/supabase-config.js
       - assets/community-actions-v2.js
       - assets/community-profile.js
@@ -133,6 +136,9 @@ jobs:
 
       - name: Build canonical story shells and canonical discovery links
         run: python scripts/build_story_pages.py
+
+      - name: Harden canonical story routing and runtime pins
+        run: python scripts/harden_story_shells.py --template --all
 
       - name: Build canonical Game Graph topic hubs
         run: python scripts/build_topic_pages.py
