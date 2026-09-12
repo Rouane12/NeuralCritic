@@ -2,6 +2,7 @@
   'use strict';
 
   const STYLE_HREF = 'assets/article-footer-v2.css?v=20260912-footer1';
+  const HOTFIX_STYLE_HREF = 'assets/article-ending-hotfix.css?v=20260912-postlaunch1';
   const host = document.getElementById('shared-footer');
   if (!host) return;
 
@@ -16,12 +17,20 @@
   };
 
   function ensureStyles() {
-    if (document.querySelector('link[data-nc-article-footer-v2]')) return;
-    const link = document.createElement('link');
-    link.rel = 'stylesheet';
-    link.href = STYLE_HREF;
-    link.dataset.ncArticleFooterV2 = '1';
-    document.head.appendChild(link);
+    if (!document.querySelector('link[data-nc-article-footer-v2]')) {
+      const link = document.createElement('link');
+      link.rel = 'stylesheet';
+      link.href = STYLE_HREF;
+      link.dataset.ncArticleFooterV2 = '1';
+      document.head.appendChild(link);
+    }
+    if (!document.querySelector('link[data-nc-article-ending-hotfix]')) {
+      const hotfix = document.createElement('link');
+      hotfix.rel = 'stylesheet';
+      hotfix.href = HOTFIX_STYLE_HREF;
+      hotfix.dataset.ncArticleEndingHotfix = '1';
+      document.head.appendChild(hotfix);
+    }
   }
 
   function trackView(footer, slug) {
@@ -136,6 +145,6 @@
     setTimeout(() => observer.disconnect(), 9000);
   }
 
-  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init, { once: true });
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init, { once:true });
   else init();
 })();

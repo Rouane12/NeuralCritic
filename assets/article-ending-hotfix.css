@@ -1,0 +1,110 @@
+/* Article Experience 2.0 — post-launch visual fixes
+   Fixes live issues observed after Phases 3–5 shipped:
+   1) Continue Exploring media overlays bleeding into cards
+   2) Weekly Drop light-mode contrast
+   3) excessive whitespace between Weekly Drop and the publication footer */
+
+/* Continue Exploring: isolate card media from legacy/global pseudo-elements. */
+#article .nc-continue-exploring .nc-recirc-card{
+  isolation:isolate!important;
+}
+
+#article .nc-continue-exploring .nc-recirc-card::before,
+#article .nc-continue-exploring .nc-recirc-card::after,
+#article .nc-continue-exploring .nc-recirc-media::before{
+  content:none!important;
+  display:none!important;
+}
+
+#article .nc-continue-exploring .nc-recirc-media{
+  isolation:isolate!important;
+  border-radius:0!important;
+}
+
+/* Reassert the intended bottom readability gradient only. */
+#article .nc-continue-exploring .nc-recirc-media::after{
+  content:""!important;
+  display:block!important;
+  position:absolute!important;
+  inset:auto 0 0!important;
+  width:auto!important;
+  height:48%!important;
+  border:0!important;
+  border-radius:0!important;
+  transform:none!important;
+  background:linear-gradient(transparent,rgba(5,9,18,.42))!important;
+  box-shadow:none!important;
+  pointer-events:none!important;
+}
+
+#article .nc-continue-exploring .nc-recirc-media img{
+  position:relative!important;
+  z-index:0!important;
+  border-radius:0!important;
+  clip-path:none!important;
+  mask:none!important;
+  -webkit-mask:none!important;
+  box-shadow:none!important;
+}
+
+#article .nc-continue-exploring .nc-recirc-media>i{
+  z-index:3!important;
+}
+
+/* Weekly Drop: explicitly win over legacy article heading/text colors in light mode. */
+html[data-theme="light"] #article.work-article-page>.work-newsletter-band.nc-weekly-drop-v2 .nc-weekly-drop-copy h2,
+html[data-theme="light"] #article.work-article-page>.work-newsletter-band.nc-weekly-drop-v2 .nc-weekly-drop-signup h3{
+  color:#17212f!important;
+  -webkit-text-fill-color:#17212f!important;
+  background:none!important;
+  background-clip:border-box!important;
+  -webkit-background-clip:border-box!important;
+  text-shadow:none!important;
+  opacity:1!important;
+}
+
+html[data-theme="light"] #article.work-article-page>.work-newsletter-band.nc-weekly-drop-v2 .nc-weekly-drop-copy>p{
+  color:#5f6f82!important;
+  -webkit-text-fill-color:#5f6f82!important;
+  opacity:1!important;
+}
+
+html[data-theme="light"] #article.work-article-page>.work-newsletter-band.nc-weekly-drop-v2 .nc-weekly-drop-signup>span{
+  color:#249bb3!important;
+  -webkit-text-fill-color:#249bb3!important;
+  opacity:1!important;
+}
+
+html[data-theme="light"] #article.work-article-page>.work-newsletter-band.nc-weekly-drop-v2 .nc-weekly-drop-signup>small,
+html[data-theme="light"] #article.work-article-page>.work-newsletter-band.nc-weekly-drop-v2 .nc-weekly-drop-signup .newsletter-status{
+  color:#667688!important;
+  -webkit-text-fill-color:#667688!important;
+  opacity:1!important;
+}
+
+/* End-of-article rhythm: remove the legacy 96px article bottom padding and let
+   the Weekly Drop own the final gap before the footer. */
+body:has(#shared-footer .nc-publication-footer) #article.work-article-page{
+  padding-bottom:0!important;
+}
+
+body:has(#shared-footer .nc-publication-footer) #article.work-article-page>.work-newsletter-band.nc-weekly-drop-v2{
+  margin-bottom:46px!important;
+}
+
+body:has(#shared-footer .nc-publication-footer) #shared-footer{
+  margin-top:0!important;
+  padding-top:0!important;
+}
+
+@media(max-width:900px){
+  body:has(#shared-footer .nc-publication-footer) #article.work-article-page>.work-newsletter-band.nc-weekly-drop-v2{
+    margin-bottom:38px!important;
+  }
+}
+
+@media(max-width:560px){
+  body:has(#shared-footer .nc-publication-footer) #article.work-article-page>.work-newsletter-band.nc-weekly-drop-v2{
+    margin-bottom:30px!important;
+  }
+}
