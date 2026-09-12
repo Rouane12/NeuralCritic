@@ -1,0 +1,93 @@
+name: Fast publish canonical story
+
+on:
+  workflow_dispatch:
+    inputs:
+      slug:
+        description: Published Neural Critic article slug
+        required: true
+        type: string
+
+permissions:
+  contents: write
+
+concurrency:
+  group: neural-critic-fast-story-${{ inputs.slug }}
+  cancel-in-progress: true
+
+jobs:
+  publish-story:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    env:
+      STORY_SLUG: ${{ inputs.slug }}
+      NEURAL_CRITIC_SITE_URL: https://www.neuralcritic.net/
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Synchronize checkout with current main
+        run: |
+          git fetch origin main
+          git checkout -B main origin/main
+
+      - name: Build requested canonical story shell
+        run: |
+          python3 - <<'PY'
+          import os
+          import sys
+          import urllib.parse
+          from pathlib import Path
+
+          root = Path.cwd()
+          sys.path.insert(0, str(root / "scripts"))
+          import build_story_pages as builder
+
+          slug = os.environ.get("STORY_SLUG", "").strip()
+          if not builder.valid_slug(slug):
+              raise SystemExit("Invalid story slug")
+
+          rows, source = builder.load_articles()
+          article = next((row for row in rows if str(row.get("slug") or "").strip() == slug), None)
+          if not article:
+              raise SystemExit(f"Published article not found for slug: {slug}")
+
+          # Fast publishing deliberately keeps the original absolute image URL when
+          # one exists. The full publication refresh can localize/optimize it later;
+          # social crawlers get a valid image immediately instead of waiting for the
+          # heavier media pipeline.
+          original_stable_image = builder.stable_image
+          def fast_stable_image(value):
+              raw = str(value or "").strip()
+              if not raw:
+                  return ""
+              parsed = urllib.parse.urlparse(raw)
+              if parsed.scheme in {"http", "https"}:
+                  return raw
+              return urllib.parse.urljoin(builder.SITE_URL, raw)
+          builder.stable_image = fast_stable_image
+
+          template = builder.ARTICLE_TEMPLATE.read_text(encoding="utf-8")
+          directory = builder.STORIES_DIR / slug
+          directory.mkdir(parents=True, exist_ok=True)
+          target = directory / "index.html"
+          target.write_text(builder.render_story(template, article), encoding="utf-8")
+          builder.stable_image = original_stable_image
+          print(f"Fast-built {target} from {source} metadata")
+          PY
+
+      - name: Commit requested story only when changed
+        run: |
+          target="stories/${STORY_SLUG}/index.html"
+          if git diff --quiet -- "$target" && [ -z "$(git status --porcelain -- "$target")" ]; then
+            echo "Canonical story shell is already current."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add "$target"
+          git commit -m "Fast publish canonical story: ${STORY_SLUG}"
+          git pull --rebase origin main
+          git push
