@@ -23,6 +23,13 @@
     document.head.appendChild(script);
   }
 
+  if (!document.querySelector('script[data-nc-publication-refresh]')) {
+    const script = document.createElement('script');
+    script.src = 'assets/studio-publication-refresh.js?v=20260912-refresh1';
+    script.dataset.ncPublicationRefresh = '1';
+    document.head.appendChild(script);
+  }
+
   const requested = new URLSearchParams(location.search).get('slug');
   if (!requested) return;
   let attempts = 0;
