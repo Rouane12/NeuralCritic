@@ -7,12 +7,16 @@ on:
         description: Published Neural Critic article slug
         required: true
         type: string
+  push:
+    branches: [main]
+    paths:
+      - data/fast-publish-trigger.json
 
 permissions:
   contents: write
 
 concurrency:
-  group: neural-critic-fast-story-${{ inputs.slug }}
+  group: neural-critic-fast-story-${{ inputs.slug || github.sha }}
   cancel-in-progress: true
 
 jobs:
@@ -20,7 +24,6 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 5
     env:
-      STORY_SLUG: ${{ inputs.slug }}
       NEURAL_CRITIC_SITE_URL: https://www.neuralcritic.net/
     steps:
       - name: Check out repository
@@ -32,6 +35,32 @@ jobs:
         run: |
           git fetch origin main
           git checkout -B main origin/main
+
+      - name: Resolve requested story slug
+        env:
+          DISPATCH_SLUG: ${{ inputs.slug }}
+        run: |
+          python3 - <<'PY'
+          import json
+          import os
+          import re
+          from pathlib import Path
+
+          slug = os.environ.get("DISPATCH_SLUG", "").strip()
+          if not slug:
+              trigger = Path("data/fast-publish-trigger.json")
+              if not trigger.exists():
+                  raise SystemExit("Fast-publish trigger file is missing")
+              payload = json.loads(trigger.read_text(encoding="utf-8"))
+              slug = str(payload.get("slug") or "").strip()
+
+          if not re.fullmatch(r"[A-Za-z0-9][A-Za-z0-9_-]*", slug):
+              raise SystemExit("Invalid story slug")
+
+          with open(os.environ["GITHUB_ENV"], "a", encoding="utf-8") as env_file:
+              env_file.write(f"STORY_SLUG={slug}\n")
+          print(f"Resolved story slug: {slug}")
+          PY
 
       - name: Build requested canonical story shell
         run: |
