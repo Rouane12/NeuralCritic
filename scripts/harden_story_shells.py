@@ -13,6 +13,8 @@ ARTICLE_TEMPLATE = ROOT / "article.html"
 STORIES_DIR = ROOT / "stories"
 APP = ROOT / "assets" / "app.js"
 ROUTER = ROOT / "assets" / "story-router.js"
+WEEKLY_DROP = ROOT / "assets" / "article-weekly-drop-v2.js"
+ARTICLE_FOOTER = ROOT / "assets" / "article-footer-v2.js"
 SITE_URL = "https://www.neuralcritic.net/"
 GENERATED_MARKER = "<!-- generated: neural-critic-story-shell -->"
 
@@ -23,10 +25,18 @@ def digest(path: Path) -> str:
     return hashlib.sha256(path.read_bytes()).hexdigest()[:12]
 
 
-def expected_tags() -> tuple[str, str]:
+def expected_tags() -> tuple[str, str, str, str]:
     router_tag = f'<script src="assets/story-router.js?v={digest(ROUTER)}"></script>'
     app_tag = f'<script src="assets/app.js?v={digest(APP)}"></script>'
-    return router_tag, app_tag
+    weekly_tag = (
+        f'<script src="assets/article-weekly-drop-v2.js?v={digest(WEEKLY_DROP)}" '
+        'data-nc-weekly-drop-v2="1"></script>'
+    )
+    footer_tag = (
+        f'<script src="assets/article-footer-v2.js?v={digest(ARTICLE_FOOTER)}" '
+        'data-nc-article-footer-v2="1"></script>'
+    )
+    return router_tag, app_tag, weekly_tag, footer_tag
 
 
 def assert_router_contract() -> None:
@@ -42,9 +52,16 @@ def assert_router_contract() -> None:
 
 
 def harden_html(html: str) -> str:
-    router_tag, app_tag = expected_tags()
+    router_tag, app_tag, weekly_tag, footer_tag = expected_tags()
     app_pattern = re.compile(r'<script src="assets/app\.js(?:\?v=[^"]*)?"></script>')
     router_pattern = re.compile(r'<script src="assets/story-router\.js(?:\?v=[^"]*)?"></script>')
+    extras_pattern = re.compile(r'<script src="assets/article-extras\.js(?:\?v=[^"]*)?"></script>')
+    weekly_pattern = re.compile(
+        r'<script src="assets/article-weekly-drop-v2\.js(?:\?v=[^"]*)?"[^>]*></script>'
+    )
+    footer_pattern = re.compile(
+        r'<script src="assets/article-footer-v2\.js(?:\?v=[^"]*)?"[^>]*></script>'
+    )
 
     app_match = app_pattern.search(html)
     if not app_match:
@@ -58,6 +75,23 @@ def harden_html(html: str) -> str:
     html, count = app_pattern.subn(app_tag, html, count=1)
     if count != 1:
         raise SystemExit("Could not pin assets/app.js in article runtime")
+
+    if weekly_pattern.search(html):
+        html = weekly_pattern.sub(weekly_tag, html, count=1)
+    else:
+        extras_match = extras_pattern.search(html)
+        if not extras_match:
+            raise SystemExit("Could not locate article-extras.js to pin Weekly Drop runtime")
+        html = html[: extras_match.end()] + weekly_tag + html[extras_match.end() :]
+
+    # Phase 5 must not rely on a cached Phase 4 script to discover the footer.
+    # Pin the footer directly before Weekly Drop. The Phase 4 loader then sees
+    # the declared footer runtime and becomes a harmless compatibility fallback.
+    html = footer_pattern.sub('', html)
+    weekly_match = weekly_pattern.search(html)
+    if not weekly_match:
+        raise SystemExit("Could not locate hardened Weekly Drop runtime")
+    html = html[: weekly_match.start()] + footer_tag + html[weekly_match.start() :]
     return html
 
 
@@ -67,12 +101,14 @@ def validate_story(path: Path, slug: str, html: str) -> None:
 
     canonical = f"{SITE_URL}stories/{slug}/"
     slug_marker = f"window.NEURAL_CRITIC_STATIC_SLUG={json.dumps(slug)}"
-    router_tag, app_tag = expected_tags()
+    router_tag, app_tag, weekly_tag, footer_tag = expected_tags()
     required = (
         canonical,
         slug_marker,
         router_tag,
         app_tag,
+        footer_tag,
+        weekly_tag,
         '<meta property="og:title"',
         '<link rel="canonical"',
     )
@@ -135,10 +171,12 @@ def main() -> int:
             changed += int(harden_file(target, slug))
             checked += 1
 
-    router_tag, app_tag = expected_tags()
+    router_tag, app_tag, weekly_tag, footer_tag = expected_tags()
     print(f"Story runtime hardening checked {checked} file(s); changed {changed}.")
     print(f"Pinned router runtime: {router_tag}")
     print(f"Pinned article runtime: {app_tag}")
+    print(f"Pinned footer runtime: {footer_tag}")
+    print(f"Pinned Weekly Drop runtime: {weekly_tag}")
     return 0
 
 
