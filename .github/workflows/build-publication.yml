@@ -29,6 +29,9 @@ on:
       - assets/community-actions-v2.js
       - assets/community-profile.js
       - assets/article-news-layout-v3.css
+      - assets/article-weekly-drop-v2.js
+      - assets/article-footer-v2.js
+      - assets/article-footer-v2.css
       - assets/game-page.js
       - assets/game-page.css
       - supabase/migrations/**
