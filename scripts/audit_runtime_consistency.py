@@ -20,6 +20,8 @@ STORIES = ROOT / "stories"
 SITEMAP = ROOT / "sitemap.xml"
 APP = ROOT / "assets" / "app.js"
 ROUTER = ROOT / "assets" / "story-router.js"
+WEEKLY_DROP = ROOT / "assets" / "article-weekly-drop-v2.js"
+ARTICLE_FOOTER = ROOT / "assets" / "article-footer-v2.js"
 BUILD_WORKFLOW = ROOT / ".github" / "workflows" / "build-publication.yml"
 FAST_WORKFLOW = ROOT / ".github" / "workflows" / "fast-publish-story.yml"
 
@@ -110,8 +112,18 @@ def main() -> int:
     validate_router_contract()
     app_hash = digest(APP)
     router_hash = digest(ROUTER)
+    weekly_hash = digest(WEEKLY_DROP)
+    footer_hash = digest(ARTICLE_FOOTER)
     expected_app = f'<script src="assets/app.js?v={app_hash}"></script>'
     expected_router = f'<script src="assets/story-router.js?v={router_hash}"></script>'
+    expected_weekly = (
+        f'<script src="assets/article-weekly-drop-v2.js?v={weekly_hash}" '
+        'data-nc-weekly-drop-v2="1"></script>'
+    )
+    expected_footer = (
+        f'<script src="assets/article-footer-v2.js?v={footer_hash}" '
+        'data-nc-article-footer-v2="1"></script>'
+    )
 
     for row in rows:
         slug = str(row["slug"])
@@ -146,6 +158,8 @@ def main() -> int:
             f"window.NEURAL_CRITIC_STATIC_SLUG={json.dumps(slug)}",
             expected_router,
             expected_app,
+            expected_footer,
+            expected_weekly,
         )
         for marker in required_shell:
             if marker not in shell_text:
@@ -167,6 +181,9 @@ def main() -> int:
         "python scripts/audit_runtime_consistency.py",
         "assets/app.js",
         "assets/story-router.js",
+        "assets/article-weekly-drop-v2.js",
+        "assets/article-footer-v2.js",
+        "assets/article-footer-v2.css",
         "group: neural-critic-publication-write",
     ]
     for marker in required_build:
@@ -187,7 +204,8 @@ def main() -> int:
 
     print(
         f"Runtime consistency audit passed for {len(rows)} published stories "
-        f"with app {app_hash} and router {router_hash}."
+        f"with app {app_hash}, router {router_hash}, Weekly Drop {weekly_hash}, "
+        f"and footer {footer_hash}."
     )
     return 0
 
