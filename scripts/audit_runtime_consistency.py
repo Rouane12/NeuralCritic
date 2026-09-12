@@ -5,10 +5,14 @@ from __future__ import annotations
 import hashlib
 import json
 import re
+import sys
 import xml.etree.ElementTree as ET
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
+sys.path.insert(0, str(ROOT / "scripts"))
+import harden_story_shells as hardener
+
 INDEX = ROOT / "data" / "articles.json"
 DETAILS = ROOT / "data" / "articles"
 STORIES = ROOT / "stories"
@@ -114,7 +118,13 @@ def main() -> int:
         if detail_payload.get("publishedAt") != row.get("publishedAt"):
             fail(f"{slug}: index/detail publishedAt mismatch")
 
-        shell_text = shell.read_text(encoding="utf-8", errors="ignore")
+        # Change-audit workflows may regenerate raw shells immediately before this
+        # audit. Validate the exact hardened output in memory; the production build
+        # separately runs harden_story_shells.py before committing the files.
+        try:
+            shell_text = hardener.harden_html(shell.read_text(encoding="utf-8", errors="ignore"))
+        except SystemExit as exc:
+            fail(f"{slug}: canonical story shell cannot be hardened: {exc}")
         canonical = f"https://www.neuralcritic.net/stories/{slug}/"
         required_shell = (
             "<!-- generated: neural-critic-story-shell -->",
