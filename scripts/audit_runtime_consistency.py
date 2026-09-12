@@ -4,6 +4,7 @@ from __future__ import annotations
 
 import hashlib
 import json
+import py_compile
 import re
 import sys
 import xml.etree.ElementTree as ET
@@ -78,7 +79,20 @@ def validate_router_contract() -> None:
             fail(f"canonical story router lost required contract: {marker}")
 
 
+def compile_reliability_tools() -> None:
+    for path in (
+        ROOT / "scripts" / "harden_story_shells.py",
+        ROOT / "scripts" / "fast_publish_runtime.py",
+        ROOT / "scripts" / "check_live_story.py",
+    ):
+        try:
+            py_compile.compile(str(path), doraise=True)
+        except py_compile.PyCompileError as exc:
+            fail(f"reliability tool does not compile: {path.name}: {exc.msg}")
+
+
 def main() -> int:
+    compile_reliability_tools()
     rows = load_index()
     slugs = [str(row.get("slug") or "").strip() for row in rows]
     if any(not slug for slug in slugs):
