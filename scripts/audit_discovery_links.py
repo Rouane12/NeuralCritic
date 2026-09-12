@@ -34,6 +34,9 @@ def main() -> int:
         if "article.html?slug=${encodeURIComponent" in text:
             failures.append(f"{relative} still emits compatibility story URLs from a discovery surface")
 
+    # Entry points with intentionally stable compatibility pins retain exact
+    # markers. Article/Game shells now use the Publication Reliability 2.0
+    # content-hashed app runtime, while Game Hub owns its own Phase 2 pin.
     runtime_pages = {
         "index.html": (
             "assets/content-api.js?v=20260901-canonical1",
@@ -57,12 +60,10 @@ def main() -> int:
         ),
         "article.html": (
             "assets/content-api.js?v=20260903-articlejourney1",
-            "assets/app.js?v=20260901-canonical1",
         ),
         "game.html": (
             "assets/content-api.js?v=20260901-canonical1",
-            "assets/app.js?v=20260901-canonical1",
-            "assets/game-page.js?v=20260903-gamehub2",
+            "assets/game-page.js?v=20260912-gamehub3",
         ),
     }
     for relative, markers in runtime_pages.items():
@@ -70,6 +71,8 @@ def main() -> int:
         for marker in markers:
             if marker not in text:
                 failures.append(f"{relative} is missing refreshed discovery runtime marker: {marker}")
+        if relative in {"article.html", "game.html"} and not re.search(r'assets/app\.js\?v=[0-9a-f]{12}', text):
+            failures.append(f"{relative} is missing content-hashed app runtime")
         if not re.search(r'assets/publication-nav\.js\?v=[0-9a-f]{12}', text):
             failures.append(f"{relative} is missing content-hashed publication navigation runtime")
         if not re.search(r'assets/navigation-canonical-hotfix\.js\?v=[0-9a-f]{12}', text):
@@ -146,6 +149,9 @@ def main() -> int:
         "same_franchise",
         "shared_topic",
         "game_page_recirculation_click",
+        "game_hub_start_here_click",
+        "game_hub_timeline_click",
+        "game_hub_related_game_click",
         "recommendation_engine",
     )
     for marker in game_required:

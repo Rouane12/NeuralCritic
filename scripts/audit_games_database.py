@@ -1,8 +1,7 @@
 #!/usr/bin/env python3
-"""Static regression checks for Games Database V1."""
+"""Regression checks for Neural Critic Game Hub / Games Database."""
 
 from pathlib import Path
-
 from build_game_pages import render_game
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -46,6 +45,9 @@ def verify_generated_metadata_contract(failures: list[str]) -> None:
     canonical = "https://www.neuralcritic.net/games/metadata-audit-game/"
     if f'<link rel="canonical" href="{canonical}">' not in rendered:
         failures.append("generated game shell must retain its canonical game URL")
+    for marker in ('id="game-signal-strip"', 'id="game-start-here-panel"', 'id="game-timeline-panel"', 'id="game-related-games"'):
+        if marker not in rendered:
+            failures.append(f"generated game shell must retain Phase 2 hub marker: {marker}")
 
 
 def main() -> int:
@@ -54,8 +56,15 @@ def main() -> int:
         ROOT / "game.html",
         (
             'id="game-page"',
-            "assets/game-page.js?v=20260903-gamehub2",
-            "assets/game-page.css?v=20260903-gamehub2",
+            'id="game-signal-strip"',
+            'id="game-start-here-panel"',
+            'id="game-coverage-panel"',
+            'id="game-timeline-panel"',
+            'id="game-related-games"',
+            'class="nc-game-local-nav"',
+            "assets/game-page.js?v=20260912-gamehub3",
+            "assets/game-page.css?v=20260912-gamehub3",
+            "assets/game-hub-phase2.css?v=20260912-retention1",
         ),
         failures,
     )
@@ -65,8 +74,29 @@ def main() -> int:
             "from('games')",
             "from('game_releases')",
             "game_page_view",
+            "game_hub_start_here_click",
+            "game_hub_timeline_click",
+            "game_hub_related_game_click",
+            "function directGameArticles(game, articles)",
+            "function renderStartHere(game, articles)",
+            "function renderTimeline(game, releases, articles)",
+            "function renderRelatedGames(game, games)",
+            "const gameUrl = slug => new URL(`games/${encodeURIComponent(slug)}/`, root).href;",
             "const storyUrl = slug => new URL(`stories/${encodeURIComponent(slug)}/`, root).href;",
             "const topicUrl = (type, value) => new URL(`topics/${type}/${slugify(value)}/`, root).href;",
+        ),
+        failures,
+    )
+    require(
+        ROOT / "assets" / "game-hub-phase2.css",
+        (
+            ".nc-game-signal-strip",
+            ".nc-game-local-nav",
+            ".nc-game-start-here",
+            ".nc-game-timeline",
+            ".nc-game-related-games",
+            '@media(max-width:560px)',
+            'html[data-theme="light"] body.nc-game-page',
         ),
         failures,
     )
@@ -76,11 +106,11 @@ def main() -> int:
     verify_generated_metadata_contract(failures)
 
     if failures:
-        print("Games Database V1 audit failed:")
+        print("Games Database / Game Hub audit failed:")
         for failure in failures:
             print(f" - {failure}")
         return 1
-    print("Games Database V1 audit passed: schema, runtime, canonical builder, metadata contract and publication wiring are present.")
+    print("Game Hub audit passed: canonical metadata, Start Here, release intelligence, connected coverage, timeline, related-game recirculation, responsive styling and analytics are wired.")
     return 0
 
 
