@@ -5,6 +5,15 @@
   const $$ = (selector, root = document) => [...root.querySelectorAll(selector)];
   const esc = (value = '') => String(value).replace(/[&<>"']/g, char => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[char]));
 
+  function ensureStyle() {
+    if (document.querySelector('link[data-nc-weekly-drop-v2]')) return;
+    const style = document.createElement('link');
+    style.rel = 'stylesheet';
+    style.href = 'assets/article-weekly-drop-v2.css?v=20260912-weeklydrop1';
+    style.dataset.ncWeeklyDropV2 = '1';
+    document.head.appendChild(style);
+  }
+
   function currentSlug() {
     const staticSlug = String(window.NEURAL_CRITIC_STATIC_SLUG || '').trim();
     if (staticSlug) return staticSlug;
@@ -88,6 +97,7 @@
   }
 
   function init() {
+    ensureStyle();
     removeDuplicateCards();
     const immediate = $('.work-newsletter-band');
     if (upgradeBand(immediate)) return;
