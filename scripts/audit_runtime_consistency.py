@@ -22,6 +22,7 @@ APP = ROOT / "assets" / "app.js"
 ROUTER = ROOT / "assets" / "story-router.js"
 WEEKLY_DROP = ROOT / "assets" / "article-weekly-drop-v2.js"
 ARTICLE_FOOTER = ROOT / "assets" / "article-footer-v2.js"
+ARTICLE_FOOTER_CSS = ROOT / "assets" / "article-footer-v2.css"
 BUILD_WORKFLOW = ROOT / ".github" / "workflows" / "build-publication.yml"
 FAST_WORKFLOW = ROOT / ".github" / "workflows" / "fast-publish-story.yml"
 
@@ -114,6 +115,7 @@ def main() -> int:
     router_hash = digest(ROUTER)
     weekly_hash = digest(WEEKLY_DROP)
     footer_hash = digest(ARTICLE_FOOTER)
+    footer_css_hash = digest(ARTICLE_FOOTER_CSS)
     expected_app = f'<script src="assets/app.js?v={app_hash}"></script>'
     expected_router = f'<script src="assets/story-router.js?v={router_hash}"></script>'
     expected_weekly = (
@@ -123,6 +125,10 @@ def main() -> int:
     expected_footer = (
         f'<script src="assets/article-footer-v2.js?v={footer_hash}" '
         'data-nc-article-footer-v2="1"></script>'
+    )
+    expected_footer_style = (
+        f'<link rel="stylesheet" href="assets/article-footer-v2.css?v={footer_css_hash}" '
+        'data-nc-article-footer-v2="1">'
     )
 
     for row in rows:
@@ -158,6 +164,7 @@ def main() -> int:
             f"window.NEURAL_CRITIC_STATIC_SLUG={json.dumps(slug)}",
             expected_router,
             expected_app,
+            expected_footer_style,
             expected_footer,
             expected_weekly,
         )
@@ -205,7 +212,7 @@ def main() -> int:
     print(
         f"Runtime consistency audit passed for {len(rows)} published stories "
         f"with app {app_hash}, router {router_hash}, Weekly Drop {weekly_hash}, "
-        f"and footer {footer_hash}."
+        f"footer {footer_hash}, and footer CSS {footer_css_hash}."
     )
     return 0
 
