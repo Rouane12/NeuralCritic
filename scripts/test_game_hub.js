@@ -8,6 +8,7 @@ const root = path.resolve(__dirname, '..');
 const read = file => fs.readFileSync(path.join(root, file), 'utf8');
 const gameJs = read('assets/game-page.js');
 const gameCss = read('assets/game-page.css');
+const phase2Css = read('assets/game-hub-phase2.css');
 const followJs = read('assets/entity-follows-v2.js');
 const template = read('game.html');
 const builder = read('scripts/build_game_pages.py');
@@ -43,11 +44,11 @@ check(
 check(
   'coverage views are Latest Reviews Guides and Deals with explicit states',
   ['latest','reviews','guides','deals'].every(view => gameJs.includes(`'${view}'`)) &&
-    gameJs.includes('data-game-view=') &&
+    (gameJs.includes('data-game-view=') || template.includes('data-game-view=')) &&
     gameJs.includes('aria-pressed') &&
     gameJs.includes('No verified offers right now.') &&
     gameJs.includes('No ${esc(state.view)} coverage yet.'),
-  'button group with counts and empty states'
+  'button group may be template-owned; runtime owns state, counts and empty states'
 );
 
 check(
@@ -110,6 +111,18 @@ check(
   '/games/<slug>/ canonical, VideoGame schema, Breadcrumb schema'
 );
 
+check(
+  'Phase 2 entry-point and retention surfaces are template-owned and runtime-driven',
+  ['game-signal-strip','game-start-here-panel','game-timeline-panel','game-related-games'].every(id => template.includes(`id="${id}"`)) &&
+    gameJs.includes('function renderStartHere(game, articles)') &&
+    gameJs.includes('function renderTimeline(game, releases, articles)') &&
+    gameJs.includes('function renderRelatedGames(game, games)') &&
+    phase2Css.includes('.nc-game-start-here') &&
+    phase2Css.includes('.nc-game-timeline') &&
+    phase2Css.includes('.nc-game-related-games'),
+  'Start Here, timeline and related-game recirculation retain one template/runtime owner'
+);
+
 const generatedRoot = path.join(root, 'games');
 const generated = fs.existsSync(generatedRoot)
   ? fs.readdirSync(generatedRoot, { withFileTypes:true })
@@ -127,9 +140,12 @@ check(
       html.includes('rel="canonical"') &&
       html.includes('"@type":"VideoGame"') &&
       html.includes('"@type":"BreadcrumbList"') &&
+      html.includes('id="game-start-here-panel"') &&
+      html.includes('id="game-timeline-panel"') &&
+      html.includes('id="game-related-games"') &&
       (html.match(/assets\/game-page\.js/g) || []).length === 1;
   }),
-  'every generated game page is canonical and loads the game runtime once'
+  'every generated game page is canonical, retains Phase 2 surfaces and loads the game runtime once'
 );
 
 check(
@@ -138,8 +154,10 @@ check(
     gameCss.includes('@media(max-width:820px)') &&
     gameCss.includes('@media(max-width:560px)') &&
     gameCss.includes('.nc-game-coverage-nav{grid-template-columns:repeat(2,minmax(0,1fr))}') &&
+    phase2Css.includes('@media(max-width:900px)') &&
+    phase2Css.includes('@media(max-width:560px)') &&
     !gameCss.includes('overflow-x:hidden'),
-  'no page-level overflow suppression'
+  'base and Phase 2 layers keep desktop/tablet/mobile behavior without page-level overflow suppression'
 );
 
 check(
@@ -147,6 +165,9 @@ check(
   gameJs.includes("NeuralCriticAnalytics?.track?.('game_hub_view_change'") &&
     gameJs.includes("NeuralCriticAnalytics?.track?.('game_hub_review_click'") &&
     gameJs.includes("NeuralCriticAnalytics?.track?.('game_page_recirculation_click'") &&
+    gameJs.includes("NeuralCriticAnalytics?.track?.('game_hub_start_here_click'") &&
+    gameJs.includes("NeuralCriticAnalytics?.track?.('game_hub_timeline_click'") &&
+    gameJs.includes("NeuralCriticAnalytics?.track?.('game_hub_related_game_click'") &&
     gameJs.includes("NeuralCriticAnalytics?.track?.('commerce_offer_click'"),
   'no second analytics implementation'
 );
