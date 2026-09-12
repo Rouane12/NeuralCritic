@@ -9,9 +9,12 @@ on:
       - assets/recirculation.css
       - assets/discovery-intelligence.css
       - assets/content-api.js
+      - assets/article-weekly-drop-v2.js
+      - assets/article-weekly-drop-v2.css
       - scripts/audit_discovery_links.py
       - scripts/test_article_journey.js
       - scripts/test_continue_exploring_phase3.js
+      - scripts/test_weekly_drop_phase4.js
       - .github/workflows/article-journey-health.yml
   workflow_dispatch:
 
@@ -39,14 +42,19 @@ jobs:
         run: |
           node --check assets/article-discovery.js
           node --check assets/recirculation.js
+          node --check assets/article-weekly-drop-v2.js
           node --check scripts/test_article_journey.js
           node --check scripts/test_continue_exploring_phase3.js
+          node --check scripts/test_weekly_drop_phase4.js
 
       - name: Verify Article Journey 2.0 contracts
         run: node scripts/test_article_journey.js
 
       - name: Verify Continue Exploring Phase 3 contracts
         run: node scripts/test_continue_exploring_phase3.js
+
+      - name: Verify Weekly Drop Phase 4 contracts
+        run: node scripts/test_weekly_drop_phase4.js
 
       - name: Verify shared discovery architecture
         run: python scripts/audit_discovery_links.py
