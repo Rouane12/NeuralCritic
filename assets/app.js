@@ -162,7 +162,7 @@ function articleFailure(el, message='This story could not be loaded right now.')
 
 async function renderArticle(){
   const el=document.getElementById('article'); if(!el) return;
-  const slug=new URLSearchParams(location.search).get('slug');
+  const slug=String(window.NEURAL_CRITIC_STATIC_SLUG || '').trim() || new URLSearchParams(location.search).get('slug');
   if(!slug){articleFailure(el,'Story not found.');return;}
 
   el.innerHTML='<div class="article-loading-state"><span></span><strong>Loading story…</strong></div>';
