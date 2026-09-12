@@ -122,7 +122,8 @@ def main() -> int:
         "recirculation_hub_click",
         "recirculation_view",
         "after-reader-thread",
-        "engine.related(current, index, 3)",
+        "engine.related(current, index,",
+        "selectJourney(current, index, engine)",
         "destination:'game_hub'",
         "recommendationKinds",
     )

@@ -66,11 +66,11 @@ check(
 check(
   'existing Discovery Intelligence remains the recommendation owner',
   articleDiscovery.includes('engine.related(current,all,3)') &&
-    recirculation.includes('engine.related(current, index, 3)') &&
+    recirculation.includes('engine.related(current, index,') &&
     discoveryEngine.includes('function relatedScore(') &&
     !articleDiscovery.includes('function relatedScore(') &&
     !recirculation.includes('function relatedScore('),
-  'no duplicate recommendation scorer'
+  'no duplicate recommendation scorer; recirculation may request a larger ranked pool before curating three journey slots'
 );
 
 check(
