@@ -13,11 +13,13 @@ on:
       - assets/article-weekly-drop-v2.css
       - assets/article-footer-v2.js
       - assets/article-footer-v2.css
+      - assets/article-ending-hotfix.css
       - scripts/audit_discovery_links.py
       - scripts/test_article_journey.js
       - scripts/test_continue_exploring_phase3.js
       - scripts/test_weekly_drop_phase4.js
       - scripts/test_publication_footer_phase5.js
+      - scripts/test_article_ending_hotfix.js
       - .github/workflows/article-journey-health.yml
   workflow_dispatch:
 
@@ -51,6 +53,7 @@ jobs:
           node --check scripts/test_continue_exploring_phase3.js
           node --check scripts/test_weekly_drop_phase4.js
           node --check scripts/test_publication_footer_phase5.js
+          node --check scripts/test_article_ending_hotfix.js
 
       - name: Verify Article Journey 2.0 contracts
         run: node scripts/test_article_journey.js
@@ -63,6 +66,9 @@ jobs:
 
       - name: Verify Publication Footer Phase 5 contracts
         run: node scripts/test_publication_footer_phase5.js
+
+      - name: Verify post-launch article ending fixes
+        run: node scripts/test_article_ending_hotfix.js
 
       - name: Verify shared discovery architecture
         run: python scripts/audit_discovery_links.py
