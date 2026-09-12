@@ -25,7 +25,7 @@ check(
 check(
   'Phase 4 self-loads a cache-pinned stylesheet',
   runtime.includes("assets/article-weekly-drop-v2.css?v=20260912-weeklydrop1") &&
-    runtime.includes("data.ncWeeklyDropV2 = '1'") &&
+    runtime.includes("style.dataset.ncWeeklyDropV2 = '1'") &&
     css.includes('Article Experience 2.0 Phase 4'),
   'the redesign should arrive as one cache-safe article runtime'
 );
