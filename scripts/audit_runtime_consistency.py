@@ -2,6 +2,7 @@
 """Fail if Neural Critic's browser runtime can drift from generated publication state."""
 from __future__ import annotations
 
+import hashlib
 import json
 import re
 import xml.etree.ElementTree as ET
@@ -13,11 +14,19 @@ DETAILS = ROOT / "data" / "articles"
 STORIES = ROOT / "stories"
 SITEMAP = ROOT / "sitemap.xml"
 APP = ROOT / "assets" / "app.js"
+ROUTER = ROOT / "assets" / "story-router.js"
 BUILD_WORKFLOW = ROOT / ".github" / "workflows" / "build-publication.yml"
+FAST_WORKFLOW = ROOT / ".github" / "workflows" / "fast-publish-story.yml"
 
 
 def fail(message: str) -> None:
     raise SystemExit(f"RUNTIME CONSISTENCY FAILED: {message}")
+
+
+def digest(path: Path) -> str:
+    if not path.exists():
+        fail(f"required runtime asset is missing: {path.relative_to(ROOT)}")
+    return hashlib.sha256(path.read_bytes()).hexdigest()[:12]
 
 
 def load_index() -> list[dict]:
@@ -53,6 +62,18 @@ def sitemap_story_slugs() -> set[str]:
     return slugs
 
 
+def validate_router_contract() -> None:
+    text = ROUTER.read_text(encoding="utf-8", errors="ignore")
+    required = (
+        "window.NeuralCriticStoryRouter",
+        "function restoreStaticStoryRoute()",
+        "history.replaceState(null, '', `${target.pathname}${target.hash}`);",
+    )
+    for marker in required:
+        if marker not in text:
+            fail(f"canonical story router lost required contract: {marker}")
+
+
 def main() -> int:
     rows = load_index()
     slugs = [str(row.get("slug") or "").strip() for row in rows]
@@ -67,6 +88,12 @@ def main() -> int:
         missing = sorted(sitemap_slugs - fallback_slugs)
         extra = sorted(fallback_slugs - sitemap_slugs)
         fail(f"fallback/sitemap story sets differ; missing={missing[:8]} extra={extra[:8]}")
+
+    validate_router_contract()
+    app_hash = digest(APP)
+    router_hash = digest(ROUTER)
+    expected_app = f'<script src="assets/app.js?v={app_hash}"></script>'
+    expected_router = f'<script src="assets/story-router.js?v={router_hash}"></script>'
 
     for row in rows:
         slug = str(row["slug"])
@@ -87,23 +114,57 @@ def main() -> int:
         if detail_payload.get("publishedAt") != row.get("publishedAt"):
             fail(f"{slug}: index/detail publishedAt mismatch")
 
+        shell_text = shell.read_text(encoding="utf-8", errors="ignore")
+        canonical = f"https://www.neuralcritic.net/stories/{slug}/"
+        required_shell = (
+            "<!-- generated: neural-critic-story-shell -->",
+            canonical,
+            f"window.NEURAL_CRITIC_STATIC_SLUG={json.dumps(slug)}",
+            expected_router,
+            expected_app,
+        )
+        for marker in required_shell:
+            if marker not in shell_text:
+                fail(f"{slug}: canonical story shell lost runtime invariant: {marker}")
+
     app = APP.read_text(encoding="utf-8")
     if "const DATA_URL = 'data/articles.json';" not in app:
         fail("public app no longer declares same-origin data/articles.json as its article index")
+    if "NEURAL_CRITIC_STATIC_SLUG" not in app:
+        fail("public app no longer resolves generated canonical story slugs")
     if "neuralCriticPublicSupabase" in app or ".from('articles')" in app or '.from("articles")' in app:
         fail("public app directly queries Supabase articles; this can reintroduce browser split-brain")
 
     workflow = BUILD_WORKFLOW.read_text(encoding="utf-8")
-    required = [
+    required_build = [
         "python scripts/build_runtime_fallback.py",
+        "python scripts/harden_story_shells.py --template --all",
         "data/articles.json data/articles",
         "python scripts/audit_runtime_consistency.py",
+        "assets/app.js",
+        "assets/story-router.js",
+        "group: neural-critic-publication-write",
     ]
-    for marker in required:
+    for marker in required_build:
         if marker not in workflow:
             fail(f"publication refresh is missing required consistency marker: {marker}")
 
-    print(f"Runtime consistency audit passed for {len(rows)} published stories.")
+    fast_workflow = FAST_WORKFLOW.read_text(encoding="utf-8")
+    required_fast = [
+        'python scripts/fast_publish_runtime.py --slug "$STORY_SLUG"',
+        'python scripts/harden_story_shells.py --slug "$STORY_SLUG"',
+        'python scripts/check_live_story.py --slug "$STORY_SLUG"',
+        'data/articles/${STORY_SLUG}.json',
+        "group: neural-critic-publication-write",
+    ]
+    for marker in required_fast:
+        if marker not in fast_workflow:
+            fail(f"fast publication path is missing required reliability marker: {marker}")
+
+    print(
+        f"Runtime consistency audit passed for {len(rows)} published stories "
+        f"with app {app_hash} and router {router_hash}."
+    )
     return 0
 
 
