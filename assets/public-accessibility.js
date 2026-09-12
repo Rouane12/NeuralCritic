@@ -16,6 +16,7 @@
       .nc-skip-link{position:fixed;z-index:12000;left:16px;top:14px;transform:translateY(-140%);padding:10px 14px;border:2px solid #55dff5;border-radius:9px;background:#07111f;color:#fff;font:800 11px/1 Inter,system-ui,sans-serif;letter-spacing:.04em;text-decoration:none;box-shadow:0 10px 28px rgba(0,0,0,.28);transition:transform .15s ease}
       .nc-skip-link:focus{transform:none}
       :where(a,button,input,textarea,select,[tabindex]):focus-visible{outline:3px solid rgba(85,223,245,.92);outline-offset:3px}
+      footer .copyright,footer .copyright span{color:#9da5b2!important}
       html[data-theme="light"] .nc-skip-link{background:#fff;color:#17212f}
       @media(prefers-reduced-motion:reduce){.nc-skip-link{transition:none}}
     `;
@@ -78,6 +79,15 @@
       button.type = 'button';
       button.setAttribute('aria-label', light ? 'Switch to dark mode' : 'Switch to light mode');
       button.setAttribute('aria-pressed', String(light));
+    });
+  }
+
+  function syncThreadAccount() {
+    qsa('.standard-thread-account').forEach(control => {
+      if (!control.matches('button')) return;
+      if (control.getAttribute('aria-label') || control.getAttribute('aria-labelledby')) return;
+      if (String(control.textContent || '').trim()) return;
+      control.setAttribute('aria-label', 'Reader account');
     });
   }
 
@@ -156,6 +166,7 @@
       if (chromeChanged) {
         syncMobileNav();
         installSkipLink();
+        syncThreadAccount();
       }
       if (dialogChanged) {
         const wasOpen = qs('.reader-account-button')?.getAttribute('aria-expanded') === 'true';
@@ -252,6 +263,7 @@
     installSkipLink();
     syncMobileNav();
     syncThemeControl();
+    syncThreadAccount();
     syncAccountDialog();
     syncSearchDialog();
     installObserver();
