@@ -3,7 +3,7 @@
 
   const $ = (selector, root = document) => root.querySelector(selector);
   const $$ = (selector, root = document) => [...root.querySelectorAll(selector)];
-  const esc = (value = '') => String(value).replace(/[&<>"']/g, char => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[char]));
+  const esc = (value = '') => String(value).replace(/[&<>"']/g, char => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot',"'":'&#39;'}[char]));
 
   function ensureStyle() {
     if (document.querySelector('link[data-nc-weekly-drop-v2]')) return;
@@ -12,6 +12,15 @@
     style.href = 'assets/article-weekly-drop-v2.css?v=20260912-weeklydrop1';
     style.dataset.ncWeeklyDropV2 = '1';
     document.head.appendChild(style);
+  }
+
+  function loadPublicationFooter() {
+    if (document.querySelector('script[data-nc-article-footer-v2]')) return;
+    const script = document.createElement('script');
+    script.src = 'assets/article-footer-v2.js?v=20260912-footer1';
+    script.async = true;
+    script.dataset.ncArticleFooterV2 = '1';
+    document.head.appendChild(script);
   }
 
   function currentSlug() {
@@ -98,6 +107,7 @@
 
   function init() {
     ensureStyle();
+    loadPublicationFooter();
     removeDuplicateCards();
     const immediate = $('.work-newsletter-band');
     if (upgradeBand(immediate)) return;
