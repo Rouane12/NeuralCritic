@@ -5,9 +5,41 @@
     <link>https://www.neuralcritic.net/</link>
     <description>Gaming news, reviews, guides, and features for players who want the signal—not the noise.</description>
     <language>en</language>
-    <lastBuildDate>Fri, 18 Sep 2026 22:29:59 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 18 Sep 2026 23:45:34 +0000</lastBuildDate>
     <generator>Neural Critic publication pipeline</generator>
     <atom:link href="https://www.neuralcritic.net/feed.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>PHYSINT Casts Bill Skarsgård as Its Lead as Kojima Productions Expands Xbox Partnership</title>
+      <link>https://www.neuralcritic.net/stories/physint-bill-skarsgard-lead-xbox-tgs-2026/</link>
+      <guid isPermaLink="true">https://www.neuralcritic.net/stories/physint-bill-skarsgard-lead-xbox-tgs-2026/</guid>
+      <description>Hideo Kojima confirmed Bill Skarsgård as PHYSINT’s lead during Xbox’s Tokyo Game Show 2026 broadcast, alongside new artwork and fresh details on the project’s Xbox publishing partnership.</description>
+      <category>NEWS</category>
+      <pubDate>Fri, 18 Sep 2026 23:58:00 +0000</pubDate>
+    </item>
+    <item>
+      <title>Xbox Tokyo Game Show 2026: The Biggest Announcements From PHYSINT to Faraday Blues</title>
+      <link>https://www.neuralcritic.net/stories/xbox-tokyo-game-show-2026-biggest-announcements/</link>
+      <guid isPermaLink="true">https://www.neuralcritic.net/stories/xbox-tokyo-game-show-2026-biggest-announcements/</guid>
+      <description>Xbox’s Tokyo Game Show 2026 broadcast delivered 17 reveals and updates, including PHYSINT casting news, new Wo Long 2 gameplay, Faraday Blues’ world premiere, Persona 4 Revival and more.</description>
+      <category>NEWS</category>
+      <pubDate>Fri, 18 Sep 2026 23:55:00 +0000</pubDate>
+    </item>
+    <item>
+      <title>Wo Long 2: Wings of Ember Launches March 4, 2027, With an Alpha Demo Available Now</title>
+      <link>https://www.neuralcritic.net/stories/wo-long-2-march-4-2027-alpha-demo/</link>
+      <guid isPermaLink="true">https://www.neuralcritic.net/stories/wo-long-2-march-4-2027-alpha-demo/</guid>
+      <description>Team NINJA has dated Wo Long 2: Wings of Ember for March 4, 2027, while a limited-time alpha demo lets players sample the sequel ahead of launch.</description>
+      <category>NEWS</category>
+      <pubDate>Fri, 18 Sep 2026 23:52:00 +0000</pubDate>
+    </item>
+    <item>
+      <title>Faraday Blues Revealed at TGS 2026 With Three Interconnected Stories and 64 Endings</title>
+      <link>https://www.neuralcritic.net/stories/faraday-blues-world-premiere-64-endings/</link>
+      <guid isPermaLink="true">https://www.neuralcritic.net/stories/faraday-blues-world-premiere-64-endings/</guid>
+      <description>Serenity Forge unveiled Faraday Blues at Xbox’s Tokyo Game Show 2026 broadcast, a surreal sci-fi adventure about rewriting a family’s fate across three linked visual novels.</description>
+      <category>NEWS</category>
+      <pubDate>Fri, 18 Sep 2026 23:49:00 +0000</pubDate>
+    </item>
     <item>
       <title>PlayStation’s Fairgames Appears to Have Resurfaced as ‘Project Espresso’ in a New PS5 and PC Playtest</title>
       <link>https://www.neuralcritic.net/stories/fairgames-project-espresso-ps5-pc-playtest/</link>
@@ -215,38 +247,6 @@
       <description>God of War Ragnarök review covering Kratos and Atreus, expanded combat, companions, exploration, side stories, Valhalla and the current complete package.</description>
       <category>REVIEW</category>
       <pubDate>Sat, 05 Sep 2026 09:38:05 +0000</pubDate>
-    </item>
-    <item>
-      <title>Persona 5 Royal Review</title>
-      <link>https://www.neuralcritic.net/stories/persona-5-royal-review/</link>
-      <guid isPermaLink="true">https://www.neuralcritic.net/stories/persona-5-royal-review/</guid>
-      <description>Persona 5 Royal review covering its calendar system, turn-based combat, Confidants, Palaces, Mementos, Royal additions, long runtime and uneven pacing.</description>
-      <category>REVIEW</category>
-      <pubDate>Sat, 05 Sep 2026 09:38:05 +0000</pubDate>
-    </item>
-    <item>
-      <title>Sekiro: Shadows Die Twice Review</title>
-      <link>https://www.neuralcritic.net/stories/sekiro-shadows-die-twice-review/</link>
-      <guid isPermaLink="true">https://www.neuralcritic.net/stories/sekiro-shadows-die-twice-review/</guid>
-      <description>Sekiro: Shadows Die Twice review covering posture-based combat, traversal, bosses, progression, Ashina’s world design and how FromSoftware’s focus pays off.</description>
-      <category>REVIEW</category>
-      <pubDate>Sat, 05 Sep 2026 09:38:05 +0000</pubDate>
-    </item>
-    <item>
-      <title>Dark Souls Remastered Review</title>
-      <link>https://www.neuralcritic.net/stories/dark-souls-remastered-review/</link>
-      <guid isPermaLink="true">https://www.neuralcritic.net/stories/dark-souls-remastered-review/</guid>
-      <description>Dark Souls Remastered review covering Lordran’s interconnected world, deliberate combat, progression, multiplayer and where the remaster still feels dated.</description>
-      <category>REVIEW</category>
-      <pubDate>Sat, 05 Sep 2026 09:37:49 +0000</pubDate>
-    </item>
-    <item>
-      <title>Dark Souls III Review</title>
-      <link>https://www.neuralcritic.net/stories/dark-souls-iii-review/</link>
-      <guid isPermaLink="true">https://www.neuralcritic.net/stories/dark-souls-iii-review/</guid>
-      <description>Dark Souls III review covering faster combat, standout bosses, build variety, world design, multiplayer, DLC and how the trilogy finale holds up today.</description>
-      <category>REVIEW</category>
-      <pubDate>Sat, 05 Sep 2026 09:37:49 +0000</pubDate>
     </item>
   </channel>
 </rss>

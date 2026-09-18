@@ -1,0 +1,99 @@
+{
+  "id": "repo-wo-long-2-20260919",
+  "slug": "wo-long-2-march-4-2027-alpha-demo",
+  "title": "Wo Long 2: Wings of Ember Launches March 4, 2027, With an Alpha Demo Available Now",
+  "description": "Team NINJA has dated Wo Long 2: Wings of Ember for March 4, 2027, while a limited-time alpha demo lets players sample the sequel ahead of launch.",
+  "body": "Team NINJA’s return to its demon-infested Three Kingdoms now has a firm date. **Wo Long 2: Wings of Ember launches worldwide on March 4, 2027**, with a limited-time alpha demo available ahead of release.\n\nKoei Tecmo paired the date announcement with new story and combat details, while Xbox’s Tokyo Game Show 2026 broadcast offered another look at the sequel in action.",
+  "category": "NEWS",
+  "author": "Rouane Mounssif",
+  "tags": [
+    "Wo Long 2",
+    "Wo Long: Wings of Ember",
+    "Team NINJA",
+    "Koei Tecmo",
+    "Tokyo Game Show 2026",
+    "Game Pass"
+  ],
+  "imageAlt": "Wo Long 2: Wings of Ember official promotional artwork.",
+  "imageCredit": "Koei Tecmo / Team NINJA",
+  "articleFormat": "standard",
+  "reviewMeta": {},
+  "contentBlocks": [
+    {
+      "heading": "March 4, 2027 is the worldwide release date",
+      "headingStyle": "statement",
+      "text": "Koei Tecmo says Wo Long 2: Wings of Ember will launch on **Xbox Series X|S, PlayStation 5, Nintendo Switch 2, Xbox on PC and Steam**. The sequel is also planned for Xbox Game Pass.\n\nThe date gives Team NINJA’s next action RPG a clear place in the early-2027 release calendar after its initial announcement earlier in 2026."
+    },
+    {
+      "heading": "The story moves forward to China in 208 AD",
+      "headingStyle": "accent",
+      "text": "Wo Long 2 is set in China in 208 AD, after the events of Wo Long: Fallen Dynasty. Team NINJA is again blending historical figures and the Three Kingdoms setting with supernatural threats, giving the sequel room to evolve the first game’s martial-arts-focused combat without abandoning its identity."
+    },
+    {
+      "heading": "An alpha demo is available for a limited time",
+      "headingStyle": "editorial",
+      "text": "Players can try the sequel before launch through a limited-time alpha demo on Xbox Series X|S, PlayStation 5, Xbox on PC and Steam. Koei Tecmo says the demo remains playable until **September 30, 2026**.\n\nCompleting the alpha demo will also unlock a special reward in the full game."
+    },
+    {
+      "heading": "Tokyo Game Show put the combat back in focus",
+      "headingStyle": "statement",
+      "text": "The Xbox TGS 2026 broadcast featured another gameplay showing for Wo Long 2, including a powerful new boss encounter. The presentation reinforces that Team NINJA is still building around fast reactions, defensive timing and the pressure-heavy rhythm that defined the original."
+    },
+    {
+      "heading": "Watch the release-date trailer",
+      "headingStyle": "accent",
+      "text": "The official release-date trailer offers the clearest recent look at the sequel’s world, characters and combat.",
+      "videoUrl": "https://www.youtube.com/watch?v=1L6Fta_Ipa4",
+      "videoTitle": "Wo Long 2: Wings of Ember - Release Date Trailer",
+      "videoCaption": "Official Wo Long 2: Wings of Ember release-date trailer published by PlayStation."
+    }
+  ],
+  "quickRead": [
+    "Wo Long 2: Wings of Ember launches March 4, 2027.",
+    "Platforms include Xbox Series X|S, PS5, Nintendo Switch 2 and PC.",
+    "A limited-time alpha demo is available through September 30, 2026 on selected platforms.",
+    "The game is planned for Xbox Game Pass."
+  ],
+  "conclusion": "",
+  "conclusionHeading": "",
+  "conclusionHeadingStyle": "editorial",
+  "featured": true,
+  "homepageSlot": "secondary-bottom",
+  "publishedAt": "2026-09-18T23:52:00Z",
+  "updatedAt": "2026-09-18T23:52:00Z",
+  "imageLocal": "/images/editorial/wl2_thum_PV2_notext-1024x576.webp",
+  "editorialSection": "news",
+  "platforms": [
+    "pc",
+    "playstation",
+    "xbox",
+    "nintendo"
+  ],
+  "collection": null,
+  "collectionYear": null,
+  "gameKey": "Wo Long 2: Wings of Ember",
+  "series": "Wo Long",
+  "franchise": "Wo Long",
+  "newsMeta": {
+    "kind": "news",
+    "developing": false,
+    "verification": "official",
+    "sourceUrl": "https://www.koeitecmoamerica.com/news/slash-through-a-demon-infested-three-kingdoms-in-wo-long-2-wings-of-ember-coming-march-4-2027/",
+    "sourceName": "Koei Tecmo America",
+    "updates": [
+      {
+        "at": "2026-09-16T00:00:00Z",
+        "note": "Koei Tecmo confirmed the March 4, 2027 release date, platforms and limited-time alpha demo.",
+        "sourceUrl": "https://www.koeitecmoamerica.com/news/slash-through-a-demon-infested-three-kingdoms-in-wo-long-2-wings-of-ember-coming-march-4-2027/",
+        "sourceName": "Koei Tecmo America"
+      },
+      {
+        "at": "2026-09-17T00:00:00Z",
+        "note": "Xbox’s TGS 2026 recap highlighted new Wo Long 2 gameplay and a boss encounter.",
+        "sourceUrl": "https://news.xbox.com/en-us/2026/09/17/xbox-tokyo-game-show-2026-recap/",
+        "sourceName": "Xbox Wire"
+      }
+    ],
+    "documents": []
+  }
+}

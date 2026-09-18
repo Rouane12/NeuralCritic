@@ -2045,10 +2045,30 @@
       "local_bytes": 239564,
       "source_bytes": 239564
     },
+    "https://www.koeitecmoamerica.com/wp-content/uploads/2026/09/wl2_thum_PV2_notext-1024x576.png": {
+      "local": "/images/editorial/wl2_thum_PV2_notext-1024x576.webp",
+      "local_bytes": 109924,
+      "source_bytes": 1043359
+    },
+    "https://www.kojimaproductions.jp/sites/default/files/2026-09/09102026_newslist.jpg": {
+      "local": "/images/editorial/09102026_newslist.jpg",
+      "local_bytes": 81498,
+      "source_bytes": 81498
+    },
     "https://www.rockstargames.com/VI/_next/static/media/Jason_Lucia_Beach_With_Logos_landscape.0-pt.f1zv6g5j.jpg?akim=1&imdensity=1&imwidth=3840": {
       "local": "/images/editorial/Jason_Lucia_Beach_With_Logos_landscape.0-pt.f1zv6g5j.jpg",
       "local_bytes": 268579,
       "source_bytes": 268579
+    },
+    "https://xboxwire.thesourcemediaassets.com/sites/2/2026/09/Faraday-Blues-hkey-art-c796f14c816edaf934bd.jpg": {
+      "local": "/images/editorial/Faraday-Blues-hkey-art-c796f14c816edaf934bd.jpg",
+      "local_bytes": 353375,
+      "source_bytes": 353375
+    },
+    "https://xboxwire.thesourcemediaassets.com/sites/2/2026/09/TGS_AnnounceStatic_2026-814e275774b1b96bd7e9.jpg": {
+      "local": "/images/editorial/TGS_AnnounceStatic_2026-814e275774b1b96bd7e9.jpg",
+      "local_bytes": 518523,
+      "source_bytes": 518523
     }
   },
   "version": 1
