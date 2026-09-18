@@ -182,7 +182,12 @@ async function renderArticle(){
     const tags=Array.isArray(a.tags)?a.tags:[];
     const blocks=Array.isArray(a.contentBlocks)?a.contentBlocks:[];
     const review=a.articleFormat==='review'&&a.reviewMeta?`<section class="review-box"><div><div class="review-score">${escapeHtml(a.reviewMeta.score||'—')}</div><small>OUT OF 10</small></div><div><small class="article-kicker">NEURAL CRITIC VERDICT</small><h2>${escapeHtml(a.reviewMeta.verdict||'')}</h2><div class="proscons"><div><h3>WHAT WORKS</h3><ul>${(Array.isArray(a.reviewMeta.pros)?a.reviewMeta.pros:[]).map(x=>`<li>${escapeHtml(x)}</li>`).join('')}</ul></div><div><h3>WHAT DOESN’T</h3><ul>${(Array.isArray(a.reviewMeta.cons)?a.reviewMeta.cons:[]).map(x=>`<li>${escapeHtml(x)}</li>`).join('')}</ul></div></div></div></section>`:'';
-    const bodyBlocks=blocks.map(b=>`<section><h2>${escapeHtml(b.heading||'')}</h2>${prose(b.text||'')}${b.imageLocal?`<figure><img class="article-hero" src="${b.imageLocal}" alt="${escapeHtml(b.imageAlt||'')}"><figcaption>${escapeHtml(b.caption||'')}</figcaption></figure>`:''}</section>`).join('');
+    const bodyBlocks=blocks.map(b=>{
+      const image=b.imageLocal?`<figure><img class="article-hero" src="${escapeHtml(b.imageLocal)}" alt="${escapeHtml(b.imageAlt||'')}"><figcaption>${escapeHtml(b.caption||'')}</figcaption></figure>`:'';
+      const videoUrl=String(b.videoUrl||'').trim();
+      const video=videoUrl?`<div class="article-video-shell" data-nc-video data-video-url="${escapeHtml(videoUrl)}" data-video-title="${escapeHtml(b.videoTitle||b.heading||a.title||'Article video')}" data-video-caption="${escapeHtml(b.videoCaption||'')}" data-video-poster="${escapeHtml(b.videoPoster||'')}"></div>`:'';
+      return `<section><h2>${escapeHtml(b.heading||'')}</h2>${prose(b.text||'')}${image}${video}</section>`;
+    }).join('');
     el.innerHTML=`<small class="article-kicker">${escapeHtml(a.category)}${a.articleFormat==='review'?' · REVIEW':''}</small><h1>${escapeHtml(a.title)}</h1><p class="article-deck">${escapeHtml(a.description)}</p><div class="article-meta">BY ${escapeHtml(a.author)} · ${fmtDate(a.publishedAt)} · ${tags.map(escapeHtml).join(' · ')}</div>${imageOf(a)?`<img class="article-hero" src="${imageOf(a)}" alt="${escapeHtml(a.imageAlt)}">`:'<div class="placeholder-art">NEURAL CRITIC</div>'}<div class="article-body">${prose(a.body||'')}${review}${bodyBlocks}</div>`;
   }catch(error){
     console.error('Neural Critic article rendering failed.',error);
