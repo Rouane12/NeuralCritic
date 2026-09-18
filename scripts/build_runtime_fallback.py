@@ -188,10 +188,37 @@ def discover_page_image(source_url: str) -> str:
         r'<meta[^>]+name=["\']twitter:image(?::src)?["\'][^>]+content=["\']([^"\']+)["\']',
         r'<meta[^>]+content=["\']([^"\']+)["\'][^>]+name=["\']twitter:image(?::src)?["\']',
     )
+    def probe_image(url: str) -> bool:
+        try:
+            request = urllib.request.Request(
+                url,
+                method="HEAD",
+                headers={
+                    "User-Agent": "Mozilla/5.0 (compatible; NeuralCriticEditorialImageResolver/1.1)",
+                    "Accept": "image/avif,image/webp,image/apng,image/*,*/*;q=0.8",
+                },
+            )
+            with urllib.request.urlopen(request, timeout=15) as response:
+                return response.status < 400 and str(response.headers.get_content_type() or "").startswith("image/")
+        except Exception:
+            return False
+
     for pattern in patterns:
         match = re.search(pattern, html, flags=re.I)
         if match:
-            return urllib.parse.urljoin(source_url, match.group(1).replace("&amp;", "&").strip())
+            candidate = urllib.parse.urljoin(source_url, match.group(1).replace("&amp;", "&").strip())
+            # WordPress commonly exposes a 1024×576 social derivative even when
+            # the original 1920×1080 press image is available beside it. Probe
+            # that original first; never replace a verified derivative with an
+            # unverified URL.
+            parsed = urllib.parse.urlsplit(candidate)
+            original_path = re.sub(r"-\d{2,5}x\d{2,5}(?=\.[A-Za-z0-9]{2,5}$)", "", parsed.path)
+            if original_path != parsed.path:
+                original = urllib.parse.urlunsplit((parsed.scheme, parsed.netloc, original_path, parsed.query, parsed.fragment))
+                if probe_image(original):
+                    print(f"Using full-size editorial image instead of CMS derivative: {original}")
+                    return original
+            return candidate
     return ""
 
 
