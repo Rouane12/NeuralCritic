@@ -40,6 +40,15 @@ PUBLIC_HTML = [
 ]
 ARTICLE_INDEX = ROOT / "data" / "articles.json"
 ARTICLE_DIR = ROOT / "data" / "articles"
+CANONICAL_ARTICLE_RUNTIMES = [
+    ROOT / "assets" / "article-extras.js",
+    ROOT / "assets" / "article-formatting.js",
+    ROOT / "assets" / "ranked-parity.js",
+    ROOT / "assets" / "curated-article.js",
+    ROOT / "assets" / "community-stable.js",
+    ROOT / "assets" / "community-core.js",
+    ROOT / "assets" / "community-thread-recovery.js",
+]
 
 ERRORS: list[str] = []
 WARNINGS: list[str] = []
@@ -179,6 +188,21 @@ def video_supported(value: object) -> bool:
     return bool(re.search(r"\.(mp4|webm|ogg)(?:$|[?#])", raw, flags=re.I))
 
 
+def audit_canonical_slug_ownership() -> None:
+    query_pattern = re.compile(r"URLSearchParams\\(location\\.search\\).*?get\\(['\\\"]slug['\\\"]\\)")
+    for path in CANONICAL_ARTICLE_RUNTIMES:
+        if not path.is_file():
+            error(f"Missing canonical article runtime: {path.relative_to(ROOT)}")
+            continue
+        source = path.read_text(encoding="utf-8", errors="replace")
+        if not query_pattern.search(source):
+            continue
+        if "NEURAL_CRITIC_STATIC_SLUG" not in source and "NeuralCriticStoryRouter" not in source:
+            error(
+                f"{path.relative_to(ROOT)} reads ?slug= without supporting the canonical static story slug"
+            )
+
+
 def audit_articles() -> None:
     rows = load_articles()
     seen: set[str] = set()
@@ -233,6 +257,7 @@ def audit_articles() -> None:
 def main() -> int:
     for page in PUBLIC_HTML:
         audit_html(page)
+    audit_canonical_slug_ownership()
     audit_articles()
 
     for message in WARNINGS:
