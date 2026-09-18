@@ -2,7 +2,7 @@
   const qs = (s,r=document) => r.querySelector(s);
   const qsa = (s,r=document) => [...r.querySelectorAll(s)];
   const esc = (value='') => String(value).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
-  const slug = new URLSearchParams(location.search).get('slug') || '';
+  const slug = String(window.NEURAL_CRITIC_STATIC_SLUG || '').trim() || new URLSearchParams(location.search).get('slug') || '';
   const reduceMotion = window.matchMedia?.('(prefers-reduced-motion: reduce)').matches;
 
   async function articleData(){
