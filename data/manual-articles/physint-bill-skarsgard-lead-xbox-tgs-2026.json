@@ -1,0 +1,97 @@
+{
+  "id": "repo-physint-bill-skarsgard-20260919",
+  "slug": "physint-bill-skarsgard-lead-xbox-tgs-2026",
+  "title": "PHYSINT Casts Bill Skarsgård as Its Lead as Kojima Productions Expands Xbox Partnership",
+  "description": "Hideo Kojima confirmed Bill Skarsgård as PHYSINT’s lead during Xbox’s Tokyo Game Show 2026 broadcast, alongside new artwork and fresh details on the project’s Xbox publishing partnership.",
+  "body": "**PHYSINT has its leading actor.** Hideo Kojima used Xbox’s Tokyo Game Show 2026 broadcast to confirm that Bill Skarsgård will portray the protagonist of Kojima Productions’ upcoming action-espionage game.\n\nThe announcement arrived with new artwork featuring Skarsgård and Charlee Fraser, while Kojima Productions also reiterated that Xbox will publish PHYSINT. The deal expands a relationship that already includes OD – KNOCK and gives one of Kojima’s most closely watched future projects a clearer path forward.",
+  "category": "NEWS",
+  "author": "Rouane Mounssif",
+  "tags": [
+    "PHYSINT",
+    "Hideo Kojima",
+    "Kojima Productions",
+    "Bill Skarsgård",
+    "Xbox",
+    "Tokyo Game Show 2026"
+  ],
+  "imageAlt": "Bill Skarsgård and Charlee Fraser featured in official PHYSINT promotional artwork.",
+  "imageCredit": "Kojima Productions / Xbox",
+  "articleFormat": "standard",
+  "reviewMeta": {},
+  "contentBlocks": [
+    {
+      "heading": "Bill Skarsgård is PHYSINT’s protagonist",
+      "headingStyle": "statement",
+      "text": "Kojima Productions confirmed that Swedish actor and producer **Bill Skarsgård** will play PHYSINT’s lead role. The studio paired the casting reveal with new promotional artwork featuring Skarsgård alongside Charlee Fraser.\n\nKojima said costume fittings, scans and camera tests with the performers earlier in 2026 strengthened his confidence in the project’s direction. Skarsgård joins an already announced ensemble that includes Fraser, Don Lee and Minami Hamabe."
+    },
+    {
+      "heading": "PHYSINT now has Xbox behind it as publisher",
+      "headingStyle": "accent",
+      "text": "The casting update also lands after a major business change for the project: **Xbox is now PHYSINT’s publishing partner**. Kojima Productions and Xbox are already collaborating on OD – KNOCK, and adding PHYSINT makes the relationship materially larger.\n\nFor players, the important point is that the action-espionage project remains active and now sits inside a partnership that spans multiple Kojima Productions projects."
+    },
+    {
+      "heading": "Kojima is still positioning PHYSINT as action-espionage",
+      "headingStyle": "editorial",
+      "text": "PHYSINT continues to be described as an action-espionage game, a label that naturally invites comparisons with Kojima’s earlier work. The studio has still shown very little gameplay, so the casting and publishing news tells us more about the production around the game than about its final systems.\n\nThat makes the TGS reveal important without pretending it is a gameplay blowout: the project has a lead actor, a major publisher and a growing cast, but many of the details players will care about most remain under wraps."
+    },
+    {
+      "heading": "The known cast is getting easier to picture",
+      "headingStyle": "statement",
+      "text": "Skarsgård’s addition gives the ensemble a recognizable central figure while Charlee Fraser, Don Lee and Minami Hamabe remain attached to the project. Kojima Productions has indicated that more casting information is still to come.\n\nThe new poster is also the clearest recent visual signal of how heavily PHYSINT may lean into performance capture and cinematic presentation."
+    },
+    {
+      "heading": "Watch the official Xbox TGS 2026 broadcast",
+      "headingStyle": "accent",
+      "text": "The PHYSINT announcement closed Xbox’s Tokyo Game Show 2026 presentation, which also included updates from developers across Japan and the wider Asian games industry.",
+      "videoUrl": "https://www.youtube.com/watch?v=gnzS0_wimAA",
+      "videoTitle": "Xbox Tokyo Game Show 2026 Broadcast",
+      "videoCaption": "Official Xbox Tokyo Game Show 2026 broadcast, where Kojima Productions revealed Bill Skarsgård as PHYSINT’s lead."
+    }
+  ],
+  "quickRead": [
+    "Bill Skarsgård will portray the lead role in PHYSINT.",
+    "Kojima Productions unveiled new artwork featuring Skarsgård and Charlee Fraser.",
+    "Xbox is PHYSINT’s publishing partner, expanding its existing collaboration with Kojima Productions.",
+    "More casting details are still expected as development continues."
+  ],
+  "conclusion": "",
+  "conclusionHeading": "",
+  "conclusionHeadingStyle": "editorial",
+  "featured": true,
+  "homepageSlot": "lead",
+  "publishedAt": "2026-09-18T23:58:00Z",
+  "updatedAt": "2026-09-18T23:58:00Z",
+  "imageLocal": "",
+  "editorialSection": "news",
+  "platforms": [
+    "xbox",
+    "pc"
+  ],
+  "collection": null,
+  "collectionYear": null,
+  "gameKey": "PHYSINT",
+  "series": "PHYSINT",
+  "franchise": "PHYSINT",
+  "newsMeta": {
+    "kind": "news",
+    "developing": false,
+    "verification": "official",
+    "sourceUrl": "https://www.kojimaproductions.jp/en/physint_announcement_0917",
+    "sourceName": "Kojima Productions",
+    "updates": [
+      {
+        "at": "2026-09-17T00:00:00Z",
+        "note": "Kojima Productions confirmed Bill Skarsgård as PHYSINT’s lead, unveiled new artwork featuring Skarsgård and Charlee Fraser, and reiterated Xbox as the project’s publishing partner.",
+        "sourceUrl": "https://www.kojimaproductions.jp/en/physint_announcement_0917",
+        "sourceName": "Kojima Productions"
+      },
+      {
+        "at": "2026-09-17T00:00:00Z",
+        "note": "Xbox featured the PHYSINT casting reveal during its Tokyo Game Show 2026 broadcast.",
+        "sourceUrl": "https://news.xbox.com/en-us/2026/09/17/physint-lead-role-bill-skarsgard-kojima-productions-xbox/",
+        "sourceName": "Xbox Wire"
+      }
+    ],
+    "documents": []
+  }
+}
