@@ -21,6 +21,7 @@ ROOT = Path(__file__).resolve().parents[1]
 CONFIG_PATH = ROOT / "assets" / "supabase-config.js"
 INDEX_PATH = ROOT / "data" / "articles.json"
 DETAIL_DIR = ROOT / "data" / "articles"
+MANUAL_DIR = ROOT / "data" / "manual-articles"
 PAGE_SIZE = 20
 REQUEST_TIMEOUT_SECONDS = 30
 MAX_ATTEMPTS = 3
@@ -164,6 +165,71 @@ def fetch_published() -> list[dict[str, Any]]:
     return rows
 
 
+def discover_page_image(source_url: str) -> str:
+    if not source_url.startswith(("https://", "http://")):
+        return ""
+    try:
+        request = urllib.request.Request(
+            source_url,
+            headers={
+                "User-Agent": "Mozilla/5.0 (compatible; NeuralCriticEditorialImageResolver/1.0)",
+                "Accept": "text/html,application/xhtml+xml",
+            },
+        )
+        with urllib.request.urlopen(request, timeout=25) as response:
+            html = response.read(2_000_000).decode("utf-8", errors="ignore")
+    except Exception as exc:
+        print(f"WARNING: could not inspect editorial source image for {source_url}: {exc}")
+        return ""
+
+    patterns = (
+        r'<meta[^>]+property=["\']og:image(?::secure_url)?["\'][^>]+content=["\']([^"\']+)["\']',
+        r'<meta[^>]+content=["\']([^"\']+)["\'][^>]+property=["\']og:image(?::secure_url)?["\']',
+        r'<meta[^>]+name=["\']twitter:image(?::src)?["\'][^>]+content=["\']([^"\']+)["\']',
+        r'<meta[^>]+content=["\']([^"\']+)["\'][^>]+name=["\']twitter:image(?::src)?["\']',
+    )
+    for pattern in patterns:
+        match = re.search(pattern, html, flags=re.I)
+        if match:
+            return urllib.parse.urljoin(source_url, match.group(1).replace("&amp;", "&").strip())
+    return ""
+
+
+def load_manual_articles() -> list[dict[str, Any]]:
+    if not MANUAL_DIR.exists():
+        return []
+    rows: list[dict[str, Any]] = []
+    for path in sorted(MANUAL_DIR.glob("*.json")):
+        try:
+            item = json.loads(path.read_text(encoding="utf-8"))
+        except Exception as exc:
+            raise RuntimeError(f"Invalid manual article {path.name}: {exc}") from exc
+        if not isinstance(item, dict) or not valid_slug(item.get("slug")) or not str(item.get("title") or "").strip():
+            raise RuntimeError(f"Manual article {path.name} is missing a valid slug/title.")
+        item = dict(item)
+        if not str(item.get("imageLocal") or "").strip():
+            source_url = str((item.get("newsMeta") or {}).get("sourceUrl") or "").strip()
+            discovered = discover_page_image(source_url)
+            if discovered:
+                item["imageLocal"] = discovered
+                print(f"Resolved featured image for {item['slug']} from {source_url}")
+            else:
+                print(f"WARNING: no featured image could be resolved for {item['slug']}")
+        rows.append(item)
+    return rows
+
+
+def merge_published(cms_rows: list[dict[str, Any]], manual_rows: list[dict[str, Any]]) -> list[dict[str, Any]]:
+    merged = {str(row.get("slug") or ""): row for row in cms_rows if valid_slug(row.get("slug"))}
+    for row in manual_rows:
+        slug = str(row.get("slug") or "")
+        if slug not in merged:
+            merged[slug] = row
+    def sort_key(row: dict[str, Any]) -> str:
+        return str(row.get("publishedAt") or row.get("published_at") or "")
+    return sorted(merged.values(), key=sort_key, reverse=True)
+
+
 def write_json(path: Path, payload: object) -> None:
     path.parent.mkdir(parents=True, exist_ok=True)
     text = json.dumps(payload, ensure_ascii=False, indent=2) + "\n"
@@ -173,7 +239,7 @@ def write_json(path: Path, payload: object) -> None:
 
 
 def main() -> None:
-    rows = fetch_published()
+    rows = merge_published(fetch_published(), load_manual_articles())
     write_json(INDEX_PATH, rows)
 
     DETAIL_DIR.mkdir(parents=True, exist_ok=True)
@@ -188,7 +254,7 @@ def main() -> None:
         if path.name not in expected:
             path.unlink()
 
-    print(f"Runtime fallback synchronized with {len(rows)} published articles.")
+    print(f"Runtime fallback synchronized with {len(rows)} published articles, including repository-published stories.")
 
 
 if __name__ == "__main__":
