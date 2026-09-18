@@ -32,6 +32,67 @@
     return new Promise(resolve => setTimeout(resolve, ms));
   }
 
+  async function imageDimensions(file) {
+    const bitmap = await createImageBitmap(file);
+    const size = { width: bitmap.width, height: bitmap.height };
+    bitmap.close?.();
+    return size;
+  }
+
+  async function normalizeFeaturedImage(file, reportStatus) {
+    if (file.type === 'image/gif') throw new Error('Featured images must be a still JPEG, PNG, WebP or AVIF so Studio can create a 1920×1080 hero.');
+    const bitmap = await createImageBitmap(file);
+    try {
+      if (bitmap.width < 1920 || bitmap.height < 1080) {
+        throw new Error(`Featured image is ${bitmap.width}×${bitmap.height}. Use a source at least 1920×1080 to avoid blurry upscaling.`);
+      }
+      if (bitmap.width === 1920 && bitmap.height === 1080 && file.type === 'image/webp') return file;
+
+      reportStatus?.('FITTING TO 1920×1080…', 'busy');
+      const canvas = document.createElement('canvas');
+      canvas.width = 1920;
+      canvas.height = 1080;
+      const ctx = canvas.getContext('2d', { alpha: false });
+      if (!ctx) throw new Error('This browser could not prepare the editorial image.');
+
+      const targetRatio = 16 / 9;
+      const sourceRatio = bitmap.width / bitmap.height;
+      let sx = 0, sy = 0, sw = bitmap.width, sh = bitmap.height;
+      if (sourceRatio > targetRatio) {
+        sw = bitmap.height * targetRatio;
+        sx = (bitmap.width - sw) / 2;
+      } else if (sourceRatio < targetRatio) {
+        sh = bitmap.width / targetRatio;
+        sy = (bitmap.height - sh) / 2;
+      }
+      ctx.drawImage(bitmap, sx, sy, sw, sh, 0, 0, 1920, 1080);
+      const blob = await new Promise((resolve, reject) => canvas.toBlob(
+        value => value ? resolve(value) : reject(new Error('Could not encode the 1920×1080 editorial image.')),
+        'image/webp',
+        0.92
+      ));
+      const base = safeName(file.name || 'featured-image').replace(/.[a-z0-9]+$/i, '');
+      return new File([blob], `${base}-1920x1080.webp`, { type: 'image/webp' });
+    } finally {
+      bitmap.close?.();
+    }
+  }
+
+  async function remoteImageFile(url) {
+    let parsed;
+    try { parsed = new URL(url); }
+    catch (_) { throw new Error('Paste a valid https:// image URL first.'); }
+    if (parsed.protocol !== 'https:') throw new Error('Remote editorial images must use HTTPS.');
+    const response = await fetch(parsed.href, { mode: 'cors', credentials: 'omit', cache: 'no-store' });
+    if (!response.ok) throw new Error(`Image source returned HTTP ${response.status}.`);
+    const blob = await response.blob();
+    if (!IMAGE_TYPES.has(blob.type)) throw new Error('That URL did not return a supported image file.');
+    const leaf = decodeURIComponent(parsed.pathname.split('/').pop() || 'remote-image');
+    const ext = blob.type === 'image/jpeg' ? 'jpg' : blob.type.split('/')[1] || 'img';
+    const name = /.[a-z0-9]+$/i.test(leaf) ? leaf : `${leaf || 'remote-image'}.${ext}`;
+    return new File([blob], name, { type: blob.type });
+  }
+
   function publicUrl(client, path) {
     const { data } = client.storage.from(BUCKET).getPublicUrl(path);
     return data?.publicUrl || '';
@@ -141,15 +202,19 @@
   }
 
   async function uploadImage(file, target, status) {
-    const result = await uploadAsset(file, {
+    const report = (message, state) => {
+      status.textContent = message;
+      status.dataset.state = state;
+    };
+    const prepared = target?.id === 'featured-image'
+      ? await normalizeFeaturedImage(file, report)
+      : file;
+    const result = await uploadAsset(prepared, {
       allowedTypes: [...IMAGE_TYPES],
       maxBytes: IMAGE_MAX_BYTES,
       label: 'Image',
       pathPrefix: '',
-      onStatus: (message, state) => {
-        status.textContent = message;
-        status.dataset.state = state;
-      },
+      onStatus: report,
     });
     return finishImageUpload(target, status, result);
   }
@@ -160,17 +225,40 @@
 
     const wrap = document.createElement('div');
     wrap.className = 'studio-media-upload';
+    const featured = target.id === 'featured-image';
     wrap.innerHTML = `
       <input class="studio-media-file" type="file" accept="image/jpeg,image/png,image/webp,image/avif,image/gif" hidden>
-      <button class="studio-media-button" type="button">${label}</button>
-      <span class="studio-media-status">OR PASTE A URL</span>`;
+      <button class="studio-media-button" type="button">${featured ? 'UPLOAD + FIT 1920×1080' : label}</button>
+      ${featured ? '<button class="studio-media-button studio-media-import" type="button">IMPORT URL → 1920×1080</button>' : ''}
+      <span class="studio-media-status">${featured ? 'MINIMUM SOURCE 1920×1080' : 'OR PASTE A URL'}</span>`;
     target.insertAdjacentElement('afterend', wrap);
 
     const fileInput = $('.studio-media-file', wrap);
-    const button = $('.studio-media-button', wrap);
+    const button = $('.studio-media-button:not(.studio-media-import)', wrap);
+    const importButton = $('.studio-media-import', wrap);
     const status = $('.studio-media-status', wrap);
 
     button.addEventListener('click', () => fileInput.click());
+    importButton?.addEventListener('click', async () => {
+      const url = target.value.trim();
+      importButton.disabled = true;
+      button.disabled = true;
+      try {
+        status.textContent = 'FETCHING SOURCE…';
+        status.dataset.state = 'busy';
+        const remote = await remoteImageFile(url);
+        await uploadImage(remote, target, status);
+        status.textContent = '1920×1080 STORED ✓';
+        status.dataset.state = 'done';
+      } catch (error) {
+        status.textContent = 'IMPORT FAILED';
+        status.dataset.state = 'error';
+        toast(error?.message || 'Remote image import failed. Some publisher CDNs block browser imports; upload the official asset directly in that case.', true);
+      } finally {
+        importButton.disabled = false;
+        button.disabled = false;
+      }
+    });
     fileInput.addEventListener('change', async () => {
       const file = fileInput.files?.[0];
       if (!file) return;
