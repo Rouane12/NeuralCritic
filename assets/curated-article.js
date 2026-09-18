@@ -1,5 +1,5 @@
 (() => {
-  const slug = new URLSearchParams(location.search).get('slug');
+  const slug = String(window.NEURAL_CRITIC_STATIC_SLUG || '').trim() || new URLSearchParams(location.search).get('slug') || '';
   if (!slug) return;
 
   const labels = {
