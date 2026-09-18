@@ -251,6 +251,12 @@
     const slug = currentSlug();
     if (!slug || $('#nc-recirculation')) return;
 
+    // The article shell and Content API both know how to bootstrap recirculation.
+    // Claim runtime ownership synchronously so two near-simultaneous script
+    // executions cannot both pass the DOM guard before either inserts the module.
+    if (window.NeuralCriticRecirculationInitStarted) return;
+    window.NeuralCriticRecirculationInitStarted = true;
+
     const [index, insertionPoint, engine] = await Promise.all([
       loadPublished(),
       waitForInsertionPoint(),
@@ -272,6 +278,10 @@
     const exploreLabel = hub.destination === 'game_hub'
       ? 'OPEN GAME HUB →'
       : hub.href && identity ? `EXPLORE ${displayTag(identity).toUpperCase()} →` : 'EXPLORE MORE →';
+
+    // Re-check ownership immediately before insertion as a second line of
+    // defense against late or third-party duplicate bootstrap calls.
+    if ($('#nc-recirculation')) return;
 
     const module = document.createElement('section');
     module.id = 'nc-recirculation';

@@ -26,6 +26,10 @@ check('third slot deliberately broadens beyond core game relationships',
   runtime.includes("!['same_game','same_series','same_franchise'].includes(item?.relation?.key)"));
 check('current story and duplicate picks are guarded',
   runtime.includes('const seen = new Set([current.slug])') && runtime.includes('seen.has(item.article.slug)'));
+check('Continue Exploring runtime is idempotent across duplicate bootstraps',
+  runtime.includes('window.NeuralCriticRecirculationInitStarted') &&
+  runtime.includes("if ($('#nc-recirculation')) return;") &&
+  runtime.indexOf('window.NeuralCriticRecirculationInitStarted = true;') < runtime.indexOf('await Promise.all(['));
 check('Continue Exploring has a clear editorial identity',
   runtime.includes("module.className = 'nc-recirculation nc-continue-exploring'") &&
   runtime.includes('>Continue exploring</h2>') &&
