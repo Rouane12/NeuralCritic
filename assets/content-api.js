@@ -160,18 +160,36 @@
     return Promise.race([Promise.resolve(promise), timeout]).finally(() => clearTimeout(timer));
   }
 
+  async function staticPublishedIndex() {
+    try {
+      const response = await nativeFetch(indexPath, { cache: 'no-store' });
+      if (!response.ok) return [];
+      const rows = await response.json();
+      return Array.isArray(rows) ? rows : [];
+    } catch (_) { return []; }
+  }
+
   async function publishedIndex() {
     const query = client.from('articles').select('*').eq('status', 'published').lte('published_at', new Date().toISOString()).order('published_at', { ascending: false });
     const { data, error } = await withTimeout(query);
     if (error) throw error;
-    return (data || []).map(mapRow);
+    const live = (data || []).map(mapRow);
+    const fallback = await staticPublishedIndex();
+    const merged = new Map(live.map(article => [article.slug, article]));
+    fallback.forEach(article => { if (article?.slug && !merged.has(article.slug)) merged.set(article.slug, article); });
+    return [...merged.values()].sort((a,b) => new Date(b.publishedAt || 0) - new Date(a.publishedAt || 0));
   }
 
   async function publishedArticle(slug) {
     const query = client.from('articles').select('*').eq('slug', slug).eq('status', 'published').lte('published_at', new Date().toISOString()).maybeSingle();
     const { data, error } = await withTimeout(query);
     if (error) throw error;
-    return data ? mapRow(data) : null;
+    if (data) return mapRow(data);
+    try {
+      const response = await nativeFetch(`${articlePrefix}${encodeURIComponent(slug)}.json`, { cache: 'no-store' });
+      if (!response.ok) return null;
+      return await response.json();
+    } catch (_) { return null; }
   }
 
   async function publishedGames() {
