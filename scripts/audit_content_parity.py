@@ -15,7 +15,7 @@ import re
 import sys
 from pathlib import Path
 
-from build_runtime_fallback import fetch_published
+from build_runtime_fallback import fetch_published, load_manual_articles, merge_published
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -93,15 +93,16 @@ def main() -> int:
         try:
             live = fetch_published()
             live_count = len(live)
-            if live != fallback:
-                live_slugs = [str(row.get("slug") or "") for row in live]
+            expected = merge_published(live, load_manual_articles())
+            if expected != fallback:
+                expected_slugs = [str(row.get("slug") or "") for row in expected]
                 fallback_slugs = [str(row.get("slug") or "") for row in fallback]
-                if set(live_slugs) != set(fallback_slugs):
-                    fail(errors, "Live and fallback slug sets differ")
-                elif live_slugs != fallback_slugs:
-                    fail(errors, "Live and fallback ordering differs")
+                if set(expected_slugs) != set(fallback_slugs):
+                    fail(errors, "Published source and fallback slug sets differ")
+                elif expected_slugs != fallback_slugs:
+                    fail(errors, "Published source and fallback ordering differs")
                 else:
-                    fail(errors, "Live and fallback rows differ despite matching slug order")
+                    fail(errors, "Published source and fallback rows differ despite matching slug order")
         except Exception as exc:
             fail(errors, f"Live Supabase parity read failed: {exc}")
 

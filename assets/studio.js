@@ -42,6 +42,13 @@
         <label>IMAGE URL<input data-field="imageLocal" value="${esc(data.imageLocal||'')}" placeholder="images/editorial/…"></label>
         <label>IMAGE DESCRIPTION<input data-field="imageAlt" value="${esc(data.imageAlt||'')}" placeholder="Accessibility description"></label>
         <label class="wide">CAPTION<input data-field="caption" value="${esc(data.caption||'')}" placeholder="Visible caption / source context"></label>
+        <div class="wide section-video-fields">
+          <small>OPTIONAL VIDEO</small>
+          <label>VIDEO URL<input data-field="videoUrl" value="${esc(data.videoUrl||'')}" placeholder="YouTube, Vimeo, MP4 or WebM URL"></label>
+          <label>VIDEO TITLE<input data-field="videoTitle" value="${esc(data.videoTitle||'')}" placeholder="Accessible player title"></label>
+          <label>VIDEO CAPTION<input data-field="videoCaption" value="${esc(data.videoCaption||'')}" placeholder="Trailer / gameplay source context"></label>
+          <label>VIDEO POSTER<input data-field="videoPoster" value="${esc(data.videoPoster||'')}" placeholder="Optional poster image URL"></label>
+        </div>
         <div class="rank-fields" ${activeFormat==='ranked-list'?'':'hidden'}>
           <label>RANK<input data-field="rank" value="${esc(rank)}" placeholder="7"></label>
           <label>SUBTITLE<input data-field="subtitle" value="${esc(data.subtitle||'')}" placeholder="Why this position matters"></label>

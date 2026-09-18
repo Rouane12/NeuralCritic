@@ -151,13 +151,24 @@ def fallback_published() -> list[dict[str, Any]]:
 
 
 def load_articles() -> tuple[list[dict[str, Any]], str]:
+    fallback = fallback_published()
     try:
-        rows = fetch_published()
+        live = fetch_published()
+        merged = {str(row.get("slug") or ""): row for row in live if row.get("slug")}
+        for row in fallback:
+            slug = str(row.get("slug") or "")
+            if slug and slug not in merged:
+                merged[slug] = row
+        rows = sorted(
+            merged.values(),
+            key=lambda row: str(row.get("publishedAt") or row.get("updatedAt") or ""),
+            reverse=True,
+        )
         if rows:
-            return rows, "supabase"
+            return rows, "supabase+repository"
     except Exception as exc:
         print(f"Live story metadata unavailable ({exc}); using repository fallback.")
-    return fallback_published(), "repository"
+    return fallback, "repository"
 
 
 def game_name(article: dict[str, Any]) -> str:

@@ -1,0 +1,88 @@
+{
+  "id": "repo-faraday-blues-20260919",
+  "slug": "faraday-blues-world-premiere-64-endings",
+  "title": "Faraday Blues Revealed at TGS 2026 With Three Interconnected Stories and 64 Endings",
+  "description": "Serenity Forge unveiled Faraday Blues at Xbox’s Tokyo Game Show 2026 broadcast, a surreal sci-fi adventure about rewriting a family’s fate across three linked visual novels.",
+  "body": "Serenity Forge used Xbox’s Tokyo Game Show 2026 broadcast to reveal **Faraday Blues**, a new surreal science-fiction adventure about a daughter trying to rewrite the lives of parents who do not know she exists.\n\nThe project mixes visual-novel storytelling with a card-driven structure, carrying choices across three different eras and building toward **64 possible endings**.",
+  "category": "NEWS",
+  "author": "Rouane Mounssif",
+  "tags": [
+    "Faraday Blues",
+    "Serenity Forge",
+    "Tokyo Game Show 2026",
+    "Xbox",
+    "Visual Novel",
+    "Sci-Fi"
+  ],
+  "imageAlt": "Official Faraday Blues promotional artwork from its Tokyo Game Show 2026 reveal.",
+  "imageCredit": "Serenity Forge / Xbox",
+  "articleFormat": "standard",
+  "reviewMeta": {},
+  "contentBlocks": [
+    {
+      "heading": "The central mystery starts with parents who do not know their daughter",
+      "headingStyle": "statement",
+      "text": "Players control Lina, a girl who wakes in an unfamiliar place and discovers a strange computer and a table of cards. Two cards depict her parents, but the people represented on them do not know who she is.\n\nThat setup becomes the foundation for a story about trying to repair—or rewrite—the tragedies that shaped a family."
+    },
+    {
+      "heading": "Character cards change events instead of fighting enemies",
+      "headingStyle": "accent",
+      "text": "Faraday Blues uses a 52-card structure built around characters, memories, items and pieces of family history. Cards can be placed into conversations, locations and major events before the player enters a timeline to see how those choices alter what happens.\n\nA person assigned to one interaction may be unavailable for another, which means helping one relationship can create consequences elsewhere."
+    },
+    {
+      "heading": "Three visual novels are connected across time",
+      "headingStyle": "editorial",
+      "text": "Serenity Forge describes the game as three interconnected visual novels rather than three isolated stories. Each era has its own visual identity and narrative style, but decisions, relationships, memories and character states can carry forward.\n\nThat structure turns earlier choices into conditions for later possibilities instead of treating every chapter as a reset."
+    },
+    {
+      "heading": "There are 64 endings, and not all of them are victories",
+      "headingStyle": "statement",
+      "text": "The developers say Faraday Blues contains **64 endings**. Some outcomes can improve a character’s fate, while others may solve one problem by creating another.\n\nThe idea fits the game’s broader theme: the desire to rewrite a painful moment can be understandable without guaranteeing that the new reality will be better."
+    },
+    {
+      "heading": "Faraday Blues is targeting 2027",
+      "headingStyle": "accent",
+      "text": "Faraday Blues is planned for Xbox Series X|S and PC in 2027, with Xbox Cloud support. Serenity Forge founder and game director Zhenghua Yang is developing the project with co-creator and lead artist Satchely and narrative director Kevin Ye."
+    }
+  ],
+  "quickRead": [
+    "Faraday Blues is a new surreal sci-fi adventure from Serenity Forge.",
+    "Players manipulate character cards across three interconnected visual novels.",
+    "Choices carry forward through different eras, relationships and character states.",
+    "The game features 64 endings and is planned for Xbox Series X|S and PC in 2027."
+  ],
+  "conclusion": "",
+  "conclusionHeading": "",
+  "conclusionHeadingStyle": "editorial",
+  "featured": false,
+  "homepageSlot": "regular",
+  "publishedAt": "2026-09-18T23:49:00Z",
+  "updatedAt": "2026-09-18T23:49:00Z",
+  "imageLocal": "",
+  "editorialSection": "news",
+  "platforms": [
+    "xbox",
+    "pc"
+  ],
+  "collection": null,
+  "collectionYear": null,
+  "gameKey": "Faraday Blues",
+  "series": "Faraday Blues",
+  "franchise": "Faraday Blues",
+  "newsMeta": {
+    "kind": "news",
+    "developing": false,
+    "verification": "official",
+    "sourceUrl": "https://news.xbox.com/en-us/2026/09/17/xbox-tokyo-game-show-2026-faraday-blues/",
+    "sourceName": "Xbox Wire / Serenity Forge",
+    "updates": [
+      {
+        "at": "2026-09-17T00:00:00Z",
+        "note": "Serenity Forge revealed Faraday Blues, its three-era card-driven structure, 64 endings and 2027 Xbox/PC plans.",
+        "sourceUrl": "https://news.xbox.com/en-us/2026/09/17/xbox-tokyo-game-show-2026-faraday-blues/",
+        "sourceName": "Xbox Wire / Serenity Forge"
+      }
+    ],
+    "documents": []
+  }
+}

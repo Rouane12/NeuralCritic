@@ -102,11 +102,23 @@ def fallback_published() -> list[dict[str, Any]]:
 
 
 def load_articles() -> tuple[list[dict[str, Any]], str]:
+    fallback = fallback_published()
     try:
-        return fetch_published(), "supabase"
+        live = fetch_published()
+        merged = {str(row.get("slug") or ""): row for row in live if row.get("slug")}
+        for row in fallback:
+            slug = str(row.get("slug") or "")
+            if slug and slug not in merged:
+                merged[slug] = row
+        rows = sorted(
+            merged.values(),
+            key=lambda row: str(row.get("published_at") or row.get("publishedAt") or ""),
+            reverse=True,
+        )
+        return rows, "supabase+repository"
     except Exception as exc:
         print(f"Live publication fetch unavailable ({exc}); using repository fallback.")
-        return fallback_published(), "repository"
+        return fallback, "repository"
 
 
 def valid_slug(slug: str) -> bool:
