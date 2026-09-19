@@ -103,10 +103,10 @@ check(
 
 check(
   'Article Journey runtime versions are cache-busted through the established bootstrap',
-  articleTemplate.includes('assets/content-api.js?v=20260903-articlejourney1') &&
+  articleTemplate.includes('assets/content-api.js?v=20260919-repo1') &&
     contentApi.includes('assets/discovery-intelligence.css?v=20260903-articlejourney1') &&
     contentApi.includes('assets/article-discovery.js?v=20260903-articlejourney1') &&
-    contentApi.includes('assets/recirculation.js?v=20260903-articlejourney1'),
+    contentApi.includes('assets/recirculation.js?v=20260919-recirc2'),
   'returning readers should receive the new article journey assets rather than stale cached owners'
 );
 

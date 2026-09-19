@@ -48,12 +48,15 @@ check('Continue Exploring is responsive and theme-aware',
   css.includes('@media(max-width:960px)') && css.includes('@media(max-width:680px)') &&
   css.includes('html[data-theme="dark"] .nc-continue-exploring') && css.includes('@media(prefers-reduced-motion:reduce)'));
 check('article bootstrap pins Phase 3 recirculation assets ahead of content API fallback',
-  article.includes('assets/recirculation.css?v=20260912-continue1') &&
-  article.includes('assets/recirculation.js?v=20260912-continue1') &&
-  article.indexOf('assets/recirculation.js?v=20260912-continue1') < article.indexOf('assets/content-api.js?v=20260903-articlejourney1'));
+  article.includes('assets/recirculation.css?v=20260919-recirc2') &&
+  article.includes('assets/recirculation.js?v=20260919-recirc2') &&
+  article.indexOf('assets/recirculation.js?v=20260919-recirc2') < article.indexOf('assets/content-api.js?v=20260919-repo1'));
 check('content API keeps the existing fallback owner for non-article bootstrap compatibility',
-  contentApi.includes("recirculationStyle.href = 'assets/recirculation.css?v=20260828-discovery2'") &&
-  contentApi.includes("recirculation.src = 'assets/recirculation.js?v=20260903-articlejourney1'"));
+  contentApi.includes("recirculationStyle.href = 'assets/recirculation.css?v=20260919-recirc2'") &&
+  contentApi.includes("recirculation.src = 'assets/recirculation.js?v=20260919-recirc2'"));
+check('article shell declares explicit recirculation ownership before shared bootstrap',
+  article.includes('NEURAL_CRITIC_ARTICLE_OWNS_RECIRCULATION=true') &&
+  article.indexOf('NEURAL_CRITIC_ARTICLE_OWNS_RECIRCULATION=true') < article.indexOf('assets/supabase-config.js?v=20260919-runtime4'));
 
 let failed = 0;
 for (const [name, ok] of checks) {

@@ -294,10 +294,11 @@ window.NEURAL_CRITIC_SUPABASE = {
 
   const loadRecirculation = () => {
     if (!document.getElementById('article')) return;
+    if (window.NEURAL_CRITIC_ARTICLE_OWNS_RECIRCULATION) return;
     if (!document.querySelector('link[data-nc-recirculation-style]')) {
       const style = document.createElement('link');
       style.rel = 'stylesheet';
-      style.href = 'assets/recirculation.css?v=20260823-recirc4';
+      style.href = 'assets/recirculation.css?v=20260919-recirc2';
       style.dataset.ncRecirculationStyle = '1';
       document.head.appendChild(style);
     }
@@ -309,7 +310,7 @@ window.NEURAL_CRITIC_SUPABASE = {
     }
     if (!document.querySelector('script[data-nc-recirculation]')) {
       const script = document.createElement('script');
-      script.src = 'assets/recirculation.js?v=20260823-recirc4';
+      script.src = 'assets/recirculation.js?v=20260919-recirc2';
       script.async = true;
       script.dataset.ncRecirculation = '1';
       document.head.appendChild(script);
