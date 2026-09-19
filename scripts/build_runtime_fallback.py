@@ -20,6 +20,7 @@ from typing import Any
 ROOT = Path(__file__).resolve().parents[1]
 CONFIG_PATH = ROOT / "assets" / "supabase-config.js"
 INDEX_PATH = ROOT / "data" / "articles.json"
+REPOSITORY_INDEX_PATH = ROOT / "data" / "repository-articles.json"
 DETAIL_DIR = ROOT / "data" / "articles"
 MANUAL_DIR = ROOT / "data" / "manual-articles"
 PAGE_SIZE = 20
@@ -266,7 +267,9 @@ def write_json(path: Path, payload: object) -> None:
 
 
 def main() -> None:
-    rows = merge_published(fetch_published(), load_manual_articles())
+    repository_rows = merge_published([], load_manual_articles())
+    rows = merge_published(fetch_published(), repository_rows)
+    write_json(REPOSITORY_INDEX_PATH, repository_rows)
     write_json(INDEX_PATH, rows)
 
     DETAIL_DIR.mkdir(parents=True, exist_ok=True)
