@@ -11,7 +11,7 @@ from urllib.parse import urlparse
 from PIL import Image, ImageOps, UnidentifiedImageError
 
 ROOT = Path(__file__).resolve().parents[1]
-DATA_FILES = [ROOT / "data" / "articles.json", *sorted((ROOT / "data" / "articles").glob("*.json"))]
+DATA_FILES = [path for path in [ROOT / "data" / "articles.json", ROOT / "data" / "repository-articles.json"] if path.exists()] + sorted((ROOT / "data" / "articles").glob("*.json"))
 IMAGE_DIR = ROOT / "images" / "editorial"
 MANIFEST_PATH = ROOT / "data" / "editorial-image-map.json"
 
