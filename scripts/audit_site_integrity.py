@@ -40,6 +40,8 @@ PUBLIC_HTML = [
 ]
 ARTICLE_INDEX = ROOT / "data" / "articles.json"
 ARTICLE_DIR = ROOT / "data" / "articles"
+REPOSITORY_INDEX = ROOT / "data" / "repository-articles.json"
+MANUAL_ARTICLE_DIR = ROOT / "data" / "manual-articles"
 CANONICAL_ARTICLE_RUNTIMES = [
     ROOT / "assets" / "article-extras.js",
     ROOT / "assets" / "article-formatting.js",
@@ -203,6 +205,34 @@ def audit_canonical_slug_ownership() -> None:
             )
 
 
+def audit_repository_publication_index() -> None:
+    if not REPOSITORY_INDEX.is_file():
+        error("Missing data/repository-articles.json")
+        return
+    try:
+        rows = json.loads(REPOSITORY_INDEX.read_text(encoding="utf-8"))
+    except Exception as exc:
+        error(f"data/repository-articles.json is invalid JSON: {exc}")
+        return
+    if not isinstance(rows, list):
+        error("data/repository-articles.json must contain a list")
+        return
+
+    indexed = {str(row.get("slug") or "") for row in rows if isinstance(row, dict)}
+    manual = {path.stem for path in MANUAL_ARTICLE_DIR.glob("*.json")} if MANUAL_ARTICLE_DIR.exists() else set()
+    missing = manual - indexed
+    if missing:
+        error("Repository-published stories missing from public repository index: " + ", ".join(sorted(missing)))
+
+    for row in rows:
+        if not isinstance(row, dict):
+            continue
+        slug = str(row.get("slug") or "")
+        image = local_article_asset(row.get("imageLocal"))
+        if slug and image is not None and not image.is_file():
+            error(f"{slug}: repository index image is missing: {row.get('imageLocal')}")
+
+
 def audit_articles() -> None:
     rows = load_articles()
     seen: set[str] = set()
@@ -258,6 +288,7 @@ def main() -> int:
     for page in PUBLIC_HTML:
         audit_html(page)
     audit_canonical_slug_ownership()
+    audit_repository_publication_index()
     audit_articles()
 
     for message in WARNINGS:
