@@ -3,7 +3,7 @@
   const $$ = (s, root=document) => [...root.querySelectorAll(s)];
 
   async function loadArticle(){
-    const slug=new URLSearchParams(location.search).get('slug');
+    const slug=String(window.NEURAL_CRITIC_STATIC_SLUG||'').trim()||new URLSearchParams(location.search).get('slug')||'';
     if(!slug)return null;
 
     /* Heading roles should follow the same live CMS record the reader sees.

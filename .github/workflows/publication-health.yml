@@ -44,6 +44,7 @@ on:
       - images/editorial/**
       - scripts/audit_publication.py
       - scripts/audit_publication_v2.py
+      - scripts/audit_site_integrity.py
       - scripts/audit_overhaul_baseline.py
       - scripts/audit_capability_ledger.py
       - scripts/audit_content_parity.py
@@ -253,6 +254,9 @@ jobs:
 
       - name: Audit Neural Critic publication surface
         run: python scripts/audit_publication_v2.py
+
+      - name: Audit broad site integrity
+        run: python scripts/audit_site_integrity.py
 
       - name: Audit overhaul baseline contracts
         run: python scripts/audit_overhaul_baseline.py

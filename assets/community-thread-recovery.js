@@ -5,7 +5,7 @@
   const client = window.neuralCriticCommunitySupabase || window.neuralCriticPublicSupabase || window.supabase.createClient(config.url, config.publishableKey);
   const $ = (selector, root = document) => root.querySelector(selector);
   const $$ = (selector, root = document) => [...root.querySelectorAll(selector)];
-  const slug = new URLSearchParams(location.search).get('slug') || '';
+  const slug = String(window.NEURAL_CRITIC_STATIC_SLUG || '').trim() || new URLSearchParams(location.search).get('slug') || '';
   let recovering = false;
   let queued = false;
   let popularMode = false;

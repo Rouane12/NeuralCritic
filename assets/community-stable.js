@@ -5,7 +5,7 @@
   const $ = (s,r=document) => r.querySelector(s);
   const $$ = (s,r=document) => [...r.querySelectorAll(s)];
   const esc = (v='') => String(v).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
-  const slug = new URLSearchParams(location.search).get('slug') || '';
+  const slug = String(window.NEURAL_CRITIC_STATIC_SLUG || '').trim() || new URLSearchParams(location.search).get('slug') || '';
   let queued = false;
   let voteBusy = false;
 
