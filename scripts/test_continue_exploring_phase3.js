@@ -50,7 +50,7 @@ check('Continue Exploring is responsive and theme-aware',
 check('article bootstrap pins Phase 3 recirculation assets ahead of content API fallback',
   article.includes('assets/recirculation.css?v=20260919-recirc2') &&
   article.includes('assets/recirculation.js?v=20260919-recirc2') &&
-  article.indexOf('assets/recirculation.js?v=20260919-recirc2') < article.indexOf('assets/content-api.js?v=20260903-articlejourney1'));
+  article.indexOf('assets/recirculation.js?v=20260919-recirc2') < article.indexOf('assets/content-api.js?v=20260919-repo1'));
 check('content API keeps the existing fallback owner for non-article bootstrap compatibility',
   contentApi.includes("recirculationStyle.href = 'assets/recirculation.css?v=20260919-recirc2'") &&
   contentApi.includes("recirculation.src = 'assets/recirculation.js?v=20260919-recirc2'"));
