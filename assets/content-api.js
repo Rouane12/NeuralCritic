@@ -31,7 +31,7 @@
       if (!document.querySelector('link[data-nc-recirculation]')) {
         const recirculationStyle = document.createElement('link');
         recirculationStyle.rel = 'stylesheet';
-        recirculationStyle.href = 'assets/recirculation.css?v=20260828-discovery2';
+        recirculationStyle.href = 'assets/recirculation.css?v=20260919-recirc2';
         recirculationStyle.dataset.ncRecirculation = '1';
         document.head.appendChild(recirculationStyle);
       }
@@ -46,7 +46,7 @@
         }
         if (!document.querySelector('script[data-nc-recirculation]')) {
           const recirculation = document.createElement('script');
-          recirculation.src = 'assets/recirculation.js?v=20260903-articlejourney1';
+          recirculation.src = 'assets/recirculation.js?v=20260919-recirc2';
           recirculation.dataset.ncRecirculation = '1';
           document.body.appendChild(recirculation);
         }
@@ -74,6 +74,7 @@
   window.neuralCriticPublicSupabase = client;
 
   const indexPath = 'data/articles.json';
+  const repositoryIndexPath = 'data/repository-articles.json';
   const articlePrefix = 'data/articles/';
   const CMS_TIMEOUT_MS = 2200;
   const POPULARITY_DEDUPE_MS = 30 * 60 * 1000;
@@ -160,20 +161,38 @@
     return Promise.race([Promise.resolve(promise), timeout]).finally(() => clearTimeout(timer));
   }
 
-  async function staticPublishedIndex() {
+  async function staticArticleList(path) {
     try {
-      const response = await nativeFetch(indexPath, { cache: 'no-store' });
+      const response = await nativeFetch(path, { cache: 'no-store' });
       if (!response.ok) return [];
-      const rows = await response.json();
+      const text = await response.text();
+      if (!text.trim()) return [];
+      const rows = JSON.parse(text);
       return Array.isArray(rows) ? rows : [];
     } catch (_) { return []; }
   }
 
+  async function staticPublishedIndex() {
+    const [fallback, repository] = await Promise.all([
+      staticArticleList(indexPath),
+      staticArticleList(repositoryIndexPath)
+    ]);
+    const merged = new Map();
+    fallback.forEach(article => { if (article?.slug) merged.set(article.slug, article); });
+    repository.forEach(article => { if (article?.slug && !merged.has(article.slug)) merged.set(article.slug, article); });
+    return [...merged.values()].sort((a,b) => new Date(b.publishedAt || 0) - new Date(a.publishedAt || 0));
+  }
+
   async function publishedIndex() {
-    const query = client.from('articles').select('*').eq('status', 'published').lte('published_at', new Date().toISOString()).order('published_at', { ascending: false });
-    const { data, error } = await withTimeout(query);
-    if (error) throw error;
-    const live = (data || []).map(mapRow);
+    let live = [];
+    try {
+      const query = client.from('articles').select('*').eq('status', 'published').lte('published_at', new Date().toISOString()).order('published_at', { ascending: false });
+      const { data, error } = await withTimeout(query);
+      if (error) throw error;
+      live = (data || []).map(mapRow);
+    } catch (error) {
+      console.warn('Neural Critic live article index unavailable; using repository/static publication index.', error);
+    }
     const fallback = await staticPublishedIndex();
     const merged = new Map(live.map(article => [article.slug, article]));
     fallback.forEach(article => { if (article?.slug && !merged.has(article.slug)) merged.set(article.slug, article); });
@@ -181,10 +200,14 @@
   }
 
   async function publishedArticle(slug) {
-    const query = client.from('articles').select('*').eq('slug', slug).eq('status', 'published').lte('published_at', new Date().toISOString()).maybeSingle();
-    const { data, error } = await withTimeout(query);
-    if (error) throw error;
-    if (data) return mapRow(data);
+    try {
+      const query = client.from('articles').select('*').eq('slug', slug).eq('status', 'published').lte('published_at', new Date().toISOString()).maybeSingle();
+      const { data, error } = await withTimeout(query);
+      if (error) throw error;
+      if (data) return mapRow(data);
+    } catch (error) {
+      console.warn('Neural Critic live story lookup unavailable; using generated story fallback.', error);
+    }
     try {
       const response = await nativeFetch(`${articlePrefix}${encodeURIComponent(slug)}.json`, { cache: 'no-store' });
       if (!response.ok) return null;
