@@ -41,5 +41,10 @@ jobs:
         run: |
           command -v google-chrome-stable || command -v google-chrome || command -v chromium || command -v chromium-browser
 
+      - name: Regenerate canonical story shells from this PR
+        run: |
+          python scripts/build_story_pages.py
+          python scripts/harden_story_shells.py --template --all
+
       - name: Run rendered route and geometry smoke suite
         run: python scripts/run_browser_smoke.py
