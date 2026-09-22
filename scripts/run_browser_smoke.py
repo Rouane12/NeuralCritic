@@ -248,35 +248,92 @@ def run_case(browser, case: dict) -> dict:
     context.close()
     return result
 
-def main() -> int:
-    chrome=chrome_binary()
+def run_child(case_index: int) -> int:
+    chrome = chrome_binary()
     if not chrome:
-        print("No Chrome/Chromium binary available.", file=sys.stderr)
-        return 2
+        print(json.dumps({"pass": False, "error": "No Chrome/Chromium binary available."}))
+        return 0
 
-    server=subprocess.Popen(
-        [sys.executable,"-m","http.server",str(PORT),"--bind","127.0.0.1"],
+    case = TARGETS[case_index]
+    with sync_playwright() as p:
+        browser = p.chromium.launch(
+            executable_path=chrome,
+            headless=True,
+            args=["--no-sandbox", "--disable-dev-shm-usage", "--disable-gpu"],
+        )
+        try:
+            result = run_case(browser, case)
+        finally:
+            browser.close()
+
+    print(json.dumps(result))
+    return 0
+
+
+def main() -> int:
+    if "--case" in sys.argv:
+        try:
+            index = int(sys.argv[sys.argv.index("--case") + 1])
+        except (ValueError, IndexError):
+            print(json.dumps({"pass": False, "error": "Invalid --case index"}))
+            return 0
+        if index < 0 or index >= len(TARGETS):
+            print(json.dumps({"pass": False, "error": f"Case index out of range: {index}"}))
+            return 0
+        return run_child(index)
+
+    server = subprocess.Popen(
+        [sys.executable, "-m", "http.server", str(PORT), "--bind", "127.0.0.1"],
         cwd=ROOT,
         stdout=subprocess.DEVNULL,
         stderr=subprocess.DEVNULL,
     )
-    results=[]
+    results = []
     try:
         time.sleep(1.0)
-        with sync_playwright() as p:
-            browser=p.chromium.launch(
-                executable_path=chrome,
-                headless=True,
-                args=["--no-sandbox","--disable-dev-shm-usage","--disable-gpu"],
-            )
+        for index, case in enumerate(TARGETS):
             try:
-                for case in TARGETS:
-                    result = run_case(browser, case)
-                    results.append(result)
-                    if not result.get("pass"):
-                        break
-            finally:
-                browser.close()
+                completed = subprocess.run(
+                    [sys.executable, str(Path(__file__).resolve()), "--case", str(index)],
+                    cwd=ROOT,
+                    text=True,
+                    capture_output=True,
+                    timeout=45,
+                )
+                payload = (completed.stdout or "").strip().splitlines()
+                if not payload:
+                    result = {
+                        "pass": False,
+                        "kind": case["kind"],
+                        "path": case["path"],
+                        "error": "Browser child returned no diagnostic payload.",
+                        "stderr": (completed.stderr or "")[-3000:],
+                    }
+                else:
+                    try:
+                        result = json.loads(payload[-1])
+                    except json.JSONDecodeError as exc:
+                        result = {
+                            "pass": False,
+                            "kind": case["kind"],
+                            "path": case["path"],
+                            "error": f"Invalid browser child JSON: {exc}",
+                            "stdout": (completed.stdout or "")[-3000:],
+                            "stderr": (completed.stderr or "")[-3000:],
+                        }
+            except subprocess.TimeoutExpired as exc:
+                result = {
+                    "pass": False,
+                    "kind": case["kind"],
+                    "path": case["path"],
+                    "error": "Hard per-route browser timeout after 45 seconds.",
+                    "stdout": (exc.stdout or "")[-2000:] if isinstance(exc.stdout, str) else "",
+                    "stderr": (exc.stderr or "")[-2000:] if isinstance(exc.stderr, str) else "",
+                }
+
+            results.append(result)
+            if not result.get("pass"):
+                break
     finally:
         server.terminate()
         try:
@@ -284,14 +341,14 @@ def main() -> int:
         except subprocess.TimeoutExpired:
             server.kill()
 
-    report=ARTIFACTS/"report.json"
-    report.write_text(json.dumps(results,indent=2),encoding="utf-8")
+    report = ARTIFACTS / "report.json"
+    report.write_text(json.dumps(results, indent=2), encoding="utf-8")
 
-    failed=False
+    failed = False
     for result in results:
-        state="PASS" if result.get("pass") else "FAIL"
+        state = "PASS" if result.get("pass") else "FAIL"
         print(f"{state} {result.get('kind')} {result.get('path')}")
-        for check in result.get("checks",[]):
+        for check in result.get("checks", []):
             print(f"  {'PASS' if check.get('ok') else 'FAIL'} {check.get('name')}: {check.get('value')}")
         if result.get("page_errors"):
             print(f"  PAGE ERRORS: {result['page_errors']}")
@@ -304,13 +361,15 @@ def main() -> int:
         if result.get("error"):
             print(f"  ERROR: {result['error']}")
         if not result.get("pass"):
-            failed=True
+            failed = True
 
     if failed:
-        print(json.dumps(results,indent=2))
+        print(json.dumps(results, indent=2))
         return 1
+
     print(f"Rendered browser smoke suite passed: {len(results)}/{len(results)} route/viewport cases.")
     return 0
+
 
 if __name__=="__main__":
     raise SystemExit(main())
