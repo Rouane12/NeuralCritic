@@ -49,6 +49,10 @@
           <label>VIDEO CAPTION<input data-field="videoCaption" value="${esc(data.videoCaption||'')}" placeholder="Trailer / gameplay source context"></label>
           <label>VIDEO POSTER<input data-field="videoPoster" value="${esc(data.videoPoster||'')}" placeholder="Optional poster image URL"></label>
         </div>
+        <div class="wide section-related-fields">
+          <small>RELATED STORY CARD</small>
+          <label>NEURAL CRITIC STORY<input data-field="relatedStorySlug" value="${esc(data.relatedStorySlug||'')}" placeholder="Search by story title or slug"></label>
+        </div>
         <div class="rank-fields" ${activeFormat==='ranked-list'?'':'hidden'}>
           <label>RANK<input data-field="rank" value="${esc(rank)}" placeholder="7"></label>
           <label>SUBTITLE<input data-field="subtitle" value="${esc(data.subtitle||'')}" placeholder="Why this position matters"></label>
