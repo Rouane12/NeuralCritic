@@ -157,6 +157,34 @@
     return selected.slice(0, 3);
   }
 
+  function fallbackJourney(current,index){
+    const currentTags=new Set((current?.tags||[]).map(tag=>String(tag).trim().toLowerCase()).filter(Boolean));
+    const scoreArticle=article=>{
+      let score=0;
+      let relation={key:'related',type:'',value:'',label:'RELATED'};
+      if(current?.gameKey&&article?.gameKey&&current.gameKey===article.gameKey){
+        score+=100;relation={key:'same_game',type:'game',value:current.gameKey,label:'SAME GAME'};
+      }else if(current?.series&&article?.series&&current.series===article.series){
+        score+=70;relation={key:'same_series',type:'series',value:current.series,label:'SAME SERIES'};
+      }else if(current?.franchise&&article?.franchise&&current.franchise===article.franchise){
+        score+=55;relation={key:'same_franchise',type:'franchise',value:current.franchise,label:'SAME FRANCHISE'};
+      }
+      const shared=(article?.tags||[]).map(tag=>String(tag).trim().toLowerCase()).filter(tag=>currentTags.has(tag));
+      if(shared.length){
+        score+=Math.min(30,shared.length*8);
+        if(relation.key==='related')relation={key:'shared_topic',type:'',value:shared[0],label:'SHARED TOPIC'};
+      }
+      if(current?.category&&article?.category&&String(current.category).toLowerCase()===String(article.category).toLowerCase())score+=6;
+      const time=Date.parse(article?.publishedAt||article?.updatedAt||'')||0;
+      return {article,score,time,relation};
+    };
+    return index
+      .filter(article=>article?.slug&&article.slug!==current?.slug)
+      .map(scoreArticle)
+      .sort((a,b)=>b.score-a.score||b.time-a.time)
+      .slice(0,3);
+  }
+
   function cardMarkup(item, position) {
     const article = item.article;
     const image = imageUrl(article.imageLocal || article.image || article.heroImage || '');
@@ -270,16 +298,23 @@
       waitForInsertionPoint(),
       discoveryEngine()
     ]);
-    if (!insertionPoint || !Array.isArray(index) || index.length < 2 || !engine?.related) {
+    if (!insertionPoint || !Array.isArray(index) || index.length < 2) {
       window.NeuralCriticRecirculationInitStarted = false;
       return;
     }
 
     const current = await loadCurrent(slug, index);
-    if (!current) return;
+    if (!current) {
+      window.NeuralCriticRecirculationInitStarted = false;
+      return;
+    }
 
-    const selected = selectJourney(current, index, engine);
-    if (!selected.length) return;
+    let selected = engine?.related ? selectJourney(current, index, engine) : [];
+    if (!selected.length) selected = fallbackJourney(current,index);
+    if (!selected.length) {
+      window.NeuralCriticRecirculationInitStarted = false;
+      return;
+    }
 
     const gameContext = current.gameKey ? await waitForArticleGameContext() : null;
     const identity = gameContext?.title || primaryIdentity(current, selected[0]);
