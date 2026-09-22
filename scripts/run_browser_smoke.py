@@ -168,6 +168,8 @@ def safe_name(kind: str, path: str) -> str:
 def run_case(browser, case: dict) -> dict:
     context = browser.new_context(viewport=case["viewport"], device_scale_factor=1)
     page = context.new_page()
+    page.set_default_timeout(15_000)
+    page.route("**/functions/v1/public-actions", lambda route: route.abort())
     console_errors: list[str] = []
     page_errors: list[str] = []
     request_failures: list[str] = []
@@ -177,10 +179,10 @@ def run_case(browser, case: dict) -> dict:
     url = BASE + case["path"]
 
     try:
-        page.goto(url, wait_until="domcontentloaded", timeout=20_000)
+        page.goto(url, wait_until="domcontentloaded", timeout=15_000)
         kind=case["kind"]
         if kind.startswith("article"):
-            page.wait_for_selector("#article.work-article-page .work-reading-grid", state="visible", timeout=20_000)
+            page.wait_for_selector("#article.work-article-page .work-reading-grid", state="visible", timeout=15_000)
             page.wait_for_timeout(8_000)
         elif kind == "home":
             page.wait_for_selector("#hero", state="visible", timeout=15_000)
@@ -243,13 +245,6 @@ def run_case(browser, case: dict) -> dict:
             "request_failures":request_failures[-30:],
         }
 
-    if not result.get("pass"):
-        shot=ARTIFACTS / f"{safe_name(case['kind'],case['path'])}.png"
-        try:
-            page.screenshot(path=str(shot), full_page=True)
-            result["screenshot"]=str(shot.relative_to(ROOT))
-        except Exception:
-            pass
     context.close()
     return result
 
