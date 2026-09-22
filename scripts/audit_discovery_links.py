@@ -166,7 +166,7 @@ def main() -> int:
         "assets/discovery-intelligence.js?v=20260901-recirculation3",
         "assets/recirculation.css?v=20260919-recirc2",
         "assets/article-discovery.js?v=20260922-relatedfix1",
-        "assets/recirculation.js?v=20260919-recirc2",
+        "assets/recirculation.js?v=20260922-recirc3",
         "stories/${encodeURIComponent(latest.slug)}/",
         "data-nc-recirculation",
     )
