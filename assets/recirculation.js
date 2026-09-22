@@ -94,11 +94,19 @@
     return index.find(article => article.slug === slug) || null;
   }
 
-  async function discoveryEngine() {
-    try {
-      if (window.NeuralCriticDiscoveryReady) return await window.NeuralCriticDiscoveryReady;
-    } catch (_) {}
-    return window.NeuralCriticDiscovery || null;
+  async function discoveryEngine(timeout = 6000) {
+    const started = Date.now();
+    while (Date.now() - started < timeout) {
+      try {
+        if (window.NeuralCriticDiscoveryReady) {
+          const engine = await window.NeuralCriticDiscoveryReady;
+          if (engine?.related) return engine;
+        }
+      } catch (_) {}
+      if (window.NeuralCriticDiscovery?.related) return window.NeuralCriticDiscovery;
+      await new Promise(resolve => setTimeout(resolve, 75));
+    }
+    return window.NeuralCriticDiscovery?.related ? window.NeuralCriticDiscovery : null;
   }
 
   function waitForArticleGameContext(timeout = 3200) {
@@ -262,7 +270,10 @@
       waitForInsertionPoint(),
       discoveryEngine()
     ]);
-    if (!insertionPoint || !Array.isArray(index) || index.length < 2 || !engine?.related) return;
+    if (!insertionPoint || !Array.isArray(index) || index.length < 2 || !engine?.related) {
+      window.NeuralCriticRecirculationInitStarted = false;
+      return;
+    }
 
     const current = await loadCurrent(slug, index);
     if (!current) return;
