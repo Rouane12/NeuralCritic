@@ -64,35 +64,13 @@
     });
   }
 
-  function ensureAdminModeration(){
-    if(!isAdmin)return;
-    $$('.community-comment[data-comment-id]').forEach(comment=>{
-      if($('.community-comment-delete',comment)||$('.community-admin-remove',comment))return;
-      const head=$('.community-comment-head',comment),id=comment.dataset.commentId;if(!head||!id)return;
-      const remove=document.createElement('button');remove.type='button';remove.className='community-admin-remove';remove.textContent='MODERATE';remove.title='Remove this comment as Neural Critic admin';
-      remove.addEventListener('click',async()=>{if(!confirm('Remove this comment from the Reader Thread?'))return;const {error}=await client.from('article_comments').delete().eq('id',id);if(error){toast(error.message,true);return;}if(typeof window.neuralCriticRecoverThread==='function')await window.neuralCriticRecoverThread();else comment.remove();toast('Comment removed.');});
-      head.appendChild(remove);
-    });
-  }
-
-  function loadReliableCommentActions(){
-    if(document.querySelector('script[data-nc-community-actions-v2]'))return;
-    const script=document.createElement('script');
-    script.src='assets/community-actions-v2.js?v=20260902-actions1';
-    script.async=true;
-    script.dataset.ncCommunityActionsV2='1';
-    document.body.appendChild(script);
-  }
-
-  function refreshVisuals(){updateHeaderAccount();ensureProfileEditor();ensureAdminModeration();}
+  function refreshVisuals(){updateHeaderAccount();ensureProfileEditor();}
   function queue(){if(queued)return;queued=true;requestAnimationFrame(()=>{queued=false;refreshVisuals()})}
   async function init(){
-    loadReliableCommentActions();
     await loadViewer();refreshVisuals();
-    const observer=new MutationObserver(ms=>{if(ms.some(m=>[...m.addedNodes].some(n=>n instanceof Element&&(n.matches?.('.reader-auth-card,.reader-account-button,.community-comment')||n.querySelector?.('.reader-auth-card,.reader-account-button,.community-comment')))))queue()});
+    const observer=new MutationObserver(ms=>{if(ms.some(m=>[...m.addedNodes].some(n=>n instanceof Element&&(n.matches?.('.reader-auth-card,.reader-account-button')||n.querySelector?.('.reader-auth-card,.reader-account-button')))))queue()});
     observer.observe(document.body,{childList:true,subtree:true});
     client.auth.onAuthStateChange(async()=>{await loadViewer();queue()});
-    window.addEventListener('neuralcritic:thread-recovered',queue);
   }
   if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',init,{once:true});else init();
 })();
