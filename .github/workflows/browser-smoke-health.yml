@@ -1,0 +1,45 @@
+name: Browser smoke health
+
+on:
+  pull_request:
+    paths:
+      - article.html
+      - index.html
+      - category.html
+      - search.html
+      - game.html
+      - games/**
+      - stories/**
+      - assets/**
+      - data/**
+      - scripts/browser_smoke.html
+      - scripts/run_browser_smoke.py
+      - .github/workflows/browser-smoke-health.yml
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: neural-critic-browser-smoke-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  browser-smoke:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Verify Chrome is available
+        run: |
+          command -v google-chrome-stable || command -v google-chrome || command -v chromium || command -v chromium-browser
+
+      - name: Run rendered route and geometry smoke suite
+        run: python scripts/run_browser_smoke.py
