@@ -81,7 +81,8 @@ check(
   !extras.includes('work-bottom-grid') &&
     extras.includes('work-newsletter-band') &&
     recirculation.includes("const find = () => $('.work-reading-grid') || $('#article .article-body');") &&
-    recirculation.includes("insertionPoint.insertAdjacentElement('afterend', module)") &&
+    recirculation.includes("const liveInsertionPoint = $('.work-reading-grid') || insertionPoint.closest?.('.work-reading-grid') || insertionPoint;") &&
+    recirculation.includes("liveInsertionPoint.insertAdjacentElement('afterend', module)") &&
     runtime.includes("$('.work-newsletter-band')"),
   'Continue Exploring should follow the reading grid directly, with Weekly Drop as the next conversion surface'
 );
