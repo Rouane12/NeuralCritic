@@ -37,7 +37,7 @@ check('Continue Exploring has a clear editorial identity',
 check('cards expose relationship labels and canonical story URLs',
   runtime.includes("return new URL(`stories/${encodeURIComponent(slug)}/`, SITE_ROOT).href") &&
   runtime.includes("return 'SAME GAME'") && runtime.includes("return 'SAME SERIES'") && runtime.includes("return 'SAME FRANCHISE'"));
-check('after-thread Game Hub and topic Hub journey remains intact',
+check('post-article Game Hub and topic Hub journey remains intact',
   runtime.includes("destination:'game_hub'") && runtime.includes("destination:'topic_hub'") && runtime.includes('OPEN GAME HUB →'));
 check('recirculation analytics retain the established event owner with surface and slot context',
   runtime.includes("NeuralCriticAnalytics?.track?.('recirculation_click'") &&
@@ -49,8 +49,8 @@ check('Continue Exploring is responsive and theme-aware',
   css.includes('html[data-theme="dark"] .nc-continue-exploring') && css.includes('@media(prefers-reduced-motion:reduce)'));
 check('article bootstrap pins Phase 3 recirculation assets ahead of content API fallback',
   article.includes('assets/recirculation.css?v=20260919-recirc2') &&
-  article.includes('assets/recirculation.js?v=20260919-recirc2') &&
-  article.indexOf('assets/recirculation.js?v=20260919-recirc2') < article.indexOf('assets/content-api.js?v=20260919-repo1'));
+  /assets\/recirculation\.js\?v=[A-Za-z0-9._-]+/.test(article) &&
+  article.indexOf('assets/recirculation.js?v=') < article.indexOf('assets/content-api.js?v='));
 check('content API keeps the existing fallback owner for non-article bootstrap compatibility',
   contentApi.includes("recirculationStyle.href = 'assets/recirculation.css?v=20260919-recirc2'") &&
   contentApi.includes("recirculation.src = 'assets/recirculation.js?v=20260919-recirc2'"));

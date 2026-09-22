@@ -133,22 +133,6 @@
   line-height:1.55;
 }
 
-#article.work-article-page>.work-bottom-grid{
-  width:min(1150px,100%);
-  grid-template-columns:minmax(0,835px) 280px;
-  gap:34px;
-  margin:78px auto 0;
-}
-#article.work-article-page .article-thread{
-  padding:30px 34px;
-  border-radius:20px;
-}
-#article.work-article-page .thread-head h2{
-  font-size:30px;
-}
-#article.work-article-page .work-bottom-sidebar{
-  gap:18px;
-}
 
 #article.work-article-page>.work-newsletter-band{
   width:min(1150px,100%);
@@ -167,7 +151,6 @@ html[data-theme=light] #article.work-article-page>.work-gradient-title{
 
 @media(max-width:1180px){
   #article.work-article-page>.work-reading-grid{grid-template-columns:68px minmax(0,1fr) 240px;gap:24px}
-  #article.work-article-page>.work-bottom-grid{grid-template-columns:minmax(0,1fr) 250px;gap:24px}
 }
 
 @media(max-width:900px){
@@ -179,8 +162,6 @@ html[data-theme=light] #article.work-article-page>.work-gradient-title{
   #article.work-article-page .work-react-rail{position:relative;top:auto;flex-direction:row;justify-content:center;margin-bottom:24px}
   #article.work-article-page .work-react-rail>span{display:none}
   #article.work-article-page .work-article-sidebar{position:relative;top:auto;display:grid;grid-template-columns:1fr 1fr;margin-top:34px}
-  #article.work-article-page>.work-bottom-grid{grid-template-columns:1fr}
-  #article.work-article-page .work-bottom-sidebar{grid-template-columns:1fr 1fr}
 }
 
 @media(max-width:620px){
@@ -193,7 +174,6 @@ html[data-theme=light] #article.work-article-page>.work-gradient-title{
   #article.work-article-page .work-hero-figure{border-radius:18px}
   #article.work-article-page .work-reading-grid>.article-body>p{font-size:18px}
   #article.work-article-page .work-reading-grid>.article-body h2{font-size:34px}
-  #article.work-article-page .work-article-sidebar,#article.work-article-page .work-bottom-sidebar{grid-template-columns:1fr}
-  #article.work-article-page .article-thread{padding:22px 18px}
+  #article.work-article-page .work-article-sidebar{grid-template-columns:1fr}
   #article.work-article-page>.work-newsletter-band{padding:26px 20px}
 }

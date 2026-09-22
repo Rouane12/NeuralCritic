@@ -42,30 +42,7 @@
   height:max-content!important;
 }
 
-/* The duplicate lower sidebar is gone, but the discussion should not become
-   a giant full-width slab. Give it a familiar publication discussion width. */
-#article.work-article-page>.work-bottom-grid{
-  display:block!important;
-  width:min(980px,100%)!important;
-  margin:60px auto 0!important;
-}
-
-#article.work-article-page>.work-bottom-grid>div{
-  width:100%!important;
-  min-width:0!important;
-}
-
-#article.work-article-page .work-bottom-sidebar{
-  display:none!important;
-}
-
-#article.work-article-page #reader-thread{
-  width:100%!important;
-  max-width:none!important;
-}
-
-/* Keep the single newsletter CTA wider than the discussion so it acts as a
-   deliberate full-width ending to the article. */
+/* Keep the newsletter CTA as a deliberate full-width ending after recirculation. */
 #article.work-article-page>.work-newsletter-band{
   width:min(1150px,100%)!important;
   margin:52px auto 0!important;
@@ -92,18 +69,10 @@
     scroll-margin-top:96px;
   }
 
-  #article.work-article-page>.work-bottom-grid{
-    width:100%!important;
-    margin-top:48px!important;
-  }
-
   #article.work-article-page>.work-newsletter-band{
     margin-top:42px!important;
   }
 }
 
 @media(max-width:620px){
-  #article.work-article-page>.work-bottom-grid{
-    margin-top:40px!important;
-  }
 }

@@ -77,11 +77,13 @@ check(
 );
 
 check(
-  'article journey remains Thread then Continue Exploring then Weekly Drop',
-  extras.indexOf('work-bottom-grid') < extras.indexOf('work-newsletter-band') &&
+  'article journey remains Reading then Continue Exploring then Weekly Drop',
+  !extras.includes('work-bottom-grid') &&
+    extras.includes('work-newsletter-band') &&
+    recirculation.includes("const find = () => $('.work-reading-grid') || $('#article .article-body');") &&
     recirculation.includes("insertionPoint.insertAdjacentElement('afterend', module)") &&
     runtime.includes("$('.work-newsletter-band')"),
-  'Continue Exploring should be inserted after the Thread container while Weekly Drop upgrades the following band'
+  'Continue Exploring should follow the reading grid directly, with Weekly Drop as the next conversion surface'
 );
 
 check(
@@ -97,7 +99,7 @@ check(
   css.includes('grid-template-columns:minmax(0,1.15fr) minmax(340px,.85fr)') &&
     css.includes('width:min(1180px,calc(100% - 40px))') &&
     css.includes('.nc-weekly-drop-signup'),
-  'the end-of-article CTA should align with the 1180px Thread and Continue Exploring canvas'
+  'the end-of-article CTA should align with the 1180px Continue Exploring canvas'
 );
 
 check(
