@@ -168,8 +168,16 @@ def safe_name(kind: str, path: str) -> str:
 def run_case(browser, case: dict) -> dict:
     context = browser.new_context(viewport=case["viewport"], device_scale_factor=1)
     page = context.new_page()
-    page.set_default_timeout(15_000)
-    page.route("**/functions/v1/public-actions", lambda route: route.abort())
+    page.set_default_timeout(12_000)
+
+    def route_local_only(route):
+        url = route.request.url
+        if url.startswith(BASE) or url.startswith("data:") or url.startswith("blob:"):
+            route.continue_()
+        else:
+            route.abort()
+
+    page.route("**/*", route_local_only)
     console_errors: list[str] = []
     page_errors: list[str] = []
     request_failures: list[str] = []
@@ -182,13 +190,13 @@ def run_case(browser, case: dict) -> dict:
         page.goto(url, wait_until="domcontentloaded", timeout=15_000)
         kind=case["kind"]
         if kind.startswith("article"):
-            page.wait_for_selector("#article.work-article-page .work-reading-grid", state="visible", timeout=15_000)
-            page.wait_for_timeout(8_000)
+            page.wait_for_selector("#article.work-article-page .work-reading-grid", state="visible", timeout=12_000)
+            page.wait_for_timeout(3_000)
         elif kind == "home":
-            page.wait_for_selector("#hero", state="visible", timeout=15_000)
-            page.wait_for_timeout(4_000)
+            page.wait_for_selector("#hero", state="visible", timeout=12_000)
+            page.wait_for_timeout(2_000)
         else:
-            page.wait_for_timeout(5_000)
+            page.wait_for_timeout(2_000)
 
         result = page.evaluate(EVALUATE, {"kind":kind})
         result.update({
@@ -261,12 +269,9 @@ def run_child(case_index: int) -> int:
             headless=True,
             args=["--no-sandbox", "--disable-dev-shm-usage", "--disable-gpu"],
         )
-        try:
-            result = run_case(browser, case)
-        finally:
-            browser.close()
+        result = run_case(browser, case)
 
-    print(json.dumps(result))
+    print(json.dumps(result), flush=True)
     return 0
 
 
@@ -298,7 +303,7 @@ def main() -> int:
                     cwd=ROOT,
                     text=True,
                     capture_output=True,
-                    timeout=45,
+                    timeout=30,
                 )
                 payload = (completed.stdout or "").strip().splitlines()
                 if not payload:
@@ -326,7 +331,7 @@ def main() -> int:
                     "pass": False,
                     "kind": case["kind"],
                     "path": case["path"],
-                    "error": "Hard per-route browser timeout after 45 seconds.",
+                    "error": "Hard per-route browser timeout after 30 seconds.",
                     "stdout": (exc.stdout or "")[-2000:] if isinstance(exc.stdout, str) else "",
                     "stderr": (exc.stderr or "")[-2000:] if isinstance(exc.stderr, str) else "",
                 }
