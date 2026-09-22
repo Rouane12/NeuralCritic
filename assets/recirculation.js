@@ -160,7 +160,7 @@
 
   function waitForInsertionPoint(timeout = 7000) {
     return new Promise(resolve => {
-      const find = () => $('#reader-thread')?.closest('.work-bottom-grid') || $('#reader-thread') || $('.work-bottom-grid');
+      const find = () => $('.work-reading-grid') || $('#article .article-body');
       const immediate = find();
       if (immediate) return resolve(immediate);
       const host = $('#article');
@@ -185,7 +185,7 @@
       const link = event.target.closest('[data-recirc-target]');
       if (link) {
         window.NeuralCriticAnalytics?.track?.('recirculation_click', {
-          placement:'after_thread',
+          placement:'after_article',
           surface:'continue_exploring',
           target_slug:link.dataset.recircTarget || '',
           recommendation_reason:link.dataset.recircReason || '',
@@ -195,7 +195,7 @@
       const hub = event.target.closest('[data-recirc-hub]');
       if (hub) {
         window.NeuralCriticAnalytics?.track?.('recirculation_hub_click', {
-          placement:'after_thread',
+          placement:'after_article',
           surface:'continue_exploring',
           hub_type:hub.dataset.recircHub || '',
           hub_value:hub.dataset.recircHubValue || '',
@@ -209,7 +209,7 @@
       if (!entries.some(entry => entry.isIntersecting)) return;
       observer.disconnect();
       window.NeuralCriticAnalytics?.track?.('recirculation_view', {
-        placement:'after_thread',
+        placement:'after_article',
         surface:'continue_exploring',
         recommendation_count:module.querySelectorAll('[data-recirc-target]').length,
         primary_reason:module.dataset.primaryReason || '',
@@ -290,7 +290,7 @@
     module.innerHTML = `<header class="nc-recirc-head"><div><span>KEEP READING</span><h2 id="nc-recirculation-title">Continue exploring</h2><p>More from this game, its world, and what matters next.</p></div><a href="${esc(exploreHref)}"${hub.href ? ` data-recirc-hub="${esc(hub.type)}" data-recirc-hub-value="${esc(hub.value)}" data-recirc-hub-destination="${esc(hub.destination || 'topic_hub')}"` : ''}>${esc(exploreLabel)}</a></header><div class="nc-recirc-grid">${selected.map(cardMarkup).join('')}</div>`;
     insertionPoint.insertAdjacentElement('afterend', module);
 
-    module.dataset.placement = 'after-reader-thread';
+    module.dataset.placement = 'after-article';
     module.dataset.primaryReason = selected[0]?.relation?.key || 'related';
     module.dataset.primaryScore = String(selected[0]?.score || 0);
     module.dataset.relationships = selected.map(item => item?.relation?.key || 'related').join(',');
