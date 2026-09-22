@@ -14,15 +14,6 @@
     document.head.appendChild(style);
   }
 
-  function loadPublicationFooter() {
-    if (document.querySelector('script[data-nc-article-footer-v2]')) return;
-    const script = document.createElement('script');
-    script.src = 'assets/article-footer-v2.js?v=20260912-footer1';
-    script.async = true;
-    script.dataset.ncArticleFooterV2 = '1';
-    document.head.appendChild(script);
-  }
-
   function currentSlug() {
     const staticSlug = String(window.NEURAL_CRITIC_STATIC_SLUG || '').trim();
     if (staticSlug) return staticSlug;
@@ -107,7 +98,6 @@
 
   function init() {
     ensureStyle();
-    loadPublicationFooter();
     removeDuplicateCards();
     const immediate = $('.work-newsletter-band');
     if (upgradeBand(immediate)) return;
