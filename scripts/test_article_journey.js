@@ -106,7 +106,7 @@ check(
   articleTemplate.includes('assets/content-api.js?v=20260922-relatedfix1') &&
     contentApi.includes('assets/discovery-intelligence.css?v=20260903-articlejourney1') &&
     contentApi.includes('assets/article-discovery.js?v=20260922-relatedfix1') &&
-    contentApi.includes('assets/recirculation.js?v=20260919-recirc2'),
+    contentApi.includes('assets/recirculation.js?v=20260922-recirc3'),
   'returning readers should receive the new article journey assets rather than stale cached owners'
 );
 

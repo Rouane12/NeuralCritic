@@ -1,0 +1,107 @@
+<!doctype html>
+<meta charset="utf-8">
+<title>Neural Critic browser smoke harness</title>
+<style>
+html,body{margin:0;width:100%;height:100%;overflow:hidden}
+iframe{position:fixed;inset:0;width:100%;height:100%;border:0}
+#smoke-result{display:none}
+</style>
+<iframe id="target" title="Smoke target"></iframe>
+<pre id="smoke-result">{"done":false}</pre>
+<script>
+(() => {
+  const params=new URLSearchParams(location.search);
+  const target=params.get('target')||'/';
+  const kind=params.get('kind')||'generic';
+  const frame=document.getElementById('target');
+  const result=document.getElementById('smoke-result');
+  let finished=false;
+  const finish=payload=>{
+    if(finished)return;
+    finished=true;
+    result.textContent=JSON.stringify({done:true,target,kind,...payload});
+    result.dataset.done='1';
+  };
+  const wait=ms=>new Promise(resolve=>setTimeout(resolve,ms));
+  const visible=el=>{
+    if(!el)return false;
+    const s=el.ownerDocument.defaultView.getComputedStyle(el);
+    const r=el.getBoundingClientRect();
+    return s.display!=='none'&&s.visibility!=='hidden'&&r.width>0&&r.height>0;
+  };
+  const rect=el=>{
+    if(!el)return null;
+    const r=el.getBoundingClientRect();
+    return {x:Math.round(r.x),y:Math.round(r.y),width:Math.round(r.width),height:Math.round(r.height),right:Math.round(r.right)};
+  };
+
+  frame.addEventListener('load',async()=>{
+    try{
+      await wait(9000);
+      const doc=frame.contentDocument;
+      const win=frame.contentWindow;
+      const checks=[];
+      const detail={viewport:{width:win.innerWidth,height:win.innerHeight},scrollWidth:doc.documentElement.scrollWidth};
+      const check=(name,ok,value)=>checks.push({name,ok:Boolean(ok),value});
+      check('document rendered',!!doc?.body,!!doc?.body);
+      check('no page-wide horizontal overflow',doc.documentElement.scrollWidth<=win.innerWidth+12,{scrollWidth:doc.documentElement.scrollWidth,innerWidth:win.innerWidth});
+
+      if(kind==='home'){
+        const hero=doc.querySelector('#hero');
+        const stories=[...doc.querySelectorAll('a[href*="/stories/"],a[href^="stories/"]')];
+        check('homepage hero exists',visible(hero),rect(hero));
+        check('homepage has story navigation',stories.length>=3,stories.length);
+      }
+      if(kind==='category'){
+        const title=doc.querySelector('#category-title');
+        const feed=doc.querySelector('#category-feed');
+        check('category title rendered',visible(title)&&!/loading/i.test(title.textContent||''),title?.textContent?.trim());
+        check('category feed container exists',!!feed,rect(feed));
+      }
+      if(kind==='search'){
+        const form=doc.querySelector('#work-search-form');
+        const input=doc.querySelector('#work-search-input');
+        check('search form visible',visible(form),rect(form));
+        check('search input visible',visible(input),rect(input));
+      }
+      if(kind==='game'){
+        const title=doc.querySelector('#game-title');
+        const page=doc.querySelector('#game-page');
+        check('game page visible',visible(page),rect(page));
+        check('game title resolved',visible(title)&&!/loading|unavailable|not found/i.test(title.textContent||''),title?.textContent?.trim());
+      }
+      if(kind==='article'){
+        const article=doc.querySelector('#article.work-article-page');
+        const grid=article?.querySelector(':scope > .work-reading-grid');
+        const body=grid?.querySelector(':scope > .article-body');
+        const rail=grid?.querySelector(':scope > .work-react-rail.standard-react-rail');
+        const sidebar=grid?.querySelector(':scope > .work-article-sidebar');
+        const recirc=article?.querySelector(':scope > .nc-recirculation');
+        const newsletter=article?.querySelector(':scope > .work-newsletter-band');
+        const legacyThread=article?.querySelector('#reader-thread,.article-thread,.work-bottom-grid');
+        const legacyRelated=article?.querySelector('.work-related-card.nc-related-intelligent');
+        detail.article={article:rect(article),grid:rect(grid),body:rect(body),rail:rect(rail),sidebar:rect(sidebar),recirculation:rect(recirc),newsletter:rect(newsletter)};
+        check('article shell upgraded',visible(article),rect(article));
+        check('reading grid visible',visible(grid),rect(grid));
+        check('editorial body has sane desktop width',visible(body)&&body.getBoundingClientRect().width>=560&&body.getBoundingClientRect().width<=840,rect(body));
+        check('reaction rail normalized',visible(rail)&&rail.getBoundingClientRect().width>=80&&rail.getBoundingClientRect().width<=150,rect(rail));
+        check('sidebar has sane width',visible(sidebar)&&sidebar.getBoundingClientRect().width>=220&&sidebar.getBoundingClientRect().width<=360,rect(sidebar));
+        check('retired Reader Thread absent',!legacyThread,legacyThread?.className||null);
+        check('retired generic Related Coverage absent',!legacyRelated,legacyRelated?.className||null);
+        check('Continue Exploring visible',visible(recirc)&&recirc.getBoundingClientRect().width>=700,rect(recirc));
+        check('Weekly Drop visible',visible(newsletter)&&newsletter.getBoundingClientRect().width>=700,rect(newsletter));
+        const badMedia=[...(body?.querySelectorAll('img,video,iframe,.article-video-shell')||[])].filter(el=>el.getBoundingClientRect().right>win.innerWidth+12);
+        check('article media stays inside viewport',badMedia.length===0,badMedia.map(el=>({tag:el.tagName,className:el.className,rect:rect(el)})));
+      }
+
+      const failures=checks.filter(item=>!item.ok);
+      finish({pass:failures.length===0,checks,failures,detail});
+    }catch(error){
+      finish({pass:false,error:String(error?.stack||error)});
+    }
+  });
+
+  setTimeout(()=>finish({pass:false,error:'Timed out waiting for rendered page'}),16000);
+  frame.src=target;
+})();
+</script>
