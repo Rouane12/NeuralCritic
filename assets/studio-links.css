@@ -1,0 +1,20 @@
+.studio-link-tools{display:flex;align-items:center;gap:7px;flex-wrap:wrap;margin-top:8px}
+.studio-link-tools>button{min-height:30px;padding:0 10px;border:1px solid #dce2ee;border-radius:8px;background:#fff;color:#43506a;font:800 7.5px/1 Inter,system-ui,sans-serif;letter-spacing:.1em;cursor:pointer}
+.studio-link-tools>button:hover{border-color:#9eabff;color:#5e6deb}
+.studio-link-status{color:#7b8799;font:700 7.5px/1.3 Inter,system-ui,sans-serif;letter-spacing:.05em}
+.studio-link-panel{display:grid;gap:9px;width:100%;padding:10px;border:1px solid #dfe4ee;border-radius:10px;background:#f8faff}
+.studio-link-panel[hidden]{display:none}
+.studio-link-panel input{width:100%;min-height:38px}
+.studio-link-results{display:grid;gap:6px;max-height:210px;overflow:auto}
+.studio-link-result{display:grid;gap:3px;width:100%;padding:9px 10px;border:1px solid #e0e5ef;border-radius:8px;background:#fff;text-align:left;cursor:pointer}
+.studio-link-result:hover{border-color:#adb8ff;background:#f7f8ff}
+.studio-link-result b{color:#202b3d;font:750 10px/1.25 Inter,system-ui,sans-serif}
+.studio-link-result small{color:#758195;font:700 7px/1 Inter,system-ui,sans-serif;letter-spacing:.08em}
+.section-related-fields{padding:12px;border:1px dashed #d9dfeb;border-radius:10px;background:#fafbfe}
+.section-related-fields>small{display:block;margin-bottom:8px;color:#6675ef;font:800 8px/1 Inter,system-ui,sans-serif;letter-spacing:.13em}
+.section-related-fields .studio-related-note{margin-top:6px;color:#7a879a;font:650 7.5px/1.4 Inter,system-ui,sans-serif}
+html[data-theme="dark"] .studio-link-tools>button{border-color:rgba(123,141,184,.28);background:#111a2d;color:#bac5da}
+html[data-theme="dark"] .studio-link-panel,html[data-theme="dark"] .section-related-fields{border-color:rgba(123,141,184,.25);background:#0d1526}
+html[data-theme="dark"] .studio-link-result{border-color:rgba(123,141,184,.24);background:#121c30}
+html[data-theme="dark"] .studio-link-result b{color:#f2f5fb}
+html[data-theme="dark"] .studio-link-result small,html[data-theme="dark"] .studio-link-status,html[data-theme="dark"] .section-related-fields .studio-related-note{color:#98a5ba}
