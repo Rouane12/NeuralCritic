@@ -180,10 +180,18 @@ def run_case(browser, case: dict) -> dict:
 
     page.route("**/*", route_local_only)
     console_errors: list[str] = []
-    page_errors: list[str] = []
+    page_errors: list[dict] = []
     request_failures: list[str] = []
+
+    def record_page_error(exc):
+        page_errors.append({
+            "message": str(exc),
+            "name": getattr(exc, "name", None),
+            "stack": getattr(exc, "stack", None),
+        })
+
     page.on("console", lambda msg: console_errors.append(msg.text) if msg.type == "error" else None)
-    page.on("pageerror", lambda exc: page_errors.append(str(exc)))
+    page.on("pageerror", record_page_error)
     page.on("requestfailed", lambda req: request_failures.append(f"{req.url} :: {req.failure or 'failed'}"))
     url = BASE + case["path"]
 
