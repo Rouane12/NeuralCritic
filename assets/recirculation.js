@@ -334,7 +334,12 @@
     module.className = 'nc-recirculation nc-continue-exploring';
     module.setAttribute('aria-labelledby', 'nc-recirculation-title');
     module.innerHTML = `<header class="nc-recirc-head"><div><span>KEEP READING</span><h2 id="nc-recirculation-title">Continue exploring</h2><p>More from this game, its world, and what matters next.</p></div><a href="${esc(exploreHref)}"${hub.href ? ` data-recirc-hub="${esc(hub.type)}" data-recirc-hub-value="${esc(hub.value)}" data-recirc-hub-destination="${esc(hub.destination || 'topic_hub')}"` : ''}>${esc(exploreLabel)}</a></header><div class="nc-recirc-grid">${selected.map(cardMarkup).join('')}</div>`;
-    insertionPoint.insertAdjacentElement('afterend', module);
+
+    // The body can be captured before article-extras wraps it in the reading grid.
+    // Resolve the placement target again at insertion time so recirculation can
+    // never become an accidental fourth grid child.
+    const liveInsertionPoint = $('.work-reading-grid') || insertionPoint.closest?.('.work-reading-grid') || insertionPoint;
+    liveInsertionPoint.insertAdjacentElement('afterend', module);
 
     module.dataset.placement = 'after-article';
     module.dataset.primaryReason = selected[0]?.relation?.key || 'related';
