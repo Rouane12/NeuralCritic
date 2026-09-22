@@ -4,7 +4,6 @@
   const SITE_ROOT = new URL(location.hostname === 'rouane12.github.io' ? '/NeuralCritic/' : '/', location.origin);
   const esc = (value='') => String(value).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
   const slug = () => window.NEURAL_CRITIC_STATIC_SLUG || new URLSearchParams(location.search).get('slug') || '';
-  const storyHref = storySlug => new URL(`stories/${encodeURIComponent(storySlug)}/`, SITE_ROOT).href;
   const gameHref = gameSlug => new URL(`games/${encodeURIComponent(gameSlug)}/`, SITE_ROOT).href;
 
   async function waitForEngine(limit=60) {
@@ -97,66 +96,10 @@
     meta.insertAdjacentElement('afterend',trail);
   }
 
-  function relatedMarkup(current, all, engine) {
-    const related=engine.related(current,all,3);
-    if (!related.length) return '';
-    return `<section class="work-side-card work-related-card nc-related-intelligent">
-      <span>RELATED COVERAGE</span>
-      ${related.map(({article,reason})=>`<a href="${esc(storyHref(article.slug))}" data-discovery-target="${esc(article.slug)}" data-discovery-reason="${esc(reason)}"><b>${esc(article.title)}</b><small>${esc(article.category || 'STORY')}</small><small class="nc-related-reason">${esc(reason)}</small></a>`).join('')}
-    </section>`;
-  }
-
-  function renderRelated(host, current, all, engine) {
-    const markup=relatedMarkup(current,all,engine);
-    if (!markup) return false;
-
-    const intelligent=host.querySelector('.work-related-card.nc-related-intelligent');
-    const cards=[...host.querySelectorAll('.work-related-card')];
-    cards.forEach(card => { if (card !== intelligent) card.remove(); });
-
-    if (intelligent) return true;
-    const slot=host.querySelector('[data-related-slot]');
-    if (slot) {
-      slot.innerHTML=markup;
-      return true;
-    }
-    const sidebar=host.querySelector('.work-bottom-sidebar,.work-article-sidebar');
-    if (sidebar) {
-      sidebar.insertAdjacentHTML('afterbegin',markup);
-      return true;
-    }
-    return false;
-  }
-
-  function stabilizeRelated(host, current, all, engine) {
-    renderRelated(host,current,all,engine);
-    const observer=new MutationObserver(() => {
-      const cards=[...host.querySelectorAll('.work-related-card')];
-      const hasLegacy=cards.some(card => !card.classList.contains('nc-related-intelligent'));
-      if (hasLegacy || (!cards.length && host.querySelector('[data-related-slot]'))) {
-        renderRelated(host,current,all,engine);
-      }
-    });
-    observer.observe(host,{childList:true,subtree:true});
-    setTimeout(() => {
-      renderRelated(host,current,all,engine);
-      observer.disconnect();
-    },2500);
-  }
-
   function trackDiscovery(host) {
     if (!host || host.dataset.discoveryTracking === '1') return;
     host.dataset.discoveryTracking='1';
     host.addEventListener('click',event=>{
-      const storyLink=event.target.closest('[data-discovery-target]');
-      if (storyLink) {
-        window.NeuralCriticAnalytics?.track?.('discovery_click',{
-          placement:'article_sidebar',
-          target_slug:storyLink.dataset.discoveryTarget || '',
-          recommendation_reason:storyLink.dataset.discoveryReason || ''
-        });
-        return;
-      }
       const entityLink=event.target.closest('[data-discovery-entity-type]');
       if (!entityLink) return;
       window.NeuralCriticAnalytics?.track?.('connected_coverage_click',{
@@ -175,24 +118,14 @@
     if (!engine) return;
 
     try {
-      const [currentResponse,indexResponse]=await Promise.all([
-        fetch(`data/articles/${encodeURIComponent(storySlug)}.json`),
-        fetch('data/articles.json')
-      ]);
-      if (!currentResponse.ok || !indexResponse.ok) return;
+      const currentResponse=await fetch(`data/articles/${encodeURIComponent(storySlug)}.json`);
+      if (!currentResponse.ok) return;
       const current=await currentResponse.json();
-      const all=await indexResponse.json();
       const [host,game]=await Promise.all([waitForArticleHost(),resolveGameContext(current)]);
       publishGameContext(game);
-      if (!host || !Array.isArray(all)) return;
+      if (!host) return;
       trackDiscovery(host);
       renderGraphTrail(host,current,engine,game);
-
-      for (let i=0;i<50;i++) {
-        if (host.querySelector('.work-related-card') || host.querySelector('[data-related-slot]') || host.querySelector('.work-bottom-sidebar,.work-article-sidebar')) break;
-        await new Promise(resolve=>setTimeout(resolve,80));
-      }
-      stabilizeRelated(host,current,all,engine);
     } catch (error) {
       publishGameContext(null);
       console.warn('Neural Critic discovery context unavailable.',error);
