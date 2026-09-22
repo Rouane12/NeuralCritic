@@ -47,7 +47,7 @@
   }
 
   function removeRetiredSurfaces(){
-    $('#reader-thread,.article-thread,.work-bottom-grid,.work-related-card.nc-related-intelligent').forEach(node=>node.remove());
+    $$('#reader-thread,.article-thread,.work-bottom-grid,.work-related-card.nc-related-intelligent').forEach(node=>node.remove());
   }
 
   function setImportant(node, property, value){
