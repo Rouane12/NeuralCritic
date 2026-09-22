@@ -5,9 +5,17 @@
     <link>https://www.neuralcritic.net/</link>
     <description>Gaming news, reviews, guides, and features for players who want the signal—not the noise.</description>
     <language>en</language>
-    <lastBuildDate>Fri, 18 Sep 2026 23:49:33 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 22 Sep 2026 04:14:29 +0000</lastBuildDate>
     <generator>Neural Critic publication pipeline</generator>
     <atom:link href="https://www.neuralcritic.net/feed.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>gen ATLAS Looks Like Fumito Ueda’s Most Ambitious World Yet</title>
+      <link>https://www.neuralcritic.net/stories/gen-atlas-fumito-ueda-most-ambitious-world-yet/</link>
+      <guid isPermaLink="true">https://www.neuralcritic.net/stories/gen-atlas-fumito-ueda-most-ambitious-world-yet/</guid>
+      <description>Fumito Ueda’s first open-world game is not interesting because it is bigger. gen ATLAS looks compelling because it turns his oldest ideas — scale, companionship, silence and interpretation — into systems that can shape an entire world.</description>
+      <category>FEATURE</category>
+      <pubDate>Tue, 22 Sep 2026 04:05:00 +0000</pubDate>
+    </item>
     <item>
       <title>PHYSINT Casts Bill Skarsgård as Its Lead as Kojima Productions Expands Xbox Partnership</title>
       <link>https://www.neuralcritic.net/stories/physint-bill-skarsgard-lead-xbox-tgs-2026/</link>
@@ -237,14 +245,6 @@
       <link>https://www.neuralcritic.net/stories/ghost-of-tsushima-directors-cut-review/</link>
       <guid isPermaLink="true">https://www.neuralcritic.net/stories/ghost-of-tsushima-directors-cut-review/</guid>
       <description>Ghost of Tsushima Director’s Cut review covering Jin’s story, stance-based combat, open-world exploration, Iki Island, Legends and the complete package.</description>
-      <category>REVIEW</category>
-      <pubDate>Sat, 05 Sep 2026 09:38:05 +0000</pubDate>
-    </item>
-    <item>
-      <title>God of War Ragnarök Review</title>
-      <link>https://www.neuralcritic.net/stories/god-of-war-ragnarok-review/</link>
-      <guid isPermaLink="true">https://www.neuralcritic.net/stories/god-of-war-ragnarok-review/</guid>
-      <description>God of War Ragnarök review covering Kratos and Atreus, expanded combat, companions, exploration, side stories, Valhalla and the current complete package.</description>
       <category>REVIEW</category>
       <pubDate>Sat, 05 Sep 2026 09:38:05 +0000</pubDate>
     </item>

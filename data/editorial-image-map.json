@@ -5,6 +5,31 @@
       "local_bytes": 184200,
       "source_bytes": 1332906
     },
+    "https://cdn1.epicgames.com/spt-assets/96c2f20021544452aa4b27e5af09331b/unnamed-19xky.jpg": {
+      "local": "/images/editorial/unnamed-19xky.jpg",
+      "local_bytes": 195743,
+      "source_bytes": 195743
+    },
+    "https://cdn1.epicgames.com/spt-assets/96c2f20021544452aa4b27e5af09331b/unnamed-1x0c5.jpg": {
+      "local": "/images/editorial/unnamed-1x0c5.jpg",
+      "local_bytes": 127562,
+      "source_bytes": 127562
+    },
+    "https://cdn1.epicgames.com/spt-assets/96c2f20021544452aa4b27e5af09331b/unnamed-mddde.jpg": {
+      "local": "/images/editorial/unnamed-mddde.jpg",
+      "local_bytes": 139730,
+      "source_bytes": 139730
+    },
+    "https://cdn1.epicgames.com/spt-assets/96c2f20021544452aa4b27e5af09331b/unnamed-nkryd.jpg": {
+      "local": "/images/editorial/unnamed-nkryd.jpg",
+      "local_bytes": 251384,
+      "source_bytes": 251384
+    },
+    "https://gameinformer.com/sites/default/files/styles/content_header_l/public/2026/06/08/274897e6/gen-atlas-art-crop.jpg.webp": {
+      "local": "/images/editorial/gen-atlas-art-crop.jpg.webp",
+      "local_bytes": 132788,
+      "source_bytes": 132788
+    },
     "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1787351828350-406d9122-1456-43fb-b917-0dab1033cbc3-dark-souls-main.jpg": {
       "local": "/images/editorial/1787351828350-406d9122-1456-43fb-b917-0dab1033cbc3-dark-souls-main.jpg",
       "local_bytes": 132568,
