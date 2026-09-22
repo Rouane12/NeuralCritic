@@ -1,0 +1,280 @@
+/* Neural Critic article recovery layer — single final geometry owner.
+   Loaded last so legacy visual skins can keep their colors while one file owns
+   desktop/tablet/mobile article geometry after Reader Thread retirement. */
+
+body:has(#article.work-article-page){overflow-x:clip}
+
+#article.work-article-page>.work-reading-grid{
+  box-sizing:border-box!important;
+  display:grid!important;
+  width:min(1180px,100%)!important;
+  max-width:100%!important;
+  grid-template-columns:112px minmax(0,728px) minmax(0,288px)!important;
+  column-gap:26px!important;
+  row-gap:0!important;
+  align-items:start!important;
+  overflow:visible!important;
+  margin-inline:auto!important;
+}
+
+#article.work-article-page .work-reading-grid>.article-body,
+#article.work-article-page .work-article-sidebar,
+#article.work-article-page .work-react-rail{
+  min-width:0!important;
+  max-width:100%!important;
+}
+
+#article.work-article-page .work-reading-grid>.article-body{
+  box-sizing:border-box!important;
+  width:100%!important;
+  overflow:visible!important;
+  overflow-wrap:anywhere;
+}
+
+#article.work-article-page .article-body img,
+#article.work-article-page .article-body video,
+#article.work-article-page .article-body iframe,
+#article.work-article-page .article-video-shell,
+#article.work-article-page .work-inline-figure{
+  max-width:100%!important;
+}
+
+#article.work-article-page .work-article-sidebar{
+  box-sizing:border-box!important;
+  width:100%!important;
+  overflow:visible!important;
+  overflow-wrap:anywhere;
+}
+
+#article.work-article-page .work-article-sidebar .work-side-card{
+  box-sizing:border-box!important;
+  width:100%!important;
+  min-width:0!important;
+}
+
+#article.work-article-page .work-toc nav a{
+  min-width:0!important;
+  overflow-wrap:anywhere;
+}
+
+#article.work-article-page .work-react-rail.standard-react-rail{
+  box-sizing:border-box!important;
+  position:sticky!important;
+  top:112px!important;
+  display:flex!important;
+  width:112px!important;
+  min-width:112px!important;
+  max-width:112px!important;
+  height:max-content!important;
+  align-self:start!important;
+  flex-direction:column!important;
+  align-items:stretch!important;
+  justify-self:end!important;
+  gap:5px!important;
+  margin:0!important;
+  padding:34px 0 0!important;
+  z-index:3!important;
+}
+
+#article.work-article-page .work-react-rail.standard-react-rail>span{
+  display:block!important;
+  margin:0 0 6px 8px!important;
+  color:var(--muted)!important;
+  font:900 8px/1 Inter,system-ui,sans-serif!important;
+  letter-spacing:.14em!important;
+}
+
+#article.work-article-page .work-react-rail.standard-react-rail button{
+  position:relative!important;
+  box-sizing:border-box!important;
+  display:grid!important;
+  width:112px!important;
+  min-width:112px!important;
+  height:52px!important;
+  min-height:52px!important;
+  grid-template-columns:44px minmax(0,1fr)!important;
+  grid-template-rows:1fr!important;
+  align-items:center!important;
+  column-gap:10px!important;
+  padding:0!important;
+  border:0!important;
+  background:transparent!important;
+  border-radius:0!important;
+  transform:none!important;
+}
+
+#article.work-article-page .work-react-rail.standard-react-rail button b{
+  grid-column:1!important;
+  display:grid!important;
+  place-items:center!important;
+  width:42px!important;
+  height:42px!important;
+  justify-self:center!important;
+  border:1px solid var(--line)!important;
+  border-radius:50%!important;
+  background:var(--card)!important;
+  color:var(--text)!important;
+  box-shadow:0 5px 15px rgba(0,0,0,.10)!important;
+}
+
+#article.work-article-page .work-react-rail.standard-react-rail button b svg,
+#article.work-article-page .work-react-rail.standard-react-rail button b .material-symbols-rounded{
+  width:18px!important;
+  height:18px!important;
+  font-size:18px!important;
+  line-height:1!important;
+}
+
+#article.work-article-page .work-react-rail.standard-react-rail button small{
+  grid-column:2!important;
+  display:flex!important;
+  min-width:0!important;
+  height:42px!important;
+  align-items:center!important;
+  justify-content:flex-start!important;
+  padding:0!important;
+  overflow:hidden!important;
+  color:var(--muted)!important;
+  text-align:left!important;
+  text-overflow:ellipsis!important;
+  white-space:nowrap!important;
+  font:700 8.5px/1.05 Inter,system-ui,sans-serif!important;
+  letter-spacing:.01em!important;
+}
+
+#article.work-article-page .work-react-rail.standard-react-rail button:hover b,
+#article.work-article-page .work-react-rail.standard-react-rail button:focus-visible b,
+#article.work-article-page .work-react-rail.standard-react-rail button.active b,
+#article.work-article-page .work-react-rail.standard-react-rail button.community-active b{
+  border-color:var(--cyan)!important;
+  color:var(--cyan)!important;
+}
+
+#article.work-article-page .work-react-rail.standard-react-rail button:focus-visible{
+  outline:2px solid rgba(85,231,255,.55)!important;
+  outline-offset:3px!important;
+}
+
+#article.work-article-page #reader-thread,
+#article.work-article-page .article-thread,
+#article.work-article-page>.work-bottom-grid,
+#article.work-article-page .work-related-card.nc-related-intelligent{
+  display:none!important;
+}
+
+#article.work-article-page>.nc-recirculation,
+#article.work-article-page>.work-newsletter-band{
+  clear:both!important;
+  position:relative!important;
+  z-index:1!important;
+}
+
+@media(max-width:1259px) and (min-width:901px){
+  #article.work-article-page>.work-reading-grid{
+    width:100%!important;
+    grid-template-columns:94px minmax(0,1fr) minmax(220px,260px)!important;
+    column-gap:22px!important;
+  }
+  #article.work-article-page .work-react-rail.standard-react-rail{
+    width:94px!important;
+    min-width:94px!important;
+    max-width:94px!important;
+  }
+  #article.work-article-page .work-react-rail.standard-react-rail button{
+    width:94px!important;
+    min-width:94px!important;
+    grid-template-columns:40px minmax(0,1fr)!important;
+    column-gap:7px!important;
+  }
+  #article.work-article-page .work-react-rail.standard-react-rail button b{
+    width:38px!important;
+    height:38px!important;
+  }
+  #article.work-article-page .work-react-rail.standard-react-rail button small{
+    font-size:8px!important;
+  }
+}
+
+@media(max-width:900px){
+  #article.work-article-page>.work-reading-grid{
+    display:block!important;
+    width:100%!important;
+  }
+
+  #article.work-article-page .work-react-rail.standard-react-rail{
+    position:relative!important;
+    top:auto!important;
+    display:flex!important;
+    width:100%!important;
+    min-width:0!important;
+    max-width:none!important;
+    height:auto!important;
+    flex-direction:row!important;
+    flex-wrap:wrap!important;
+    align-items:center!important;
+    justify-content:center!important;
+    gap:8px!important;
+    margin:0 0 26px!important;
+    padding:0!important;
+  }
+
+  #article.work-article-page .work-react-rail.standard-react-rail>span{
+    display:none!important;
+  }
+
+  #article.work-article-page .work-react-rail.standard-react-rail button{
+    display:grid!important;
+    width:72px!important;
+    min-width:72px!important;
+    height:60px!important;
+    min-height:60px!important;
+    grid-template-columns:1fr!important;
+    grid-template-rows:38px auto!important;
+    gap:3px!important;
+  }
+
+  #article.work-article-page .work-react-rail.standard-react-rail button b{
+    grid-column:1!important;
+    grid-row:1!important;
+    width:36px!important;
+    height:36px!important;
+  }
+
+  #article.work-article-page .work-react-rail.standard-react-rail button small{
+    grid-column:1!important;
+    grid-row:2!important;
+    height:auto!important;
+    justify-content:center!important;
+    text-align:center!important;
+    font-size:8px!important;
+  }
+
+  #article.work-article-page .work-article-sidebar{
+    position:relative!important;
+    top:auto!important;
+    display:grid!important;
+    grid-template-columns:repeat(2,minmax(0,1fr))!important;
+    gap:18px!important;
+    margin-top:36px!important;
+    padding:0!important;
+  }
+}
+
+@media(max-width:620px){
+  #article.work-article-page .work-article-sidebar{
+    grid-template-columns:1fr!important;
+  }
+  #article.work-article-page .work-react-rail.standard-react-rail{
+    justify-content:flex-start!important;
+    overflow-x:auto!important;
+    flex-wrap:nowrap!important;
+    padding-bottom:4px!important;
+    scrollbar-width:none;
+  }
+  #article.work-article-page .work-react-rail.standard-react-rail::-webkit-scrollbar{display:none}
+}
+
+@media(prefers-reduced-motion:reduce){
+  #article.work-article-page .work-react-rail.standard-react-rail button,
+  #article.work-article-page .work-react-rail.standard-react-rail button b{transition:none!important}
+}

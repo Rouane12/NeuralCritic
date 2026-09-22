@@ -94,11 +94,19 @@
     return index.find(article => article.slug === slug) || null;
   }
 
-  async function discoveryEngine() {
-    try {
-      if (window.NeuralCriticDiscoveryReady) return await window.NeuralCriticDiscoveryReady;
-    } catch (_) {}
-    return window.NeuralCriticDiscovery || null;
+  async function discoveryEngine(timeout = 6000) {
+    const started = Date.now();
+    while (Date.now() - started < timeout) {
+      try {
+        if (window.NeuralCriticDiscoveryReady) {
+          const engine = await window.NeuralCriticDiscoveryReady;
+          if (engine?.related) return engine;
+        }
+      } catch (_) {}
+      if (window.NeuralCriticDiscovery?.related) return window.NeuralCriticDiscovery;
+      await new Promise(resolve => setTimeout(resolve, 75));
+    }
+    return window.NeuralCriticDiscovery?.related ? window.NeuralCriticDiscovery : null;
   }
 
   function waitForArticleGameContext(timeout = 3200) {
@@ -147,6 +155,34 @@
       selected.push(item);
     });
     return selected.slice(0, 3);
+  }
+
+  function fallbackJourney(current,index){
+    const currentTags=new Set((current?.tags||[]).map(tag=>String(tag).trim().toLowerCase()).filter(Boolean));
+    const scoreArticle=article=>{
+      let score=0;
+      let relation={key:'related',type:'',value:'',label:'RELATED'};
+      if(current?.gameKey&&article?.gameKey&&current.gameKey===article.gameKey){
+        score+=100;relation={key:'same_game',type:'game',value:current.gameKey,label:'SAME GAME'};
+      }else if(current?.series&&article?.series&&current.series===article.series){
+        score+=70;relation={key:'same_series',type:'series',value:current.series,label:'SAME SERIES'};
+      }else if(current?.franchise&&article?.franchise&&current.franchise===article.franchise){
+        score+=55;relation={key:'same_franchise',type:'franchise',value:current.franchise,label:'SAME FRANCHISE'};
+      }
+      const shared=(article?.tags||[]).map(tag=>String(tag).trim().toLowerCase()).filter(tag=>currentTags.has(tag));
+      if(shared.length){
+        score+=Math.min(30,shared.length*8);
+        if(relation.key==='related')relation={key:'shared_topic',type:'',value:shared[0],label:'SHARED TOPIC'};
+      }
+      if(current?.category&&article?.category&&String(current.category).toLowerCase()===String(article.category).toLowerCase())score+=6;
+      const time=Date.parse(article?.publishedAt||article?.updatedAt||'')||0;
+      return {article,score,time,relation};
+    };
+    return index
+      .filter(article=>article?.slug&&article.slug!==current?.slug)
+      .map(scoreArticle)
+      .sort((a,b)=>b.score-a.score||b.time-a.time)
+      .slice(0,3);
   }
 
   function cardMarkup(item, position) {
@@ -262,13 +298,23 @@
       waitForInsertionPoint(),
       discoveryEngine()
     ]);
-    if (!insertionPoint || !Array.isArray(index) || index.length < 2 || !engine?.related) return;
+    if (!insertionPoint || !Array.isArray(index) || index.length < 2) {
+      window.NeuralCriticRecirculationInitStarted = false;
+      return;
+    }
 
     const current = await loadCurrent(slug, index);
-    if (!current) return;
+    if (!current) {
+      window.NeuralCriticRecirculationInitStarted = false;
+      return;
+    }
 
-    const selected = selectJourney(current, index, engine);
-    if (!selected.length) return;
+    let selected = engine?.related ? selectJourney(current, index, engine) : [];
+    if (!selected.length) selected = fallbackJourney(current,index);
+    if (!selected.length) {
+      window.NeuralCriticRecirculationInitStarted = false;
+      return;
+    }
 
     const gameContext = current.gameKey ? await waitForArticleGameContext() : null;
     const identity = gameContext?.title || primaryIdentity(current, selected[0]);
@@ -288,7 +334,12 @@
     module.className = 'nc-recirculation nc-continue-exploring';
     module.setAttribute('aria-labelledby', 'nc-recirculation-title');
     module.innerHTML = `<header class="nc-recirc-head"><div><span>KEEP READING</span><h2 id="nc-recirculation-title">Continue exploring</h2><p>More from this game, its world, and what matters next.</p></div><a href="${esc(exploreHref)}"${hub.href ? ` data-recirc-hub="${esc(hub.type)}" data-recirc-hub-value="${esc(hub.value)}" data-recirc-hub-destination="${esc(hub.destination || 'topic_hub')}"` : ''}>${esc(exploreLabel)}</a></header><div class="nc-recirc-grid">${selected.map(cardMarkup).join('')}</div>`;
-    insertionPoint.insertAdjacentElement('afterend', module);
+
+    // The body can be captured before article-extras wraps it in the reading grid.
+    // Resolve the placement target again at insertion time so recirculation can
+    // never become an accidental fourth grid child.
+    const liveInsertionPoint = $('.work-reading-grid') || insertionPoint.closest?.('.work-reading-grid') || insertionPoint;
+    liveInsertionPoint.insertAdjacentElement('afterend', module);
 
     module.dataset.placement = 'after-article';
     module.dataset.primaryReason = selected[0]?.relation?.key || 'related';

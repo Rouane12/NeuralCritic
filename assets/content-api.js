@@ -46,7 +46,7 @@
         }
         if (!document.querySelector('script[data-nc-recirculation]')) {
           const recirculation = document.createElement('script');
-          recirculation.src = 'assets/recirculation.js?v=20260919-recirc2';
+          recirculation.src = 'assets/recirculation.js?v=20260922-recirc3';
           recirculation.dataset.ncRecirculation = '1';
           document.body.appendChild(recirculation);
         }
