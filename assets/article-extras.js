@@ -156,7 +156,7 @@
     grid.appendChild(body);
 
     grid.insertAdjacentHTML('afterbegin', `
-      <aside class="work-react-rail" aria-label="Article reactions">
+      <aside class="work-react-rail standard-react-rail" aria-label="Article reactions">
         <span>REACT</span>
         <button type="button" data-article-like><b>♥</b><small>LIKE</small></button>
         <button type="button" data-article-follow><b>★</b><small>FOLLOW</small></button>
@@ -178,21 +178,8 @@
           <p>Following this writer keeps their latest features and reviews close at hand.</p>
           <button type="button" data-author-follow>FOLLOW</button>
         </section>
-        <section class="work-side-card work-weekly-card">
-          <b>ϟ</b><span>THE WEEKLY DROP</span>
-          <h3>One smart gaming email.</h3>
-          <p>Our best stories, every Friday.</p>
-          <form data-side-newsletter><input type="email" required placeholder="you@email.com"><button>JOIN FREE</button></form>
-        </section>
       </aside>`);
 
-    const likeBtn = qs('[data-article-like]', grid);
-    const likeKey = `neural-critic-article-like:${article.slug}`;
-    if (localStorage.getItem(likeKey) === '1') likeBtn?.classList.add('active');
-    likeBtn?.addEventListener('click', () => {
-      const next = likeBtn.classList.toggle('active');
-      localStorage.setItem(likeKey, next ? '1' : '0');
-    });
     qs('[data-article-share]', grid)?.addEventListener('click', async event => {
       try {
         if (navigator.share) await navigator.share({title: document.title, url: location.href});
@@ -203,20 +190,7 @@
         }
       } catch (_) {}
     });
-    qsa('[data-author-follow],[data-article-follow]', grid).forEach(btn => {
-      btn.addEventListener('click', () => {
-        const active = !btn.classList.contains('active');
-        qsa('[data-author-follow],[data-article-follow]', grid).forEach(x => {
-          x.classList.toggle('active', active);
-          if (x.matches('[data-author-follow]')) x.textContent = active ? 'FOLLOWING' : 'FOLLOW';
-          const sm = qs('small', x); if (sm && x.matches('[data-article-follow]')) sm.textContent = active ? 'FOLLOWING' : 'FOLLOW';
-        });
-      });
-    });
-    qs('[data-side-newsletter]', grid)?.addEventListener('submit', event => {
-      event.preventDefault();
-      event.currentTarget.innerHTML = '<p class="work-signup-success">You’re in. Welcome to the Weekly Drop.</p>';
-    });
+
   }
 
   function renderArticleEnding(articleHost) {
@@ -234,10 +208,6 @@
         </form>
       </section>`);
 
-    qs('[data-band-newsletter]', articleHost)?.addEventListener('submit', event => {
-      event.preventDefault();
-      event.currentTarget.innerHTML = '<p class="work-signup-success">You’re in. See you Friday.</p>';
-    });
   }
 
   async function init() {
