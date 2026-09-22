@@ -10,7 +10,54 @@ const fmtDate = (iso) => {
 const articleHref = (a) => `stories/${encodeURIComponent(a.slug)}/`;
 const imageOf = (a) => a?.imageLocal || '';
 const escapeHtml = (value='') => String(value).replace(/[&<>'"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;',"'":'&#39;','"':'&quot;'}[c]));
-const inlineMd = (s='') => escapeHtml(s).replace(/\*\*(.+?)\*\*/g,'<strong>$1</strong>').replace(/\*(.+?)\*/g,'<em>$1</em>');
+const emphasisMd = (escaped='') => String(escaped).replace(/\*\*(.+?)\*\*/g,'<strong>$1</strong>').replace(/\*(.+?)\*/g,'<em>$1</em>');
+const storyHref = (slug='') => {
+  const clean=String(slug||'').trim();
+  if(!/^[A-Za-z0-9][A-Za-z0-9_-]*$/.test(clean)) return '';
+  const routed=window.NeuralCriticStoryRouter?.storyUrl?.(clean);
+  if(routed) return routed;
+  return new URL(`stories/${encodeURIComponent(clean)}/`,new URL('./',document.baseURI)).href;
+};
+const storySlugFromTarget = (target='') => {
+  const raw=String(target||'').trim();
+  if(raw.startsWith('story:')){
+    const slug=raw.slice(6);
+    return /^[A-Za-z0-9][A-Za-z0-9_-]*$/.test(slug)?slug:'';
+  }
+  try{
+    const url=new URL(raw,document.baseURI);
+    const match=url.pathname.match(/\/stories\/([^/]+)\/?$/i);
+    if(!match?.[1]) return '';
+    const slug=decodeURIComponent(match[1]);
+    return /^[A-Za-z0-9][A-Za-z0-9_-]*$/.test(slug)?slug:'';
+  }catch(_){ return ''; }
+};
+const safeSourceHref = (target='') => {
+  try{
+    const url=new URL(String(target||'').trim(),document.baseURI);
+    return url.protocol==='https:'||url.protocol==='http:'?url.href:'';
+  }catch(_){ return ''; }
+};
+const inlineMd = (s='') => {
+  const source=String(s||'');
+  const pattern=/\[([^\]\n]+)\]\(([^)\s]+)\)/g;
+  let out='',last=0,match;
+  while((match=pattern.exec(source))){
+    out+=emphasisMd(escapeHtml(source.slice(last,match.index)));
+    const label=emphasisMd(escapeHtml(match[1]));
+    const slug=storySlugFromTarget(match[2]);
+    if(slug){
+      const href=storyHref(slug);
+      out+=`<a class="nc-context-link nc-link-internal" href="${escapeHtml(href)}" data-nc-story-link="${escapeHtml(slug)}">${label}</a>`;
+    }else{
+      const href=safeSourceHref(match[2]);
+      out+=href?`<a class="nc-context-link nc-link-external" href="${escapeHtml(href)}" target="_blank" rel="noopener noreferrer">${label}</a>`:emphasisMd(escapeHtml(match[0]));
+    }
+    last=pattern.lastIndex;
+  }
+  out+=emphasisMd(escapeHtml(source.slice(last)));
+  return out;
+};
 const discovery = () => window.NeuralCriticDiscovery || null;
 const prose = (text='') => String(text || '').split(/\n\n+/).filter(Boolean).map(block => {
   if (/^- /m.test(block)) {
@@ -186,7 +233,11 @@ async function renderArticle(){
       const image=b.imageLocal?`<figure><img class="article-hero" src="${escapeHtml(b.imageLocal)}" alt="${escapeHtml(b.imageAlt||'')}"><figcaption>${escapeHtml(b.caption||'')}</figcaption></figure>`:'';
       const videoUrl=String(b.videoUrl||'').trim();
       const video=videoUrl?`<div class="article-video-shell" data-nc-video data-video-url="${escapeHtml(videoUrl)}" data-video-title="${escapeHtml(b.videoTitle||b.heading||a.title||'Article video')}" data-video-caption="${escapeHtml(b.videoCaption||'')}" data-video-poster="${escapeHtml(b.videoPoster||'')}"></div>`:'';
-      return `<section><h2>${escapeHtml(b.heading||'')}</h2>${prose(b.text||'')}${image}${video}</section>`;
+      const relatedSlug=String(b.relatedStorySlug||'').trim();
+      const related=relatedSlug&&relatedSlug!==a.slug?ARTICLES.find(item=>item.slug===relatedSlug):null;
+      const relatedImage=related?.imageLocal?`<span class="nc-related-story-media"><img src="${escapeHtml(related.imageLocal)}" alt="${escapeHtml(related.imageAlt||related.title||'')}"></span>`:'<span class="nc-related-story-media" aria-hidden="true"></span>';
+      const relatedCard=related?`<aside class="nc-related-story" aria-label="Related Neural Critic story"><a href="${escapeHtml(storyHref(related.slug))}" data-nc-story-link="${escapeHtml(related.slug)}">${relatedImage}<span class="nc-related-story-copy"><small>RELATED · ${escapeHtml(String(related.category||'STORY').toUpperCase())}</small><strong>${escapeHtml(related.title||'')}</strong>${related.description?`<span>${escapeHtml(related.description)}</span>`:''}<b>READ NEXT →</b></span></a></aside>`:'';
+      return `<section><h2>${escapeHtml(b.heading||'')}</h2>${prose(b.text||'')}${image}${video}${relatedCard}</section>`;
     }).join('');
     el.innerHTML=`<small class="article-kicker">${escapeHtml(a.category)}${a.articleFormat==='review'?' · REVIEW':''}</small><h1>${escapeHtml(a.title)}</h1><p class="article-deck">${escapeHtml(a.description)}</p><div class="article-meta">BY ${escapeHtml(a.author)} · ${fmtDate(a.publishedAt)} · ${tags.map(escapeHtml).join(' · ')}</div>${imageOf(a)?`<img class="article-hero" src="${imageOf(a)}" alt="${escapeHtml(a.imageAlt)}">`:'<div class="placeholder-art">NEURAL CRITIC</div>'}<div class="article-body">${prose(a.body||'')}${review}${bodyBlocks}</div>`;
   }catch(error){

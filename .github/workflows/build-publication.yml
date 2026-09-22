@@ -32,6 +32,13 @@ on:
       - assets/article-weekly-drop-v2.js
       - assets/article-footer-v2.js
       - assets/article-footer-v2.css
+      - assets/article-links.js
+      - assets/article-links.css
+      - assets/studio-links.js
+      - assets/studio-links.css
+      - assets/studio.js
+      - studio.html
+      - scripts/audit_contextual_links.py
       - assets/game-page.js
       - assets/game-page.css
       - supabase/migrations/**
@@ -161,6 +168,9 @@ jobs:
 
       - name: Enforce browser runtime consistency invariant
         run: python scripts/audit_runtime_consistency.py
+
+      - name: Audit contextual editorial links
+        run: python scripts/audit_contextual_links.py
 
       - name: Commit publication files only when changed
         run: |
