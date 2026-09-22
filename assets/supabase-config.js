@@ -97,16 +97,6 @@ window.NEURAL_CRITIC_SUPABASE = {
     document.head.appendChild(style);
   };
 
-  const loadArticleThreadLayout = () => {
-    if (!document.getElementById('article')) return;
-    if (document.querySelector('link[data-nc-thread-layout]')) return;
-    const style = document.createElement('link');
-    style.rel = 'stylesheet';
-    style.href = 'assets/article-thread-layout.css?v=20260823-thread1';
-    style.dataset.ncThreadLayout = '1';
-    document.head.appendChild(style);
-  };
-
   const loadStoryRouter = (onReady = null) => {
     const ready = () => {
       if (typeof onReady === 'function') onReady();
@@ -343,7 +333,6 @@ window.NEURAL_CRITIC_SUPABASE = {
   };
 
   loadPublicScale();
-  loadArticleThreadLayout();
 
   const shouldRuntimeHarden = !window.NEURAL_CRITIC_STATIC_META && !STATIC_META_PAGES.has(pageName);
   const loadRuntimeHardening = () => {
