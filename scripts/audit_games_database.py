@@ -62,7 +62,7 @@ def main() -> int:
             'id="game-timeline-panel"',
             'id="game-related-games"',
             'class="nc-game-local-nav"',
-            "assets/game-page.js?v=20260912-gamehub3",
+            "assets/game-page.js?v=",
             "assets/game-page.css?v=20260912-gamehub3",
             "assets/game-hub-phase2.css?v=20260912-retention1",
         ),

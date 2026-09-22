@@ -53,7 +53,7 @@ check('article bootstrap pins Phase 3 recirculation assets ahead of content API 
   article.indexOf('assets/recirculation.js?v=') < article.indexOf('assets/content-api.js?v='));
 check('content API keeps the existing fallback owner for non-article bootstrap compatibility',
   contentApi.includes("recirculationStyle.href = 'assets/recirculation.css?v=20260919-recirc2'") &&
-  contentApi.includes("recirculation.src = 'assets/recirculation.js?v=20260919-recirc2'"));
+  contentApi.includes("recirculation.src = 'assets/recirculation.js?v=20260922-recirc3'"));
 check('article shell declares explicit recirculation ownership before shared bootstrap',
   article.includes('NEURAL_CRITIC_ARTICLE_OWNS_RECIRCULATION=true') &&
   article.indexOf('NEURAL_CRITIC_ARTICLE_OWNS_RECIRCULATION=true') < article.indexOf('assets/supabase-config.js?v=20260919-runtime4'));

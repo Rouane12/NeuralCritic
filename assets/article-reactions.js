@@ -1,0 +1,122 @@
+(() => {
+  'use strict';
+
+  const $=(s,r=document)=>r.querySelector(s);
+  const $$=(s,r=document)=>[...r.querySelectorAll(s)];
+  const icon=name=>'<span class="material-symbols-rounded" aria-hidden="true">'+name+'</span>';
+
+  function setButton(button,label,glyph){
+    if(!button)return;
+    const holder=$('b',button);
+    const small=$('small',button);
+    if(holder&&glyph&&holder.dataset.ncGlyph!==glyph){
+      holder.innerHTML=icon(glyph);
+      holder.dataset.ncGlyph=glyph;
+    }
+    if(small&&label&&small.textContent!==label)small.textContent=label;
+  }
+
+  function normalizeRail(){
+    const rail=$('#article .work-react-rail');
+    if(!rail)return false;
+
+    rail.classList.add('standard-react-rail');
+    rail.setAttribute('data-reaction-owner','article-reactions-v1');
+
+    $$('[data-article-discuss]',rail).forEach(node=>node.remove());
+
+    setButton($('[data-article-like]',rail),'Like','thumb_up');
+    setButton($('[data-article-follow]',rail),
+      $('[data-article-follow]',rail)?.classList.contains('community-active')?'Following':'Follow',
+      'bookmark');
+    setButton($('[data-article-share]',rail),'Share','share');
+
+    const save=$('.nc-save-story',rail);
+    if(save){
+      const small=$('small',save);
+      if(small&&!small.textContent.trim())small.textContent='Save';
+    }
+
+    const entity=$('[data-entity-article-follow]',rail);
+    if(entity){
+      const small=$('small',entity);
+      if(small&&!small.textContent.trim())small.textContent='Follow Game';
+    }
+
+    return true;
+  }
+
+  function removeRetiredSurfaces(){
+    $$('#reader-thread,.article-thread,.work-bottom-grid,.work-related-card.nc-related-intelligent').forEach(node=>node.remove());
+  }
+
+  function setImportant(node, property, value){
+    if(!node)return;
+    node.style.setProperty(property,value,'important');
+  }
+
+  function normalizeReadingGrid(){
+    const grid=$('#article.work-article-page > .work-reading-grid');
+    if(!grid)return false;
+    const rail=$(':scope > .work-react-rail',grid);
+    const body=$(':scope > .article-body',grid);
+    const sidebar=$(':scope > .work-article-sidebar',grid);
+    if(!rail||!body||!sidebar)return false;
+
+    if(window.innerWidth>900){
+      setImportant(grid,'display','grid');
+      setImportant(grid,'width','min(1180px, 100%)');
+      setImportant(grid,'max-width','100%');
+      setImportant(grid,'grid-template-columns',window.innerWidth<1260?'94px minmax(0, 1fr) minmax(220px, 260px)':'112px minmax(0, 728px) minmax(0, 288px)');
+      setImportant(grid,'column-gap',window.innerWidth<1260?'22px':'26px');
+      setImportant(grid,'row-gap','0');
+      setImportant(grid,'align-items','start');
+      setImportant(grid,'margin-inline','auto');
+
+      [[rail,'1'],[body,'2'],[sidebar,'3']].forEach(([node,column])=>{
+        setImportant(node,'grid-column',column);
+        setImportant(node,'grid-row','1');
+        setImportant(node,'min-width','0');
+        setImportant(node,'max-width','100%');
+        setImportant(node,'align-self','start');
+      });
+      setImportant(sidebar,'width','100%');
+      setImportant(sidebar,'margin-top','0');
+    }else{
+      setImportant(grid,'display','block');
+      setImportant(grid,'width','100%');
+      [rail,body,sidebar].forEach(node=>{
+        node.style.removeProperty('grid-column');
+        node.style.removeProperty('grid-row');
+        setImportant(node,'width','100%');
+        setImportant(node,'max-width','100%');
+      });
+      setImportant(sidebar,'margin-top','36px');
+    }
+    return true;
+  }
+
+  function sync(){
+    removeRetiredSurfaces();
+    normalizeRail();
+    normalizeReadingGrid();
+  }
+
+  function init(){
+    sync();
+    if(!$('#article'))return;
+    [100,350,900,1800,3500,6000,10000].forEach(delay=>setTimeout(sync,delay));
+    window.addEventListener('neuralcritic:community-refreshed',sync);
+    document.addEventListener('nc:saved-stories-changed',sync);
+    document.addEventListener('nc:entity-follows-changed',sync);
+    let resizeTimer=0;
+    window.addEventListener('resize',()=>{
+      clearTimeout(resizeTimer);
+      resizeTimer=setTimeout(sync,120);
+    });
+    window.dispatchEvent(new CustomEvent('neuralcritic:article-reactions-ready'));
+  }
+
+  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',init,{once:true});
+  else init();
+})();

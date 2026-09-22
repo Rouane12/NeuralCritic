@@ -395,23 +395,93 @@
     }, true);
   }
 
+  function schemaName(value) {
+    if (Array.isArray(value)) return schemaName(value[0]);
+    if (value && typeof value === 'object') return String(value.name || '').trim();
+    return String(value || '').trim();
+  }
+
+  function staticGameFromShell(key) {
+    try {
+      const node = document.getElementById('nc-game-structured-data');
+      if (!node?.textContent?.trim()) return null;
+      const schema = JSON.parse(node.textContent);
+      const title = String(schema?.name || '').trim();
+      if (!title) return null;
+      const releaseDate = String(schema?.datePublished || '').trim();
+      const timestamp = releaseDate ? new Date(releaseDate).getTime() : NaN;
+      const releaseStatus = Number.isFinite(timestamp)
+        ? (timestamp <= Date.now() ? 'released' : 'upcoming')
+        : 'announced';
+      const list = value => Array.isArray(value) ? value.filter(Boolean) : value ? [value] : [];
+      const imageValue = Array.isArray(schema?.image) ? schema.image[0] : schema?.image;
+      return {
+        id:null,
+        slug:key,
+        title,
+        summary:String(schema?.description || '').trim(),
+        release_status:releaseStatus,
+        primary_release_date:releaseDate,
+        developer:schemaName(schema?.author),
+        publisher:schemaName(schema?.publisher),
+        franchise:'',
+        series:'',
+        genres:list(schema?.genre).map(String),
+        platforms:list(schema?.gamePlatform).map(String),
+        cover_image_url:String(imageValue || '').trim(),
+        cover_image_alt:`${title} cover art`,
+        official_url:String(schema?.sameAs || '').trim(),
+        neural_critic_score:null,
+        score_article_slug:''
+      };
+    } catch (_) {
+      return null;
+    }
+  }
+
   async function init() {
     const key = currentSlug();
     const client = window.neuralCriticPublicSupabase;
-    if (!key || !client) { $('#game-title').textContent = 'Game unavailable'; return; }
+    if (!key) { $('#game-title').textContent = 'Game unavailable'; return; }
 
-    const { data:game, error } = await client.from('games').select('*').eq('slug', key).maybeSingle();
-    if (error || !game) { $('#game-title').textContent = 'Game not found'; $('#game-summary').textContent = 'This game has not been added to the Neural Critic database yet.'; return; }
+    let game = null;
+    let releases = [];
+    let games = [];
 
-    const [{ data:releases }, { data:games }, articles, engine] = await Promise.all([
-      client.from('game_releases').select('*').eq('game_id', game.id).order('release_date', { ascending:true }),
-      client.from('games').select('id,slug,title,release_status,primary_release_date,series,franchise,genres,platforms,neural_critic_score').neq('id', game.id).limit(250),
-      loadArticles(), discoveryEngine()
-    ]);
+    if (client) {
+      try {
+        const response = await client.from('games').select('*').eq('slug', key).maybeSingle();
+        if (!response.error && response.data) game = response.data;
+      } catch (error) {
+        console.warn('Game Hub live game lookup unavailable; using canonical metadata fallback.', error);
+      }
+    }
+
+    if (!game) game = staticGameFromShell(key);
+    if (!game) {
+      $('#game-title').textContent = 'Game not found';
+      $('#game-summary').textContent = 'This game has not been added to the Neural Critic database yet.';
+      return;
+    }
+
+    const [articles, engine] = await Promise.all([loadArticles(), discoveryEngine()]);
+
+    if (client && game.id) {
+      try {
+        const [releaseResponse, gamesResponse] = await Promise.all([
+          client.from('game_releases').select('*').eq('game_id', game.id).order('release_date', { ascending:true }),
+          client.from('games').select('id,slug,title,release_status,primary_release_date,series,franchise,genres,platforms,neural_critic_score').neq('id', game.id).limit(250)
+        ]);
+        releases = Array.isArray(releaseResponse.data) ? releaseResponse.data : [];
+        games = Array.isArray(gamesResponse.data) ? gamesResponse.data : [];
+      } catch (error) {
+        console.warn('Game Hub live release graph unavailable; keeping canonical fallback.', error);
+      }
+    }
 
     state.game = game;
-    state.games = Array.isArray(games) ? games : [];
-    state.releases = Array.isArray(releases) ? releases : [];
+    state.games = games;
+    state.releases = releases;
     state.articles = Array.isArray(articles) ? articles : [];
     state.directCoverage = directGameArticles(game, state.articles);
     state.coverage = connectedRecommendations(game, state.articles, engine);
@@ -420,7 +490,7 @@
       const alternatives = state.coverage.filter(item => item.article?.slug !== featuredReview.slug);
       if (alternatives.length >= 3) state.coverage = alternatives;
     }
-    state.deals = await loadDeals(client, game);
+    state.deals = client && game.id ? await loadDeals(client, game) : [];
 
     document.title = `${game.title} | Neural Critic Game Database`;
     document.querySelector('meta[name="description"]')?.setAttribute('content', game.summary || `${game.title} release information, platforms and Neural Critic coverage.`);
