@@ -17,7 +17,7 @@
   };
 
   function ensureStyles() {
-    if (!document.querySelector('link[data-nc-article-footer-v2]')) {
+    if (!document.querySelector('link[data-nc-article-footer-v2],link[href*="article-footer-v2.css"]')) {
       const link = document.createElement('link');
       link.rel = 'stylesheet';
       link.href = STYLE_HREF;
