@@ -48,6 +48,7 @@ EVALUATE = r"""
   };
   const checks = [];
   const check = (name, ok, value=null) => checks.push({name, ok:Boolean(ok), value});
+  const diagnostics = {};
 
   check('document rendered', !!document.body, !!document.body);
   check(
@@ -96,6 +97,42 @@ EVALUATE = r"""
     const legacyThread=article?.querySelector('#reader-thread,.article-thread,.work-bottom-grid');
     const legacyRelated=article?.querySelector('.work-related-card.nc-related-intelligent');
     const gridRect=rect(grid),bodyRect=rect(body),railRect=rect(rail),sideRect=rect(sidebar),recircRect=rect(recirc),newsletterRect=rect(newsletter);
+
+    diagnostics.article = {
+      gridInlineStyle:grid?.getAttribute('style')||'',
+      gridComputed:grid ? {
+        display:getComputedStyle(grid).display,
+        width:getComputedStyle(grid).width,
+        height:getComputedStyle(grid).height,
+        minHeight:getComputedStyle(grid).minHeight,
+        gridTemplateColumns:getComputedStyle(grid).gridTemplateColumns,
+        gridTemplateRows:getComputedStyle(grid).gridTemplateRows,
+        gridAutoRows:getComputedStyle(grid).gridAutoRows,
+        alignItems:getComputedStyle(grid).alignItems,
+        alignContent:getComputedStyle(grid).alignContent
+      } : null,
+      directChildren:grid ? [...grid.children].map(el=>({
+        tag:el.tagName,
+        className:el.className,
+        style:el.getAttribute('style')||'',
+        rect:rect(el),
+        display:getComputedStyle(el).display,
+        position:getComputedStyle(el).position,
+        gridColumn:getComputedStyle(el).gridColumn,
+        gridRow:getComputedStyle(el).gridRow,
+        height:getComputedStyle(el).height,
+        minHeight:getComputedStyle(el).minHeight,
+        marginTop:getComputedStyle(el).marginTop,
+        marginBottom:getComputedStyle(el).marginBottom
+      })) : [],
+      recirculation:{
+        initStarted:Boolean(window.NeuralCriticRecirculationInitStarted),
+        discovery:Boolean(window.NeuralCriticDiscovery),
+        discoveryReady:Boolean(window.NeuralCriticDiscoveryReady),
+        slug:window.NEURAL_CRITIC_STATIC_SLUG||new URLSearchParams(location.search).get('slug')||'',
+        moduleCount:document.querySelectorAll('.nc-recirculation').length
+      }
+    };
 
     check('article shell upgraded',visible(article),rect(article));
     check('reading layout visible',visible(grid),gridRect);
@@ -150,6 +187,7 @@ EVALUATE = r"""
     failures:checks.filter(item=>!item.ok),
     viewport:{width:innerWidth,height:innerHeight},
     scrollWidth:document.documentElement.scrollWidth,
+    diagnostics,
     url:location.href
   };
 }
