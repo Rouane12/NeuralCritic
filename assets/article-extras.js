@@ -160,7 +160,6 @@
         <span>REACT</span>
         <button type="button" data-article-like><b>♥</b><small>LIKE</small></button>
         <button type="button" data-article-follow><b>★</b><small>FOLLOW</small></button>
-        <button type="button" data-article-discuss><b>◌</b><small>DISCUSS</small></button>
         <button type="button" data-article-share><b>↗</b><small>SHARE</small></button>
       </aside>`);
 
@@ -194,7 +193,6 @@
       const next = likeBtn.classList.toggle('active');
       localStorage.setItem(likeKey, next ? '1' : '0');
     });
-    qs('[data-article-discuss]', grid)?.addEventListener('click', () => qs('#reader-thread')?.scrollIntoView({behavior:'smooth'}));
     qs('[data-article-share]', grid)?.addEventListener('click', async event => {
       try {
         if (navigator.share) await navigator.share({title: document.title, url: location.href});
@@ -221,161 +219,25 @@
     });
   }
 
-  const commentsKey = slug => `neural-critic-comments:${slug}`;
-  const likesKey = slug => `neural-critic-comment-likes:${slug}`;
-  const identityKey = 'neural-critic-reader-identity';
-
-  function loadJson(key, fallback) {
-    try { return JSON.parse(localStorage.getItem(key)) ?? fallback; } catch (_) { return fallback; }
-  }
-  function saveJson(key, value) { try { localStorage.setItem(key, JSON.stringify(value)); } catch (_) {} }
-  function initials(name) { return name.trim().split(/\s+/).slice(0,2).map(x => x[0]?.toUpperCase() || '').join('') || 'NC'; }
-  function formatTime(iso) {
-    try { return new Intl.DateTimeFormat('en', {dateStyle:'medium', timeStyle:'short'}).format(new Date(iso)); } catch (_) { return ''; }
-  }
-
-  async function renderRelated(article, sidebar) {
-    let all = [];
-    try { all = await fetch('data/articles.json').then(r => r.json()); } catch (_) {}
-    const related = all.filter(x => x.slug !== article.slug)
-      .sort((a,b) => Number((b.tags||[]).some(t => (article.tags||[]).includes(t))) - Number((a.tags||[]).some(t => (article.tags||[]).includes(t))))
-      .slice(0,3);
-    if (!related.length) return;
-    sidebar.insertAdjacentHTML('afterbegin', `
-      <section class="work-side-card work-related-card">
-        <span>MORE FROM NEURAL CRITIC</span>
-        ${related.map(x => `<a href="article.html?slug=${encodeURIComponent(x.slug)}"><b>${esc(x.title)}</b><small>${esc(x.category || '')}</small></a>`).join('')}
-      </section>`);
-  }
-
-  function renderThread(articleHost, article) {
-    if (qs('.article-thread', articleHost)) return;
-    const slug = article.slug;
-    const identity = loadJson(identityKey, {name:'Reader'});
+  function renderArticleEnding(articleHost) {
+    if (qs('.work-newsletter-band', articleHost)) return;
     articleHost.insertAdjacentHTML('beforeend', `
-      <section class="work-bottom-grid">
+      <section class="work-newsletter-band" aria-label="Neural Critic newsletter">
         <div>
-          <section class="article-thread" id="reader-thread">
-            <div class="thread-head">
-              <div><span>READER THREAD</span><h2>Join the conversation</h2></div>
-              <div class="thread-head-right"><b data-thread-count>0 COMMENTS</b><button type="button" data-thread-sort>NEWEST</button></div>
-            </div>
-            <div class="thread-identity">
-              <div><img src="${AUTHOR_AVATAR}" alt=""><span>Your identity</span><strong data-reader-name>${esc(identity.name || 'Reader')}</strong></div>
-              <button type="button" data-edit-identity>EDIT</button>
-            </div>
-            <p class="thread-prompt">What did you notice about ${esc(article.title)}?</p>
-            <form data-thread-form>
-              <input class="thread-name" name="name" maxlength="40" value="${esc(identity.name || '')}" placeholder="Display name" autocomplete="name" required>
-              <textarea name="comment" maxlength="1200" placeholder="Share your perspective with other players..." required></textarea>
-              <div><small><span data-thread-remaining>1200</span> characters remaining</small><button type="submit">JOIN DISCUSSION</button></div>
-              <p class="thread-error" data-thread-error hidden></p>
-            </form>
-            <div class="thread-list" data-thread-list></div>
-          </section>
+          <span>THE WEEKLY DROP</span>
+          <h2>Finished here? Keep the good reads coming.</h2>
+          <p>A sharp weekly digest of the stories worth your attention.</p>
         </div>
-        <aside class="work-bottom-sidebar">
-          <section class="work-side-card work-follow-card">
-            <span>FOLLOW NEURAL CRITIC</span>
-            <div><img src="${AUTHOR_AVATAR}" alt="${esc(article.author || 'Neural Critic author')}"><p><strong>${esc(article.author || 'Neural Critic')}</strong><small>Editor</small></p><button type="button">FOLLOWING</button></div>
-          </section>
-          <div data-related-slot></div>
-          <section class="work-side-card work-weekly-card">
-            <b>ϟ</b><span>THE WEEKLY DROP</span>
-            <h3>One smart gaming email.</h3>
-            <p>Our best stories, every Friday.</p>
-            <form data-bottom-newsletter><input type="email" required placeholder="you@email.com"><button>JOIN FREE</button></form>
-          </section>
-        </aside>
-      </section>
-      <section class="work-newsletter-band">
-        <div><span>THE WEEKLY DROP</span><h2>Gaming news, minus the noise.</h2><p>A sharp weekly digest of the stories worth your attention.</p></div>
-        <form data-band-newsletter><input type="email" required placeholder="you@email.com"><button>JOIN FREE →</button></form>
+        <form data-band-newsletter>
+          <input type="email" required placeholder="you@email.com" aria-label="Email address">
+          <button>JOIN FREE →</button>
+        </form>
       </section>`);
 
-    const form = qs('[data-thread-form]', articleHost);
-    const textarea = qs('textarea', form);
-    const nameInput = qs('.thread-name', form);
-    const list = qs('[data-thread-list]', articleHost);
-    const count = qs('[data-thread-count]', articleHost);
-    const remaining = qs('[data-thread-remaining]', articleHost);
-    const error = qs('[data-thread-error]', articleHost);
-    let comments = loadJson(commentsKey(slug), []);
-    let likes = loadJson(likesKey(slug), {});
-
-    const draw = () => {
-      count.textContent = `${comments.length} COMMENT${comments.length === 1 ? '' : 'S'}`;
-      if (!comments.length) {
-        list.innerHTML = '<div class="thread-empty"><b>0</b><h3>Be the first voice</h3><p>No comments yet. Start the thread.</p></div>';
-        return;
-      }
-      list.innerHTML = comments.map(item => `
-        <article data-comment-id="${esc(item.id)}">
-          <div class="thread-avatar">${esc(initials(item.name))}</div>
-          <div>
-            <header><b>${esc(item.name)}</b><time>${esc(formatTime(item.createdAt))}</time></header>
-            <p>${esc(item.text).replace(/\n/g,'<br>')}</p>
-            <div class="thread-actions">
-              <button type="button" data-like class="${likes[item.id] ? 'liked' : ''}">♥ ${item.likes || 0}</button>
-              <button type="button" class="thread-delete" data-delete>DELETE</button>
-            </div>
-          </div>
-        </article>`).join('');
-    };
-
-    textarea.addEventListener('input', () => remaining.textContent = String(1200 - textarea.value.length));
-    qs('[data-edit-identity]', articleHost)?.addEventListener('click', () => nameInput.focus());
-    nameInput.addEventListener('change', () => {
-      const name = nameInput.value.trim() || 'Reader';
-      saveJson(identityKey, {name});
-      qs('[data-reader-name]', articleHost).textContent = name;
-    });
-    form.addEventListener('submit', event => {
-      event.preventDefault();
-      const data = new FormData(form);
-      const name = String(data.get('name') || '').trim();
-      const text = String(data.get('comment') || '').trim();
-      if (!name || !text) {
-        error.hidden = false;
-        error.textContent = 'Add a display name and a comment first.';
-        return;
-      }
-      saveJson(identityKey, {name});
-      qs('[data-reader-name]', articleHost).textContent = name;
-      error.hidden = true;
-      comments.unshift({id: crypto.randomUUID?.() || `${Date.now()}-${Math.random()}`, name, text, createdAt: new Date().toISOString(), likes: 0});
-      saveJson(commentsKey(slug), comments);
-      textarea.value = '';
-      remaining.textContent = '1200';
-      draw();
-    });
-
-    list.addEventListener('click', event => {
-      const row = event.target.closest('[data-comment-id]');
-      if (!row) return;
-      const id = row.dataset.commentId;
-      if (event.target.closest('[data-like]')) {
-        const comment = comments.find(x => x.id === id);
-        if (!comment) return;
-        if (likes[id]) { comment.likes = Math.max(0, (comment.likes || 0) - 1); delete likes[id]; }
-        else { comment.likes = (comment.likes || 0) + 1; likes[id] = true; }
-        saveJson(commentsKey(slug), comments); saveJson(likesKey(slug), likes); draw();
-      }
-      if (event.target.closest('[data-delete]')) {
-        comments = comments.filter(x => x.id !== id);
-        delete likes[id];
-        saveJson(commentsKey(slug), comments); saveJson(likesKey(slug), likes); draw();
-      }
-    });
-
-    qsa('[data-bottom-newsletter],[data-band-newsletter]', articleHost).forEach(formEl => formEl.addEventListener('submit', event => {
+    qs('[data-band-newsletter]', articleHost)?.addEventListener('submit', event => {
       event.preventDefault();
       event.currentTarget.innerHTML = '<p class="work-signup-success">You’re in. See you Friday.</p>';
-    }));
-
-    const relatedSlot = qs('[data-related-slot]', articleHost);
-    if (relatedSlot) renderRelated(article, relatedSlot);
-    draw();
+    });
   }
 
   async function init() {
@@ -398,7 +260,7 @@
     addQuickRead(article, body);
     decorateFigures(article, body);
     buildReadingLayout(article, body);
-    renderThread(host, article);
+    renderArticleEnding(host);
   }
 
   init();
