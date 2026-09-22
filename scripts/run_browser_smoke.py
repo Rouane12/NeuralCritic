@@ -192,7 +192,11 @@ def run_case(browser, case: dict) -> dict:
         kind=case["kind"]
         if kind.startswith("article"):
             page.wait_for_selector("#article.work-article-page .work-reading-grid", state="visible", timeout=12_000)
-            page.wait_for_timeout(3_000)
+            try:
+                page.wait_for_selector("#article.work-article-page > .nc-recirculation", state="visible", timeout=7_000)
+            except PlaywrightTimeoutError:
+                pass
+            page.wait_for_timeout(750)
         elif kind == "home":
             page.wait_for_selector("#hero", state="visible", timeout=12_000)
             page.wait_for_timeout(2_000)
