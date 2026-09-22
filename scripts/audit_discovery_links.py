@@ -83,18 +83,20 @@ def main() -> int:
             failures.append(f"assets/article-discovery.js still contains legacy discovery URL: {pattern}")
 
     article_required = (
-        "stories/${encodeURIComponent(storySlug)}/",
         "games/${encodeURIComponent(gameSlug)}/",
-        "data-discovery-target",
         "data-discovery-destination=\"game_hub\"",
         "NeuralCriticArticleGameContextReady=true",
-        "discovery_click",
         "connected_coverage_click",
-        "engine.related(current,all,3)",
     )
     for marker in article_required:
         if marker not in article:
             failures.append(f"assets/article-discovery.js is missing discovery marker: {marker}")
+
+    for marker in ("work-related-card", "data-discovery-target", "engine.related(current,all,3)", "discovery_click"):
+        if marker in article:
+            failures.append(
+                f"assets/article-discovery.js still contains retired generic related-coverage behavior: {marker}"
+            )
 
     engine_required = (
         "const articleHref = article => `stories/${encodeURIComponent(article.slug)}/`;",
@@ -163,7 +165,7 @@ def main() -> int:
         "assets/discovery-intelligence.css?v=20260903-articlejourney1",
         "assets/discovery-intelligence.js?v=20260901-recirculation3",
         "assets/recirculation.css?v=20260919-recirc2",
-        "assets/article-discovery.js?v=20260903-articlejourney1",
+        "assets/article-discovery.js?v=20260922-relatedfix1",
         "assets/recirculation.js?v=20260919-recirc2",
         "stories/${encodeURIComponent(latest.slug)}/",
         "data-nc-recirculation",
