@@ -2,6 +2,7 @@
 from __future__ import annotations
 
 import json
+import os
 import re
 import shutil
 import subprocess
@@ -253,7 +254,6 @@ def run_case(browser, case: dict) -> dict:
             "request_failures":request_failures[-30:],
         }
 
-    context.close()
     return result
 
 def run_child(case_index: int) -> int:
@@ -263,16 +263,15 @@ def run_child(case_index: int) -> int:
         return 0
 
     case = TARGETS[case_index]
-    with sync_playwright() as p:
-        browser = p.chromium.launch(
-            executable_path=chrome,
-            headless=True,
-            args=["--no-sandbox", "--disable-dev-shm-usage", "--disable-gpu"],
-        )
-        result = run_case(browser, case)
-
+    p = sync_playwright().start()
+    browser = p.chromium.launch(
+        executable_path=chrome,
+        headless=True,
+        args=["--no-sandbox", "--disable-dev-shm-usage", "--disable-gpu"],
+    )
+    result = run_case(browser, case)
     print(json.dumps(result), flush=True)
-    return 0
+    os._exit(0)
 
 
 def main() -> int:
