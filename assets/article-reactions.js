@@ -9,8 +9,11 @@
     if(!button)return;
     const holder=$('b',button);
     const small=$('small',button);
-    if(holder&&glyph)holder.innerHTML=icon(glyph);
-    if(small&&label)small.textContent=label;
+    if(holder&&glyph&&holder.dataset.ncGlyph!==glyph){
+      holder.innerHTML=icon(glyph);
+      holder.dataset.ncGlyph=glyph;
+    }
+    if(small&&label&&small.textContent!==label)small.textContent=label;
   }
 
   function normalizeRail(){
@@ -54,12 +57,8 @@
 
   function init(){
     sync();
-    const host=$('#article');
-    if(!host)return;
-    const observer=new MutationObserver(sync);
-    observer.observe(host,{childList:true,subtree:true});
-    [100,350,900,1800,3500].forEach(delay=>setTimeout(sync,delay));
-    setTimeout(()=>observer.disconnect(),10000);
+    if(!$('#article'))return;
+    [100,350,900,1800,3500,6000,10000].forEach(delay=>setTimeout(sync,delay));
     window.addEventListener('neuralcritic:community-refreshed',sync);
     document.addEventListener('nc:saved-stories-changed',sync);
     document.addEventListener('nc:entity-follows-changed',sync);
