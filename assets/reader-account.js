@@ -93,7 +93,7 @@
           <button class="reader-auth-close" type="button" aria-label="Close">✕</button>
           <small>NEURAL CRITIC COMMUNITY</small>
           <h2 id="reader-auth-title">Reader sign in</h2>
-          <p data-reader-auth-copy>Sign in to comment, like stories, and follow writers across Neural Critic.</p>
+          <p data-reader-auth-copy>Sign in to like stories and follow writers across Neural Critic.</p>
           <div class="reader-auth-tabs">
             <button type="button" class="active" data-auth-mode="signin">SIGN IN</button>
             <button type="button" data-auth-mode="signup">CREATE ACCOUNT</button>
@@ -136,8 +136,8 @@
     submit.textContent = mode === 'signup' ? 'CREATE READER ACCOUNT' : 'SIGN IN';
     title.textContent = mode === 'signup' ? 'Create your reader account' : 'Reader sign in';
     copy.textContent = mode === 'signup'
-      ? 'Choose a public display name, then join discussions and keep your reactions synced across devices.'
-      : 'Sign in to comment, like stories, and follow writers across Neural Critic.';
+      ? 'Choose a public display name, then keep your reactions and follows synced across devices.'
+      : 'Sign in to like stories and follow writers across Neural Critic.';
     setStatus('');
   }
 
