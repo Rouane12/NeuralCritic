@@ -55,7 +55,7 @@ check(
 );
 
 check(
-  'after-thread exploration prefers a mapped Game Hub',
+  'post-article exploration prefers a mapped Game Hub',
   recirculation.includes('if (gameContext?.href && gameContext?.slug)') &&
     recirculation.includes("destination:'game_hub'") &&
     recirculation.includes("? 'OPEN GAME HUB →'") &&
