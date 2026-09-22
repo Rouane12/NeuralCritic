@@ -5,9 +5,17 @@
     <link>https://www.neuralcritic.net/</link>
     <description>Gaming news, reviews, guides, and features for players who want the signal—not the noise.</description>
     <language>en</language>
-    <lastBuildDate>Tue, 22 Sep 2026 04:14:29 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 22 Sep 2026 04:15:42 +0000</lastBuildDate>
     <generator>Neural Critic publication pipeline</generator>
     <atom:link href="https://www.neuralcritic.net/feed.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>There’s Something About gen ATLAS I Haven’t Felt From a Game in Years</title>
+      <link>https://www.neuralcritic.net/stories/why-gen-atlas-is-the-game-i-cant-stop-thinking-about/</link>
+      <guid isPermaLink="true">https://www.neuralcritic.net/stories/why-gen-atlas-is-the-game-i-cant-stop-thinking-about/</guid>
+      <description>I’m excited for gen ATLAS for an unusual reason: almost everything that makes me want to play it comes from what Fumito Ueda still refuses to explain.</description>
+      <category>FEATURE</category>
+      <pubDate>Tue, 22 Sep 2026 04:13:00 +0000</pubDate>
+    </item>
     <item>
       <title>gen ATLAS Looks Like Fumito Ueda’s Most Ambitious World Yet</title>
       <link>https://www.neuralcritic.net/stories/gen-atlas-fumito-ueda-most-ambitious-world-yet/</link>
@@ -237,14 +245,6 @@
       <link>https://www.neuralcritic.net/stories/hades-review/</link>
       <guid isPermaLink="true">https://www.neuralcritic.net/stories/hades-review/</guid>
       <description>Hades review covering its roguelike run structure, build variety, permanent progression, character-driven storytelling, difficulty options and lasting appeal.</description>
-      <category>REVIEW</category>
-      <pubDate>Sat, 05 Sep 2026 09:38:05 +0000</pubDate>
-    </item>
-    <item>
-      <title>Ghost of Tsushima Director’s Cut Review</title>
-      <link>https://www.neuralcritic.net/stories/ghost-of-tsushima-directors-cut-review/</link>
-      <guid isPermaLink="true">https://www.neuralcritic.net/stories/ghost-of-tsushima-directors-cut-review/</guid>
-      <description>Ghost of Tsushima Director’s Cut review covering Jin’s story, stance-based combat, open-world exploration, Iki Island, Legends and the complete package.</description>
       <category>REVIEW</category>
       <pubDate>Sat, 05 Sep 2026 09:38:05 +0000</pubDate>
     </item>
