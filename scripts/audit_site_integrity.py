@@ -47,9 +47,8 @@ CANONICAL_ARTICLE_RUNTIMES = [
     ROOT / "assets" / "article-formatting.js",
     ROOT / "assets" / "ranked-parity.js",
     ROOT / "assets" / "curated-article.js",
-    ROOT / "assets" / "community-stable.js",
     ROOT / "assets" / "community-core.js",
-    ROOT / "assets" / "community-thread-recovery.js",
+    ROOT / "assets" / "community-profile.js",
 ]
 
 ERRORS: list[str] = []
