@@ -6,6 +6,7 @@ on:
       - article.html
       - assets/article-extras.js
       - assets/article-cleanup.css
+      - assets/article-polish.css
       - assets/article-news-layout-v5.css
       - assets/community-core.js
       - assets/community-profile.js
