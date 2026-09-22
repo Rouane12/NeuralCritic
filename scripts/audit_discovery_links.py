@@ -59,7 +59,7 @@ def main() -> int:
             "assets/search-parity.js?v=20260901-canonical1",
         ),
         "article.html": (
-            "assets/content-api.js?v=20260919-repo1",
+            "assets/content-api.js?v=20260922-relatedfix1",
         ),
         "game.html": (
             "assets/content-api.js?v=20260919-repo1",
