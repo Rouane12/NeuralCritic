@@ -1,0 +1,41 @@
+name: Article Ending health
+
+on:
+  pull_request:
+    paths:
+      - article.html
+      - assets/article-extras.js
+      - assets/article-cleanup.css
+      - assets/article-news-layout-v5.css
+      - assets/community-core.js
+      - assets/community-profile.js
+      - assets/recirculation.js
+      - scripts/test_article_ending_v3.js
+      - .github/workflows/article-ending-health.yml
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: neural-critic-article-ending-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  ending:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Parse-check active article runtimes
+        run: |
+          node --check assets/article-extras.js
+          node --check assets/community-core.js
+          node --check assets/community-profile.js
+          node --check assets/recirculation.js
+          node --check scripts/test_article_ending_v3.js
+
+      - name: Verify retired Reader Thread and article ending contracts
+        run: node scripts/test_article_ending_v3.js
