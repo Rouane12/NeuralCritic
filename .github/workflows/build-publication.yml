@@ -112,7 +112,7 @@ jobs:
           version = hashlib.sha256(actions.read_bytes() + profile.read_bytes()).hexdigest()[:12]
           action_tag = f'<script src="assets/community-actions-v2.js?v={version}" data-nc-community-actions-v2="1"></script>'
           profile_tag = f'<script src="assets/community-profile.js?v={version}"></script>'
-          recovery_tag = '<script src="assets/community-thread-recovery.js"></script>'
+          recovery_pattern = r'<script src="assets/community-thread-recovery\.js(?:\?v=[^"]+)?"></script>'
 
           html = re.sub(
               r'<script src="assets/community-actions-v2\.js[^"]*"[^>]*></script>',
@@ -127,9 +127,11 @@ jobs:
           )
           if profile_count != 1:
               raise SystemExit("Could not locate community-profile.js in article.html")
-          if recovery_tag not in html:
+          recovery_match = re.search(recovery_pattern, html)
+          if not recovery_match:
               raise SystemExit("Could not locate community-thread-recovery.js in article.html")
-          html = html.replace(recovery_tag, recovery_tag + action_tag, 1)
+          recovery_tag = recovery_match.group(0)
+          html = html[:recovery_match.end()] + action_tag + html[recovery_match.end():]
           article.write_text(html, encoding="utf-8")
           PY
 
