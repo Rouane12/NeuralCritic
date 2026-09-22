@@ -63,7 +63,7 @@ def main() -> int:
         ),
         "game.html": (
             "assets/content-api.js?v=20260919-repo1",
-            "assets/game-page.js?v=20260912-gamehub3",
+            "assets/game-page.js?v=",
         ),
     }
     for relative, markers in runtime_pages.items():
