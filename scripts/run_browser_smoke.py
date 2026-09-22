@@ -276,7 +276,10 @@ def main() -> int:
             )
             try:
                 for case in TARGETS:
-                    results.append(run_case(browser,case))
+                    result = run_case(browser, case)
+                    results.append(result)
+                    if not result.get("pass"):
+                        break
             finally:
                 browser.close()
     finally:
