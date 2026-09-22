@@ -64,22 +64,22 @@ check(
 );
 
 check(
-  'existing Discovery Intelligence remains the recommendation owner',
-  articleDiscovery.includes('engine.related(current,all,3)') &&
-    recirculation.includes('engine.related(current, index,') &&
+  'Continue Exploring is the only generic article recommendation surface',
+  recirculation.includes('engine.related(current, index,') &&
     discoveryEngine.includes('function relatedScore(') &&
-    !articleDiscovery.includes('function relatedScore(') &&
+    !articleDiscovery.includes('engine.related(current,all,3)') &&
+    !articleDiscovery.includes('work-related-card') &&
+    !articleDiscovery.includes('data-discovery-target') &&
     !recirculation.includes('function relatedScore('),
-  'no duplicate recommendation scorer; recirculation may request a larger ranked pool before curating three journey slots'
+  'article-discovery owns taxonomy/game context only; generic story recommendations belong to Continue Exploring'
 );
 
 check(
   'article recirculation still emits canonical story URLs',
-  articleDiscovery.includes('stories/${encodeURIComponent(storySlug)}/') &&
-    recirculation.includes('stories/${encodeURIComponent(slug)}/') &&
+  recirculation.includes('stories/${encodeURIComponent(slug)}/') &&
     !articleDiscovery.includes('href="article.html?slug=') &&
     !recirculation.includes('href="article.html?slug='),
-  'reader-journey cards preserve /stories/<slug>/'
+  'Continue Exploring preserves /stories/<slug>/ while article-discovery no longer emits generic story cards'
 );
 
 check(
@@ -103,9 +103,9 @@ check(
 
 check(
   'Article Journey runtime versions are cache-busted through the established bootstrap',
-  articleTemplate.includes('assets/content-api.js?v=20260919-repo1') &&
+  articleTemplate.includes('assets/content-api.js?v=20260922-relatedfix1') &&
     contentApi.includes('assets/discovery-intelligence.css?v=20260903-articlejourney1') &&
-    contentApi.includes('assets/article-discovery.js?v=20260903-articlejourney1') &&
+    contentApi.includes('assets/article-discovery.js?v=20260922-relatedfix1') &&
     contentApi.includes('assets/recirculation.js?v=20260919-recirc2'),
   'returning readers should receive the new article journey assets rather than stale cached owners'
 );

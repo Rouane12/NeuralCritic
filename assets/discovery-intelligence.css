@@ -228,20 +228,6 @@
 }
 #article .nc-article-graph-links>div{display:flex;flex-wrap:wrap;gap:7px}
 
-/* Related story intelligence */
-#article .work-related-card a small.nc-related-reason{
-  display:inline-flex!important;
-  width:max-content;
-  margin-top:6px!important;
-  padding:4px 6px;
-  border:1px solid rgba(82,226,247,.28);
-  border-radius:999px;
-  color:#63e3f6!important;
-  background:rgba(82,226,247,.055);
-  font:800 6.5px/1 Inter,system-ui,sans-serif!important;
-  letter-spacing:.09em;
-}
-
 html[data-theme="light"] .search-entity-section>header h2,
 html[data-theme="light"] .search-entity-copy h2{color:#17212f}
 html[data-theme="light"] .search-entity-card{
@@ -257,11 +243,6 @@ html[data-theme="light"] #article .nc-article-graph-trail.has-game-hub{border-co
 html[data-theme="light"] #article .nc-article-graph-trail.has-game-hub>.nc-article-game-hub{border-color:#dce3ea;background:linear-gradient(118deg,#effbfd,#f4f2ff)}
 html[data-theme="light"] #article .nc-article-graph-trail.has-game-hub>.nc-article-game-hub:hover{background:linear-gradient(118deg,#e7f9fc,#efedff)}
 html[data-theme="light"] #article .nc-article-game-hub>b{color:#17212f}
-html[data-theme="light"] #article .work-related-card a small.nc-related-reason{
-  color:#159bb3!important;
-  border-color:#bfe9ef;
-  background:#f1fbfd;
-}
 
 @media(max-width:760px){
   .search-entity-grid{grid-template-columns:1fr}

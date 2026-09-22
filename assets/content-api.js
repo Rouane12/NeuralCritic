@@ -40,7 +40,7 @@
         if (!engine) return;
         if (!document.querySelector('script[data-nc-article-discovery]')) {
           const script = document.createElement('script');
-          script.src = 'assets/article-discovery.js?v=20260903-articlejourney1';
+          script.src = 'assets/article-discovery.js?v=20260922-relatedfix1';
           script.dataset.ncArticleDiscovery = '1';
           document.body.appendChild(script);
         }
