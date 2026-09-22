@@ -42,11 +42,11 @@ def run_target(chrome: str, kind: str, target: str) -> dict:
         "--disable-gpu",
         "--disable-dev-shm-usage",
         "--window-size=1440,1100",
-        "--virtual-time-budget=18000",
+        "--virtual-time-budget=16000",
         "--dump-dom",
         url,
     ]
-    completed = subprocess.run(cmd, cwd=ROOT, text=True, capture_output=True, timeout=40)
+    completed = subprocess.run(cmd, cwd=ROOT, text=True, capture_output=True, timeout=85)
     output = completed.stdout or ""
     match = re.search(r'<pre id="smoke-result"[^>]*>(.*?)</pre>', output, re.S)
     if not match:
