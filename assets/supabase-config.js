@@ -87,16 +87,6 @@ window.NEURAL_CRITIC_SUPABASE = {
     callback();
   };
 
-  const loadPublicScale = () => {
-    if (pageName === 'studio.html' || pageName === 'subscribers.html') return;
-    if (document.querySelector('link[data-nc-public-scale]')) return;
-    const style = document.createElement('link');
-    style.rel = 'stylesheet';
-    style.href = 'assets/public-scale.css?v=20260824-scale2';
-    style.dataset.ncPublicScale = '1';
-    document.head.appendChild(style);
-  };
-
   const loadStoryRouter = (onReady = null) => {
     const ready = () => {
       if (typeof onReady === 'function') onReady();
@@ -332,7 +322,6 @@ window.NEURAL_CRITIC_SUPABASE = {
     document.head.appendChild(config);
   };
 
-  loadPublicScale();
 
   const shouldRuntimeHarden = !window.NEURAL_CRITIC_STATIC_META && !STATIC_META_PAGES.has(pageName);
   const loadRuntimeHardening = () => {
