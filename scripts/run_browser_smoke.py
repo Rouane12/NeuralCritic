@@ -170,8 +170,10 @@ def run_case(browser, case: dict) -> dict:
     page = context.new_page()
     console_errors: list[str] = []
     page_errors: list[str] = []
+    request_failures: list[str] = []
     page.on("console", lambda msg: console_errors.append(msg.text) if msg.type == "error" else None)
     page.on("pageerror", lambda exc: page_errors.append(str(exc)))
+    page.on("requestfailed", lambda req: request_failures.append(f"{req.url} :: {req.failure or 'failed'}"))
     url = BASE + case["path"]
 
     try:
@@ -192,8 +194,34 @@ def run_case(browser, case: dict) -> dict:
             "path":case["path"],
             "console_errors":console_errors[-20:],
             "page_errors":page_errors[-20:],
+            "request_failures":request_failures[-30:],
         })
     except PlaywrightTimeoutError as exc:
+        try:
+            debug = page.evaluate("""() => {
+              const article=document.querySelector('#article');
+              return {
+                location:location.href,
+                readyState:document.readyState,
+                title:document.title,
+                staticSlug:window.NEURAL_CRITIC_STATIC_SLUG||null,
+                articleClass:article?.className||'',
+                articleHtmlLength:article?.innerHTML?.length||0,
+                articleText:(article?.innerText||'').slice(0,1200),
+                hasArticleBody:!!article?.querySelector('.article-body'),
+                hasReadingGrid:!!article?.querySelector('.work-reading-grid'),
+                loadingState:article?.querySelector('.article-loading-state')?.textContent?.trim()||null,
+                notice:article?.querySelector('.notice')?.textContent?.trim()||null,
+                contentApiReady:!!window.NeuralCriticContentAPI,
+                discoveryReady:!!window.NeuralCriticDiscovery,
+                recirculationStarted:!!window.NeuralCriticRecirculationInitStarted,
+                runtimeState:article?.dataset?.runtimeState||null,
+                runtimeChecks:article?.dataset?.runtimeChecks||null,
+                scripts:[...document.scripts].map(s=>s.src).filter(Boolean).slice(-40)
+              };
+            }""")
+        except Exception as debug_exc:
+            debug={"debug_error":str(debug_exc)}
         result={
             "pass":False,
             "kind":case["kind"],
@@ -201,6 +229,8 @@ def run_case(browser, case: dict) -> dict:
             "error":f"Browser wait timed out: {exc}",
             "console_errors":console_errors[-20:],
             "page_errors":page_errors[-20:],
+            "request_failures":request_failures[-30:],
+            "debug":debug,
         }
     except Exception as exc:
         result={
@@ -210,6 +240,7 @@ def run_case(browser, case: dict) -> dict:
             "error":f"Browser smoke exception: {exc}",
             "console_errors":console_errors[-20:],
             "page_errors":page_errors[-20:],
+            "request_failures":request_failures[-30:],
         }
 
     if not result.get("pass"):
@@ -268,6 +299,10 @@ def main() -> int:
             print(f"  PAGE ERRORS: {result['page_errors']}")
         if result.get("console_errors"):
             print(f"  CONSOLE ERRORS: {result['console_errors']}")
+        if result.get("debug"):
+            print(f"  DEBUG: {json.dumps(result['debug'], ensure_ascii=False)}")
+        if result.get("request_failures"):
+            print(f"  REQUEST FAILURES: {result['request_failures']}")
         if result.get("error"):
             print(f"  ERROR: {result['error']}")
         if not result.get("pass"):
