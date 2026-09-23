@@ -5,9 +5,25 @@
     <link>https://www.neuralcritic.net/</link>
     <description>Gaming news, reviews, guides, and features for players who want the signal—not the noise.</description>
     <language>en</language>
-    <lastBuildDate>Wed, 23 Sep 2026 06:26:17 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 23 Sep 2026 08:15:06 +0000</lastBuildDate>
     <generator>Neural Critic publication pipeline</generator>
     <atom:link href="https://www.neuralcritic.net/feed.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>The Xbox Reset Explained: What Happens to Halo, Forza, Fallout, Rare and Ninja Theory Now?</title>
+      <link>https://www.neuralcritic.net/stories/xbox-reset-what-happens-halo-forza-fallout-rare-ninja-theory/</link>
+      <guid isPermaLink="true">https://www.neuralcritic.net/stories/xbox-reset-what-happens-halo-forza-fallout-rare-ninja-theory/</guid>
+      <description>Microsoft’s latest Xbox restructuring moves major studios under Activision and Bethesda, combines Playground with Turn 10, cuts 268 roles, and puts Ninja Theory at risk of closure. Here is what actually changed and what each move means.</description>
+      <category>FEATURE</category>
+      <pubDate>Wed, 23 Sep 2026 08:27:00 +0000</pubDate>
+    </item>
+    <item>
+      <title>Halo Is Moving to Activision. Here’s What That Actually Means for Its Future</title>
+      <link>https://www.neuralcritic.net/stories/halo-activision-future-what-it-means/</link>
+      <guid isPermaLink="true">https://www.neuralcritic.net/stories/halo-activision-future-what-it-means/</guid>
+      <description>Activision developing the next mainline Halo does not automatically mean Halo becomes Call of Duty. The bigger change is production: Xbox is putting the franchise inside a publishing machine built to ship large games on a dependable cadence.</description>
+      <category>FEATURE</category>
+      <pubDate>Wed, 23 Sep 2026 08:20:00 +0000</pubDate>
+    </item>
     <item>
       <title>There’s Something About gen ATLAS I Haven’t Felt From a Game in Years</title>
       <link>https://www.neuralcritic.net/stories/why-gen-atlas-is-the-game-i-cant-stop-thinking-about/</link>
@@ -231,22 +247,6 @@
       <description>An analysis of how Hades connects repeated runs, character dialogue, permanent progression and narrative change so defeat still moves the experience forward.</description>
       <category>FEATURE</category>
       <pubDate>Mon, 07 Sep 2026 15:22:52 +0000</pubDate>
-    </item>
-    <item>
-      <title>The 12 Best Story-Driven Games</title>
-      <link>https://www.neuralcritic.net/stories/best-story-driven-games/</link>
-      <guid isPermaLink="true">https://www.neuralcritic.net/stories/best-story-driven-games/</guid>
-      <description>The 12 best story-driven games, ranked for characters, worldbuilding, narrative structure, player choice and how effectively their stories use interactivity.</description>
-      <category>FEATURE</category>
-      <pubDate>Sat, 05 Sep 2026 09:48:43 +0000</pubDate>
-    </item>
-    <item>
-      <title>Hades Review</title>
-      <link>https://www.neuralcritic.net/stories/hades-review/</link>
-      <guid isPermaLink="true">https://www.neuralcritic.net/stories/hades-review/</guid>
-      <description>Hades review covering its roguelike run structure, build variety, permanent progression, character-driven storytelling, difficulty options and lasting appeal.</description>
-      <category>REVIEW</category>
-      <pubDate>Sat, 05 Sep 2026 09:38:05 +0000</pubDate>
     </item>
   </channel>
 </rss>
