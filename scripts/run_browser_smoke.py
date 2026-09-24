@@ -28,6 +28,11 @@ TARGETS = [
     {"kind":"game","path":"/games/elden-ring/","viewport":{"width":1440,"height":1100}},
     {"kind":"article-mobile","path":"/stories/physint-bill-skarsgard-lead-xbox-tgs-2026/","viewport":{"width":390,"height":844}},
     {"kind":"article-mobile","path":"/stories/gen-atlas-fumito-ueda-most-ambitious-world-yet/","viewport":{"width":390,"height":844}},
+    {"kind":"home","path":"/","viewport":{"width":320,"height":740},"theme":"light","touch":True},
+    {"kind":"home","path":"/","viewport":{"width":390,"height":844},"touch":True},
+    {"kind":"home","path":"/","viewport":{"width":768,"height":1024},"theme":"light","touch":True},
+    {"kind":"article-mobile","path":"/stories/breath-of-the-wild-beginners-guide/","viewport":{"width":320,"height":740},"theme":"light","touch":True},
+    {"kind":"game","path":"/games/the-legend-of-zelda-breath-of-the-wild/","viewport":{"width":390,"height":844},"touch":True},
 ]
 
 EVALUATE = r"""
@@ -49,6 +54,9 @@ EVALUATE = r"""
   const checks = [];
   const check = (name, ok, value=null) => checks.push({name, ok:Boolean(ok), value});
   const diagnostics = {};
+  diagnostics.header = [...document.querySelectorAll('header .menu,header .brand,header .header-tools > *')]
+    .filter(visible).map(el=>({label:el.getAttribute('aria-label')||el.textContent.trim(),rect:rect(el)}));
+  diagnostics.media = [...document.images].map(img=>({src:img.getAttribute('src'),loading:img.loading,priority:img.fetchPriority,rect:rect(img)}));
 
   check('document rendered', !!document.body, !!document.body);
   check(
@@ -158,11 +166,13 @@ EVALUATE = r"""
       check('Weekly Drop has full editorial width',visible(newsletter)&&newsletterRect.width>=700,newsletterRect);
     } else {
       check('mobile reading layout is single column',getComputedStyle(grid).display==='block',getComputedStyle(grid).display);
-      check('mobile body fills reading width',visible(body)&&bodyRect.width>=330&&bodyRect.width<=390,bodyRect);
-      check('mobile reaction rail is horizontal',visible(rail)&&railRect.width>=330,railRect);
-      check('mobile sidebar fills reading width',visible(sidebar)&&sideRect.width>=330,sideRect);
-      check('mobile Continue Exploring fills reading width',visible(recirc)&&recircRect.width>=330,recircRect);
-      check('mobile Weekly Drop fills reading width',visible(newsletter)&&newsletterRect.width>=330,newsletterRect);
+      const minimumWidth = innerWidth - 60;
+      check('mobile body fills reading width',visible(body)&&bodyRect.width>=minimumWidth&&bodyRect.width<=innerWidth,bodyRect);
+      check('mobile reaction rail is horizontal',visible(rail)&&railRect.width>=minimumWidth,railRect);
+      check('mobile sidebar fills reading width',visible(sidebar)&&sideRect.width>=minimumWidth,sideRect);
+      check('mobile Continue Exploring fills reading width',visible(recirc)&&recircRect.width>=minimumWidth,recircRect);
+      check('mobile Weekly Drop fills reading width',visible(newsletter)&&newsletterRect.width>=minimumWidth,newsletterRect);
+      diagnostics.readingMap = {map:rect(article.querySelector('.work-toc')),body:bodyRect};
     }
 
     if (gridRect && recircRect) {
@@ -205,7 +215,8 @@ def safe_name(kind: str, path: str) -> str:
     return f"{kind}-{slug}"[:110]
 
 def run_case(browser, case: dict) -> dict:
-    context = browser.new_context(viewport=case["viewport"], device_scale_factor=1)
+    context = browser.new_context(viewport=case["viewport"], device_scale_factor=1, has_touch=case.get("touch", False))
+    context.add_init_script("localStorage.setItem('neural-critic-theme', " + json.dumps(case.get("theme", "dark")) + ");")
     page = context.new_page()
     page.set_default_timeout(12_000)
 
@@ -249,7 +260,29 @@ def run_case(browser, case: dict) -> dict:
         else:
             page.wait_for_timeout(2_000)
 
+        consent = page.get_by_role('button', name=re.compile('essential only', re.I))
+        if consent.is_visible():
+            consent.click()
         result = page.evaluate(EVALUATE, {"kind":kind})
+        name = safe_name(kind, case["path"]) + f"-{case['viewport']['width']}-{case.get('theme','dark')}"
+        page.screenshot(path=str(ARTIFACTS / f"{name}.jpg"), type="jpeg", quality=75)
+        if case.get("touch"):
+            menu = page.get_by_role('button', name='Open navigation', exact=True)
+            menu.tap()
+            page.wait_for_function("document.body.classList.contains('mobile-nav-open')")
+            page.get_by_role('button', name='Open News menu', exact=True).tap()
+            page.get_by_role('link', name='Latest News', exact=False).wait_for(state='visible')
+            page.screenshot(path=str(ARTIFACTS / f"{name}-navigation.jpg"), type="jpeg", quality=75)
+            page.keyboard.press('Escape')
+            page.wait_for_function("!document.body.classList.contains('mobile-nav-open')")
+            focused = page.evaluate("document.activeElement.matches('header .menu')")
+            result['checks'].append({'name':'mobile menu opens, submenu responds, Escape restores focus','ok':focused})
+        if kind == 'article-mobile':
+            page.locator('.work-reading-grid').scroll_into_view_if_needed()
+            page.screenshot(path=str(ARTIFACTS / f"{name}-reading.jpg"), type="jpeg", quality=75)
+        result['checks'].append({'name':'no uncaught page exceptions','ok':not page_errors,'value':page_errors})
+        result['pass'] = all(check['ok'] for check in result['checks'])
+        result['failures'] = [check for check in result['checks'] if not check['ok']]
         result.update({
             "kind":kind,
             "path":case["path"],
@@ -386,8 +419,6 @@ def main() -> int:
                 }
 
             results.append(result)
-            if not result.get("pass"):
-                break
     finally:
         server.terminate()
         try:
