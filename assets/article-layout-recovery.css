@@ -38,14 +38,20 @@ body:has(#article.work-article-page){overflow-x:clip}
   border:0!important;
 }
 #article.work-article-page>.work-author-row{margin:22px auto 26px!important}
-#article.work-article-page>.work-hero-figure{border-radius:16px!important}
+/* Restore the cinematic lead-image scale without widening the reading column. */
+#article.work-article-page>.work-hero-figure{
+  width:100%!important;
+  max-width:none!important;
+  border-radius:28px!important;
+  overflow:hidden!important;
+}
 #article.work-article-page>.work-hero-figure>.article-hero{
-  aspect-ratio:2.1!important;
-  max-height:440px!important;
+  width:100%!important;
+  aspect-ratio:16/8.25!important;
+  max-height:none!important;
   min-height:0!important;
   object-fit:cover!important;
 }
-#article.work-article-page[data-article-format="game-guide"]>.work-hero-figure>.article-hero{max-height:360px!important}
 #article.work-article-page .quick-read.work-quick-read ul{margin:12px 0 0;padding-left:1.2em}
 #article.work-article-page .quick-read.work-quick-read li{margin:8px 0;line-height:1.55}
 html[data-theme="light"] #article.work-article-page .article-kicker,
