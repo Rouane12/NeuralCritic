@@ -192,13 +192,6 @@
         </section>
       </aside>`);
 
-    const likeBtn = qs('[data-article-like]', grid);
-    const likeKey = `neural-critic-article-like:${article.slug}`;
-    if (localStorage.getItem(likeKey) === '1') likeBtn?.classList.add('active');
-    likeBtn?.addEventListener('click', () => {
-      const next = likeBtn.classList.toggle('active');
-      localStorage.setItem(likeKey, next ? '1' : '0');
-    });
     qs('[data-article-share]', grid)?.addEventListener('click', async event => {
       try {
         if (navigator.share) await navigator.share({title: document.title, url: location.href});

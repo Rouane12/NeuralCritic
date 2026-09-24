@@ -209,6 +209,7 @@ jobs:
           node --check assets/analytics-config.js
           node --check assets/article-runtime-integrity.js
           node --check assets/article-extras.js
+          node --check assets/article-likes.js
           node --check assets/community-core.js
           node --check assets/community-profile.js
           node --check assets/article-sidebar-interactive.js

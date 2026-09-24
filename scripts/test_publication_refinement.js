@@ -175,11 +175,12 @@ test('Reader Auth V2 owns a bounded signed-in profile editor', () => {
 });
 
 test('Article like writes are verified instead of failing silently', () => {
-  const runtime = source('community-core.js');
-  assert.match(runtime, /async function articleLikeState/);
-  assert.match(runtime, /if\(error\)throw error/);
-  assert.match(runtime, /Like state was not persisted/);
-  assert.match(runtime, /neuralcritic:article-like-changed/);
+  const runtime = source('article-likes.js');
+  assert.match(runtime, /async function likedWithContext/);
+  assert.match(runtime, /sb\.auth\.getUser\(\)/);
+  assert.match(runtime, /if \(error\) throw error/);
+  assert.match(runtime, /Article Like write could not be verified/);
+  assert.match(runtime, /nc:article-like-changed/);
   assert.match(runtime, /Like could not be saved\. Click to retry\./);
 });
 

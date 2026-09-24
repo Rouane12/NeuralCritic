@@ -78,11 +78,29 @@ function testSignedOutAuthorFollowDefault() {
   assert.ok(sessionGuard > neutralState, 'neutral follow state must be applied before the signed-out return');
 }
 
+function testArticleLikeOwnership() {
+  const controller = source('assets/article-likes.js');
+  const extras = source('assets/article-extras.js');
+  const community = source('assets/community-core.js');
+  const shell = source('article.html');
+
+  assert.match(shell, /assets\/article-likes\.js\?v=20260924-likes1/, 'article shell must load the dedicated Like owner');
+  assert.doesNotMatch(extras, /neural-critic-article-like:/, 'article extras must not keep a localStorage Like shadow state');
+  assert.doesNotMatch(community, /from\('article_reactions'\)/, 'community core must not compete for article Like writes');
+  assert.match(controller, /function candidateClients\(\)/, 'Like owner must resolve the active reader client');
+  assert.match(controller, /sb\.auth\.getUser\(\)/, 'Like owner must verify the authenticated user on the chosen client');
+  assert.match(controller, /existing\.cloneNode\(true\)/, 'Like owner must remove stale cached click handlers before binding');
+  assert.match(controller, /Article Like write could not be verified\./, 'Like writes must be re-read and verified');
+  assert.match(controller, /state === 'error' \? 'RETRY'/, 'Like failures must surface a visible retry state');
+  assert.match(controller, /story_liked/, 'Like changes must emit the established analytics signal');
+}
+
 const tests = [
   ['flexible desktop article grid', testFlexibleArticleGrid],
   ['image-viewer focus ownership', testImageViewerFocusOwnership],
   ['search focus ownership', testSearchFocusOwnership],
   ['signed-out author-follow default', testSignedOutAuthorFollowDefault],
+  ['dedicated article-like ownership', testArticleLikeOwnership],
 ];
 
 const failures = [];
