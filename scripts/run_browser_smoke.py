@@ -149,6 +149,7 @@ EVALUATE = r"""
     check('retired Reader Thread absent',!legacyThread,legacyThread?.className||null);
     check('retired generic Related Coverage absent',!legacyRelated,legacyRelated?.className||null);
     check('reaction rail normalized',visible(rail),railRect);
+    check('reading action icons work without remote fonts',!!rail?.querySelector('[data-article-like] svg')&&!!rail?.querySelector('[data-article-share] svg')&&!rail?.querySelector('.material-symbols-rounded'));
     check('Continue Exploring visible',visible(recirc),recircRect);
     check('Weekly Drop visible',visible(newsletter),newsletterRect);
 

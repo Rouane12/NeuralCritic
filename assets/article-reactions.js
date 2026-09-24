@@ -3,7 +3,13 @@
 
   const $=(s,r=document)=>r.querySelector(s);
   const $$=(s,r=document)=>[...r.querySelectorAll(s)];
-  const icon=name=>'<span class="material-symbols-rounded" aria-hidden="true">'+name+'</span>';
+  // Reading actions must stay legible before (or without) remote icon fonts.
+  const glyphs={
+    thumb_up:'<path d="M7 10v11H3V10h4Zm0 0 5-7c2 0 2 2 2 3l-1 4h6a2 2 0 0 1 2 2l-2 7a2 2 0 0 1-2 2H7"/>',
+    bookmark:'<path d="M5 21V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v16l-7-4-7 4Z"/>',
+    share:'<circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><path d="m9 10.5 6-4m-6 7 6 4"/>'
+  };
+  const icon=name=>'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">'+(glyphs[name]||'')+'</svg>';
 
   function setButton(button,label,glyph){
     if(!button)return;
