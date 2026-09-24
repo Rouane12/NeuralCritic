@@ -158,11 +158,12 @@ test('Article lead media keeps the cinematic scale while prose remains constrain
   assert.doesNotMatch(css, /max-height:440px!important/);
 });
 
-test('Desktop publication navigation restores hover motion and hover-open menus', () => {
+test('Desktop publication navigation restores hover motion without hover-opening menus', () => {
   const css = source('publication-nav.css');
   assert.match(css, /\(hover:hover\) and \(pointer:fine\)/);
   assert.match(css, /transform:translateY\(-2px\)/);
-  assert.match(css, /\.publication-nav \.nav-group:hover>\.nav-menu/);
+  assert.doesNotMatch(css, /\.nav-group:hover>\.nav-menu/);
+  assert.doesNotMatch(css, /\.nav-group:focus-within>\.nav-menu/);
 });
 
 test('Reader Auth V2 owns a bounded signed-in profile editor', () => {
