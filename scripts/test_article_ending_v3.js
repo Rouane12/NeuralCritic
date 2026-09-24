@@ -9,6 +9,7 @@ const read = file => fs.readFileSync(path.join(root, file), 'utf8');
 const article = read('article.html');
 const extras = read('assets/article-extras.js');
 const core = read('assets/community-core.js');
+const likes = read('assets/article-likes.js');
 const profile = read('assets/community-profile.js');
 const recirculation = read('assets/recirculation.js');
 const layoutV5 = read('assets/article-news-layout-v5.css');
@@ -40,10 +41,12 @@ check('article ending retains the Weekly Drop CTA',
   extras.includes('work-newsletter-band') &&
   extras.includes('Finished here? Keep the good reads coming.'));
 
-check('reader account runtime no longer waits for comments',
+check('reader account runtime no longer waits for comments or owns Likes',
   !core.includes("waitFor('#reader-thread')") &&
   !core.includes('neuralCriticRecoverThread') &&
-  core.includes("waitFor('[data-article-like]')"));
+  !core.includes("waitFor('[data-article-like]')") &&
+  article.includes('assets/article-likes.js') &&
+  likes.includes('[data-article-like]'));
 
 check('reader account copy reflects reactions and follows, not commenting',
   core.includes('Sign in to like stories and follow writers across Neural Critic.') &&
