@@ -23,7 +23,7 @@
     if (document.querySelector('link[data-nc-reader-auth-v2]')) return;
     const style = document.createElement('link');
     style.rel = 'stylesheet';
-    style.href = 'assets/reader-auth-v2.css?v=20260824-auth2';
+    style.href = 'assets/reader-auth-v2.css?v=20260924-profilefix1';
     style.dataset.ncReaderAuthV2 = '1';
     document.head.appendChild(style);
   }
