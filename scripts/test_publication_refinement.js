@@ -151,6 +151,38 @@ test('Conclusion labels preserve authored copy without claiming a universal verd
   assert.ok(section.innerHTML.includes('TAKEAWAYS'));
 });
 
+test('Article lead media keeps the cinematic scale while prose remains constrained', () => {
+  const css = source('article-layout-recovery.css');
+  assert.match(css, /aspect-ratio:16\/8\.25!important/);
+  assert.match(css, /max-height:none!important/);
+  assert.doesNotMatch(css, /max-height:440px!important/);
+});
+
+test('Desktop publication navigation restores hover motion without hover-opening menus', () => {
+  const css = source('publication-nav.css');
+  assert.match(css, /\(hover:hover\) and \(pointer:fine\)/);
+  assert.match(css, /transform:translateY\(-2px\)/);
+  assert.doesNotMatch(css, /\.nav-group:hover>\.nav-menu/);
+  assert.doesNotMatch(css, /\.nav-group:focus-within>\.nav-menu/);
+});
+
+test('Reader Auth V2 owns a bounded signed-in profile editor', () => {
+  const css = source('reader-auth-v2.css');
+  assert.match(css, /\.reader-profile-editor\{/);
+  assert.match(css, /max-width:58px!important/);
+  assert.match(css, /\.reader-profile-avatar-actions/);
+  assert.match(css, /\.reader-profile-save/);
+});
+
+test('Article like writes are verified instead of failing silently', () => {
+  const runtime = source('community-core.js');
+  assert.match(runtime, /async function articleLikeState/);
+  assert.match(runtime, /if\(error\)throw error/);
+  assert.match(runtime, /Like state was not persisted/);
+  assert.match(runtime, /neuralcritic:article-like-changed/);
+  assert.match(runtime, /Like could not be saved\. Click to retry\./);
+});
+
 (async () => {
   let failures = 0;
   for (const { name, run } of tests) {

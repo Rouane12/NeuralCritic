@@ -310,6 +310,125 @@
 .reader-auth-subview-status{min-height:18px;color:#8997b1;font:500 9px/1.45 Inter,system-ui,sans-serif}.reader-auth-subview-status.error{color:#ff91a6}.reader-auth-subview-status.success{color:#62e8b2}
 .reader-auth-signout{margin-top:12px!important;padding:0!important;border:0!important;background:transparent!important;color:#7cdbea!important;font:800 8px/1 Inter,system-ui,sans-serif!important;cursor:pointer!important}
 
+/* Signed-in Reader profile presentation. Keep this in the V2 sheet because
+   it loads after the older community styles and therefore owns the modal. */
+.reader-profile-slot{display:block!important;margin-top:4px!important}
+.reader-profile-editor{
+  display:grid!important;
+  gap:13px!important;
+  margin:15px 0 0!important;
+  padding:15px!important;
+  border:1px solid rgba(126,145,184,.22)!important;
+  border-radius:14px!important;
+  background:rgba(7,13,28,.64)!important;
+  box-sizing:border-box!important;
+}
+.reader-profile-head{
+  display:grid!important;
+  grid-template-columns:58px minmax(0,1fr)!important;
+  gap:12px!important;
+  align-items:center!important;
+  min-width:0!important;
+}
+.reader-profile-head>.reader-profile-avatar,
+.reader-profile-head>img{
+  display:block!important;
+  width:58px!important;
+  height:58px!important;
+  max-width:58px!important;
+  max-height:58px!important;
+  aspect-ratio:1!important;
+  object-fit:cover!important;
+  border:2px solid #51def2!important;
+  border-radius:50%!important;
+  background:#11182b!important;
+  box-shadow:0 0 0 3px rgba(81,222,242,.07)!important;
+}
+.reader-profile-head>.community-avatar{
+  width:58px!important;
+  height:58px!important;
+  min-width:58px!important;
+  border-radius:50%!important;
+}
+.reader-profile-head>div{
+  display:grid!important;
+  gap:3px!important;
+  min-width:0!important;
+}
+.reader-profile-head small{
+  display:block!important;
+  color:#59e4f6!important;
+  font:850 7px/1 Inter,system-ui,sans-serif!important;
+  letter-spacing:.14em!important;
+}
+.reader-profile-head strong{
+  display:block!important;
+  min-width:0!important;
+  overflow:hidden!important;
+  color:#f5f7ff!important;
+  font:780 13px/1.2 Inter,system-ui,sans-serif!important;
+  text-overflow:ellipsis!important;
+  white-space:nowrap!important;
+}
+.reader-profile-head span{
+  display:block!important;
+  color:#7f8ca5!important;
+  font:550 8px/1.35 Inter,system-ui,sans-serif!important;
+}
+.reader-profile-editor>label{
+  display:grid!important;
+  gap:7px!important;
+  color:#8290a9!important;
+  font:800 7px/1 Inter,system-ui,sans-serif!important;
+  letter-spacing:.1em!important;
+}
+.reader-profile-editor .reader-profile-name{
+  box-sizing:border-box!important;
+  width:100%!important;
+  min-height:42px!important;
+  padding:0 12px!important;
+  border:1px solid rgba(126,145,184,.24)!important;
+  border-radius:10px!important;
+  background:rgba(4,9,20,.72)!important;
+  color:#f5f7ff!important;
+  font:550 11px/1 Inter,system-ui,sans-serif!important;
+  outline:0!important;
+}
+.reader-profile-editor .reader-profile-name:focus{
+  border-color:rgba(75,220,241,.7)!important;
+  box-shadow:0 0 0 3px rgba(75,220,241,.08)!important;
+}
+.reader-profile-avatar-actions{
+  display:flex!important;
+  align-items:center!important;
+  gap:9px!important;
+  flex-wrap:wrap!important;
+}
+.reader-profile-avatar-actions button,
+.reader-profile-save{
+  min-height:34px!important;
+  padding:0 11px!important;
+  border:1px solid rgba(75,217,239,.52)!important;
+  border-radius:9px!important;
+  background:rgba(10,35,45,.9)!important;
+  color:#61e8f9!important;
+  font:850 7px/1 Inter,system-ui,sans-serif!important;
+  letter-spacing:.045em!important;
+  cursor:pointer!important;
+}
+.reader-profile-avatar-actions span{
+  color:#73819a!important;
+  font:550 8px/1.35 Inter,system-ui,sans-serif!important;
+}
+.reader-profile-save{
+  justify-self:start!important;
+  border:0!important;
+  background:linear-gradient(100deg,#685fff,#43d7e8)!important;
+  color:#fff!important;
+  box-shadow:0 10px 24px rgba(75,104,227,.17)!important;
+}
+.reader-profile-avatar-actions button:disabled,.reader-profile-save:disabled{opacity:.58!important;cursor:wait!important}
+
 html[data-theme="light"] .reader-auth-modal{
   background:
     radial-gradient(circle at 18% 18%,rgba(102,91,255,.17),transparent 34%),
@@ -340,6 +459,13 @@ html[data-theme="light"] .reader-auth-password-toggle{background:#f0f4f7;color:#
 html[data-theme="light"] .reader-auth-forgot{color:#0b6072}
 html[data-theme="light"] .reader-auth-status,html[data-theme="light"] .reader-auth-subview-status{color:#748196!important}
 html[data-theme="light"] .reader-auth-security-note{color:#8995a5}html[data-theme="light"] .reader-auth-security-note b{color:#5b6879}
+html[data-theme="light"] .reader-profile-editor{background:#f8fafc!important;border-color:#d6dfe7!important}
+html[data-theme="light"] .reader-profile-head strong{color:#172131!important}
+html[data-theme="light"] .reader-profile-head span,
+html[data-theme="light"] .reader-profile-editor>label,
+html[data-theme="light"] .reader-profile-avatar-actions span{color:#6f7e90!important}
+html[data-theme="light"] .reader-profile-editor .reader-profile-name{background:#fff!important;color:#172131!important;border-color:#d5dde6!important}
+html[data-theme="light"] .reader-profile-avatar-actions button{background:#eef9fb!important;color:#087e98!important;border-color:#8bd5e2!important}
 
 /* Signed-in profile contrast: keep the light palette airy without washing out key actions. */
 html[data-theme="light"] .reader-auth-brandmark{
@@ -369,5 +495,9 @@ html[data-theme="light"] .reader-profile-save:focus-visible{
   .reader-auth-card::before{border-radius:20px 20px 0 0}
   .reader-auth-card h2{font-size:27px!important}
   .reader-auth-social{grid-template-columns:1fr 1fr}
+  .reader-profile-head{grid-template-columns:50px minmax(0,1fr)!important}
+  .reader-profile-head>.reader-profile-avatar,.reader-profile-head>img,.reader-profile-head>.community-avatar{width:50px!important;height:50px!important;max-width:50px!important;max-height:50px!important;min-width:50px!important}
+  .reader-profile-avatar-actions{display:grid!important}
+  .reader-profile-avatar-actions button,.reader-profile-save{width:100%!important;justify-self:stretch!important}
 }
 @media(prefers-reduced-motion:reduce){.reader-auth-provider,.reader-auth-close,.reader-auth-form>button[type="submit"]{transition:none!important}}
