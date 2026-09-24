@@ -361,7 +361,10 @@
   function tuneImage(img) {
     if (!(img instanceof HTMLImageElement)) return;
     img.decoding = 'async';
-    const aboveFold = !!img.closest('.lead,.hero,.article-hero-wrap,.work-article-hero') || img.matches('#article > .article-hero');
+    // Initial markup and performance.js own explicit media priorities. This
+    // compatibility fallback must not promote every supporting hero card.
+    if (img.hasAttribute('loading')) return;
+    const aboveFold = !!img.closest('.lead,.article-hero-wrap,.work-article-hero') || img.matches('#article > .article-hero, #article .work-hero-figure > img');
     if (aboveFold) {
       img.loading = 'eager';
       try { img.fetchPriority = 'high'; } catch (_) {}

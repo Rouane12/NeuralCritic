@@ -349,7 +349,7 @@ window.NEURAL_CRITIC_SUPABASE = {
   const loadRuntimeHardening = () => {
     if (!shouldRuntimeHarden || document.querySelector('script[data-nc-hardening]')) return;
     const hardening = document.createElement('script');
-    hardening.src = 'assets/public-hardening.js?v=20260902-protected1';
+    hardening.src = 'assets/public-hardening.js?v=473d163a7978';
     hardening.async = true;
     hardening.dataset.ncHardening = '1';
     document.head.appendChild(hardening);

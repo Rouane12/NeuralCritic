@@ -69,6 +69,8 @@ EVALUATE = r"""
 
   if (kind === 'home') {
     const hero=document.querySelector('#hero');
+    const supporting=[...document.querySelectorAll('#hero .features img')];
+    check('supporting hero images retain deferred loading after enhancement',supporting.length>0&&supporting.every(img=>img.loading==='lazy'&&img.fetchPriority!=='high'),supporting.map(img=>({loading:img.loading,priority:img.fetchPriority})));
     const stories=[...document.querySelectorAll('a[href*="/stories/"],a[href^="stories/"]')];
     check('homepage hero visible',visible(hero),rect(hero));
     check('homepage exposes story navigation',stories.length>=3,stories.length);
