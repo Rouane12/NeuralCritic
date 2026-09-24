@@ -57,8 +57,56 @@
     const button=document.createElement('button');button.type='button';button.className='reader-account-button';button.innerHTML='<span class="reader-account-dot"></span><span data-reader-account-label>SIGN IN</span>';button.addEventListener('click',()=>openModal('signin'));tools.appendChild(button);
   }
   function updateAccountButton(){installAccountButton();const button=$('.reader-account-button'),label=$('[data-reader-account-label]',button||document);if(!button||!label)return;button.classList.toggle('signed-in',!!session);label.textContent=session?(profile?.display_name||'ACCOUNT'):'SIGN IN'}
-  async function syncArticleLike(){const button=$('[data-article-like]');if(!button)return;button.classList.remove('active','community-active');if(!session?.user)return;const {data}=await client.from('article_reactions').select('article_slug').eq('article_slug',currentSlug()).eq('user_id',session.user.id).eq('reaction_type','like').maybeSingle();button.classList.toggle('community-active',!!data)}
-  function bindArticleLike(){const button=$('[data-article-like]');if(!button||button.dataset.communityBound)return;button.dataset.communityBound='1';button.addEventListener('click',async event=>{event.preventDefault();event.stopImmediatePropagation();if(!session?.user){openModal('signin');return}const slug=currentSlug(),active=button.classList.contains('community-active');if(active)await client.from('article_reactions').delete().eq('article_slug',slug).eq('user_id',session.user.id).eq('reaction_type','like');else await client.from('article_reactions').insert({article_slug:slug,user_id:session.user.id,reaction_type:'like'});await syncArticleLike()},true)}
+  async function articleLikeState(slug,userId){
+    if(!slug||!userId)return false;
+    const {data,error}=await client.from('article_reactions').select('article_slug').eq('article_slug',slug).eq('user_id',userId).eq('reaction_type','like').maybeSingle();
+    if(error)throw error;
+    return !!data;
+  }
+  function paintArticleLike(button,on,state='ready'){
+    if(!button)return;
+    button.classList.remove('active');
+    button.classList.toggle('community-active',!!on);
+    button.setAttribute('aria-pressed',String(!!on));
+    button.dataset.state=state;
+    button.title=state==='error'?'Like could not be saved. Click to retry.':on?'Remove like':'Like this story';
+  }
+  async function syncArticleLike(){
+    const button=$('[data-article-like]');if(!button)return;
+    if(!session?.user){paintArticleLike(button,false);return}
+    try{paintArticleLike(button,await articleLikeState(currentSlug(),session.user.id))}
+    catch(error){console.warn('Article like state check failed.',error);paintArticleLike(button,false,'error')}
+  }
+  function bindArticleLike(){
+    const button=$('[data-article-like]');if(!button||button.dataset.communityBound)return;
+    button.dataset.communityBound='1';
+    button.setAttribute('aria-pressed','false');
+    button.addEventListener('click',async event=>{
+      event.preventDefault();event.stopImmediatePropagation();
+      if(!session?.user){openModal('signin');return}
+      const slug=currentSlug();if(!slug)return;
+      let before=button.classList.contains('community-active');
+      button.disabled=true;
+      button.dataset.state='saving';
+      try{
+        before=await articleLikeState(slug,session.user.id);
+        if(before){
+          const {error}=await client.from('article_reactions').delete().eq('article_slug',slug).eq('user_id',session.user.id).eq('reaction_type','like');
+          if(error)throw error;
+        }else{
+          const {error}=await client.from('article_reactions').insert({article_slug:slug,user_id:session.user.id,reaction_type:'like'});
+          if(error)throw error;
+        }
+        const after=await articleLikeState(slug,session.user.id);
+        if(after===before)throw new Error('Like state was not persisted.');
+        paintArticleLike(button,after);
+        window.dispatchEvent(new CustomEvent('neuralcritic:article-like-changed',{detail:{slug,liked:after}}));
+      }catch(error){
+        console.warn('Article like action failed.',error);
+        paintArticleLike(button,before,'error');
+      }finally{button.disabled=false}
+    },true);
+  }
 
   async function syncAuthorFollow(){const name=authorName(),buttons=$$('[data-author-follow],[data-article-follow]');buttons.forEach(button=>{button.classList.remove('active','community-active');button.setAttribute('aria-pressed','false');if(button.matches('[data-author-follow]'))button.textContent='FOLLOW';const small=$('small',button);if(small)small.textContent='FOLLOW'});if(!session?.user||!buttons.length)return;const {data}=await client.from('author_follows').select('author_name').eq('user_id',session.user.id).eq('author_name',name).maybeSingle();buttons.forEach(button=>{button.classList.toggle('community-active',!!data);button.setAttribute('aria-pressed',String(!!data));if(button.matches('[data-author-follow]'))button.textContent=data?'FOLLOWING':'FOLLOW';const small=$('small',button);if(small)small.textContent=data?'FOLLOWING':'FOLLOW'})}
   function bindAuthorFollow(){const name=authorName();$$('[data-author-follow],[data-article-follow]').forEach(button=>{if(button.dataset.communityBound)return;button.dataset.communityBound='1';button.addEventListener('click',async event=>{event.preventDefault();event.stopImmediatePropagation();if(!session?.user){openModal('signin');return}const active=button.classList.contains('community-active');if(active)await client.from('author_follows').delete().eq('user_id',session.user.id).eq('author_name',name);else await client.from('author_follows').insert({user_id:session.user.id,author_name:name});await syncAuthorFollow()},true)})}
