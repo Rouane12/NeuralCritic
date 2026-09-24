@@ -344,6 +344,11 @@ def metadata_markup(article: dict[str, Any]) -> str:
     parts.append(
         "<script>"
         f"window.NEURAL_CRITIC_STATIC_META=true;window.NEURAL_CRITIC_STATIC_SLUG={slug_json};"
+        # Retain campaign labels before the compatibility rewrite removes the
+        # query string. Never retain the full entry URL or arbitrary parameters.
+        "try{const q=new URLSearchParams(location.search);window.NEURAL_CRITIC_ENTRY_CAMPAIGN={};"
+        "for(const k of ['source','medium','campaign','content','id']){const v=q.get('utm_'+k)||'';"
+        "if(/^[A-Za-z0-9_.-]{1,100}$/.test(v))window.NEURAL_CRITIC_ENTRY_CAMPAIGN[k]=v;}}catch(_){}"
         f"try{{const h=location.hash||'';history.replaceState(null,'',{runtime_article_json}+'?slug='+encodeURIComponent(window.NEURAL_CRITIC_STATIC_SLUG)+h);}}catch(_){{}}"
         "</script>"
     )

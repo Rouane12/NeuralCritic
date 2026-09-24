@@ -54,6 +54,7 @@ on:
       - scripts/test_reader_baseline.js
       - scripts/test_home_navigation.js
       - scripts/test_publication_refinement.js
+      - scripts/test_campaign_attribution.js
       - scripts/audit_live_auth_boundaries.py
       - scripts/audit_launch.py
       - scripts/audit_domain_readiness.py
@@ -134,6 +135,7 @@ on:
       - scripts/test_reader_baseline.js
       - scripts/test_home_navigation.js
       - scripts/test_publication_refinement.js
+      - scripts/test_campaign_attribution.js
       - scripts/audit_live_auth_boundaries.py
       - scripts/audit_launch.py
       - scripts/audit_domain_readiness.py
@@ -241,6 +243,9 @@ jobs:
 
       - name: Verify publication scores, freshness, search, and loading
         run: node scripts/test_publication_refinement.js
+
+      - name: Verify campaign attribution across story bootstrap and consent
+        run: node scripts/test_campaign_attribution.js
 
       - name: Verify reader baseline contracts
         run: node scripts/test_reader_baseline.js

@@ -381,7 +381,7 @@ window.NEURAL_CRITIC_SUPABASE = {
   config.addEventListener('load', () => {
     if (document.querySelector('script[data-nc-analytics]')) return;
     const analytics = document.createElement('script');
-    analytics.src = 'assets/analytics.js?v=20260906-analytics4';
+    analytics.src = 'assets/analytics.js?v=bad5a9b8fb6c';
     analytics.async = true;
     analytics.dataset.ncAnalytics = '1';
     analytics.addEventListener('load', () => {

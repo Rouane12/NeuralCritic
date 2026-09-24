@@ -15,6 +15,23 @@
   let articleContext = null;
   let articleContextPromise = null;
 
+  // The generated story shell captures these labels before its compatibility
+  // rewrite. Other entry points can read them directly. Keep the canonical page
+  // URL clean and scope attribution to this page's GA4 config, with no storage.
+  function campaignConfig() {
+    const captured = window.NEURAL_CRITIC_ENTRY_CAMPAIGN || {};
+    const query = new URLSearchParams(location.search);
+    const fields = { source: 'source', medium: 'medium', campaign: 'name', content: 'content', id: 'id' };
+    const result = {};
+    Object.entries(fields).forEach(([utm, field]) => {
+      const value = captured[utm] || query.get(`utm_${utm}`) || '';
+      if (typeof value === 'string' && /^[A-Za-z0-9_.-]{1,100}$/.test(value)) {
+        result[`campaign_${field}`] = value;
+      }
+    });
+    return result;
+  }
+
   const canonicalStoryMatch = pathname.match(/\/NeuralCritic\/stories\/([^/]+)(?:\/index\.html)?\/?$/i);
   const canonicalTopicMatch = pathname.match(/\/NeuralCritic\/topics\/(game|series|franchise)\/([^/]+)(?:\/index\.html)?\/?$/i);
   const canonicalAuthorMatch = pathname.match(/\/NeuralCritic\/authors\/([^/]+)(?:\/index\.html)?\/?$/i);
@@ -252,7 +269,8 @@
     window.gtag('config', measurementId, {
       send_page_view: false,
       allow_google_signals: false,
-      allow_ad_personalization_signals: false
+      allow_ad_personalization_signals: false,
+      ...campaignConfig()
     });
 
     const script = document.createElement('script');
