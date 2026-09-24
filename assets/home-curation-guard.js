@@ -56,11 +56,14 @@
     try {
       const [articles, features] = await Promise.all([loadArticles(), waitForHero()]);
       if (!features || !articles.length) return;
-      const top = articles.find(article => slotOf(article) === 'secondary-top');
-      const bottom = articles.find(article => slotOf(article) === 'secondary-bottom');
-      const selected = [top,bottom].filter(Boolean);
+      // The shared discovery engine owns freshness and placement for every home module.
+      const engine = await window.NeuralCriticDiscoveryReady;
+      const program = engine?.homepageProgram(articles);
+      const selected = program?.secondaries || [];
       if (!selected.length) return;
+      if (window.NeuralCriticHomepageState?.program) return;
       features.innerHTML = selected.map(card).join('');
+      window.NeuralCriticHomepageState = { ...window.NeuralCriticHomepageState, program, featuredSlugs:program.featuredSlugs };
       features.dataset.ncCuratedSlots = '1';
       window.dispatchEvent(new CustomEvent('neuralcritic:homepage-slots-applied'));
     } catch (error) {

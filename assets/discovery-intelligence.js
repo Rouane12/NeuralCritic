@@ -208,22 +208,21 @@
   function trendScore(article, articles = []) {
     if (!article) return -Infinity;
     const published = when(article.publishedAt);
-    const updated = when(article.updatedAt || article.publishedAt);
-    const ageHours = Math.max(0, (Date.now() - Math.max(published, updated)) / 3600000);
+    const ageHours = Math.max(0, (Date.now() - published) / 3600000);
     let score = Math.max(0, 70 - ageHours * 0.85);
 
     const category = normalize(article.category);
     const kind = article.newsMeta?.kind;
     if (category === 'news') {
       score += 18;
-      if (kind === 'breaking') score += 42;
-      if (kind === 'update') score += 24;
+      if (kind === 'breaking' && isRecent(article, 2)) score += 42;
+      if (kind === 'update' && isRecent(article, 2)) score += 24;
       if (kind === 'report') score += 10;
-      if (article.newsMeta?.developing) score += 18;
-      if (Array.isArray(article.newsMeta?.updates)) score += Math.min(18, article.newsMeta.updates.length * 6);
+      if (isFreshDevelopingNews(article)) score += 18;
+      if (isRecent(article, 2) && Array.isArray(article.newsMeta?.updates)) score += Math.min(18, article.newsMeta.updates.length * 6);
     }
-    if (article.homepageSlot === 'lead') score += 12;
-    if (String(article.homepageSlot || '').startsWith('secondary')) score += 5;
+    if (article.homepageSlot === 'lead' && isRecent(article, 7)) score += 12;
+    if (String(article.homepageSlot || '').startsWith('secondary') && isRecent(article, 7)) score += 5;
     if (article.articleFormat === 'review' && Number(article.reviewMeta?.score) >= 9) score += 7;
 
     const sameGame = article.gameKey ? articles.filter(other => other.slug !== article.slug && normalize(other.gameKey) === normalize(article.gameKey)).length : 0;
@@ -251,16 +250,22 @@
     return picked;
   }
 
+  function isRecent(article, days = 2) {
+    const published = when(article?.publishedAt);
+    const age = Date.now() - published;
+    return published > 0 && age >= 0 && age < days * DAY;
+  }
+
   function isFreshDevelopingNews(article) {
     if (normalize(article?.category) !== 'news' || !article.newsMeta?.developing) return false;
     const kind = article.newsMeta?.kind;
-    return kind === 'breaking' || kind === 'update';
+    return (kind === 'breaking' || kind === 'update') && isRecent(article);
   }
 
   function homepageProgram(articles = []) {
     const sorted = [...articles].filter(article => article?.slug).sort((a, b) => when(b.publishedAt) - when(a.publishedAt));
     const urgent = sorted.filter(isFreshDevelopingNews).sort((a, b) => trendScore(b, articles) - trendScore(a, articles))[0];
-    const manualLead = sorted.find(article => article.homepageSlot === 'lead');
+    const manualLead = sorted.find(article => article.homepageSlot === 'lead' && isRecent(article, 7));
     const lead = urgent || manualLead || sorted[0] || null;
     const chosen = new Set(lead ? [lead.slug] : []);
     const secondaries = [];
@@ -270,9 +275,9 @@
       secondaries.push(article);
     };
 
+    ['secondary-top', 'secondary-bottom'].forEach(slot => take(sorted.find(article => article.homepageSlot === slot && isRecent(article, 7))));
     take(sorted.find(article => normalize(article.category) === 'news'));
     take(sorted.find(article => article.articleFormat === 'review' || normalize(article.category) === 'review'));
-    sorted.filter(article => String(article.homepageSlot || '').startsWith('secondary')).forEach(take);
     sorted.forEach(take);
 
     return {
@@ -331,8 +336,7 @@
     if (!query) return entity.count * 10 + when(entity.latestAt) / 1e13;
     let score = tokenScore(entity.name, query, 130);
     if (normalize(entity.type) === query) score += 12;
-    score += entity.count * 2;
-    return score;
+    return score > 0 ? score + Math.min(20, entity.count * 2) : 0;
   }
 
   function storyMatchesFilter(article, filter) {
@@ -384,6 +388,8 @@
     relatedScore,
     trending,
     trendScore,
+    isRecent,
+    isFreshDevelopingNews,
     homepageProgram,
     search
   };

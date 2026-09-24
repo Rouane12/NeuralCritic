@@ -53,6 +53,7 @@ on:
       - scripts/test_protected_runtime.js
       - scripts/test_reader_baseline.js
       - scripts/test_home_navigation.js
+      - scripts/test_publication_refinement.js
       - scripts/audit_live_auth_boundaries.py
       - scripts/audit_launch.py
       - scripts/audit_domain_readiness.py
@@ -132,6 +133,7 @@ on:
       - scripts/test_protected_runtime.js
       - scripts/test_reader_baseline.js
       - scripts/test_home_navigation.js
+      - scripts/test_publication_refinement.js
       - scripts/audit_live_auth_boundaries.py
       - scripts/audit_launch.py
       - scripts/audit_domain_readiness.py
@@ -236,6 +238,9 @@ jobs:
 
       - name: Verify protected runtime ownership and ordering
         run: node scripts/test_protected_runtime.js
+
+      - name: Verify publication scores, freshness, search, and loading
+        run: node scripts/test_publication_refinement.js
 
       - name: Verify reader baseline contracts
         run: node scripts/test_reader_baseline.js

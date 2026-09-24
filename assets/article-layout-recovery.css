@@ -4,6 +4,61 @@
 
 body:has(#article.work-article-page){overflow-x:clip}
 
+/* Keep the opening compact and readable before the long-form reading grid. */
+#article.work-article-page.nc-type-system>h1,
+#article.work-article-page.nc-type-system>.work-gradient-title{
+  width:min(960px,100%)!important;
+  margin:0 auto 18px!important;
+  font-size:clamp(36px,4.2vw,60px)!important;
+  font-weight:650!important;
+  line-height:1.05!important;
+  letter-spacing:-.045em!important;
+  text-align:left!important;
+  text-wrap:balance;
+}
+#article.work-article-page.nc-type-system>.article-deck{
+  width:min(960px,100%)!important;
+  font-size:18px!important;
+  line-height:1.55!important;
+  text-align:left!important;
+  text-wrap:pretty;
+}
+#article.work-article-page>.work-breadcrumb{
+  width:min(960px,100%)!important;
+  margin:0 auto 22px!important;
+  text-align:left!important;
+}
+#article.work-article-page>.article-kicker{
+  width:min(960px,100%)!important;
+  box-sizing:border-box;
+  margin:0 auto 16px!important;
+  padding:0!important;
+  text-align:left!important;
+  background:none!important;
+  border:0!important;
+}
+#article.work-article-page>.work-author-row{margin:22px auto 26px!important}
+#article.work-article-page>.work-hero-figure{border-radius:16px!important}
+#article.work-article-page>.work-hero-figure>.article-hero{
+  aspect-ratio:2.1!important;
+  max-height:440px!important;
+  min-height:0!important;
+  object-fit:cover!important;
+}
+#article.work-article-page[data-article-format="game-guide"]>.work-hero-figure>.article-hero{max-height:360px!important}
+#article.work-article-page .quick-read.work-quick-read ul{margin:12px 0 0;padding-left:1.2em}
+#article.work-article-page .quick-read.work-quick-read li{margin:8px 0;line-height:1.55}
+html[data-theme="light"] #article.work-article-page .article-kicker,
+html[data-theme="light"] #article.work-article-page .quick-read>span,
+html[data-theme="light"] #article.work-article-page .article-conclusion>span{color:#08758a!important}
+
+@media(max-width:620px){
+  #article.work-article-page.nc-type-system>h1,
+  #article.work-article-page.nc-type-system>.work-gradient-title{font-size:clamp(32px,8.5vw,42px)!important}
+  #article.work-article-page.nc-type-system>.article-deck{font-size:16px!important}
+  #article.work-article-page>.work-hero-figure>.article-hero{aspect-ratio:16/9!important}
+}
+
 #article.work-article-page>.work-reading-grid{
   box-sizing:border-box!important;
   display:grid!important;

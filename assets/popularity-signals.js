@@ -164,15 +164,11 @@
   }
 
   function metaFor(article, mode) {
-    const views = popularityOf(article);
     const category = String(article.category || 'STORY').toUpperCase();
     if (mode === 'most-read') {
-      const reads = selectedWindowViews(article);
-      return `${category} · ${formatReads(reads)} READ${reads === 1 ? '' : 'S'} / ${state.mostReadDays}D`;
+      return `${category} · PAST ${state.mostReadDays} DAYS`;
     }
-    if (views.seven > 0) return `${category} · ${formatReads(views.seven)} READ${views.seven === 1 ? '' : 'S'} / 7D`;
-    const kind = article.newsMeta?.kind ? ` · ${String(article.newsMeta.kind).toUpperCase()}` : '';
-    return `${category}${kind} · MOMENTUM`;
+    return `${category} · ${new Intl.DateTimeFormat('en', { month:'short', day:'numeric' }).format(new Date(article.publishedAt))}`;
   }
 
   function renderPopularity() {

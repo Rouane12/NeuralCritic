@@ -16,6 +16,7 @@ header .brand::after{content:none!important;display:none!important}
 
 header .brand .nc-brand-lockup{
   display:inline-flex!important;
+  flex-direction:row!important;
   align-items:center!important;
   gap:8px!important;
   width:auto!important;
@@ -91,6 +92,7 @@ header .brand:focus-visible{
 }
 
 html[data-theme="light"] header .brand .nc-brand-neural{color:#202a35!important}
+html[data-theme="light"] header .brand .nc-brand-critic{color:#08758a!important}
 html[data-theme="light"] header .brand .nc-brand-symbol{filter:drop-shadow(0 1px 1px rgba(18,31,45,.20))}
 
 @media (min-width:861px) and (max-width:1279px){

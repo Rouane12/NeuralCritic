@@ -5,7 +5,7 @@
   const storyHref=slug=>`stories/${encodeURIComponent(slug)}/`;
   const gameHref=slug=>`games/${encodeURIComponent(slug)}/`;
   const norm=v=>String(v||'').trim().toLowerCase();
-  const scoreOf=r=>{const n=Number(r.review_meta?.score);return Number.isFinite(n)?n:null};
+  const scoreOf=r=>window.NeuralCriticContentAPI.normalizeScore(r.review_meta?.score);
   const fmtDate=v=>{try{return new Intl.DateTimeFormat('en',{year:'numeric',month:'short',day:'numeric'}).format(new Date(v))}catch(_){return''}};
   const platformLabel=v=>({pc:'PC',playstation:'PlayStation',xbox:'Xbox',nintendo:'Nintendo',mobile:'Mobile'}[norm(v)]||v);
   let reviews=[], view='all', gamesByTitle=new Map();

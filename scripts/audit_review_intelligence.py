@@ -75,13 +75,13 @@ def main() -> int:
 
     require('https://www.neuralcritic.net/reviews/' in review_html, "Reviews hub canonical is missing", failures)
     require('https://www.neuralcritic.net/guides/' in guide_html, "Guides hub canonical is missing", failures)
-    require('assets/review-intelligence.js?v=20260904-reviewguide1' in review_html, "Reviews hub is not pinned to the M9 runtime", failures)
+    require('assets/review-intelligence.js?v=20260924-publication1' in review_html, "Reviews hub is not pinned to the M9 runtime", failures)
     require('assets/guide-intelligence.js?v=20260904-reviewguide1' in guide_html, "Guides hub is not pinned to the M9 runtime", failures)
     require('assets/review-intelligence.css?v=20260904-lightfix1' in review_html, "Reviews hub is not pinned to the light-mode contrast stylesheet", failures)
     require('assets/guide-intelligence.css?v=20260904-lightfix1' in guide_html, "Guides hub is not pinned to the light-mode contrast stylesheet", failures)
-    require('assets/content-api.js?v=20260919-repo1' in review_html and 'assets/content-api.js?v=20260919-repo1' in guide_html, "Reviews/Guides hubs must pin the shared M9 Content API", failures)
+    require('assets/content-api.js?v=20260924-publication1' in review_html and 'assets/content-api.js?v=20260924-publication1' in guide_html, "Reviews/Guides hubs must pin the shared M9 Content API", failures)
 
-    require("async function publishedGames()" in content_api, "Content API must own Games Database index reads", failures)
+    require("function publishedGames()" in content_api and "gamesRequest" in content_api, "Content API must own shared Games Database index reads", failures)
     require("from('games')" in content_api and "publishedGames" in content_api, "Content API Games Database read/export is missing", failures)
     require("from('articles')" in content_api and "publishedIndex" in content_api, "Content API published article index is missing", failures)
 

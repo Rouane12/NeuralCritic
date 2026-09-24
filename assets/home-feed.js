@@ -1,7 +1,7 @@
 (() => {
   'use strict';
 
-  const PAGE_SIZE = 3;
+  const PAGE_SIZE = 6;
   const state = { filter: 'latest', visible: PAGE_SIZE, newsKind: 'all' };
   const DESK_COPY = {
     latest: ['THE LATEST', 'Latest coverage', 'Newly published reporting, criticism, and practical help.'],
@@ -59,6 +59,7 @@
 
   function newsLabel(a) {
     const kind = a.newsMeta?.kind;
+    if (kind === 'breaking' && !window.NeuralCriticDiscovery?.isRecent(a)) return 'NEWS';
     return kind && NEWS_KINDS[kind] ? NEWS_KINDS[kind].label.replace(/S$/, '') : 'NEWS';
   }
 
@@ -73,7 +74,7 @@
           ? `${a.newsMeta.updates.length} UPDATE${a.newsMeta.updates.length === 1 ? '' : 'S'}`
           : '';
     return `<a class="story nc-feed-story ${categoryClass(a)}" href="${articleHref(a)}" data-home-story="${escapeHtml(a.slug)}">
-      <div class="thumb">${imageOf(a) ? `<img alt="${escapeHtml(a.imageAlt || a.title)}" src="${imageOf(a)}">` : '<div class="placeholder-art">NC</div>'}<b>${String(index + 1).padStart(2, '0')}</b></div>
+      <div class="thumb">${imageOf(a) ? `<img loading="lazy" decoding="async" alt="${escapeHtml(a.imageAlt || a.title)}" src="${imageOf(a)}">` : '<div class="placeholder-art">NC</div>'}<b>${String(index + 1).padStart(2, '0')}</b></div>
       <div class="nc-feed-copy">
         <div class="nc-feed-meta"><label>${escapeHtml(label)}</label>${auxiliary ? `<span>${escapeHtml(auxiliary)}</span>` : ''}</div>
         <h3>${escapeHtml(a.title)}</h3>
@@ -135,6 +136,10 @@
   renderFeed = function(filter = state.filter) {
     const el = document.getElementById('story-feed');
     if (!el) return;
+    if (!ARTICLES.length && !window.NeuralCriticContentLoaded) {
+      el.innerHTML = '<p class="notice" role="status">Loading the latest stories…</p>';
+      return;
+    }
 
     const nextFilter = String(filter || 'latest').toLowerCase();
     if (nextFilter !== state.filter) {
@@ -166,34 +171,7 @@
     window.dispatchEvent(new CustomEvent('neuralcritic:homepage-feed-rendered', { detail:{ filter:state.filter, slugs:visible.map(article => article.slug) } }));
   };
 
-  async function hydrateNewsMeta() {
-    for (let attempt = 0; attempt < 50; attempt++) {
-      const client = window.neuralCriticPublicSupabase;
-      if (client && Array.isArray(ARTICLES) && ARTICLES.length) {
-        try {
-          const { data, error } = await client.from('articles').select('slug,news_meta,updated_at').eq('status', 'published').eq('category', 'NEWS');
-          if (error) throw error;
-          const map = new Map((data || []).map(row => [row.slug, row]));
-          ARTICLES.forEach(article => {
-            const row = map.get(article.slug);
-            if (!row) return;
-            article.newsMeta = row.news_meta && typeof row.news_meta === 'object' ? row.news_meta : {};
-            article.updatedAt = row.updated_at || article.updatedAt;
-          });
-          if (document.getElementById('hero')) {
-            renderHero?.();
-            renderTrending?.();
-          }
-          renderFeed(state.filter);
-          return;
-        } catch (error) {
-          console.warn('Neural Critic News Desk metadata unavailable.', error);
-          return;
-        }
-      }
-      await new Promise(resolve => setTimeout(resolve, 100));
-    }
-  }
+  // Structured news metadata arrives with the shared publication snapshot.
 
   const filters = document.querySelector('.filters');
   if (filters && !filters.querySelector('[data-filter="review"]')) {
@@ -247,7 +225,7 @@
     }
   }, true);
 
-  hydrateNewsMeta();
+
 
   setTimeout(() => {
     if (document.getElementById('story-feed') && Array.isArray(ARTICLES) && ARTICLES.length) {

@@ -47,6 +47,13 @@
     const brand = root.querySelector?.('header .brand') || (root.matches?.('header .brand') ? root : null);
     if (!brand || brand.dataset.ncBrandLockup === '1') return;
 
+    if (!document.querySelector('link[href*="assets/header-brand-mark.css"]')) {
+      const style = document.createElement('link');
+      style.rel = 'stylesheet';
+      style.href = 'assets/header-brand-mark.css?v=20260924-publication1';
+      document.head.appendChild(style);
+    }
+
     brand.dataset.ncBrandLockup = '1';
     brand.setAttribute('aria-label', 'Neural Critic home');
     brand.innerHTML = brandLockup;

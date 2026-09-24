@@ -152,7 +152,7 @@ window.NEURAL_CRITIC_SUPABASE = {
     if (pageName !== 'index.html') return;
     if (document.querySelector('script[data-nc-home-curation]')) return;
     const script = document.createElement('script');
-    script.src = 'assets/home-curation-guard.js?v=20260823-home1';
+    script.src = 'assets/home-curation-guard.js?v=20260924-publication1';
     script.async = true;
     script.dataset.ncHomeCuration = '1';
     document.head.appendChild(script);
@@ -247,7 +247,7 @@ window.NEURAL_CRITIC_SUPABASE = {
     }
     if (!document.querySelector('script[data-nc-article-conclusion]')) {
       const script = document.createElement('script');
-      script.src = 'assets/article-conclusion.js?v=20260823-conclusion1';
+      script.src = 'assets/article-conclusion.js?v=20260924-publication1';
       script.async = true;
       script.dataset.ncArticleConclusion = '1';
       document.head.appendChild(script);

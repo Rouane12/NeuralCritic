@@ -130,7 +130,7 @@
     } else {
       count.textContent = `${stories.length} RESULT${stories.length === 1 ? '' : 'S'}`;
     }
-    if (summary) summary.textContent = query ? 'Results ranked by title, Game Graph connection, and article relevance' : 'Browse stories and connected Game Graph hubs';
+    if (summary) summary.textContent = query ? 'Matching stories, games, and people, ranked by relevance' : 'Browse stories and coverage hubs';
 
     if (!total) {
       results.innerHTML = emptyMarkup(query);
@@ -138,7 +138,7 @@
     }
 
     const entitySection = entities.length ? `<section class="search-entity-section" aria-label="Connected topics">
-      <header><div><small>${query ? 'CONNECTED RESULTS' : 'EXPLORE THE GAME GRAPH'}</small><h2>${query ? 'Topics and people' : 'Coverage hubs'}</h2></div><span>${entities.length} ${entities.length === 1 ? 'HUB' : 'HUBS'}</span></header>
+      <header><div><small>${query ? 'MATCHING COVERAGE' : 'EXPLORE'}</small><h2>${query ? 'Topics and people' : 'Coverage hubs'}</h2></div><span>${entities.length} ${entities.length === 1 ? 'HUB' : 'HUBS'}</span></header>
       <div class="search-entity-grid">${entities.slice(0, activeFilter === 'all' ? 6 : 20).map(entityCard).join('')}</div>
     </section>` : '';
 
@@ -171,7 +171,7 @@
       activeFilter = button.dataset.searchFilter;
       filterHost.querySelectorAll('button').forEach(btn => btn.classList.toggle('active', btn === button));
       render();
-      window.gtag?.('event','search_filter',{search_filter:activeFilter,search_query:input.value.trim()});
+      window.gtag?.('event','search_filter',{search_filter:activeFilter,query_length:input.value.trim().length});
     });
 
     const initial = new URLSearchParams(location.search).get('q') || '';
@@ -181,7 +181,7 @@
       const q = input.value.trim();
       history.replaceState(null,'',q ? `search.html?q=${encodeURIComponent(q)}` : 'search.html');
       render();
-      if (q) window.gtag?.('event','site_search',{search_term:q,search_filter:activeFilter});
+      if (q) window.gtag?.('event','site_search',{query_length:q.length,search_filter:activeFilter});
     });
     input.addEventListener('input', render);
 

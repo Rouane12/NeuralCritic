@@ -9,6 +9,9 @@
   const gameUrl = slug => new URL(`games/${encodeURIComponent(slug)}/`, root).href;
   const topicUrl = (type, value) => new URL(`topics/${type}/${slugify(value)}/`, root).href;
   const state = { view:'latest', game:null, games:[], releases:[], articles:[], coverage:[], directCoverage:[], deals:[] };
+  const readPublic = query => window.NeuralCriticContentAPI.readPublic(query);
+  const resolvedScore = game => window.NeuralCriticContentAPI.resolveGameReview(game, state.articles);
+  const withReviewScore = game => { const result = resolvedScore(game); return { ...game, neural_critic_score:result.score, score_article_slug:result.slug }; };
 
   function currentSlug() {
     const staticSlug = String(window.NEURAL_CRITIC_STATIC_GAME_SLUG || '').trim();
@@ -163,7 +166,8 @@
     if (!host) return;
     const status = String(game.release_status || 'game').replaceAll('_',' ').toUpperCase();
     const directCount = state.directCoverage.length;
-    const score = Number.isFinite(Number(game.neural_critic_score)) ? Number(game.neural_critic_score).toFixed(1) : '—';
+    const value = resolvedScore(game).score;
+    const score = value === null ? '—' : value.toFixed(1);
     const release = game.primary_release_date ? shortDate(game.primary_release_date) : (game.release_status === 'released' ? 'Released' : 'TBA');
     const items = [
       ['STATUS', status],
@@ -183,11 +187,7 @@
   }
 
   function reviewArticle(game, articles) {
-    if (game.score_article_slug) {
-      const exact = articles.find(article => article.slug === game.score_article_slug);
-      if (exact) return exact;
-    }
-    return articles.find(article => sameGame(article, game) && isReview(article)) || null;
+    return window.NeuralCriticContentAPI.resolveGameReview(game, articles).review || articles.find(article => sameGame(article, game) && isReview(article)) || null;
   }
 
   function editorialLabel(article) {
@@ -226,7 +226,7 @@
     const review = reviewArticle(game, articles);
     if (!review) { host.hidden = true; host.innerHTML = ''; return; }
     const meta = review.reviewMeta || review.review_meta || {};
-    const score = meta.score ?? game.neural_critic_score;
+    const score = resolvedScore(game).score;
     const scoreMarkup = score != null && String(score).trim()
       ? `<div class="nc-game-review-score"><strong>${esc(score)}</strong><span>OUT OF 10</span></div>`
       : '<div class="nc-game-review-score"><span>NEURAL CRITIC<br>REVIEW</span></div>';
@@ -447,10 +447,12 @@
     let game = null;
     let releases = [];
     let games = [];
+    const articleLoad = loadArticles();
+    const engineLoad = discoveryEngine();
 
     if (client) {
       try {
-        const response = await client.from('games').select('*').eq('slug', key).maybeSingle();
+        const response = await readPublic(client.from('games').select('*').eq('slug', key).maybeSingle());
         if (!response.error && response.data) game = response.data;
       } catch (error) {
         console.warn('Game Hub live game lookup unavailable; using canonical metadata fallback.', error);
@@ -464,13 +466,13 @@
       return;
     }
 
-    const [articles, engine] = await Promise.all([loadArticles(), discoveryEngine()]);
+    const [articles, engine] = await Promise.all([articleLoad, engineLoad]);
 
     if (client && game.id) {
       try {
         const [releaseResponse, gamesResponse] = await Promise.all([
-          client.from('game_releases').select('*').eq('game_id', game.id).order('release_date', { ascending:true }),
-          client.from('games').select('id,slug,title,release_status,primary_release_date,series,franchise,genres,platforms,neural_critic_score').neq('id', game.id).limit(250)
+          readPublic(client.from('game_releases').select('*').eq('game_id', game.id).order('release_date', { ascending:true })),
+          readPublic(client.from('games').select('id,slug,title,release_status,primary_release_date,series,franchise,genres,platforms,neural_critic_score,score_article_slug').neq('id', game.id).limit(250))
         ]);
         releases = Array.isArray(releaseResponse.data) ? releaseResponse.data : [];
         games = Array.isArray(gamesResponse.data) ? gamesResponse.data : [];
@@ -479,10 +481,11 @@
       }
     }
 
-    state.game = game;
-    state.games = games;
     state.releases = releases;
     state.articles = Array.isArray(articles) ? articles : [];
+    game = withReviewScore(game);
+    state.game = game;
+    state.games = games.map(withReviewScore);
     state.directCoverage = directGameArticles(game, state.articles);
     state.coverage = connectedRecommendations(game, state.articles, engine);
     const featuredReview = reviewArticle(game, state.articles);
@@ -490,7 +493,8 @@
       const alternatives = state.coverage.filter(item => item.article?.slug !== featuredReview.slug);
       if (alternatives.length >= 3) state.coverage = alternatives;
     }
-    state.deals = client && game.id ? await loadDeals(client, game) : [];
+    // Optional commerce must not hold the game's editorial coverage behind it.
+    state.deals = [];
 
     document.title = `${game.title} | Neural Critic Game Database`;
     document.querySelector('meta[name="description"]')?.setAttribute('content', game.summary || `${game.title} release information, platforms and Neural Critic coverage.`);
@@ -504,9 +508,7 @@
     const chips = [...(game.genres || []), ...(game.platforms || [])].slice(0,10);
     $('#game-chips').innerHTML = chips.map(value => `<span>${esc(value)}</span>`).join('');
 
-    const reviewMeta = featuredReview?.reviewMeta || featuredReview?.review_meta || {};
-    const effectiveScore = game.neural_critic_score ?? reviewMeta.score ?? null;
-    const effectiveReviewSlug = game.score_article_slug || featuredReview?.slug || '';
+    const { score:effectiveScore, slug:effectiveReviewSlug } = resolvedScore(game);
     if (effectiveScore != null && String(effectiveScore).trim() && Number.isFinite(Number(effectiveScore))) {
       const score = $('#game-score');
       score.hidden = false;
@@ -528,6 +530,14 @@
     renderCoverage('latest');
     wireInteractions(game);
     ensureFollowOwner();
+    if (client && game.id) {
+      loadDeals(client, game).then(deals => {
+        state.deals = deals;
+        // Preserve a reader's selected coverage tab while optional deals arrive.
+        if (state.view === 'deals') renderCoverage(state.view);
+        else updateCoverageControls();
+      }).catch(error => console.warn('Game deals are temporarily unavailable.', error));
+    }
 
     window.NeuralCriticAnalytics?.track?.('game_page_view', {
       game_slug:game.slug,

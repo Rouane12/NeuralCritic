@@ -61,7 +61,8 @@ check(
 
 check(
   'review feature uses real review metadata and canonical story links',
-  gameJs.includes('game.score_article_slug') &&
+  gameJs.includes('NeuralCriticContentAPI.resolveGameReview(game, articles)') &&
+    contentApi.includes('reviews.find(article => article.slug === game.score_article_slug)') &&
     gameJs.includes('review.reviewMeta || review.review_meta') &&
     gameJs.includes('meta.verdict || review.description') &&
     gameJs.includes('storyUrl(review.slug)') &&

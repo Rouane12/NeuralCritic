@@ -49,10 +49,12 @@
     document.addEventListener('click',e=>{const card=e.target instanceof Element?e.target.closest('[data-game-card]'):null;if(card)window.NeuralCriticAnalytics?.track?.('games_directory_click',{game_slug:card.dataset.gameCard||'',placement:card.dataset.gamePlacement||'library'});const rel=e.target instanceof Element?e.target.closest('[data-release-game]'):null;if(rel)window.NeuralCriticAnalytics?.track?.('games_directory_click',{game_slug:rel.dataset.releaseGame||'',placement:'release_calendar'});});
   }
   async function init(){
-    const client=window.neuralCriticPublicSupabase;if(!client)return;
-    const [{data:g,error:ge},{data:r,error:re},articleRows]=await Promise.all([client.from('games').select('*').order('title'),client.from('game_releases').select('*').order('release_date',{ascending:true}),loadArticles()]);
+    const client=window.neuralCriticPublicSupabase,api=window.NeuralCriticContentAPI;
+    if(!client){$('#games-grid').innerHTML='<p class="nc-games-empty">The game database is temporarily unavailable. Please refresh to try again.</p>';return;}
+    const bounded=query=>api.readPublic(query).catch(error=>({data:[],error}));
+    const [{data:g,error:ge},{data:r,error:re},articleRows]=await Promise.all([bounded(client.from('games').select('*').order('title')),bounded(client.from('game_releases').select('*').order('release_date',{ascending:true})),loadArticles()]);
     if(ge||re){$('#games-grid').innerHTML='<p class="nc-games-empty">The game database is temporarily unavailable.</p>';return;}
-    games=g||[];releases=r||[];articles=articleRows||[];hydrateFilters();renderStats();renderFeatured();renderCalendar();renderGames();bind();window.NeuralCriticAnalytics?.track?.('games_directory_view',{game_count:games.length,release_count:releases.length,linked_story_count:articles.filter(a=>a.gameKey||a.game_key).length,featured_count:games.filter(g=>g.featured).length});
+    articles=articleRows||[];games=(g||[]).map(game=>{const review=api.resolveGameReview(game,articles);return {...game,neural_critic_score:review.score,score_article_slug:review.slug};});releases=r||[];hydrateFilters();renderStats();renderFeatured();renderCalendar();renderGames();bind();window.NeuralCriticAnalytics?.track?.('games_directory_view',{game_count:games.length,release_count:releases.length,linked_story_count:articles.filter(a=>a.gameKey||a.game_key).length,featured_count:games.filter(g=>g.featured).length});
   }
   if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',init,{once:true});else init();
 })();
