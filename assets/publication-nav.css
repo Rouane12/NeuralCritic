@@ -104,6 +104,31 @@
 .publication-nav .nav-group.open>.nav-trigger{color:#55e7ff;background:rgba(85,231,255,.06)}
 .publication-nav .nav-group.open>.nav-trigger span{transform:rotate(180deg)}
 
+/* Restore the desktop hover motion and hover-open behavior that made the
+   publication desks feel responsive, while leaving touch navigation click-led. */
+@media (min-width:861px) and (hover:hover) and (pointer:fine){
+  .publication-nav .nav-primary,.publication-nav>.nav-direct{
+    will-change:transform,color;
+  }
+  .publication-nav .nav-group:hover>.nav-primary,
+  .publication-nav .nav-group:focus-within>.nav-primary,
+  .publication-nav>.nav-direct:hover,
+  .publication-nav>.nav-direct:focus-visible{
+    transform:translateY(-2px);
+  }
+  .publication-nav .nav-group:hover>.nav-trigger span,
+  .publication-nav .nav-group:focus-within>.nav-trigger span{
+    transform:translateY(-1px) rotate(180deg);
+  }
+  .publication-nav .nav-group:hover>.nav-menu,
+  .publication-nav .nav-group:focus-within>.nav-menu{
+    opacity:1;
+    visibility:visible;
+    pointer-events:auto;
+    transform:translate(-50%,0) scale(1);
+  }
+}
+
 /* Desktop floating publication drawer. */
 .publication-nav .nav-menu{
   position:absolute;
