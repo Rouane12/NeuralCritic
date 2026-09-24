@@ -49,7 +49,7 @@ window.NEURAL_CRITIC_ANALYTICS = {
   if (!document.querySelector('link[data-nc-reader-auth-v2]')) {
     const authStyle = document.createElement('link');
     authStyle.rel = 'stylesheet';
-    authStyle.href = 'assets/reader-auth-v2.css?v=20260826-social1';
+    authStyle.href = 'assets/reader-auth-v2.css?v=20260924-profilefix1';
     authStyle.dataset.ncReaderAuthV2 = '1';
     document.head.appendChild(authStyle);
   }
@@ -113,7 +113,7 @@ window.NEURAL_CRITIC_ANALYTICS = {
   };
 
   const auth = document.createElement('script');
-  auth.src = 'assets/reader-auth-v2.js?v=20260826-social1';
+  auth.src = 'assets/reader-auth-v2.js?v=20260924-profilefix1';
   auth.async = true;
   auth.dataset.ncReaderAuthV2 = '1';
   auth.addEventListener('load', () => {
