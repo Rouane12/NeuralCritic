@@ -20,6 +20,7 @@ It verifies geometry, menu/submenu interaction and Escape focus, eager lead imag
 - Screenshot review exposed the font-dependent reaction icons; the final follow-up replaces them and adds a rendered SVG check. Final head/release results are recorded in [PR #102](https://github.com/Rouane12/NeuralCritic/pull/102).
 - Local gates passed: publication refinement (12), protected runtime (5), reader baseline (4), home/navigation (12), navigation hotfix (5), article reading (11), article journey (11), Continue Exploring (14), Weekly Drop (12), and article ending (10); runtime consistency, discovery links, site integrity and publication reliability audits. Reliability retained 23 existing content warnings and zero errors.
 - Desktop branch review confirmed one sidebar map, working section navigation, eager/high-priority article hero, and no concealed reading sections.
+- PR #102 deployed successfully via Pages run 35953489887. Live verification confirmed the new assets, clean canonical guide route, visible reading sections and inline action icons. It also exposed `public-hardening.js` overriding supporting hero hints; the release follow-up makes that compatibility enhancer respect explicit loading attributes and adds a rendered supporting-image assertion. This closes the discrepancy between correct initial markup and final page state.
 - Generated HTML differences were checked to contain asset-version refreshes only. No article copy, ranking, authentication, persistence or database policy changes.
 
 ## Evidence limits
