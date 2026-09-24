@@ -1,5 +1,6 @@
 (() => {
   const reduce = window.matchMedia?.('(prefers-reduced-motion: reduce)').matches;
+  const touch = window.matchMedia?.('(hover: none)').matches;
   const STRUCTURAL = '.work-reading-grid, .work-bottom-grid, .category-work-content, .collection-page';
 
   function revealImmediately(el) {
@@ -21,17 +22,22 @@
 
     const observable = [];
     targets.forEach((el, index) => {
-      if (el.matches(STRUCTURAL)) {
+      // Reading content and touch scrolling should never reveal a blank frame.
+      if (reduce || touch || el.matches(STRUCTURAL) || el.closest('.article-page')) {
         revealImmediately(el);
         return;
       }
       if (el.dataset.ncMotion) return;
+      const rect = el.getBoundingClientRect();
+      if (rect.top < window.innerHeight && rect.bottom > 0) {
+        revealImmediately(el);
+        return;
+      }
       el.dataset.ncMotion = '1';
       el.classList.add('nc-reveal');
       el.style.setProperty('--nc-delay', `${Math.min(index % 6, 5) * 55}ms`);
 
       /* Very tall elements should never depend on an intersection ratio. */
-      const rect = el.getBoundingClientRect();
       if (rect.height > Math.max(window.innerHeight * 1.35, 1100)) {
         revealImmediately(el);
         return;
@@ -79,7 +85,7 @@
   };
 
   const heroGlow = () => {
-    if (reduce) return;
+    if (reduce || !window.matchMedia?.('(hover: hover) and (pointer: fine)').matches) return;
     document.querySelectorAll('.lead, .feature-link article, .review-showcase').forEach(card => {
       if (card.dataset.ncGlow) return;
       card.dataset.ncGlow = '1';

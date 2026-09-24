@@ -112,6 +112,46 @@ html[data-theme="light"] #article.work-article-page .article-conclusion>span{col
   overflow-wrap:anywhere;
 }
 
+/* One Reading Map moves ahead of the story on narrow screens. Native details
+   provides touch/keyboard disclosure; the existing controller owns its links. */
+#article.work-article-page .work-mobile-reading-map{
+  box-sizing:border-box;
+  width:100%;
+  margin:0 0 24px;
+  border:1px solid var(--line);
+  border-radius:12px;
+  background:var(--card);
+}
+#article.work-article-page .work-mobile-reading-map>summary{
+  min-height:48px;
+  padding:14px 16px;
+  box-sizing:border-box;
+  color:inherit;
+  font:750 13px/20px Inter,system-ui,sans-serif;
+  cursor:pointer;
+}
+#article.work-article-page .work-mobile-reading-map>summary:focus-visible{
+  outline:2px solid #21b7cc;
+  outline-offset:3px;
+  border-radius:12px;
+}
+#article.work-article-page .work-mobile-reading-map .work-toc{
+  position:static!important;
+  min-height:0!important;
+  margin:0!important;
+  padding:0 16px 12px!important;
+  border:0!important;
+  background:transparent!important;
+  box-shadow:none!important;
+}
+#article.work-article-page .work-mobile-reading-map .work-toc>span{display:none!important}
+#article.work-article-page .work-mobile-reading-map .work-toc::before{display:none!important}
+#article.work-article-page .work-mobile-reading-map .work-toc nav a{
+  display:flex;
+  align-items:center;
+  min-height:44px!important;
+}
+
 #article.work-article-page .work-react-rail.standard-react-rail{
   box-sizing:border-box!important;
   position:sticky!important;

@@ -122,7 +122,7 @@ check(
     navCss.includes('overflow:auto!important') &&
     navCss.includes('grid-template-columns:minmax(0,1fr) 46px!important') &&
     navCss.includes('min-height:46px!important') &&
-    navCss.includes('width:40px!important;height:40px!important') &&
+    navCss.includes('width:44px!important;height:44px!important') &&
     nav.includes("event.key!=='Escape'") &&
     nav.includes("setAttribute('aria-expanded'") &&
     app.includes("document.body.classList.toggle('mobile-nav-open')") &&

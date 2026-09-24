@@ -57,7 +57,7 @@
   }
 
   function isCriticalImage(img) {
-    return img.matches('#hero .lead img, #article > .article-hero, #article .work-hero-figure > img, #category-spotlight img');
+    return img.matches('#hero .lead img, #article > .article-hero, #article .work-hero-figure > img, #category-spotlight .category-spotlight-main img');
   }
 
   function isAboveFoldImage(img) {
@@ -75,7 +75,7 @@
       return;
     }
 
-    if (isAboveFoldImage(img)) {
+    if (isAboveFoldImage(img) && !img.hasAttribute('loading')) {
       img.loading = 'eager';
       return;
     }

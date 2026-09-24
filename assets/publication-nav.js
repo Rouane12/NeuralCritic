@@ -87,21 +87,17 @@
     if(tags.some(x=>['mobile','ios','android'].includes(x))) out.push('mobile');
     return out;
   }
-  function mapRow(r){return {slug:r.slug,title:r.title,description:r.description||'',category:r.category||'FEATURE',author:r.author_name||'Neural Critic',tags:r.tags||[],articleFormat:r.article_format||'standard',imageLocal:r.image_url||'',imageAlt:r.image_alt||'',publishedAt:r.published_at,contentBlocks:r.content_blocks||[],editorialSection:r.editorial_section||null,platforms:Array.isArray(r.platforms)?r.platforms:[],collection:r.collection||null};}
-
   async function loadTaxonomyArticles(){
-    const client=window.neuralCriticPublicSupabase;
-    if(client){
-      const {data,error}=await client.from('articles').select('*').eq('status','published').lte('published_at',new Date().toISOString()).order('published_at',{ascending:false});
-      if(!error) return (data||[]).map(mapRow);
-    }
+    // Share the bounded live/generated index already used by the public page.
+    const api=window.NeuralCriticContentAPI;
+    if(api?.publishedIndex) return [...await api.publishedIndex()];
     try{return await fetch('data/articles.json').then(r=>r.json())}catch(_){return[]}
   }
   function readMinutes(article){const text=[article.body||'',...(article.contentBlocks||[]).map(x=>x.text||'')].join(' ');return Math.max(1,Math.ceil(text.trim().split(/\s+/).filter(Boolean).length/220));}
   function fmtDate(iso){try{return new Intl.DateTimeFormat('en-GB',{day:'2-digit',month:'2-digit',year:'numeric'}).format(new Date(iso))}catch(_){return''}}
-  function cardImage(a){return a.imageLocal?`<img src="${esc(a.imageLocal)}" alt="${esc(a.imageAlt||a.title)}">`:'<div class="placeholder-art">NEURAL CRITIC</div>'}
+  function cardImage(a,critical=false){return a.imageLocal?`<img src="${esc(a.imageLocal)}" alt="${esc(a.imageAlt||a.title)}" loading="${critical?'eager':'lazy'}" decoding="async"${critical?' fetchpriority="high"':''}>`:'<div class="placeholder-art">NEURAL CRITIC</div>'}
   const href=a=>`stories/${encodeURIComponent(a.slug)}/`;
-  function spotlightCard(a,side=false){return `<a class="${side?'':'category-spotlight-main'}" href="${href(a)}">${cardImage(a)}<div class="category-spotlight-shade"></div><div class="category-spotlight-copy"><span>${esc(sectionNames[inferSection(a)]||a.category||'STORY')}</span><h2>${esc(a.title)}</h2><p>${esc(a.description||'')}</p><small>BY ${esc(a.author||'Neural Critic')} · ${readMinutes(a)} MIN READ · ${fmtDate(a.publishedAt)}</small></div></a>`}
+  function spotlightCard(a,side=false){return `<a class="${side?'':'category-spotlight-main'}" href="${href(a)}">${cardImage(a,!side)}<div class="category-spotlight-shade"></div><div class="category-spotlight-copy"><span>${esc(sectionNames[inferSection(a)]||a.category||'STORY')}</span><h2>${esc(a.title)}</h2><p>${esc(a.description||'')}</p><small>BY ${esc(a.author||'Neural Critic')} · ${readMinutes(a)} MIN READ · ${fmtDate(a.publishedAt)}</small></div></a>`}
 
   function viewMeta(params){
     const section=params.get('section'), platform=params.get('platform'), collection=params.get('collection');
@@ -163,5 +159,8 @@
   }
 
   function init(){addStyles();if(document.body.classList.contains('studio-body'))installStudioTaxonomy();else{installNav();renderTaxonomyCategory();}}
-  if(document.readyState==='complete') init(); else window.addEventListener('load',init,{once:true});
+  if(document.body.classList.contains('studio-body')){
+    if(document.readyState==='complete') init(); else window.addEventListener('load',init,{once:true});
+  }else if(document.readyState==='loading') document.addEventListener('DOMContentLoaded',init,{once:true});
+  else init();
 })();

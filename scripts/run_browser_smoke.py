@@ -28,6 +28,11 @@ TARGETS = [
     {"kind":"game","path":"/games/elden-ring/","viewport":{"width":1440,"height":1100}},
     {"kind":"article-mobile","path":"/stories/physint-bill-skarsgard-lead-xbox-tgs-2026/","viewport":{"width":390,"height":844}},
     {"kind":"article-mobile","path":"/stories/gen-atlas-fumito-ueda-most-ambitious-world-yet/","viewport":{"width":390,"height":844}},
+    {"kind":"home","path":"/","viewport":{"width":320,"height":740},"theme":"light","touch":True,"hold_images":True},
+    {"kind":"home","path":"/","viewport":{"width":390,"height":844},"touch":True},
+    {"kind":"home","path":"/","viewport":{"width":768,"height":1024},"theme":"light","touch":True},
+    {"kind":"article-mobile","path":"/stories/breath-of-the-wild-beginners-guide/","viewport":{"width":320,"height":740},"theme":"light","touch":True},
+    {"kind":"game","path":"/games/the-legend-of-zelda-breath-of-the-wild/","viewport":{"width":390,"height":844},"touch":True},
 ]
 
 EVALUATE = r"""
@@ -49,6 +54,11 @@ EVALUATE = r"""
   const checks = [];
   const check = (name, ok, value=null) => checks.push({name, ok:Boolean(ok), value});
   const diagnostics = {};
+  diagnostics.header = [...document.querySelectorAll('header .menu,header .brand,header .header-tools > *')]
+    .filter(visible).map(el=>({label:el.getAttribute('aria-label')||el.textContent.trim(),rect:rect(el)}));
+  diagnostics.media = [...document.images].map(img=>({src:img.getAttribute('src'),loading:img.loading,priority:img.fetchPriority,rect:rect(img)}));
+  const heroImage=document.querySelector('#hero .lead img,#article > .article-hero,#article .work-hero-figure > img');
+  if(heroImage)check('lead image is eager and has high fetch priority',heroImage.loading==='eager'&&heroImage.fetchPriority==='high');
 
   check('document rendered', !!document.body, !!document.body);
   check(
@@ -139,6 +149,7 @@ EVALUATE = r"""
     check('retired Reader Thread absent',!legacyThread,legacyThread?.className||null);
     check('retired generic Related Coverage absent',!legacyRelated,legacyRelated?.className||null);
     check('reaction rail normalized',visible(rail),railRect);
+    check('reading action icons work without remote fonts',!!rail?.querySelector('[data-article-like] svg')&&!!rail?.querySelector('[data-article-share] svg')&&!rail?.querySelector('.material-symbols-rounded'));
     check('Continue Exploring visible',visible(recirc),recircRect);
     check('Weekly Drop visible',visible(newsletter),newsletterRect);
 
@@ -158,11 +169,15 @@ EVALUATE = r"""
       check('Weekly Drop has full editorial width',visible(newsletter)&&newsletterRect.width>=700,newsletterRect);
     } else {
       check('mobile reading layout is single column',getComputedStyle(grid).display==='block',getComputedStyle(grid).display);
-      check('mobile body fills reading width',visible(body)&&bodyRect.width>=330&&bodyRect.width<=390,bodyRect);
-      check('mobile reaction rail is horizontal',visible(rail)&&railRect.width>=330,railRect);
-      check('mobile sidebar fills reading width',visible(sidebar)&&sideRect.width>=330,sideRect);
-      check('mobile Continue Exploring fills reading width',visible(recirc)&&recircRect.width>=330,recircRect);
-      check('mobile Weekly Drop fills reading width',visible(newsletter)&&newsletterRect.width>=330,newsletterRect);
+      const minimumWidth = innerWidth - 60;
+      check('mobile body fills reading width',visible(body)&&bodyRect.width>=minimumWidth&&bodyRect.width<=innerWidth,bodyRect);
+      check('mobile reaction rail is horizontal',visible(rail)&&railRect.width>=minimumWidth,railRect);
+      check('mobile sidebar fills reading width',visible(sidebar)&&sideRect.width>=minimumWidth,sideRect);
+      check('mobile Continue Exploring fills reading width',visible(recirc)&&recircRect.width>=minimumWidth,recircRect);
+      check('mobile Weekly Drop fills reading width',visible(newsletter)&&newsletterRect.width>=minimumWidth,newsletterRect);
+      const map=article.querySelector('.work-mobile-reading-map');
+      diagnostics.readingMap = {map:rect(map),body:bodyRect};
+      check('compact section map precedes article text',visible(map)&&!map.open&&rect(map).bottom<=bodyRect.y,diagnostics.readingMap);
     }
 
     if (gridRect && recircRect) {
@@ -205,13 +220,21 @@ def safe_name(kind: str, path: str) -> str:
     return f"{kind}-{slug}"[:110]
 
 def run_case(browser, case: dict) -> dict:
-    context = browser.new_context(viewport=case["viewport"], device_scale_factor=1)
+    context = browser.new_context(viewport=case["viewport"], device_scale_factor=1, has_touch=case.get("touch", False))
+    # Only the tested first-party document owns theme storage. Sandboxed video
+    # frames have opaque origins and deliberately cannot access localStorage.
+    context.add_init_script("if (location.origin === " + json.dumps(BASE) + ") localStorage.setItem('neural-critic-theme', " + json.dumps(case.get("theme", "dark")) + ");")
     page = context.new_page()
     page.set_default_timeout(12_000)
+    pending_images = []
+    holding_images = case.get('hold_images',False)
 
     def route_local_only(route):
         url = route.request.url
         if url.startswith(BASE) or url.startswith("data:") or url.startswith("blob:"):
+            if holding_images and route.request.resource_type == 'image':
+                pending_images.append(route)
+                return
             route.continue_()
         else:
             route.abort()
@@ -235,6 +258,14 @@ def run_case(browser, case: dict) -> dict:
 
     try:
         page.goto(url, wait_until="domcontentloaded", timeout=15_000)
+        early_nav = None
+        if holding_images:
+            page.wait_for_selector('nav[data-publication-ready="1"]',state='attached',timeout=5_000)
+            page.wait_for_function("[...document.images].some(img => !img.complete)")
+            early_nav = page.evaluate("document.readyState !== 'complete'")
+            holding_images = False
+            for pending in pending_images:
+                pending.continue_()
         kind=case["kind"]
         if kind.startswith("article"):
             page.wait_for_selector("#article.work-article-page .work-reading-grid", state="visible", timeout=12_000)
@@ -249,7 +280,55 @@ def run_case(browser, case: dict) -> dict:
         else:
             page.wait_for_timeout(2_000)
 
+        consent = page.get_by_role('button', name=re.compile('essential only', re.I))
+        if consent.is_visible():
+            consent.click()
         result = page.evaluate(EVALUATE, {"kind":kind})
+        if early_nav is not None:
+            result['checks'].append({'name':'navigation initializes while images are still loading','ok':early_nav})
+        name = safe_name(kind, case["path"]) + f"-{case['viewport']['width']}-{case.get('theme','dark')}"
+        page.screenshot(path=str(ARTIFACTS / f"{name}.jpg"), type="jpeg", quality=75)
+        if case.get("touch"):
+            menu = page.get_by_role('button', name='Open navigation', exact=True)
+            menu.tap()
+            page.wait_for_function("document.body.classList.contains('mobile-nav-open')")
+            page.get_by_role('button', name='Open News menu', exact=True).tap()
+            page.get_by_role('link', name='Latest News', exact=False).wait_for(state='visible')
+            page.wait_for_function("""() => {
+                const menu=document.querySelector('[data-nav-section="news"] .nav-menu');
+                return menu && getComputedStyle(menu).opacity === '1' && menu.getBoundingClientRect().height > 300;
+            }""")
+            page.screenshot(path=str(ARTIFACTS / f"{name}-navigation.jpg"), type="jpeg", quality=75)
+            page.keyboard.press('Escape')
+            page.wait_for_function("!document.body.classList.contains('mobile-nav-open')")
+            focused = page.evaluate("document.activeElement.matches('header .menu')")
+            result['checks'].append({'name':'mobile menu opens, submenu responds, Escape restores focus','ok':focused})
+        if kind == 'article-mobile':
+            disclosure = page.locator('.work-mobile-reading-map')
+            disclosure.locator('summary').scroll_into_view_if_needed()
+            page.screenshot(path=str(ARTIFACTS / f"{name}-compact.jpg"), type="jpeg", quality=75)
+            disclosure.locator('summary').click()
+            page.wait_for_function("document.querySelector('.work-mobile-reading-map').open")
+            page.screenshot(path=str(ARTIFACTS / f"{name}-map.jpg"), type="jpeg", quality=75)
+            links = disclosure.locator('nav a')
+            target = links.nth(1).get_attribute('href')
+            links.nth(1).focus()
+            page.keyboard.press('Enter')
+            page.wait_for_function('target => location.hash === target', arg=target)
+            page.wait_for_function("""target => {
+                const section=document.getElementById(decodeURIComponent(target.slice(1)));
+                const rect=section.getBoundingClientRect();
+                return rect.top >= 0 && rect.top < innerHeight / 2 && getComputedStyle(section).opacity === '1';
+            }""", arg=target)
+            page.screenshot(path=str(ARTIFACTS / f"{name}-reading.jpg"), type="jpeg", quality=75)
+            result['checks'].append({'name':'mobile section map opens and keyboard navigation reaches visible content','ok':True,'value':target})
+            page.set_viewport_size({'width':1280,'height':900})
+            page.wait_for_selector('.work-article-sidebar .work-toc', state='attached')
+            map_count = page.locator('.work-toc').count()
+            result['checks'].append({'name':'resize restores the same single map to the desktop sidebar','ok':map_count == 1,'value':map_count})
+        result['checks'].append({'name':'no uncaught page exceptions','ok':not page_errors,'value':page_errors})
+        result['pass'] = all(check['ok'] for check in result['checks'])
+        result['failures'] = [check for check in result['checks'] if not check['ok']]
         result.update({
             "kind":kind,
             "path":case["path"],
@@ -386,8 +465,6 @@ def main() -> int:
                 }
 
             results.append(result)
-            if not result.get("pass"):
-                break
     finally:
         server.terminate()
         try:

@@ -96,6 +96,35 @@ test('Generated stories still load if the Supabase SDK is unavailable', async ()
   assert.equal((await api.publishedIndex())[0].slug, 'static');
 });
 
+test('Publication desks reuse the shared index without mutating its order', async () => {
+  const rows = [article('first'), article('second')];
+  let calls = 0;
+  const context = { window: { NeuralCriticContentAPI: { publishedIndex: async () => { calls++; return rows; } } } };
+  const nav = source('publication-nav.js');
+  vm.runInNewContext(nav.slice(0, nav.lastIndexOf("  if(document.body.classList.contains('studio-body'))")) +
+    '  window.loadDeskIndex=loadTaxonomyArticles;\n})();', context);
+  const loaded = await context.window.loadDeskIndex();
+  assert.equal(calls, 1);
+  assert.equal(loaded[0], rows[0]);
+  loaded.reverse();
+  assert.equal(rows[0].slug, 'first');
+});
+
+test('Hero markup prioritizes the lead and defers supporting images before insertion', () => {
+  const host = { innerHTML: '' };
+  const context = { window: { addEventListener() {} }, document: { getElementById: () => host }, Intl, Date };
+  const app = source('app.js').replace(/init\(\)\.catch\(error=>console\.error\('Neural Critic initialization failed\.',error\)\);/, '');
+  vm.runInNewContext(app, context);
+  context.rows = [article('lead', { imageLocal: 'lead.webp' }), article('support', { imageLocal: 'support.webp', homepageSlot: 'secondary-top' })];
+  vm.runInNewContext('ARTICLES=rows;renderHero();', context);
+  const images = [...host.innerHTML.matchAll(/<img\b[^>]*>/g)].map(match => match[0]);
+  assert.equal(images.length, 2);
+  assert.match(images[0], /loading="eager"/);
+  assert.match(images[0], /fetchpriority="high"/);
+  assert.match(images[1], /loading="lazy"/);
+  assert.doesNotMatch(images[1], /fetchpriority="high"/);
+});
+
 test('Quick Read renders authored takeaways and omits repeated deck text', () => {
   const context = { window: {}, document: {} };
   // Expose this renderer inside its existing closure without starting page bootstrap.
