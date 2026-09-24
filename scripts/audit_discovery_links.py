@@ -40,12 +40,12 @@ def main() -> int:
     runtime_pages = {
         "index.html": (
             "assets/content-api.js?v=20260924-publication1",
-            "assets/app.js?v=27dccb9f37e8",
+            "assets/app.js?v=62392b7d59dc",
             "assets/home-what-to-play.js?v=20260901-canonical1",
         ),
         "category.html": (
             "assets/content-api.js?v=20260924-publication1",
-            "assets/app.js?v=27dccb9f37e8",
+            "assets/app.js?v=62392b7d59dc",
             "assets/category-parity.js?v=20260901-canonical1",
             "assets/category-editorial-v3.js?v=20260901-canonical1",
             "assets/category-news.js?v=20260901-canonical1",
@@ -55,7 +55,7 @@ def main() -> int:
         ),
         "search.html": (
             "assets/content-api.js?v=20260924-publication1",
-            "assets/app.js?v=27dccb9f37e8",
+            "assets/app.js?v=62392b7d59dc",
             "assets/search-parity.js?v=20260924-publication1",
         ),
         "article.html": (

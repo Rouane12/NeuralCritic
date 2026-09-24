@@ -259,9 +259,9 @@ html[data-theme="light"] .publication-taxonomy-note b{color:#05849d}
   header .brand{min-width:auto!important;margin-right:auto!important}
   header .brand span,header .brand strong{font-size:20px!important}
   header .header-tools{gap:5px!important;margin:0!important}
-  header .header-tools .search,header .theme-toggle{width:40px!important;min-width:40px!important;height:40px!important;min-height:40px!important;padding:0!important}
+  header .header-tools .search,header .theme-toggle{width:44px!important;min-width:44px!important;height:44px!important;min-height:44px!important;padding:0!important}
   header .theme-toggle small{display:none!important}
-  header .menu{display:inline-flex!important}
+  header .menu{display:inline-flex!important;min-width:44px!important;min-height:44px!important}
 
   /* Keep drawer mounted so open/close can animate instead of popping. */
   header .publication-nav{
@@ -350,7 +350,7 @@ html[data-theme="light"] .publication-taxonomy-note b{color:#05849d}
   }
   .publication-nav .nav-primary::before,.publication-nav>.nav-direct::before{left:13px;right:auto;width:34px;bottom:4px;transform:scaleX(0);transform-origin:left}
   .publication-nav>.nav-direct:hover,.publication-nav .nav-primary:hover{background:rgba(85,231,255,.04)}
-  .publication-nav .nav-trigger{width:40px!important;height:40px!important;justify-self:center;color:#aeb9cd!important;background:rgba(255,255,255,.025)!important}
+  .publication-nav .nav-trigger{width:44px!important;height:44px!important;justify-self:center;color:#aeb9cd!important;background:rgba(255,255,255,.025)!important}
   .publication-nav .nav-trigger span{font-size:12px!important;transform:none!important;transition:transform .22s ease,color .18s ease,opacity .18s ease}
   .publication-nav .nav-group.open>.nav-primary{color:#62e8ff!important;background:linear-gradient(90deg,rgba(85,231,255,.07),rgba(119,104,255,.055))}
   .publication-nav .nav-group.open>.nav-primary::before{transform:scaleX(1);opacity:1}

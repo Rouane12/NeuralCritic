@@ -95,11 +95,35 @@
     return true;
   }
 
+  function placeReadingMap(nav,body){
+    const card=nav.closest('.work-toc');
+    const sidebar=card?.closest('.work-article-sidebar');
+    const grid=body.parentElement;
+    if(!card||!sidebar||!grid||!window.matchMedia)return;
+    const compact=window.matchMedia('(max-width:900px)');
+    const disclosure=document.createElement('details');
+    disclosure.className='work-mobile-reading-map';
+    disclosure.innerHTML='<summary>In this article</summary>';
+    const place=()=>{
+      if(compact.matches){
+        if(!disclosure.isConnected)grid.insertBefore(disclosure,body);
+        if(card.parentElement!==disclosure)disclosure.appendChild(card);
+      }else{
+        if(card.parentElement!==sidebar)sidebar.prepend(card);
+        disclosure.remove();
+      }
+      window.NeuralCriticReadingMapController?.sync?.();
+    };
+    place();
+    compact.addEventListener('change',place);
+  }
+
   async function init(){
     const nav=await waitForToc();
     if(!nav)return;
     const body=$('#article .article-body');
     if(!body)return;
+    placeReadingMap(nav,body);
 
     // Presentation only. Navigation, scrolling, active state and hashes belong
     // exclusively to article-runtime-integrity.js.
