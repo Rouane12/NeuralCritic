@@ -87,8 +87,8 @@ function wireChrome(){
 function homepageLabel(article, isLead=false){
   if (String(article?.category || '').toUpperCase() === 'NEWS') {
     const kind = article.newsMeta?.kind;
-    if (kind === 'breaking') return 'BREAKING';
-    if (kind === 'update') return article.newsMeta?.developing ? 'DEVELOPING UPDATE' : 'UPDATE';
+    if (kind === 'breaking') return discovery()?.isRecent(article) ? 'BREAKING' : 'NEWS';
+    if (kind === 'update') return discovery()?.isFreshDevelopingNews(article) ? 'DEVELOPING UPDATE' : 'UPDATE';
     if (kind === 'report') return 'REPORT';
     return 'NEWS';
   }
@@ -98,7 +98,7 @@ function homepageLabel(article, isLead=false){
 
 function renderHero(){
   const el=document.getElementById('hero'); if(!el) return;
-  if(!ARTICLES.length){el.innerHTML='<p class="notice">Stories are loading. Please refresh in a moment.</p>';return;}
+  if(!ARTICLES.length){el.innerHTML='<p class="notice" role="status">'+(window.NeuralCriticContentLoaded ? 'Stories are temporarily unavailable. Please refresh to try again.' : 'Loading the latest stories…')+'</p>';return;}
 
   const engine=discovery();
   const program=engine?.homepageProgram?.(ARTICLES) || null;
@@ -151,7 +151,7 @@ function renderReview(){
   const reserved=homepageReservedSlugs();
   const reviews=[...ARTICLES].filter(x=>x.articleFormat==='review').sort((x,y)=>new Date(y.publishedAt||0)-new Date(x.publishedAt||0));
   const a=reviews.find(x=>!reserved.has(x.slug)) || reviews[0]; if(!a) return;
-  el.innerHTML=`<a class="review-showcase" href="${articleHref(a)}" data-home-service="review" data-home-story="${escapeHtml(a.slug)}"><div class="review-showcase-image">${imageOf(a)?`<img alt="${escapeHtml(a.imageAlt)}" src="${imageOf(a)}">`:'<div class="placeholder-art">REVIEW</div>'}<span>LATEST REVIEW</span></div><div class="review-showcase-copy"><div class="review-showcase-score"><b>${escapeHtml(a.reviewMeta?.score||'—')}</b><small>OUT OF 10</small></div><div><small>NEURAL CRITIC VERDICT</small><h3>${escapeHtml(a.title)}</h3><p>${escapeHtml(a.reviewMeta?.verdict||a.description)}</p><strong>READ REVIEW →</strong></div></div></a>`;
+  el.innerHTML=`<a class="review-showcase" href="${articleHref(a)}" data-home-service="review" data-home-story="${escapeHtml(a.slug)}"><div class="review-showcase-image">${imageOf(a)?`<img alt="${escapeHtml(a.imageAlt)}" src="${imageOf(a)}">`:'<div class="placeholder-art">REVIEW</div>'}<span>LATEST REVIEW</span></div><div class="review-showcase-copy"><div class="review-showcase-score"><b>${escapeHtml(window.NeuralCriticContentAPI.normalizeScore(a.reviewMeta?.score)??'—')}</b><small>OUT OF 10</small></div><div><small>NEURAL CRITIC VERDICT</small><h3>${escapeHtml(a.title)}</h3><p>${escapeHtml(a.reviewMeta?.verdict||a.description)}</p><strong>READ REVIEW →</strong></div></div></a>`;
 }
 function renderGuides(){
   const el=document.getElementById('guide-showcase'); if(!el) return;
@@ -228,7 +228,7 @@ async function renderArticle(){
     document.title=`${a.title} · Neural Critic`;
     const tags=Array.isArray(a.tags)?a.tags:[];
     const blocks=Array.isArray(a.contentBlocks)?a.contentBlocks:[];
-    const review=a.articleFormat==='review'&&a.reviewMeta?`<section class="review-box"><div><div class="review-score">${escapeHtml(a.reviewMeta.score||'—')}</div><small>OUT OF 10</small></div><div><small class="article-kicker">NEURAL CRITIC VERDICT</small><h2>${escapeHtml(a.reviewMeta.verdict||'')}</h2><div class="proscons"><div><h3>WHAT WORKS</h3><ul>${(Array.isArray(a.reviewMeta.pros)?a.reviewMeta.pros:[]).map(x=>`<li>${escapeHtml(x)}</li>`).join('')}</ul></div><div><h3>WHAT DOESN’T</h3><ul>${(Array.isArray(a.reviewMeta.cons)?a.reviewMeta.cons:[]).map(x=>`<li>${escapeHtml(x)}</li>`).join('')}</ul></div></div></div></section>`:'';
+    const review=a.articleFormat==='review'&&a.reviewMeta?`<section class="review-box"><div><div class="review-score">${escapeHtml(window.NeuralCriticContentAPI.normalizeScore(a.reviewMeta.score)??'—')}</div><small>OUT OF 10</small></div><div><small class="article-kicker">NEURAL CRITIC VERDICT</small><h2>${escapeHtml(a.reviewMeta.verdict||'')}</h2><div class="proscons"><div><h3>WHAT WORKS</h3><ul>${(Array.isArray(a.reviewMeta.pros)?a.reviewMeta.pros:[]).map(x=>`<li>${escapeHtml(x)}</li>`).join('')}</ul></div><div><h3>WHAT DOESN’T</h3><ul>${(Array.isArray(a.reviewMeta.cons)?a.reviewMeta.cons:[]).map(x=>`<li>${escapeHtml(x)}</li>`).join('')}</ul></div></div></div></section>`:'';
     const bodyBlocks=blocks.map(b=>{
       const image=b.imageLocal?`<figure><img class="article-hero" src="${escapeHtml(b.imageLocal)}" alt="${escapeHtml(b.imageAlt||'')}"><figcaption>${escapeHtml(b.caption||'')}</figcaption></figure>`:'';
       const videoUrl=String(b.videoUrl||'').trim();
@@ -260,6 +260,8 @@ async function init(){
   document.getElementById('shared-header')?.insertAdjacentHTML('beforeend',sharedHeader());
   document.getElementById('shared-footer')?.insertAdjacentHTML('beforeend',sharedFooter());
   wireChrome();
+  const articleHost = document.getElementById('article');
+  if (articleHost) articleHost.innerHTML='<div class="article-loading-state" role="status"><span></span><strong>Loading story…</strong></div>';
   try{
     const response=await fetch(DATA_URL);
     if(!response.ok) throw new Error(`article index returned ${response.status}`);
@@ -269,6 +271,8 @@ async function init(){
     console.warn('Neural Critic article index unavailable; direct story rendering will continue.',e);
     ARTICLES=[];
   }
+  window.NeuralCriticContentLoaded=true;
+  if (window.NeuralCriticDiscoveryReady) await window.NeuralCriticDiscoveryReady;
   renderHome();
   await renderArticle();
   renderCategory();

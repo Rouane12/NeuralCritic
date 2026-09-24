@@ -23,14 +23,6 @@
     }).join('');
   }
 
-  async function waitForClient(limit=70){
-    for(let i=0;i<limit;i++){
-      if(window.neuralCriticPublicSupabase)return window.neuralCriticPublicSupabase;
-      await new Promise(resolve=>setTimeout(resolve,100));
-    }
-    return null;
-  }
-
   async function waitForBody(limit=70){
     for(let i=0;i<limit;i++){
       const body=$('#article .article-body');
@@ -41,14 +33,10 @@
   }
 
   async function readConclusion(){
-    const client=await waitForClient();
-    if(!client)return null;
     try{
-      const {data,error}=await client.from('articles')
-        .select('title,article_format,collection,conclusion,conclusion_heading,conclusion_heading_style')
-        .eq('slug',slug).eq('status','published').maybeSingle();
-      if(error)throw error;
-      return data||null;
+      const article=await window.NeuralCriticContentAPI?.publishedArticle(slug);
+      if(!article)return null;
+      return {...article,article_format:article.articleFormat,conclusion_heading:article.conclusionHeading,conclusion_heading_style:article.conclusionHeadingStyle};
     }catch(_){return null;}
   }
 
@@ -83,7 +71,8 @@
     if(!existing)body.appendChild(section);
     section.className=`article-conclusion nc-conclusion-block nc-heading-${style}`;
     section.dataset.headingStyle=style;
-    section.innerHTML=`<span>FINAL VERDICT</span><h2 class="nc-editorial-heading nc-section">${esc(heading)}</h2><div class="nc-conclusion-copy">${prose(article.conclusion)}</div>`;
+    const label=article.article_format==='review' ? 'REVIEW CONCLUSION' : article.article_format==='game-guide' ? 'TAKEAWAYS' : 'CLOSING THOUGHTS';
+    section.innerHTML=`<span>${label}</span><h2 class="nc-editorial-heading nc-section">${esc(heading)}</h2><div class="nc-conclusion-copy">${prose(article.conclusion)}</div>`;
   }
 
   async function init(){

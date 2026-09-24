@@ -70,10 +70,6 @@
     if (article.articleFormat !== 'ranked-list' || body.dataset.rankedEnhanced) return;
     body.dataset.rankedEnhanced = 'true';
 
-    if (article.quickRead?.length) {
-      body.insertAdjacentHTML('afterbegin', `<aside class="quick-read"><span>QUICK READ</span><h2>The ranking at a glance</h2><ul>${article.quickRead.map(x => `<li>${esc(x)}</li>`).join('')}</ul></aside>`);
-    }
-
     const sections = qsa(':scope > section', body);
     (article.contentBlocks || []).forEach((block, index) => {
       const section = sections[index];
@@ -88,8 +84,8 @@
       }
     });
 
-    if (article.conclusion) {
-      body.insertAdjacentHTML('beforeend', `<section class="article-conclusion"><span>FINAL VERDICT</span><h2>Difficulty is personal</h2>${paras(article.conclusion)}</section>`);
+    if (article.conclusion && !qs('.article-conclusion', body)) {
+      body.insertAdjacentHTML('beforeend', `<section class="article-conclusion"><span>CLOSING THOUGHTS</span><h2>${esc(article.conclusionHeading || 'The final word')}</h2>${paras(article.conclusion)}</section>`);
     }
   }
 
@@ -110,9 +106,19 @@
   }
 
   function addQuickRead(article, body) {
-    if (qs('.quick-read', body) || article.articleFormat === 'ranked-list') return;
+    if (qs('.quick-read', body)) return;
+    const normalize = value => String(value || '').replace(/[*=^]/g, '').replace(/\s+/g, ' ').trim().toLowerCase();
+    const seen = new Set([normalize(article.description)]);
+    const items = (Array.isArray(article.quickRead) ? article.quickRead : []).filter(value => {
+      if (typeof value !== 'string') return false;
+      const key = normalize(value);
+      if (!key || seen.has(key)) return false;
+      seen.add(key);
+      return true;
+    });
+    if (!items.length) return;
     const firstSection = qs(':scope > section', body);
-    const markup = `<aside class="quick-read work-quick-read"><span>THE QUICK READ</span><p>${esc(article.description || '')}</p></aside>`;
+    const markup = `<aside class="quick-read work-quick-read"><span>THE QUICK READ</span><ul>${items.map(item => `<li>${inline(item)}</li>`).join('')}</ul></aside>`;
     if (firstSection) firstSection.insertAdjacentHTML('beforebegin', markup);
     else body.insertAdjacentHTML('afterbegin', markup);
   }
@@ -254,6 +260,7 @@
 
     const body = await waitForArticle();
     if (!body) return;
+    host.dataset.articleFormat = article.articleFormat || 'standard';
     enhanceHeader(article, host);
     enhanceRankedArticle(article, body);
     enhanceReview(article, body);

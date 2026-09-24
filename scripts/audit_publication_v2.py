@@ -291,7 +291,7 @@ def check_newsroom() -> None:
     for marker in ("CONFIRMED", "NOT FULLY CONFIRMED", "SOURCE / ORIGIN", "Update log", "news_article_view"):
         if marker not in article:
             base.error(f"article-news.js is missing reader trust marker: {marker}")
-    for marker in ("PAGE_SIZE = 3", "nc-feed-load-more", "data-news-kind", "homepage_feed_load_more"):
+    for marker in ("PAGE_SIZE = 6", "nc-feed-load-more", "data-news-kind", "homepage_feed_load_more"):
         if marker not in home:
             base.error(f"home-feed.js is missing progressive feed marker: {marker}")
     if "assets/home-feed.js" not in index:

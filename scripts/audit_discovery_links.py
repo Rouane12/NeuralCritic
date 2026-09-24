@@ -39,13 +39,13 @@ def main() -> int:
     # content-hashed app runtime, while Game Hub owns its own Phase 2 pin.
     runtime_pages = {
         "index.html": (
-            "assets/content-api.js?v=20260919-repo1",
-            "assets/app.js?v=20260901-canonical1",
+            "assets/content-api.js?v=20260924-publication1",
+            "assets/app.js?v=27dccb9f37e8",
             "assets/home-what-to-play.js?v=20260901-canonical1",
         ),
         "category.html": (
-            "assets/content-api.js?v=20260919-repo1",
-            "assets/app.js?v=20260901-canonical1",
+            "assets/content-api.js?v=20260924-publication1",
+            "assets/app.js?v=27dccb9f37e8",
             "assets/category-parity.js?v=20260901-canonical1",
             "assets/category-editorial-v3.js?v=20260901-canonical1",
             "assets/category-news.js?v=20260901-canonical1",
@@ -54,15 +54,15 @@ def main() -> int:
             "assets/collection-ranking-preview.js?v=20260901-canonical1",
         ),
         "search.html": (
-            "assets/content-api.js?v=20260919-repo1",
-            "assets/app.js?v=20260901-canonical1",
-            "assets/search-parity.js?v=20260901-canonical1",
+            "assets/content-api.js?v=20260924-publication1",
+            "assets/app.js?v=27dccb9f37e8",
+            "assets/search-parity.js?v=20260924-publication1",
         ),
         "article.html": (
-            "assets/content-api.js?v=20260922-relatedfix1",
+            "assets/content-api.js?v=20260924-publication1",
         ),
         "game.html": (
-            "assets/content-api.js?v=20260919-repo1",
+            "assets/content-api.js?v=20260924-publication1",
             "assets/game-page.js?v=",
         ),
     }
@@ -163,7 +163,7 @@ def main() -> int:
 
     api_required = (
         "assets/discovery-intelligence.css?v=20260903-articlejourney1",
-        "assets/discovery-intelligence.js?v=20260901-recirculation3",
+        "assets/discovery-intelligence.js?v=20260924-publication1",
         "assets/recirculation.css?v=20260919-recirc2",
         "assets/article-discovery.js?v=20260922-relatedfix1",
         "assets/recirculation.js?v=20260922-recirc3",

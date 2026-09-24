@@ -55,7 +55,7 @@ def main() -> int:
     ), "assets/popularity-signals.css", failures)
 
     require(api, (
-        "assets/popularity-signals.js?v=20260828-popularity2",
+        "assets/popularity-signals.js?v=20260924-publication1",
         "data-nc-popularity-signals",
         "articlePopularity",
         "recordArticleView",

@@ -22,7 +22,7 @@ def main()->int:
     if 'game.html?slug=' in js: failures.append('Games Directory links regress to legacy game.html?slug= URLs')
 
     completeness_checks={
-        'Games Directory discovery JS is cache-pinned': 'assets/games-directory.js?v=20260912-discovery1' in html,
+        'Games Directory discovery JS is cache-pinned': 'assets/games-directory.js?v=20260924-publication1' in html,
         'Games Directory Phase 2 CSS is cache-pinned': 'assets/games-directory-phase2.css?v=20260912-discovery1' in html,
         'Games Directory light-theme base CSS remains cache-pinned': 'assets/games-directory.css?v=20260904-lightfix1' in html,
         'all games use consistent text-first cards': 'nc-game-library-card is-text-only' in js and '.nc-game-library-card.is-text-only' in css,

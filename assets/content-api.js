@@ -19,7 +19,7 @@
               return;
             }
             const script = document.createElement('script');
-            script.src = 'assets/discovery-intelligence.js?v=20260901-recirculation3';
+            script.src = 'assets/discovery-intelligence.js?v=20260924-publication1';
             script.dataset.ncDiscovery = '1';
             script.onload = () => resolve(window.NeuralCriticDiscovery || null);
             script.onerror = () => resolve(null);
@@ -57,7 +57,7 @@
       window.NeuralCriticDiscoveryReady.then(engine => {
         if (!engine || document.querySelector('script[data-nc-popularity-signals]')) return;
         const script = document.createElement('script');
-        script.src = 'assets/popularity-signals.js?v=20260828-popularity2';
+        script.src = 'assets/popularity-signals.js?v=20260924-publication1';
         script.dataset.ncPopularitySignals = '1';
         document.body.appendChild(script);
       });
@@ -67,17 +67,39 @@
   bootstrapDiscovery();
 
   const config = window.NEURAL_CRITIC_SUPABASE;
-  if (!config || !window.supabase || !window.fetch) return;
+  if (!window.fetch) return;
 
   const nativeFetch = window.fetch.bind(window);
-  const client = window.supabase.createClient(config.url, config.publishableKey);
-  window.neuralCriticPublicSupabase = client;
+  const client = config && window.supabase ? window.supabase.createClient(config.url, config.publishableKey) : null;
+  if (client) window.neuralCriticPublicSupabase = client;
 
   const indexPath = 'data/articles.json';
   const repositoryIndexPath = 'data/repository-articles.json';
   const articlePrefix = 'data/articles/';
   const CMS_TIMEOUT_MS = 2200;
+  const STATIC_GRACE_MS = 350;
   const POPULARITY_DEDUPE_MS = 30 * 60 * 1000;
+  let indexRequest = null;
+  let indexRows = [];
+  let gamesRequest = null;
+  const articleRequests = new Map();
+
+  function normalizeScore(value) {
+    if (!['number', 'string'].includes(typeof value) || String(value).trim() === '') return null;
+    const score = Number(value);
+    return Number.isFinite(score) && score >= 0 && score <= 10 ? score : null;
+  }
+
+  function resolveGameReview(game, articles = []) {
+    const key = value => String(value || '').toLowerCase().normalize('NFKD').replace(/[\u0300-\u036f]/g, '').replace(/&/g, ' and ').replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '');
+    const keys = new Set([key(game.slug), key(game.title)].filter(Boolean));
+    const reviews = articles.filter(article => {
+      const format = String(article.articleFormat || article.article_format || article.category || '').toLowerCase();
+      return format === 'review' && keys.has(key(article.gameKey || article.game_key)) && normalizeScore((article.reviewMeta || article.review_meta)?.score) !== null;
+    }).sort((a, b) => new Date(b.publishedAt || b.published_at || 0) - new Date(a.publishedAt || a.published_at || 0) || String(a.slug).localeCompare(String(b.slug)));
+    const review = reviews.find(article => article.slug === game.score_article_slug) || reviews[0] || null;
+    return { review, score: review ? normalizeScore((review.reviewMeta || review.review_meta).score) : normalizeScore(game.neural_critic_score), slug: review?.slug || game.score_article_slug || '' };
+  }
 
   function mapRow(row) {
     return {
@@ -129,7 +151,7 @@
       status: 200,
       headers: {
         'content-type': 'application/json; charset=utf-8',
-        'x-neural-critic-source': 'supabase'
+        'x-neural-critic-source': 'publication'
       }
     });
   }
@@ -155,15 +177,17 @@
 
   function withTimeout(promise, ms = CMS_TIMEOUT_MS) {
     let timer;
+    const controller = typeof AbortController !== 'undefined' && typeof promise?.abortSignal === 'function' ? new AbortController() : null;
+    if (controller) promise = promise.abortSignal(controller.signal);
     const timeout = new Promise((_, reject) => {
-      timer = setTimeout(() => reject(new Error(`CMS read timed out after ${ms}ms`)), ms);
+      timer = setTimeout(() => { controller?.abort(); reject(new Error(`CMS read timed out after ${ms}ms`)); }, ms);
     });
     return Promise.race([Promise.resolve(promise), timeout]).finally(() => clearTimeout(timer));
   }
 
   async function staticArticleList(path) {
     try {
-      const response = await nativeFetch(path, { cache: 'no-store' });
+      const response = await withTimeout(nativeFetch(path, { cache: 'no-store' }));
       if (!response.ok) return [];
       const text = await response.text();
       if (!text.trim()) return [];
@@ -183,9 +207,18 @@
     return [...merged.values()].sort((a,b) => new Date(b.publishedAt || 0) - new Date(a.publishedAt || 0));
   }
 
-  async function publishedIndex() {
+  function preferLive(live, fallback, usable) {
+    const preferred = live.then(value => usable(value) ? value : fallback);
+    let timer;
+    const grace = new Promise(resolve => { timer = setTimeout(resolve, STATIC_GRACE_MS); });
+    const snapshot = Promise.all([fallback, grace]).then(([value]) => usable(value) ? value : preferred);
+    return Promise.race([preferred, snapshot]).finally(() => clearTimeout(timer));
+  }
+
+  async function liveIndex() {
     let live = [];
     try {
+      if (!client) return [];
       const query = client.from('articles').select('*').eq('status', 'published').lte('published_at', new Date().toISOString()).order('published_at', { ascending: false });
       const { data, error } = await withTimeout(query);
       if (error) throw error;
@@ -193,14 +226,30 @@
     } catch (error) {
       console.warn('Neural Critic live article index unavailable; using repository/static publication index.', error);
     }
-    const fallback = await staticPublishedIndex();
-    const merged = new Map(live.map(article => [article.slug, article]));
-    fallback.forEach(article => { if (article?.slug && !merged.has(article.slug)) merged.set(article.slug, article); });
-    return [...merged.values()].sort((a,b) => new Date(b.publishedAt || 0) - new Date(a.publishedAt || 0));
+    return live;
   }
 
-  async function publishedArticle(slug) {
+  function publishedIndex() {
+    if (!indexRequest) {
+      const fallback = staticPublishedIndex();
+      const live = liveIndex().then(async rows => {
+        if (!rows.length) return [];
+        const merged = new Map(rows.map(article => [article.slug, article]));
+        (await fallback).forEach(article => { if (!merged.has(article.slug)) merged.set(article.slug, article); });
+        return [...merged.values()].sort((a, b) => new Date(b.publishedAt || 0) - new Date(a.publishedAt || 0));
+      });
+      indexRequest = preferLive(live, fallback, rows => rows.length > 0).then(rows => {
+        indexRows = rows;
+        if (!rows.length) indexRequest = null;
+        return rows;
+      });
+    }
+    return indexRequest;
+  }
+
+  async function liveArticle(slug) {
     try {
+      if (!client) return null;
       const query = client.from('articles').select('*').eq('slug', slug).eq('status', 'published').lte('published_at', new Date().toISOString()).maybeSingle();
       const { data, error } = await withTimeout(query);
       if (error) throw error;
@@ -208,18 +257,40 @@
     } catch (error) {
       console.warn('Neural Critic live story lookup unavailable; using generated story fallback.', error);
     }
+    return null;
+  }
+
+  async function staticArticle(slug) {
     try {
-      const response = await nativeFetch(`${articlePrefix}${encodeURIComponent(slug)}.json`, { cache: 'no-store' });
+      const response = await withTimeout(nativeFetch(`${articlePrefix}${encodeURIComponent(slug)}.json`, { cache: 'no-store' }));
       if (!response.ok) return null;
       return await response.json();
     } catch (_) { return null; }
   }
 
-  async function publishedGames() {
+  function publishedArticle(slug) {
+    const cached = indexRows.find(article => article.slug === slug);
+    if (cached) return Promise.resolve(cached);
+    if (!articleRequests.has(slug)) {
+      articleRequests.set(slug, preferLive(liveArticle(slug), staticArticle(slug), article => article?.slug === slug).then(article => {
+        if (!article) articleRequests.delete(slug);
+        return article;
+      }));
+    }
+    return articleRequests.get(slug);
+  }
+
+  async function loadGames() {
+    if (!client) return [];
     const query = client.from('games').select('slug,title,release_status,primary_release_date,platforms').order('title', { ascending: true });
     const { data, error } = await withTimeout(query);
     if (error) throw error;
     return (data || []).map(mapGameRow).filter(game => game.slug && game.title);
+  }
+
+  function publishedGames() {
+    if (!gamesRequest) gamesRequest = loadGames().catch(error => { gamesRequest = null; throw error; });
+    return gamesRequest;
   }
 
   async function articlePopularity(days = 7) {
@@ -238,7 +309,7 @@
     return true;
   }
 
-  window.NeuralCriticContentAPI = { publishedIndex, publishedArticle, publishedGames, articlePopularity, recordArticleView, nativeFetch };
+  window.NeuralCriticContentAPI = { publishedIndex, publishedArticle, publishedGames, articlePopularity, recordArticleView, nativeFetch, normalizeScore, resolveGameReview, readPublic:withTimeout };
 
   function popularitySessionKey(slug) { return `neural-critic-popularity-view:${slug}`; }
   function popularityAlreadyCounted(slug) {
