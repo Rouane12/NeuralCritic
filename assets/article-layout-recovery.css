@@ -251,6 +251,23 @@ html[data-theme="light"] #article.work-article-page .article-conclusion>span{col
   color:var(--cyan)!important;
 }
 
+#article.work-article-page .work-react-rail.standard-react-rail button[data-article-like][aria-pressed="true"]{
+  border-color:rgba(85,231,255,.32)!important;
+  background:linear-gradient(105deg,rgba(85,231,255,.08),rgba(119,104,255,.06))!important;
+}
+#article.work-article-page .work-react-rail.standard-react-rail button[data-article-like][aria-pressed="true"] small{
+  color:var(--cyan)!important;
+}
+#article.work-article-page .work-react-rail.standard-react-rail button[data-article-like][data-state="saving"]{
+  opacity:.72!important;
+  cursor:wait!important;
+}
+#article.work-article-page .work-react-rail.standard-react-rail button[data-article-like][data-state="error"] b,
+#article.work-article-page .work-react-rail.standard-react-rail button[data-article-like][data-state="error"] small{
+  border-color:#ff7d93!important;
+  color:#ff8aa0!important;
+}
+
 #article.work-article-page .work-react-rail.standard-react-rail button:focus-visible{
   outline:2px solid rgba(85,231,255,.55)!important;
   outline-offset:3px!important;
