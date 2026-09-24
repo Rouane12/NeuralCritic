@@ -41,10 +41,40 @@ overall verdict. CMS article copy and score values remain the editorial source.
 
 | Area | Status | Evidence |
 | --- | --- | --- |
-| New deterministic regression contracts | PENDING | `scripts/test_publication_refinement.js` |
-| Protected runtime / reader / article journeys | PENDING | Existing focused regression suites |
-| Publication/build consistency | PENDING | Applicable repository audits |
-| Signed-out desktop dark/light | PENDING | Branch preview if available |
-| Mobile browser | BLOCKED | Browser controller has no viewport mutation |
+| New deterministic regression contracts | PASS | 10 behavioral cases in `scripts/test_publication_refinement.js` |
+| Protected runtime / reader / article journeys | PASS | Existing runtime, reader, home/nav, game/completeness, article reading/journey, recirculation, navigation and Weekly Drop suites |
+| Publication/build consistency | PASS | Reliability, runtime consistency, discovery, games directory, review intelligence, publication V2, site integrity and popularity audits |
+| Automated browser layout | PASS | Existing GitHub browser smoke job: 8/8 route/viewport cases at 1440px and 390px; see evidence below |
+| Manual desktop dark/light visual review | BLOCKED | Local preview returns `ERR_BLOCKED_BY_CLIENT`; commit preview stops at external-content confirmation |
+| Manual mobile browser | BLOCKED | Interactive browser controller has no viewport mutation; CI geometry coverage is separate |
 | Authenticated persistence | N/A | No auth/persistence changes; no test identity used |
-| Merge / production deployment | PENDING | Repository baseline forbids automatic merge |
+| Merge / production deployment | NOT PERFORMED | Repository baseline forbids automatic merge; draft PR #101 |
+
+## Saved result and verification evidence
+
+- Pull request: https://github.com/Rouane12/NeuralCritic/pull/101
+- Product commit: `998155b144da9a968d571aabd1d134d1838e2c37`.
+- Product tree: `c10fbf2c716b3e9279067362db5da67094a9a3b0`; confirmed equal
+  between the locally tested checkout and the GitHub commit.
+- Publication Health: https://github.com/Rouane12/NeuralCritic/actions/runs/35948019309
+- Browser smoke: https://github.com/Rouane12/NeuralCritic/actions/runs/35948019238
+- All nine PR checks succeeded: Publication, Browser smoke, Article Reading
+  Experience, Article Journey, Article Ending, Game Hub, Topic Hub, Navigation
+  Hotfix, and Social preview QA.
+
+The existing browser suite checked the home, category, search and Elden Ring game
+routes, plus the Physint and Gen Atlas story routes at desktop and mobile widths.
+It reported no page-wide overflow and valid article grid, rail, sidebar,
+recirculation and newsletter geometry. It deliberately blocks external requests
+(including fonts, Supabase SDK and analytics), so its success proves the generated
+fallback path and geometry, not live-CMS behavior, custom-font fidelity, or a
+human visual assessment. Its console records those intentionally blocked resources.
+
+Manual preview attempted:
+https://raw.githack.com/Rouane12/NeuralCritic/998155b144da9a968d571aabd1d134d1838e2c37/index.html
+The service displays an external-content confirmation before opening the page.
+That confirmation was not accepted. Visual approval remains pending; no production
+deployment or CMS content edit has been made.
+
+Most changed HTML files only refresh asset cache pins. Generated article text,
+canonical URLs, structured data and publication membership were preserved.
