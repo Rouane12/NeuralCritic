@@ -5,6 +5,11 @@
       "local_bytes": 184200,
       "source_bytes": 1332906
     },
+    "https://cdn.segmentnextimages.com/wp-content/uploads/2023/04/Elden-Ring-Crumbling-Farum-Azula-Smithing-Stone-8-1116x628.jpg": {
+      "local": "/images/editorial/Elden-Ring-Crumbling-Farum-Azula-Smithing-Stone-8-1116x628.jpg",
+      "local_bytes": 176833,
+      "source_bytes": 176833
+    },
     "https://cdn1.epicgames.com/spt-assets/96c2f20021544452aa4b27e5af09331b/unnamed-19xky.jpg": {
       "local": "/images/editorial/unnamed-19xky.jpg",
       "local_bytes": 195743,
@@ -25,10 +30,30 @@
       "local_bytes": 251384,
       "source_bytes": 251384
     },
+    "https://fwmedia.fandomwire.com/wp-content/uploads/2024/10/22100313/elden-ring-somber-smithing-stone-5-1024x576.png": {
+      "local": "/images/editorial/elden-ring-somber-smithing-stone-5-1024x576.png",
+      "local_bytes": 51976,
+      "source_bytes": 51976
+    },
     "https://gameinformer.com/sites/default/files/styles/content_header_l/public/2026/06/08/274897e6/gen-atlas-art-crop.jpg.webp": {
       "local": "/images/editorial/gen-atlas-art-crop.jpg.webp",
       "local_bytes": 132788,
       "source_bytes": 132788
+    },
+    "https://image.thenerdstash.com/2024/03/crumbling-farum-azula-altar.jpg": {
+      "local": "/images/editorial/crumbling-farum-azula-altar.jpg",
+      "local_bytes": 266394,
+      "source_bytes": 266394
+    },
+    "https://img.gamewith.jp/img/62d1a4226b5d27119adb8f07ce9fc855.png": {
+      "local": "/images/editorial/62d1a4226b5d27119adb8f07ce9fc855.png",
+      "local_bytes": 31807,
+      "source_bytes": 31807
+    },
+    "https://img.gamewith.jp/img/dbf0eb33f09f78d36abf04b4ccf273f3.png": {
+      "local": "/images/editorial/dbf0eb33f09f78d36abf04b4ccf273f3.png",
+      "local_bytes": 33719,
+      "source_bytes": 33719
     },
     "https://pchrrwfdcfbytggekuzs.supabase.co/storage/v1/object/public/editorial/a5a43d77-921b-481d-b0d0-957bf63794f5/1787351828350-406d9122-1456-43fb-b917-0dab1033cbc3-dark-souls-main.jpg": {
       "local": "/images/editorial/1787351828350-406d9122-1456-43fb-b917-0dab1033cbc3-dark-souls-main.jpg",
@@ -2069,6 +2094,11 @@
       "local": "/images/editorial/1789083856361-672c219c-2299-48e1-9bc6-34f644f69132-yo-kai.webp",
       "local_bytes": 239564,
       "source_bytes": 239564
+    },
+    "https://www.denofgeek.com/wp-content/uploads/2022/02/Somber-Smithing-stone-9.jpg?resize=1024%2C625": {
+      "local": "/images/editorial/Somber-Smithing-stone-9.jpg",
+      "local_bytes": 61092,
+      "source_bytes": 61092
     },
     "https://www.koeitecmoamerica.com/wp-content/uploads/2026/09/wl2_thum_PV2_notext-1024x576.png": {
       "local": "/images/editorial/wl2_thum_PV2_notext-1024x576.webp",

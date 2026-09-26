@@ -15,17 +15,14 @@
     "Locations",
     "Guide"
   ],
-  "imageAlt": "A Tarnished stands beneath the glowing Erdtree in Elden Ring, framed by golden branches, ruined stone structures and the Lands Between below.",
-  "imageCredit": "Neural Critic / Elden Ring gameplay screenshot.",
+  "imageAlt": "Elden Ring map showing the Somber Smithing Stone 9 location south of the Divine Tower of Caelid in Dragonbarrow.",
+  "imageCredit": "Screenshot: Den of Geek / Bandai Namco Entertainment / FromSoftware.",
   "articleFormat": "game-guide",
   "reviewMeta": {},
   "contentBlocks": [
     {
       "text": "\nThe permanent source is the **Twin Maiden Husks at Roundtable Hold**. After you give them **Somberstone Miner's Bell Bearing [5]**, their shop adds an unlimited supply of Somber Smithing Stone [9].\n\nEach stone costs **25,000 runes**. Because special weapons only use one Somber stone per upgrade step, you need exactly one Somber Smithing Stone [9] for each weapon you want to take from +8 to +9.\n\nThe Bell Bearing's unlocked shop inventory also carries into New Game Plus, so once you have liberated this stock you do not need to unlock it again in the next journey.\n",
-      "caption": "Somber Smithing Stone [9] is the +9 upgrade material for special armaments that use the Somber upgrade path.",
       "heading": "Where to buy Somber Smithing Stone 9",
-      "imageAlt": "The Elden Ring blacksmith menu shows a weapon upgrade and the Smithing Stone materials required to strengthen it.",
-      "imageLocal": "/images/editorial/1788025613100-ea3b1429-9073-4e9c-8759-5e04d016db65-smithing.jpg",
       "headingStyle": "editorial"
     },
     {
@@ -40,7 +37,10 @@
     },
     {
       "text": "\nIf you miss the Dragonbarrow stones or need more for several weapons, later regions contain many additional pickups.\n\n### Lake of Rot\n\nA Somber Smithing Stone [9] sits on a corpse on the raised platform where a lesser Alabaster Lord appears.\n\n### Mountaintops of the Giants\n\nOne can be found on a corpse sitting on a chair on the bridge south of **Stargazer Ruins**.\n\n### Consecrated Snowfield\n\nThe region contains several Somber Smithing Stone [9] pickups, including one on the rock formation north of the Consecrated Snowfield Site of Grace and another east of the Apostate Derelict.\n\n### Yelough Anix Tunnel\n\nA Somber Smithing Stone [9] is available inside **Yelough Anix Tunnel**, in the room where an Onyx Lord appears.\n\n### Crumbling Farum Azula\n\nFarum Azula contains several Somber Smithing Stone [9] pickups around the Dragon Temple and surrounding ruins, making it one of the richest base-game areas for this material.\n\nMiquella's Haligtree and Elphael also contain additional stones if you are progressing through the Haligtree route.\n",
+      "caption": "Crumbling Farum Azula contains several Somber Smithing Stone [9] pickups beyond the earlier Dragonbarrow sources. Screenshot: GameWith; Elden Ring © Bandai Namco Entertainment / FromSoftware.",
       "heading": "Other reliable Somber Smithing Stone 9 locations",
+      "imageAlt": "A Somber Smithing Stone 9 pickup is highlighted on the ruined stone rooftops of Crumbling Farum Azula in Elden Ring.",
+      "imageLocal": "/images/editorial/62d1a4226b5d27119adb8f07ce9fc855.png",
       "headingStyle": "editorial"
     },
     {
@@ -50,7 +50,10 @@
     },
     {
       "text": "\nSomber Smithing Stone [9] takes a **special armament from +8 to +9**. Unlike regular Smithing Stones, the Somber upgrade path uses only one stone at each tier.\n\nThe final +9 to +10 upgrade requires a **Somber Ancient Dragon Smithing Stone**, which is a separate, limited material and cannot be bought through Somberstone Miner's Bell Bearing [5].\n\nIf your weapon uses the standard +25 upgrade path instead, see Neural Critic's [Elden Ring Smithing Stone 8 locations guide](/stories/elden-ring-smithing-stone-8-locations/). For the broader upgrade priorities around a first playthrough, our [Elden Ring early-game progression guide](/stories/elden-ring-early-progression-what-to-upgrade-first/) covers what is worth strengthening first.\n",
+      "caption": "Somber Smithing Stone [9] is the material used for the +8 to +9 step on special armaments. Neural Critic gameplay screenshot.",
       "heading": "What does Somber Smithing Stone 9 upgrade?",
+      "imageAlt": "The Elden Ring blacksmith menu shows a special weapon upgrade and its required upgrade materials.",
+      "imageLocal": "/images/editorial/1788025613100-ea3b1429-9073-4e9c-8759-5e04d016db65-smithing.jpg",
       "headingStyle": "editorial"
     }
   ],
@@ -65,8 +68,8 @@
   "featured": false,
   "homepageSlot": "regular",
   "publishedAt": "2026-09-24T06:00:19.582172+00:00",
-  "updatedAt": "2026-09-24T09:34:25.125668+00:00",
-  "imageLocal": "/images/editorial/1788025565917-72a0d1a0-a227-4ed8-8654-7336912c4915-main-elden-rang.jpg",
+  "updatedAt": "2026-09-26T11:06:29.541471+00:00",
+  "imageLocal": "/images/editorial/Somber-Smithing-stone-9.jpg",
   "editorialSection": "guides",
   "platforms": [
     "pc",
