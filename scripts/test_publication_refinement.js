@@ -171,7 +171,7 @@ test('Desktop publication navigation restores hover motion without hover-opening
   assert.doesNotMatch(css, /\.nav-group:focus-within>\.nav-menu/);
 });
 
-test('Public motion keeps desktop reveal choreography without blanking touch or reduced-motion readers', () => {
+test('Public motion keeps reveal choreography for normal-motion readers while reduced motion stays immediate', () => {
   const runtime = source('motion.js');
   const migration = source('migration.css');
   const header = source('header-polish.css');
