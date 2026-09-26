@@ -162,6 +162,11 @@ test('Desktop publication navigation restores hover motion without hover-opening
   const css = source('publication-nav.css');
   assert.match(css, /\(hover:hover\) and \(pointer:fine\)/);
   assert.match(css, /transform:translateY\(-2px\)/);
+  assert.match(css, /ncNavUnderlineSweep/);
+  assert.match(css, /text-shadow:0 0 14px/);
+  assert.match(css, /ncFeedGlowRestored/);
+  assert.match(css, /ncFeedDotRestored/);
+  assert.match(css, /animation:ncHeaderSignal 5\.6s linear infinite!important/);
   assert.doesNotMatch(css, /\.nav-group:hover>\.nav-menu/);
   assert.doesNotMatch(css, /\.nav-group:focus-within>\.nav-menu/);
 });
@@ -187,6 +192,7 @@ test('Public motion keeps desktop reveal choreography without blanking touch or 
 
   for (const page of ['index.html','article.html','category.html','search.html','game.html']) {
     assert.match(source('../' + page), /assets\/motion\.js\?v=20260926-motion1/);
+    assert.match(source('../' + page), /assets\/publication-nav\.css\?v=20260926-motion2/);
   }
 });
 
