@@ -177,7 +177,7 @@ test('Public motion keeps reveal choreography for normal-motion readers while re
   const header = source('header-polish.css');
   const home = source('homepage-v2.css');
 
-  assert.match(runtime, /reduce \\|\\| el\.matches\(STRUCTURAL\)/);
+  assert.ok(runtime.includes("if (reduce || el.matches(STRUCTURAL))"));
   assert.doesNotMatch(runtime, /const touch =/);
   assert.doesNotMatch(runtime, /el\.closest\('\.article-page'\)/);
   assert.match(runtime, /intro\.push\(el\)/);
