@@ -443,7 +443,89 @@ html[data-theme="light"] .publication-taxonomy-note b{color:#05849d}
 
 @keyframes ncNavBackdropIn{from{opacity:0}to{opacity:1}}
 
+/* --------------------------------------------------------------------------
+   PUBLIC MOTION RECOVERY
+   Restore the live header signal and desktop desk-hover choreography that were
+   softened during the readability pass. This remains decorative and respects
+   the user's reduced-motion preference below.
+   -------------------------------------------------------------------------- */
+.ticker b{
+  transform-origin:center!important;
+  will-change:transform,box-shadow,border-color!important;
+  animation:ncFeedGlowRestored 3.2s cubic-bezier(.4,0,.2,1) infinite!important;
+}
+.ticker b::before{
+  animation:ncFeedDotRestored 2.15s ease-out infinite!important;
+}
+header::after{
+  opacity:.9!important;
+  filter:drop-shadow(0 0 7px rgba(85,231,255,.38))!important;
+  animation:ncHeaderSignal 5.6s linear infinite!important;
+}
+
+@keyframes ncFeedGlowRestored{
+  0%,100%{
+    transform:scale(1);
+    border-color:rgba(164,174,255,.28);
+    box-shadow:
+      0 6px 18px rgba(3,8,23,.23),
+      0 1px 0 rgba(255,255,255,.10) inset,
+      0 0 0 0 rgba(119,104,255,0),
+      0 0 0 rgba(85,231,255,0);
+  }
+  50%{
+    transform:scale(1.045);
+    border-color:rgba(104,224,255,.72);
+    box-shadow:
+      0 9px 24px rgba(3,8,23,.29),
+      0 1px 0 rgba(255,255,255,.15) inset,
+      0 0 0 7px rgba(119,104,255,.13),
+      0 0 28px rgba(85,231,255,.32);
+  }
+}
+@keyframes ncFeedDotRestored{
+  0%{box-shadow:0 0 0 0 rgba(85,231,255,.52),0 0 8px rgba(85,231,255,.55);filter:brightness(1)}
+  70%{box-shadow:0 0 0 7px rgba(85,231,255,0),0 0 12px rgba(119,104,255,.32);filter:brightness(1.3)}
+  100%{box-shadow:0 0 0 0 rgba(85,231,255,0),0 0 8px rgba(85,231,255,.42);filter:brightness(1)}
+}
+@keyframes ncNavUnderlineSweep{
+  0%{background-position:0% 50%}
+  100%{background-position:100% 50%}
+}
+
+@media (min-width:861px) and (hover:hover) and (pointer:fine){
+  .publication-nav .nav-primary,.publication-nav>.nav-direct{
+    transition:color .2s ease,background .2s ease,transform .22s cubic-bezier(.22,.75,.25,1),text-shadow .2s ease!important;
+  }
+  .publication-nav .nav-primary::before,.publication-nav>.nav-direct::before{
+    background-size:180% 100%!important;
+  }
+  .publication-nav .nav-group:hover>.nav-primary,
+  .publication-nav .nav-group:focus-within>.nav-primary,
+  .publication-nav>.nav-direct:hover,
+  .publication-nav>.nav-direct:focus-visible{
+    transform:translateY(-2px)!important;
+    text-shadow:0 0 14px rgba(85,231,255,.20);
+  }
+  .publication-nav .nav-group:hover>.nav-primary::before,
+  .publication-nav .nav-group:focus-within>.nav-primary::before,
+  .publication-nav>.nav-direct:hover::before,
+  .publication-nav>.nav-direct:focus-visible::before{
+    box-shadow:0 0 14px rgba(85,231,255,.32);
+    animation:ncNavUnderlineSweep .55s ease both;
+  }
+  html[data-theme="light"] .publication-nav .nav-group:hover>.nav-primary,
+  html[data-theme="light"] .publication-nav .nav-group:focus-within>.nav-primary,
+  html[data-theme="light"] .publication-nav>.nav-direct:hover,
+  html[data-theme="light"] .publication-nav>.nav-direct:focus-visible{
+    color:#087f99!important;
+    text-shadow:0 0 13px rgba(34,199,232,.18);
+  }
+}
+
 @media(prefers-reduced-motion:reduce){
+  .ticker b,.ticker b::before,header::after,.publication-nav .nav-primary::before,.publication-nav>.nav-direct::before{animation:none!important}
+  .ticker b{transform:none!important}
   .publication-nav .nav-menu,header .publication-nav,.publication-nav .nav-primary::before,.publication-nav>.nav-direct::before,.publication-nav .nav-trigger span{transition:none!important}
   body.mobile-nav-open::before{animation:none!important}
 }
