@@ -443,6 +443,19 @@ html[data-theme="light"] .publication-taxonomy-note b{color:#05849d}
 
 @keyframes ncNavBackdropIn{from{opacity:0}to{opacity:1}}
 
+
+/* Canonical public ambient motion. Keep these declarations in the final public
+   cascade so earlier compatibility layers cannot silently own the same effects. */
+.ticker{
+  background-size:170% 100%!important;
+  animation:ncTickerDrift 10s ease-in-out infinite alternate!important;
+}
+.ticker::after{
+  animation:ncTickerSheen 6.8s ease-in-out infinite!important;
+}
+@keyframes ncTickerDrift{0%{background-position:0% 50%}100%{background-position:100% 50%}}
+@keyframes ncTickerSheen{0%,68%{transform:translateX(-105%)}100%{transform:translateX(110%)}}
+
 /* --------------------------------------------------------------------------
    PUBLIC MOTION RECOVERY
    Restore the live header signal and desktop desk-hover choreography that were
@@ -524,7 +537,7 @@ header::after{
 }
 
 @media(prefers-reduced-motion:reduce){
-  .ticker b,.ticker b::before,header::after,.publication-nav .nav-primary::before,.publication-nav>.nav-direct::before{animation:none!important}
+  .ticker,.ticker::after,.ticker b,.ticker b::before,header::after,.publication-nav .nav-primary::before,.publication-nav>.nav-direct::before{animation:none!important}
   .ticker b{transform:none!important}
   .publication-nav .nav-menu,header .publication-nav,.publication-nav .nav-primary::before,.publication-nav>.nav-direct::before,.publication-nav .nav-trigger span{transition:none!important}
   body.mobile-nav-open::before{animation:none!important}
