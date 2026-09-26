@@ -17,6 +17,7 @@ NAV_CSS = ROOT / "assets" / "publication-nav.css"
 NAV_JS = ROOT / "assets" / "publication-nav.js"
 HOTFIX_CSS = ROOT / "assets" / "navigation-responsive-hotfix.css"
 HOTFIX_JS = ROOT / "assets" / "navigation-canonical-hotfix.js"
+MOTION_JS = ROOT / "assets" / "motion.js"
 
 
 def digest(path: Path) -> str:
@@ -28,6 +29,7 @@ def stamp_text(text: str) -> str:
     nav_js_version = digest(NAV_JS)
     hotfix_css_version = digest(HOTFIX_CSS)
     hotfix_js_version = digest(HOTFIX_JS)
+    motion_js_version = digest(MOTION_JS)
 
     # Remove previous hotfix mounts first so the operation stays idempotent.
     text = re.sub(
@@ -55,6 +57,14 @@ def stamp_text(text: str) -> str:
     text, js_count = re.subn(
         r'<script src="assets/publication-nav\.js(?:\?v=[^"]*)?"></script>',
         js_tag + js_hotfix_tag,
+        text,
+        count=1,
+    )
+
+    motion_tag = f'<script src="assets/motion.js?v={motion_js_version}"></script>'
+    text = re.sub(
+        r'<script src="assets/motion\\.js(?:\\?v=[^"]*)?"></script>',
+        motion_tag,
         text,
         count=1,
     )
