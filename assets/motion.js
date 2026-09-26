@@ -21,18 +21,17 @@
     ];
 
     const observable = [];
+    const intro = [];
     targets.forEach((el, index) => {
-      // Reading content and touch scrolling should never reveal a blank frame.
-      if (reduce || touch || el.matches(STRUCTURAL) || el.closest('.article-page')) {
+      // Touch and reduced-motion modes remain immediate. Structural long-form
+      // containers also stay visible so an observer can never blank a page.
+      if (reduce || touch || el.matches(STRUCTURAL)) {
         revealImmediately(el);
         return;
       }
       if (el.dataset.ncMotion) return;
+
       const rect = el.getBoundingClientRect();
-      if (rect.top < window.innerHeight && rect.bottom > 0) {
-        revealImmediately(el);
-        return;
-      }
       el.dataset.ncMotion = '1';
       el.classList.add('nc-reveal');
       el.style.setProperty('--nc-delay', `${Math.min(index % 6, 5) * 55}ms`);
@@ -42,8 +41,24 @@
         revealImmediately(el);
         return;
       }
+
+      /* PR102 removed every above-the-fold and article reveal by making those
+         targets visible immediately. Restore the original choreography on
+         desktop, but promote in-view content on the next paint rather than
+         waiting on an observer. This keeps the animation without risking a
+         blank first frame. */
+      if (rect.top < window.innerHeight && rect.bottom > 0) {
+        intro.push(el);
+        return;
+      }
       observable.push(el);
     });
+
+    if (intro.length) {
+      requestAnimationFrame(() => requestAnimationFrame(() => {
+        intro.forEach(el => el.classList.add('nc-visible'));
+      }));
+    }
 
     if (reduce || !('IntersectionObserver' in window)) {
       observable.forEach(el => el.classList.add('nc-visible'));
