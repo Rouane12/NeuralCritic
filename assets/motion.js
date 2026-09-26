@@ -1,6 +1,5 @@
 (() => {
   const reduce = window.matchMedia?.('(prefers-reduced-motion: reduce)').matches;
-  const touch = window.matchMedia?.('(hover: none)').matches;
   const STRUCTURAL = '.work-reading-grid, .work-bottom-grid, .category-work-content, .collection-page';
 
   function revealImmediately(el) {
@@ -23,9 +22,11 @@
     const observable = [];
     const intro = [];
     targets.forEach((el, index) => {
-      // Touch and reduced-motion modes remain immediate. Structural long-form
-      // containers also stay visible so an observer can never blank a page.
-      if (reduce || touch || el.matches(STRUCTURAL)) {
+      // Reduced-motion readers remain immediate. Touch devices now receive the
+      // same reveal choreography as other normal-motion readers; pointer-only
+      // effects remain gated separately in heroGlow(). Structural long-form
+      // containers always stay visible so an observer can never blank a page.
+      if (reduce || el.matches(STRUCTURAL)) {
         revealImmediately(el);
         return;
       }
