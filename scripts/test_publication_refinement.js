@@ -178,11 +178,17 @@ test('Public motion keeps reveal choreography for normal-motion readers while re
   assert.ok(runtime.includes("if (reduce || el.matches(STRUCTURAL))"));
   assert.ok(!runtime.includes("const touch ="));
   assert.ok(runtime.includes("intro.push(el)"));
+  assert.ok(runtime.includes("}, 90);"));
   assert.ok(runtime.includes("observer.observe(el)"));
+  assert.ok(nav.includes("ncTickerDrift"));
+  assert.ok(nav.includes("ncTickerSheen"));
+  assert.ok(nav.includes("animation:ncTickerDrift 10s ease-in-out infinite alternate!important"));
+  assert.ok(nav.includes("animation:ncTickerSheen 6.8s ease-in-out infinite!important"));
   assert.ok(nav.includes("ncFeedGlowRestored"));
   assert.ok(nav.includes("ncFeedDotRestored"));
   assert.ok(nav.includes("animation:ncHeaderSignal 5.6s linear infinite!important"));
   assert.ok(nav.includes("@media(prefers-reduced-motion:reduce)"));
+  assert.ok(nav.includes(".ticker,.ticker::after,.ticker b,.ticker b::before,header::after"));
   assert.ok(nav.includes("animation:none!important"));
 });
 

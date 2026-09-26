@@ -56,9 +56,13 @@
     });
 
     if (intro.length) {
-      requestAnimationFrame(() => requestAnimationFrame(() => {
+      // Give first-viewport elements a real painted hidden frame before reveal.
+      // Two RAFs can collapse before the browser's first composited paint on a
+      // fast load, making the choreography visually indistinguishable from an
+      // immediate reveal. A short timer guarantees a perceptible entrance.
+      window.setTimeout(() => {
         intro.forEach(el => el.classList.add('nc-visible'));
-      }));
+      }, 90);
     }
 
     if (reduce || !('IntersectionObserver' in window)) {
