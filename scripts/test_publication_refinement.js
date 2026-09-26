@@ -178,11 +178,11 @@ test('Public motion keeps reveal choreography for normal-motion readers while re
   const home = source('homepage-v2.css');
 
   assert.ok(runtime.includes("if (reduce || el.matches(STRUCTURAL))"));
-  assert.doesNotMatch(runtime, /const touch =/);
-  assert.doesNotMatch(runtime, /el\.closest\('\.article-page'\)/);
-  assert.match(runtime, /intro\.push\(el\)/);
-  assert.match(runtime, /requestAnimationFrame\(\(\) => requestAnimationFrame/);
-  assert.match(runtime, /observer\.observe\(el\)/);
+  assert.ok(!runtime.includes("const touch ="));
+  assert.ok(!runtime.includes("el.closest(\'.article-page\')"));
+  assert.ok(runtime.includes("intro.push(el)"));
+  assert.ok(runtime.includes("requestAnimationFrame(() => requestAnimationFrame"));
+  assert.ok(runtime.includes("observer.observe(el)"));
 
   assert.match(migration, /\.nc-reveal\{opacity:0/);
   assert.match(migration, /\.lead:hover:before/);
