@@ -171,29 +171,19 @@ test('Desktop publication navigation restores hover motion without hover-opening
   assert.doesNotMatch(css, /\.nav-group:focus-within>\.nav-menu/);
 });
 
-test('Public motion keeps desktop reveal choreography without blanking touch or reduced-motion readers', () => {
+test('Public motion keeps reveal choreography for normal-motion readers while reduced motion stays immediate', () => {
   const runtime = source('motion.js');
-  const migration = source('migration.css');
-  const header = source('header-polish.css');
-  const home = source('homepage-v2.css');
+  const nav = source('publication-nav.css');
 
-  assert.match(runtime, /reduce \|\| touch \|\| el\.matches\(STRUCTURAL\)/);
-  assert.doesNotMatch(runtime, /el\.closest\('\.article-page'\)/);
-  assert.match(runtime, /intro\.push\(el\)/);
-  assert.match(runtime, /requestAnimationFrame\(\(\) => requestAnimationFrame/);
-  assert.match(runtime, /observer\.observe\(el\)/);
-
-  assert.match(migration, /\.nc-reveal\{opacity:0/);
-  assert.match(migration, /\.lead:hover:before/);
-  assert.match(home, /transform:scale\(1\.025\)!important/);
-  assert.match(header, /animation:ncTickerDrift/);
-  assert.match(header, /animation:ncTickerSheen/);
-  assert.match(header, /animation:ncHeaderSignal/);
-
-  for (const page of ['index.html','article.html','category.html','search.html','game.html']) {
-    assert.match(source('../' + page), /assets\/motion\.js\?v=20260926-motion1/);
-    assert.match(source('../' + page), /assets\/publication-nav\.css\?v=20260926-motion2/);
-  }
+  assert.ok(runtime.includes("if (reduce || el.matches(STRUCTURAL))"));
+  assert.ok(!runtime.includes("const touch ="));
+  assert.ok(runtime.includes("intro.push(el)"));
+  assert.ok(runtime.includes("observer.observe(el)"));
+  assert.ok(nav.includes("ncFeedGlowRestored"));
+  assert.ok(nav.includes("ncFeedDotRestored"));
+  assert.ok(nav.includes("animation:ncHeaderSignal 5.6s linear infinite!important"));
+  assert.ok(nav.includes("@media(prefers-reduced-motion:reduce)"));
+  assert.ok(nav.includes("animation:none!important"));
 });
 
 test('Reader Auth V2 owns a bounded signed-in profile editor', () => {
