@@ -5,9 +5,17 @@
     <link>https://www.neuralcritic.net/</link>
     <description>Gaming news, reviews, guides, and features for players who want the signal—not the noise.</description>
     <language>en</language>
-    <lastBuildDate>Wed, 30 Sep 2026 20:14:06 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 30 Sep 2026 23:56:18 +0000</lastBuildDate>
     <generator>Neural Critic publication pipeline</generator>
     <atom:link href="https://www.neuralcritic.net/feed.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Gears of War: E-Day Release Time, Early Access and Preload Explained</title>
+      <link>https://www.neuralcritic.net/stories/gears-of-war-e-day-release-time-early-access-preload/</link>
+      <guid isPermaLink="true">https://www.neuralcritic.net/stories/gears-of-war-e-day-release-time-early-access-preload/</guid>
+      <description>Gears of War: E-Day early access starts October 1 at 8 a.m. PT / 15:00 UTC, with the worldwide launch following October 6. Here are the confirmed preload and launch details.</description>
+      <category>GUIDE</category>
+      <pubDate>Wed, 30 Sep 2026 21:35:52 +0000</pubDate>
+    </item>
     <item>
       <title>Elden Ring Somberstone Miner's Bell Bearing 5 Location</title>
       <link>https://www.neuralcritic.net/stories/elden-ring-somberstone-miners-bell-bearing-5-location/</link>
@@ -239,14 +247,6 @@
       <description>Why The Witcher 3’s side quests still set the standard: local stakes, memorable characters, moral uncertainty, consequences and quest chains with real narrative weight.</description>
       <category>FEATURE</category>
       <pubDate>Mon, 07 Sep 2026 19:29:39 +0000</pubDate>
-    </item>
-    <item>
-      <title>Dark Souls Remastered Beginner’s Guide: What to Know Before Lordran</title>
-      <link>https://www.neuralcritic.net/stories/dark-souls-remastered-beginners-guide/</link>
-      <guid isPermaLink="true">https://www.neuralcritic.net/stories/dark-souls-remastered-beginners-guide/</guid>
-      <description>A practical Dark Souls Remastered beginner’s guide covering bonfires, Estus, leveling, equipment load, upgrades, exploration and the early lessons that make Lordran easier to understand.</description>
-      <category>GUIDE</category>
-      <pubDate>Mon, 07 Sep 2026 15:22:52 +0000</pubDate>
     </item>
   </channel>
 </rss>
