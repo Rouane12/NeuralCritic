@@ -61,13 +61,17 @@ def stamp_text(text: str) -> str:
         count=1,
     )
 
-    motion_tag = f'<script src="assets/motion.js?v={motion_js_version}"></script>'
-    text = re.sub(
-        r'<script src="assets/motion\\.js(?:\\?v=[^"]*)?"></script>',
-        motion_tag,
+    # Stamp the asset URL itself rather than the entire script element. This is
+    # deliberately tolerant of generated-shell formatting/attributes.
+    motion_url = f'assets/motion.js?v={motion_js_version}'
+    text, motion_count = re.subn(
+        r'assets/motion\\.js(?:\\?v=[^"\\']*)?',
+        motion_url,
         text,
         count=1,
     )
+    if not motion_count and 'assets/motion.js' in text:
+        raise RuntimeError("Motion runtime exists but could not be cache-stamped")
 
     # Only public shells that already own publication navigation should be touched.
     if bool(css_count) != bool(js_count):
