@@ -8,6 +8,7 @@
   <meta name="description" content="This Neural Critic page could not be found.">
   <!-- publication-audit compatibility markers: /NeuralCritic/assets/site.css | const story=path.match | const topic=path.match | const author=path.match -->
   <script>
+    try { document.documentElement.dataset.theme = localStorage.getItem('neural-critic-theme') || 'dark'; } catch (_) {}
     (() => {
       const isProductionHost = location.hostname === 'www.neuralcritic.net' || location.hostname === 'neuralcritic.net';
       if (isProductionHost && location.pathname.startsWith('/NeuralCritic/')) {
